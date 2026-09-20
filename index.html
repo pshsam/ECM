@@ -71,9 +71,9 @@
   <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
-      <!-- 로고 -->
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFilters()">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-amber-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+      <!-- 로고 (빠르게 3번 클릭/터치 시 관리자 비밀번호 입력창 실행) -->
+      <div class="flex items-center space-x-3 cursor-pointer select-none" onclick="handleLogoSecretClick()">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-amber-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 transition active:scale-90">
           <i class="fa-solid fa-ticket-simple text-white text-xl transform -rotate-12"></i>
         </div>
         <div>
@@ -97,10 +97,10 @@
         </button>
       </nav>
 
-      <!-- 우측 액션 버튼: 제보하기 & 운영자 검수센터 -->
+      <!-- 우측 액션 버튼: 제보하기 & [숨겨진] 운영자 검수센터 -->
       <div class="flex items-center space-x-2.5">
-        <!-- 운영자 검수 센터 버튼 -->
-        <button onclick="openAdminReviewModal()" class="relative px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-bold flex items-center gap-2 transition shadow-sm">
+        <!-- 👑 운영자 전용 검수 센터 버튼 (기본 hidden / 인증 시만 표출) -->
+        <button id="adminReviewHeaderBtn" onclick="openAdminReviewModal()" class="hidden relative px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-bold flex items-center gap-2 transition shadow-sm animate-fade-in">
           <i class="fa-solid fa-crown text-amber-400"></i>
           <span class="hidden sm:inline">운영자 검수</span>
           <span id="pendingBadgeCount" class="w-5 h-5 rounded-full bg-red-600 text-white text-[11px] font-black flex items-center justify-center">0</span>
@@ -330,7 +330,6 @@
           <ul class="space-y-1.5 text-slate-400">
             <li><a href="javascript:void(0)" onclick="openPrivacyModal()" class="hover:text-indigo-400 transition underline">개인정보처리방침 (Privacy Policy)</a></li>
             <li><a href="javascript:void(0)" onclick="openTermsModal()" class="hover:text-indigo-400 transition">이용약관 (Terms of Service)</a></li>
-            <li><a href="javascript:void(0)" onclick="openAdminReviewModal()" class="hover:text-amber-400 transition text-amber-400 font-semibold">👑 운영자 검수 & 웹훅 연동</a></li>
           </ul>
         </div>
         <div>
@@ -549,8 +548,11 @@
         </div>
       </div>
 
+      <!-- 관리자 모달 푸터: 일반 모드 복귀(로그아웃) 기능 탑재 -->
       <div class="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs">
-        <span class="text-slate-500 text-[11px]">운영자 검수 모드 활성화됨</span>
+        <button onclick="logoutAdmin()" class="text-red-400 hover:text-red-300 font-medium flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-lock"></i> <span>운영자 모드 숨기기 (로그아웃)</span>
+        </button>
         <button onclick="closeAdminReviewModal()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl font-bold">
           닫기
         </button>
@@ -637,7 +639,71 @@
 
   <!-- ================= JavaScript 애플리케이션 로직 ================= -->
   <script>
-    /* 1. 마스터 게임 카탈로그 데이터 (54개 타이틀 & PC/PS5/Switch/Mobile) */
+    /* ==========================================================================
+       👑 0. 운영자 인증 보안 시스템 (?admin=ecm1017 및 로고 3회 연속 클릭)
+       ========================================================================== */
+    const ADMIN_SECRET_KEY = "ecm1017"; // 대표님 전용 시크릿 키
+    let logoClickCount = 0;
+    let logoClickTimer = null;
+
+    function checkAdminAuth() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const adminParam = urlParams.get('admin');
+
+      // 1) 주소창에 ?admin=ecm1017 을 입력하고 접속한 경우
+      if (adminParam === ADMIN_SECRET_KEY) {
+        localStorage.setItem('ecm_is_admin', 'true');
+        // 주소창에서 파라미터를 제거하여 URL을 깔끔하게 유지
+        window.history.replaceState({}, document.title, window.location.pathname);
+        showToast("👑 운영자 권한이 인증되었습니다.");
+      }
+
+      // 2) 현재 브라우저의 관리자 권한 상태 체크
+      const isAdmin = localStorage.getItem('ecm_is_admin') === 'true';
+      const adminBtn = document.getElementById('adminReviewHeaderBtn');
+      
+      if (adminBtn) {
+        if (isAdmin) {
+          adminBtn.classList.remove('hidden'); // 대표님 기기에서만 버튼 노출
+        } else {
+          adminBtn.classList.add('hidden');    // 일반 방문자에게는 완벽 은닉
+        }
+      }
+    }
+
+    // 로고를 1.2초 내에 3번 연속 빠르게 터치/클릭했을 때 비밀번호 입력창 호출
+    function handleLogoSecretClick() {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+      logoClickTimer = setTimeout(() => { logoClickCount = 0; }, 1200);
+
+      if (logoClickCount >= 3) {
+        logoClickCount = 0;
+        const inputPass = prompt("👑 ECM 대표 운영자 비밀번호를 입력하세요:");
+        if (inputPass === ADMIN_SECRET_KEY) {
+          localStorage.setItem('ecm_is_admin', 'true');
+          checkAdminAuth();
+          showToast("👑 운영자 모드가 활성화되었습니다!");
+          openAdminReviewModal();
+        } else if (inputPass !== null) {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      }
+    }
+
+    // 운영자 모드 해제 (일반 사용자 화면 확인용)
+    function logoutAdmin() {
+      if (confirm("운영자 모드를 해제하고 상단 검수 버튼을 숨기시겠습니까?")) {
+        localStorage.removeItem('ecm_is_admin');
+        checkAdminAuth();
+        closeAdminReviewModal();
+        showToast("운영자 모드가 비활성화되었습니다.");
+      }
+    }
+
+    /* ==========================================================================
+       1. 마스터 게임 카탈로그 데이터 (54개 타이틀 & PC/PS5/Switch/Mobile)
+       ========================================================================== */
     const initialGameCatalog = [
       {
         id: "lostark",
@@ -795,6 +861,9 @@
 
     /* 3. 초기화 */
     function init() {
+      // 관리자 권한 상태 체크
+      checkAdminAuth();
+
       const savedGames = localStorage.getItem('ecm_game_catalog_v2');
       games = savedGames ? JSON.parse(savedGames) : [...initialGameCatalog];
 
