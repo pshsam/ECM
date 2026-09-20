@@ -68,7 +68,7 @@
   <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
-      <!-- 로고 (1.2초 내 3회 연속 클릭 시 대표님 관리자 인증창 실행) -->
+      <!-- 로고 (1.2초 내 3회 연속 클릭 시 대표님 관리자 인증창 실행: ecm1017) -->
       <div class="flex items-center space-x-3 cursor-pointer select-none" onclick="handleLogoSecretClick()">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-amber-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 transition active:scale-90">
           <i class="fa-solid fa-ticket-simple text-white text-xl transform -rotate-12"></i>
@@ -96,7 +96,7 @@
 
       <!-- 우측 액션 버튼: 제보하기 & [숨김] 운영자 검수센터 -->
       <div class="flex items-center space-x-2.5">
-        <!-- 👑 운영자 전용 검수 센터 버튼 (기본 hidden) -->
+        <!-- 👑 운영자 전용 검수 센터 버튼 (기본 hidden / 인증 시 노출) -->
         <button id="adminReviewHeaderBtn" onclick="openAdminReviewModal()" class="hidden relative px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-bold flex items-center gap-2 transition shadow-sm">
           <i class="fa-solid fa-crown text-amber-400"></i>
           <span class="hidden sm:inline">운영자 검수</span>
@@ -113,31 +113,15 @@
     </div>
   </header>
 
-  <!-- ================= 광고 슬롯 1: 상단 반응형 리더보드 ================= -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4">
-    <div class="relative bg-slate-900/60 border border-slate-800 rounded-2xl p-2.5 text-center overflow-hidden ad-pattern">
-      <div class="flex items-center justify-between px-2 pb-1 border-b border-slate-800/80 mb-2">
-        <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
-          <i class="fa-solid fa-rectangle-ad text-indigo-400"></i> 스폰서 광고
-        </span>
-        <span class="text-[10px] text-slate-500">문의: contact@ecm-coupon.com</span>
-      </div>
-      <div class="h-20 sm:h-24 rounded-xl bg-slate-800/60 border border-dashed border-slate-700/80 flex flex-col items-center justify-center text-slate-400 text-xs sm:text-sm">
-        <p class="font-medium text-slate-300">Google AdSense 728x90 / 320x100 반응형 영역</p>
-        <p class="text-[11px] text-slate-500 mt-1">승인 후 맞춤형 스폰서 콘텐츠가 게재됩니다.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ================= 메인 검색 & 플랫폼 필터 ================= -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4 w-full">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 w-full">
     
     <div class="text-center max-w-3xl mx-auto mb-6">
       <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-2">
         모든 기기, 모든 게임의 <span class="bg-gradient-to-r from-indigo-400 via-sky-300 to-amber-300 bg-clip-text text-transparent">검증된 활성 쿠폰</span>
       </h1>
       <p class="text-xs sm:text-sm text-slate-400">
-        인게임 사용이 확인된 진짜 쿠폰만을 수집하여 제공합니다. 원클릭으로 복사하고 바로 등록하세요.
+        만료된 지 3개월이 지난 코드는 자동 삭제되며, 실시간 유효성이 확인된 진짜 쿠폰만을 제공합니다.
       </p>
     </div>
 
@@ -188,15 +172,15 @@
     </div>
   </section>
 
-  <!-- ================= 실시간 마감 임박 티커 ================= -->
+  <!-- ================= 실시간 알림 티커 ================= -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-6">
-    <div class="bg-gradient-to-r from-red-950/40 via-amber-950/30 to-slate-900 border border-red-900/40 rounded-xl p-3 flex items-center justify-between text-xs">
+    <div class="bg-gradient-to-r from-indigo-950/40 via-slate-900 to-slate-900 border border-indigo-900/40 rounded-xl p-3 flex items-center justify-between text-xs">
       <div class="flex items-center gap-2 overflow-hidden">
-        <span class="px-2 py-0.5 rounded-md bg-indigo-600 text-white font-bold tracking-wide shrink-0">📢 알림</span>
-        <span class="text-slate-300 font-medium truncate" id="urgentTickerText">실시간 유효성이 확인된 상시 보상 코드를 복사하세요.</span>
+        <span class="px-2 py-0.5 rounded-md bg-indigo-600 text-white font-bold tracking-wide shrink-0">📢 유효 쿠폰 안내</span>
+        <span class="text-slate-300 font-medium truncate" id="urgentTickerText">인게임에서 즉시 수령 가능한 공식 활성 쿠폰을 확인하세요.</span>
       </div>
-      <button onclick="filterValidOnly()" class="shrink-0 text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 ml-2">
-        <span>쿠폰 있는 게임만</span> <i class="fa-solid fa-arrow-right"></i>
+      <button onclick="filterActiveOnly()" class="shrink-0 text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 ml-2">
+        <span>활성 쿠폰 있는 게임만</span> <i class="fa-solid fa-arrow-right"></i>
       </button>
     </div>
   </div>
@@ -208,14 +192,14 @@
       <div class="flex items-center gap-2">
         <h2 class="text-lg font-bold text-white flex items-center gap-2">
           <span>등록된 게임 타이틀</span>
-          <span id="gameTotalCount" class="text-sm px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 font-mono font-bold">54개</span>
+          <span id="gameTotalCount" class="text-sm px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 font-mono font-bold">0개</span>
         </h2>
         <span class="text-xs text-slate-400" id="filterStatusText">전체 목록</span>
       </div>
 
       <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
         <select id="sortSelect" onchange="handleSortChange(this.value)" class="bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500">
-          <option value="popular">🔥 인기순 / 대표작</option>
+          <option value="popular">🔥 대표 게임순</option>
           <option value="couponsDesc">🎁 활성 쿠폰 보유순</option>
           <option value="nameAsc">🔤 게임명 가나다순</option>
         </select>
@@ -245,9 +229,9 @@
         <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto text-3xl mb-4 border border-amber-500/30">
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
-        <h3 class="text-2xl font-bold text-white mb-2">온라인 쇼핑몰 & 오픈마켓 할인 쿠폰 오픈 준비 중</h3>
-        <p class="text-slate-400 text-sm max-w-lg mx-auto mb-6">
-          쿠팡 로켓와우, 무신사 회원 쿠폰, 네이버페이 추가 적립 프로모션 코드를 곧 한자리에서 확인하실 수 있습니다.
+        <h3 class="text-2xl font-bold text-white mb-2">온라인 쇼핑몰 할인 쿠폰 오픈 준비 중</h3>
+        <p class="text-slate-400 text-sm max-w-lg mx-auto">
+          쿠팡 로켓와우, 무신사 회원 쿠폰, 네이버페이 추가 적립 프로모션 코드를 곧 선보입니다.
         </p>
       </div>
     </div>
@@ -258,30 +242,13 @@
           <i class="fa-solid fa-store"></i>
         </div>
         <h3 class="text-2xl font-bold text-white mb-2">대형마트 전단 행사 & 바우처 오픈 준비 중</h3>
-        <p class="text-slate-400 text-sm max-w-lg mx-auto mb-6">
+        <p class="text-slate-400 text-sm max-w-lg mx-auto">
           이마트 e머니, 코스트코 스페셜 할인, 홈플러스 바우처 모음 서비스를 준비하고 있습니다.
         </p>
       </div>
     </div>
 
   </main>
-
-  <!-- ================= 하단 스티키 광고 슬롯 ================= -->
-  <aside id="stickyAnchorAdContainer" class="fixed bottom-0 left-0 right-0 z-30 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 shadow-2xl transition-transform duration-300">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-      <div class="flex items-center gap-3 overflow-hidden">
-        <span class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 font-bold border border-slate-700">스폰서</span>
-        <p class="text-xs text-slate-300 truncate">
-          <span class="font-bold text-amber-400">ECM 알림:</span> 최신 게임 쿠폰은 운영자 검수와 제보를 통해 매일 갱신됩니다.
-        </p>
-      </div>
-      <div class="flex items-center gap-2 shrink-0">
-        <button onclick="toggleStickyAd()" class="text-slate-400 hover:text-white text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700">
-          <i class="fa-solid fa-chevron-down" id="stickyAdToggleIcon"></i>
-        </button>
-      </div>
-    </div>
-  </aside>
 
   <!-- ================= 푸터 ================= -->
   <footer class="bg-slate-950 border-t border-slate-800/80 pt-10 pb-16 text-slate-400 text-xs">
@@ -322,12 +289,12 @@
       </div>
       <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
         <p>© 2026 Every Coupon Matters (ECM). All rights reserved.</p>
-        <p class="mt-2 sm:mt-0">100% Real Valid Coupons Verified</p>
+        <p class="mt-2 sm:mt-0">만료 90일 지난 코드 자동 정리 시스템 탑재</p>
       </div>
     </div>
   </footer>
 
-  <!-- ================= 모달 1: 게임 상세 & 쿠폰 리스트 모달 ================= -->
+  <!-- ================= 모달 1: 게임 상세 & 쿠폰 리스트 모달 (🌟 탭 분리 적용) ================= -->
   <div id="couponDetailModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
     <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
       
@@ -367,23 +334,37 @@
         </div>
       </div>
 
-      <!-- 모달 내부 쿠폰 목록 -->
-      <div class="p-4 sm:p-5 overflow-y-auto flex-1 custom-scrollbar space-y-3" id="modalCouponListContainer"></div>
+      <!-- 🌟 방법 2: [진행 중인 쿠폰] vs [지난 만료 쿠폰 (최근 3개월)] 탭 버튼 -->
+      <div class="px-4 sm:px-5 pt-3">
+        <div class="flex border-b border-slate-800 gap-2">
+          <button id="detailTabActiveBtn" onclick="switchDetailTab('active')" class="pb-2.5 px-3 text-xs font-bold border-b-2 border-indigo-500 text-indigo-400 flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i> 진행 중인 쿠폰 (<span id="modalActiveCount">0</span>)
+          </button>
+          <button id="detailTabExpiredBtn" onclick="switchDetailTab('expired')" class="pb-2.5 px-3 text-xs font-medium text-slate-400 hover:text-white flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-clock-rotate-left"></i> 지난 만료 쿠폰 (<span id="modalExpiredCount">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- 모달 내부 쿠폰 리스트 뷰 영역 -->
+      <div class="p-4 sm:px-5 overflow-y-auto flex-1 custom-scrollbar space-y-3" id="modalCouponListContainer">
+        <!-- 동적 렌더링 -->
+      </div>
 
       <!-- 푸터 -->
       <div class="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs">
-        <span class="text-slate-400 flex items-center gap-1">
-          <i class="fa-solid fa-shield-halved text-emerald-400"></i> 인게임 유효성 검증 완료
+        <span class="text-slate-500 text-[11px]">
+          * 만료 후 90일이 지난 코드는 자동 삭제됩니다.
         </span>
         <button onclick="openSubmitModalForGame(currentModalGameId)" class="text-indigo-400 hover:text-indigo-300 font-bold flex items-center gap-1">
-          <i class="fa-solid fa-plus-circle"></i> 이 게임 쿠폰 제보하기
+          <i class="fa-solid fa-plus-circle"></i> 새 쿠폰 제보하기
         </button>
       </div>
 
     </div>
   </div>
 
-  <!-- ================= 모달 2: 다중 쿠폰 제보 모달 (+ 탭) ================= -->
+  <!-- ================= 모달 2: 다중 쿠폰 제보 모달 ================= -->
   <div id="submitCouponModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
     <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto">
       
@@ -474,7 +455,6 @@
         </button>
       </div>
 
-      <!-- 대기열 내용 -->
       <div id="adminQueueContent" class="p-4 sm:p-5 overflow-y-auto flex-1 custom-scrollbar space-y-4 text-xs">
         <div id="adminEmptyQueueNotice" class="text-center py-16 bg-slate-950/40 rounded-2xl border border-slate-800/80">
           <i class="fa-solid fa-circle-check text-4xl text-emerald-500/40 mb-2"></i>
@@ -484,7 +464,6 @@
         <div id="adminSubmissionListContainer" class="space-y-4"></div>
       </div>
 
-      <!-- 웹훅 설정 내용 -->
       <div id="adminWebhookContent" class="hidden p-4 sm:p-5 overflow-y-auto flex-1 custom-scrollbar space-y-4 text-xs">
         <div class="bg-indigo-950/30 border border-indigo-800/50 rounded-2xl p-4">
           <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-1.5">
@@ -581,10 +560,10 @@
         <button onclick="closePrivacyModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-base"></i></button>
       </div>
       <p>Every Coupon Matters (이하 "ECM")는 이용자의 권익을 중요시하며, Google AdSense 게시자 정책을 철저히 준수합니다.</p>
-      <h4 class="font-bold text-white pt-2">1. 쿠키(Cookie) 및 제3자 광고 사업자 규정 (Google DART Cookie)</h4>
-      <p>ECM은 맞춤형 광고를 제공하기 위해 Google AdSense를 포함한 제3자 광고 사업자의 쿠키를 활용할 수 있습니다. 사용자는 Google 광고 개인정보 보호정책 페이지를 방문하여 DART 쿠키 사용을 비활성화할 수 있습니다.</p>
-      <h4 class="font-bold text-white pt-2">2. 수집하는 개인정보 항목</h4>
-      <p>ECM은 결제 정보 등 일체의 민감 정보를 수집하지 않습니다. 자발적인 쿠폰 제보 시 기재하는 닉네임은 오직 출처 표기용으로만 활용됩니다.</p>
+      <h4 class="font-bold text-white pt-2">1. 쿠키(Cookie) 및 제3자 광고 규정</h4>
+      <p>ECM은 맞춤형 편의를 제공하기 위해 제3자 광고 사업자의 쿠키를 활용할 수 있습니다.</p>
+      <h4 class="font-bold text-white pt-2">2. 수집하는 정보</h4>
+      <p>ECM은 일체의 금융 및 민감 정보를 수집하지 않습니다. 자발적인 쿠폰 제보 시 기재하는 닉네임은 오직 출처 표기용으로만 활용됩니다.</p>
     </div>
   </div>
 
@@ -594,7 +573,7 @@
     <span id="toastMessage">쿠폰 코드가 복사되었습니다!</span>
   </div>
 
-  <!-- ================= JavaScript 데이터 및 로직 ================= -->
+  <!-- ================= JavaScript 애플리케이션 로직 ================= -->
   <script>
     /* ==========================================================================
        👑 0. 운영자 인증 시스템 (?admin=ecm1017 & 로고 3회 연속 클릭)
@@ -645,10 +624,74 @@
     }
 
     /* ==========================================================================
-       1. 🌟 데이터 클린 마스터 게임 카탈로그 (진짜 검증된 코드만 수록)
+       🌟 1. 핵심 날짜 계산 & 3개월 만료 자동 삭제 (Auto-Purge) 엔진
        ========================================================================== */
-    const cleanGameCatalog = [
-      // 1. 크로스플랫폼 (실제 유효 상시 코드 보유 타이틀)
+    function evaluateCoupon(expireDateStr) {
+      if (!expireDateStr || expireDateStr === '상시' || expireDateStr.includes('9999')) {
+        return { status: 'active', ddayText: '상시 유효', isPurge: false, badgeClass: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' };
+      }
+
+      const target = new Date(expireDateStr);
+      if (isNaN(target.getTime())) {
+        return { status: 'active', ddayText: '상시 유효', isPurge: false, badgeClass: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' };
+      }
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      target.setHours(0, 0, 0, 0);
+
+      const diffDays = Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+
+      if (diffDays >= 0) {
+        // [진행 중인 쿠폰]
+        let ddayText = `D-${diffDays}`;
+        let badgeClass = 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30';
+        if (diffDays === 0) {
+          ddayText = '오늘 마감';
+          badgeClass = 'bg-red-500/30 text-red-300 border border-red-500/40 animate-pulse';
+        } else if (diffDays <= 3) {
+          ddayText = `D-${diffDays} 마감임박`;
+          badgeClass = 'bg-red-500/20 text-red-300 border border-red-500/30';
+        }
+        return { status: 'active', diffDays, ddayText, badgeClass, isPurge: false };
+      } else {
+        // [만료된 쿠폰]
+        const expiredDaysAgo = Math.abs(diffDays);
+        // 만료 후 90일(3개월)이 지났는지 판정
+        const isPurge = expiredDaysAgo > 90;
+
+        return {
+          status: 'expired',
+          diffDays,
+          expiredDaysAgo,
+          ddayText: `${expiredDaysAgo}일 전 만료`,
+          badgeClass: 'bg-slate-800 text-slate-500 border border-slate-700/60 line-through',
+          isPurge: isPurge // true이면 데이터에서 영구 삭제
+        };
+      }
+    }
+
+    // 데이터베이스 전체에서 3개월 지난 만료 쿠폰 자동 청소(Purge)
+    function purgeOldCouponsFromGames(gameList) {
+      let purgedCount = 0;
+      gameList.forEach(game => {
+        if (game.coupons && game.coupons.length > 0) {
+          const originalLen = game.coupons.length;
+          // 3개월 안 지난 것만 보존
+          game.coupons = game.coupons.filter(c => !evaluateCoupon(c.expireDate).isPurge);
+          purgedCount += (originalLen - game.coupons.length);
+        }
+      });
+      if (purgedCount > 0) {
+        console.log(`🧹 [Auto-Purge] 만료 90일이 지난 오래된 쿠폰 ${purgedCount}건이 자동 삭제되었습니다.`);
+      }
+      return gameList;
+    }
+
+    /* ==========================================================================
+       2. 마스터 게임 카탈로그 기본 데이터
+       ========================================================================== */
+    const initialGameCatalog = [
       {
         id: "genshin",
         title: "원신 (Genshin Impact)",
@@ -659,9 +702,9 @@
         icon: "✨",
         officialUrl: "https://genshin.hoyoverse.com/ko/gift",
         guideTitle: "공식 웹 교환소 또는 인게임 교환",
-        guideText: "공식 웹 리딤 페이지 로그인 후 서버와 캐릭터를 선택하여 입력하거나, 인게임 설정 > 계정 > 교환 코드에서 입력합니다.",
+        guideText: "공식 웹 리딤 페이지 로그인 후 캐릭터를 지정하여 입력하거나, 인게임 설정 > 계정 > 교환 코드에서 입력합니다.",
         coupons: [
-          { code: "GENSHINGIFT", reward: "원석 50개, 모험가의 경험 3개 (공식 상시 코드)", expireDate: "상시", note: "모험등급 10 이상", verified: 2840 }
+          { code: "GENSHINGIFT", reward: "원석 50개, 모험가의 경험 3개", expireDate: "상시", note: "모험등급 10 이상", verified: 2840 }
         ]
       },
       {
@@ -676,7 +719,7 @@
         guideTitle: "스타레일 공식 웹 교환소",
         guideText: "공식 웹사이트 로그인 후 캐릭터를 지정하여 입력하거나, 폰 메뉴 우측 상단 '...' > [교환 코드]를 눌러 입력합니다.",
         coupons: [
-          { code: "STARRAILGIFT", reward: "성옥 50개, 여행 가이드 2개, 병 에이드 5개, 10,000 신용포인트", expireDate: "상시", note: "상시 유효 코드", verified: 3120 }
+          { code: "STARRAILGIFT", reward: "성옥 50개, 여행 가이드 2개, 10,000 신용포인트", expireDate: "상시", note: "상시 유효 코드", verified: 3120 }
         ]
       },
       {
@@ -691,7 +734,7 @@
         guideTitle: "ZZZ 공식 교환소",
         guideText: "로프꾼 레벨 5 달성 후 인게임 메뉴 > 더보기 > 교환 코드 또는 공식 웹 리딤 센터에서 등록합니다.",
         coupons: [
-          { code: "ZENLESSGIFT", reward: "폴리크롬 50개, 공식조사기록 2개, W-엔진 동력원 3개", expireDate: "상시", note: "로프꾼 레벨 5 이상", verified: 1950 }
+          { code: "ZENLESSGIFT", reward: "폴리크롬 50개, 공식조사기록 2개", expireDate: "상시", note: "로프꾼 레벨 5 이상", verified: 1950 }
         ]
       },
       {
@@ -706,11 +749,9 @@
         guideTitle: "인게임 설정 교환코드",
         guideText: "연각 레벨 2 달성 후 설정(ESC/메뉴) > 계정 설정 > '교환 코드' 버튼을 눌러 입력합니다.",
         coupons: [
-          { code: "WUTHERINGGIFT", reward: "별의 소리 50개, 고급 공명 촉진제 2개, 10,000 클램 코인", expireDate: "상시", note: "계정당 1회", verified: 1480 }
+          { code: "WUTHERINGGIFT", reward: "별의 소리 50개, 고급 공명 촉진제 2개", expireDate: "상시", note: "계정당 1회", verified: 1480 }
         ]
       },
-
-      // 2. PC 온라인 대작 (라이브 이벤트/방송 시 쿠폰 배포 타이틀)
       {
         id: "lostark",
         title: "로스트아크",
@@ -722,7 +763,7 @@
         officialUrl: "https://lostark.game.onstove.com/Coupon",
         guideTitle: "스토브 공식 웹샵 쿠폰함",
         guideText: "공식 홈페이지 로그인 > 웹샵 > [쿠폰 등록] 페이지 또는 인게임 상점(F4) 상단 쿠폰함에서 등록합니다.",
-        coupons: [] // 가짜 코드 제거, 라이브 이벤트 시 실시간 등록
+        coupons: []
       },
       {
         id: "fconline",
@@ -738,47 +779,6 @@
         coupons: []
       },
       {
-        id: "maplestory_pc",
-        title: "메이플스토리 PC",
-        choseong: "ㅁ",
-        publisher: "넥슨",
-        platforms: ["pc"],
-        category: "MMORPG",
-        icon: "🍁",
-        officialUrl: "https://maplestory.nexon.com",
-        guideTitle: "캐시샵 쿠폰 등록창",
-        guideText: "인게임 접속 후 캐시샵 진입 > 우측 상단 '쿠폰' 버튼을 누르고 코드를 입력합니다.",
-        coupons: []
-      },
-      {
-        id: "blackdesert_pc",
-        title: "검은사막 PC",
-        choseong: "ㄱ",
-        publisher: "펄어비스",
-        platforms: ["pc"],
-        category: "MMORPG",
-        icon: "🐎",
-        officialUrl: "https://www.kr.playblackdesert.com/ko-KR/Shop/Coupon",
-        guideTitle: "공식 홈페이지 쿠폰 사용",
-        guideText: "공식 홈페이지 상점 > 쿠폰 사용 메뉴에서 가문명을 선택 후 입력하거나 인게임(ESC) 쿠폰 메뉴에서 등록합니다.",
-        coupons: []
-      },
-
-      // 3. 콘솔 (PlayStation 5 & 닌텐도 스위치 1&2)
-      {
-        id: "borderlands_ps5",
-        title: "보더랜드 시리즈 (SHiFT)",
-        choseong: "ㅂ",
-        publisher: "2K / Gearbox",
-        platforms: ["ps5", "pc"],
-        category: "FPS/RPG",
-        icon: "🗝️",
-        officialUrl: "https://shift.gearboxsoftware.com/rewards",
-        guideTitle: "PS5 SHiFT 코드 등록",
-        guideText: "기어박스 SHiFT 공식 웹에서 PSN 연동 후 등록하거나, 게임 내 소셜(Social) > SHiFT 메뉴에서 입력합니다.",
-        coupons: []
-      },
-      {
         id: "pokemon_switch",
         title: "포켓몬스터 스칼렛·바이올렛 & 신작",
         choseong: "ㅍ",
@@ -788,24 +788,9 @@
         icon: "⚡",
         officialUrl: "https://pokemonkorea.co.kr",
         guideTitle: "이상한 소포 (Mystery Gift)",
-        guideText: "인게임 X메뉴 > 포켓포털 > 이상한 소포 > '시리얼 번호/암호로 받는다'에서 입력 (닌텐도 인터넷 접속 필수)",
+        guideText: "인게임 X메뉴 > 포켓포털 > 이상한 소포 > '시리얼 번호/암호로 받는다'에서 입력합니다.",
         coupons: []
       },
-      {
-        id: "dbd_ps5",
-        title: "데드 바이 데이라이트",
-        choseong: "ㄷ",
-        publisher: "Behaviour Interactive",
-        platforms: ["ps5", "pc", "switch"],
-        category: "서바이벌",
-        icon: "🩸",
-        officialUrl: "https://deadbydaylight.com",
-        guideTitle: "인게임 상점 프로모션 코드",
-        guideText: "게임 메인 메뉴 > 상점(Store) > 우측 상단 '코드 사용' 버튼을 누르고 입력합니다.",
-        coupons: []
-      },
-
-      // 4. 모바일 인기 게임
       {
         id: "bluearchive",
         title: "블루 아카이브",
@@ -831,54 +816,36 @@
         guideTitle: "인게임 공지사항 교환소",
         guideText: "로비 우측 상단 벨 아이콘(공지사항) > 교환 코드 배너를 클릭하여 입력합니다.",
         coupons: []
-      },
-      {
-        id: "cookierun_kingdom",
-        title: "쿠키런: 킹덤",
-        choseong: "ㅋ",
-        publisher: "데브시스터즈",
-        platforms: ["mobile"],
-        category: "수집형 RPG",
-        icon: "🍪",
-        officialUrl: "https://game.devsisters.com/ko/coupon/ck",
-        guideTitle: "데브시스터즈 공식 쿠폰 입력창",
-        guideText: "공식 쿠폰 웹페이지에 DevPlay 계정 이메일과 쿠폰 코드를 입력하면 우편함으로 즉시 지급됩니다.",
-        coupons: []
-      },
-      {
-        id: "lineagem",
-        title: "리니지M",
-        choseong: "ㄹ",
-        publisher: "엔씨소프트",
-        platforms: ["mobile"],
-        category: "MMORPG",
-        icon: "👑",
-        officialUrl: "https://lineagem.plaync.com/coupon",
-        guideTitle: "엔씨소프트 쿠폰 등록소",
-        guideText: "공식 홈페이지 쿠폰 등록 창에서 대표 캐릭터 선택 후 코드를 입력합니다.",
-        coupons: []
       }
     ];
 
-    /* 2. 상태 관리 */
+    /* 3. 상태 관리 */
     let games = [];
     let activePlatform = 'all';
     let activeChoseong = 'ALL';
     let searchQuery = '';
     let currentSort = 'popular';
     let currentModalGameId = null;
+    let currentModalTab = 'active'; // 'active' 또는 'expired'
     let mainCategory = 'games';
 
     let pendingSubmissions = [];
     let discordWebhookUrl = localStorage.getItem('ecm_discord_webhook') || '';
 
-    /* 3. 초기화 */
+    /* 4. 초기화 */
     function init() {
       checkAdminAuth();
 
-      // 최신 클린 카탈로그로 동기화 (구버전 캐시 덮어쓰기)
-      games = [...cleanGameCatalog];
-      localStorage.setItem('ecm_game_catalog_clean', JSON.stringify(games));
+      const savedGames = localStorage.getItem('ecm_game_catalog_clean');
+      if (savedGames) {
+        try { games = JSON.parse(savedGames); } catch (e) { games = [...initialGameCatalog]; }
+      } else {
+        games = [...initialGameCatalog];
+      }
+
+      // 🌟 기동 즉시 만료 90일(3개월) 지난 쿠폰 자동 청소
+      games = purgeOldCouponsFromGames(games);
+      saveGamesToStorage();
 
       const savedPending = localStorage.getItem('ecm_pending_submissions');
       pendingSubmissions = savedPending ? JSON.parse(savedPending) : [];
@@ -915,7 +882,7 @@
       if (adminCount) adminCount.innerText = count;
     }
 
-    /* 4. 필터 및 탐색 */
+    /* 5. 필터 및 탐색 */
     const choseongs = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
 
     function renderChoseongButtons() {
@@ -963,7 +930,7 @@
       renderGames();
     }
 
-    function filterValidOnly() {
+    function filterActiveOnly() {
       searchQuery = "상시";
       document.getElementById('globalSearchInput').value = "상시";
       renderGames();
@@ -987,7 +954,7 @@
       martSec.classList.toggle('hidden', cat !== 'mart');
     }
 
-    /* 5. 카탈로그 렌더링 */
+    /* 6. 메인 카탈로그 렌더링 (진짜 활성 쿠폰 개수만 정확히 카운트) */
     function renderGames() {
       const grid = document.getElementById('gameGridContainer');
       const noResults = document.getElementById('noResultsNotice');
@@ -1006,8 +973,16 @@
         return true;
       });
 
-      if (currentSort === 'nameAsc') filtered.sort((a, b) => a.title.localeCompare(b.title, 'ko'));
-      else if (currentSort === 'couponsDesc') filtered.sort((a, b) => (b.coupons?.length || 0) - (a.coupons?.length || 0));
+      // 정렬
+      if (currentSort === 'nameAsc') {
+        filtered.sort((a, b) => a.title.localeCompare(b.title, 'ko'));
+      } else if (currentSort === 'couponsDesc') {
+        filtered.sort((a, b) => {
+          const aActive = (a.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
+          const bActive = (b.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
+          return bActive - aActive;
+        });
+      }
 
       if (gameTotalCount) gameTotalCount.innerText = `${filtered.length}개`;
 
@@ -1020,7 +995,9 @@
 
       let html = '';
       filtered.forEach(game => {
-        const couponCount = game.coupons ? game.coupons.length : 0;
+        // 🌟 활성 쿠폰만 정확히 집계
+        const activeCoupons = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active');
+        const activeCount = activeCoupons.length;
         const badgesHtml = getPlatformBadgesHtml(game.platforms);
 
         html += `
@@ -1038,8 +1015,8 @@
             </div>
 
             <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-xs font-semibold ${couponCount > 0 ? 'text-indigo-400' : 'text-slate-500'} flex items-center gap-1.5">
-                <i class="fa-solid fa-ticket"></i> ${couponCount > 0 ? `활성 쿠폰 <strong>${couponCount}개</strong>` : '공식 이벤트 대기중'}
+              <span class="text-xs font-semibold ${activeCount > 0 ? 'text-indigo-400' : 'text-slate-500'} flex items-center gap-1.5">
+                <i class="fa-solid fa-ticket"></i> ${activeCount > 0 ? `활성 쿠폰 <strong>${activeCount}개</strong>` : '공식 이벤트 대기중'}
               </span>
               <span class="text-[11px] text-slate-400 group-hover:text-white flex items-center gap-1 font-medium transition">
                 확인 <i class="fa-solid fa-chevron-right text-[10px]"></i>
@@ -1063,11 +1040,14 @@
       }).join('');
     }
 
-    /* 6. 게임 상세 모달 & 쿠폰 복사 */
+    /* ==========================================================================
+       🌟 7. 모달창 상세 로직: [진행 중인 쿠폰] vs [지난 만료 쿠폰] 탭 분리
+       ========================================================================== */
     function openGameDetail(gameId) {
       const game = games.find(g => g.id === gameId);
       if (!game) return;
       currentModalGameId = gameId;
+      currentModalTab = 'active'; // 기본 탭: 진행 중인 쿠폰
 
       document.getElementById('modalGameIcon').innerHTML = game.icon || '🎮';
       document.getElementById('modalGameTitle').innerText = game.title;
@@ -1085,27 +1065,73 @@
       document.getElementById('modalRedeemGuideTitle').innerText = game.guideTitle || '쿠폰 입력 방법';
       document.getElementById('modalRedeemGuideText').innerText = game.guideText || '인게임 환경설정 또는 공식 웹 쿠폰함에서 등록할 수 있습니다.';
 
-      const listContainer = document.getElementById('modalCouponListContainer');
-      if (!game.coupons || game.coupons.length === 0) {
-        listContainer.innerHTML = `
-          <div class="text-center py-10 bg-slate-800/40 rounded-2xl border border-dashed border-slate-700/80 p-6">
-            <i class="fa-regular fa-clock text-3xl text-amber-400/60 mb-2"></i>
-            <h4 class="text-sm font-bold text-white">현재 배포 중인 공식 활성 쿠폰이 없습니다.</h4>
-            <p class="text-xs text-slate-400 mt-1">각 게임사의 라이브 방송, 대규모 점검 및 쇼케이스 이벤트 시 신규 쿠폰이 등록됩니다.</p>
-            <p class="text-[11px] text-indigo-400 mt-3 font-semibold">새로운 코드를 알고 계시다면 아래 [쿠폰 제보하기] 버튼으로 알려주세요!</p>
-          </div>
-        `;
+      renderModalCoupons();
+      document.getElementById('couponDetailModal').classList.remove('hidden');
+    }
+
+    function switchDetailTab(tab) {
+      currentModalTab = tab;
+      const activeBtn = document.getElementById('detailTabActiveBtn');
+      const expiredBtn = document.getElementById('detailTabExpiredBtn');
+
+      if (tab === 'active') {
+        activeBtn.className = "pb-2.5 px-3 text-xs font-bold border-b-2 border-indigo-500 text-indigo-400 flex items-center gap-1.5 transition";
+        expiredBtn.className = "pb-2.5 px-3 text-xs font-medium text-slate-400 hover:text-white flex items-center gap-1.5 transition";
       } else {
-        listContainer.innerHTML = game.coupons.map(c => `
+        activeBtn.className = "pb-2.5 px-3 text-xs font-medium text-slate-400 hover:text-white flex items-center gap-1.5 transition";
+        expiredBtn.className = "pb-2.5 px-3 text-xs font-bold border-b-2 border-amber-500 text-amber-400 flex items-center gap-1.5 transition";
+      }
+      renderModalCoupons();
+    }
+
+    function renderModalCoupons() {
+      const game = games.find(g => g.id === currentModalGameId);
+      const listContainer = document.getElementById('modalCouponListContainer');
+      if (!game || !listContainer) return;
+
+      const coupons = game.coupons || [];
+      const activeList = [];
+      const expiredList = [];
+
+      coupons.forEach(c => {
+        const evalRes = evaluateCoupon(c.expireDate);
+        if (!evalRes.isPurge) {
+          if (evalRes.status === 'active') activeList.push({ ...c, evalRes });
+          else expiredList.push({ ...c, evalRes });
+        }
+      });
+
+      document.getElementById('modalActiveCount').innerText = activeList.length;
+      document.getElementById('modalExpiredCount').innerText = expiredList.length;
+
+      // 1) [진행 중인 쿠폰 탭] 렌더링
+      if (currentModalTab === 'active') {
+        if (activeList.length === 0) {
+          listContainer.innerHTML = `
+            <div class="text-center py-10 bg-slate-800/40 rounded-2xl border border-dashed border-slate-700/80 p-6">
+              <i class="fa-regular fa-clock text-3xl text-amber-400/60 mb-2"></i>
+              <h4 class="text-sm font-bold text-white">현재 배포 중인 공식 활성 쿠폰이 없습니다.</h4>
+              <p class="text-xs text-slate-400 mt-1">공식 라이브 방송이나 점검 이벤트 시 새로운 코드가 업데이트됩니다.</p>
+              ${expiredList.length > 0 ? `
+                <button onclick="switchDetailTab('expired')" class="mt-3 text-xs text-indigo-400 underline font-semibold">
+                  지난 만료 쿠폰 (${expiredList.length}개) 확인하기
+                </button>
+              ` : ''}
+            </div>
+          `;
+          return;
+        }
+
+        listContainer.innerHTML = activeList.map(c => `
           <div class="p-3.5 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-slate-600 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div class="flex-1 overflow-hidden">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <span class="font-mono font-bold text-white text-sm bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-700 select-all">${c.code}</span>
-                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">상시 유효</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md ${c.evalRes.badgeClass}">${c.evalRes.ddayText}</span>
                 ${c.note ? `<span class="text-[10px] text-slate-400 bg-slate-850 px-1.5 py-0.5 rounded">${c.note}</span>` : ''}
               </div>
               <p class="text-xs text-indigo-200 font-medium truncate">${c.reward}</p>
-              <p class="text-[10px] text-slate-400 mt-0.5">상태: 인게임 테스트 완료</p>
+              <p class="text-[10px] text-slate-400 mt-0.5">만료일: ${c.expireDate || '상시'}</p>
             </div>
 
             <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
@@ -1118,9 +1144,36 @@
             </div>
           </div>
         `).join('');
-      }
+      } 
+      // 2) [지난 만료 쿠폰 탭] 렌더링 (최근 3개월 이내)
+      else {
+        if (expiredList.length === 0) {
+          listContainer.innerHTML = `
+            <div class="text-center py-10 text-slate-500">
+              <i class="fa-solid fa-check-circle text-3xl mb-2 text-slate-600"></i>
+              <p class="text-xs">최근 3개월 이내에 만료된 쿠폰이 없습니다.</p>
+            </div>
+          `;
+          return;
+        }
 
-      document.getElementById('couponDetailModal').classList.remove('hidden');
+        listContainer.innerHTML = expiredList.map(c => `
+          <div class="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 opacity-60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="flex-1 overflow-hidden">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
+                <span class="font-mono font-bold text-slate-400 text-sm bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 line-through select-all">${c.code}</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 border border-slate-700">${c.evalRes.ddayText}</span>
+              </div>
+              <p class="text-xs text-slate-400 line-through truncate">${c.reward}</p>
+              <p class="text-[10px] text-slate-500 mt-0.5">만료일자: ${c.expireDate}</p>
+            </div>
+
+            <div class="shrink-0 text-[11px] text-slate-500 font-medium">
+              <i class="fa-solid fa-ban mr-1"></i> 사용 불가
+            </div>
+          </div>
+        `).join('');
+      }
     }
 
     function closeDetailModal() {
@@ -1181,7 +1234,9 @@
       showToast("소중한 검증 피드백 감사합니다!");
     }
 
-    /* 7. 다중 쿠폰 제보 시스템 */
+    /* ==========================================================================
+       8. 다중 쿠폰 제보 시스템 (+ 버튼)
+       ========================================================================== */
     let couponRowIndex = 0;
 
     function populateSubmitGameOptions() {
@@ -1232,11 +1287,11 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <input type="text" name="couponCode" required placeholder="쿠폰 코드 * (예: THANKS2026)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono placeholder-slate-500 focus:outline-none focus:border-indigo-500">
-          <input type="text" name="couponReward" placeholder="보상 내용 (예: 다이아 500개, 뽑기권)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+          <input type="text" name="couponReward" placeholder="보상 내용 (예: 다이아 500개)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <input type="date" name="couponExpire" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-slate-300 focus:outline-none focus:border-indigo-500">
-          <input type="text" name="couponNote" placeholder="사용 조건 (예: 레벨 제한, 계정당 1회)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+          <input type="text" name="couponNote" placeholder="사용 조건 (예: 레벨 제한)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
         </div>
       `;
 
@@ -1259,7 +1314,7 @@
       document.getElementById('couponRowCountBadge').innerText = `총 ${count}개 쿠폰 입력 중`;
     }
 
-    /* 8. 제보 완료 및 알림 발송 */
+    /* 9. 제보 완료 및 운영자 검수 센터 처리 */
     async function handleMultiCouponSubmit(e) {
       e.preventDefault();
       const gameId = document.getElementById('submitGameSelect').value;
@@ -1271,7 +1326,7 @@
       document.querySelectorAll('#dynamicCouponRowsContainer [id^="couponRow_"]').forEach(row => {
         const code = row.querySelector('[name="couponCode"]').value.trim().toUpperCase();
         const reward = row.querySelector('[name="couponReward"]').value.trim() || '보상 확인 필요';
-        const expire = row.querySelector('[name="couponExpire"]').value || '상시/미정';
+        const expire = row.querySelector('[name="couponExpire"]').value || '상시';
         const note = row.querySelector('[name="couponNote"]').value.trim() || '전체 유저';
         if (code) collectedCoupons.push({ code, reward, expireDate: expire, note, verified: 1 });
       });
@@ -1297,7 +1352,6 @@
       showToast(`쿠폰 ${collectedCoupons.length}건이 운영자 검수함으로 전송되었습니다!`);
     }
 
-    /* 9. 운영자 검수 & 승인 */
     function openAdminReviewModal() {
       renderAdminQueue();
       document.getElementById('adminReviewModal').classList.remove('hidden');
@@ -1462,15 +1516,6 @@
     function updateUrgentTicker() {
       const ticker = document.getElementById('urgentTickerText');
       ticker.innerHTML = `인게임에서 즉시 보상 수령이 확인된 <strong>공식 상시 활성 쿠폰</strong>을 이용하세요.`;
-    }
-
-    let isStickyAdCollapsed = false;
-    function toggleStickyAd() {
-      const container = document.getElementById('stickyAnchorAdContainer');
-      const icon = document.getElementById('stickyAdToggleIcon');
-      isStickyAdCollapsed = !isStickyAdCollapsed;
-      container.style.transform = isStickyAdCollapsed ? 'translateY(80%)' : 'translateY(0)';
-      icon.className = isStickyAdCollapsed ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
     }
 
     function resetFilters() {
