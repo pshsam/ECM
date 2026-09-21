@@ -50,16 +50,16 @@
   <style>
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      background-color: #f8fafc;
+      color: #0f172a;
       transition: background-color 0.4s ease;
     }
     .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 9999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 9999px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
   </style>
 </head>
-<body id="bodyRoot" class="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+<body id="bodyRoot" class="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
   <noscript>
     <div style="max-width:800px;margin:0 auto;padding:24px;color:#f8fafc;font-family:sans-serif;line-height:1.7;">
       <h2>ECM (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브</h2>
@@ -82,7 +82,7 @@
     </div>
   </noscript>
   <!-- ================= GNB 헤더 ================= -->
-  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 transition-all">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
 
       <div class="flex items-center space-x-2 select-none shrink-0">
@@ -91,35 +91,35 @@
         </div>
         <div>
           <span class="text-base sm:text-xl font-black tracking-tight text-white flex items-center gap-1">
-            ECM <span id="logoBadge" class="text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
+            ECM <span id="logoBadge" class="text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-700 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
           </span>
         </div>
       </div>
 
-      <a href="/blog/index.html" class="hidden sm:flex items-center gap-1 px-3 py-2 text-sm font-semibold text-slate-400 hover:text-white transition">
+      <a href="/blog/index.html" class="hidden sm:flex items-center gap-1 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition">
         <i class="fa-solid fa-newspaper"></i> 블로그
       </a>
 
-      <nav class="flex items-center space-x-1 bg-slate-800/90 p-1 rounded-xl border border-slate-700/60 shrink-0 overflow-x-auto custom-scrollbar max-w-[50vw] sm:max-w-none">
+      <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0 overflow-x-auto custom-scrollbar max-w-[50vw] sm:max-w-none">
         <button onclick="setMainCategory('games')" id="catBtn-games" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-purple-600 text-white shadow-sm flex items-center gap-1 transition-all">
           <i class="fa-solid fa-gamepad"></i> <span class="truncate">게임</span>
         </button>
-        <button onclick="setMainCategory('fashion')" id="catBtn-fashion" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('fashion')" id="catBtn-fashion" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-shirt"></i> <span class="truncate">패션 (50)</span>
         </button>
-        <button onclick="setMainCategory('grocery')" id="catBtn-grocery" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('grocery')" id="catBtn-grocery" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-cart-shopping"></i> <span class="truncate">장보기 (20)</span>
         </button>
-        <button onclick="setMainCategory('ott')" id="catBtn-ott" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('ott')" id="catBtn-ott" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-tv"></i> <span class="truncate">OTT (9)</span>
         </button>
-        <button onclick="setMainCategory('beauty')" id="catBtn-beauty" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('beauty')" id="catBtn-beauty" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-spa"></i> <span class="truncate">뷰티 (7)</span>
         </button>
-        <button onclick="setMainCategory('delivery')" id="catBtn-delivery" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('delivery')" id="catBtn-delivery" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-utensils"></i> <span class="truncate">배달 (7)</span>
         </button>
-        <button onclick="setMainCategory('travel')" id="catBtn-travel" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all">
+        <button onclick="setMainCategory('travel')" id="catBtn-travel" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all">
           <i class="fa-solid fa-plane"></i> <span class="truncate">여행 (6)</span>
         </button>
       </nav>
@@ -137,10 +137,10 @@
   <!-- ================= 히어로 배너 & 검색 영역 ================= -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-3 w-full">
     <div class="text-center max-w-3xl mx-auto mb-4">
-      <h1 id="heroTitle" class="text-xl sm:text-3xl font-extrabold tracking-tight text-white mb-1.5">
-        장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>
+      <h1 id="heroTitle" class="text-xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mb-1.5">
+        장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>
       </h1>
-      <p id="heroSubtitle" class="text-xs sm:text-sm text-slate-400">
+      <p id="heroSubtitle" class="text-xs sm:text-sm text-slate-500">
         MMORPG, FPS, 수집형 RPG 등 장르별로 분류된 즉시 사용 가능한 쿠폰만을 첫 화면에 모았습니다.
       </p>
     </div>
@@ -154,9 +154,9 @@
           id="globalSearchInput"
           oninput="handleSearch(this.value)"
           placeholder="게임명, 장르(MMORPG, FPS), 쇼핑몰 검색..."
-          class="w-full bg-slate-900 border border-slate-700/80 rounded-2xl py-3 pl-11 pr-10 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 transition shadow-inner"
+          class="w-full bg-white border border-slate-200 rounded-2xl py-3 pl-11 pr-10 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500 transition shadow-sm"
         >
-        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-slate-400 hover:text-white">
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-slate-400 hover:text-slate-900">
           <i class="fa-solid fa-circle-xmark"></i>
         </button>
       </div>
@@ -167,69 +167,69 @@
       <!-- 플랫폼 필터 -->
       <div class="flex items-center justify-center flex-wrap gap-1.5">
         <button onclick="setPlatformFilter('all')" data-platform="all" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500">전체플랫폼</button>
-        <button onclick="setPlatformFilter('pc')" data-platform="pc" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">PC온라인</button>
-        <button onclick="setPlatformFilter('mobile')" data-platform="mobile" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">모바일</button>
-        <button onclick="setPlatformFilter('cross')" data-platform="cross" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">크로스</button>
-        <button onclick="setPlatformFilter('ps5')" data-platform="ps5" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">PS5</button>
-        <button onclick="setPlatformFilter('switch')" data-platform="switch" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">스위치</button>
+        <button onclick="setPlatformFilter('pc')" data-platform="pc" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">PC온라인</button>
+        <button onclick="setPlatformFilter('mobile')" data-platform="mobile" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">모바일</button>
+        <button onclick="setPlatformFilter('cross')" data-platform="cross" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">크로스</button>
+        <button onclick="setPlatformFilter('ps5')" data-platform="ps5" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">PS5</button>
+        <button onclick="setPlatformFilter('switch')" data-platform="switch" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">스위치</button>
       </div>
 
       <!-- 장르(Subcategory) 하위 카테고리 필터 -->
       <div class="flex items-center justify-center flex-wrap gap-1 text-[11px]">
         <span class="text-slate-500 font-bold px-1">장르:</span>
-        <button onclick="setGenreFilter('all')" data-genre="all" class="genre-btn px-2 py-0.5 rounded font-bold bg-slate-700 text-white">전체장르</button>
-        <button onclick="setGenreFilter('mmorpg')" data-genre="mmorpg" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white">MMORPG</button>
-        <button onclick="setGenreFilter('rpg')" data-genre="rpg" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white">수집형/RPG</button>
-        <button onclick="setGenreFilter('action')" data-genre="action" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white">액션/오픈월드</button>
-        <button onclick="setGenreFilter('fps')" data-genre="fps" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white">FPS/슈팅</button>
-        <button onclick="setGenreFilter('sports')" data-genre="sports" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white">스포츠/전략</button>
+        <button onclick="setGenreFilter('all')" data-genre="all" class="genre-btn px-2 py-0.5 rounded font-bold bg-slate-800 text-white">전체장르</button>
+        <button onclick="setGenreFilter('mmorpg')" data-genre="mmorpg" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">MMORPG</button>
+        <button onclick="setGenreFilter('rpg')" data-genre="rpg" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">수집형/RPG</button>
+        <button onclick="setGenreFilter('action')" data-genre="action" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">액션/오픈월드</button>
+        <button onclick="setGenreFilter('fps')" data-genre="fps" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">FPS/슈팅</button>
+        <button onclick="setGenreFilter('sports')" data-genre="sports" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">스포츠/전략</button>
       </div>
     </div>
 
     <!-- 패션 서브 필터 -->
     <div id="fashionFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setFashionSubFilter('all')" data-subfilter="all" class="fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500">전체 (50)</button>
-      <button onclick="setFashionSubFilter('select')" data-subfilter="select" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">편집숍</button>
-      <button onclick="setFashionSubFilter('brand')" data-subfilter="brand" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">브랜드</button>
-      <button onclick="setFashionSubFilter('spa')" data-subfilter="spa" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">SPA</button>
-      <button onclick="setFashionSubFilter('sports')" data-subfilter="sports" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">스포츠</button>
+      <button onclick="setFashionSubFilter('select')" data-subfilter="select" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">편집숍</button>
+      <button onclick="setFashionSubFilter('brand')" data-subfilter="brand" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">브랜드</button>
+      <button onclick="setFashionSubFilter('spa')" data-subfilter="spa" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">SPA</button>
+      <button onclick="setFashionSubFilter('sports')" data-subfilter="sports" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">스포츠</button>
     </div>
 
     <!-- 장보기 서브 필터 -->
     <div id="groceryFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setGrocerySubFilter('all')" data-subfilter="all" class="grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500">전체 (20)</button>
-      <button onclick="setGrocerySubFilter('dawn')" data-subfilter="dawn" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">새벽배송</button>
-      <button onclick="setGrocerySubFilter('organic')" data-subfilter="organic" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">유기농</button>
-      <button onclick="setGrocerySubFilter('bulk')" data-subfilter="bulk" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">대용량</button>
-      <button onclick="setGrocerySubFilter('quick')" data-subfilter="quick" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">즉시배송</button>
+      <button onclick="setGrocerySubFilter('dawn')" data-subfilter="dawn" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">새벽배송</button>
+      <button onclick="setGrocerySubFilter('organic')" data-subfilter="organic" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">유기농</button>
+      <button onclick="setGrocerySubFilter('bulk')" data-subfilter="bulk" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">대용량</button>
+      <button onclick="setGrocerySubFilter('quick')" data-subfilter="quick" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">즉시배송</button>
     </div>
 
     <!-- OTT 서브 필터 -->
     <div id="ottFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setOttSubFilter('all')" data-subfilter="all" class="ott-filter-btn px-2.5 py-1 rounded-lg font-bold bg-red-600 text-white border border-red-500">전체 (9)</button>
-      <button onclick="setOttSubFilter('video')" data-subfilter="video" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">영상</button>
-      <button onclick="setOttSubFilter('music')" data-subfilter="music" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">음악</button>
+      <button onclick="setOttSubFilter('video')" data-subfilter="video" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">영상</button>
+      <button onclick="setOttSubFilter('music')" data-subfilter="music" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">음악</button>
     </div>
 
     <!-- 뷰티 서브 필터 -->
     <div id="beautyFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setBeautySubFilter('all')" data-subfilter="all" class="beauty-filter-btn px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white border border-pink-500">전체 (7)</button>
-      <button onclick="setBeautySubFilter('hnb')" data-subfilter="hnb" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">헬스앤뷰티</button>
-      <button onclick="setBeautySubFilter('online')" data-subfilter="online" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">온라인 편집숍</button>
+      <button onclick="setBeautySubFilter('hnb')" data-subfilter="hnb" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">헬스앤뷰티</button>
+      <button onclick="setBeautySubFilter('online')" data-subfilter="online" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">온라인 편집숍</button>
     </div>
 
     <!-- 배달음식 서브 필터 -->
     <div id="deliveryFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setDeliverySubFilter('all')" data-subfilter="all" class="delivery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-orange-600 text-white border border-orange-500">전체 (7)</button>
-      <button onclick="setDeliverySubFilter('app')" data-subfilter="app" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">배달앱</button>
-      <button onclick="setDeliverySubFilter('franchise')" data-subfilter="franchise" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">프랜차이즈</button>
+      <button onclick="setDeliverySubFilter('app')" data-subfilter="app" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">배달앱</button>
+      <button onclick="setDeliverySubFilter('franchise')" data-subfilter="franchise" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">프랜차이즈</button>
     </div>
 
     <!-- 여행/숙박 서브 필터 -->
     <div id="travelFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setTravelSubFilter('all')" data-subfilter="all" class="travel-filter-btn px-2.5 py-1 rounded-lg font-bold bg-sky-600 text-white border border-sky-500">전체 (6)</button>
-      <button onclick="setTravelSubFilter('domestic')" data-subfilter="domestic" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">국내숙박</button>
-      <button onclick="setTravelSubFilter('overseas')" data-subfilter="overseas" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800">해외/투어</button>
+      <button onclick="setTravelSubFilter('domestic')" data-subfilter="domestic" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">국내숙박</button>
+      <button onclick="setTravelSubFilter('overseas')" data-subfilter="overseas" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">해외/투어</button>
     </div>
   </section>
 
@@ -238,17 +238,17 @@
 
     <!-- 1. 게임 쿠폰 카탈로그 -->
     <div id="gameCatalogView" class="">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
         <div class="flex items-center gap-2">
-          <h2 class="font-bold text-white flex items-center gap-1.5">
-            <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">0개</span>
+          <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-700 font-mono">0개</span>
           </h2>
           <!-- 🌟 첫 페이지 활성 쿠폰 우선 노출 모드 토글 스위치 -->
-          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="px-2.5 py-1 rounded-lg bg-purple-600/30 text-purple-300 border border-purple-500/50 font-semibold transition active:scale-95">
+          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95">
             🔥 활성 쿠폰 게임만 보기 (ON)
           </button>
         </div>
-        <select id="sortSelect" onchange="handleSortChange(this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-slate-300">
+        <select id="sortSelect" onchange="handleSortChange(this.value)" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-600">
           <option value="popular">인기순</option>
           <option value="couponsDesc">쿠폰 많은순</option>
           <option value="nameAsc">가나다순</option>
@@ -258,61 +258,61 @@
     </div>
 
     <div id="fashionCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>패션몰 혜택</span> <span id="fashionTotalCount" class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>패션몰 혜택</span> <span id="fashionTotalCount" class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-amber-400 font-semibold"><i class="fa-solid fa-rotate mr-1"></i>매월 1일 갱신</span>
+        <span class="text-[11px] text-amber-600 font-semibold"><i class="fa-solid fa-rotate mr-1"></i>매월 1일 갱신</span>
       </div>
       <div id="fashionGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="groceryCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>장보기 & 마트</span> <span id="groceryTotalCount" class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>장보기 & 마트</span> <span id="groceryTotalCount" class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-truck-fast mr-1"></i>실시간 바우처</span>
+        <span class="text-[11px] text-emerald-600 font-semibold"><i class="fa-solid fa-truck-fast mr-1"></i>실시간 바우처</span>
       </div>
       <div id="groceryGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="ottCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>OTT·구독 서비스</span> <span id="ottTotalCount" class="px-1.5 py-0.5 rounded bg-red-500/20 text-red-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>OTT·구독 서비스</span> <span id="ottTotalCount" class="px-1.5 py-0.5 rounded bg-red-500/20 text-red-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-red-400 font-semibold"><i class="fa-solid fa-tv mr-1"></i>구독 혜택</span>
+        <span class="text-[11px] text-red-600 font-semibold"><i class="fa-solid fa-tv mr-1"></i>구독 혜택</span>
       </div>
       <div id="ottGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="beautyCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>뷰티·화장품 할인</span> <span id="beautyTotalCount" class="px-1.5 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>뷰티·화장품 할인</span> <span id="beautyTotalCount" class="px-1.5 py-0.5 rounded bg-pink-500/20 text-pink-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-pink-400 font-semibold"><i class="fa-solid fa-spa mr-1"></i>뷰티 쿠폰</span>
+        <span class="text-[11px] text-pink-600 font-semibold"><i class="fa-solid fa-spa mr-1"></i>뷰티 쿠폰</span>
       </div>
       <div id="beautyGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="deliveryCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>배달음식·외식 할인</span> <span id="deliveryTotalCount" class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>배달음식·외식 할인</span> <span id="deliveryTotalCount" class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-orange-400 font-semibold"><i class="fa-solid fa-utensils mr-1"></i>첫주문 혜택</span>
+        <span class="text-[11px] text-orange-600 font-semibold"><i class="fa-solid fa-utensils mr-1"></i>첫주문 혜택</span>
       </div>
       <div id="deliveryGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="travelCatalogView" class="hidden">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>여행·숙박 할인</span> <span id="travelTotalCount" class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 font-mono">0개</span>
+      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
+        <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span>여행·숙박 할인</span> <span id="travelTotalCount" class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-700 font-mono">0개</span>
         </h2>
-        <span class="text-[11px] text-sky-400 font-semibold"><i class="fa-solid fa-plane mr-1"></i>예약 할인</span>
+        <span class="text-[11px] text-sky-600 font-semibold"><i class="fa-solid fa-plane mr-1"></i>예약 할인</span>
       </div>
       <div id="travelGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
     </div>
@@ -320,14 +320,14 @@
   </main>
 
   <!-- ================= 푸터 ================= -->
-  <footer class="bg-slate-950 border-t border-slate-800/80 pt-8 pb-14 text-slate-400 text-xs">
+  <footer class="bg-white border-t border-slate-200 pt-8 pb-14 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 space-y-4">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px]">
         <p>© 2026 ecm-coupon.com (ECM). All rights reserved.</p>
         <div class="flex gap-4">
-          <a href="javascript:void(0)" onclick="openPrivacyModal()" class="hover:text-white underline">개인정보처리방침</a>
-          <a href="javascript:void(0)" onclick="openTermsModal()" class="hover:text-white underline">이용약관</a>
-          <a href="mailto:contact@ecm-coupon.com" class="hover:text-white underline">문의하기</a>
+          <a href="javascript:void(0)" onclick="openPrivacyModal()" class="hover:text-slate-900 underline">개인정보처리방침</a>
+          <a href="javascript:void(0)" onclick="openTermsModal()" class="hover:text-slate-900 underline">이용약관</a>
+          <a href="mailto:contact@ecm-coupon.com" class="hover:text-slate-900 underline">문의하기</a>
         </div>
       </div>
       <p class="text-[11px] text-slate-600 text-center sm:text-left leading-relaxed">
@@ -338,30 +338,30 @@
   </footer>
 
   <!-- 쿠폰 상세 모달 -->
-  <div id="couponDetailModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
-      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/90">
+  <div id="couponDetailModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-white/90">
         <div class="flex items-center gap-3">
           <div id="modalGameIcon" class="w-10 h-10 rounded-xl bg-purple-600 flex items-center justify-center text-lg font-bold text-white">🎮</div>
           <div>
-            <h3 id="modalGameTitle" class="text-base font-black text-white">게임명</h3>
-            <p id="modalGamePublisher" class="text-[11px] text-slate-400">개발사</p>
+            <h3 id="modalGameTitle" class="text-base font-black text-slate-900">게임명</h3>
+            <p id="modalGamePublisher" class="text-[11px] text-slate-500">개발사</p>
           </div>
         </div>
-        <button onclick="closeDetailModal()" class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeDetailModal()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="p-4 overflow-y-auto flex-1 custom-scrollbar space-y-3 text-xs" id="modalCouponListContainer"></div>
     </div>
   </div>
 
   <!-- 정책/약관/제보 공용 텍스트 모달 -->
-  <div id="infoModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto">
-      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/90">
-        <h3 id="infoModalTitle" class="text-base font-black text-white">제목</h3>
-        <button onclick="closeInfoModal()" class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+  <div id="infoModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-white/90">
+        <h3 id="infoModalTitle" class="text-base font-black text-slate-900">제목</h3>
+        <button onclick="closeInfoModal()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="infoModalBody" class="p-5 overflow-y-auto flex-1 custom-scrollbar text-xs text-slate-300 leading-relaxed space-y-3"></div>
+      <div id="infoModalBody" class="p-5 overflow-y-auto flex-1 custom-scrollbar text-xs text-slate-600 leading-relaxed space-y-3"></div>
     </div>
   </div>
 
@@ -525,61 +525,61 @@
       games: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-purple-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-700 border border-purple-500/30 font-medium hidden xs:inline-block",
         badgeText: "Game Hub",
-        heroTitle: `장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>`,
+        heroTitle: `장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>`,
         heroSubtitle: "MMORPG, FPS, 수집형 RPG 등 장르별로 분류된 즉시 사용 가능한 쿠폰만을 첫 화면에 모았습니다."
       },
       fashion: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-amber-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-600 to-yellow-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-700 border border-amber-500/30 font-medium hidden xs:inline-block",
         badgeText: "Fashion 50",
-        heroTitle: `국내 50대 대표 패션몰 <span class="bg-gradient-to-r from-amber-400 via-orange-300 to-yellow-200 bg-clip-text text-transparent">정기 쿠폰북 & 할인 코드</span>`,
+        heroTitle: `국내 50대 대표 패션몰 <span class="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">정기 쿠폰북 & 할인 코드</span>`,
         heroSubtitle: "무신사, 29CM, W컨셉 등 매월 1일 지급되는 등급별 쿠폰팩과 신규 웰컴 혜택 가이드"
       },
       grocery: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-green-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 border border-emerald-500/30 font-medium hidden xs:inline-block",
         badgeText: "Grocery 20",
-        heroTitle: `온라인 장보기 & 대형마트 20대 <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-200 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`,
+        heroTitle: `온라인 장보기 & 대형마트 20대 <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`,
         heroSubtitle: "이마트몰, 컬리, 쿠팡 로켓프레시 등 식료품 새벽배송 및 마트 주간 전단지 할인 총정리"
       },
       ott: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-red-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-red-600 via-rose-600 to-orange-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-red-500/20 text-red-700 border border-red-500/30 font-medium hidden xs:inline-block",
         badgeText: "OTT 9",
-        heroTitle: `넷플릭스부터 유튜브까지 <span class="bg-gradient-to-r from-red-400 via-rose-300 to-orange-200 bg-clip-text text-transparent">OTT·음악 구독 할인</span>`,
+        heroTitle: `넷플릭스부터 유튜브까지 <span class="bg-gradient-to-r from-red-600 via-rose-600 to-orange-600 bg-clip-text text-transparent">OTT·음악 구독 할인</span>`,
         heroSubtitle: "번들 멤버십, 무료 체험, 통신사 결합 할인 등 구독 서비스 혜택을 한곳에 모았습니다."
       },
       beauty: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-pink-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-pink-600 via-fuchsia-600 to-rose-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-pink-500/20 text-pink-700 border border-pink-500/30 font-medium hidden xs:inline-block",
         badgeText: "Beauty 7",
-        heroTitle: `올리브영부터 아모레몰까지 <span class="bg-gradient-to-r from-pink-400 via-fuchsia-300 to-rose-200 bg-clip-text text-transparent">뷰티 쿠폰 & 세일</span>`,
+        heroTitle: `올리브영부터 아모레몰까지 <span class="bg-gradient-to-r from-pink-600 via-fuchsia-600 to-rose-600 bg-clip-text text-transparent">뷰티 쿠폰 & 세일</span>`,
         heroSubtitle: "헬스앤뷰티 스토어와 온라인 뷰티 편집숍의 세일 기간과 웰컴 쿠폰을 정리했습니다."
       },
       delivery: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-orange-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-amber-600 to-yellow-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-700 border border-orange-500/30 font-medium hidden xs:inline-block",
         badgeText: "Delivery 7",
-        heroTitle: `배달앱부터 프랜차이즈까지 <span class="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">배달·외식 할인</span>`,
+        heroTitle: `배달앱부터 프랜차이즈까지 <span class="bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent">배달·외식 할인</span>`,
         heroSubtitle: "배달의민족, 요기요, 쿠팡이츠 첫주문 쿠폰과 프랜차이즈 앱 전용 할인을 모았습니다."
       },
       travel: {
         btnActive: "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-sky-600 text-white shadow-sm flex items-center gap-1 transition-all",
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-blue-600 to-cyan-400 flex items-center justify-center shadow-lg transition",
-        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 font-medium hidden xs:inline-block",
+        logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-700 border border-sky-500/30 font-medium hidden xs:inline-block",
         badgeText: "Travel 6",
-        heroTitle: `국내 숙박부터 해외 투어까지 <span class="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-200 bg-clip-text text-transparent">여행 예약 할인</span>`,
+        heroTitle: `국내 숙박부터 해외 투어까지 <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">여행 예약 할인</span>`,
         heroSubtitle: "야놀자, 여기어때 특가와 해외 투어·숙소 예약 할인 코드를 한곳에서 확인하세요."
       }
     };
-    const BTN_INACTIVE = "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-700/50 flex items-center gap-1 transition-all";
+    const BTN_INACTIVE = "shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white flex items-center gap-1 transition-all";
     // 'games' category button/state uses the plural, but its view/filter element ids were
     // already shipped as singular ('gameCatalogView' / 'gameFilterSection') before this
     // category list grew — map the exception instead of renaming the live ids.
@@ -613,10 +613,10 @@
       activeOnlyMode = !activeOnlyMode;
       const btn = document.getElementById('activeToggleBtn');
       if (activeOnlyMode) {
-        btn.className = "px-2.5 py-1 rounded-lg bg-purple-600/30 text-purple-300 border border-purple-500/50 font-semibold transition active:scale-95";
+        btn.className = "px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95";
         btn.innerText = "🔥 활성 쿠폰 게임만 보기 (ON)";
       } else {
-        btn.className = "px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 border border-slate-700 font-semibold transition active:scale-95";
+        btn.className = "px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 border border-slate-200 font-semibold transition active:scale-95";
         btn.innerText = "전체 게임 보기 (OFF)";
       }
       renderGames();
@@ -633,19 +633,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(m => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-amber-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-amber-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[11px] text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
+                  <span class="text-[11px] text-amber-700 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
-              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">공식몰</a>
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">공식몰</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">💡 ${m.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">💡 ${m.tip}</p>
           </div>
         </div>
       `).join('');
@@ -653,7 +653,7 @@
     function setFashionSubFilter(sub) {
       fashionSubFilter = sub;
       document.querySelectorAll('.fashion-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500" : "fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500" : "fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderFashion();
     }
@@ -669,19 +669,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(g => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-emerald-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-emerald-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-lg flex items-center justify-center shrink-0">${g.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${g.name}</h3>
-                  <span class="text-[11px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">${g.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${g.name}</h3>
+                  <span class="text-[11px] text-emerald-700 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">${g.benefit}</span>
                 </div>
               </div>
-              <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">장보기</a>
+              <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">장보기</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">🥬 ${g.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">🥬 ${g.tip}</p>
           </div>
         </div>
       `).join('');
@@ -689,7 +689,7 @@
     function setGrocerySubFilter(sub) {
       grocerySubFilter = sub;
       document.querySelectorAll('.grocery-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500" : "grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500" : "grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderGrocery();
     }
@@ -705,19 +705,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(m => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-red-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-red-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-red-500/10 border border-red-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[11px] text-red-400 font-bold bg-red-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
+                  <span class="text-[11px] text-red-700 font-bold bg-red-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
-              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">공식 사이트</a>
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">공식 사이트</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">💡 ${m.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">💡 ${m.tip}</p>
           </div>
         </div>
       `).join('');
@@ -725,7 +725,7 @@
     function setOttSubFilter(sub) {
       ottSubFilter = sub;
       document.querySelectorAll('.ott-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "ott-filter-btn px-2.5 py-1 rounded-lg font-bold bg-red-600 text-white border border-red-500" : "ott-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "ott-filter-btn px-2.5 py-1 rounded-lg font-bold bg-red-600 text-white border border-red-500" : "ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderOtt();
     }
@@ -741,19 +741,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(m => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-pink-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-pink-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-pink-500/10 border border-pink-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[11px] text-pink-400 font-bold bg-pink-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
+                  <span class="text-[11px] text-pink-700 font-bold bg-pink-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
-              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">공식몰</a>
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">공식몰</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">💡 ${m.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">💡 ${m.tip}</p>
           </div>
         </div>
       `).join('');
@@ -761,7 +761,7 @@
     function setBeautySubFilter(sub) {
       beautySubFilter = sub;
       document.querySelectorAll('.beauty-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "beauty-filter-btn px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white border border-pink-500" : "beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "beauty-filter-btn px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white border border-pink-500" : "beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderBeauty();
     }
@@ -777,19 +777,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(m => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-orange-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-orange-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[11px] text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
+                  <span class="text-[11px] text-orange-700 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
-              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">공식 사이트</a>
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">공식 사이트</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">💡 ${m.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">💡 ${m.tip}</p>
           </div>
         </div>
       `).join('');
@@ -797,7 +797,7 @@
     function setDeliverySubFilter(sub) {
       deliverySubFilter = sub;
       document.querySelectorAll('.delivery-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "delivery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-orange-600 text-white border border-orange-500" : "delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "delivery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-orange-600 text-white border border-orange-500" : "delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderDelivery();
     }
@@ -813,19 +813,19 @@
       });
       countEl.innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(m => `
-        <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-3.5 sm:p-4 flex flex-col justify-between hover:border-sky-500/40 transition">
+        <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-3.5 sm:p-4 flex flex-col justify-between hover:border-sky-300 hover:shadow-md transition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
-                  <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[11px] text-sky-400 font-bold bg-sky-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <h3 class="font-black text-slate-900 text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
+                  <span class="text-[11px] text-sky-700 font-bold bg-sky-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
-              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">예약하기</a>
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">예약하기</a>
             </div>
-            <p class="text-[11px] text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 my-2">💡 ${m.tip}</p>
+            <p class="text-[11px] text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-2">💡 ${m.tip}</p>
           </div>
         </div>
       `).join('');
@@ -833,7 +833,7 @@
     function setTravelSubFilter(sub) {
       travelSubFilter = sub;
       document.querySelectorAll('.travel-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "travel-filter-btn px-2.5 py-1 rounded-lg font-bold bg-sky-600 text-white border border-sky-500" : "travel-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-800/50 border border-slate-800";
+        btn.className = (btn.dataset.subfilter === sub) ? "travel-filter-btn px-2.5 py-1 rounded-lg font-bold bg-sky-600 text-white border border-sky-500" : "travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
       });
       renderTravel();
     }
@@ -855,20 +855,20 @@
       document.getElementById('gameTotalCount').innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(game => {
         const activeCount = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
-        const badges = (game.platforms || []).map(p => `<span class="px-1 rounded text-[11px] font-bold bg-slate-800 text-slate-300">${p.toUpperCase()}</span>`).join(' ');
+        const badges = (game.platforms || []).map(p => `<span class="px-1 rounded text-[11px] font-bold bg-slate-100 text-slate-600">${p.toUpperCase()}</span>`).join(' ');
         return `
-          <div onclick="openGameDetail('${game.id}')" class="group cursor-pointer rounded-2xl bg-slate-900/80 hover:bg-slate-800/60 border border-slate-800 hover:border-purple-500/50 p-3.5 transition flex flex-col justify-between">
+          <div onclick="openGameDetail('${game.id}')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
             <div>
               <div class="flex items-start justify-between gap-2 mb-2">
-                <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-lg">${game.icon || '🎮'}</div>
+                <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">${game.icon || '🎮'}</div>
                 <div class="flex gap-1">${badges}</div>
               </div>
-              <h3 class="font-bold text-white text-xs sm:text-sm group-hover:text-purple-300 transition truncate">${game.title}</h3>
-              <p class="text-[11px] text-purple-400 font-medium truncate mb-2">${game.category}</p>
+              <h3 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-purple-700 transition truncate">${game.title}</h3>
+              <p class="text-[11px] text-purple-600 font-medium truncate mb-2">${game.category}</p>
             </div>
-            <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
-              <span class="${activeCount > 0 ? 'text-purple-400 font-bold' : 'text-slate-500'}">활성 쿠폰 ${activeCount}개</span>
-              <span class="text-slate-400 group-hover:text-white">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <span class="${activeCount > 0 ? 'text-purple-600 font-bold' : 'text-slate-500'}">활성 쿠폰 ${activeCount}개</span>
+              <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
             </div>
           </div>
         `;
@@ -878,7 +878,7 @@
     function setPlatformFilter(p) {
       activePlatform = p;
       document.querySelectorAll('[data-platform]').forEach(btn => {
-        btn.className = (btn.dataset.platform === p) ? "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500" : "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700";
+        btn.className = (btn.dataset.platform === p) ? "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500" : "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200";
       });
       renderGames();
     }
@@ -886,7 +886,7 @@
     function setGenreFilter(genre) {
       activeGenre = genre;
       document.querySelectorAll('[data-genre]').forEach(btn => {
-        btn.className = (btn.dataset.genre === genre) ? "genre-btn px-2 py-0.5 rounded font-bold bg-purple-600 text-white" : "genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-800/50 border border-slate-800 hover:text-white";
+        btn.className = (btn.dataset.genre === genre) ? "genre-btn px-2 py-0.5 rounded font-bold bg-purple-600 text-white" : "genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300";
       });
       renderGames();
     }
@@ -914,10 +914,10 @@
       const container = document.getElementById('modalCouponListContainer');
       const coupons = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active');
       container.innerHTML = coupons.length === 0 ? `<div class="text-center py-6 text-slate-500">현재 사용 가능한 활성 쿠폰이 없습니다. (이벤트 대기중)</div>` : coupons.map(c => `
-        <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-between gap-2">
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-2">
           <div>
-            <span class="font-mono font-bold text-white text-xs bg-slate-900 px-2 py-1 rounded">${c.code}</span>
-            <p class="text-[11px] text-purple-200 mt-1">${c.reward}</p>
+            <span class="font-mono font-bold text-slate-900 text-xs bg-white border border-slate-200 px-2 py-1 rounded">${c.code}</span>
+            <p class="text-[11px] text-purple-700 mt-1">${c.reward}</p>
           </div>
           <button onclick="copyToClipboard('${c.code}')" class="px-3 py-1.5 rounded-lg bg-purple-600 text-white text-xs font-bold">복사</button>
         </div>
@@ -941,7 +941,7 @@
       <p><strong>4. 제3자 제공</strong><br>ECM은 법령에 특별한 규정이 있는 경우를 제외하고 이용자의 개인정보를 외부에 제공하지 않습니다.</p>
       <p><strong>5. 이용자의 권리</strong><br>이용자는 언제든지 본인의 정보에 대한 열람, 정정, 삭제를 요청할 수 있으며, 문의처를 통해 접수하실 수 있습니다.</p>
       <p><strong>6. 문의처</strong><br>이메일: contact@ecm-coupon.com</p>
-      <p class="text-amber-400">※ 이 문구는 초안이며, 실제 운영 형태에 맞게 운영자가 내용을 검토·보완한 뒤 게시해야 합니다.</p>
+      <p class="text-amber-600">※ 이 문구는 초안이며, 실제 운영 형태에 맞게 운영자가 내용을 검토·보완한 뒤 게시해야 합니다.</p>
     `;
     const TERMS_HTML = `
       <p><strong>ECM 이용약관</strong></p>
@@ -950,7 +950,7 @@
       <p><strong>제3조 (면책조항)</strong><br>사이트에 게시된 쿠폰 코드, 할인율, 유효기간 등의 정보는 각 브랜드의 정책 변경에 따라 사전 고지 없이 변경되거나 조기 소진될 수 있습니다. 실제 혜택 적용 여부는 반드시 각 공식 사이트에서 재확인해야 합니다.</p>
       <p><strong>제4조 (저작권)</strong><br>사이트가 직접 작성한 콘텐츠의 저작권은 사이트에 귀속되며, 무단 복제 및 배포를 금지합니다.</p>
       <p><strong>제5조 (약관의 변경)</strong><br>본 약관은 관련 법령 및 서비스 정책 변경에 따라 개정될 수 있으며, 개정 시 사이트를 통해 공지합니다.</p>
-      <p class="text-amber-400">※ 이 문구도 초안입니다. 실제 서비스 형태에 맞게 보완 후 게시하시기 바랍니다.</p>
+      <p class="text-amber-600">※ 이 문구도 초안입니다. 실제 서비스 형태에 맞게 보완 후 게시하시기 바랍니다.</p>
     `;
 
     function openInfoModal(title, html) {
@@ -965,7 +965,7 @@
       openInfoModal('혜택 제보하기', `
         <p>새로운 쿠폰이나 할인 정보를 알고 계신가요?</p>
         <p>아래 이메일로 <strong>쇼핑몰/게임명, 쿠폰 코드 또는 혜택 내용, 확인 가능한 출처 링크</strong>를 보내주시면 검토 후 반영하겠습니다.</p>
-        <p><a href="mailto:contact@ecm-coupon.com" class="text-purple-400 underline">contact@ecm-coupon.com</a></p>
+        <p><a href="mailto:contact@ecm-coupon.com" class="text-purple-600 underline">contact@ecm-coupon.com</a></p>
       `);
     }
 
