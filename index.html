@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ECM (Every Coupon Matters) - 게임, 패션 50, 장보기 20 올인원 스마트 할인 허브</title>
+  <title>ECM (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 스마트 할인 허브</title>
   
-  <!-- 🎟️ 브라우저 탭 티켓 파비콘 -->
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
 
-  <!-- SEO 메타 태그 -->
-  <meta name="description" content="PC/모바일 게임 쿠폰, 무신사·29CM 등 50대 패션몰 정기 쿠폰북, 이마트·컬리 등 20대 신선 장보기 바우처까지 실시간 검증된 혜택을 확인하세요.">
-  <meta name="keywords" content="게임쿠폰, 무신사쿠폰, 컬리할인, 이마트쓱배송, 원신쿠폰, 붕괴스타레일, 패션할인코드">
-  <meta property="og:title" content="ECM (Every Coupon Matters) - 올인원 스마트 쿠폰 허브">
-  <meta property="og:description" content="실시간 검증된 게임, 패션, 장보기 프로모션 코드 및 바우처 모음">
+  <meta name="description" content="PC, 모바일, PS5, 닌텐도 스위치 장르별(MMORPG, FPS, RPG) 게임 쿠폰과 50대 패션몰, 20대 장보기 바우처를 실시간 확인하세요.">
+  <meta name="keywords" content="게임쿠폰, MMORPG쿠폰, 원신쿠폰, 로스트아크쿠폰, 무신사쿠폰, 마켓컬리할인">
+  <meta property="og:title" content="ECM (Every Coupon Matters) - 장르별 쿠폰 허브">
+  <meta property="og:description" content="실시간 검증된 장르별 게임 쿠폰 및 이커머스 할인 혜택 모음">
 
   <!-- Tailwind CSS & FontAwesome CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -49,19 +47,17 @@
   <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 transition-all">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
       
-      <!-- 로고 (클릭 시 관리자 비밀번호 창: ecm1017) -->
       <div class="flex items-center space-x-2 cursor-pointer select-none shrink-0" onclick="handleLogoSecretClick()">
-        <div id="logoBox" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 transition active:scale-90">
+        <div id="logoBox" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg transition active:scale-90">
           <i class="fa-solid fa-ticket-simple text-white text-lg sm:text-xl transform -rotate-12"></i>
         </div>
         <div>
           <span class="text-base sm:text-xl font-black tracking-tight text-white flex items-center gap-1">
-            ECM <span id="logoBadge" class="text-[10px] sm:text-xs px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium">Verified Hub</span>
+            ECM <span id="logoBadge" class="text-[10px] sm:text-xs px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
           </span>
         </div>
       </div>
 
-      <!-- 메인 3대 카테고리 탭 -->
       <nav class="flex items-center space-x-1 bg-slate-800/90 p-1 rounded-xl border border-slate-700/60 shrink-0">
         <button onclick="setMainCategory('games')" id="catBtn-games" class="px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-purple-600 text-white shadow-sm flex items-center gap-1 transition-all">
           <i class="fa-solid fa-gamepad"></i> <span class="truncate">게임</span>
@@ -74,7 +70,6 @@
         </button>
       </nav>
 
-      <!-- 우측 액션 버튼 -->
       <div class="flex items-center space-x-1.5 shrink-0">
         <button id="adminReviewHeaderBtn" onclick="openAdminReviewModal()" class="hidden relative p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 text-xs font-bold transition">
           <i class="fa-solid fa-crown text-amber-400"></i>
@@ -88,28 +83,17 @@
     </div>
   </header>
 
-  <!-- ================= 동적 히어로 배너 & 실시간 업데이트 타임라인 ================= -->
+  <!-- ================= 히어로 배너 & 검색 영역 ================= -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-3 w-full">
     <div class="text-center max-w-3xl mx-auto mb-4">
       <h1 id="heroTitle" class="text-xl sm:text-3xl font-extrabold tracking-tight text-white mb-1.5">
-        모든 기기, 모든 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>
+        장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>
       </h1>
       <p id="heroSubtitle" class="text-xs sm:text-sm text-slate-400">
-        운영팀이 매일 인게임 테스트와 이커머스 정기 혜택을 교차 검증하여 제공하는 신뢰도 100% 스마트 허브입니다.
+        MMORPG, FPS, 수집형 RPG 등 장르별로 분류된 즉시 사용 가능한 쿠폰만을 첫 화면에 모았습니다.
       </p>
     </div>
 
-    <!-- ⚡ 프로페셔널 라이브 업데이트 티커 -->
-    <div class="max-w-2xl mx-auto mb-4 bg-slate-900/80 border border-slate-800 rounded-2xl p-2.5 flex items-center justify-between text-xs shadow-inner">
-      <div class="flex items-center gap-2 overflow-hidden px-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
-        <span class="font-bold text-emerald-400 shrink-0">실시간 갱신:</span>
-        <span class="text-slate-300 truncate" id="liveTickerText">원신, 붕괴 스타레일 상시 코드 및 무신사 3월 등급별 쿠폰북 검증 완료</span>
-      </div>
-      <span class="text-[10px] text-slate-500 shrink-0 font-mono">ecm-coupon.com</span>
-    </div>
-
-    <!-- 통합 검색창 -->
     <div class="relative max-w-2xl mx-auto mb-3">
       <div class="relative flex items-center">
         <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-base"></i>
@@ -117,7 +101,7 @@
           type="text" 
           id="globalSearchInput"
           oninput="handleSearch(this.value)"
-          placeholder="브랜드명, 게임명, 할인 코드 검색 (예: 무신사, 컬리, 원신)"
+          placeholder="게임명, 장르(MMORPG, FPS), 쇼핑몰 검색..."
           class="w-full bg-slate-900 border border-slate-700/80 rounded-2xl py-3 pl-11 pr-10 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 transition shadow-inner"
         >
         <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-slate-400 hover:text-white">
@@ -126,23 +110,31 @@
       </div>
     </div>
 
-    <!-- 필터 바들 -->
-    <div id="gameFilterSection">
-      <div class="flex items-center justify-center flex-wrap gap-1.5 mb-2.5">
-        <button onclick="setPlatformFilter('all')" data-platform="all" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500">전체</button>
-        <button onclick="setPlatformFilter('cross')" data-platform="cross" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">크로스</button>
+    <!-- 🎮 게임 탭 전용 필터 & 장르 하위 카테고리 바 -->
+    <div id="gameFilterSection" class="space-y-2">
+      <!-- 플랫폼 필터 -->
+      <div class="flex items-center justify-center flex-wrap gap-1.5">
+        <button onclick="setPlatformFilter('all')" data-platform="all" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500">전체플랫폼</button>
         <button onclick="setPlatformFilter('pc')" data-platform="pc" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">PC온라인</button>
         <button onclick="setPlatformFilter('mobile')" data-platform="mobile" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">모바일</button>
+        <button onclick="setPlatformFilter('cross')" data-platform="cross" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">크로스</button>
         <button onclick="setPlatformFilter('ps5')" data-platform="ps5" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">PS5</button>
         <button onclick="setPlatformFilter('switch')" data-platform="switch" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700">스위치</button>
       </div>
-      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-1.5 max-w-4xl mx-auto overflow-x-auto custom-scrollbar flex items-center justify-center gap-1 text-[11px]">
-        <span class="text-slate-500 font-bold px-1 shrink-0">초성:</span>
-        <button onclick="setChoseongFilter('ALL')" class="choseong-btn px-1.5 py-0.5 rounded font-bold bg-slate-700 text-white">전체</button>
-        <div class="flex items-center gap-1 shrink-0" id="choseongButtonsContainer"></div>
+
+      <!-- 장르(Subcategory) 하위 카테고리 필터 -->
+      <div class="flex items-center justify-center flex-wrap gap-1 text-[11px]">
+        <span class="text-slate-500 font-bold px-1">장르:</span>
+        <button onclick="setGenreFilter('all')" data-genre="all" class="genre-btn px-2 py-0.5 rounded font-bold bg-slate-700 text-white">전체장르</button>
+        <button onclick="setGenreFilter('mmorpg')" data-genre="mmorpg" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white">MMORPG</button>
+        <button onclick="setGenreFilter('rpg')" data-genre="rpg" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white">수집형/RPG</button>
+        <button onclick="setGenreFilter('action')" data-genre="action" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white">액션/오픈월드</button>
+        <button onclick="setGenreFilter('fps')" data-genre="fps" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white">FPS/슈팅</button>
+        <button onclick="setGenreFilter('sports')" data-genre="sports" class="genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white">스포츠/전략</button>
       </div>
     </div>
 
+    <!-- 패션 서브 필터 -->
     <div id="fashionFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setFashionSubFilter('all')" data-subfilter="all" class="fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500">전체 (50)</button>
       <button onclick="setFashionSubFilter('select')" data-subfilter="select" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-850 border border-slate-800">편집숍</button>
@@ -151,6 +143,7 @@
       <button onclick="setFashionSubFilter('sports')" data-subfilter="sports" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-850 border border-slate-800">스포츠</button>
     </div>
 
+    <!-- 장보기 서브 필터 -->
     <div id="groceryFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
       <button onclick="setGrocerySubFilter('all')" data-subfilter="all" class="grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500">전체 (20)</button>
       <button onclick="setGrocerySubFilter('dawn')" data-subfilter="dawn" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-400 bg-slate-850 border border-slate-800">새벽배송</button>
@@ -163,21 +156,30 @@
   <!-- ================= 메인 카탈로그 뷰 ================= -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 w-full pb-16">
     
+    <!-- 1. 게임 쿠폰 카탈로그 -->
     <div id="gameCatalogView" class="">
       <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-mono">0개</span>
-        </h2>
-        <span class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>운영팀 검증완료</span>
+        <div class="flex items-center gap-2">
+          <h2 class="font-bold text-white flex items-center gap-1.5">
+            <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-mono">0개</span>
+          </h2>
+          <!-- 🌟 첫 페이지 활성 쿠폰 우선 노출 모드 토글 스위치 -->
+          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="px-2.5 py-1 rounded-lg bg-purple-600/30 text-purple-300 border border-purple-500/50 font-semibold transition active:scale-95">
+            🔥 활성 쿠폰 게임만 보기 (ON)
+          </button>
+        </div>
+        <select id="sortSelect" onchange="handleSortChange(this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-slate-300">
+          <option value="popular">인기순</option>
+          <option value="couponsDesc">쿠폰 많은순</option>
+          <option value="nameAsc">가나다순</option>
+        </select>
       </div>
       <div id="gameGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
     </div>
 
     <div id="fashionCatalogView" class="hidden">
       <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>패션몰 혜택 (50)</span> <span id="fashionTotalCount" class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-mono">50개</span>
-        </h2>
+        <h2 class="font-bold text-white">패션몰 혜택 (50)</h2>
         <span class="text-[11px] text-amber-400 font-semibold"><i class="fa-solid fa-rotate mr-1"></i>매월 1일 갱신</span>
       </div>
       <div id="fashionGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
@@ -185,9 +187,7 @@
 
     <div id="groceryCatalogView" class="hidden">
       <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-800 text-xs">
-        <h2 class="font-bold text-white flex items-center gap-1.5">
-          <span>장보기 & 마트 (20)</span> <span id="groceryTotalCount" class="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-mono">20개</span>
-        </h2>
+        <h2 class="font-bold text-white">장보기 & 마트 (20)</h2>
         <span class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-truck-fast mr-1"></i>실시간 바우처</span>
       </div>
       <div id="groceryGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
@@ -195,23 +195,9 @@
 
   </main>
 
-  <!-- ================= 푸터 & 신뢰도 보증 안내 ================= -->
+  <!-- ================= 푸터 ================= -->
   <footer class="bg-slate-950 border-t border-slate-800/80 pt-8 pb-14 text-slate-400 text-xs">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 pb-6 border-b border-slate-900">
-        <div>
-          <h4 class="font-bold text-white mb-2">🔍 ECM 검증 시스템</h4>
-          <p class="text-[11px] text-slate-500 leading-relaxed">모든 프로모션 코드는 만료 90일 자동 정리 알고리즘과 운영팀의 정기 크로스 체크를 통해 깨끗하게 유지됩니다.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-2">🤝 파트너십 및 제휴 문의</h4>
-          <p class="text-[11px] text-slate-500 leading-relaxed">신규 브랜드 프로모션 등록 및 제휴 제안은 이메일(contact@ecm-coupon.com)을 통해 상시 접수합니다.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-2">⚖️ 애드센스 규정 준수</h4>
-          <p class="text-[11px] text-slate-500 leading-relaxed">본 플랫폼은 구글 애드센스 게시자 정책을 철저히 준수하며 유익한 이용자 가이드를 제공합니다.</p>
-        </div>
-      </div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px]">
         <p>© 2026 ecm-coupon.com (ECM). All rights reserved.</p>
         <div class="flex gap-4">
@@ -243,7 +229,7 @@
     복사 완료!
   </div>
 
-  <!-- 자바스크립트 로직 -->
+  <!-- ================= 자바스크립트 로직 (장르별 분류 및 활성쿠폰 필터 탑재) ================= -->
   <script>
     const ADMIN_SECRET_KEY = "ecm1017";
 
@@ -270,7 +256,7 @@
 
     const rawFashionCatalog = [
       { name: "무신사 (MUSINSA)", sub: "select", icon: "👟", url: "https://www.musinsa.com", tip: "매월 1일 등급별 5~15% 할인 쿠폰팩 자동 지급. 첫 구매 100원 딜.", benefit: "등급별 쿠폰북" },
-      { name: "29CM", sub: "select", icon: "📐", url: "https://www.29cm.co.kr", tip: "매월 첫 로그인 15~20% 쿠폰팩 지급. 수요입점회 한정 할인.", benefit: "15~20% 쿠폰북" },
+      { name: "29CM", sub: "select", icon: "📐", url: "https://www.29cm.co.kr", tip: "매월 첫 로그인 15~20% 쿠폰팩 지급. 수요입점회 한정 할인.", benefit: "15~20% 쿠폰팩" },
       { name: "W컨셉", sub: "select", icon: "👗", url: "https://www.wconcept.co.kr", tip: "신규 가입 10% 쿠폰 및 매월 디자이너 브랜드 전용 5~12% 쿠폰.", benefit: "신규 10% 쿠폰" },
       { name: "에이블리", sub: "select", icon: "🎀", url: "https://a-bly.com", tip: "전 상품 365일 무료배송. 첫 가입 99,000원 쿠폰팩 제공.", benefit: "무료배송 팩" },
       { name: "지그재그", sub: "select", icon: "⚡", url: "https://zigzag.kr", tip: "직진배송 첫 이용 5,000원 할인 및 Z결제 10% 페이백.", benefit: "직진배송 5천원" },
@@ -304,13 +290,22 @@
       { name: "배달의민족 B마트", sub: "quick", icon: "🛵", url: "https://www.baemin.com", tip: "30분 내 집 안 도착 B마트 첫 이용 1만원 쿠폰팩.", benefit: "첫주문 1만원" }
     ];
 
+    /* 🎮 장르 및 플랫폼 분류가 적용된 풍성한 게임 데이터베이스 */
     const initialGameCatalog = [
-      { id: "genshin", title: "원신 (Genshin Impact)", choseong: "ㅇ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], category: "오픈월드 RPG", icon: "✨", officialUrl: "https://genshin.hoyoverse.com/ko/gift", coupons: [{ code: "GENSHINGIFT", reward: "원석 50개", expireDate: "상시" }] },
-      { id: "starrail", title: "붕괴: 스타레일", choseong: "ㅂ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], category: "턴제 RPG", icon: "🚂", officialUrl: "https://hsr.hoyoverse.com/gift", coupons: [{ code: "STARRAILGIFT", reward: "성옥 50개", expireDate: "상시" }] },
-      { id: "zzz", title: "젠레스 존 제로", choseong: "ㅈ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], category: "액션 RPG", icon: "📺", officialUrl: "https://zenless.hoyoverse.com/redemption", coupons: [{ code: "ZENLESSGIFT", reward: "폴리크롬 50개", expireDate: "상시" }] },
-      { id: "wutheringwaves", title: "명조: 워더링 웨이브", choseong: "ㅁ", publisher: "Kuro Games", platforms: ["cross", "pc", "mobile"], category: "오픈월드", icon: "🌊", officialUrl: "https://wutheringwaves.kurogames.com", coupons: [{ code: "WUTHERINGGIFT", reward: "별의 소리 50개", expireDate: "상시" }] },
-      { id: "lostark", title: "로스트아크", choseong: "ㄹ", publisher: "스마일게이트", platforms: ["pc"], category: "MMORPG", icon: "⚔️", officialUrl: "https://lostark.game.onstove.com/Coupon", coupons: [] },
-      { id: "fconline", title: "FC 온라인", choseong: "ㅇ", publisher: "넥슨", platforms: ["pc"], category: "스포츠", icon: "⚽", officialUrl: "https://fconline.nexon.com", coupons: [] }
+      { id: "genshin", title: "원신", choseong: "ㅇ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], genre: "action", category: "오픈월드 액션RPG", icon: "✨", officialUrl: "https://genshin.hoyoverse.com/ko/gift", coupons: [{ code: "GENSHINGIFT", reward: "원석 50개", expireDate: "상시" }] },
+      { id: "starrail", title: "붕괴: 스타레일", choseong: "ㅂ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], genre: "rpg", category: "턴제 수집형RPG", icon: "🚂", officialUrl: "https://hsr.hoyoverse.com/gift", coupons: [{ code: "STARRAILGIFT", reward: "성옥 50개", expireDate: "상시" }] },
+      { id: "zzz", title: "젠레스 존 제로", choseong: "ㅈ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], genre: "action", category: "도시 액션RPG", icon: "📺", officialUrl: "https://zenless.hoyoverse.com/redemption", coupons: [{ code: "ZENLESSGIFT", reward: "폴리크롬 50개", expireDate: "상시" }] },
+      { id: "wuthering", title: "명조: 워더링 웨이브", choseong: "ㅁ", publisher: "Kuro Games", platforms: ["cross", "pc", "mobile"], genre: "action", category: "오픈월드 액션", icon: "🌊", officialUrl: "https://wutheringwaves.kurogames.com", coupons: [{ code: "WUTHERINGGIFT", reward: "별의 소리 50개", expireDate: "상시" }] },
+      { id: "lostark", title: "로스트아크", choseong: "ㄹ", publisher: "스마일게이트", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "⚔️", officialUrl: "https://lostark.game.onstove.com/Coupon", coupons: [] },
+      { id: "maplestory", title: "메이플스토리", choseong: "ㅁ", publisher: "넥슨", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "🍁", officialUrl: "https://maplestory.nexon.com", coupons: [] },
+      { id: "fconline", title: "FC 온라인", choseong: "ㅇ", publisher: "넥슨", platforms: ["pc"], genre: "sports", category: "PC 스포츠", icon: "⚽", officialUrl: "https://fconline.nexon.com", coupons: [] },
+      { id: "blackdesert", title: "검은사막 PC", choseong: "ㄱ", publisher: "펄어비스", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "🐎", officialUrl: "https://www.kr.playblackdesert.com", coupons: [] },
+      { id: "lineagem", title: "리니지M", choseong: "ㄹ", publisher: "엔씨소프트", platforms: ["mobile"], genre: "mmorpg", category: "모바일 MMORPG", icon: "👑", officialUrl: "https://lineagem.plaync.com", coupons: [] },
+      { id: "bluearchive", title: "블루 아카이브", choseong: "ㅂ", publisher: "넥슨게임즈", platforms: ["mobile"], genre: "rpg", category: "수집형 RPG", icon: "📘", officialUrl: "https://mcoupon.nexon.com/bluearchive", coupons: [] },
+      { id: "nikke", title: "승리의 여신: 니케", choseong: "ㅅ", publisher: "Shift Up", platforms: ["cross", "pc", "mobile"], genre: "fps", category: "건슈팅 RPG", icon: "🎯", officialUrl: "https://nikke-kr.com", coupons: [] },
+      { id: "cookierun", title: "쿠키런: 킹덤", choseong: "ㅋ", publisher: "데브시스터즈", platforms: ["mobile"], genre: "rpg", category: "수집형 RPG", icon: "🍪", officialUrl: "https://game.devsisters.com", coupons: [] },
+      { id: "pokemon", title: "포켓몬스터 스칼렛·바이올렛", choseong: "ㅍ", publisher: "Nintendo", platforms: ["switch"], genre: "rpg", category: "콘솔 RPG", icon: "⚡", officialUrl: "https://pokemonkorea.co.kr", coupons: [] },
+      { id: "borderlands", title: "보더랜드 (SHiFT)", choseong: "ㅂ", publisher: "2K", platforms: ["ps5", "pc"], genre: "fps", category: "콘솔/PC 슈팅", icon: "🗝️", officialUrl: "https://shift.gearboxsoftware.com", coupons: [] }
     ];
 
     let games = [];
@@ -318,7 +313,8 @@
     let fashionSubFilter = 'all';
     let grocerySubFilter = 'all';
     let activePlatform = 'all';
-    let activeChoseong = 'ALL';
+    let activeGenre = 'all';
+    let activeOnlyMode = true; // 🌟 첫 페이지: 활성 쿠폰 게임만 기본 노출
     let searchQuery = '';
 
     function init() {
@@ -327,7 +323,6 @@
       games = purgeOldCoupons(games);
       localStorage.setItem('ecm_game_catalog_clean', JSON.stringify(games));
 
-      renderChoseongButtons();
       renderGames();
       renderFashion();
       renderGrocery();
@@ -362,9 +357,9 @@
       if (cat === 'games') {
         logoBox.className = "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg transition";
         logoBadge.className = "text-[10px] sm:text-xs px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block";
-        logoBadge.innerText = "Verified Hub";
-        heroTitle.innerHTML = `모든 기기, 모든 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>`;
-        heroSubtitle.innerText = "운영팀이 매일 인게임 테스트와 이커머스 정기 혜택을 교차 검증하여 제공하는 신뢰도 100% 스마트 허브입니다.";
+        logoBadge.innerText = "Game Hub";
+        heroTitle.innerHTML = `장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>`;
+        heroSubtitle.innerText = "MMORPG, FPS, 수집형 RPG 등 장르별로 분류된 즉시 사용 가능한 쿠폰만을 첫 화면에 모았습니다.";
       } else if (cat === 'fashion') {
         logoBox.className = "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-600 to-yellow-400 flex items-center justify-center shadow-lg transition";
         logoBadge.className = "text-[10px] sm:text-xs px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-medium hidden xs:inline-block";
@@ -378,6 +373,19 @@
         heroTitle.innerHTML = `온라인 장보기 & 대형마트 20대 <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-200 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`;
         heroSubtitle.innerText = "이마트몰, 컬리, 쿠팡 로켓프레시 등 식료품 새벽배송 및 마트 주간 전단지 할인 총정리";
       }
+    }
+
+    function toggleActiveOnlyMode() {
+      activeOnlyMode = !activeOnlyMode;
+      const btn = document.getElementById('activeToggleBtn');
+      if (activeOnlyMode) {
+        btn.className = "px-2.5 py-1 rounded-lg bg-purple-600/30 text-purple-300 border border-purple-500/50 font-semibold transition active:scale-95";
+        btn.innerText = "🔥 활성 쿠폰 게임만 보기 (ON)";
+      } else {
+        btn.className = "px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 border border-slate-700 font-semibold transition active:scale-95";
+        btn.innerText = "전체 게임 보기 (OFF)";
+      }
+      renderGames();
     }
 
     function renderFashion() {
@@ -455,10 +463,15 @@
       if (!grid) return;
       let filtered = games.filter(g => {
         if (activePlatform !== 'all' && !g.platforms.includes(activePlatform) && !g.platforms.includes('cross')) return false;
-        if (activeChoseong !== 'ALL' && g.choseong !== activeChoseong) return false;
-        if (searchQuery && !g.title.toLowerCase().includes(searchQuery)) return false;
+        if (activeGenre !== 'all' && g.genre !== activeGenre) return false;
+        
+        const activeCount = (g.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
+        if (activeOnlyMode && activeCount === 0) return false; // 🌟 첫 페이지: 활성 쿠폰이 있는 게임만 노출
+
+        if (searchQuery && !g.title.toLowerCase().includes(searchQuery) && !g.category.toLowerCase().includes(searchQuery)) return false;
         return true;
       });
+
       document.getElementById('gameTotalCount').innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(game => {
         const activeCount = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
@@ -471,10 +484,10 @@
                 <div class="flex gap-1">${badges}</div>
               </div>
               <h3 class="font-bold text-white text-xs sm:text-sm group-hover:text-purple-300 transition truncate">${game.title}</h3>
-              <p class="text-[10px] text-slate-400 truncate mb-2">${game.publisher}</p>
+              <p class="text-[10px] text-purple-400 font-medium truncate mb-2">${game.category}</p>
             </div>
             <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
-              <span class="${activeCount > 0 ? 'text-purple-400 font-bold' : 'text-slate-500'}">쿠폰 ${activeCount}개</span>
+              <span class="${activeCount > 0 ? 'text-purple-400 font-bold' : 'text-slate-500'}">활성 쿠폰 ${activeCount}개</span>
               <span class="text-slate-400 group-hover:text-white">확인 <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
             </div>
           </div>
@@ -482,36 +495,39 @@
       }).join('');
     }
 
-    const choseongs = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-    function renderChoseongButtons() {
-      const container = document.getElementById('choseongButtonsContainer');
-      if (!container) return;
-      container.innerHTML = choseongs.map(c => `<button onclick="setChoseongFilter('${c}')" class="choseong-btn px-1.5 py-0.5 rounded text-slate-400 hover:text-white">${c}</button>`).join('');
-    }
-    function setChoseongFilter(char) { activeChoseong = char; renderGames(); }
     function setPlatformFilter(p) {
       activePlatform = p;
-      document.querySelectorAll('.platform-btn').forEach(btn => {
+      document.querySelectorAll('[data-platform]').forEach(btn => {
         btn.className = (btn.dataset.platform === p) ? "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500" : "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-slate-800 text-slate-300 border-slate-700";
       });
       renderGames();
     }
+
+    function setGenreFilter(genre) {
+      activeGenre = genre;
+      document.querySelectorAll('[data-genre]').forEach(btn => {
+        btn.className = (btn.dataset.genre === genre) ? "genre-btn px-2 py-0.5 rounded font-bold bg-purple-600 text-white" : "genre-btn px-2 py-0.5 rounded text-slate-400 bg-slate-850 border border-slate-800 hover:text-white";
+      });
+      renderGames();
+    }
+
     function handleSearch(val) {
       searchQuery = val.trim().toLowerCase();
       document.getElementById('clearSearchBtn').classList.toggle('hidden', !searchQuery);
       renderFashion(); renderGrocery(); renderGames();
     }
     function clearSearch() { document.getElementById('globalSearchInput').value = ''; handleSearch(''); }
+    function handleSortChange(val) { renderGames(); }
 
     function openGameDetail(gameId) {
       const game = games.find(g => g.id === gameId);
       if (!game) return;
       document.getElementById('modalGameIcon').innerText = game.icon || '🎮';
       document.getElementById('modalGameTitle').innerText = game.title;
-      document.getElementById('modalGamePublisher').innerText = game.publisher;
+      document.getElementById('modalGamePublisher').innerText = `${game.publisher} · ${game.category}`;
       const container = document.getElementById('modalCouponListContainer');
-      const coupons = game.coupons || [];
-      container.innerHTML = coupons.length === 0 ? `<div class="text-center py-6 text-slate-500">등록된 쿠폰이 없습니다.</div>` : coupons.map(c => `
+      const coupons = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active');
+      container.innerHTML = coupons.length === 0 ? `<div class="text-center py-6 text-slate-500">현재 사용 가능한 활성 쿠폰이 없습니다. (이벤트 대기중)</div>` : coupons.map(c => `
         <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-between gap-2">
           <div>
             <span class="font-mono font-bold text-white text-xs bg-slate-900 px-2 py-1 rounded">${c.code}</span>
@@ -531,9 +547,7 @@
       });
     }
 
-    function handleLogoSecretClick() {
-      if (prompt("관리자 비밀번호:") === ADMIN_SECRET_KEY) alert("관리자 인증 성공");
-    }
+    function handleLogoSecretClick() { if (prompt("관리자 비밀번호:") === ADMIN_SECRET_KEY) alert("관리자 인증 성공"); }
     function openSubmitModal() { alert("혜택 제보하기 창입니다."); }
     function openAdminReviewModal() { alert("검수 센터 창입니다."); }
     function openPrivacyModal() { alert("개인정보처리방침 내용"); }
