@@ -42,24 +42,12 @@
   }
   </script>
 
-  <!-- Tailwind CSS & FontAwesome CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 정적으로 빌드된 Tailwind CSS (프로덕션 권장 방식) -->
+  <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5' }
-          }
-        }
-      }
-    }
-  </script>
   <style>
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       background-color: #0f172a;
@@ -74,7 +62,7 @@
 <body id="bodyRoot" class="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
   <noscript>
     <div style="max-width:800px;margin:0 auto;padding:24px;color:#f8fafc;font-family:sans-serif;line-height:1.7;">
-      <h1>ECM (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브</h1>
+      <h2>ECM (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브</h2>
       <p>ECM은 MMORPG, 수집형 RPG, 액션, FPS, 스포츠 등 장르별 대작 게임의 실시간 검증 쿠폰과 패션·장보기 할인 정보를 한곳에 모은 사이트입니다.</p>
       <h2>게임 쿠폰</h2>
       <p>원신, 붕괴: 스타레일, 젠레스 존 제로, 명조: 워더링 웨이브, 로스트아크, 메이플스토리, FC 온라인, 검은사막, 리니지M, 블루 아카이브, 승리의 여신: 니케, 쿠키런: 킹덤, 포켓몬스터 스칼렛·바이올렛, 보더랜드 등 PC·모바일·PS5·닌텐도 스위치 게임의 쿠폰 코드를 장르별로 정리해 제공합니다.</p>
@@ -95,7 +83,7 @@
         </div>
         <div>
           <span class="text-base sm:text-xl font-black tracking-tight text-white flex items-center gap-1">
-            ECM <span id="logoBadge" class="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
+            ECM <span id="logoBadge" class="text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
           </span>
         </div>
       </div>
@@ -254,7 +242,7 @@
           <a href="mailto:contact@ecm-coupon.com" class="hover:text-white underline">문의하기</a>
         </div>
       </div>
-      <p class="text-[10px] text-slate-600 text-center sm:text-left leading-relaxed">
+      <p class="text-[11px] text-slate-600 text-center sm:text-left leading-relaxed">
         ECM은 각 브랜드·쇼핑몰의 공식 파트너가 아니며, 게시된 쿠폰/혜택 정보는 공개된 자료를 바탕으로 정리한 참고용 정보입니다. 실제 혜택은 각 공식 사이트에서 반드시 재확인하시기 바랍니다.
         운영자: [사업자명 또는 개인 운영자명] · 문의: contact@ecm-coupon.com
       </p>
@@ -424,19 +412,19 @@
 
       if (cat === 'games') {
         logoBox.className = "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg transition";
-        logoBadge.className = "text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block";
+        logoBadge.className = "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium hidden xs:inline-block";
         logoBadge.innerText = "Game Hub";
         heroTitle.innerHTML = `장르별 대작 게임의 <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent">실시간 검증 활성 쿠폰</span>`;
         heroSubtitle.innerText = "MMORPG, FPS, 수집형 RPG 등 장르별로 분류된 즉시 사용 가능한 쿠폰만을 첫 화면에 모았습니다.";
       } else if (cat === 'fashion') {
         logoBox.className = "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-600 to-yellow-400 flex items-center justify-center shadow-lg transition";
-        logoBadge.className = "text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-medium hidden xs:inline-block";
+        logoBadge.className = "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-medium hidden xs:inline-block";
         logoBadge.innerText = "Fashion 50";
         heroTitle.innerHTML = `국내 50대 대표 패션몰 <span class="bg-gradient-to-r from-amber-400 via-orange-300 to-yellow-200 bg-clip-text text-transparent">정기 쿠폰북 & 할인 코드</span>`;
         heroSubtitle.innerText = "무신사, 29CM, W컨셉 등 매월 1일 지급되는 등급별 쿠폰팩과 신규 웰컴 혜택 가이드";
       } else {
         logoBox.className = "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-green-400 flex items-center justify-center shadow-lg transition";
-        logoBadge.className = "text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-medium hidden xs:inline-block";
+        logoBadge.className = "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-medium hidden xs:inline-block";
         logoBadge.innerText = "Grocery 20";
         heroTitle.innerHTML = `온라인 장보기 & 대형마트 20대 <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-200 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`;
         heroSubtitle.innerText = "이마트몰, 컬리, 쿠팡 로켓프레시 등 식료품 새벽배송 및 마트 주간 전단지 할인 총정리";
@@ -474,7 +462,7 @@
                 <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-lg flex items-center justify-center shrink-0">${m.icon}</div>
                 <div>
                   <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${m.name}</h3>
-                  <span class="text-[9px] text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
+                  <span class="text-[11px] text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded">${m.benefit}</span>
                 </div>
               </div>
               <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">공식몰</a>
@@ -510,7 +498,7 @@
                 <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-lg flex items-center justify-center shrink-0">${g.icon}</div>
                 <div>
                   <h3 class="font-black text-white text-xs sm:text-sm leading-snug truncate max-w-[150px] sm:max-w-xs">${g.name}</h3>
-                  <span class="text-[9px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">${g.benefit}</span>
+                  <span class="text-[11px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">${g.benefit}</span>
                 </div>
               </div>
               <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] text-slate-400 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700">장보기</a>
@@ -545,7 +533,7 @@
       document.getElementById('gameTotalCount').innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(game => {
         const activeCount = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
-        const badges = (game.platforms || []).map(p => `<span class="px-1 rounded text-[9px] font-bold bg-slate-800 text-slate-300">${p.toUpperCase()}</span>`).join(' ');
+        const badges = (game.platforms || []).map(p => `<span class="px-1 rounded text-[11px] font-bold bg-slate-800 text-slate-300">${p.toUpperCase()}</span>`).join(' ');
         return `
           <div onclick="openGameDetail('${game.id}')" class="group cursor-pointer rounded-2xl bg-slate-900/80 hover:bg-slate-800/60 border border-slate-800 hover:border-purple-500/50 p-3.5 transition flex flex-col justify-between">
             <div>
@@ -554,11 +542,11 @@
                 <div class="flex gap-1">${badges}</div>
               </div>
               <h3 class="font-bold text-white text-xs sm:text-sm group-hover:text-purple-300 transition truncate">${game.title}</h3>
-              <p class="text-[10px] text-purple-400 font-medium truncate mb-2">${game.category}</p>
+              <p class="text-[11px] text-purple-400 font-medium truncate mb-2">${game.category}</p>
             </div>
             <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
               <span class="${activeCount > 0 ? 'text-purple-400 font-bold' : 'text-slate-500'}">활성 쿠폰 ${activeCount}개</span>
-              <span class="text-slate-400 group-hover:text-white">확인 <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
+              <span class="text-slate-400 group-hover:text-white">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
             </div>
           </div>
         `;
