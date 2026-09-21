@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게임 쿠폰 유효기간 놓치지 않는 법 (알림 설정 템플릿) | ECM</title>
+  <link rel="canonical" href="https://ecm-coupon.com/blog/game-coupon-expiry-reminder-template.html">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+  <meta name="description" content="게임 쿠폰 만료일을 놓치지 않도록 캘린더 알림 설정하는 방법과 템플릿을 제공합니다. 구글/네이버 캘린더 연동 가이드 포함.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ECM 게임쿠폰 (Every Coupon Matters)">
+  <meta property="og:title" content="게임 쿠폰 유효기간 놓치지 않는 법 (알림 설정 템플릿)">
+  <meta property="og:description" content="게임 쿠폰 만료일을 놓치지 않도록 캘린더 알림 설정하는 방법과 템플릿을 제공합니다. 구글/네이버 캘린더 연동 가이드 포함.">
+  <meta property="og:image" content="https://ecm-coupon.com/og-image.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5' } } } } }
+  </script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: #0f172a; color: #f8fafc; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased">
+  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-ticket-simple text-white text-lg transform -rotate-12"></i>
+        </div>
+        <span class="text-lg font-black text-white">ECM</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-400 hover:text-white">쿠폰 모음</a>
+        <a href="/blog/index.html" class="text-purple-400">블로그</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 w-full flex-1">
+    <a href="/blog/index.html" class="text-sm text-slate-400 hover:text-white mb-6 inline-block"><i class="fa-solid fa-arrow-left mr-1"></i> 블로그 목록으로</a>
+    <article>
+      <h1 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">게임 쿠폰 유효기간 놓치지 않는 법 (알림 설정 템플릿)</h1>
+<p class="text-slate-300 leading-relaxed my-4">게임 쿠폰은 짧게는 몇 시간, 길게는 몇 주 내에 만료됩니다. 매번 사이트를 들어가서 확인하는 대신, 캘린더 알림을 한 번 설정해두면 훨씬 편합니다. 이 글에서 실제로 쓸 수 있는 알림 설정 방법을 정리했습니다.</p>
+<p class="text-slate-300 leading-relaxed my-4"><a href="/blog/game-coupon-complete-guide.html" class="text-purple-400 hover:text-purple-300 underline">게임 쿠폰 완벽 가이드</a></p>
+<h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">왜 캘린더 알림이 필요한가</h2>
+<ul class="list-disc list-inside space-y-1 my-4 text-slate-300">
+<li>라이브 방송 한정 쿠폰은 대부분 24시간 이내 만료</li>
+<li>여러 게임을 동시에 플레이하면 일일이 확인하기 어려움</li>
+<li>ECM처럼 D-day 표시를 제공하는 사이트와 함께 쓰면 더 효율적</li>
+</ul>
+<h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">구글 캘린더 연동 방법</h2>
+<ol class="list-decimal list-inside space-y-1 my-4 text-slate-300">
+<li>구글 캘린더 접속 → "새 이벤트 만들기"</li>
+<li>이벤트 제목에 "게임명 + 쿠폰 만료" 입력 (예: "원신 쿠폰 만료")</li>
+<li>만료일 하루 전으로 알림 시간 설정</li>
+<li>반복 쿠폰(월간 등급 쿠폰 등)은 "매월 반복"으로 설정</li>
+</ol>
+<h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">네이버 캘린더 연동 방법</h2>
+<ol class="list-decimal list-inside space-y-1 my-4 text-slate-300">
+<li>네이버 캘린더 앱 접속 → 일정 추가</li>
+<li>제목과 날짜 입력, 알림을 "하루 전"으로 설정</li>
+<li>자주 확인하는 게임은 "매주 반복" 일정으로 등록해 습관화</li>
+</ol>
+<h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">알림 템플릿 예시</h2>
+<div class="overflow-x-auto my-6"><table class="w-full text-sm border-collapse">
+<thead><tr class="border-b border-slate-700"><th class="text-left py-2 px-3 text-purple-300 font-bold">항목</th><th class="text-left py-2 px-3 text-purple-300 font-bold">예시</th></tr></thead>
+<tbody>
+<tr class="border-b border-slate-800"><td class="py-2 px-3 text-slate-300">제목</td><td class="py-2 px-3 text-slate-300">[ECM] 원신 쿠폰 만료 D-1</td></tr>
+<tr class="border-b border-slate-800"><td class="py-2 px-3 text-slate-300">반복 여부</td><td class="py-2 px-3 text-slate-300">방송 직후 단발성 / 월간 반복</td></tr>
+<tr class="border-b border-slate-800"><td class="py-2 px-3 text-slate-300">알림 시간</td><td class="py-2 px-3 text-slate-300">만료 하루 전 오전 9시</td></tr>
+<tr class="border-b border-slate-800"><td class="py-2 px-3 text-slate-300">메모</td><td class="py-2 px-3 text-slate-300">ECM 페이지에서 최신 코드 확인 후 등록</td></tr>
+</tbody></table></div>
+<h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">ECM의 D-day 표시 기능</h2>
+<p class="text-slate-300 leading-relaxed my-4">ECM 사이트는 각 게임의 활성 쿠폰에 남은 기간을 D-day로 표시합니다. 캘린더 알림과 함께 사용하면 만료 임박 쿠폰을 놓치지 않고 챙길 수 있습니다.</p>
+<p class="text-slate-300 leading-relaxed my-4"><a href="/" class="text-purple-400 hover:text-purple-300 underline">ECM에서 D-day 임박 쿠폰 확인하기</a></p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 pb-2 border-b border-slate-800">FAQ</h2>
+      <div class="space-y-4 my-4">
+<div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+      <p class="font-bold text-white mb-1">반드시 캘린더 앱을 써야 하나요?</p>
+      <p class="text-slate-300 text-sm leading-relaxed">필수는 아니지만, 여러 게임을 동시에 관리한다면 훨씬 편리합니다. 스마트폰 기본 알림 앱으로도 충분합니다.</p>
+    </div>
+<div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+      <p class="font-bold text-white mb-1">매번 만료일이 바뀌는데 어떻게 관리하나요?</p>
+      <p class="text-slate-300 text-sm leading-relaxed">방송 한정 쿠폰처럼 비정기적인 경우는 ECM 같은 실시간 검증 사이트를 자주 확인하는 습관이 더 효율적입니다. 정기 쿠폰(등급별 월간 쿠폰 등)만 캘린더로 관리해도 충분합니다.</p>
+    </div>
+<div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+      <p class="font-bold text-white mb-1">여러 게임을 한 번에 관리하는 팁이 있나요?</p>
+      <p class="text-slate-300 text-sm leading-relaxed">게임별로 캘린더 색상을 다르게 지정하면 한눈에 구분하기 쉽습니다. ## 마무리 쿠폰을 놓치는 가장 큰 이유는 "확인을 깜빡해서"입니다. 캘린더 알림과 ECM의 D-day 표시를 함께 활용하면 훨씬 수월하게 관리할 수 있습니다. <a href="/" class="text-purple-400 hover:text-purple-300 underline">ECM에서 지금 쿠폰 만료일 확인하기</a></p>
+    </div>
+</div>
+
+    </article>
+  </main>
+
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-8 text-slate-500 text-xs text-center">
+    <p>&copy; 2026 ecm-coupon.com (ECM). All rights reserved.</p>
+  </footer>
+</body>
+</html>
