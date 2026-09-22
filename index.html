@@ -57,6 +57,68 @@
     .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 9999px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+
+    /* ---------- 드롭다운 필터 & 툴바 ----------
+       assets/styles.css는 미리 빌드된 Tailwind 산출물이라 새 유틸리티 클래스를
+       추가해도 CSS가 생성되지 않는다. 아래 컴포넌트는 직접 정의해 빌드와 무관하게 동작시킨다. */
+    .ecm-select {
+      -webkit-appearance: none; -moz-appearance: none; appearance: none;
+      background-color: #fff;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.625rem center;
+      background-size: 0.7rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1.85rem 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 1.2rem;
+      color: #0f172a;
+      cursor: pointer;
+      max-width: 100%;
+    }
+    .ecm-select:hover { border-color: #cbd5e1; }
+    .ecm-select:focus { outline: none; border-color: #a855f7; box-shadow: 0 0 0 3px rgba(168,85,247,.18); }
+    .ecm-select-sm { padding: 0.3rem 1.7rem 0.3rem 0.6rem; font-size: 0.75rem; font-weight: 600; color: #475569; }
+
+    /* 필터가 걸린 드롭다운은 색으로 표시해 "지금 뭐가 걸려 있는지" 바로 보이게 한다 */
+    .ecm-select.is-active { border-color: #a855f7; background-color: #faf5ff; color: #7e22ce; }
+
+    .ecm-filter-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; }
+    .ecm-filter-bar.hidden { display: none; }
+    .ecm-filter-field { display: flex; align-items: center; gap: 0.375rem; }
+    .ecm-filter-label { font-size: 11px; font-weight: 700; color: #64748b; white-space: nowrap; }
+
+    .ecm-reset-btn {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      border: 1px solid #e2e8f0; background: #fff; color: #64748b;
+      border-radius: 0.75rem; padding: 0.5rem 0.75rem;
+      font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+    }
+    .ecm-reset-btn:hover { color: #0f172a; border-color: #cbd5e1; }
+    .ecm-reset-btn[hidden] { display: none; }
+
+    /* 헤더: 좁은 화면은 카테고리 드롭다운, 탭 7개가 줄바꿈 없이 들어가는
+       너비(약 1120px)부터 기존 탭으로 전환한다. 그 아래에서 탭을 쓰면
+       가로 스크롤이 생기고 오른쪽 끝 버튼이 잘린다. */
+    .ecm-cat-select { display: block; width: 100%; max-width: 190px; }
+    .ecm-cat-nav { display: none; }
+    .ecm-desktop-only { display: none; }
+    @media (min-width: 640px) {
+      .ecm-desktop-only { display: inline; }
+      .ecm-filter-label { font-size: 12px; }
+      .ecm-cat-select { max-width: 240px; }
+    }
+    @media (min-width: 1120px) {
+      .ecm-cat-select { display: none; }
+      .ecm-cat-nav { display: flex; }
+    }
+
+    /* 목록 상단 툴바: 좁은 화면에서 글자가 세로로 쪼개지지 않도록 */
+    .ecm-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem 0.75rem; flex-wrap: wrap; }
+    .ecm-toolbar-left { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; min-width: 0; }
+    .ecm-nowrap { white-space: nowrap; }
   </style>
 </head>
 <body id="bodyRoot" class="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
@@ -90,17 +152,27 @@
           <i class="fa-solid fa-ticket-simple text-white text-lg sm:text-xl transform -rotate-12"></i>
         </div>
         <div>
-          <span class="text-base sm:text-xl font-black tracking-tight text-white flex items-center gap-1">
+          <span class="text-base sm:text-xl font-black tracking-tight text-slate-900 flex items-center gap-1">
             ECM <span id="logoBadge" class="text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-700 border border-purple-500/30 font-medium hidden xs:inline-block">Game Hub</span>
           </span>
         </div>
       </div>
 
-      <a href="/blog/index.html" class="hidden sm:flex items-center gap-1 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition">
-        <i class="fa-solid fa-newspaper"></i> 블로그
+      <a href="/blog/index.html" class="flex items-center gap-1 px-2 py-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition shrink-0" aria-label="블로그">
+        <i class="fa-solid fa-newspaper"></i> <span class="ecm-desktop-only">블로그</span>
       </a>
 
-      <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0 overflow-x-auto custom-scrollbar max-w-[50vw] sm:max-w-none">
+      <select id="mainCategorySelect" onchange="setMainCategory(this.value)" aria-label="카테고리 선택" class="ecm-select ecm-cat-select">
+        <option value="games">🎮 게임 쿠폰</option>
+        <option value="fashion">👕 패션 (50)</option>
+        <option value="grocery">🛒 장보기 (20)</option>
+        <option value="ott">📺 OTT·구독 (9)</option>
+        <option value="beauty">💄 뷰티 (7)</option>
+        <option value="delivery">🍔 배달·외식 (7)</option>
+        <option value="travel">✈️ 여행·숙박 (6)</option>
+      </select>
+
+      <nav class="ecm-cat-nav items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
         <button onclick="setMainCategory('games')" id="catBtn-games" class="shrink-0 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-purple-600 text-white shadow-sm flex items-center gap-1 transition-all">
           <i class="fa-solid fa-gamepad"></i> <span class="truncate">게임</span>
         </button>
@@ -127,7 +199,7 @@
       <div class="flex items-center space-x-1.5 shrink-0">
         <button onclick="openSubmitModal()" class="px-3 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs sm:text-sm font-bold flex items-center gap-1 shadow-lg transition active:scale-95">
           <i class="fa-solid fa-plus-circle"></i>
-          <span class="hidden xs:inline">제보</span>
+          <span class="ecm-desktop-only">제보</span>
         </button>
       </div>
 
@@ -162,75 +234,111 @@
       </div>
     </div>
 
-    <!-- 🎮 게임 탭 전용 필터 & 장르 하위 카테고리 바 -->
-    <div id="gameFilterSection" class="space-y-2">
-      <!-- 플랫폼 필터 -->
-      <div class="flex items-center justify-center flex-wrap gap-1.5">
-        <button onclick="setPlatformFilter('all')" data-platform="all" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500">전체플랫폼</button>
-        <button onclick="setPlatformFilter('pc')" data-platform="pc" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">PC온라인</button>
-        <button onclick="setPlatformFilter('mobile')" data-platform="mobile" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">모바일</button>
-        <button onclick="setPlatformFilter('cross')" data-platform="cross" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">크로스</button>
-        <button onclick="setPlatformFilter('ps5')" data-platform="ps5" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">PS5</button>
-        <button onclick="setPlatformFilter('switch')" data-platform="switch" class="platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200">스위치</button>
+    <!-- 🎮 게임 탭 전용 필터 (플랫폼 / 장르) -->
+    <div id="gameFilterSection" class="ecm-filter-bar">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">플랫폼</span>
+        <select id="platformSelect" onchange="setPlatformFilter(this.value)" aria-label="플랫폼 선택" class="ecm-select">
+          <option value="all">전체 플랫폼</option>
+          <option value="pc">PC온라인</option>
+          <option value="mobile">모바일</option>
+          <option value="cross">크로스플랫폼</option>
+          <option value="ps5">PS5</option>
+          <option value="switch">닌텐도 스위치</option>
+        </select>
       </div>
-
-      <!-- 장르(Subcategory) 하위 카테고리 필터 -->
-      <div class="flex items-center justify-center flex-wrap gap-1 text-[11px]">
-        <span class="text-slate-500 font-bold px-1">장르:</span>
-        <button onclick="setGenreFilter('all')" data-genre="all" class="genre-btn px-2 py-0.5 rounded font-bold bg-slate-800 text-white">전체장르</button>
-        <button onclick="setGenreFilter('mmorpg')" data-genre="mmorpg" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">MMORPG</button>
-        <button onclick="setGenreFilter('rpg')" data-genre="rpg" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">수집형/RPG</button>
-        <button onclick="setGenreFilter('action')" data-genre="action" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">액션/오픈월드</button>
-        <button onclick="setGenreFilter('fps')" data-genre="fps" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">FPS/슈팅</button>
-        <button onclick="setGenreFilter('sports')" data-genre="sports" class="genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300">스포츠/전략</button>
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">장르</span>
+        <select id="genreSelect" onchange="setGenreFilter(this.value)" aria-label="장르 선택" class="ecm-select">
+          <option value="all">전체 장르</option>
+          <option value="mmorpg">MMORPG</option>
+          <option value="rpg">수집형/RPG</option>
+          <option value="action">액션/오픈월드</option>
+          <option value="fps">FPS/슈팅</option>
+          <option value="sports">스포츠/전략</option>
+        </select>
       </div>
+      <button type="button" id="gameFilterResetBtn" onclick="resetGameFilters()" class="ecm-reset-btn" hidden>
+        <i class="fa-solid fa-rotate-left"></i> 필터 초기화
+      </button>
     </div>
 
     <!-- 패션 서브 필터 -->
-    <div id="fashionFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setFashionSubFilter('all')" data-subfilter="all" class="fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500">전체 (50)</button>
-      <button onclick="setFashionSubFilter('select')" data-subfilter="select" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">편집숍</button>
-      <button onclick="setFashionSubFilter('brand')" data-subfilter="brand" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">브랜드</button>
-      <button onclick="setFashionSubFilter('spa')" data-subfilter="spa" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">SPA</button>
-      <button onclick="setFashionSubFilter('sports')" data-subfilter="sports" class="fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">스포츠</button>
+    <div id="fashionFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="fashionSubSelect" onchange="setFashionSubFilter(this.value)" aria-label="패션 분류 선택" class="ecm-select">
+          <option value="all">전체 (50)</option>
+          <option value="select">편집숍</option>
+          <option value="brand">브랜드</option>
+          <option value="spa">SPA</option>
+          <option value="sports">스포츠</option>
+        </select>
+      </div>
     </div>
 
     <!-- 장보기 서브 필터 -->
-    <div id="groceryFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setGrocerySubFilter('all')" data-subfilter="all" class="grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500">전체 (20)</button>
-      <button onclick="setGrocerySubFilter('dawn')" data-subfilter="dawn" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">새벽배송</button>
-      <button onclick="setGrocerySubFilter('organic')" data-subfilter="organic" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">유기농</button>
-      <button onclick="setGrocerySubFilter('bulk')" data-subfilter="bulk" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">대용량</button>
-      <button onclick="setGrocerySubFilter('quick')" data-subfilter="quick" class="grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">즉시배송</button>
+    <div id="groceryFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="grocerySubSelect" onchange="setGrocerySubFilter(this.value)" aria-label="장보기 분류 선택" class="ecm-select">
+          <option value="all">전체 (20)</option>
+          <option value="dawn">새벽배송</option>
+          <option value="organic">유기농</option>
+          <option value="bulk">대용량</option>
+          <option value="quick">즉시배송</option>
+        </select>
+      </div>
     </div>
 
-    <!-- OTT 서브 필터 -->
-    <div id="ottFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setOttSubFilter('all')" data-subfilter="all" class="ott-filter-btn px-2.5 py-1 rounded-lg font-bold bg-red-600 text-white border border-red-500">전체 (9)</button>
-      <button onclick="setOttSubFilter('video')" data-subfilter="video" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">영상</button>
-      <button onclick="setOttSubFilter('music')" data-subfilter="music" class="ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">음악</button>
+    <!-- OTT·구독 서브 필터 -->
+    <div id="ottFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="ottSubSelect" onchange="setOttSubFilter(this.value)" aria-label="OTT·구독 분류 선택" class="ecm-select">
+          <option value="all">전체 (9)</option>
+          <option value="video">영상</option>
+          <option value="music">음악</option>
+        </select>
+      </div>
     </div>
 
     <!-- 뷰티 서브 필터 -->
-    <div id="beautyFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setBeautySubFilter('all')" data-subfilter="all" class="beauty-filter-btn px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white border border-pink-500">전체 (7)</button>
-      <button onclick="setBeautySubFilter('hnb')" data-subfilter="hnb" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">헬스앤뷰티</button>
-      <button onclick="setBeautySubFilter('online')" data-subfilter="online" class="beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">온라인 편집숍</button>
+    <div id="beautyFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="beautySubSelect" onchange="setBeautySubFilter(this.value)" aria-label="뷰티 분류 선택" class="ecm-select">
+          <option value="all">전체 (7)</option>
+          <option value="hnb">헬스앤뷰티</option>
+          <option value="online">온라인 편집숍</option>
+        </select>
+      </div>
     </div>
 
-    <!-- 배달음식 서브 필터 -->
-    <div id="deliveryFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setDeliverySubFilter('all')" data-subfilter="all" class="delivery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-orange-600 text-white border border-orange-500">전체 (7)</button>
-      <button onclick="setDeliverySubFilter('app')" data-subfilter="app" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">배달앱</button>
-      <button onclick="setDeliverySubFilter('franchise')" data-subfilter="franchise" class="delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">프랜차이즈</button>
+    <!-- 배달·외식 서브 필터 -->
+    <div id="deliveryFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="deliverySubSelect" onchange="setDeliverySubFilter(this.value)" aria-label="배달·외식 분류 선택" class="ecm-select">
+          <option value="all">전체 (7)</option>
+          <option value="app">배달앱</option>
+          <option value="franchise">프랜차이즈</option>
+        </select>
+      </div>
     </div>
 
-    <!-- 여행/숙박 서브 필터 -->
-    <div id="travelFilterSection" class="hidden flex items-center justify-center flex-wrap gap-1.5 text-[11px]">
-      <button onclick="setTravelSubFilter('all')" data-subfilter="all" class="travel-filter-btn px-2.5 py-1 rounded-lg font-bold bg-sky-600 text-white border border-sky-500">전체 (6)</button>
-      <button onclick="setTravelSubFilter('domestic')" data-subfilter="domestic" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">국내숙박</button>
-      <button onclick="setTravelSubFilter('overseas')" data-subfilter="overseas" class="travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200">해외/투어</button>
+    <!-- 여행·숙박 서브 필터 -->
+    <div id="travelFilterSection" class="ecm-filter-bar hidden">
+      <div class="ecm-filter-field">
+        <span class="ecm-filter-label">분류</span>
+        <select id="travelSubSelect" onchange="setTravelSubFilter(this.value)" aria-label="여행·숙박 분류 선택" class="ecm-select">
+          <option value="all">전체 (6)</option>
+          <option value="domestic">국내숙박</option>
+          <option value="overseas">해외/투어</option>
+        </select>
+      </div>
     </div>
+
   </section>
 
   <!-- ================= 메인 카탈로그 뷰 ================= -->
@@ -238,17 +346,17 @@
 
     <!-- 1. 게임 쿠폰 카탈로그 -->
     <div id="gameCatalogView" class="">
-      <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200 text-xs">
-        <div class="flex items-center gap-2">
-          <h2 class="font-bold text-slate-900 flex items-center gap-1.5">
+      <div class="ecm-toolbar mb-4 pb-2 border-b border-slate-200 text-xs">
+        <div class="ecm-toolbar-left">
+          <h2 class="ecm-nowrap font-bold text-slate-900 flex items-center gap-1.5">
             <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-700 font-mono">0개</span>
           </h2>
           <!-- 🌟 첫 페이지 활성 쿠폰 우선 노출 모드 토글 스위치 -->
-          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95">
-            🔥 활성 쿠폰 게임만 보기 (ON)
+          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="ecm-nowrap px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95">
+            🔥 쿠폰 있는 게임만
           </button>
         </div>
-        <select id="sortSelect" onchange="handleSortChange(this.value)" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-600">
+        <select id="sortSelect" onchange="handleSortChange(this.value)" class="ecm-select ecm-select-sm">
           <option value="popular">인기순</option>
           <option value="couponsDesc">쿠폰 많은순</option>
           <option value="nameAsc">가나다순</option>
@@ -516,6 +624,7 @@
         console.warn('localStorage 저장 실패:', e);
       }
 
+      applyCategoryCounts();
       renderGames();
       renderFashion();
       renderGrocery();
@@ -523,6 +632,49 @@
       renderBeauty();
       renderDelivery();
       renderTravel();
+    }
+
+    // 메뉴에 적힌 개수(패션 50, 장보기 20)가 실제 데이터(22, 8)와 어긋나 있었다.
+    // 화면에 노출되는 개수는 전부 데이터에서 계산해 두 번 다시 어긋나지 않게 한다.
+    const CATEGORY_TAB_LABEL = {
+      games: '게임', fashion: '패션', grocery: '장보기',
+      ott: 'OTT', beauty: '뷰티', delivery: '배달', travel: '여행'
+    };
+    const CATEGORY_MENU_LABEL = {
+      games: '🎮 게임 쿠폰', fashion: '👕 패션', grocery: '🛒 장보기',
+      ott: '📺 OTT·구독', beauty: '💄 뷰티', delivery: '🍔 배달·외식', travel: '✈️ 여행·숙박'
+    };
+
+    function categoryCount(cat) {
+      switch (cat) {
+        case 'fashion': return rawFashionCatalog.length;
+        case 'grocery': return rawGroceryCatalog.length;
+        case 'ott': return rawOttCatalog.length;
+        case 'beauty': return rawBeautyCatalog.length;
+        case 'delivery': return rawDeliveryCatalog.length;
+        case 'travel': return rawTravelCatalog.length;
+        default: return null; // 게임은 활성 쿠폰 여부로 개수가 바뀌어 목록 헤더에서 따로 표시한다
+      }
+    }
+
+    function applyCategoryCounts() {
+      Object.keys(CATEGORY_TAB_LABEL).forEach(cat => {
+        const n = categoryCount(cat);
+        const suffix = (n === null) ? '' : ' (' + n + ')';
+
+        const tabLabel = document.querySelector('#catBtn-' + cat + ' span');
+        if (tabLabel) tabLabel.innerText = CATEGORY_TAB_LABEL[cat] + suffix;
+
+        const menuOption = document.querySelector('#mainCategorySelect option[value="' + cat + '"]');
+        if (menuOption) menuOption.textContent = CATEGORY_MENU_LABEL[cat] + suffix;
+
+        const allOption = document.querySelector('#' + cat + 'SubSelect option[value="all"]');
+        if (allOption) allOption.textContent = '전체' + suffix;
+
+        if (n !== null && CATEGORY_CONFIG[cat]) {
+          CATEGORY_CONFIG[cat].badgeText = CATEGORY_CONFIG[cat].badgeText.replace(/\d+$/, String(n));
+        }
+      });
     }
 
     const CATEGORY_CONFIG = {
@@ -605,6 +757,10 @@
         document.getElementById(`${idPrefix}FilterSection`).classList.toggle('hidden', c !== cat);
       });
 
+      // 모바일 드롭다운과 데스크톱 탭이 같은 상태를 가리키도록 동기화
+      const catSelect = document.getElementById('mainCategorySelect');
+      if (catSelect && catSelect.value !== cat) catSelect.value = cat;
+
       const conf = CATEGORY_CONFIG[cat];
       logoBox.className = conf.logoBox;
       logoBadge.className = conf.logoBadge;
@@ -617,11 +773,11 @@
       activeOnlyMode = !activeOnlyMode;
       const btn = document.getElementById('activeToggleBtn');
       if (activeOnlyMode) {
-        btn.className = "px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95";
-        btn.innerText = "🔥 활성 쿠폰 게임만 보기 (ON)";
+        btn.className = "ecm-nowrap px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95";
+        btn.innerText = "🔥 쿠폰 있는 게임만";
       } else {
-        btn.className = "px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 border border-slate-200 font-semibold transition active:scale-95";
-        btn.innerText = "전체 게임 보기 (OFF)";
+        btn.className = "ecm-nowrap px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 border border-slate-200 font-semibold transition active:scale-95";
+        btn.innerText = "전체 게임 보기";
       }
       renderGames();
     }
@@ -656,9 +812,7 @@
     }
     function setFashionSubFilter(sub) {
       fashionSubFilter = sub;
-      document.querySelectorAll('.fashion-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "fashion-filter-btn px-2.5 py-1 rounded-lg font-bold bg-amber-600 text-white border border-amber-500" : "fashion-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('fashionSubSelect', sub);
       renderFashion();
     }
 
@@ -692,9 +846,7 @@
     }
     function setGrocerySubFilter(sub) {
       grocerySubFilter = sub;
-      document.querySelectorAll('.grocery-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "grocery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-emerald-600 text-white border border-emerald-500" : "grocery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('grocerySubSelect', sub);
       renderGrocery();
     }
 
@@ -728,9 +880,7 @@
     }
     function setOttSubFilter(sub) {
       ottSubFilter = sub;
-      document.querySelectorAll('.ott-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "ott-filter-btn px-2.5 py-1 rounded-lg font-bold bg-red-600 text-white border border-red-500" : "ott-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('ottSubSelect', sub);
       renderOtt();
     }
 
@@ -764,9 +914,7 @@
     }
     function setBeautySubFilter(sub) {
       beautySubFilter = sub;
-      document.querySelectorAll('.beauty-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "beauty-filter-btn px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white border border-pink-500" : "beauty-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('beautySubSelect', sub);
       renderBeauty();
     }
 
@@ -800,9 +948,7 @@
     }
     function setDeliverySubFilter(sub) {
       deliverySubFilter = sub;
-      document.querySelectorAll('.delivery-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "delivery-filter-btn px-2.5 py-1 rounded-lg font-bold bg-orange-600 text-white border border-orange-500" : "delivery-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('deliverySubSelect', sub);
       renderDelivery();
     }
 
@@ -836,9 +982,7 @@
     }
     function setTravelSubFilter(sub) {
       travelSubFilter = sub;
-      document.querySelectorAll('.travel-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.subfilter === sub) ? "travel-filter-btn px-2.5 py-1 rounded-lg font-bold bg-sky-600 text-white border border-sky-500" : "travel-filter-btn px-2.5 py-1 rounded-lg text-slate-500 bg-white border border-slate-200";
-      });
+      syncSelect('travelSubSelect', sub);
       renderTravel();
     }
 
@@ -846,7 +990,10 @@
       const grid = document.getElementById('gameGridContainer');
       if (!grid) return;
       let filtered = games.filter(g => {
-        if (activePlatform !== 'all' && !g.platforms.includes(activePlatform) && !g.platforms.includes('cross')) return false;
+        // 'cross'를 통과시키는 예외가 있었지만, 각 게임은 실제 지원 플랫폼을 모두
+        // 나열하고 있어(예: 원신 = cross/pc/ps5/mobile) 이 예외는 불필요했고,
+        // 스위치로 나오지 않는 크로스플랫폼 게임까지 '닌텐도 스위치' 결과에 섞여 나왔다.
+        if (activePlatform !== 'all' && !g.platforms.includes(activePlatform)) return false;
         if (activeGenre !== 'all' && g.genre !== activeGenre) return false;
 
         const activeCount = (g.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
@@ -882,19 +1029,37 @@
       }).join('');
     }
 
+    // 드롭다운 값을 상태와 맞추고, 'all'이 아니면 색으로 표시한다
+    function syncSelect(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.value !== value) el.value = value;
+      el.classList.toggle('is-active', value !== 'all');
+    }
+
+    function refreshGameFilterState() {
+      syncSelect('platformSelect', activePlatform);
+      syncSelect('genreSelect', activeGenre);
+      const resetBtn = document.getElementById('gameFilterResetBtn');
+      if (resetBtn) resetBtn.hidden = (activePlatform === 'all' && activeGenre === 'all');
+    }
+
     function setPlatformFilter(p) {
       activePlatform = p;
-      document.querySelectorAll('[data-platform]').forEach(btn => {
-        btn.className = (btn.dataset.platform === p) ? "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-bold border transition bg-purple-600 text-white border-purple-500" : "platform-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition bg-white text-slate-600 border-slate-200";
-      });
+      refreshGameFilterState();
       renderGames();
     }
 
     function setGenreFilter(genre) {
       activeGenre = genre;
-      document.querySelectorAll('[data-genre]').forEach(btn => {
-        btn.className = (btn.dataset.genre === genre) ? "genre-btn px-2 py-0.5 rounded font-bold bg-purple-600 text-white" : "genre-btn px-2 py-0.5 rounded text-slate-500 bg-white border border-slate-200 hover:text-slate-900 hover:border-slate-300";
-      });
+      refreshGameFilterState();
+      renderGames();
+    }
+
+    function resetGameFilters() {
+      activePlatform = 'all';
+      activeGenre = 'all';
+      refreshGameFilterState();
       renderGames();
     }
 
