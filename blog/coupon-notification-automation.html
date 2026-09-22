@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리 | ECM</title>
+  <link rel="canonical" href="https://ecm-coupon.com/blog/coupon-notification-automation.html">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+  <meta name="description" content="일일이 사이트를 확인하지 않아도 새 쿠폰 소식을 자동으로 받을 수 있는 방법을 정리했습니다. 디스코드 봇, 카카오톡 채널, RSS, IFTTT 자동화까지 확인하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ECM 게임쿠폰 (Every Coupon Matters)">
+  <meta property="og:title" content="쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리">
+  <meta property="og:description" content="일일이 사이트를 확인하지 않아도 새 쿠폰 소식을 자동으로 받을 수 있는 방법을 정리했습니다. 디스코드 봇, 카카오톡 채널, RSS, IFTTT 자동화까지 확인하세요.">
+  <meta property="og:image" content="https://ecm-coupon.com/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리">
+  <meta name="twitter:description" content="일일이 사이트를 확인하지 않아도 새 쿠폰 소식을 자동으로 받을 수 있는 방법을 정리했습니다. 디스코드 봇, 카카오톡 채널, RSS, IFTTT 자동화까지 확인하세요.">
+  <meta name="twitter:image" content="https://ecm-coupon.com/og-image.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리",
+      "name": "쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리",
+      "description": "일일이 사이트를 확인하지 않아도 새 쿠폰 소식을 자동으로 받을 수 있는 방법을 정리했습니다. 디스코드 봇, 카카오톡 채널, RSS, IFTTT 자동화까지 확인하세요.",
+      "mainEntityOfPage": "https://ecm-coupon.com/blog/coupon-notification-automation.html",
+      "author": { "@type": "Organization", "name": "ECM" },
+      "publisher": { "@type": "Organization", "name": "ECM", "url": "https://ecm-coupon.com" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "캘린더 알림이랑 뭐가 다른가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "캘린더 알림은 이미 알고 있는 만료일을 놓치지 않게 챙기는 방법이고, 이 글에서 다루는 자동화는 '새 쿠폰이 떴다는 사실 자체'를 내가 확인하러 가지 않아도 먼저 알려주는 방법입니다. 두 가지를 함께 쓰면 가장 효과적입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "디스코드나 카카오톡 봇을 직접 만들어야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "직접 만들 필요는 없습니다. 대부분의 게임 커뮤니티 서버·오픈채팅방에는 이미 쿠폰/이벤트 알림 봇이 채널에 연결되어 있어 참여만 하면 됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "알림을 너무 많이 받게 되지는 않나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "채널이나 피드를 게임별로 나눠서 구독하면 조절할 수 있습니다. 관심 없는 게임의 채널은 알림을 끄고 텍스트만 남겨두는 식으로 정리하면 필요한 소식만 받아볼 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "RSS가 뭔가요? 아직도 쓰는 사람이 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "RSS는 웹사이트의 새 글을 구독자에게 자동으로 전달하는 오래된 기술이지만, 지금도 뉴스·블로그 구독에 널리 쓰입니다. 무료 RSS 리더 앱에 등록해두면 새 글이 올라올 때마다 알림을 받을 수 있습니다." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://ecm-coupon.com/" },
+        { "@type": "ListItem", "position": 2, "name": "블로그", "item": "https://ecm-coupon.com/blog/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리", "item": "https://ecm-coupon.com/blog/coupon-notification-automation.html" }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: #f8fafc; color: #0f172a; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-ticket-simple text-white text-lg transform -rotate-12"></i>
+        </div>
+        <span class="text-lg font-black text-slate-900">ECM</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-500 hover:text-slate-900">쿠폰 모음</a>
+        <a href="/blog/index.html" class="text-purple-600">블로그</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 w-full flex-1">
+    <a href="/blog/index.html" class="text-sm text-slate-500 hover:text-slate-900 mb-6 inline-block"><i class="fa-solid fa-arrow-left mr-1"></i> 블로그 목록으로</a>
+    <article>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리</h1>
+      <p class="text-slate-600 leading-relaxed my-4">만료일을 캘린더로 관리하는 것도 좋지만, 애초에 "새 쿠폰이 떴다"는 사실을 내가 먼저 찾아가지 않아도 알림으로 받을 수 있다면 더 편합니다. 사이트를 매번 들어가지 않고도 소식을 자동으로 받는 방법들을 정리했습니다.</p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">디스코드 서버 알림 구독하기</h2>
+      <p class="text-slate-600 leading-relaxed my-4">대부분의 인기 게임은 공식 또는 팬 운영 디스코드 서버가 있고, 쿠폰·이벤트 전용 채널에 알림 봇이 연동되어 있는 경우가 많습니다. 서버에 참여한 뒤 해당 채널만 "알림 받기"로 설정하고, 관심 없는 다른 채널은 알림을 꺼두면 필요한 소식만 골라 받을 수 있습니다.</p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">카카오톡 채널·오픈채팅 활용하기</h2>
+      <p class="text-slate-600 leading-relaxed my-4">국내 게임사들은 카카오톡 채널을 통해 이벤트 소식을 푸시 알림으로 발송하는 경우가 많습니다. 게임 공식 카카오톡 채널을 추가해두면 별도 앱 설치 없이 알림을 받을 수 있고, 커뮤니티 오픈채팅방에서도 실시간으로 쿠폰 정보가 공유되는 경우가 흔합니다.</p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">RSS 리더로 여러 소식통 한 번에 모아보기</h2>
+      <p class="text-slate-600 leading-relaxed my-4">여러 게임 커뮤니티나 공략 사이트를 매번 돌아다니며 확인하기 번거롭다면, 무료 RSS 리더 앱(피들리, 이노리더 등)에 자주 확인하는 사이트를 등록해두는 방법이 있습니다. 새 글이 올라올 때마다 한 곳에 모아서 볼 수 있어 여러 탭을 오가지 않아도 됩니다.</p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">IFTTT로 키워드 알림 자동화하기</h2>
+      <p class="text-slate-600 leading-relaxed my-4">IFTTT 같은 자동화 서비스를 활용하면 특정 키워드가 포함된 새 글이 올라올 때 스마트폰 알림이나 이메일로 자동 전달받는 규칙을 만들 수 있습니다. "게임명 + 쿠폰" 같은 키워드로 규칙을 걸어두면, 관련 소식이 새로 올라올 때마다 직접 검색하지 않아도 알림을 받을 수 있습니다.</p>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">채널별 특징 한눈에 보기</h2>
+      <div class="overflow-x-auto my-6"><table class="w-full text-sm border-collapse">
+        <thead><tr class="border-b border-slate-200"><th class="text-left py-2 px-3 text-purple-700 font-bold">채널</th><th class="text-left py-2 px-3 text-purple-700 font-bold">장점</th><th class="text-left py-2 px-3 text-purple-700 font-bold">이런 사람에게 추천</th></tr></thead>
+        <tbody>
+          <tr class="border-b border-slate-100"><td class="py-2 px-3 text-slate-600">디스코드</td><td class="py-2 px-3 text-slate-600">실시간성이 가장 높음</td><td class="py-2 px-3 text-slate-600">라이브 방송 한정 쿠폰을 자주 챙기는 사람</td></tr>
+          <tr class="border-b border-slate-100"><td class="py-2 px-3 text-slate-600">카카오톡 채널</td><td class="py-2 px-3 text-slate-600">별도 앱 설치 불필요</td><td class="py-2 px-3 text-slate-600">앱을 여러 개 쓰기 번거로운 사람</td></tr>
+          <tr class="border-b border-slate-100"><td class="py-2 px-3 text-slate-600">RSS 리더</td><td class="py-2 px-3 text-slate-600">여러 출처를 한 곳에서 관리</td><td class="py-2 px-3 text-slate-600">여러 게임을 동시에 플레이하는 사람</td></tr>
+          <tr class="border-b border-slate-100"><td class="py-2 px-3 text-slate-600">IFTTT</td><td class="py-2 px-3 text-slate-600">원하는 키워드만 골라 받기</td><td class="py-2 px-3 text-slate-600">특정 게임 소식만 정확히 받고 싶은 사람</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">FAQ</h2>
+      <div class="space-y-4 my-4">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="font-bold text-slate-900 mb-1">캘린더 알림이랑 뭐가 다른가요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed">캘린더 알림은 이미 알고 있는 만료일을 놓치지 않게 챙기는 방법이고, 이 글에서 다루는 자동화는 '새 쿠폰이 떴다는 사실 자체'를 내가 확인하러 가지 않아도 먼저 알려주는 방법입니다. <a href="/blog/game-coupon-expiry-reminder-template.html" class="text-purple-600 hover:text-purple-700 underline">캘린더 알림 설정 가이드</a>와 함께 쓰면 가장 효과적입니다.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="font-bold text-slate-900 mb-1">디스코드나 카카오톡 봇을 직접 만들어야 하나요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed">직접 만들 필요는 없습니다. 대부분의 게임 커뮤니티 서버·오픈채팅방에는 이미 쿠폰/이벤트 알림 봇이 채널에 연결되어 있어 참여만 하면 됩니다.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="font-bold text-slate-900 mb-1">알림을 너무 많이 받게 되지는 않나요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed">채널이나 피드를 게임별로 나눠서 구독하면 조절할 수 있습니다. 관심 없는 게임의 채널은 알림을 끄고 텍스트만 남겨두는 식으로 정리하면 필요한 소식만 받아볼 수 있습니다.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="font-bold text-slate-900 mb-1">RSS가 뭔가요? 아직도 쓰는 사람이 있나요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed">RSS는 웹사이트의 새 글을 구독자에게 자동으로 전달하는 오래된 기술이지만, 지금도 뉴스·블로그 구독에 널리 쓰입니다. 무료 RSS 리더 앱에 등록해두면 새 글이 올라올 때마다 알림을 받을 수 있습니다.</p>
+        </div>
+      </div>
+
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-3 pb-2 border-b border-slate-200">마무리</h2>
+      <p class="text-slate-600 leading-relaxed my-4">쿠폰을 놓치지 않는 가장 좋은 방법은 "내가 찾아가는 것"이 아니라 "소식이 나에게 오게 만드는 것"입니다. 여기에 소개한 방법 중 1~2가지만 설정해둬도 사이트를 매번 들락거리는 수고를 크게 줄일 수 있습니다.</p>
+      <p class="text-slate-600 leading-relaxed my-4"><a href="/" class="text-purple-600 hover:text-purple-700 underline">ECM에서 지금 실시간 쿠폰 확인하기</a></p>
+    </article>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-8 text-slate-500 text-xs text-center">
+    <p>&copy; 2026 ecm-coupon.com (ECM). All rights reserved.</p>
+  </footer>
+</body>
+</html>
