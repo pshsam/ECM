@@ -60,7 +60,7 @@
   "@type": "ItemList",
   "name": "게임 쿠폰 코드 목록",
   "description": "현재 ECM에서 확인 가능한 게임별 쿠폰 코드 목록입니다.",
-  "numberOfItems": 6,
+  "numberOfItems": 7,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -120,6 +120,16 @@
         "name": "보더랜드 (SHiFT) 쿠폰 코드",
         "description": "보더랜드 (SHiFT)(콘솔/PC 슈팅) 쿠폰 코드: THX3B-H9FCW-CRBT5-BBJ3T-SXT65 ((보더랜드4) 골든키 1개 + Ellie DLC 크레딧)",
         "url": "https://ecm-coupon.com/#borderlands"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Thing",
+        "name": "이클립스: 더 어웨이크닝 쿠폰 코드",
+        "description": "이클립스: 더 어웨이크닝(크로스플랫폼 MMORPG) 쿠폰 코드: 0910ECLIPSE (골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개)",
+        "url": "https://ecm-coupon.com/#eclipse-awakening"
       }
     }
   ]
@@ -564,6 +574,21 @@
             </div>
           </div>
         
+          <div onclick="openGameDetail('eclipse-awakening')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">🌘</div>
+                <div class="flex gap-1"><span class="ecm-plat-badge">CROSS</span> <span class="ecm-plat-badge">PC</span> <span class="ecm-plat-badge">MOBILE</span></div>
+              </div>
+              <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">이클립스: 더 어웨이크닝</h3>
+              <p class="text-[11px] text-purple-600 font-medium truncate mb-2">크로스플랫폼 MMORPG</p>
+            </div>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <span class="text-purple-600 font-bold">활성 쿠폰 1개</span>
+              <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
+            </div>
+          </div>
+        
           <div onclick="openGameDetail('lostark')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
             <div>
               <div class="flex items-start justify-between gap-2 mb-2">
@@ -677,21 +702,6 @@
               </div>
               <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">쿠키런: 킹덤</h3>
               <p class="text-[11px] text-purple-600 font-medium truncate mb-2">수집형 RPG</p>
-            </div>
-            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <span class="ecm-soon">쿠폰 준비중</span>
-              <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
-            </div>
-          </div>
-        
-          <div onclick="openGameDetail('eclipse-awakening')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-2">
-                <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">🌘</div>
-                <div class="flex gap-1"><span class="ecm-plat-badge">CROSS</span> <span class="ecm-plat-badge">PC</span> <span class="ecm-plat-badge">MOBILE</span></div>
-              </div>
-              <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">이클립스: 더 어웨이크닝</h3>
-              <p class="text-[11px] text-purple-600 font-medium truncate mb-2">크로스플랫폼 MMORPG</p>
             </div>
             <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span class="ecm-soon">쿠폰 준비중</span>
@@ -1828,7 +1838,7 @@
 
   <!-- ================= 자바스크립트 로직 ================= -->
   <script>
-    const CATALOG_VERSION = "2026-09-22"; // 쿠폰 데이터 갱신일 (YYYY-MM-DD). 쿠폰을 업데이트할 때마다 이 값을 오늘 날짜로 바꿔야 방문자 캐시가 갱신됩니다.
+    const CATALOG_VERSION = "2026-09-23"; // 쿠폰 데이터 갱신일 (YYYY-MM-DD). 쿠폰을 업데이트할 때마다 이 값을 오늘 날짜로 바꿔야 방문자 캐시가 갱신됩니다.
 
     function evaluateCoupon(expireDateStr) {
       if (!expireDateStr || expireDateStr === '상시' || expireDateStr.includes('9999')) {
@@ -1943,7 +1953,7 @@
       { id: "cookierun", title: "쿠키런: 킹덤", choseong: "ㅋ", publisher: "데브시스터즈", platforms: ["mobile"], genre: "rpg", category: "수집형 RPG", icon: "🍪", officialUrl: "https://game.devsisters.com", coupons: [] },
       { id: "pokemon", title: "포켓몬스터 스칼렛·바이올렛", choseong: "ㅍ", publisher: "Nintendo", platforms: ["switch"], genre: "rpg", category: "콘솔 RPG", icon: "⚡", officialUrl: "https://pokemonkorea.co.kr", coupons: [{ code: "STRACKSU1T", reward: "트레이닝복 아바타 의상 (스칼렛 전용)", expireDate: "상시" }, { code: "VTRACKSU1T", reward: "트레이닝복 아바타 의상 (바이올렛 전용)", expireDate: "상시" }] },
       { id: "borderlands", title: "보더랜드 (SHiFT)", choseong: "ㅂ", publisher: "2K", platforms: ["ps5", "pc"], genre: "fps", category: "콘솔/PC 슈팅", icon: "🗝️", officialUrl: "https://shift.gearboxsoftware.com", coupons: [{ code: "THX3B-H9FCW-CRBT5-BBJ3T-SXT65", reward: "(보더랜드4) 골든키 1개 + Ellie DLC 크레딧", expireDate: "상시" }] },
-      { id: "eclipse-awakening", title: "이클립스: 더 어웨이크닝", choseong: "ㅇ", publisher: "스마일게이트", platforms: ["cross", "pc", "mobile"], genre: "mmorpg", category: "크로스플랫폼 MMORPG", icon: "🌘", officialUrl: "https://eclipse.onstove.com/ko/home", coupons: [] },
+      { id: "eclipse-awakening", title: "이클립스: 더 어웨이크닝", choseong: "ㅇ", publisher: "스마일게이트", platforms: ["cross", "pc", "mobile"], genre: "mmorpg", category: "크로스플랫폼 MMORPG", icon: "🌘", officialUrl: "https://eclipse.onstove.com/ko/home", coupons: [{ code: "0910ECLIPSE", reward: "골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개", expireDate: "2026-11-10" }] },
       { id: "ea-sports-fc-27", title: "EA SPORTS FC 27", choseong: "ㅇ", publisher: "EA (Electronic Arts)", platforms: ["cross", "pc", "ps5"], genre: "sports", category: "콘솔/PC 스포츠", icon: "⚽", officialUrl: "https://www.ea.com/games/ea-sports-fc/fc-27", coupons: [] },
       { id: "marvels-wolverine", title: "마블 울버린", choseong: "ㅁ", publisher: "Insomniac Games (SIE)", platforms: ["ps5"], genre: "action", category: "PS5 액션 어드벤처", icon: "🐾", officialUrl: "https://store.playstation.com/ko-kr/product/UP9000-PPSA03671_00-MARVELSWOLVERINE", coupons: [] },
       { id: "sealm2", title: "씰M2", choseong: "ㅅ", publisher: "플레이위드코리아", platforms: ["mobile"], genre: "mmorpg", category: "모바일 MMORPG", icon: "🦭", officialUrl: "https://www.sealm2.com/", coupons: [] }
