@@ -118,7 +118,19 @@
     /* 목록 상단 툴바: 좁은 화면에서 글자가 세로로 쪼개지지 않도록 */
     .ecm-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem 0.75rem; flex-wrap: wrap; }
     .ecm-toolbar-left { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; min-width: 0; }
+    .ecm-toolbar-right { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .ecm-nowrap { white-space: nowrap; }
+    .ecm-updated { font-size: 11px; color: #94a3b8; font-weight: 500; }
+
+    /* 카드: 게임 이름이 가장 먼저 읽히도록 플랫폼 뱃지의 톤을 낮춘다.
+       기존에는 뱃지가 굵은 글씨라 제목보다 눈에 먼저 들어왔다. */
+    .ecm-plat-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: .02em;
+      color: #94a3b8; background: #f8fafc; border: 1px solid #f1f5f9;
+      border-radius: .25rem; padding: 1px 5px; white-space: nowrap;
+    }
+    .ecm-card-title { font-size: .9375rem; font-weight: 700; color: #0f172a; line-height: 1.35; }
+    .ecm-soon { color: #94a3b8; font-weight: 600; }
   </style>
 </head>
 <body id="bodyRoot" class="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
@@ -351,16 +363,19 @@
           <h2 class="ecm-nowrap font-bold text-slate-900 flex items-center gap-1.5">
             <span>게임 목록</span> <span id="gameTotalCount" class="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-700 font-mono">0개</span>
           </h2>
-          <!-- 🌟 첫 페이지 활성 쿠폰 우선 노출 모드 토글 스위치 -->
-          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="ecm-nowrap px-2.5 py-1 rounded-lg bg-purple-100 text-purple-700 border border-purple-300 font-semibold transition active:scale-95">
-            🔥 쿠폰 있는 게임만
-          </button>
+          <span class="ecm-nowrap ecm-updated" id="toolbarUpdated"></span>
         </div>
-        <select id="sortSelect" onchange="handleSortChange(this.value)" class="ecm-select ecm-select-sm">
-          <option value="popular">인기순</option>
-          <option value="couponsDesc">쿠폰 많은순</option>
-          <option value="nameAsc">가나다순</option>
-        </select>
+        <div class="ecm-toolbar-right">
+          <!-- 🌟 첫 페이지 활성 쿠폰 우선 노출 모드 토글 스위치 -->
+          <button onclick="toggleActiveOnlyMode()" id="activeToggleBtn" class="ecm-nowrap px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 border border-slate-200 font-semibold transition active:scale-95">
+            전체 게임 보기
+          </button>
+          <select id="sortSelect" onchange="handleSortChange(this.value)" class="ecm-select ecm-select-sm">
+            <option value="popular">인기순</option>
+            <option value="couponsDesc">쿠폰 많은순</option>
+            <option value="nameAsc">가나다순</option>
+          </select>
+        </div>
       </div>
       <div id="gameGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
     </div>
@@ -431,7 +446,7 @@
   <footer class="bg-white border-t border-slate-200 pt-8 pb-14 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 space-y-4">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px]">
-        <p>© 2026 ecm-coupon.com (ECM). All rights reserved.</p>
+        <p>© 2026 ecm-coupon.com (ECM). All rights reserved. <span class="ecm-nowrap">쿠폰 데이터 마지막 갱신: <b id="footerUpdated" class="text-slate-700">-</b></span></p>
         <div class="flex gap-4">
           <a href="javascript:void(0)" onclick="openPrivacyModal()" class="hover:text-slate-900 underline">개인정보처리방침</a>
           <a href="javascript:void(0)" onclick="openTermsModal()" class="hover:text-slate-900 underline">이용약관</a>
@@ -440,7 +455,7 @@
       </div>
       <p class="text-[11px] text-slate-600 text-center sm:text-left leading-relaxed">
         ECM은 각 브랜드·쇼핑몰의 공식 파트너가 아니며, 게시된 쿠폰/혜택 정보는 공개된 자료를 바탕으로 정리한 참고용 정보입니다. 실제 혜택은 각 공식 사이트에서 반드시 재확인하시기 바랍니다.
-        운영자: [사업자명 또는 개인 운영자명] · 문의: contact@ecm-coupon.com
+        운영자: 포티 · 문의: contact@ecm-coupon.com
       </p>
     </div>
   </footer>
@@ -610,7 +625,9 @@
     let travelSubFilter = 'all';
     let activePlatform = 'all';
     let activeGenre = 'all';
-    let activeOnlyMode = true;
+    // 쿠폰이 아직 없는 게임까지 기본으로 보여준다. 숨겨두면 "로스트아크 쿠폰"으로
+    // 들어온 방문자가 빈 화면만 보고 나가고, 목록도 실제보다 휑해 보였다.
+    let activeOnlyMode = false;
     let searchQuery = '';
 
     function init() {
@@ -625,6 +642,7 @@
       }
 
       applyCategoryCounts();
+      showLastUpdated();
       renderGames();
       renderFashion();
       renderGrocery();
@@ -632,6 +650,15 @@
       renderBeauty();
       renderDelivery();
       renderTravel();
+    }
+
+    // 쿠폰 갱신 날짜(CATALOG_VERSION)를 캐시 키로만 쓰고 화면에는 전혀 보여주지
+    // 않고 있었다. 쿠폰 사이트에서 "언제 확인한 정보인지"는 신뢰의 핵심이라 노출한다.
+    function showLastUpdated() {
+      const toolbar = document.getElementById('toolbarUpdated');
+      if (toolbar) toolbar.innerText = `쿠폰 갱신 ${CATALOG_VERSION}`;
+      const footer = document.getElementById('footerUpdated');
+      if (footer) footer.innerText = CATALOG_VERSION;
     }
 
     // 메뉴에 적힌 개수(패션 50, 장보기 20)가 실제 데이터(22, 8)와 어긋나 있었다.
@@ -691,7 +718,7 @@
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-600 to-yellow-400 flex items-center justify-center shadow-lg transition",
         logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-700 border border-amber-500/30 font-medium hidden xs:inline-block",
         badgeText: "Fashion 50",
-        heroTitle: `국내 50대 대표 패션몰 <span class="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">정기 쿠폰북 & 할인 코드</span>`,
+        heroTitle: `국내 주요 패션몰 <span class="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">정기 쿠폰북 & 할인 코드</span>`,
         heroSubtitle: "무신사, 29CM, W컨셉 등 매월 1일 지급되는 등급별 쿠폰팩과 신규 웰컴 혜택 가이드"
       },
       grocery: {
@@ -699,7 +726,7 @@
         logoBox: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-green-400 flex items-center justify-center shadow-lg transition",
         logoBadge: "text-[11px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 border border-emerald-500/30 font-medium hidden xs:inline-block",
         badgeText: "Grocery 20",
-        heroTitle: `온라인 장보기 & 대형마트 20대 <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`,
+        heroTitle: `온라인 장보기 & 대형마트 <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent">신선 새벽배송 바우처</span>`,
         heroSubtitle: "이마트몰, 컬리, 쿠팡 로켓프레시 등 식료품 새벽배송 및 마트 주간 전단지 할인 총정리"
       },
       ott: {
@@ -986,6 +1013,10 @@
       renderTravel();
     }
 
+    function countActiveCoupons(game) {
+      return (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
+    }
+
     function renderGames() {
       const grid = document.getElementById('gameGridContainer');
       if (!grid) return;
@@ -996,7 +1027,7 @@
         if (activePlatform !== 'all' && !g.platforms.includes(activePlatform)) return false;
         if (activeGenre !== 'all' && g.genre !== activeGenre) return false;
 
-        const activeCount = (g.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
+        const activeCount = countActiveCoupons(g);
         const matchesSearch = searchQuery && (g.title.toLowerCase().includes(searchQuery) || g.category.toLowerCase().includes(searchQuery));
 
         // 검색어를 입력했다면 쿠폰이 없는(출시 예정/트래킹 중인) 게임도 찾을 수 있어야 하므로
@@ -1006,10 +1037,25 @@
         return true;
       });
 
+      // 정렬 드롭다운(인기순/쿠폰 많은순/가나다순)이 화면에만 있고 실제로는
+      // 아무 일도 하지 않았다. 여기서 실제로 적용한다.
+      // 어떤 정렬을 고르든 쿠폰이 있는 게임을 항상 위로 올린다 — 쿠폰을 찾으러 온
+      // 방문자에게 '준비중'인 게임이 먼저 보이면 안 되기 때문이다.
+      const sortMode = document.getElementById('sortSelect')?.value || 'popular';
+      const popularityOrder = new Map(games.map((g, i) => [g.id, i]));
+      filtered.sort((a, b) => {
+        const aCount = countActiveCoupons(a);
+        const bCount = countActiveCoupons(b);
+        if ((aCount > 0) !== (bCount > 0)) return aCount > 0 ? -1 : 1;
+        if (sortMode === 'couponsDesc' && aCount !== bCount) return bCount - aCount;
+        if (sortMode === 'nameAsc') return a.title.localeCompare(b.title, 'ko');
+        return popularityOrder.get(a.id) - popularityOrder.get(b.id);
+      });
+
       document.getElementById('gameTotalCount').innerText = `${filtered.length}개`;
       grid.innerHTML = filtered.map(game => {
-        const activeCount = (game.coupons || []).filter(c => evaluateCoupon(c.expireDate).status === 'active').length;
-        const badges = (game.platforms || []).map(p => `<span class="px-1 rounded text-[11px] font-bold bg-slate-100 text-slate-600">${p.toUpperCase()}</span>`).join(' ');
+        const activeCount = countActiveCoupons(game);
+        const badges = (game.platforms || []).map(p => `<span class="ecm-plat-badge">${p.toUpperCase()}</span>`).join(' ');
         return `
           <div onclick="openGameDetail('${game.id}')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
             <div>
@@ -1017,11 +1063,11 @@
                 <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">${game.icon || '🎮'}</div>
                 <div class="flex gap-1">${badges}</div>
               </div>
-              <h3 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-purple-700 transition truncate">${game.title}</h3>
+              <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">${game.title}</h3>
               <p class="text-[11px] text-purple-600 font-medium truncate mb-2">${game.category}</p>
             </div>
             <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <span class="${activeCount > 0 ? 'text-purple-600 font-bold' : 'text-slate-500'}">활성 쿠폰 ${activeCount}개</span>
+              <span class="${activeCount > 0 ? 'text-purple-600 font-bold' : 'ecm-soon'}">${activeCount > 0 ? `활성 쿠폰 ${activeCount}개` : '쿠폰 준비중'}</span>
               <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
             </div>
           </div>
