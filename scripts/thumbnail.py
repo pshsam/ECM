@@ -6,7 +6,7 @@
 
 사용법:
   python scripts/thumbnail.py --title "원신 쿠폰 코드 총정리" --kind game --genre action \
-      --label "게임 쿠폰 · 코드 총정리" --out blog/images/genshin-impact-coupon-codes/thumb.png
+      --label "게임 쿠폰 · 코드 총정리" --out blog/images/genshin-impact-coupon-codes/thumb.jpg
   python scripts/thumbnail.py ... --bg 내가찍은화면.png     # 배경 사진 위에 얹기
 """
 import argparse
@@ -181,7 +181,7 @@ def fit_title(text, max_w, max_lines=3, start=76, end=48):
 
 
 # ───────── 합성 ─────────
-def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.png", site="ecm-coupon.com"):
+def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.jpg", site="ecm-coupon.com"):
     key = genre if (kind == "game" and genre in PALETTE) else kind
     dark, light = PALETTE.get(key, PALETTE["guide"])
     img = Image.new("RGB", (W, H), hex_rgb(dark))
@@ -242,7 +242,10 @@ def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.png", si
     d.text((72, H - 52), site, font=sf, fill=(255, 255, 255, 200))
 
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
-    img.save(out, "PNG", optimize=True)
+    if out.lower().endswith(".jpg") or out.lower().endswith(".jpeg"):
+        img.save(out, "JPEG", quality=85, optimize=True, progressive=True)
+    else:
+        img.save(out, "PNG", optimize=True)
     return out
 
 
