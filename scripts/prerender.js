@@ -26,7 +26,7 @@ const FILE = path.join(__dirname, '..', 'index.html');
 const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
-const AUTHOR_NAME = '포티';
+const AUTHOR_NAME = '겜대';
 const AUTHOR_ROLE = 'ECM 운영자';
 
 function makeDom() {
