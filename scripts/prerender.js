@@ -209,6 +209,10 @@ function writeSitemap(rootDir) {
   const entries = [
     { loc: '/', file: 'index.html', freq: 'daily', priority: '1.0' },
     { loc: '/blog/index.html', file: 'blog/index.html', freq: 'weekly', priority: '0.8' },
+    { loc: '/about.html', file: 'about.html', freq: 'monthly', priority: '0.5' },
+    { loc: '/contact.html', file: 'contact.html', freq: 'monthly', priority: '0.4' },
+    { loc: '/privacy.html', file: 'privacy.html', freq: 'yearly', priority: '0.3' },
+    { loc: '/terms.html', file: 'terms.html', freq: 'yearly', priority: '0.3' },
     ...posts.map(f => ({
       loc: `/blog/${f}`,
       file: `blog/${f}`,
