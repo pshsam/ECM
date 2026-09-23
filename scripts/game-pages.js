@@ -132,9 +132,12 @@ function pageHtml(g, ctx) {
   const related = posts.filter(p => p.title.includes(g.title.split(' (')[0].split(':')[0]));
   const siblings = allGames.filter(x => x.id !== g.id && x.genre === g.genre && qualifies(x, ctx.activeOf)).slice(0, 6);
 
-  const title = active.length
-    ? `${g.title} 쿠폰 코드 ${active.length}개 (${ym}) — 입력 방법 | ECM`
-    : `${g.title} 쿠폰 코드 입력 방법 (${ym}) | ECM`;
+  // 검색 결과 제목은 한국어 40자쯤에서 잘린다. 긴 게임 이름이면 뒤부터 덜어낸다.
+  const mon = `${today.getMonth() + 1}월`;
+  const titleCands = active.length
+    ? [`${g.title} 쿠폰 코드 ${active.length}개 (${mon}) — 입력 방법 | ECM`, `${g.title} 쿠폰 코드 ${active.length}개 (${mon}) | ECM`, `${g.title} 쿠폰 코드 | ECM`]
+    : [`${g.title} 쿠폰 코드 입력 방법 (${mon}) | ECM`, `${g.title} 쿠폰 입력 방법 | ECM`, `${g.title} 쿠폰 | ECM`];
+  const title = titleCands.find(t => t.length <= 40) || titleCands[titleCands.length - 1];
   const desc = active.length
     ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
     : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법. 새 코드가 확인되면 이 페이지에 올라옵니다.`;
