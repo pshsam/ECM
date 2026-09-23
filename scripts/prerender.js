@@ -281,6 +281,60 @@ function updateSeen(games, version, rootDir) {
   return { seen, added };
 }
 
+/**
+ * 새 글에 썸네일이 없으면 만든다 (scripts/thumbnail.py).
+ *
+ * blog/index.html 카드의 분류 라벨과 글의 제목으로 blog/images/<slug>/thumb.png 를 만들고,
+ * 글의 og:image 와 목록 카드에 붙인다. 이미 있으면 아무것도 하지 않는다.
+ * python 이나 Pillow 가 없는 환경(일부 클라우드)에서는 건너뛰고 알려만 준다.
+ */
+function ensureThumbnails(blogDir, rootDir) {
+  const { spawnSync } = require('child_process');
+  const idxPath = path.join(blogDir, 'index.html');
+  let idx;
+  try { idx = fs.readFileSync(idxPath, 'utf8'); } catch (_) { return { made: 0, skipped: 0 }; }
+  const KIND = { 'cat-game': 'game', 'cat-life': 'life', 'cat-platform': 'platform', 'cat-guide': 'guide' };
+  const cardRe = /(<a href="\/blog\/([^"]+)\.html"[^>]*class="post-card[^"]*"[^>]*>\s*)(<div class="flex items-center justify-between gap-2 mb-2">\s*(?:<span class="flex[^"]*">)?<span class="cat-pill (cat-[a-z]+)">(?:<i[^>]*><\/i>)?\s*([^<]*)<\/span>)/g;
+  let made = 0, skipped = 0, changed = false;
+  idx = idx.replace(cardRe, (all, head, slug, rest, cat, label) => {
+    const thumb = path.join(blogDir, 'images', slug, 'thumb.png');
+    const postPath = path.join(blogDir, slug + '.html');
+    if (!fs.existsSync(postPath)) return all;
+    let post = fs.readFileSync(postPath, 'utf8');
+    if (!fs.existsSync(thumb)) {
+      const h1 = post.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+      const title = (h1 ? h1[1] : slug).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      const kind = KIND[cat] || 'guide';
+      const chip = kind === 'game' ? '게임 쿠폰 · ' + label.trim() : label.trim();
+      const args = [path.join(rootDir, 'scripts', 'thumbnail.py'), '--title', title, '--kind', kind, '--label', chip, '--out', thumb];
+      if (kind !== 'game') {
+        const img = post.match(/<img[^>]*src="(\/blog\/images\/[^"]+)"/);
+        if (img) args.push('--bg', path.join(rootDir, img[1].replace(/^\//, '')));
+      }
+      let ok = false;
+      for (const py of ['python', 'python3', 'py']) {
+        const r = spawnSync(py, args, { encoding: 'utf8' });
+        if (r.status === 0 && fs.existsSync(thumb)) { ok = true; break; }
+      }
+      if (!ok) { skipped++; return all; }
+      made++;
+    }
+    // 글의 공유 이미지
+    const url = `https://ecm-coupon.com/blog/images/${slug}/thumb.png`;
+    const post2 = post
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${url}$2`)
+      .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${url}$2`);
+    if (post2 !== post) fs.writeFileSync(postPath, post2);
+    // 목록 카드에 그림이 없으면 붙인다
+    if (/class="post-thumb"/.test(head + rest)) return all;
+    changed = true;
+    const alt = (post.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || ['', slug])[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().replace(/"/g, '&quot;');
+    return head + `<img class="post-thumb" src="/blog/images/${slug}/thumb.png" alt="${alt}" width="1200" height="630" loading="lazy">\n    ` + rest;
+  });
+  if (changed) fs.writeFileSync(idxPath, idx);
+  return { made, skipped };
+}
+
 /** 홈의 '최신 업데이트'에 넣을 최근 블로그 글. blog/index.html 의 카드에서 제목·날짜를 읽는다. */
 function recentPosts(blogDir, limit = 10) {
   let html;
@@ -294,11 +348,18 @@ function recentPosts(blogDir, limit = 10) {
     // 홈의 사진 카드용: 글의 첫 사진과 메타 설명
     try {
       const body = fs.readFileSync(path.join(blogDir, path.basename(m[1])), 'utf8');
-      const img = body.match(/<img[^>]*src="(\/blog\/images\/[^"]+)"[^>]*>/);
-      if (img) {
-        post.image = img[1];
-        const alt = img[0].match(/alt="([^"]*)"/);
-        if (alt) post.imageAlt = alt[1];
+      // 썸네일이 있으면 그것을, 없으면 글의 첫 사진을 카드에 쓴다
+      const thumbRel = `/blog/images/${path.basename(m[1], '.html')}/thumb.png`;
+      if (fs.existsSync(path.join(blogDir, '..', thumbRel.replace(/^\//, '')))) {
+        post.image = thumbRel;
+        post.imageAlt = title;
+      } else {
+        const img = body.match(/<img[^>]*src="(\/blog\/images\/[^"]+)"[^>]*>/);
+        if (img) {
+          post.image = img[1];
+          const alt = img[0].match(/alt="([^"]*)"/);
+          if (alt) post.imageAlt = alt[1];
+        }
       }
       const desc = body.match(/<meta name="description" content="([^"]*)"/);
       if (desc) post.excerpt = desc[1];
@@ -332,6 +393,9 @@ function main() {
   const rootDir = path.join(__dirname, '..');
   const blogDir = path.join(rootDir, 'blog');
   let html = fs.readFileSync(FILE, 'utf8');
+
+  // 새 글 썸네일 (없을 때만 만든다)
+  const thumbs = ensureThumbnails(blogDir, rootDir);
 
   // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
   const first = run(html);
@@ -370,6 +434,7 @@ function main() {
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
+  if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 
 main();
