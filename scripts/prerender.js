@@ -23,7 +23,7 @@ const path = require('path');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
-const CATS = ['mega', 'updates', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
+const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 
 function makeDom() {
@@ -286,11 +286,24 @@ function recentPosts(blogDir, limit = 10) {
   let html;
   try { html = fs.readFileSync(path.join(blogDir, 'index.html'), 'utf8'); } catch (_) { return []; }
   const posts = [];
-  const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
+  const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?cat-pill[^>]*>(?:<i[^>]*><\/i>)?\s*([^<]*)<\/span>[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const title = m[3].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    posts.push({ url: m[1], title, date: m[2].replace(/\./g, '-') });
+    const title = m[4].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const post = { url: m[1], title, date: m[3].replace(/\./g, '-'), category: m[2].trim() };
+    // 홈의 사진 카드용: 글의 첫 사진과 메타 설명
+    try {
+      const body = fs.readFileSync(path.join(blogDir, path.basename(m[1])), 'utf8');
+      const img = body.match(/<img[^>]*src="(\/blog\/images\/[^"]+)"[^>]*>/);
+      if (img) {
+        post.image = img[1];
+        const alt = img[0].match(/alt="([^"]*)"/);
+        if (alt) post.imageAlt = alt[1];
+      }
+      const desc = body.match(/<meta name="description" content="([^"]*)"/);
+      if (desc) post.excerpt = desc[1];
+    } catch (_) { /* 글 파일이 없으면 제목·날짜만 쓴다 */ }
+    posts.push(post);
   }
   posts.sort((a, b) => b.date.localeCompare(a.date));
   return posts.slice(0, limit);
