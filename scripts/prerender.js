@@ -180,7 +180,7 @@ function blogLinksHtml(dir) {
     const html = fs.readFileSync(path.join(dir, f), 'utf8');
     const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
     const title = (m ? m[1] : f).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    return `        <li><a href="/blog/${f}" class="ecm-link">${title}</a></li>`;
+    return `        <li><a href="/blog/${f}" class="ecm-guide">${title}</a></li>`;
   }).join('\n') + '\n      ';
 }
 
