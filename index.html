@@ -1980,15 +1980,13 @@
     }
 
     function init() {
-      const cacheKey = 'ecm_game_catalog_v' + CATALOG_VERSION;
-      const savedGames = localStorage.getItem(cacheKey);
-      games = savedGames ? JSON.parse(savedGames) : [...initialGameCatalog];
-      games = purgeOldCoupons(games);
+      // 예전엔 localStorage 에 카탈로그를 저장해 두고 CATALOG_VERSION 이 같으면 그걸 썼다.
+      // 데이터는 어차피 이 파일 안에 있어서 얻는 게 없고, 같은 날 두 번 고치면 방문자가
+      // 옛 데이터를 보는 사고만 났다. 남아 있던 캐시는 지운다.
+      games = purgeOldCoupons([...initialGameCatalog]);
       try {
-        localStorage.setItem(cacheKey, JSON.stringify(games));
-      } catch (e) {
-        console.warn('localStorage 저장 실패:', e);
-      }
+        Object.keys(localStorage).filter(k => k.startsWith('ecm_game_catalog_v')).forEach(k => localStorage.removeItem(k));
+      } catch (e) { /* 사생활 보호 모드 등에서는 접근이 막힐 수 있다 */ }
 
       applyCategoryCounts();
       showLastUpdated();
