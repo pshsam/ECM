@@ -155,6 +155,7 @@
   <!-- 정적으로 빌드된 Tailwind CSS (프로덕션 권장 방식) -->
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
+  <script src="/assets/ecm.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
@@ -233,6 +234,9 @@
     .ecm-upd-desc code { font-family: ui-monospace, SFMono-Regular, monospace; background: #F4F2E8; padding: 0 .3rem; border-radius: 4px; color: var(--ink); }
     .ecm-upd-meta { display: flex; align-items: center; gap: .4rem; flex-shrink: 0; font-size: .75rem; color: var(--ink-3); font-family: ui-monospace, SFMono-Regular, monospace; }
     .ecm-upd-empty { padding: 1rem; color: var(--ink-3); font-size: .85rem; }
+    .ecm-code-btn { font-family: 'Pretendard', sans-serif; font-size: 11.5px; font-weight: 800; color: var(--ink); background: var(--y); padding: .3rem .6rem; border-radius: 8px; white-space: nowrap; }
+    .ecm-upd:hover .ecm-code-btn { background: var(--y-deep); }
+    #copyToast a { color: #fff; text-decoration: underline; margin-left: .35rem; }
     /* 넓은 화면에선 두 줄로 나눠 목록이 길게 늘어지지 않게 한다 */
     @media (min-width: 1024px) {
       .ecm-upd-list { display: grid; grid-template-columns: 1fr 1fr; }
@@ -533,14 +537,14 @@
             <h2 id="updatesTitle"><i class="fa-regular fa-clock"></i> 최신 업데이트</h2>
             <span class="ecm-updated" id="updatesStamp"></span>
           </div>
-          <div id="updatesGridContainer" class="ecm-upd-list"><!--PRERENDER:updates--><a class="ecm-upd" href="/#lostark" data-game="lostark"><span class="ecm-upd-icon">⚔️</span><span class="ecm-upd-main"><span class="ecm-upd-title">로스트아크 새 쿠폰 1개 등록</span><span class="ecm-upd-desc"><code>로아와함께하는특별한여름</code> 배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#borderlands" data-game="borderlands"><span class="ecm-upd-icon">🗝️</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT) 새 쿠폰 1개 등록</span><span class="ecm-upd-desc"><code>J963B-S66WK-56J3K-JJT3T-BF9T5</code> (보더랜드4) 볼트 헌터 스킨 '카이리시의 행운' (Vex·Rafa·Amon·Harlowe 전용)</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#eclipse-awakening" data-game="eclipse-awakening"><span class="ecm-upd-icon">🌘</span><span class="ecm-upd-main"><span class="ecm-upd-title">이클립스: 더 어웨이크닝 새 쿠폰 1개 등록</span><span class="ecm-upd-desc"><code>0910ECLIPSE</code> 골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#pokemon" data-game="pokemon"><span class="ecm-upd-icon">⚡</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬스터 스칼렛·바이올렛 새 쿠폰 2개 등록</span><span class="ecm-upd-desc"><code>STRACKSU1T</code> 트레이닝복 아바타 의상 (스칼렛 전용) · <code>VTRACKSU1T</code> 트레이닝복 아바타 의상 (바이올렛 전용)</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/#borderlands" data-game="borderlands"><span class="ecm-upd-icon">🗝️</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT) 새 쿠폰 1개 등록</span><span class="ecm-upd-desc"><code>THX3B-H9FCW-CRBT5-BBJ3T-SXT65</code> (보더랜드4) 골든키 1개 + Ellie DLC 크레딧</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/steam-sale-guide.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">스팀(Steam) 세일 완벽 가이드: 시즌별 할인 시기와 위시리스트 알림 설정법</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/subscription-service-comparison.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">게임 구독 서비스 완전정복: Game Pass vs PS Plus vs 스위치 온라인 비교</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/coupon-notification-automation.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><!--/PRERENDER:updates--></div>
+          <div id="updatesGridContainer" class="ecm-upd-list"><!--PRERENDER:updates--><a class="ecm-upd" href="/#lostark" data-game="lostark"><span class="ecm-upd-icon">⚔️</span><span class="ecm-upd-main"><span class="ecm-upd-title">로스트아크 새 쿠폰 1개 등록</span><span class="ecm-upd-desc">🎁 배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#borderlands" data-game="borderlands"><span class="ecm-upd-icon">🗝️</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT) 새 쿠폰 1개 등록</span><span class="ecm-upd-desc">🎁 (보더랜드4) 볼트 헌터 스킨 '카이리시의 행운' (Vex·Rafa·Amon·Harlowe 전용)</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#eclipse-awakening" data-game="eclipse-awakening"><span class="ecm-upd-icon">🌘</span><span class="ecm-upd-main"><span class="ecm-upd-title">이클립스: 더 어웨이크닝 새 쿠폰 1개 등록</span><span class="ecm-upd-desc">🎁 골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill new">NEW</span><time datetime="2026-09-23">09.23</time></span></a><a class="ecm-upd" href="/#pokemon" data-game="pokemon"><span class="ecm-upd-icon">⚡</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬스터 스칼렛·바이올렛 새 쿠폰 2개 등록</span><span class="ecm-upd-desc">🎁 트레이닝복 아바타 의상 (스칼렛 전용) · 트레이닝복 아바타 의상 (바이올렛 전용)</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/#borderlands" data-game="borderlands"><span class="ecm-upd-icon">🗝️</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT) 새 쿠폰 1개 등록</span><span class="ecm-upd-desc">🎁 (보더랜드4) 골든키 1개 + Ellie DLC 크레딧</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/steam-sale-guide.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">스팀(Steam) 세일 완벽 가이드: 시즌별 할인 시기와 위시리스트 알림 설정법</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/subscription-service-comparison.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">게임 구독 서비스 완전정복: Game Pass vs PS Plus vs 스위치 온라인 비교</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><a class="ecm-upd" href="/blog/coupon-notification-automation.html"><span class="ecm-upd-icon">📝</span><span class="ecm-upd-main"><span class="ecm-upd-title">쿠폰 소식 자동으로 받는 법: 디스코드·카카오톡·RSS 알림 자동화 총정리</span><span class="ecm-upd-desc">블로그 새 글</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><time datetime="2026-09-22">09.22</time></span></a><!--/PRERENDER:updates--></div>
         </section>
         <section class="ecm-home-sec" aria-labelledby="deadlineTitle">
           <div class="ecm-sec-head">
             <h2 id="deadlineTitle"><i class="fa-solid fa-hourglass-half"></i> 마감 임박 쿠폰</h2>
             <span class="ecm-updated">2주 안에 끝나는 코드</span>
           </div>
-          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/#lostark" data-game="lostark"><span class="ecm-upd-icon">⚔️</span><span class="ecm-upd-main"><span class="ecm-upd-title">로스트아크</span><span class="ecm-upd-desc"><code>로아와함께하는특별한여름</code> 배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등</span></span><span class="ecm-upd-meta"><span class="ecm-pill due">D-6</span></span></a><!--/PRERENDER:deadline--></div>
+          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/#lostark" data-game="lostark"><span class="ecm-upd-icon">⚔️</span><span class="ecm-upd-main"><span class="ecm-upd-title">로스트아크</span><span class="ecm-upd-desc">🎁 배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span><span class="ecm-pill due">D-6</span></span></a><!--/PRERENDER:deadline--></div>
         </section>
       </div>
 
@@ -2339,8 +2343,10 @@
         const meta = `<span class="ecm-upd-meta">${pill}<time datetime="${esc(it.date)}">${esc(fmtDate(it.date))}</time></span>`;
         if (it.type === 'coupon') {
           const g = it.game;
-          const desc = it.coupons.map(c => `<code>${esc(c.code)}</code> ${esc(c.reward || '')}`).join(' · ');
-          return `<a class="ecm-upd" href="/#${esc(g.id)}" data-game="${esc(g.id)}"><span class="ecm-upd-icon">${g.icon || '🎮'}</span><span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)} 새 쿠폰 ${it.coupons.length}개 등록</span><span class="ecm-upd-desc">${desc}</span></span>${meta}</a>`;
+          // 코드는 여기서 보여주지 않는다. 눈으로 받아 적고 나가면 복사·입력 페이지·입력 방법을 못 본다.
+          const desc = it.coupons.map(c => esc(c.reward || '보상 확인')).join(' · ');
+          const metaBtn = `<span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span>${pill}<time datetime="${esc(it.date)}">${esc(fmtDate(it.date))}</time></span>`;
+          return `<a class="ecm-upd" href="/#${esc(g.id)}" data-game="${esc(g.id)}"><span class="ecm-upd-icon">${g.icon || '🎮'}</span><span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)} 새 쿠폰 ${it.coupons.length}개 등록</span><span class="ecm-upd-desc">🎁 ${desc}</span></span>${metaBtn}</a>`;
         }
         if (it.type === 'game') {
           const g = it.game;
@@ -2373,7 +2379,7 @@
       box.innerHTML = rows.slice(0, DEADLINE_MAX).map(r => {
         const g = r.game;
         const pill = `<span class="ecm-pill ${r.left <= 3 ? 'due-soon' : 'due'}">${esc(r.ddayText)}</span>`;
-        return `<a class="ecm-upd" href="/#${esc(g.id)}" data-game="${esc(g.id)}"><span class="ecm-upd-icon">${g.icon || '🎮'}</span><span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc"><code>${esc(r.coupon.code)}</code> ${esc(r.coupon.reward || '')}</span></span><span class="ecm-upd-meta">${pill}</span></a>`;
+        return `<a class="ecm-upd" href="/#${esc(g.id)}" data-game="${esc(g.id)}"><span class="ecm-upd-icon">${g.icon || '🎮'}</span><span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc">🎁 ${esc(r.coupon.reward || '보상 확인')}</span></span><span class="ecm-upd-meta"><span class="ecm-code-btn">코드 보기</span>${pill}</span></a>`;
       }).join('');
     }
 
@@ -2579,7 +2585,7 @@
             <p class="ecm-reward">${esc(c.reward)}</p>
           </div>
           <div class="ecm-coupon-actions">
-            <button onclick="copyToClipboard('${esc(c.code)}')" class="ecm-btn-primary"><i class="fa-regular fa-copy"></i> 복사</button>
+            <button onclick="copyToClipboard('${esc(c.code)}', '${esc(redeemUrl)}')" class="ecm-btn-primary"><i class="fa-regular fa-copy"></i> 복사</button>
             ${redeemUrl ? `<a href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer" class="ecm-outlink">입력 페이지 ↗</a>` : ''}
           </div>
         </div>`;
@@ -2587,11 +2593,17 @@
       document.getElementById('couponDetailModal').classList.remove('hidden');
     }
     function closeDetailModal() { document.getElementById('couponDetailModal').classList.add('hidden'); }
-    function copyToClipboard(text) {
+    let toastTimer = null;
+    function copyToClipboard(text, redeemUrl) {
       navigator.clipboard.writeText(text).then(() => {
         const toast = document.getElementById('copyToast');
+        // 복사하고 끝이 아니라 다음 할 일(입력 페이지)로 이어 준다
+        toast.innerHTML = redeemUrl
+          ? `복사했습니다 · <a href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer">입력 페이지 열기 →</a>`
+          : '복사했습니다';
         toast.classList.remove('hidden');
-        setTimeout(() => toast.classList.add('hidden'), 1500);
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.add('hidden'), redeemUrl ? 4500 : 1500);
       });
     }
 

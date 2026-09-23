@@ -205,3 +205,31 @@ body.ecm-lock { overflow: hidden; }
 .bg-purple-600, .bg-indigo-600 { background-color: var(--ink) !important; color: var(--y) !important; }
 .from-purple-600, .via-indigo-600, .from-indigo-600 { --tw-gradient-from: var(--y-deep) !important; --tw-gradient-to: var(--y) !important; }
 .bg-clip-text.text-transparent { color: var(--brown) !important; background: none !important; }
+
+/* ───────── 페이지 이동 로딩 표시 ("Coupon on the way") ───────── */
+.ecm-loader { position: fixed; top: 0; left: 0; right: 0; z-index: 100; pointer-events: none; opacity: 0; transition: opacity .15s; }
+.ecm-loader.is-on { opacity: 1; }
+.ecm-loader-bar {
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--y-deep) 30%, #FFF6C2 50%, var(--y-deep) 70%, transparent 100%);
+  background-size: 50% 100%; background-repeat: no-repeat;
+  animation: ecmSlide .9s linear infinite;
+}
+@keyframes ecmSlide { 0% { background-position: -60% 0; } 100% { background-position: 160% 0; } }
+.ecm-loader-pill {
+  margin: 12px auto 0; width: max-content; padding: .5rem 1rem; border-radius: 999px;
+  background: var(--ink); color: var(--y); font-weight: 800; font-size: .9rem; letter-spacing: .01em;
+  display: flex; align-items: center; gap: .5rem; box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  animation: ecmPop .25s ease-out;
+}
+@keyframes ecmPop { from { transform: translateY(-8px); opacity: 0; } }
+.ecm-loader-text { display: inline-flex; }
+.ecm-loader-text span { display: inline-block; animation: ecmWave 1.1s ease-in-out infinite; }
+.ecm-loader-text span.sp { width: .35em; animation: none; }
+@keyframes ecmWave {
+  0%, 60%, 100% { transform: translateY(0); color: var(--y); }
+  30% { transform: translateY(-4px); color: #FFF6C2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecm-loader-text span, .ecm-loader-bar { animation: none; }
+}
