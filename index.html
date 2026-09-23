@@ -13,7 +13,7 @@
   <!-- SITE-VERIFICATION -->
   <meta name="naver-site-verification" content="379f7aa60cba011a651003ec44b6809a19faa105" />
 
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/mascot.svg">
 
   <meta name="description" content="ECM(Every Coupon Matters)은 원신·로스트아크 등 게임 쿠폰부터 무신사·마켓컬리 패션·장보기, 넷플릭스 등 OTT, 올리브영 뷰티, 배달앱, 야놀자 여행 할인까지 모은 올인원 할인 허브입니다.">
   <meta name="keywords" content="ECM, Every Coupon Matters, 게임쿠폰, 게임쿠폰모음, MMORPG쿠폰, 원신쿠폰, 로스트아크쿠폰, 무신사쿠폰, 마켓컬리할인, 넷플릭스할인, 올리브영쿠폰, 배달의민족쿠폰, 야놀자쿠폰">
@@ -199,11 +199,8 @@
     .ecm-hero h1 { font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 900; letter-spacing: -.02em; line-height: 1.3; margin: 0 0 .4rem; }
     .ecm-hero p { font-size: .9rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-hl { background: linear-gradient(transparent 58%, var(--y) 58%); padding: 0 .1em; }
-    .ecm-hero-art {
-      display: none; width: 92px; height: 92px; border-radius: 28px; flex-shrink: 0;
-      background: var(--y); align-items: center; justify-content: center; font-size: 50px;
-      transform: rotate(6deg); box-shadow: 0 10px 24px rgba(247,198,0,.35);
-    }
+    .ecm-hero-art { display: none; flex-shrink: 0; transform: rotate(4deg); filter: drop-shadow(0 10px 18px rgba(120,90,0,.18)); }
+    .ecm-hero-art img { width: 120px; height: 120px; display: block; }
     @media (min-width: 768px) { .ecm-hero-art { display: flex; } }
 
     /* 카테고리 칩 */
@@ -361,7 +358,7 @@
   <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
       <a href="/" class="ecm-logo" aria-label="ECM 홈">
-        <span class="ecm-logo-mark"><i class="fa-solid fa-ticket-simple"></i></span>
+        <img class="ecm-logo-mark" src="/assets/mascot.svg" alt="" width="36" height="36">
         <span>ECM</span>
       </a>
 
@@ -401,7 +398,7 @@
       <h1 id="heroTitle">게임 쿠폰부터 생활 할인까지, <span class="ecm-hl">확인된 쿠폰만</span></h1>
       <p id="heroSubtitle">매일 갱신되는 게임 쿠폰 코드와 패션·장보기·OTT·뷰티·배달·여행 할인 정보를 한곳에서 확인하세요.</p>
     </div>
-    <div class="ecm-hero-art" aria-hidden="true"><span>🐥</span></div>
+    <div class="ecm-hero-art" aria-hidden="true"><img src="/assets/mascot.svg" alt="" width="120" height="120"></div>
   </section>
 
   <!-- 카테고리 칩: 어느 화면 폭에서든 한 줄, 좁으면 가로로 넘긴다 -->

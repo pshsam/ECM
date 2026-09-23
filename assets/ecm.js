@@ -18,7 +18,7 @@
         : '<span style="animation-delay:' + (i * 60) + 'ms">' + ch + '</span>';
     }
     el.innerHTML = '<div class="ecm-loader-bar"></div>'
-      + '<div class="ecm-loader-pill"><span class="ecm-loader-ico">🎟️</span><span class="ecm-loader-text">' + letters + '</span></div>';
+      + '<div class="ecm-loader-pill"><img class="ecm-loader-ico" src="/assets/mascot.svg" alt=""><span class="ecm-loader-text">' + letters + '</span></div>';
     document.body.appendChild(el);
     return el;
   }
