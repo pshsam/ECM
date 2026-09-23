@@ -60,7 +60,7 @@
   "@type": "ItemList",
   "name": "게임 쿠폰 코드 목록",
   "description": "현재 ECM에서 확인 가능한 게임별 쿠폰 코드 목록입니다.",
-  "numberOfItems": 7,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -107,6 +107,16 @@
       "position": 5,
       "item": {
         "@type": "Thing",
+        "name": "로스트아크 쿠폰 코드",
+        "description": "로스트아크(PC MMORPG) 쿠폰 코드: 로아와함께하는특별한여름 (배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등)",
+        "url": "https://ecm-coupon.com/#lostark"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Thing",
         "name": "포켓몬스터 스칼렛·바이올렛 쿠폰 코드",
         "description": "포켓몬스터 스칼렛·바이올렛(콘솔 RPG) 쿠폰 코드: STRACKSU1T (트레이닝복 아바타 의상 (스칼렛 전용)), VTRACKSU1T (트레이닝복 아바타 의상 (바이올렛 전용))",
         "url": "https://ecm-coupon.com/#pokemon"
@@ -114,7 +124,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Thing",
         "name": "보더랜드 (SHiFT) 쿠폰 코드",
@@ -124,7 +134,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Thing",
         "name": "이클립스: 더 어웨이크닝 쿠폰 코드",
@@ -544,6 +554,21 @@
             </div>
           </div>
         
+          <div onclick="openGameDetail('lostark')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">⚔️</div>
+                <div class="flex gap-1"><span class="ecm-plat-badge">PC</span></div>
+              </div>
+              <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">로스트아크</h3>
+              <p class="text-[11px] text-purple-600 font-medium truncate mb-2">PC MMORPG</p>
+            </div>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <span class="text-purple-600 font-bold">활성 쿠폰 1개</span>
+              <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
+            </div>
+          </div>
+        
           <div onclick="openGameDetail('pokemon')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
             <div>
               <div class="flex items-start justify-between gap-2 mb-2">
@@ -585,21 +610,6 @@
             </div>
             <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span class="text-purple-600 font-bold">활성 쿠폰 1개</span>
-              <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
-            </div>
-          </div>
-        
-          <div onclick="openGameDetail('lostark')" class="group cursor-pointer rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow-md p-3.5 transition flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-2">
-                <div class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-lg">⚔️</div>
-                <div class="flex gap-1"><span class="ecm-plat-badge">PC</span></div>
-              </div>
-              <h3 class="ecm-card-title group-hover:text-purple-700 transition truncate">로스트아크</h3>
-              <p class="text-[11px] text-purple-600 font-medium truncate mb-2">PC MMORPG</p>
-            </div>
-            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <span class="ecm-soon">쿠폰 준비중</span>
               <span class="text-slate-500 group-hover:text-slate-900">확인 <i class="fa-solid fa-chevron-right text-[11px]"></i></span>
             </div>
           </div>
@@ -1943,7 +1953,7 @@
       { id: "starrail", title: "붕괴: 스타레일", choseong: "ㅂ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], genre: "rpg", category: "턴제 수집형RPG", icon: "🚂", officialUrl: "https://hsr.hoyoverse.com/gift", coupons: [{ code: "STARRAILGIFT", reward: "성옥 100개, 신용 포인트 50,000 등", expireDate: "상시" }] },
       { id: "zzz", title: "젠레스 존 제로", choseong: "ㅈ", publisher: "HoYoverse", platforms: ["cross", "pc", "ps5", "mobile"], genre: "action", category: "도시 액션RPG", icon: "📺", officialUrl: "https://zenless.hoyoverse.com/redemption", coupons: [{ code: "ZENLESSGIFT", reward: "폴리크롬 50개", expireDate: "상시" }] },
       { id: "wuthering", title: "명조: 워더링 웨이브", choseong: "ㅁ", publisher: "Kuro Games", platforms: ["cross", "pc", "mobile"], genre: "action", category: "오픈월드 액션", icon: "🌊", officialUrl: "https://wutheringwaves.kurogames.com", coupons: [{ code: "WUTHERINGGIFT", reward: "별의 소리 50개", expireDate: "상시" }] },
-      { id: "lostark", title: "로스트아크", choseong: "ㄹ", publisher: "스마일게이트", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "⚔️", officialUrl: "https://lostark.game.onstove.com/Coupon", coupons: [] },
+      { id: "lostark", title: "로스트아크", choseong: "ㄹ", publisher: "스마일게이트", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "⚔️", officialUrl: "https://lostark.game.onstove.com/Coupon", coupons: [{ code: "로아와함께하는특별한여름", reward: "배틀 아이템 종합 상자, 메넬리크의 서, 고대의 백금화, 페온, 전설 카드 팩 선택 상자, 나루니 탈 등", expireDate: "2026-09-29" }] },
       { id: "maplestory", title: "메이플스토리", choseong: "ㅁ", publisher: "넥슨", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "🍁", officialUrl: "https://maplestory.nexon.com", coupons: [] },
       { id: "fconline", title: "FC 온라인", choseong: "ㅇ", publisher: "넥슨", platforms: ["pc"], genre: "sports", category: "PC 스포츠", icon: "⚽", officialUrl: "https://fconline.nexon.com", coupons: [] },
       { id: "blackdesert", title: "검은사막 PC", choseong: "ㄱ", publisher: "펄어비스", platforms: ["pc"], genre: "mmorpg", category: "PC MMORPG", icon: "🐎", officialUrl: "https://www.kr.playblackdesert.com", coupons: [] },
