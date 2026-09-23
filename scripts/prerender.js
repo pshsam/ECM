@@ -25,6 +25,9 @@ const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
 const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
+// 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
+const AUTHOR_NAME = '포티';
+const AUTHOR_ROLE = 'ECM 운영자';
 
 function makeDom() {
   const grids = {};
@@ -375,7 +378,7 @@ function ensureArticleSchema(blogDir, rootDir) {
       datePublished: published,
       dateModified: modified,
       inLanguage: 'ko',
-      author: { '@type': 'Organization', name: 'ECM', url: 'https://ecm-coupon.com/about.html' },
+      author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_ROLE, url: 'https://ecm-coupon.com/about.html' },
       publisher: { '@type': 'Organization', name: 'ECM (Every Coupon Matters)', url: 'https://ecm-coupon.com',
         logo: { '@type': 'ImageObject', url: 'https://ecm-coupon.com/og-image.png' } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `https://ecm-coupon.com/blog/${slug}.html` },
@@ -387,21 +390,30 @@ function ensureArticleSchema(blogDir, rootDir) {
     } else {
       post2 = post.replace('</head>', `  ${block}\n</head>`);
     }
+    // 제목 아래 글쓴이 줄 (없으면 만들고, 있으면 날짜만 갱신)
+    const fmt = d => d.replace(/-/g, '.');
+    const byline = `<p class="ecm-byline"><img src="/assets/mascot.svg" alt="" width="22" height="22"><b>${AUTHOR_NAME}</b><span>·</span><span>${AUTHOR_ROLE}</span><span>·</span><time datetime="${published}">${fmt(published)} 작성</time>`
+      + (modified !== published ? `<span>·</span><time datetime="${modified}">${fmt(modified)} 수정</time>` : '') + `</p>`;
+    if (/<p class="ecm-byline">/.test(post2)) {
+      post2 = post2.replace(/<p class="ecm-byline">[\s\S]*?<\/p>/, byline);
+    } else {
+      post2 = post2.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n    ${byline}`);
+    }
     if (post2 !== post) { fs.writeFileSync(postPath, post2); n++; }
   }
   return n;
 }
 
 /** 홈의 '최신 업데이트'에 넣을 최근 블로그 글. blog/index.html 의 카드에서 제목·날짜를 읽는다. */
-function recentPosts(blogDir, limit = 10) {
+function recentPosts(blogDir, limit = 500) {
   let html;
   try { html = fs.readFileSync(path.join(blogDir, 'index.html'), 'utf8'); } catch (_) { return []; }
   const posts = [];
-  const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?cat-pill[^>]*>(?:<i[^>]*><\/i>)?\s*([^<]*)<\/span>[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
+  const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?cat-pill (cat-[a-z]+)[^>]*>(?:<i[^>]*><\/i>)?\s*([^<]*)<\/span>[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const title = m[4].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    const post = { url: m[1], title, date: m[3].replace(/\./g, '-'), category: m[2].trim() };
+    const title = m[5].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const post = { url: m[1], title, date: m[4].replace(/\./g, '-'), category: m[3].trim(), cat: m[2].replace('cat-', '') };
     // 홈의 사진 카드용: 글의 첫 사진과 메타 설명
     try {
       const body = fs.readFileSync(path.join(blogDir, path.basename(m[1])), 'utf8');
@@ -461,6 +473,8 @@ function main() {
   html = replaceJsBlock(html, 'seen', `\n    const COUPON_FIRST_SEEN = ${JSON.stringify(seen)};\n    `);
   const posts = recentPosts(blogDir);
   html = replaceJsBlock(html, 'posts', `\n    const RECENT_BLOG_POSTS = ${JSON.stringify(posts)};\n    `);
+  // 블로그·정보 페이지의 '블로그' 드롭다운은 이 파일을 읽어 채운다 (assets/ecm.js)
+  fs.writeFileSync(path.join(rootDir, 'assets', 'posts.json'), JSON.stringify(posts.map(p => ({ url: p.url, title: p.title, date: p.date, category: p.category, cat: p.cat })), null, 0) + '\n');
 
   // 2차 실행: 등록일·최근 글이 반영된 상태로 그리드를 채운다
   const data = run(html);
@@ -475,6 +489,8 @@ function main() {
   }
 
   const ld = `\n  <script type="application/ld+json">\n${JSON.stringify(itemListJsonLd(games), null, 2)}\n  </script>\n  `;
+  // 블로그·정보 페이지의 드롭다운은 이 파일을 불러와 쓴다 (assets/ecm.js)
+  fs.writeFileSync(path.join(rootDir, 'assets', 'menu.html'), grids.mega);
   html = replaceBlock(html, 'itemlist', ld);
   html = replaceBlock(html, 'noscript', noscriptHtml(data));
 

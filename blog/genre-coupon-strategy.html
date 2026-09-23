@@ -119,8 +119,9 @@
   "dateModified": "2026-09-23",
   "inLanguage": "ko",
   "author": {
-    "@type": "Organization",
-    "name": "ECM",
+    "@type": "Person",
+    "name": "포티",
+    "jobTitle": "ECM 운영자",
     "url": "https://ecm-coupon.com/about.html"
   },
   "publisher": {
@@ -141,22 +142,35 @@
   <!--/PRERENDER:article-->
 </head>
 <body class="min-h-screen flex flex-col antialiased">
-  <header class="ecm-header">
+  <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
       <a href="/" class="ecm-logo" aria-label="ECM 홈">
         <img class="ecm-logo-mark" src="/assets/mascot.svg" alt="" width="36" height="36">
         <span>ECM</span>
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
-        <a href="/#games" class="ecm-menu-link">게임 쿠폰</a>
-        <a href="/#fashion" class="ecm-menu-link">쇼핑 할인</a>
-        <a href="/blog/index.html" class="ecm-menu-link is-current">블로그</a>
+        <button type="button" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></button>
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
+      <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <!-- 드롭다운 패널. 내용은 assets/ecm.js 가 assets/menu.html(메인에서 미리 렌더링한 메뉴 3개)을 읽어 채운다 -->
+    <div id="megaMenuWrap" class="ecm-mega-wrap">
+      <div class="ecm-drawer">
+        <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="megaGridContainer"></div>
+        <div class="ecm-drawer-links">
+          <a href="/#games">🎮 게임 쿠폰</a>
+          <a href="/#fashion">🛍️ 쇼핑 할인</a>
+          <a href="/">🏠 홈</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -164,6 +178,7 @@
     <a href="/blog/index.html" class="text-sm text-slate-500 hover:text-slate-900 mb-6 inline-block"><i class="fa-solid fa-arrow-left mr-1"></i> 블로그 목록으로</a>
     <article>
       <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-3">MMORPG vs FPS vs 수집형RPG, 장르별 쿠폰 활용 전략</h1>
+    <p class="ecm-byline"><img src="/assets/mascot.svg" alt="" width="22" height="22"><b>포티</b><span>·</span><span>ECM 운영자</span><span>·</span><time datetime="2026-09-21">2026.09.21 작성</time><span>·</span><time datetime="2026-09-23">2026.09.23 수정</time></p>
       <p class="text-xs font-mono text-slate-400 mb-6">2026.09.21 게시</p>
 <p class="text-slate-600 leading-relaxed my-4">같은 "쿠폰"이라도 장르에 따라 쓰는 전략이 달라야 합니다. MMORPG는 타이밍이 중요하고, 수집형 RPG는 모아서 쓰는 게 유리합니다. 이 글은 장르별로 쿠폰을 가장 효율적으로 쓰는 방법을 정리했습니다.</p>
 <p class="text-slate-600 leading-relaxed my-4"><a href="/blog/game-coupon-complete-guide.html" class="text-purple-600 hover:text-purple-700 underline">게임 쿠폰 완벽 가이드</a></p>

@@ -39,7 +39,7 @@
     if (a.target && a.target !== '_self') return;
     if (a.hasAttribute('download')) return;
     // 메인 화면 안에서 처리하는 링크(게임·쇼핑·카테고리)는 페이지를 옮기지 않는다
-    if (a.dataset.game || a.dataset.shop || a.dataset.cat) return;
+    if (typeof window.bindMenu === 'function' && (a.dataset.game || a.dataset.shop || a.dataset.cat)) return;
     var href = a.getAttribute('href') || '';
     if (!href || href.charAt(0) === '#' || /^(javascript:|mailto:|tel:)/i.test(href)) return;
     var url;
@@ -57,4 +57,156 @@
 
   window.addEventListener('pageshow', hide);   // 뒤로 가기(bfcache)로 돌아왔을 때
   window.addEventListener('pagehide', hide);
+})();
+
+/* 블로그 글 왼쪽 목차.
+   글의 h2(필요하면 h3)로 목차를 만들어 넓은 화면에서는 왼쪽에 붙여 두고(스크롤해도 따라옴),
+   좁은 화면에서는 글 위에 접었다 펴는 상자로 둔다. 읽고 있는 항목에 표시가 붙는다. */
+(function () {
+  if (!/^\/blog\//.test(location.pathname)) return;
+  var main = document.querySelector('main');
+  var scope = main && main.querySelector('article');
+  if (!scope) return; // 글 페이지에만 (목록 페이지는 분류 칩이 있다)
+  var heads = Array.prototype.slice.call(scope.querySelectorAll('h2, h3')).filter(function (h) {
+    return h.textContent.trim() && !h.closest('.ecm-toc');
+  });
+  if (heads.filter(function (h) { return h.tagName === 'H2'; }).length < 3) return;
+
+  var used = {};
+  heads.forEach(function (h, i) {
+    if (!h.id) {
+      var base = h.textContent.trim().replace(/\s+/g, '-').replace(/[^\w가-힣-]/g, '').slice(0, 40) || ('sec-' + i);
+      var id = base, n = 2;
+      while (used[id] || document.getElementById(id)) id = base + '-' + (n++);
+      h.id = id;
+    }
+    used[h.id] = true;
+  });
+
+  var aside = document.createElement('aside');
+  aside.className = 'ecm-toc';
+  aside.setAttribute('aria-label', '목차');
+  var list = heads.map(function (h) {
+    return '<li class="lv-' + h.tagName.toLowerCase() + '"><a href="#' + h.id + '">' + h.textContent.trim().replace(/</g, '&lt;') + '</a></li>';
+  }).join('');
+  aside.innerHTML = '<details class="ecm-toc-box" open><summary>목차 <span class="ecm-toc-n">' + heads.length + '</span></summary><ol>' + list + '</ol></details>';
+  main.classList.add('has-toc');
+  main.insertBefore(aside, main.firstChild);
+
+  // 좁은 화면에서는 접어 둔다
+  var box = aside.querySelector('details');
+  var mq = window.matchMedia('(max-width: 1099px)');
+  function fold() { box.open = !mq.matches; }
+  fold();
+  if (mq.addEventListener) mq.addEventListener('change', fold);
+
+  // 누르면 목차 밖에서는 접히게, 읽는 위치 표시
+  var links = Array.prototype.slice.call(aside.querySelectorAll('a'));
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { if (mq.matches) box.open = false; });
+  });
+  if ('IntersectionObserver' in window) {
+    var current = null;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) current = e.target.id;
+      });
+      if (!current) return;
+      links.forEach(function (a) { a.classList.toggle('is-current', a.getAttribute('href') === '#' + current); });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+    heads.forEach(function (h) { io.observe(h); });
+  }
+})();
+
+/* 메인이 아닌 페이지(블로그·정보)의 드롭다운. 메인은 자체 메뉴 코드(bindMenu)를 쓴다. */
+(function () {
+  if (typeof window.bindMenu === 'function') return;
+  var wrap = document.getElementById('megaMenuWrap');
+  var box = document.getElementById('megaGridContainer');
+  if (!wrap || !box) return;
+  var header = document.getElementById('siteHeader') || wrap.closest('header');
+  var openName = null, closeTimer = null;
+  var isDesktop = function () { return window.matchMedia('(min-width: 1024px)').matches; };
+
+  // 메인에서 미리 렌더링해 둔 메뉴 3개(게임·쇼핑·블로그). 링크는 메인(/#...)으로 간다.
+  fetch('/assets/menu.html', { cache: 'no-store' }).then(function (r) { return r.text(); })
+    .then(function (html) { box.innerHTML = html; })
+    .catch(function () { box.innerHTML = '<div class="ecm-mega" data-panel="blog"><div class="ecm-mega-panel"><div class="ecm-mega-body"><p class="ecm-mega-empty"><a href="/blog/index.html">블로그 목록 보기</a></p></div></div></div>'; });
+
+  function openMenu(name) {
+    openName = name;
+    wrap.classList.add('is-open');
+    Array.prototype.slice.call(document.querySelectorAll('.ecm-mega')).forEach(function (p) { p.classList.toggle('is-open', p.getAttribute('data-panel') === name); });
+    Array.prototype.slice.call(document.querySelectorAll('.ecm-menu-btn')).forEach(function (b) {
+      var on = b.getAttribute('data-menu') === name; b.classList.toggle('is-open', on); b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    if (!isDesktop()) document.body.classList.add('ecm-lock');
+  }
+  function closeMenu() {
+    openName = null;
+    wrap.classList.remove('is-open');
+    Array.prototype.slice.call(document.querySelectorAll('.ecm-mega, .ecm-menu-btn')).forEach(function (el) { el.classList.remove('is-open'); });
+    document.body.classList.remove('ecm-lock');
+  }
+  function activateSide(panel, key) {
+    Array.prototype.slice.call(document.querySelectorAll('.ecm-mega-side-item[data-panel-side="' + panel + '"]')).forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-side') === key); });
+    Array.prototype.slice.call(document.querySelectorAll('.ecm-mega-sec[data-panel-sec="' + panel + '"]')).forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-sec') === key); });
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target; if (!t || !t.closest) return;
+    var btn = t.closest('.ecm-menu-btn');
+    if (btn) { var name = btn.getAttribute('data-menu'); if (openName === name && !isDesktop()) closeMenu(); else openMenu(name); return; }
+    if (t.closest('#burgerBtn')) { openName ? closeMenu() : openMenu('all'); return; }
+    if (t.closest('[data-close-menu]')) { closeMenu(); return; }
+    var side = t.closest('.ecm-mega-side-item');
+    if (side) { activateSide(side.getAttribute('data-panel-side'), side.getAttribute('data-side')); return; }
+    if (openName && header && !header.contains(t)) closeMenu();
+    if (openName && !isDesktop() && t.id === 'megaMenuWrap') closeMenu();
+  });
+  document.addEventListener('mouseover', function (e) {
+    if (!isDesktop()) return;
+    var t = e.target; if (!t || !t.closest) return;
+    var btn = t.closest('.ecm-menu-btn');
+    if (btn) { clearTimeout(closeTimer); openMenu(btn.getAttribute('data-menu')); return; }
+    var side = t.closest('.ecm-mega-side-item');
+    if (side) { activateSide(side.getAttribute('data-panel-side'), side.getAttribute('data-side')); return; }
+    if (openName && header && header.contains(t) && !t.closest('.ecm-menu') && !t.closest('#megaMenuWrap')) {
+      clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 150);
+    }
+  });
+  if (header) {
+    header.addEventListener('mouseleave', function () { if (isDesktop()) closeTimer = setTimeout(closeMenu, 200); });
+    header.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+
+/* 블로그 목록: 카테고리 칩. '최신 글'은 분류 섹션의 카드를 날짜순으로 모아 보여준다. */
+(function () {
+  var chips = document.getElementById('blogCats');
+  var latest = document.getElementById('latestPosts');
+  if (!chips || !latest) return;
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[data-cat]'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('main section[data-cat] .post-card'));
+  var grid = latest.querySelector('.grid');
+  cards.slice().sort(function (a, b) {
+    var da = (a.querySelector('.post-date') || {}).textContent || '', db = (b.querySelector('.post-date') || {}).textContent || '';
+    return db.localeCompare(da);
+  }).forEach(function (c) { grid.appendChild(c.cloneNode(true)); });
+
+  function show(cat) {
+    sections.forEach(function (s) { s.hidden = s.getAttribute('data-cat') !== cat; });
+    Array.prototype.slice.call(chips.querySelectorAll('.ecm-chip')).forEach(function (b) {
+      var on = b.getAttribute('data-cat') === cat; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.ecm-chip') : null;
+    if (!b) return;
+    var cat = b.getAttribute('data-cat');
+    show(cat);
+    if (history.replaceState) history.replaceState(null, '', cat === 'latest' ? ' ' : '#' + cat);
+  });
+  var want = (location.hash || '').slice(1);
+  show(['game', 'platform', 'life', 'guide'].indexOf(want) >= 0 ? want : 'latest');
 })();

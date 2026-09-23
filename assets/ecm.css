@@ -233,3 +233,39 @@ body.ecm-lock { overflow: hidden; }
 
 /* 블로그 본문: 14px(text-sm) 는 모바일에서 작다. 본문 문단·목록은 16px 로 */
 main article p.text-sm, main article li, main article .text-sm:not(table):not(th):not(td) { font-size: 1rem; line-height: 1.8; }
+
+/* ───────── 블로그 글 목차 ───────── */
+.ecm-toc-box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: .6rem .9rem; margin: 0 0 1.25rem; }
+.ecm-toc-box summary { cursor: pointer; font-weight: 800; font-size: .9rem; list-style: none; display: flex; align-items: center; gap: .4rem; }
+.ecm-toc-box summary::-webkit-details-marker { display: none; }
+.ecm-toc-box summary::before { content: "☰"; color: var(--brown); font-size: .85rem; }
+.ecm-toc-n { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; background: var(--y-soft); color: var(--brown); padding: 1px 6px; border-radius: 6px; }
+.ecm-toc-box ol { list-style: none; margin: .5rem 0 0; padding: 0; border-top: 1px solid #F3F1E6; padding-top: .5rem; }
+.ecm-toc-box li { margin: 0; }
+.ecm-toc-box li.lv-h3 a { padding-left: 1.1rem; font-size: .8rem; color: var(--ink-3); }
+.ecm-toc-box a { display: block; padding: .3rem .4rem; border-radius: 6px; color: var(--ink-2); text-decoration: none; font-size: .85rem; line-height: 1.45; border-left: 2px solid transparent; }
+.ecm-toc-box a:hover { background: var(--y-pale); color: var(--ink); }
+.ecm-toc-box a.is-current { border-left-color: var(--y-deep); color: var(--ink); font-weight: 700; background: var(--y-pale); }
+@media (min-width: 1100px) {
+  main.has-toc { max-width: 66rem; display: grid; grid-template-columns: 220px minmax(0, 48rem); gap: 0 2.5rem; align-items: start; justify-content: center; }
+  main.has-toc > * { grid-column: 2; }
+  main.has-toc > .ecm-toc { grid-column: 1; grid-row: 1 / span 40; position: sticky; top: 76px; max-height: calc(100vh - 92px); overflow: auto; margin: 0; }
+  .ecm-toc-box { margin: 0; }
+}
+
+/* 블로그 드롭다운·목록 칩 */
+.ecm-mega-list-1 { grid-template-columns: 1fr !important; }
+.ecm-mega-more { margin: .6rem 0 0; font-size: .8rem; }
+.ecm-mega-more a { color: var(--brown); font-weight: 700; text-decoration: none; }
+.ecm-mega-more a:hover { text-decoration: underline; }
+.ecm-blog-chips { display: flex; gap: .4rem; overflow-x: auto; padding: 0 0 1.25rem; scrollbar-width: none; }
+.ecm-blog-chips::-webkit-scrollbar { display: none; }
+.ecm-blog-chips .ecm-chip { flex: none; display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .9rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: .85rem; color: var(--ink-2); cursor: pointer; white-space: nowrap; font-family: inherit; }
+.ecm-blog-chips .ecm-chip:hover { border-color: var(--y-deep); }
+.ecm-blog-chips .ecm-chip.is-active { background: var(--ink); color: var(--y); border-color: var(--ink); }
+main section[data-cat][hidden] { display: none; }
+
+/* 글쓴이 줄 */
+.ecm-byline { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--ink-3); margin: -.25rem 0 1.25rem; }
+.ecm-byline img { width: 22px; height: 22px; }
+.ecm-byline b { color: var(--ink-2); font-weight: 700; }

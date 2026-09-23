@@ -39,22 +39,35 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
-  <header class="ecm-header">
+  <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
       <a href="/" class="ecm-logo" aria-label="ECM 홈">
         <img class="ecm-logo-mark" src="/assets/mascot.svg" alt="" width="36" height="36">
         <span>ECM</span>
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
-        <a href="/#games" class="ecm-menu-link">게임 쿠폰</a>
-        <a href="/#fashion" class="ecm-menu-link">쇼핑 할인</a>
-        <a href="/blog/index.html" class="ecm-menu-link">블로그</a>
+        <button type="button" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></button>
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
+      <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <!-- 드롭다운 패널. 내용은 assets/ecm.js 가 assets/menu.html(메인에서 미리 렌더링한 메뉴 3개)을 읽어 채운다 -->
+    <div id="megaMenuWrap" class="ecm-mega-wrap">
+      <div class="ecm-drawer">
+        <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="megaGridContainer"></div>
+        <div class="ecm-drawer-links">
+          <a href="/#games">🎮 게임 쿠폰</a>
+          <a href="/#fashion">🛍️ 쇼핑 할인</a>
+          <a href="/">🏠 홈</a>
+        </div>
+      </div>
     </div>
   </header>
 

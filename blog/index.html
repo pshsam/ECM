@@ -48,30 +48,58 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
-  <header class="ecm-header">
+  <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
       <a href="/" class="ecm-logo" aria-label="ECM 홈">
         <img class="ecm-logo-mark" src="/assets/mascot.svg" alt="" width="36" height="36">
         <span>ECM</span>
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
-        <a href="/#games" class="ecm-menu-link">게임 쿠폰</a>
-        <a href="/#fashion" class="ecm-menu-link">쇼핑 할인</a>
-        <a href="/blog/index.html" class="ecm-menu-link is-current">블로그</a>
+        <button type="button" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></button>
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
+      <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <!-- 드롭다운 패널. 내용은 assets/ecm.js 가 assets/menu.html(메인에서 미리 렌더링한 메뉴 3개)을 읽어 채운다 -->
+    <div id="megaMenuWrap" class="ecm-mega-wrap">
+      <div class="ecm-drawer">
+        <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="megaGridContainer"></div>
+        <div class="ecm-drawer-links">
+          <a href="/#games">🎮 게임 쿠폰</a>
+          <a href="/#fashion">🛍️ 쇼핑 할인</a>
+          <a href="/">🏠 홈</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-1">
     <h1 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">ECM 블로그</h1>
-    <p class="text-sm text-slate-500 mb-10">게임 쿠폰부터 패션·장보기 할인까지, 검증된 정보만 모았습니다.</p>
+    <p class="text-sm text-slate-500 mb-6">게임 쿠폰부터 패션·장보기 할인까지, 검증된 정보만 모았습니다.</p>
 
-    <section class="mb-10">
+    <!-- 카테고리 칩. '전체'는 최신 글 순, 나머지는 그 분류만. 동작은 assets/ecm.js -->
+    <div class="ecm-chips ecm-blog-chips" id="blogCats" role="tablist" aria-label="블로그 분류">
+      <button type="button" role="tab" class="ecm-chip is-active" data-cat="latest" aria-selected="true"><span class="ecm-chip-ico">🕒</span><span class="ecm-chip-label">최신 글</span></button>
+      <button type="button" role="tab" class="ecm-chip" data-cat="game" aria-selected="false"><span class="ecm-chip-ico">🎮</span><span class="ecm-chip-label">게임 쿠폰 코드</span></button>
+      <button type="button" role="tab" class="ecm-chip" data-cat="platform" aria-selected="false"><span class="ecm-chip-ico">☁️</span><span class="ecm-chip-label">플랫폼 & 구독</span></button>
+      <button type="button" role="tab" class="ecm-chip" data-cat="life" aria-selected="false"><span class="ecm-chip-ico">🛒</span><span class="ecm-chip-label">생활 쿠폰</span></button>
+      <button type="button" role="tab" class="ecm-chip" data-cat="guide" aria-selected="false"><span class="ecm-chip-ico">📖</span><span class="ecm-chip-label">가이드 & 활용 팁</span></button>
+    </div>
+
+    <!-- 최신 글: 아래 분류 섹션의 카드를 날짜순으로 모아 assets/ecm.js 가 채운다 -->
+    <section class="mb-10" data-cat="latest" id="latestPosts" hidden>
+      <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2"><i class="fa-regular fa-clock text-amber-600"></i> 최신 글</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+    </section>
+
+    <section class="mb-10" data-cat="game">
       <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-gamepad text-purple-600"></i> 게임 쿠폰 코드</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
@@ -98,7 +126,7 @@
       </div>
     </section>
 
-    <section class="mb-10">
+    <section class="mb-10" data-cat="platform">
       <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-cloud text-sky-600"></i> 플랫폼 &amp; 구독</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
@@ -125,7 +153,7 @@
       </div>
     </section>
 
-    <section class="mb-10">
+    <section class="mb-10" data-cat="life">
       <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-basket-shopping text-emerald-600"></i> 생활 쿠폰</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
@@ -152,7 +180,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="mb-10" data-cat="guide">
       <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-book-open text-amber-600"></i> 가이드 &amp; 활용 팁</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
