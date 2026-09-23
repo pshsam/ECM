@@ -2686,6 +2686,7 @@
         if (!isDesktop()) return;
         const t = e.target;
         if (!t || typeof t.closest !== 'function') return;
+        if (t.closest('#megaMenuWrap') || t.closest('.ecm-menu')) clearTimeout(closeTimer);
         const menuBtn = t.closest('.ecm-menu-btn');
         if (menuBtn) { clearTimeout(closeTimer); openMenu(menuBtn.dataset.menu); return; }
         const side = t.closest('.ecm-mega-side-item');

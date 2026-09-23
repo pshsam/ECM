@@ -166,6 +166,8 @@
   document.addEventListener('mouseover', function (e) {
     if (!isDesktop()) return;
     var t = e.target; if (!t || !t.closest) return;
+    // 패널이나 메뉴 줄 위에 있는 동안은 닫지 않는다 (버튼→패널로 내려오는 길에 예약된 닫기를 취소)
+    if (t.closest('#megaMenuWrap') || t.closest('.ecm-menu')) clearTimeout(closeTimer);
     var btn = t.closest('.ecm-menu-btn');
     if (btn) { clearTimeout(closeTimer); openMenu(btn.getAttribute('data-menu')); return; }
     var side = t.closest('.ecm-mega-side-item');
