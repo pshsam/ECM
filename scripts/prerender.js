@@ -20,6 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { writeGamePages, qualifies } = require('./game-pages');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
@@ -141,7 +142,7 @@ function itemListJsonLd(games) {
           '@type': 'Thing',
           name: `${g.title} 쿠폰 코드`,
           description: `${g.title}(${g.category}) 쿠폰 코드: ${codes}`,
-          url: `https://ecm-coupon.com/#${g.id}`,
+          url: `https://ecm-coupon.com/game/${g.id}.html`,
         },
       };
     }),
@@ -192,7 +193,7 @@ function blogLinksHtml(dir) {
  * 손으로 관리하던 때는 글을 추가해도 사이트맵에 빠지거나, lastmod가 전부 같은
  * 날짜로 박혀 있어 검색엔진에 "언제 바뀌었는지" 신호를 주지 못했다.
  */
-function writeSitemap(rootDir) {
+function writeSitemap(rootDir, gameIds = []) {
   const { execFileSync } = require('child_process');
 
   const lastModified = (relPath) => {
@@ -216,6 +217,7 @@ function writeSitemap(rootDir) {
     { loc: '/contact.html', file: 'contact.html', freq: 'monthly', priority: '0.4' },
     { loc: '/privacy.html', file: 'privacy.html', freq: 'yearly', priority: '0.3' },
     { loc: '/terms.html', file: 'terms.html', freq: 'yearly', priority: '0.3' },
+    ...gameIds.map(id => ({ loc: `/game/${id}.html`, file: `game/${id}.html`, freq: 'daily', priority: '0.8' })),
     ...posts.map(f => ({
       loc: `/blog/${f}`,
       file: `blog/${f}`,
@@ -499,7 +501,10 @@ function main() {
 
   fs.writeFileSync(FILE, html);
 
-  const urls = writeSitemap(rootDir);
+  // 게임별 쿠폰 페이지 (/game/<id>.html). 살아 있는 코드가 있거나 입력 방법이 확인된 게임만
+  const gp = writeGamePages(rootDir, games, posts, version, seen);
+
+  const urls = writeSitemap(rootDir, gp.ids);
 
   const chars = CATS.reduce((n, c) => n + grids[c].length, 0);
   const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
@@ -507,6 +512,7 @@ function main() {
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소`);
+  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
