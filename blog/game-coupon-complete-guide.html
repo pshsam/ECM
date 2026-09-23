@@ -103,29 +103,34 @@
   </script>
 
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/ecm.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <style>
     figure.post-image { margin: 1.75rem 0; }
     figure.post-image img { width: 100%; height: auto; border-radius: 0.75rem; display: block; }
     figure.post-image figcaption { font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem; }
-    figure.post-image figcaption a { color: #7c3aed; text-decoration: underline; }
+    figure.post-image figcaption a { color: #7A5C00; text-decoration: underline; }
     body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: #f8fafc; color: #0f172a; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased">
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 flex items-center justify-center shadow-lg">
-          <i class="fa-solid fa-ticket-simple text-white text-lg transform -rotate-12"></i>
-        </div>
-        <span class="text-lg font-black text-slate-900">ECM</span>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="ecm-header">
+    <div class="ecm-header-inner">
+      <a href="/" class="ecm-logo" aria-label="ECM 홈">
+        <span class="ecm-logo-mark"><i class="fa-solid fa-ticket-simple"></i></span>
+        <span>ECM</span>
       </a>
-      <nav class="flex items-center gap-4 text-sm font-semibold">
-        <a href="/" class="text-slate-500 hover:text-slate-900">쿠폰 모음</a>
-        <a href="/blog/index.html" class="text-purple-600">블로그</a>
+      <nav class="ecm-menu" aria-label="주 메뉴">
+        <a href="/#games" class="ecm-menu-link">게임 쿠폰</a>
+        <a href="/#fashion" class="ecm-menu-link">쇼핑 할인</a>
+        <a href="/blog/index.html" class="ecm-menu-link is-current">블로그</a>
       </nav>
+      <form class="ecm-search" role="search" action="/" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
+      </form>
+      <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
     </div>
   </header>
 

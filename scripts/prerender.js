@@ -22,7 +22,9 @@ const fs = require('fs');
 const path = require('path');
 
 const FILE = path.join(__dirname, '..', 'index.html');
-const CATS = ['game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
+// mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
+const CATS = ['mega', 'updates', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
+const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 
 function makeDom() {
   const grids = {};
@@ -67,6 +69,7 @@ function makeDom() {
     querySelector() { return el('sel'); },
     querySelectorAll() { return []; },
     createElement(tag) { return el(tag); },
+    addEventListener() {},
     documentElement: el('html'),
     body: el('body'),
   };
@@ -177,7 +180,7 @@ function blogLinksHtml(dir) {
     const html = fs.readFileSync(path.join(dir, f), 'utf8');
     const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
     const title = (m ? m[1] : f).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    return `        <li><a href="/blog/${f}" class="text-slate-600 hover:text-purple-700 hover:underline">${title}</a></li>`;
+    return `        <li><a href="/blog/${f}" class="ecm-link">${title}</a></li>`;
   }).join('\n') + '\n      ';
 }
 
@@ -234,6 +237,75 @@ function writeSitemap(rootDir) {
   return entries.length;
 }
 
+/**
+ * 쿠폰 등록일 장부.
+ *
+ * NEW 뱃지와 '최신 업데이트'는 "이 코드가 언제 처음 올라왔는지"를 알아야 한다.
+ * 카탈로그에는 등록일이 없으므로 여기서 따로 적어 둔다. 장부에 없는 코드는
+ * git 이력에서 그 코드가 처음 나타난 커밋 날짜를 찾고, 그것도 없으면(아직 커밋
+ * 전) 카탈로그 갱신일(CATALOG_VERSION)을 쓴다. 장부가 커밋되지 않아도 git 이력이
+ * 같은 답을 주므로 날짜가 흔들리지 않는다.
+ */
+function loadSeen() {
+  try { return JSON.parse(fs.readFileSync(SEEN_FILE, 'utf8')); } catch (_) { return {}; }
+}
+
+function gitFirstSeen(needle, rootDir) {
+  const { execFileSync } = require('child_process');
+  try {
+    const out = execFileSync('git', ['log', '--reverse', '--format=%cs', '-S', needle, '--', 'index.html'], {
+      cwd: rootDir, encoding: 'utf8',
+    }).trim();
+    return out ? out.split('\n')[0] : null;
+  } catch (_) { return null; }
+}
+
+function updateSeen(games, version, rootDir) {
+  const seen = loadSeen();
+  const today = new Date().toISOString().slice(0, 10);
+  const fallback = /^\d{4}-\d{2}-\d{2}$/.test(version) ? version : today;
+  let added = 0;
+  const note = (key, needle) => {
+    if (seen[key]) return;
+    seen[key] = gitFirstSeen(needle, rootDir) || fallback;
+    added++;
+  };
+  for (const g of games) {
+    note('game:' + g.id, `id: "${g.id}"`);
+    for (const c of (g.coupons || [])) note(g.id + ':' + c.code, `code: "${c.code}"`);
+  }
+  if (added || !fs.existsSync(SEEN_FILE)) {
+    fs.mkdirSync(path.dirname(SEEN_FILE), { recursive: true });
+    fs.writeFileSync(SEEN_FILE, JSON.stringify(seen, null, 2) + '\n');
+  }
+  return { seen, added };
+}
+
+/** 홈의 '최신 업데이트'에 넣을 최근 블로그 글. blog/index.html 의 카드에서 제목·날짜를 읽는다. */
+function recentPosts(blogDir, limit = 10) {
+  let html;
+  try { html = fs.readFileSync(path.join(blogDir, 'index.html'), 'utf8'); } catch (_) { return []; }
+  const posts = [];
+  const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const title = m[3].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    posts.push({ url: m[1], title, date: m[2].replace(/\./g, '-') });
+  }
+  posts.sort((a, b) => b.date.localeCompare(a.date));
+  return posts.slice(0, limit);
+}
+
+/** 스크립트 안의 /*PRERENDER:key*​/ … /*​/PRERENDER:key*​/ 사이를 바꾼다 (HTML 주석은 스크립트 안에서 못 쓴다) */
+function replaceJsBlock(html, key, content) {
+  const open = `/*PRERENDER:${key}*/`;
+  const close = `/*/PRERENDER:${key}*/`;
+  const i = html.indexOf(open);
+  const j = html.indexOf(close);
+  if (i < 0 || j < 0) throw new Error(`스크립트 마커를 찾지 못했습니다: ${key}`);
+  return html.slice(0, i + open.length) + content + html.slice(j);
+}
+
 function replaceBlock(html, key, content) {
   const open = `<!--PRERENDER:${key}-->`;
   const close = `<!--/PRERENDER:${key}-->`;
@@ -244,7 +316,18 @@ function replaceBlock(html, key, content) {
 }
 
 function main() {
+  const rootDir = path.join(__dirname, '..');
+  const blogDir = path.join(rootDir, 'blog');
   let html = fs.readFileSync(FILE, 'utf8');
+
+  // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
+  const first = run(html);
+  const { seen, added } = updateSeen(first.games, first.version, rootDir);
+  html = replaceJsBlock(html, 'seen', `\n    const COUPON_FIRST_SEEN = ${JSON.stringify(seen)};\n    `);
+  const posts = recentPosts(blogDir);
+  html = replaceJsBlock(html, 'posts', `\n    const RECENT_BLOG_POSTS = ${JSON.stringify(posts)};\n    `);
+
+  // 2차 실행: 등록일·최근 글이 반영된 상태로 그리드를 채운다
   const data = run(html);
   const { grids, games, version } = data;
 
@@ -260,13 +343,12 @@ function main() {
   html = replaceBlock(html, 'itemlist', ld);
   html = replaceBlock(html, 'noscript', noscriptHtml(data));
 
-  const blogDir = path.join(__dirname, '..', 'blog');
   const blogLinks = blogLinksHtml(blogDir);
   html = replaceBlock(html, 'bloglinks', blogLinks);
 
   fs.writeFileSync(FILE, html);
 
-  const urls = writeSitemap(path.join(__dirname, '..'));
+  const urls = writeSitemap(rootDir);
 
   const chars = CATS.reduce((n, c) => n + grids[c].length, 0);
   const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
@@ -274,6 +356,7 @@ function main() {
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소`);
+  console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
 }
 
 main();

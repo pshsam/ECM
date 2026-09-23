@@ -1,0 +1,207 @@
+/* ECM 공통 테마 — 병아리 노랑.
+   assets/styles.css 는 미리 빌드된 Tailwind 라 새 유틸리티 클래스를 써도 CSS 가 안 나온다.
+   그래서 새 화면 요소는 전부 여기 ecm- 접두사 클래스로 직접 정의한다. 메인과 블로그가 같이 쓴다. */
+
+:root {
+  --y: #FFE14D;        /* 병아리 노랑: 헤더, 강조 */
+  --y-deep: #F7C600;   /* 테두리·호버 */
+  --y-soft: #FFF3B0;   /* 연한 배지 */
+  --y-pale: #FFFBE6;   /* 아이콘 상자, 행 호버 */
+  --ink: #1A1600;      /* 본문 글자 (따뜻한 검정) */
+  --ink-2: #4A4530;
+  --ink-3: #8A8470;
+  --brown: #7A5C00;    /* 노랑 위에 얹는 강조 글자색 */
+  --line: #ECE9DA;
+  --bg: #FCFBF6;
+  --hot: #FF4D4F;
+  --new: #16A34A;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+.ecm-wrap { max-width: 80rem; margin: 0 auto; padding: 0 1rem; width: 100%; }
+@media (min-width: 640px) { .ecm-wrap { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .ecm-wrap { padding: 0 2rem; } }
+body.ecm-lock { overflow: hidden; }
+
+/* ───────── 헤더 ───────── */
+.ecm-header {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--y);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.ecm-header-inner {
+  max-width: 80rem; margin: 0 auto; padding: .5rem 1rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+}
+.ecm-logo {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-weight: 900; font-size: 1.35rem; letter-spacing: -.02em;
+  color: var(--ink); text-decoration: none; flex-shrink: 0;
+}
+.ecm-logo-mark {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: var(--ink); color: var(--y);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px; transform: rotate(-8deg);
+}
+.ecm-menu { display: none; align-items: center; gap: .15rem; }
+.ecm-menu-btn, .ecm-menu-link {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .5rem .8rem; border-radius: .6rem;
+  font-weight: 700; font-size: .92rem; color: var(--ink);
+  background: transparent; border: 0; cursor: pointer; text-decoration: none;
+  white-space: nowrap; font-family: inherit;
+}
+.ecm-menu-btn:hover, .ecm-menu-link:hover, .ecm-menu-btn.is-open, .ecm-menu-link.is-current { background: rgba(0,0,0,.08); }
+.ecm-menu-btn i { font-size: .65rem; transition: transform .15s; }
+.ecm-menu-btn.is-open i { transform: rotate(180deg); }
+
+.ecm-search { position: relative; display: flex; align-items: center; flex: 1 1 100%; order: 10; min-width: 0; }
+.ecm-search > i { position: absolute; left: .85rem; color: var(--ink-3); font-size: .85rem; pointer-events: none; }
+.ecm-search input {
+  width: 100%; height: 38px; border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.08); background: #fff;
+  padding: 0 2.2rem 0 2.3rem; font-size: .875rem; color: var(--ink);
+  -webkit-appearance: none; appearance: none; font-family: inherit;
+}
+.ecm-search input::-webkit-search-cancel-button { display: none; }
+.ecm-search input::placeholder { color: #A19B86; }
+.ecm-search input:focus { outline: none; box-shadow: 0 0 0 3px rgba(0,0,0,.1); }
+.ecm-search #clearSearchBtn { position: absolute; right: .75rem; color: var(--ink-3); background: none; border: 0; cursor: pointer; }
+.ecm-search #clearSearchBtn.hidden { display: none; }
+
+.ecm-report {
+  display: none; align-items: center; gap: .35rem;
+  background: var(--ink); color: var(--y);
+  border-radius: .6rem; padding: .5rem .9rem;
+  font-weight: 800; font-size: .85rem; border: 0; cursor: pointer; white-space: nowrap; font-family: inherit;
+}
+.ecm-report:hover { background: #2E2800; }
+.ecm-burger {
+  margin-left: auto; order: 5;
+  display: inline-flex; width: 38px; height: 38px; border-radius: .6rem;
+  align-items: center; justify-content: center;
+  border: 0; background: rgba(0,0,0,.06); color: var(--ink); font-size: 1.05rem; cursor: pointer;
+}
+@media (min-width: 640px) {
+  .ecm-header-inner { flex-wrap: nowrap; height: 60px; padding-top: 0; padding-bottom: 0; }
+  .ecm-search { flex: 1 1 auto; order: 0; max-width: 420px; margin-left: auto; }
+  .ecm-burger { margin-left: 0; order: 0; }
+}
+@media (min-width: 1024px) {
+  .ecm-menu { display: flex; }
+  .ecm-report { display: inline-flex; }
+  .ecm-burger { display: none; }
+}
+
+/* ───────── 드롭다운(메가 메뉴) ─────────
+   데스크톱: 헤더 아래로 펼쳐지는 패널. 왼쪽은 분류, 오른쪽은 그 분류의 목록.
+   모바일:   같은 마크업을 오른쪽 서랍으로 보여준다. */
+.ecm-mega-wrap { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; display: none; }
+.ecm-mega-wrap.is-open { display: block; }
+.ecm-drawer { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
+.ecm-drawer-head, .ecm-drawer-links, .ecm-mega-title { display: none; }
+.ecm-mega { display: none; }
+.ecm-mega.is-open { display: block; }
+.ecm-mega-panel {
+  background: #fff; border: 1px solid var(--line); border-top: 0;
+  border-radius: 0 0 16px 16px; box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  display: flex; min-height: 300px; max-height: 70vh; overflow: hidden;
+  width: min(900px, 100%);
+}
+.ecm-mega-side {
+  width: 220px; flex-shrink: 0; background: #FAF9F2; border-right: 1px solid var(--line);
+  padding: .75rem; display: flex; flex-direction: column; gap: .2rem; overflow: auto;
+}
+.ecm-mega-side-item {
+  display: flex; align-items: center; gap: .55rem; width: 100%;
+  padding: .6rem .75rem; border-radius: .6rem; border: 0; background: transparent;
+  font-weight: 700; font-size: .9rem; color: var(--ink-2); cursor: pointer; text-align: left; font-family: inherit;
+}
+.ecm-mega-side-item i { margin-left: auto; font-size: .6rem; color: var(--ink-3); }
+.ecm-mega-side-item:hover { background: #F1EEDF; }
+.ecm-mega-side-item.is-active { background: var(--y-soft); color: var(--ink); }
+.ecm-mega-body { flex: 1; padding: 1rem 1.25rem; overflow: auto; min-width: 0; }
+.ecm-mega-sec { display: none; }
+.ecm-mega-sec.is-active { display: block; }
+.ecm-mega-sec h3 { font-size: 1rem; font-weight: 800; margin: 0 0 .5rem; }
+.ecm-mega-sec h4 { font-size: .72rem; font-weight: 700; color: var(--ink-3); margin: .9rem 0 .25rem; letter-spacing: .05em; text-transform: uppercase; }
+.ecm-mega-sec h4:first-of-type { margin-top: .25rem; }
+.ecm-mega-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .1rem .75rem; }
+.ecm-mega-list a {
+  display: flex; align-items: center; gap: .45rem; min-width: 0;
+  padding: .45rem .5rem; border-radius: .5rem;
+  color: var(--ink); text-decoration: none; font-size: .9rem; font-weight: 600;
+}
+.ecm-mega-list a:hover { background: var(--y-pale); }
+.ecm-mega-list .ecm-mega-icon { font-size: 1rem; width: 1.4rem; text-align: center; flex-shrink: 0; }
+.ecm-mega-list .ecm-mega-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ecm-mega-list .ecm-mega-benefit { margin-left: auto; font-size: .72rem; color: var(--brown); font-weight: 700; white-space: nowrap; }
+.ecm-mega-empty { color: var(--ink-3); font-size: .85rem; padding: .5rem; }
+
+@media (max-width: 1023.98px) {
+  .ecm-mega-wrap { position: fixed; inset: 0; background: rgba(0,0,0,.35); }
+  .ecm-drawer {
+    position: absolute; top: 0; right: 0; bottom: 0; width: min(92vw, 400px);
+    background: #fff; overflow: auto; padding: 1rem; margin: 0;
+    display: flex; flex-direction: column; gap: 1rem;
+    box-shadow: -10px 0 30px rgba(0,0,0,.15);
+  }
+  .ecm-drawer-head { display: flex; align-items: center; justify-content: space-between; font-weight: 900; font-size: 1.05rem; }
+  .ecm-drawer-close { width: 34px; height: 34px; border-radius: 999px; border: 0; background: #F4F2E8; cursor: pointer; font-size: 1rem; }
+  .ecm-drawer-links { display: flex; flex-direction: column; gap: .25rem; border-top: 1px solid var(--line); padding-top: .75rem; }
+  .ecm-drawer-links a { padding: .6rem .5rem; border-radius: .5rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .ecm-drawer-links a:hover { background: var(--y-pale); }
+  .ecm-mega { display: block; }
+  .ecm-mega-title { display: block; font-weight: 900; font-size: 1rem; margin: 0 0 .35rem; }
+  .ecm-mega-panel { flex-direction: column; box-shadow: none; border: 0; border-radius: 0; max-height: none; min-height: 0; width: 100%; }
+  .ecm-mega-side { width: auto; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .25rem 0 .6rem; gap: .35rem; }
+  .ecm-mega-side-item { width: auto; padding: .4rem .7rem; font-size: .82rem; background: #F4F2E8; border-radius: 999px; }
+  .ecm-mega-side-item i { display: none; }
+  .ecm-mega-body { padding: .5rem 0 .25rem; }
+  .ecm-mega-sec h3 { display: none; }
+  .ecm-mega-list { grid-template-columns: 1fr; }
+}
+
+/* ───────── 뱃지·버튼·링크 ───────── */
+.ecm-pill {
+  display: inline-flex; align-items: center; font-size: 10px; font-weight: 800;
+  letter-spacing: .04em; padding: 2px 6px; border-radius: 6px; line-height: 1.25; flex-shrink: 0;
+}
+.ecm-pill.hot { background: var(--hot); color: #fff; }
+.ecm-pill.new { background: var(--new); color: #fff; }
+.ecm-btn-primary {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: var(--ink); color: var(--y); border: 0; border-radius: .6rem;
+  padding: .45rem .85rem; font-weight: 800; font-size: .78rem; cursor: pointer; font-family: inherit;
+}
+.ecm-btn-primary:hover { background: #2E2800; }
+.ecm-link { color: var(--ink-2); text-decoration: none; }
+.ecm-link:hover { color: var(--brown); text-decoration: underline; }
+.ecm-link-strong { color: var(--brown); font-weight: 800; text-decoration: none; }
+.ecm-link-strong:hover { text-decoration: underline; }
+.ecm-count { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; background: var(--y-soft); color: var(--brown); padding: 1px 6px; border-radius: 6px; }
+.ecm-toast {
+  background: var(--ink); color: var(--y);
+}
+
+/* 블로그 카드 — 이전 보라색 호버를 노랑으로 */
+.post-card:hover { border-color: var(--y-deep) !important; }
+.post-card:hover h2, .post-card:hover h3 { color: var(--brown); }
+
+/* ───────── 예전 보라색 유틸리티를 노랑 테마로 덮어쓰기 ─────────
+   블로그 글 15개 본문에 text-purple-700 같은 클래스가 수백 곳 박혀 있다.
+   파일마다 고치면 새 글이 들어올 때마다 또 어긋나므로 여기서 한 번에 바꾼다. */
+.text-purple-500, .text-purple-600, .text-purple-700, .text-purple-900,
+.hover\:text-purple-700:hover, .hover\:text-purple-900:hover { color: var(--brown) !important; }
+.bg-purple-50, .bg-purple-100 { background-color: var(--y-pale) !important; }
+.bg-purple-500\/20, .bg-purple-500\/10 { background-color: var(--y-soft) !important; }
+.border-purple-300, .border-purple-500\/30, .hover\:border-purple-300:hover { border-color: var(--y-deep) !important; }
+.bg-purple-600, .bg-indigo-600 { background-color: var(--ink) !important; color: var(--y) !important; }
+.from-purple-600, .via-indigo-600, .from-indigo-600 { --tw-gradient-from: var(--y-deep) !important; --tw-gradient-to: var(--y) !important; }
+.bg-clip-text.text-transparent { color: var(--brown) !important; background: none !important; }
