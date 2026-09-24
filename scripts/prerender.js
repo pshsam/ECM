@@ -22,6 +22,7 @@ const fs = require('fs');
 const path = require('path');
 const { writeGamePages, qualifies } = require('./game-pages');
 const { writeLlmsTxt } = require('./llms-txt');
+const { ensureAnalytics } = require('./analytics');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
@@ -526,6 +527,9 @@ function main() {
   console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
+  // 구글 애널리틱스 태그: 모든 페이지 (새 글·새 게임 페이지 포함)
+  const ga = ensureAnalytics(rootDir);
+  if (ga) console.log(`애널리틱스 태그: ${ga}개 페이지에 넣음`);
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 

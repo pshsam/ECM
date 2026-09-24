@@ -10,6 +10,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { GA_SNIPPET } = require('./analytics');
 
 const SITE = 'https://ecm-coupon.com';
 const AUTHOR_NAME = '겜대';
@@ -260,6 +261,7 @@ function pageHtml(g, ctx) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
+  ${GA_SNIPPET}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(title)}</title>
