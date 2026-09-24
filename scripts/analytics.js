@@ -33,7 +33,7 @@ function withAnalytics(html) {
 
 /** 사이트의 모든 HTML 페이지에 태그가 있게 한다. 바꾼 파일 수를 돌려준다. */
 function ensureAnalytics(rootDir) {
-  const dirs = [rootDir, path.join(rootDir, 'blog'), path.join(rootDir, 'game')];
+  const dirs = [rootDir, path.join(rootDir, 'blog'), path.join(rootDir, 'game'), path.join(rootDir, 'shop')];
   let n = 0;
   for (const d of dirs) {
     if (!fs.existsSync(d)) continue;

@@ -1,0 +1,4 @@
+{
+  "note": "쇼핑몰별 혜택 페이지(/shop/<id>.html)의 내용. 'ECM 쇼핑 혜택 검증' 루틴이 공식 안내를 확인해 채운다. 확인된 혜택 2개 이상 + 출처 1개 이상이면 페이지가 생긴다. 형식: shops[<id>] = {checked, summary, benefits:[{title, who, how, period, source}], membership, sales:[{name, when}], howto:[], cautions:[], sources:[{title, url, checked}]}",
+  "shops": {}
+}

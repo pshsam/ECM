@@ -20,7 +20,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const { writeGamePages, qualifies } = require('./game-pages');
+const { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
+const { writeGameHub } = require('./hubs');
+const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { ensureAnalytics } = require('./analytics');
 
@@ -103,6 +105,7 @@ function run(html) {
     return {
       games: games,
       version: CATALOG_VERSION,
+      shop: { cats: SHOP_CATS, catalogs: SHOP_CATALOGS, subs: SUB_LABELS, labels: CATEGORY_MENU_LABEL, icons: CATEGORY_ICON },
       groups: [
         { label: '패션몰 할인', items: rawFashionCatalog, blurb: '쿠폰북·웰컴 혜택 정보를 제공합니다.' },
         { label: '장보기 & 마트', items: rawGroceryCatalog, blurb: '새벽배송·유기농·대용량 장보기 할인 바우처 정보를 제공합니다.' },
@@ -195,7 +198,7 @@ function blogLinksHtml(dir) {
  * 손으로 관리하던 때는 글을 추가해도 사이트맵에 빠지거나, lastmod가 전부 같은
  * 날짜로 박혀 있어 검색엔진에 "언제 바뀌었는지" 신호를 주지 못했다.
  */
-function writeSitemap(rootDir, gameIds = []) {
+function writeSitemap(rootDir, gameIds = [], extra = []) {
   const { execFileSync } = require('child_process');
 
   const lastModified = (relPath) => {
@@ -219,6 +222,7 @@ function writeSitemap(rootDir, gameIds = []) {
     { loc: '/contact.html', file: 'contact.html', freq: 'monthly', priority: '0.4' },
     { loc: '/privacy.html', file: 'privacy.html', freq: 'yearly', priority: '0.3' },
     { loc: '/terms.html', file: 'terms.html', freq: 'yearly', priority: '0.3' },
+    ...extra,
     ...gameIds.map(id => ({ loc: `/game/${id}.html`, file: `game/${id}.html`, freq: 'daily', priority: '0.8' })),
     ...posts.map(f => ({
       loc: `/blog/${f}`,
@@ -487,6 +491,12 @@ function main() {
   // 블로그·정보 페이지의 '블로그' 드롭다운은 이 파일을 읽어 채운다 (assets/ecm.js)
   fs.writeFileSync(path.join(rootDir, 'assets', 'posts.json'), JSON.stringify(posts.map(p => ({ url: p.url, title: p.title, date: p.date, category: p.category, cat: p.cat })), null, 0) + '\n');
 
+  // 쇼핑몰 페이지가 있는 쇼핑몰: 메뉴·카드가 그 페이지로 링크하도록 스크립트에 넣는다
+  const shopDetails = loadShopDetails(rootDir);
+  const shopPageIds = [];
+  for (const cat of first.shop.cats) for (const m of first.shop.catalogs[cat]) if (shopQualifies(shopDetails[m.id])) shopPageIds.push(m.id);
+  html = replaceJsBlock(html, 'shoppages', `\n    const SHOP_PAGES = ${JSON.stringify(shopPageIds)};\n    `);
+
   // 2차 실행: 등록일·최근 글이 반영된 상태로 그리드를 채운다
   const data = run(html);
   const { grids, games, version } = data;
@@ -513,10 +523,21 @@ function main() {
   // 게임별 쿠폰 페이지 (/game/<id>.html). 살아 있는 코드가 있거나 입력 방법이 확인된 게임만
   const gp = writeGamePages(rootDir, games, posts, version, seen);
 
-  const urls = writeSitemap(rootDir, gp.ids);
+  // 섹션 홈: 게임 쿠폰 홈(/game/), 쇼핑 할인 홈(/shop/), 쇼핑몰 페이지(/shop/<id>.html)
+  const shopArgs = { shopCats: data.shop.cats, shopCatalogs: data.shop.catalogs, subLabels: data.shop.subs, catLabels: data.shop.labels, catIcons: data.shop.icons,
+    details: shopDetails, posts, headerHtml, footerHtml };
+  const sp = writeShopPages(rootDir, shopArgs);
+  writeShopHub(rootDir, { ...shopArgs, pageIds: sp.ids });
+  writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
+
+  const urls = writeSitemap(rootDir, gp.ids, [
+    { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
+    { loc: '/shop/', file: 'shop/index.html', freq: 'weekly', priority: '0.9' },
+    ...sp.ids.map(id => ({ loc: `/shop/${id}.html`, file: `shop/${id}.html`, freq: 'weekly', priority: '0.7' })),
+  ]);
 
   // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
-  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version);
+  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version, { shops: sp.ids.map(id => ({ id, name: (Object.values(data.shop.catalogs).flat().find(m => m.id === id) || {}).name || id })) });
 
   const chars = CATS.reduce((n, c) => n + grids[c].length, 0);
   const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
@@ -524,7 +545,7 @@ function main() {
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개`);
-  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
+  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 쇼핑몰 페이지: ${sp.ids.length}개 (새로 씀 ${sp.written}, 지움 ${sp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
   // 구글 애널리틱스 태그: 모든 페이지 (새 글·새 게임 페이지 포함)

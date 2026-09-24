@@ -102,7 +102,7 @@ body { overflow-x: clip; }
 .ecm-mega-wrap { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; display: none; }
 .ecm-mega-wrap.is-open { display: block; }
 .ecm-drawer { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
-.ecm-drawer-head, .ecm-drawer-links, .ecm-mega-title { display: none; }
+.ecm-drawer-head, .ecm-drawer-links, .ecm-mega-title, .ecm-mega-home { display: none; }
 .ecm-mega { display: none; }
 .ecm-mega.is-open { display: block; }
 .ecm-mega-panel {
@@ -167,6 +167,7 @@ body { overflow-x: clip; }
   .ecm-mega.is-expanded .ecm-mega-title i { transform: rotate(180deg); }
   .ecm-mega-panel { display: none; flex-direction: column; box-shadow: none; border: 0; border-radius: 0; max-height: none; min-height: 0; width: 100%; padding-bottom: .5rem; }
   .ecm-mega.is-expanded .ecm-mega-panel { display: flex; }
+  .ecm-mega-home { display: block !important; margin: .1rem 0 .7rem; padding: .6rem .8rem; border-radius: 10px; background: var(--y-pale); color: var(--brown); font-weight: 800; font-size: .88rem; text-decoration: none; }
   /* 분류 버튼은 여러 줄로 쌓지 않고 옆으로 밀어 보는 한 줄로 */
   .ecm-mega-side { width: auto; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-right: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .1rem 0 .6rem; gap: .35rem; }
   .ecm-mega-side::-webkit-scrollbar { display: none; }

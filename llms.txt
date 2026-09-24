@@ -8,6 +8,12 @@
 - 등록 기준: 1급 게임사 공식 채널 1곳, 또는 2급 매체 기사 1곳 + 독립된 다른 출처 1곳. 유저 게시글만으로는 등록하지 않는다. 자세한 기준: https://ecm-coupon.com/about.html
 - 게임사 공식 파트너가 아니며, 코드 입력은 각 게임사 공식 페이지나 게임 안에서 한다.
 
+## 섹션 홈
+
+- [게임 쿠폰 코드 모음](https://ecm-coupon.com/game/): 게임별 쿠폰 페이지, 새 쿠폰, 마감 임박 코드
+- [쇼핑 할인·쿠폰 모음](https://ecm-coupon.com/shop/): 쇼핑몰별 정기 쿠폰·가입 혜택과 확인일
+- [ECM 쿠폰 블로그](https://ecm-coupon.com/blog/index.html): 쿠폰 등록 방법·코드 가이드·알뜰 쇼핑 글
+
 ## 게임별 쿠폰 코드 페이지
 
 - [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법

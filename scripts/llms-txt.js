@@ -15,7 +15,7 @@ function isActive(c, today) {
   return isNaN(t.getTime()) || t.getTime() >= today.getTime();
 }
 
-function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
+function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const ids = new Set(gamePageIds);
   const pageGames = games.filter(g => ids.has(g.id));
@@ -32,6 +32,18 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
   lines.push('- 등록 기준: 1급 게임사 공식 채널 1곳, 또는 2급 매체 기사 1곳 + 독립된 다른 출처 1곳. 유저 게시글만으로는 등록하지 않는다. 자세한 기준: ' + SITE + '/about.html');
   lines.push('- 게임사 공식 파트너가 아니며, 코드 입력은 각 게임사 공식 페이지나 게임 안에서 한다.');
   lines.push('');
+  lines.push('## 섹션 홈');
+  lines.push('');
+  lines.push(`- [게임 쿠폰 코드 모음](${SITE}/game/): 게임별 쿠폰 페이지, 새 쿠폰, 마감 임박 코드`);
+  lines.push(`- [쇼핑 할인·쿠폰 모음](${SITE}/shop/): 쇼핑몰별 정기 쿠폰·가입 혜택과 확인일`);
+  lines.push(`- [ECM 쿠폰 블로그](${SITE}/blog/index.html): 쿠폰 등록 방법·코드 가이드·알뜰 쇼핑 글`);
+  lines.push('');
+  if (extra.shops && extra.shops.length) {
+    lines.push('## 쇼핑몰별 혜택 페이지');
+    lines.push('');
+    for (const sh of extra.shops) lines.push(`- [${String(sh.name).split(' (')[0]} 쿠폰·할인 혜택](${SITE}/shop/${sh.id}.html)`);
+    lines.push('');
+  }
   lines.push('## 게임별 쿠폰 코드 페이지');
   lines.push('');
   for (const g of pageGames) {

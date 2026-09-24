@@ -43,9 +43,9 @@ function headerHtml() {
         <span>ECM</span>
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
-        <button type="button" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></button>
-        <button type="button" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></button>
-        <button type="button" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></button>
+        <a href="/game/" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="/shop/" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="/blog/index.html" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></a>
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -59,8 +59,8 @@ function headerHtml() {
         <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
         <div id="megaGridContainer"></div>
         <div class="ecm-drawer-links">
-          <a href="/#games">🎮 게임 쿠폰</a>
-          <a href="/#fashion">🛍️ 쇼핑 할인</a>
+          <a href="/game/">🎮 게임 쿠폰</a>
+          <a href="/shop/">🛍️ 쇼핑 할인</a>
           <a href="/">🏠 홈</a>
         </div>
       </div>
@@ -244,7 +244,7 @@ function pageHtml(g, ctx) {
       publisher: { '@type': 'Organization', name: 'ECM 쿠폰 (Every Coupon Matters)', url: SITE },
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'ECM', item: SITE + '/' },
-        { '@type': 'ListItem', position: 2, name: '게임 쿠폰', item: SITE + '/#games' },
+        { '@type': 'ListItem', position: 2, name: '게임 쿠폰', item: SITE + '/game/' },
         { '@type': 'ListItem', position: 3, name: g.title, item: url },
       ] },
     },
@@ -318,7 +318,7 @@ ${headerHtml()}
 
   <main class="ecm-page flex-1 w-full">
     <article>
-    <nav aria-label="현재 위치" style="font-size:.8rem;color:var(--ink-3);margin-bottom:.5rem"><a href="/">ECM</a> › <a href="/#games">게임 쿠폰</a> › ${esc(g.title)}</nav>
+    <nav aria-label="현재 위치" style="font-size:.8rem;color:var(--ink-3);margin-bottom:.5rem"><a href="/">ECM</a> › <a href="/game/">게임 쿠폰</a> › ${esc(g.title)}</nav>
     <div class="ecm-game-head">
       <div class="ecm-icon">${g.icon || '🎮'}</div>
       <div>
@@ -403,7 +403,7 @@ ${samePub.length ? `    <h2 id="samepub">${esc(pubKey)}의 다른 게임 쿠폰<
 ${samePub.map(x => `      <a href="/game/${esc(x.id)}.html">${x.icon || '🎮'} ${esc(x.title)}${ctx.activeOf(x).length ? ` <span class="ecm-count">${ctx.activeOf(x).length}</span>` : ''}</a>`).join('\n')}
     </div>
 ` : ''}
-    <p style="margin-top:2rem;font-size:.85rem"><a href="/#games">← 전체 게임 쿠폰 목록</a></p>
+    <p style="margin-top:2rem;font-size:.85rem"><a href="/game/">← 게임 쿠폰 홈</a></p>
     </article>
   </main>
 
@@ -448,9 +448,9 @@ function writeGamePages(rootDir, games, posts, version, firstSeen) {
   }
   let removed = 0;
   for (const f of fs.readdirSync(dir)) {
-    if (f.endsWith('.html') && !keep.has(f)) { fs.unlinkSync(path.join(dir, f)); removed++; }
+    if (f.endsWith('.html') && f !== 'index.html' && !keep.has(f)) { fs.unlinkSync(path.join(dir, f)); removed++; }
   }
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')) };
 }
 
-module.exports = { writeGamePages, qualifies };
+module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS };

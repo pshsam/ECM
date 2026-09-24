@@ -222,6 +222,16 @@
     return db.localeCompare(da);
   }).forEach(function (c) { grid.appendChild(c.cloneNode(true)); });
 
+  // 날짜를 '오늘·어제·N일 전'으로 (일주일이 지나면 날짜 그대로). 원래 날짜는 마우스를 올리면 보인다.
+  var today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  Array.prototype.slice.call(document.querySelectorAll('main .post-date')).forEach(function (el) {
+    var m = (el.textContent || '').trim().match(/^(\d{4})\.(\d{2})\.(\d{2})$/);
+    if (!m) return;
+    var diff = Math.round((today0 - new Date(+m[1], +m[2] - 1, +m[3])) / 86400000);
+    el.title = m[0];
+    if (diff === 0) el.textContent = '오늘'; else if (diff === 1) el.textContent = '어제'; else if (diff > 1 && diff < 7) el.textContent = diff + '일 전';
+  });
+
   function show(cat) {
     sections.forEach(function (s) { s.hidden = s.getAttribute('data-cat') !== cat; });
     Array.prototype.slice.call(chips.querySelectorAll('.ecm-chip')).forEach(function (b) {
