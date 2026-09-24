@@ -71,7 +71,7 @@ function footerHtml() {
   return `  <footer class="bg-white border-t border-slate-200 py-8 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 space-y-3 text-center sm:text-left">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p>&copy; 2026 ecm-coupon.com (ECM). All rights reserved.</p>
+        <p>&copy; 2026 ecm-coupon.com (ECM 쿠폰). All rights reserved.</p>
         <nav class="flex flex-wrap justify-center gap-4" aria-label="사이트 정보">
           <a href="/about.html" class="ecm-link">ECM 소개</a>
           <a href="/contact.html" class="ecm-link">문의·제보</a>
@@ -209,9 +209,14 @@ function pageHtml(g, ctx) {
 
   // 검색 결과 제목은 한국어 40자쯤에서 잘린다. 긴 게임 이름이면 뒤부터 덜어낸다.
   const mon = `${today.getMonth() + 1}월`;
-  const titleCands = active.length
-    ? [`${g.title} 쿠폰 코드 ${active.length}개 (${mon}) — 입력 방법 | ECM`, `${g.title} 쿠폰 코드 ${active.length}개 (${mon}) | ECM`, `${g.title} 쿠폰 코드 | ECM`]
-    : [`${g.title} 쿠폰 코드 입력 방법 (${mon}) | ECM`, `${g.title} 쿠폰 입력 방법 | ECM`, `${g.title} 쿠폰 | ECM`];
+  let titleCands = active.length
+    ? [`${g.title} 쿠폰 코드 ${active.length}개 (${mon}) — 입력 방법 | ECM 쿠폰`, `${g.title} 쿠폰 코드 ${active.length}개 (${mon}) | ECM 쿠폰`, `${g.title} 쿠폰 코드 | ECM 쿠폰`]
+    : [`${g.title} 쿠폰 코드 입력 방법 (${mon}) | ECM 쿠폰`, `${g.title} 쿠폰 입력 방법 | ECM 쿠폰`, `${g.title} 쿠폰 | ECM 쿠폰`];
+  // 게임 이름이 길면 괄호 속 영문 이름을 뺀 짧은 이름으로 한 번 더 시도한다 (예: 이환 (Neverness to Everness) → 이환)
+  const shortName = g.title.split(' (')[0];
+  if (shortName !== g.title) titleCands.push(...(active.length
+    ? [`${shortName} 쿠폰 코드 ${active.length}개 (${mon}) | ECM 쿠폰`, `${shortName} 쿠폰 코드 | ECM 쿠폰`]
+    : [`${shortName} 쿠폰 코드 입력 방법 (${mon}) | ECM 쿠폰`, `${shortName} 쿠폰 | ECM 쿠폰`]));
   const title = titleCands.find(t => t.length <= 40) || titleCands[titleCands.length - 1];
   const desc = active.length
     ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
@@ -235,7 +240,7 @@ function pageHtml(g, ctx) {
       '@context': 'https://schema.org', '@type': 'WebPage', name: title, description: desc, url,
       dateModified: version, inLanguage: 'ko',
       author: { '@type': 'Person', name: AUTHOR_NAME, url: `${SITE}/about.html` },
-      publisher: { '@type': 'Organization', name: 'ECM (Every Coupon Matters)', url: SITE },
+      publisher: { '@type': 'Organization', name: 'ECM 쿠폰 (Every Coupon Matters)', url: SITE },
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'ECM', item: SITE + '/' },
         { '@type': 'ListItem', position: 2, name: '게임 쿠폰', item: SITE + '/#games' },
@@ -262,7 +267,7 @@ function pageHtml(g, ctx) {
   <link rel="canonical" href="${url}">
   <link rel="icon" type="image/svg+xml" href="/assets/mascot.svg">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="ECM (Every Coupon Matters)">
+  <meta property="og:site_name" content="ECM 쿠폰 (Every Coupon Matters)">
   <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(desc)}">
@@ -284,6 +289,7 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .ecm-page a { color: var(--brown); font-weight: 700; }
     .ecm-game-head { display: flex; align-items: center; gap: .8rem; }
     .ecm-game-head .ecm-icon { width: 52px; height: 52px; font-size: 1.6rem; border-radius: 14px; }
+    .ecm-lede { font-size: .95rem; margin: 0 0 1rem; }
     .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .4rem .8rem; margin: .2rem 0 1.2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
     .ecm-page th, .ecm-page td { border: 1px solid var(--line); padding: .55rem .7rem; text-align: left; vertical-align: top; line-height: 1.6; }
@@ -320,6 +326,9 @@ ${headerHtml()}
     <div class="ecm-game-meta">
       <span>${esc(g.publisher || '')}</span><span>·</span><span>${esc(g.category || GENRE_LABELS[g.genre] || '')}</span><span>·</span><span>${esc(platforms)}</span><span>·</span><span>쿠폰 확인 ${esc(fmt(version))}</span>
     </div>
+    <p class="ecm-lede">${active.length
+      ? `ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(version))} 기준으로 확인한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법입니다.`
+      : `ECM 쿠폰(Every Coupon Matters)이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인한 것만 올립니다.</p>
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
 ${active.length ? `    <table>

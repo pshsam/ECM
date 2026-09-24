@@ -21,6 +21,7 @@
 const fs = require('fs');
 const path = require('path');
 const { writeGamePages, qualifies } = require('./game-pages');
+const { writeLlmsTxt } = require('./llms-txt');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
@@ -28,7 +29,7 @@ const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashi
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
 const AUTHOR_NAME = '겜대';
-const AUTHOR_ROLE = 'ECM 운영자';
+const AUTHOR_ROLE = 'ECM 쿠폰 운영자';
 
 function makeDom() {
   const grids = {};
@@ -161,7 +162,7 @@ function noscriptHtml(data) {
 
   let out = '';
   out += section(
-    'ECM (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브',
+    'ECM 쿠폰 (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브',
     'ECM은 MMORPG, 수집형 RPG, 액션, FPS, 스포츠 등 장르별 대작 게임의 실시간 검증 쿠폰과 패션·장보기 할인 정보를 한곳에 모은 사이트입니다.'
   );
   out += section(
@@ -381,7 +382,7 @@ function ensureArticleSchema(blogDir, rootDir) {
       dateModified: modified,
       inLanguage: 'ko',
       author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_ROLE, url: 'https://ecm-coupon.com/about.html' },
-      publisher: { '@type': 'Organization', name: 'ECM (Every Coupon Matters)', url: 'https://ecm-coupon.com',
+      publisher: { '@type': 'Organization', name: 'ECM 쿠폰 (Every Coupon Matters)', url: 'https://ecm-coupon.com',
         logo: { '@type': 'ImageObject', url: 'https://ecm-coupon.com/og-image.png' } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `https://ecm-coupon.com/blog/${slug}.html` },
     };
@@ -506,12 +507,15 @@ function main() {
 
   const urls = writeSitemap(rootDir, gp.ids);
 
+  // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
+  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version);
+
   const chars = CATS.reduce((n, c) => n + grids[c].length, 0);
   const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
   console.log(`카탈로그 버전: ${version}`);
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
-  console.log(`sitemap.xml 재생성: ${urls}개 주소`);
+  console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개`);
   console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
