@@ -157,6 +157,18 @@
     var btn = t.closest('.ecm-menu-btn');
     if (btn) { var name = btn.getAttribute('data-menu'); if (openName === name && !isDesktop()) closeMenu(); else openMenu(name); return; }
     if (t.closest('#burgerBtn')) { openName ? closeMenu() : openMenu('all'); return; }
+    // 모바일 서랍: 섹션 제목을 누르면 그 섹션만 펼친다 (나머지는 접힘)
+    var megaTitle = t.closest('.ecm-mega-title');
+    if (megaTitle) {
+      var sec = megaTitle.closest('.ecm-mega');
+      var willOpen = !sec.classList.contains('is-expanded');
+      Array.prototype.slice.call(document.querySelectorAll('.ecm-mega')).forEach(function (m) {
+        m.classList.remove('is-expanded');
+        var b = m.querySelector('.ecm-mega-title'); if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) { sec.classList.add('is-expanded'); megaTitle.setAttribute('aria-expanded', 'true'); }
+      return;
+    }
     if (t.closest('[data-close-menu]')) { closeMenu(); return; }
     var side = t.closest('.ecm-mega-side-item');
     if (side) { activateSide(side.getAttribute('data-panel-side'), side.getAttribute('data-side')); return; }

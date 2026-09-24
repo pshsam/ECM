@@ -27,6 +27,8 @@ body {
 @media (min-width: 640px) { .ecm-wrap { padding: 0 1.5rem; } }
 @media (min-width: 1024px) { .ecm-wrap { padding: 0 2rem; } }
 body.ecm-lock { overflow: hidden; }
+/* 안전장치: 어떤 요소가 넘쳐도 모바일에서 화면이 옆으로 밀리지 않게 (clip 은 sticky 헤더를 깨지 않는다) */
+body { overflow-x: clip; }
 
 /* ───────── 헤더 ───────── */
 .ecm-header {
@@ -136,7 +138,7 @@ body.ecm-lock { overflow: hidden; }
 .ecm-mega-list .ecm-pill { font-size: .58rem; padding: .08rem .38rem; margin-left: .1rem; }
 .ecm-mega-list a:hover { background: var(--y-pale); }
 .ecm-mega-list .ecm-mega-icon { font-size: 1rem; width: 1.4rem; text-align: center; flex-shrink: 0; }
-.ecm-mega-list .ecm-mega-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ecm-mega-list .ecm-mega-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ecm-mega-list .ecm-mega-benefit { margin-left: auto; font-size: .72rem; color: var(--brown); font-weight: 700; white-space: nowrap; }
 .ecm-mega-empty { color: var(--ink-3); font-size: .85rem; padding: .5rem; }
 
@@ -150,18 +152,30 @@ body.ecm-lock { overflow: hidden; }
   }
   .ecm-drawer-head { display: flex; align-items: center; justify-content: space-between; font-weight: 900; font-size: 1.05rem; }
   .ecm-drawer-close { width: 34px; height: 34px; border-radius: 999px; border: 0; background: #F4F2E8; cursor: pointer; font-size: 1rem; }
-  .ecm-drawer-links { display: flex; flex-direction: column; gap: .25rem; border-top: 1px solid var(--line); padding-top: .75rem; }
+  .ecm-drawer-links { display: flex; flex-direction: column; gap: .25rem; padding-top: .5rem; }
   .ecm-drawer-links a { padding: .6rem .5rem; border-radius: .5rem; font-weight: 700; color: var(--ink); text-decoration: none; }
   .ecm-drawer-links a:hover { background: var(--y-pale); }
-  .ecm-mega { display: block; }
-  .ecm-mega-title { display: block; font-weight: 900; font-size: 1rem; margin: 0 0 .35rem; }
-  .ecm-mega-panel { flex-direction: column; box-shadow: none; border: 0; border-radius: 0; max-height: none; min-height: 0; width: 100%; }
-  .ecm-mega-side { width: auto; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .25rem 0 .6rem; gap: .35rem; }
+  /* 서랍 안 세 섹션(게임 쿠폰·쇼핑 할인·블로그)은 제목만 보이고, 누른 것 하나만 펼쳐진다 */
+  .ecm-drawer { gap: .25rem; }
+  .ecm-mega { display: block; border-bottom: 1px solid var(--line); }
+  .ecm-mega-title {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    padding: .95rem .25rem; margin: 0; border: 0; background: none; cursor: pointer;
+    font-family: inherit; font-weight: 900; font-size: 1.02rem; color: var(--ink); text-align: left;
+  }
+  .ecm-mega-title i { font-size: .8rem; color: var(--ink-3); transition: transform .15s; }
+  .ecm-mega.is-expanded .ecm-mega-title i { transform: rotate(180deg); }
+  .ecm-mega-panel { display: none; flex-direction: column; box-shadow: none; border: 0; border-radius: 0; max-height: none; min-height: 0; width: 100%; padding-bottom: .5rem; }
+  .ecm-mega.is-expanded .ecm-mega-panel { display: flex; }
+  /* 분류 버튼은 여러 줄로 쌓지 않고 옆으로 밀어 보는 한 줄로 */
+  .ecm-mega-side { width: auto; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-right: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .1rem 0 .6rem; gap: .35rem; }
+  .ecm-mega-side::-webkit-scrollbar { display: none; }
+  .ecm-mega-side-item { flex-shrink: 0; white-space: nowrap; }
   .ecm-mega-side-item { width: auto; padding: .4rem .7rem; font-size: .82rem; background: #F4F2E8; border-radius: 999px; }
   .ecm-mega-side-item i { display: none; }
   .ecm-mega-body { padding: .5rem 0 .25rem; }
   .ecm-mega-sec h3 { display: none; }
-  .ecm-mega-list { grid-template-columns: 1fr; }
+  .ecm-mega-list { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ───────── 뱃지·버튼·링크 ───────── */
@@ -257,7 +271,7 @@ main article p.text-sm, main article li, main article .text-sm:not(table):not(th
 }
 
 /* 블로그 드롭다운·목록 칩 */
-.ecm-mega-list-1 { grid-template-columns: 1fr !important; }
+.ecm-mega-list-1 { grid-template-columns: minmax(0, 1fr) !important; }
 .ecm-mega-more { margin: .6rem 0 0; font-size: .8rem; }
 .ecm-mega-more a { color: var(--brown); font-weight: 700; text-decoration: none; }
 .ecm-mega-more a:hover { text-decoration: underline; }
