@@ -167,19 +167,33 @@
     if (!isDesktop()) return;
     var t = e.target; if (!t || !t.closest) return;
     // 패널이나 메뉴 줄 위에 있는 동안은 닫지 않는다 (버튼→패널로 내려오는 길에 예약된 닫기를 취소)
-    if (t.closest('#megaMenuWrap') || t.closest('.ecm-menu')) clearTimeout(closeTimer);
+    if (t.closest('.ecm-mega-panel') || t.closest('.ecm-menu')) clearTimeout(closeTimer);
     var btn = t.closest('.ecm-menu-btn');
     if (btn) { clearTimeout(closeTimer); openMenu(btn.getAttribute('data-menu')); return; }
     var side = t.closest('.ecm-mega-side-item');
     if (side) { activateSide(side.getAttribute('data-panel-side'), side.getAttribute('data-side')); return; }
+    // 패널 상자 밖의 빈 자리(패널 옆)에 마우스가 오면 바로 닫는다
+    if (openName && t.closest('#megaMenuWrap') && !t.closest('.ecm-mega-panel')) { clearTimeout(closeTimer); closeMenu(); return; }
     if (openName && header && header.contains(t) && !t.closest('.ecm-menu') && !t.closest('#megaMenuWrap')) {
       clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 150);
     }
   });
   if (header) {
-    header.addEventListener('mouseleave', function () { if (isDesktop()) closeTimer = setTimeout(closeMenu, 200); });
+    // 헤더(메뉴 줄 + 패널) 밖으로 나가면 바로 닫는다
+    header.addEventListener('mouseleave', function () { if (isDesktop()) { clearTimeout(closeTimer); closeMenu(); } });
     header.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
   }
+  // 패널 상자 밖으로 나가면(옆·아래) 바로 닫는다. 위쪽 메뉴 줄로 올라가는 중이면 잠깐만 기다린다.
+  document.addEventListener('mouseout', function (e) {
+    if (!isDesktop() || !openName) return;
+    var t = e.target; if (!t || !t.closest) return;
+    var panel = t.closest('.ecm-mega-panel'); if (!panel) return;
+    var to = e.relatedTarget;
+    if (to && panel.contains(to)) return;
+    clearTimeout(closeTimer);
+    if (to && header && header.contains(to) && !to.closest('#megaMenuWrap')) closeTimer = setTimeout(closeMenu, 120);
+    else closeMenu();
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 })();
 
