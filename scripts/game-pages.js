@@ -85,6 +85,74 @@ function footerHtml() {
 }
 
 /** 게임 성격에 따라 다른 주의사항. 페이지마다 같은 문장이 반복되면 검색엔진이 얇은 페이지로 본다. */
+/** 코드가 어디서 나오는지 — 입력 페이지 도메인/퍼블리셔로 판단한다. 확인된 일반적 경로만 적는다. */
+function sourceInfo(g) {
+  const u = (g.redeemUrl || g.officialUrl || '').toLowerCase();
+  const pub = (g.publisher || '').toLowerCase();
+  const isRoblox = (g.platforms || []).includes('roblox');
+  if (isRoblox) return {
+    where: '개발팀이 직접 냅니다. 로블록스 게임 페이지 설명란, 개발팀 공식 X(트위터), 공식 디스코드 공지에 먼저 올라오고, 좋아요·방문자 수 달성이나 업데이트 기념으로 나오는 경우가 많습니다.',
+    cadence: 'ECM 은 개발팀 공식 채널과 코드 전문 매체를 하루 두 번 확인합니다.',
+    form: '대소문자를 구분하는 영문·숫자 조합이 대부분입니다.',
+  };
+  if (u.includes('nexon.com')) return {
+    where: '넥슨 게임은 공식 홈페이지 공지, 넥슨 공식 카페, 라이브 방송(쇼케이스·업데이트 방송)에서 코드를 냅니다. 방송 중 공개되는 코드는 유효 기간이 짧은 편입니다.',
+    cadence: 'ECM 은 넥슨 공식 채널과 인벤 기사를 4시간마다 확인합니다.',
+    form: '넥슨 코드는 대문자 영문·숫자 조합이 많고, 입력 페이지(mcoupon)에서 게임을 고른 뒤 넣습니다.',
+  };
+  if (u.includes('onstove.com')) return {
+    where: '스마일게이트 게임은 공식 커뮤니티 공지와 라이브 방송(예: 로아온)에서 코드를 냅니다. 계정 단위로 등록하므로 STOVE 계정 로그인이 먼저입니다.',
+    cadence: 'ECM 은 STOVE 공지와 인벤 기사를 4시간마다 확인합니다.',
+    form: '영문 대문자와 숫자 조합이 대부분입니다.',
+  };
+  if (u.includes('netmarble.com')) return {
+    where: '넷마블 게임은 공식 카페 공지, 쇼케이스·업데이트 방송, 출시 기념 이벤트에서 코드를 냅니다. 사전등록·출시 초기에 "웰컴 쿠폰"이 나오는 경우가 많습니다.',
+    cadence: 'ECM 은 넷마블 공식 카페와 인벤 기사를 4시간마다 확인합니다.',
+    form: '영문 대문자·숫자 조합이 많고, 쿠폰 페이지에서 계정당 한 번 등록합니다.',
+  };
+  if (u.includes('plaync.com')) return {
+    where: '엔씨소프트 게임은 공식 홈페이지 공지와 NC 공식 유튜브·방송에서 코드를 냅니다. 업데이트 기념과 콜라보 이벤트 때 나옵니다.',
+    cadence: 'ECM 은 공식 홈페이지 공지와 인벤 기사를 4시간마다 확인합니다.',
+    form: '영문 대문자·숫자 조합이 대부분이고, NShop 쿠폰 페이지에서 서버를 고른 뒤 넣습니다.',
+  };
+  if (u.includes('withhive.com') || pub.includes('컴투스')) return {
+    where: '컴투스 게임은 공식 카페·커뮤니티 공지와 방송에서 코드를 냅니다. 하이브(Hive) 쿠폰 페이지에서 등록합니다.',
+    cadence: 'ECM 은 공식 커뮤니티와 인벤 기사를 4시간마다 확인합니다.',
+    form: '영문·숫자 조합이 대부분입니다.',
+  };
+  if (u.includes('kakaogames.com')) return {
+    where: '카카오게임즈 게임은 공식 카페 공지, 업데이트 방송, 콜라보 이벤트에서 코드를 냅니다.',
+    cadence: 'ECM 은 공식 카페와 인벤 기사를 4시간마다 확인합니다.',
+    form: '영문 대문자·숫자 조합이 대부분입니다.',
+  };
+  if (u.includes('hoyoverse.com')) return {
+    where: '호요버스 게임은 버전 업데이트 전 "스페셜 프로그램" 방송에서 코드 3개를 공개합니다. 방송 코드는 보통 하루 안에 만료되고, 상시 코드는 따로 있습니다.',
+    cadence: 'ECM 은 공식 SNS와 공식 커뮤니티(HoYoLAB)를 4시간마다 확인합니다.',
+    form: '영문 대문자·숫자 조합이며 웹 교환 페이지나 게임 안에서 넣습니다.',
+  };
+  if (u.includes('centurygame.com') || u.includes('lastwar')) return {
+    where: '이 게임의 코드는 공식 X(트위터)·페이스북·디스코드와 다운로드 달성 같은 기념 이벤트에서 나옵니다. 유튜버·방송 연계 코드도 자주 있습니다.',
+    cadence: 'ECM 은 공식 SNS와 해외 코드 전문 매체 2곳 이상을 4시간마다 확인합니다.',
+    form: '대소문자를 구분하는 영문·숫자 조합이 많습니다. 플레이어 ID 를 넣는 웹 페이지에서 등록합니다.',
+  };
+  return {
+    where: '게임사 공식 홈페이지 공지, 공식 SNS, 라이브 방송과 콜라보 이벤트에서 코드가 나옵니다.',
+    cadence: 'ECM 은 공식 채널과 인벤·게임 매체 기사를 4시간마다 확인합니다.',
+    form: '영문·숫자 조합이 대부분이며 대소문자를 구분하는 경우가 있습니다.',
+  };
+}
+
+/** 장부(data/coupon-seen.json)에서 이 게임에 등록됐던 코드 이력. 지금 표에 없는 것만. */
+function historyFor(g, firstSeen, coupons) {
+  const now = new Set((coupons || []).map(c => c.code));
+  const rows = Object.keys(firstSeen || {})
+    .filter(k => k.startsWith(g.id + ':'))
+    .map(k => ({ code: k.slice(g.id.length + 1), date: firstSeen[k] }))
+    .filter(r => r.code && !now.has(r.code))
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  return rows.slice(0, 8);
+}
+
 function tipsFor(g) {
   const isRoblox = (g.platforms || []).includes('roblox');
   const tips = [];
@@ -114,6 +182,8 @@ function faqFor(g) {
     { q: '새 코드는 언제 올라오나요?',
       a: isRoblox ? '개발팀이 업데이트·좋아요 달성·버그 보상으로 수시로 냅니다. ECM은 개발팀 공식 채널과 코드 전문 매체를 하루 두 번 확인해 올립니다.'
                   : '게임사가 업데이트·방송·이벤트 때 냅니다. ECM은 공식 채널을 4시간마다 확인해서 확인된 코드만 올립니다.' },
+    { q: `지금 코드가 없으면 ${name} 쿠폰은 어떻게 챙기나요?`,
+      a: `${sourceInfo(g).where} 이 페이지를 즐겨찾기해 두면 확인된 코드가 올라올 때 바로 볼 수 있습니다. 다른 사이트에 적힌 코드는 만료된 것이 섞여 있으니 등록일이 있는 곳에서 확인하세요.` },
   ];
   return faq;
 }
@@ -131,6 +201,11 @@ function pageHtml(g, ctx) {
   const platforms = (g.platforms || []).map(p => PLATFORM_LABELS[p] || p).join(' · ');
   const related = posts.filter(p => p.title.includes(g.title.split(' (')[0].split(':')[0]));
   const siblings = allGames.filter(x => x.id !== g.id && x.genre === g.genre && qualifies(x, ctx.activeOf)).slice(0, 6);
+  const pubKey = (g.publisher || '').split(/[ (·]/)[0];
+  const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && qualifies(x, ctx.activeOf)).slice(0, 6) : [];
+  const src = sourceInfo(g);
+  const history = historyFor(g, firstSeen, coupons);
+  const addedOn = firstSeen && firstSeen['game:' + g.id];
 
   // 검색 결과 제목은 한국어 40자쯤에서 잘린다. 긴 게임 이름이면 뒤부터 덜어낸다.
   const mon = `${today.getMonth() + 1}월`;
@@ -140,7 +215,7 @@ function pageHtml(g, ctx) {
   const title = titleCands.find(t => t.length <= 40) || titleCands[titleCands.length - 1];
   const desc = active.length
     ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
-    : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법. 새 코드가 확인되면 이 페이지에 올라옵니다.`;
+    : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.`;
 
   const codeRows = active.map(({ c, ev }) => {
     const seen = firstSeen[g.id + ':' + c.code];
@@ -254,7 +329,14 @@ ${codeRows}
       </tbody>
     </table>
     <p style="font-size:.82rem;color:var(--ink-3)">코드는 ${isRoblox ? '개발팀 공식 채널과 코드 전문 매체 2곳' : '게임사 공식 채널'}에서 확인한 것만 올립니다. 등록일이 7일 안이면 NEW 표시가 붙습니다.</p>`
-: `    <div class="ecm-empty">지금은 살아 있는 코드가 없습니다. ${isRoblox ? '개발팀이 새 코드를 내면' : '게임사가 새 코드를 내면'} 이 페이지에 바로 올라옵니다. 아래 입력 방법을 미리 알아 두면 코드가 나왔을 때 바로 쓸 수 있습니다.</div>`}
+: `    <div class="ecm-empty">
+      <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
+      <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
+    </div>`}
+
+    <h2 id="source">코드가 나오는 곳</h2>
+    <p>${esc(src.where)}</p>
+    <p>${esc(src.form)}${g.officialUrl ? ` 공식 사이트: <a href="${esc(g.officialUrl)}" target="_blank" rel="noopener noreferrer">${esc(g.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))} ↗</a>` : ''}</p>
 
     <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
@@ -262,7 +344,7 @@ ${codeRows}
       ${redeemUrl ? `<p><a href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer">${g.redeemUrl ? '쿠폰 입력 페이지 열기' : '공식 사이트 열기'} ↗</a></p>` : ''}
     </div>
     <ol>
-      <li>위 표에서 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.</li>
+      <li>${active.length ? '위 표에서 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.' : '코드가 올라오면 위 표의 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.'}</li>
       <li>${g.redeemHow ? esc(g.redeemHow.split(' → ')[0].split(' > ')[0]) : '쿠폰 입력 화면'}으로 갑니다.</li>
       <li>붙여 넣고 확인을 누릅니다. 보상은 ${isRoblox ? '바로 지급되거나 게임 안 알림으로' : '보통 게임 안 우편함으로'} 옵니다.</li>
     </ol>
@@ -281,6 +363,17 @@ ${expiredRows}
       </tbody>
     </table>
 ` : ''}
+${history.length ? `    <h2 id="history">코드 이력</h2>
+    <p>ECM 이 이 게임에서 확인해 등록했던 코드입니다. 지금은 쓸 수 없지만, 이 게임이 어떤 형식의 코드를 얼마나 자주 내는지 볼 수 있습니다.${addedOn ? ` (ECM 등록일 ${esc(fmt(addedOn))})` : ''}</p>
+    <table>
+      <thead><tr><th>코드</th><th>등록일</th><th>상태</th></tr></thead>
+      <tbody>
+${history.map(r => `        <tr><td><code class="ecm-code is-dead">${esc(r.code)}</code></td><td class="ecm-nowrap">${esc(fmt(r.date))}</td><td>만료</td></tr>`).join('\n')}
+      </tbody>
+    </table>
+` : (addedOn && !active.length ? `    <h2 id="history">코드 이력</h2>
+    <p>ECM 에 ${esc(fmt(addedOn))} 등록된 뒤 아직 확인된 코드가 없는 게임입니다. 첫 코드가 확인되면 위 표와 여기에 등록일과 함께 남습니다.</p>
+` : '')}
 ${related.length ? `    <h2 id="related">${esc(g.title)} 관련 글</h2>
     <ul>
 ${related.map(p => `      <li><a href="${esc(p.url)}">${esc(p.title)}</a> <small>${esc(fmt(p.date))}</small></li>`).join('\n')}
@@ -292,6 +385,11 @@ ${faqFor(g).map(f => `    <details class="ecm-faq"><summary>${esc(f.q)}</summary
 ${siblings.length ? `    <h2 id="more">같은 장르의 다른 게임 쿠폰</h2>
     <div class="ecm-sib">
 ${siblings.map(x => `      <a href="/game/${esc(x.id)}.html">${x.icon || '🎮'} ${esc(x.title)}${ctx.activeOf(x).length ? ` <span class="ecm-count">${ctx.activeOf(x).length}</span>` : ''}</a>`).join('\n')}
+    </div>
+` : ''}
+${samePub.length ? `    <h2 id="samepub">${esc(pubKey)}의 다른 게임 쿠폰</h2>
+    <div class="ecm-sib">
+${samePub.map(x => `      <a href="/game/${esc(x.id)}.html">${x.icon || '🎮'} ${esc(x.title)}${ctx.activeOf(x).length ? ` <span class="ecm-count">${ctx.activeOf(x).length}</span>` : ''}</a>`).join('\n')}
     </div>
 ` : ''}
     <p style="margin-top:2rem;font-size:.85rem"><a href="/#games">← 전체 게임 쿠폰 목록</a></p>
