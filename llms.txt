@@ -14,6 +14,12 @@
 - [쇼핑 할인·쿠폰 모음](https://ecm-coupon.com/shop/): 쇼핑몰별 정기 쿠폰·가입 혜택과 확인일
 - [ECM 쿠폰 블로그](https://ecm-coupon.com/blog/index.html): 쿠폰 등록 방법·코드 가이드·알뜰 쇼핑 글
 
+## 쇼핑몰별 혜택 페이지
+
+- [무신사 쿠폰·할인 혜택](https://ecm-coupon.com/shop/musinsa.html)
+- [쿠팡 로켓프레시 쿠폰·할인 혜택](https://ecm-coupon.com/shop/coupang-rocketfresh.html)
+- [배달의민족 쿠폰·할인 혜택](https://ecm-coupon.com/shop/baemin.html)
+
 ## 게임별 쿠폰 코드 페이지
 
 - [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
