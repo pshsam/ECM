@@ -95,7 +95,7 @@
 
   // 좁은 화면에서는 접어 둔다
   var box = aside.querySelector('details');
-  var mq = window.matchMedia('(max-width: 1099px)');
+  var mq = window.matchMedia('(max-width: 1279px)');
   function fold() { box.open = !mq.matches; }
   fold();
   if (mq.addEventListener) mq.addEventListener('change', fold);
