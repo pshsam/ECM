@@ -30,6 +30,8 @@ const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
 const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
+// 글마다 본문 지문과 마지막 실제 수정일. 빌드가 채우고 고친다 (손으로 고치지 않는다).
+const POST_LEDGER = path.join(__dirname, '..', 'data', 'post-modified.json');
 // 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
 const AUTHOR_NAME = '겜대';
 const AUTHOR_ROLE = 'ECM 쿠폰 운영자';
@@ -363,6 +365,8 @@ function ensureArticleSchema(blogDir, rootDir) {
   try { idx = fs.readFileSync(path.join(blogDir, 'index.html'), 'utf8'); } catch (_) { return 0; }
   const cardRe = /<a href="\/blog\/([^"]+)\.html"[^>]*class="post-card[\s\S]*?post-date">([\d.]+)</g;
   let m, n = 0;
+  let ledger = {}, ledgerChanged = false;
+  try { ledger = JSON.parse(fs.readFileSync(POST_LEDGER, 'utf8')); } catch (_) { /* 처음이면 빈 장부 */ }
   while ((m = cardRe.exec(idx)) !== null) {
     const slug = m[1], published = m[2].replace(/\./g, '-');
     const postPath = path.join(blogDir, slug + '.html');
@@ -371,11 +375,16 @@ function ensureArticleSchema(blogDir, rootDir) {
     const original = post;
     const title = (post.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || ['', slug])[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const desc = (post.match(/<meta name="description" content="([^"]*)"/) || ['', ''])[1];
-    let modified = published;
-    try {
-      const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', `blog/${slug}.html`], { cwd: rootDir, encoding: 'utf8' }).trim();
-      if (out && out > published) modified = out;
-    } catch (_) { /* git 이 없으면 작성일로 */ }
+    // 수정일은 본문(<article>)이 바뀐 날만 움직인다. 메뉴·태그·글쓴이 줄 같은 사이트 공통 부분이
+    // 바뀌어 파일이 다시 커밋돼도 수정일은 그대로 둔다 (구글은 dateModified 가 실제 내용 수정을 말하길 원한다).
+    const fp = articleFingerprint(post);
+    const rec = ledger[slug];
+    let modified;
+    if (rec && rec.hash === fp) modified = rec.modified;
+    else if (rec) modified = todayKst();
+    else modified = firstSeenWithContent(execFileSync, rootDir, slug, fp) || published;
+    if (modified < published) modified = published;
+    if (!rec || rec.hash !== fp || rec.modified !== modified) { ledger[slug] = { hash: fp, modified }; ledgerChanged = true; }
     const image = fs.existsSync(path.join(blogDir, 'images', slug, 'thumb.jpg'))
       ? `https://ecm-coupon.com/blog/images/${slug}/thumb.jpg` : 'https://ecm-coupon.com/og-image.png';
     const ld = {
@@ -416,7 +425,46 @@ function ensureArticleSchema(blogDir, rootDir) {
     }
     if (post2 !== original) { fs.writeFileSync(postPath, post2); n++; }
   }
+  if (ledgerChanged) {
+    const sorted = Object.fromEntries(Object.keys(ledger).sort().map(k => [k, ledger[k]]));
+    fs.writeFileSync(POST_LEDGER, JSON.stringify(sorted, null, 2) + '\n');
+  }
   return n;
+}
+
+/** 글 본문 지문: <article> 안에서 글쓴이 줄과 빌드가 넣는 구간을 뺀 나머지. 이게 바뀌어야 '수정'이다. */
+function articleFingerprint(html) {
+  const body = (html.match(/<article[^>]*>([\s\S]*?)<\/article>/) || ['', html])[1]
+    .replace(/<p class="ecm-byline">[\s\S]*?<\/p>/g, '')
+    .replace(/<!--PRERENDER:([a-z-]+)-->[\s\S]*?<!--\/PRERENDER:\1-->/g, '')
+    .replace(/\s+/g, ' ').trim();
+  return require('crypto').createHash('sha1').update(body).digest('hex').slice(0, 16);
+}
+
+function todayKst() {
+  return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+}
+
+/**
+ * 장부에 없는 글: git 기록을 거슬러 올라가 지금 본문이 처음 들어간 커밋 날짜를 찾는다.
+ * 아직 커밋 전에 본문을 고쳤으면 오늘, 커밋이 하나도 없으면(새 글) null → 작성일.
+ */
+function firstSeenWithContent(execFileSync, rootDir, slug, fp) {
+  const file = `blog/${slug}.html`;
+  let log;
+  try {
+    log = execFileSync('git', ['log', '--format=%H %cs', '--', file], { cwd: rootDir, encoding: 'utf8' }).trim();
+  } catch (_) { return null; }
+  if (!log) return null;
+  let found = null;
+  for (const line of log.split('\n')) {
+    const [hash, date] = line.split(' ');
+    let old;
+    try { old = execFileSync('git', ['show', `${hash}:${file}`], { cwd: rootDir, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }); } catch (_) { break; }
+    if (articleFingerprint(old) !== fp) break;
+    found = date;
+  }
+  return found || todayKst();
 }
 
 /** 홈의 '최신 업데이트'에 넣을 최근 블로그 글. blog/index.html 의 카드에서 제목·날짜를 읽는다. */
