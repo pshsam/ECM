@@ -363,6 +363,7 @@ function ensureArticleSchema(blogDir, rootDir) {
     const postPath = path.join(blogDir, slug + '.html');
     if (!fs.existsSync(postPath)) continue;
     let post = fs.readFileSync(postPath, 'utf8');
+    const original = post;
     const title = (post.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || ['', slug])[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const desc = (post.match(/<meta name="description" content="([^"]*)"/) || ['', ''])[1];
     let modified = published;
@@ -388,6 +389,12 @@ function ensureArticleSchema(blogDir, rootDir) {
     };
     const block = `<!--PRERENDER:article-->\n  <script type="application/ld+json">\n${JSON.stringify(ld, null, 2)}\n  </script>\n  <!--/PRERENDER:article-->`;
     let post2;
+    // 공유 제목(og:title·twitter:title)은 네이버 서치어드바이저 기준 40자 이내. 넘으면 <title>(40자 이내)과 같게 맞춘다.
+    const pageTitle = (post.match(/<title>([\s\S]*?)<\/title>/) || ['', ''])[1].trim();
+    if (pageTitle && pageTitle.length <= 40) {
+      post = post.replace(/(<meta (?:property="og:title"|name="twitter:title") content=")([^"]*)(")/g,
+        (all, a, v, b) => (v.length > 40 ? a + pageTitle + b : all));
+    }
     if (post.includes('<!--PRERENDER:article-->')) {
       post2 = post.replace(/<!--PRERENDER:article-->[\s\S]*?<!--\/PRERENDER:article-->/, block);
     } else {
@@ -402,7 +409,7 @@ function ensureArticleSchema(blogDir, rootDir) {
     } else {
       post2 = post2.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n    ${byline}`);
     }
-    if (post2 !== post) { fs.writeFileSync(postPath, post2); n++; }
+    if (post2 !== original) { fs.writeFileSync(postPath, post2); n++; }
   }
   return n;
 }
