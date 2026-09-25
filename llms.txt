@@ -17,8 +17,13 @@
 ## 쇼핑몰별 혜택 페이지
 
 - [무신사 쿠폰·할인 혜택](https://ecm-coupon.com/shop/musinsa.html)
+- [29CM 쿠폰·할인 혜택](https://ecm-coupon.com/shop/29cm.html)
 - [쿠팡 로켓프레시 쿠폰·할인 혜택](https://ecm-coupon.com/shop/coupang-rocketfresh.html)
+- [마켓컬리 쿠폰·할인 혜택](https://ecm-coupon.com/shop/kurly.html)
+- [올리브영 쿠폰·할인 혜택](https://ecm-coupon.com/shop/oliveyoung.html)
 - [배달의민족 쿠폰·할인 혜택](https://ecm-coupon.com/shop/baemin.html)
+- [요기요 쿠폰·할인 혜택](https://ecm-coupon.com/shop/yogiyo.html)
+- [쿠팡이츠 쿠폰·할인 혜택](https://ecm-coupon.com/shop/coupangeats.html)
 
 ## 게임별 쿠폰 코드 페이지
 
