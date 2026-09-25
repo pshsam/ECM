@@ -32,7 +32,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "a9be4a751950fd2e",
+    "hash": "c57b9df49bf421a5",
     "modified": "2026-09-25"
   },
   "game-coupon-expiry-reminder-template": {
@@ -62,6 +62,10 @@
   "musinsa-coupon-guide": {
     "hash": "98c7cfd3dfb3da5c",
     "modified": "2026-09-23"
+  },
+  "netmarble-coupon-guide": {
+    "hash": "a34ba4adac331c3f",
+    "modified": "2026-09-25"
   },
   "nexon-mcoupon-guide": {
     "hash": "697f3e1190deae2a",
