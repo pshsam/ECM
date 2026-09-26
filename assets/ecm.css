@@ -287,3 +287,24 @@ main section[data-cat][hidden] { display: none; }
 .ecm-byline { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--ink-3); margin: -.25rem 0 1.25rem; }
 .ecm-byline img { width: 22px; height: 22px; }
 .ecm-byline b { color: var(--ink-2); font-weight: 700; }
+
+/* 글 속 쿠폰 페이지 링크: 스크롤하다가도 눈에 걸리게 노란 형광펜처럼.
+   다른 글로 가는 링크는 그대로 두고, ECM 쿠폰 페이지(/, /game/…, /shop/…)로 가는 것만.
+   위의 보라→갈색 테마 규칙이 !important 라서 글자색도 !important 로 덮는다. */
+article a[href="/"]:not([class*="ecm-"]),
+article a[href^="/game/"]:not([class*="ecm-"]),
+article a[href^="/shop/"]:not([class*="ecm-"]) {
+  color: var(--ink) !important;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(transparent 45%, var(--y) 45%);
+  padding: 0 .2em;
+  border-radius: 3px;
+  transition: background .15s;
+}
+article a[href="/"]:not([class*="ecm-"])::after,
+article a[href^="/game/"]:not([class*="ecm-"])::after,
+article a[href^="/shop/"]:not([class*="ecm-"])::after { content: " →"; }
+article a[href="/"]:not([class*="ecm-"]):hover,
+article a[href^="/game/"]:not([class*="ecm-"]):hover,
+article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-deep); }
