@@ -9,10 +9,9 @@ const path = require('path');
 
 const SITE = 'https://ecm-coupon.com';
 
-function isActive(c, today) {
-  if (!c.expireDate || c.expireDate === '상시' || /9999/.test(c.expireDate)) return true;
-  const t = new Date(c.expireDate);
-  return isNaN(t.getTime()) || t.getTime() >= today.getTime();
+// 쿠폰 D-day 와 같은 기준(한국 날짜)으로 판단한다.
+function isActive(c) {
+  return require('./game-pages').evaluate(c.expireDate).active;
 }
 
 function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {

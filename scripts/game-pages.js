@@ -26,11 +26,18 @@ function qualifies(g, activeOf) {
   return activeOf(g).length > 0 || !!(g.redeemHow && g.redeemHow.trim());
 }
 
+/** 한국 날짜 기준 오늘(자정)을 UTC 밀리초로. 빌드가 한국(PC)에서 돌든 UTC(클라우드 루틴)에서 돌든 같은 D-day 가 나오게 한다. */
+function kstTodayUTC() {
+  const k = new Date(Date.now() + 9 * 3600 * 1000);
+  return Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate());
+}
+
+// today 인자는 예전 호출과의 호환용이다. 날짜만(YYYY-MM-DD) 한국 기준으로 비교한다.
 function evaluate(expireDate, today) {
   if (!expireDate || expireDate === '상시' || /9999/.test(expireDate)) return { active: true, text: '상시 유효', left: null };
-  const t = new Date(expireDate);
-  if (isNaN(t.getTime())) return { active: true, text: '상시 유효', left: null };
-  const left = Math.ceil((t.getTime() - today.getTime()) / 86400000);
+  const m = String(expireDate).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return { active: true, text: '상시 유효', left: null };
+  const left = Math.round((Date.UTC(+m[1], +m[2] - 1, +m[3]) - kstTodayUTC()) / 86400000);
   if (left >= 0) return { active: true, text: left === 0 ? '오늘 마감' : `D-${left}`, left };
   return { active: false, text: `${-left}일 전 만료`, left };
 }
