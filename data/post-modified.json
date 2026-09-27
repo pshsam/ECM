@@ -52,8 +52,8 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "6d9d5dc1001360e4",
-    "modified": "2026-09-27"
+    "hash": "4812894496d04e4e",
+    "modified": "2026-09-28"
   },
   "game-coupon-expiry-reminder-template": {
     "hash": "f636d91436d9981f",
@@ -122,5 +122,9 @@
   "wuthering-waves-coupon-codes": {
     "hash": "0c182ef834dd481a",
     "modified": "2026-09-25"
+  },
+  "zeus-coupon-codes": {
+    "hash": "76baf89819f5ff9e",
+    "modified": "2026-09-28"
   }
 }
