@@ -487,7 +487,11 @@
         "생일 쿠폰은 발급일부터 해당 월 말일까지만 사용할 수 있고, 기간이 지나면 소멸돼요"
       ],
       "sources": [
-        { "title": "에이블리 멤버십 정책 및 혜택 개편 안내(2021.10.1~)", "url": "https://m.a-bly.com/notices/54", "checked": "2026-09-26" }
+        {
+          "title": "에이블리 멤버십 정책 및 혜택 개편 안내(2021.10.1~)",
+          "url": "https://m.a-bly.com/notices/54",
+          "checked": "2026-09-26"
+        }
       ]
     },
     "zigzag": {
@@ -511,7 +515,10 @@
       ],
       "membership": "지그재그는 등급형 멤버십보다는 마일리지 적립·사용 제도를 중심으로 회원 혜택을 운영하고 있어요.",
       "sales": [
-        { "name": "여름 직잭팟", "when": "매년 6월경 (2025년·2026년 기준)" }
+        {
+          "name": "여름 직잭팟",
+          "when": "매년 6월경 (2025년·2026년 기준)"
+        }
       ],
       "howto": [
         "지그재그 앱에서 상품을 구매 확정하면 마일리지가 자동으로 쌓여요",
@@ -523,10 +530,26 @@
         "마일리지는 유효기간(6개월)이 지나면 자동으로 소멸돼요"
       ],
       "sources": [
-        { "title": "[마일리지] 마일리지가 무엇인가요?", "url": "https://zigzagkr.zendesk.com/hc/ko/articles/7974244047631", "checked": "2026-09-26" },
-        { "title": "[첫구매 쿠폰] 첫 구매 쿠폰은 무엇이고, 어떻게 사용하나요?", "url": "https://zigzagkr.zendesk.com/hc/ko/articles/5013103761694", "checked": "2026-09-26" },
-        { "title": "지그재그, '2025 여름 직잭팟' 진행···최대 95% 할인", "url": "http://www.seoulfn.com/news/articleView.html?idxno=560093", "checked": "2026-09-26" },
-        { "title": "지그재그, 29일까지 '2026 여름 직잭팟'…최대 92% 할인", "url": "https://www.edaily.co.kr/News/Read?newsId=02164806645482048&mediaCodeNo=257", "checked": "2026-09-26" }
+        {
+          "title": "[마일리지] 마일리지가 무엇인가요?",
+          "url": "https://zigzagkr.zendesk.com/hc/ko/articles/7974244047631",
+          "checked": "2026-09-26"
+        },
+        {
+          "title": "[첫구매 쿠폰] 첫 구매 쿠폰은 무엇이고, 어떻게 사용하나요?",
+          "url": "https://zigzagkr.zendesk.com/hc/ko/articles/5013103761694",
+          "checked": "2026-09-26"
+        },
+        {
+          "title": "지그재그, '2025 여름 직잭팟' 진행···최대 95% 할인",
+          "url": "http://www.seoulfn.com/news/articleView.html?idxno=560093",
+          "checked": "2026-09-26"
+        },
+        {
+          "title": "지그재그, 29일까지 '2026 여름 직잭팟'…최대 92% 할인",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02164806645482048&mediaCodeNo=257",
+          "checked": "2026-09-26"
+        }
       ]
     },
     "kream": {
@@ -560,7 +583,320 @@
         "쿠폰 혜택은 시기와 프로모션에 따라 구성이 달라질 수 있어요"
       ],
       "sources": [
-        { "title": "KREAM(크림) 앱 - App Store", "url": "https://apps.apple.com/kr/app/kream-%ED%81%AC%EB%A6%BC/id1490580239", "checked": "2026-09-26" }
+        {
+          "title": "KREAM(크림) 앱 - App Store",
+          "url": "https://apps.apple.com/kr/app/kream-%ED%81%AC%EB%A6%BC/id1490580239",
+          "checked": "2026-09-26"
+        }
+      ]
+    },
+    "netflix": {
+      "checked": "2026-09-27",
+      "summary": "넷플릭스는 광고형 스탠다드, 스탠다드, 프리미엄 등 화질과 동시 시청 기기 수가 다른 요금제 중 하나를 골라 구독하는 서비스예요. 별도의 등급 멤버십 없이 요금제에 따라 화질, 동시 시청 기기 수, 모바일 게임 이용 여부 등이 정해져요.",
+      "benefits": [
+        {
+          "title": "네이버플러스 멤버십 연동 혜택",
+          "who": "네이버플러스 멤버십 가입자",
+          "how": "네이버플러스 멤버십에 가입돼 있으면 별도 결제 없이 광고형 스탠다드 요금제와 동일한 혜택(1080p, 동시 2대 시청, 다운로드, 모바일 게임)을 이용",
+          "period": "상시",
+          "source": "https://about.netflix.com/ko/news/netflix-now-available-through-naver-plus-membership"
+        },
+        {
+          "title": "넷플릭스 모바일 게임 이용",
+          "who": "모든 유료 구독자",
+          "how": "넷플릭스 앱 내 게임 탭에서 추가 비용 없이 다운로드해 이용",
+          "period": "상시",
+          "source": "https://help.netflix.com/en/node/24926"
+        }
+      ],
+      "membership": "",
+      "sales": [],
+      "howto": [
+        "netflix.com/kr에서 원하는 요금제를 선택해 가입해요",
+        "결제 수단을 등록하면 매월 자동 결제로 이용돼요",
+        "네이버플러스 멤버십 회원이면 네이버 혜택 페이지에서 넷플릭스 혜택을 연결해 별도 결제 없이 이용할 수 있어요",
+        "앱 내 게임 탭에서 추가 비용 없이 모바일 게임을 즐길 수 있어요",
+        "가구 외 인원과 공유하려면 유료 추가 회원을 등록해요"
+      ],
+      "cautions": [
+        "요금제에 따라 화질(1080p/4K)과 동시 시청·다운로드 가능 기기 수가 달라요",
+        "요금제 가격 및 추가 회원 자격은 결합 상품으로 이용 시 다를 수 있어요",
+        "네이버플러스 연동 혜택은 네이버 측 멤버십 정책 변경에 따라 달라질 수 있어요"
+      ],
+      "sources": [
+        {
+          "title": "넷플릭스 대한민국",
+          "url": "https://www.netflix.com/kr/",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "Plans and Pricing | 넷플릭스 고객센터",
+          "url": "https://help.netflix.com/en/node/24926",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "넷플릭스, 이제 네이버플러스 멤버십에서 만난다",
+          "url": "https://about.netflix.com/ko/news/netflix-now-available-through-naver-plus-membership",
+          "checked": "2026-09-27"
+        }
+      ]
+    },
+    "tving": {
+      "checked": "2026-09-27",
+      "summary": "티빙은 광고형 스탠다드부터 프리미엄까지 여러 요금제로 구독하는 국내 OTT 서비스예요. 매월 결제 대신 연간 이용권을 선택하거나, 웨이브와 묶은 더블 이용권으로 가입하면 좀 더 유리한 조건으로 이용할 수 있어요.",
+      "benefits": [
+        {
+          "title": "연간 이용권 할인",
+          "who": "티빙 유료 구독 예정 회원",
+          "how": "이용권 구독 페이지에서 월 결제 대신 연간 결제를 선택",
+          "period": "상시",
+          "source": "https://mkt.tving.com/annual/index.html"
+        },
+        {
+          "title": "더블 이용권(티빙×웨이브 결합)",
+          "who": "티빙·웨이브를 함께 이용하려는 회원",
+          "how": "더블 이용권 페이지에서 두 서비스 계정을 연동해 가입 (기존 구독은 해지 후 가입)",
+          "period": "상시",
+          "source": "https://www.tving.com/membership/double"
+        },
+        {
+          "title": "추가 계정(공유) 서비스",
+          "who": "동거하지 않는 가족·지인과 공유하려는 기존 구독자",
+          "how": "월 5,000원에 추가 계정을 등록하면 동시 시청 1대, 프로필 1개가 추가돼요",
+          "period": "상시",
+          "source": "https://www.tving.com/account/sub/faq"
+        }
+      ],
+      "membership": "",
+      "sales": [],
+      "howto": [
+        "tving.com에서 원하는 요금제를 선택해 가입해요",
+        "연간 결제를 선택하면 할인된 가격으로 결제돼요",
+        "웨이브와 함께 이용하려면 더블 이용권 페이지에서 계정을 연동해요",
+        "가족·지인과 공유하려면 월 5,000원에 추가 계정을 등록해요",
+        "통신사 결합 상품 이용 여부는 가입한 통신사 공식 채널에서 확인해요"
+      ],
+      "cautions": [
+        "더블 이용권은 기존 티빙·웨이브 구독이 있으면 해지 후에만 가입할 수 있어요",
+        "더블 이용권 내 웨이브 콘텐츠 중 일부 방송사 제공 콘텐츠는 제외돼요",
+        "인앱결제(앱스토어·구글플레이)로 가입하면 일부 프로모션이 적용되지 않을 수 있어요",
+        "제휴·결합 혜택은 회사 사정에 따라 사전 고지 없이 변경되거나 종료될 수 있어요"
+      ],
+      "sources": [
+        {
+          "title": "이용권 구독 | TVING",
+          "url": "https://www.tving.com/bill/subscription/plan",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "연간 이용권 안내 | TVING",
+          "url": "https://mkt.tving.com/annual/index.html",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "티빙 더블이용권",
+          "url": "https://www.tving.com/membership/double",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "추가 계정 안내",
+          "url": "https://www.tving.com/account/sub/faq",
+          "checked": "2026-09-27"
+        }
+      ]
+    },
+    "yanolja": {
+      "checked": "2026-09-27",
+      "summary": "야놀자는 NOL이라는 이름으로 통합 운영되는 여행·여가 예약 플랫폼이에요. 회원가입 후 로그인하면 숙소·항공·티켓 쿠폰을 받을 수 있고, 최근 1년간 이용 실적에 따라 등급이 매겨져 등급별로 특가 상품과 포인트 적립률이 달라져요.",
+      "benefits": [
+        {
+          "title": "NOL 등급별 혜택(Silver/Gold/Platinum)",
+          "who": "NOL 회원 (최근 1년 실적 기준 Gold는 3회 또는 25만원 이상, Platinum은 10회 또는 100만원 이상)",
+          "how": "회원가입만 해도 Silver로 시작하고, 이용 실적을 쌓으면 상위 등급으로 자동 승급",
+          "period": "매월 1일",
+          "source": "https://nol.yanolja.com/membership"
+        },
+        {
+          "title": "국내숙소 쿠폰팩",
+          "who": "로그인한 NOL 회원",
+          "how": "마이페이지 쿠폰함에서 발급된 쿠폰을 확인 후 예약 시 적용",
+          "period": "상시",
+          "source": "https://nol.yanolja.com/benefit?category=BENEFIT_HOME"
+        },
+        {
+          "title": "NOL카드 포인트 적립·즉시할인",
+          "who": "NOL카드 발급 회원",
+          "how": "카드로 결제하면 이용금액의 일정 비율이 포인트로 적립되고, 일부 숙소 예약 시 즉시할인이 적용돼요",
+          "period": "상시",
+          "source": "https://nol.yanolja.com/promotion/nol-promotion"
+        }
+      ],
+      "membership": "NOL은 최근 1년간 이용 횟수나 결제 금액을 기준으로 Silver, Gold, Platinum 세 등급으로 나뉘어요. 등급은 매월 1일에 재산정되고, Gold 이상부터는 특가 상품 예약과 더 높은 포인트 적립 혜택을 받을 수 있어요.",
+      "sales": [],
+      "howto": [
+        "NOL(야놀자) 앱이나 웹에서 회원가입 후 로그인해요",
+        "마이페이지 쿠폰함에서 발급된 쿠폰을 확인하고 예약 시 적용해요",
+        "최근 1년 이용 실적을 쌓아 Gold·Platinum 등급으로 승급해요",
+        "결제 시 자동 적립되는 포인트를 다음 예약에 사용해요",
+        "필요하면 NOL카드를 발급받아 결제 시 포인트 적립과 즉시할인을 추가로 받아요"
+      ],
+      "cautions": [
+        "혜택은 로그인한 회원에게만 지급·적용돼요",
+        "쿠폰은 유효기간 내 ID당 1회만 사용할 수 있어요",
+        "해외항공 할인쿠폰처럼 선착순으로 제공되는 쿠폰은 발급 당일까지만 사용할 수 있어요",
+        "이벤트는 회사·제휴사 사정에 따라 변경되거나 조기 종료될 수 있어요"
+      ],
+      "sources": [
+        {
+          "title": "NOL 멤버십 등급 안내",
+          "url": "https://nol.yanolja.com/membership",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "NOL 할인 쿠폰 및 혜택",
+          "url": "https://nol.yanolja.com/benefit?category=BENEFIT_HOME",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "NOL 카드 혜택 안내",
+          "url": "https://nol.yanolja.com/promotion/nol-promotion",
+          "checked": "2026-09-27"
+        }
+      ]
+    },
+    "yeogi": {
+      "checked": "2026-09-27",
+      "summary": "여기어때(여기)는 예약 실적에 따라 엘리트 등급을 부여하는 여행 예약 플랫폼이에요. 등급이 오르면 전용 쿠폰과 추가 할인을 받을 수 있고, 리뷰를 작성하면 포인트도 쌓여요.",
+      "benefits": [
+        {
+          "title": "엘리트·엘리트 플러스 등급 혜택",
+          "who": "최근 2년 내 1건당 5만원 이상 예약을 3회(엘리트) 또는 7회(엘리트 플러스) 이상 완료한 회원(패키지 상품 실적 제외)",
+          "how": "예약 완료 실적이 자동으로 누적돼 조건을 채우면 등급이 부여돼요",
+          "period": "상시",
+          "source": "https://www.yeogi.com/benefit/elite"
+        },
+        {
+          "title": "리뷰 작성 포인트",
+          "who": "전체 회원",
+          "how": "숙소·여행상품 이용 후 리뷰를 작성하면 최대 2,000포인트가 지급돼요",
+          "period": "상시",
+          "source": "https://www.yeogi.com/benefit/elite"
+        },
+        {
+          "title": "트립홀릭 VVIP 커뮤니티",
+          "who": "신청 후 선발된 회원",
+          "how": "공식 신청 폼을 제출해 선발되면 쿠폰팩, 생일월 포인트, 국내·해외 추가 할인 등을 받을 수 있어요",
+          "period": "상시",
+          "source": "https://www.yeogi.com/benefit/trip-holic"
+        }
+      ],
+      "membership": "여기(여기어때)는 최근 2년간 예약 완료 실적(1건당 5만원 이상, 패키지 제외)에 따라 베이직 → 엘리트 → 엘리트 플러스 순으로 등급이 올라가요. 등급이 높을수록 전용 쿠폰, 일부 숙소 한정 추가 할인, 우선 고객 상담 등 혜택이 늘어나요. 이와 별도로 신청·선발제인 트립홀릭 VVIP 프로그램도 운영돼요.",
+      "sales": [],
+      "howto": [
+        "yeogi.com 앱이나 웹에서 회원가입 후 로그인해요",
+        "최근 2년 내 1건당 5만원 이상 예약을 3회 이상 완료하면 엘리트 등급이 부여돼요",
+        "엘리트 전용 쿠폰과 추가 할인을 예약 시 적용해요",
+        "이용 후 리뷰를 작성해 포인트를 받아요",
+        "관심 있으면 트립홀릭 신청 폼으로 VVIP 프로그램에 지원해요"
+      ],
+      "cautions": [
+        "등급 산정 시 취소·환불 건과 패키지 상품 이용 실적은 제외돼요",
+        "등급 전용 추가 할인은 한정된 숙소에만 적용돼요",
+        "트립홀릭은 신청 후 선발된 회원만 이용할 수 있어요(자동 가입 아님)",
+        "상품권·쿠폰 조회는 별도 페이지에서 확인해야 해요"
+      ],
+      "sources": [
+        {
+          "title": "여기어때(여기) 홈",
+          "url": "https://www.yeogi.com",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "엘리트 혜택 안내 - 여기어때",
+          "url": "https://www.yeogi.com/benefit/elite",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "트립홀릭 혜택 안내 - 여기어때",
+          "url": "https://www.yeogi.com/benefit/trip-holic",
+          "checked": "2026-09-27"
+        }
+      ]
+    },
+    "starbucks": {
+      "checked": "2026-09-27",
+      "summary": "스타벅스 코리아는 카드나 앱으로 결제하면 별이 쌓이는 마이 스타벅스 리워드를 운영해요. 별이 쌓일수록 Welcome, Green, Gold 등급으로 올라가고, 등급에 따라 교환할 수 있는 쿠폰 종류와 생일 쿠폰 같은 혜택이 달라져요.",
+      "benefits": [
+        {
+          "title": "마이 스타벅스 리워드 별 적립",
+          "who": "스타벅스 카드·앱 간편결제 등록 회원",
+          "how": "등록된 카드나 제휴카드로 3,000원 이상 결제하면 방문별로 별이 적립돼요",
+          "period": "상시",
+          "source": "https://www.starbucks.co.kr/msr/msreward/star.do"
+        },
+        {
+          "title": "등급별 별 교환 쿠폰",
+          "who": "Green 등급 이상 회원",
+          "how": "적립한 별을 앱에서 2개(사이즈업)부터 원하는 쿠폰으로 교환해요",
+          "period": "상시",
+          "source": "https://www.starbucks.co.kr/msr/msreward/star.do"
+        },
+        {
+          "title": "생일 쿠폰",
+          "who": "Green·Gold 등급 회원",
+          "how": "생일이 속한 달에 Tall 사이즈 무료 음료 쿠폰이 자동 지급돼요",
+          "period": "매년 1회(생일이 속한 달)",
+          "source": "https://www.starbucks.co.kr/msr/msreward/level_benefit.do"
+        },
+        {
+          "title": "e-프리퀀시 시즌 굿즈 이벤트",
+          "who": "전체 회원",
+          "how": "기간 내 미션 음료 포함 정해진 잔 수의 제조 음료를 구매해 e-스티커를 모으면 시즌 굿즈 예약 자격이 주어져요",
+          "period": "매년 여름·겨울(연 2회)",
+          "source": "https://www.starbucks.co.kr/whats_new/campaign_view.do?pro_seq=2661"
+        }
+      ],
+      "membership": "마이 스타벅스 리워드는 Welcome → Green → Gold 3단계 등급이에요. 카드 등록 시 Welcome으로 시작하고, 1년 내 별 5개 이상을 적립하면 Green, 25개 이상을 적립하면 Gold로 승급해요. Green·Gold 등급부터 별을 쿠폰으로 교환할 수 있고, Gold 등급은 생일 쿠폰 등 추가 혜택을 받아요. 등급 유지 조건에 못 미치면 강등될 수 있어요.",
+      "sales": [
+        {
+          "name": "e-프리퀀시 시즌 굿즈 증정",
+          "when": "매년 여름·겨울 (2023~2025년 기준)"
+        }
+      ],
+      "howto": [
+        "스타벅스 카드를 구매하거나 앱에서 등록해요",
+        "등록된 카드·간편결제로 3,000원 이상 결제해 별을 적립해요",
+        "1년간 별 5개 이상 적립하면 Green, 25개 이상 적립하면 Gold로 승급해요",
+        "적립된 별을 앱에서 원하는 쿠폰으로 교환해요",
+        "생일 쿠폰과 연 2회 진행되는 e-프리퀀시 이벤트로 추가 혜택을 받아요"
+      ],
+      "cautions": [
+        "별 적립은 스타벅스 카드·앱 등록 후 3,000원 이상 결제 건에만 적용돼요",
+        "등급별로 교환 가능한 쿠폰 종류가 다르고 Gold 전용 항목이 있어요",
+        "연간 별 적립 기준(5개/25개)을 채우지 못하면 하위 등급으로 조정될 수 있어요",
+        "e-프리퀀시는 기간 내 정해진 잔 수를 채워야 굿즈 예약 자격이 생겨요"
+      ],
+      "sources": [
+        {
+          "title": "스타벅스 리워드 소개",
+          "url": "https://www.starbucks.co.kr/msr/msreward/about.do",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "스타벅스 별 적립·교환 안내",
+          "url": "https://www.starbucks.co.kr/msr/msreward/star.do",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "등급 및 혜택 상세",
+          "url": "https://www.starbucks.co.kr/msr/msreward/level_benefit.do",
+          "checked": "2026-09-27"
+        },
+        {
+          "title": "스타벅스 e-프리퀀시 이벤트 공식 캠페인 페이지",
+          "url": "https://www.starbucks.co.kr/whats_new/campaign_view.do?pro_seq=2661",
+          "checked": "2026-09-27"
+        }
       ]
     }
   }
