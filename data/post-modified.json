@@ -52,7 +52,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "4812894496d04e4e",
+    "hash": "d2844117194757e7",
     "modified": "2026-09-28"
   },
   "game-coupon-expiry-reminder-template": {
@@ -86,6 +86,10 @@
   "lost-ark-coupon-codes": {
     "hash": "fa770d9f0713e69f",
     "modified": "2026-09-26"
+  },
+  "maplestory-idle-coupon-codes": {
+    "hash": "022263cb89540d32",
+    "modified": "2026-09-28"
   },
   "musinsa-coupon-guide": {
     "hash": "98c7cfd3dfb3da5c",
