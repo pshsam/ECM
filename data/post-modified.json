@@ -56,8 +56,8 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "e1cac288ee958def",
-    "modified": "2026-09-28"
+    "hash": "faa307f3b4bb4571",
+    "modified": "2026-09-29"
   },
   "game-coupon-expiry-reminder-template": {
     "hash": "f636d91436d9981f",
@@ -130,6 +130,10 @@
   "subscription-service-comparison": {
     "hash": "0673eca1334d07bc",
     "modified": "2026-09-23"
+  },
+  "whiteout-survival-coupon-codes": {
+    "hash": "d41ebe31500d62bf",
+    "modified": "2026-09-29"
   },
   "wuthering-waves-coupon-codes": {
     "hash": "0c182ef834dd481a",
