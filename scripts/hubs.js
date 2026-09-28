@@ -13,7 +13,8 @@ const DUE_DAYS = 14;
 const HOT_RANK = 8;
 const BASELINE_DATE = '2026-09-21'; // 사이트를 연 날 한꺼번에 넣은 코드는 "새 쿠폰"으로 치지 않는다
 const GENRE_ORDER = ['mmorpg', 'rpg', 'action', 'fps', 'sports'];
-const GENRE_ICONS = { mmorpg: '⚔️', rpg: '📘', action: '🌍', fps: '🎯', sports: '⚽' };
+const { monoBox } = require('./mono');
+const GENRE_ICONS = { mmorpg: '<i class="fa-solid fa-khanda"></i>', rpg: '<i class="fa-solid fa-book-open"></i>', action: '<i class="fa-solid fa-earth-asia"></i>', fps: '<i class="fa-solid fa-crosshairs"></i>', sports: '<i class="fa-solid fa-futbol"></i>' };
 
 function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, evaluate, GENRE_LABELS, headerHtml, footerHtml }) {
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -45,11 +46,11 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
     return { g, left: left.length ? Math.min(...left) : null, n: left.length };
   }).filter(x => x.left !== null).sort((a, b) => a.left - b.left);
 
-  const row = (g, main, meta) => `      <a class="hub-row" href="/game/${esc(g.id)}.html"><span class="hub-ico">${g.icon || '🎮'}</span><span class="main"><span class="t">${esc(g.title)}</span><span class="d">${main}</span></span><span class="meta">${meta}</span></a>`;
+  const row = (g, main, meta) => `      <a class="hub-row" href="/game/${esc(g.id)}.html">${monoBox('hub-ico', g.title)}<span class="main"><span class="t">${esc(g.title)}</span><span class="d">${main}</span></span><span class="meta">${meta}</span></a>`;
   const tile = g => {
     const n = activeOf(g).length;
     const badges = (isHot(g) ? '<span class="ecm-pill hot">HOT</span>' : '') + (newCodes(g).length ? '<span class="ecm-pill new">NEW</span>' : '');
-    return `      <a class="hub-tile" href="/game/${esc(g.id)}.html"><span class="top"><span class="hub-ico">${g.icon || '🎮'}</span><span class="name">${esc(g.title)}</span></span><span class="sub">${esc(g.category || GENRE_LABELS[g.genre] || '')}</span><span class="foot">${n ? `<span class="hub-badge">코드 ${n}개</span>` : '<span class="hub-badge muted">입력 방법</span>'}${badges}</span></a>`;
+    return `      <a class="hub-tile" href="/game/${esc(g.id)}.html"><span class="top">${monoBox('hub-ico', g.title)}<span class="name">${esc(g.title)}</span></span><span class="sub">${esc(g.category || GENRE_LABELS[g.genre] || '')}</span><span class="foot">${n ? `<span class="hub-badge">코드 ${n}개</span>` : '<span class="hub-badge muted">입력 방법</span>'}${badges}</span></a>`;
   };
   // 쿠폰 있는 게임 먼저, 그다음 카탈로그 순서(인기순)
   const order = list => list.slice().sort((a, b) => (activeOf(b).length > 0) - (activeOf(a).length > 0) || rank.get(a.id) - rank.get(b.id));
@@ -60,11 +61,11 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
   const codeGuides = posts.filter(p => p.cat === 'game').slice(0, 6);
 
   const chips = [
-    fresh.length ? '<a class="hub-chip" href="#new">🆕 새 쿠폰</a>' : '',
-    due.length ? '<a class="hub-chip" href="#due">⏰ 마감 임박</a>' : '',
+    fresh.length ? '<a class="hub-chip" href="#new"><i class="fa-solid fa-bolt"></i> 새 쿠폰</a>' : '',
+    due.length ? '<a class="hub-chip" href="#due"><i class="fa-regular fa-clock"></i> 마감 임박</a>' : '',
     ...genreSecs.map(s => `<a class="hub-chip" href="#${s.k}">${GENRE_ICONS[s.k]} ${esc(GENRE_LABELS[s.k])}</a>`),
-    roblox.length ? '<a class="hub-chip" href="#roblox">🟥 로블록스</a>' : '',
-    guides.length ? '<a class="hub-chip" href="#guides">📖 등록 방법</a>' : '',
+    roblox.length ? '<a class="hub-chip" href="#roblox"><i class="fa-solid fa-cube"></i> 로블록스</a>' : '',
+    guides.length ? '<a class="hub-chip" href="#guides"><i class="fa-regular fa-file-lines"></i> 등록 방법</a>' : '',
   ].filter(Boolean).join('');
 
   const body = `    <nav class="hub-crumb" aria-label="현재 위치"><a href="/">ECM 쿠폰</a> › 게임 쿠폰</nav>
@@ -76,14 +77,14 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
     <nav class="hub-chips" aria-label="게임 쿠폰 바로가기">${chips}</nav>
 ${fresh.length ? `
     <section class="hub-sec" id="new" aria-labelledby="newTitle">
-      <h2 id="newTitle">🆕 새 쿠폰 <small>최근 ${NEW_DAYS}일 안에 새로 확인된 코드</small></h2>
+      <h2 id="newTitle"><i class="fa-solid fa-bolt"></i> 새 쿠폰 <small>최근 ${NEW_DAYS}일 안에 새로 확인된 코드</small></h2>
       <div class="hub-rows">
 ${fresh.slice(0, 12).map(x => row(x.g, `새 코드 ${x.n}개 · ${esc(x.g.category || '')}`, `<span class="ecm-pill new">NEW</span> ${esc(fmt(x.latest).slice(5))}`)).join('\n')}
       </div>
     </section>` : ''}
 ${due.length ? `
     <section class="hub-sec" id="due" aria-labelledby="dueTitle">
-      <h2 id="dueTitle">⏰ 마감 임박 <small>${DUE_DAYS}일 안에 끝나는 코드가 있는 게임</small></h2>
+      <h2 id="dueTitle"><i class="fa-regular fa-clock"></i> 마감 임박 <small>${DUE_DAYS}일 안에 끝나는 코드가 있는 게임</small></h2>
       <div class="hub-rows">
 ${due.slice(0, 10).map(x => row(x.g, `곧 끝나는 코드 ${x.n}개`, `<span class="hub-badge due">${x.left === 0 ? '오늘 마감' : `D-${x.left}`}</span>`)).join('\n')}
       </div>
@@ -97,14 +98,14 @@ ${s.list.map(tile).join('\n')}
     </section>`).join('')}
 ${roblox.length ? `
     <section class="hub-sec" id="roblox" aria-labelledby="g-roblox">
-      <h2 id="g-roblox">🟥 로블록스 <small>${roblox.length}종 · 개발팀 공식 채널 기준, 하루 두 번 확인</small></h2>
+      <h2 id="g-roblox"><i class="fa-solid fa-cube"></i> 로블록스 <small>${roblox.length}종 · 개발팀 공식 채널 기준, 하루 두 번 확인</small></h2>
       <div class="hub-tiles">
 ${roblox.map(tile).join('\n')}
       </div>
     </section>` : ''}
 ${guides.length || codeGuides.length ? `
     <section class="hub-sec" id="guides" aria-labelledby="guidesTitle">
-      <h2 id="guidesTitle">📖 쿠폰 등록 방법과 코드 가이드</h2>
+      <h2 id="guidesTitle"><i class="fa-regular fa-file-lines"></i> 쿠폰 등록 방법과 코드 가이드</h2>
       <ul class="hub-list">
 ${guides.concat(codeGuides.filter(p => !guides.includes(p))).map(p => `        <li><a href="${esc(p.url)}">${esc(p.title)}</a></li>`).join('\n')}
       </ul>

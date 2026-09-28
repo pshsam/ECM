@@ -9,6 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const { SITE, esc, fmt, fitTitle, fitDesc, pageShell, breadcrumbLd, writeIfChanged } = require('./page-shell');
+const { monoBox } = require('./mono');
 
 function loadShopDetails(rootDir) {
   const file = path.join(rootDir, 'data', 'shops.json');
@@ -39,7 +40,7 @@ function writeShopHub(rootDir, { shopCats, shopCatalogs, subLabels, catLabels, c
   const card = m => {
     const page = pages.has(m.id);
     return `        <div class="hub-shop" id="shop-${esc(m.id)}">
-          <div class="top"><span class="hub-ico">${m.icon || '🛍️'}</span><span style="min-width:0;display:flex;flex-direction:column"><strong class="name">${esc(m.name)}</strong><span class="benefit">${esc(m.benefit || '')}</span></span></div>
+          <div class="top">${monoBox('hub-ico', m.name)}<span style="min-width:0;display:flex;flex-direction:column"><strong class="name">${esc(m.name)}</strong><span class="benefit">${esc(m.benefit || '')}</span></span></div>
           <p class="tip">${esc(m.tip || '')}</p>
           <div class="foot">${m.checked ? `<span class="hub-checked">✓ 확인 ${esc(fmt(m.checked).slice(5))}</span>` : '<span class="hub-checked no">확인 전</span>'}<span>${page ? `<a href="/shop/${esc(m.id)}.html">혜택 자세히 →</a> · ` : ''}<a href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a></span></div>
         </div>`;
@@ -72,15 +73,15 @@ ${g.items.map(m => card({ ...m, cat })).join('\n')}
     <nav class="hub-chips" aria-label="쇼핑 분류 바로가기">${chips}</nav>
 ${featured.length ? `
     <section class="hub-sec" id="featured" aria-labelledby="featuredTitle">
-      <h2 id="featuredTitle">📋 혜택 자세히 보기 <small>받는 법·세일 일정·주의할 점까지 정리한 곳</small></h2>
+      <h2 id="featuredTitle"><i class="fa-regular fa-rectangle-list"></i> 혜택 자세히 보기 <small>받는 법·세일 일정·주의할 점까지 정리한 곳</small></h2>
       <ul class="hub-list">
-${featured.map(m => `        <li><a href="/shop/${esc(m.id)}.html">${m.icon || ''} ${esc(shortName(m.name))} 쿠폰·할인 혜택</a></li>`).join('\n')}
+${featured.map(m => `        <li><a href="/shop/${esc(m.id)}.html">${esc(shortName(m.name))} 쿠폰·할인 혜택</a></li>`).join('\n')}
       </ul>
     </section>` : ''}
 ${secs}
 ${lifePosts.length ? `
     <section class="hub-sec" id="guides" aria-labelledby="shopGuides">
-      <h2 id="shopGuides">📖 알뜰 쇼핑 가이드</h2>
+      <h2 id="shopGuides"><i class="fa-regular fa-file-lines"></i> 알뜰 쇼핑 가이드</h2>
       <ul class="hub-list">
 ${lifePosts.map(p => `        <li><a href="${esc(p.url)}">${esc(p.title)}</a></li>`).join('\n')}
       </ul>
@@ -116,7 +117,7 @@ function shopPageHtml(m, d, { catLabels, shopsInCat, pages, posts, headerHtml, f
   const related = posts.filter(p => p.title.includes(name)).slice(0, 4);
   const body = `    <nav class="hub-crumb" aria-label="현재 위치"><a href="/">ECM 쿠폰</a> › <a href="/shop/">쇼핑 할인</a> › <a href="/shop/#${esc(m.cat)}">${esc(catLabels[m.cat] || '')}</a> › ${esc(name)}</nav>
     <div class="hub-head">
-      <h1><span class="hub-ico" style="display:inline-grid;vertical-align:middle;margin-right:.4rem;border-radius:999px">${m.icon || '🛍️'}</span>${esc(name)} 쿠폰·할인 혜택 <small>(${ym})</small></h1>
+      <h1>${monoBox('hub-ico', m.name, 'span', 'display:inline-grid;vertical-align:middle;margin-right:.5rem')}${esc(name)} 쿠폰·할인 혜택 <small>(${ym})</small></h1>
       <p class="hub-lede">ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(d.checked))}에 ${esc(name)} 공식 안내를 확인해 정리한 쿠폰·할인 혜택이에요. ${esc(d.summary || '')}</p>
     </div>
     <div class="hub-stats"><span class="hub-stat">${esc(catLabels[m.cat] || '')}</span><span class="hub-stat">확인 <b>${esc(fmt(d.checked))}</b></span><span class="hub-stat"><a class="hub-link" href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a></span></div>
@@ -177,7 +178,7 @@ ${siblings.length ? `
     <section class="hub-sec" id="more">
       <h2>같은 분류의 다른 쇼핑몰</h2>
       <ul class="hub-list">
-${siblings.map(x => `        <li><a href="${pages.has(x.id) ? `/shop/${esc(x.id)}.html` : `/shop/#shop-${esc(x.id)}`}">${x.icon || ''} ${esc(shortName(x.name))}</a></li>`).join('\n')}
+${siblings.map(x => `        <li><a href="${pages.has(x.id) ? `/shop/${esc(x.id)}.html` : `/shop/#shop-${esc(x.id)}`}">${esc(shortName(x.name))}</a></li>`).join('\n')}
       </ul>
     </section>` : ''}
     <p class="hub-note">ECM 쿠폰은 ${esc(name)}과 제휴 관계가 없고, 이 페이지에는 제휴·광고 링크가 없어요. 혜택은 쇼핑몰 사정에 따라 바뀔 수 있으니 결제 전에 공식 사이트에서 한 번 더 확인해 주세요.</p>`;

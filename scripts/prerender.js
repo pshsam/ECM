@@ -28,7 +28,7 @@ const { ensureAnalytics } = require('./analytics');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
-const CATS = ['mega', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
+const CATS = ['mega', 'herostats', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글마다 본문 지문과 마지막 실제 수정일. 빌드가 채우고 고친다 (손으로 고치지 않는다).
 const POST_LEDGER = path.join(__dirname, '..', 'data', 'post-modified.json');

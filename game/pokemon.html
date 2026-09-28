@@ -155,33 +155,63 @@
   </script>
   <style>
     .ecm-page { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
-    .ecm-page h1 { font-size: 1.7rem; font-weight: 900; letter-spacing: -.02em; margin: .5rem 0 .4rem; line-height: 1.3; }
-    .ecm-page h2 { font-size: 1.15rem; font-weight: 800; margin: 2rem 0 .6rem; }
+    .ecm-page h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -.035em; margin: .2rem 0 .2rem; line-height: 1.3; text-wrap: balance; }
+    .ecm-page h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; margin: 2.2rem 0 .7rem; }
     .ecm-page p, .ecm-page li { font-size: .95rem; line-height: 1.8; color: var(--ink-2); }
     .ecm-page ul, .ecm-page ol { padding-left: 1.3rem; margin: 0 0 1rem; }
     .ecm-page a { color: var(--brown); font-weight: 700; }
-    .ecm-game-head { display: flex; align-items: center; gap: .8rem; }
-    .ecm-game-head .ecm-icon { width: 52px; height: 52px; font-size: 1.6rem; border-radius: 14px; }
+    .ecm-crumb { font-size: .8rem; color: var(--ink-3); margin-bottom: .9rem; }
+    .ecm-page .ecm-crumb a { color: var(--ink-3); font-weight: 500; text-decoration: none; }
+    .ecm-page .ecm-crumb a:hover { color: var(--ink); text-decoration: underline; }
+    .ecm-game-head { display: flex; align-items: center; gap: .9rem; }
+    .ecm-game-head .ecm-icon { width: 56px; height: 56px; font-size: 1.45rem; border-radius: 15px; }
     .ecm-lede { font-size: .95rem; margin: 0 0 1rem; }
-    .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .4rem .8rem; margin: .2rem 0 1.2rem; }
+    .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: .1rem 0 0; }
+    .ecm-verify { display: flex; align-items: flex-start; gap: .55rem; background: var(--new-soft); color: #0B5E31; border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; line-height: 1.55; margin: 1.1rem 0 1.2rem; }
+    .ecm-verify i { margin-top: .2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
-    .ecm-page th, .ecm-page td { border: 1px solid var(--line); padding: .55rem .7rem; text-align: left; vertical-align: top; line-height: 1.6; }
-    .ecm-page th { background: var(--y-pale); font-weight: 800; white-space: nowrap; }
-    .ecm-code { font-family: ui-monospace, SFMono-Regular, monospace; font-weight: 700; background: #F4F2E8; padding: .15rem .45rem; border-radius: 6px; word-break: break-all; }
+    .ecm-page th, .ecm-page td { border-bottom: 1px solid var(--line); padding: .7rem .7rem; text-align: left; vertical-align: middle; line-height: 1.6; }
+    .ecm-page th { background: var(--sf); font-weight: 700; font-size: .8rem; color: var(--ink-2); white-space: nowrap; border-bottom: 0; }
+    .ecm-page th:first-child { border-radius: 8px 0 0 8px; }
+    .ecm-page th:last-child { border-radius: 0 8px 8px 0; }
+    .ecm-code { font-family: ui-monospace, SFMono-Regular, monospace; font-weight: 700; letter-spacing: .02em; background: var(--sf); padding: .2rem .5rem; border-radius: 6px; word-break: break-all; color: var(--ink); }
     .ecm-code.is-dead { text-decoration: line-through; color: var(--ink-3); font-weight: 500; }
-    .ecm-redeem-box { background: var(--y-pale); border: 1px solid #F3E9B8; border-radius: 14px; padding: 1rem 1.2rem; margin: .5rem 0 1rem; }
-    .ecm-redeem-box p { margin: 0 0 .5rem; }
+    .c-label { display: none; }
+    /* 지금 쓸 수 있는 코드: 휴대폰에서는 표 대신 코드 카드 */
+    @media (max-width: 640px) {
+      table.ecm-codes, table.ecm-codes tbody { display: block; }
+      table.ecm-codes thead { display: none; }
+      table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
+      table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
+      table.ecm-codes td.c-code { grid-column: 1; }
+      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; }
+      table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
+      table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
+      table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
+      table.ecm-codes td.c-exp br { display: none; }
+      table.ecm-codes td.c-exp small { margin-left: .35rem; color: var(--ink-3); }
+      .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
+    }
+    .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
+    .ecm-redeem-box p { margin: 0 0 .7rem; }
     .ecm-redeem-box p:last-child { margin: 0; }
+    .ecm-redeem-box i { color: var(--ink-3); margin-right: .15rem; }
+    .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
+    .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
-    .ecm-page .ecm-btn-primary { font-size: .75rem; padding: .35rem .7rem; }
+    .ecm-page .ecm-btn-primary { font-size: .78rem; padding: .4rem .75rem; }
     .ecm-nowrap { white-space: nowrap; }
     .ecm-sib { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .ecm-sib a { display: inline-flex; align-items: center; gap: .35rem; padding: .4rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: .85rem; text-decoration: none; }
-    .ecm-sib a:hover { border-color: var(--y-deep); background: var(--y-pale); }
-    details.ecm-faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; margin-bottom: .5rem; }
-    details.ecm-faq summary { cursor: pointer; font-weight: 700; font-size: .95rem; }
+    .ecm-page .ecm-sib a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border: 0; border-radius: 999px; background: var(--sf); color: var(--ink); font-size: .85rem; font-weight: 600; text-decoration: none; }
+    .ecm-page .ecm-sib a:hover { background: var(--line); }
+    /* 글 속 쿠폰 링크 밑줄(ecm.css)은 본문 문장용이라 경로·게임 칩·돌아가기 링크에서는 끈다 */
+    .ecm-page .ecm-crumb a, .ecm-page .ecm-sib a, .ecm-page .ecm-back a { text-decoration: none !important; font-weight: 600; }
+    .ecm-page .ecm-crumb a::after, .ecm-page .ecm-sib a::after, .ecm-page .ecm-back a::after { content: none !important; }
+    .ecm-page .ecm-back a { color: var(--ink-2) !important; }
+    details.ecm-faq { background: #fff; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .9rem .1rem; margin: 0; }
+    details.ecm-faq summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
     details.ecm-faq p { margin: .6rem 0 0; }
-    @media (max-width: 640px) { .ecm-page table { font-size: .82rem; } .ecm-page th, .ecm-page td { padding: .45rem .5rem; } }
+    @media (max-width: 640px) { .ecm-page table { font-size: .82rem; } .ecm-page th, .ecm-page td { padding: .55rem .5rem; } }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -208,9 +238,9 @@
         <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
         <div id="megaGridContainer"></div>
         <div class="ecm-drawer-links">
-          <a href="/game/">🎮 게임 쿠폰</a>
-          <a href="/shop/">🛍️ 쇼핑 할인</a>
-          <a href="/">🏠 홈</a>
+          <a href="/game/"><i class="fa-solid fa-gamepad"></i> 게임 쿠폰</a>
+          <a href="/shop/"><i class="fa-solid fa-bag-shopping"></i> 쇼핑 할인</a>
+          <a href="/"><i class="fa-solid fa-house"></i> 홈</a>
         </div>
       </div>
     </div>
@@ -218,50 +248,51 @@
 
   <main class="ecm-page flex-1 w-full">
     <article>
-    <nav aria-label="현재 위치" style="font-size:.8rem;color:var(--ink-3);margin-bottom:.5rem"><a href="/">ECM</a> › <a href="/game/">게임 쿠폰</a> › 포켓몬스터 스칼렛·바이올렛</nav>
+    <nav class="ecm-crumb" aria-label="현재 위치"><a href="/">ECM</a> › <a href="/game/">게임 쿠폰</a> › 포켓몬스터 스칼렛·바이올렛</nav>
     <div class="ecm-game-head">
-      <div class="ecm-icon">⚡</div>
+      <div class="ecm-icon ecm-mono" style="--mh:285" aria-hidden="true">포</div>
       <div>
         <h1>포켓몬스터 스칼렛·바이올렛 쿠폰 코드 5개 <small style="font-weight:600;color:var(--ink-3);font-size:.9rem">(2026년 9월)</small></h1>
+        <div class="ecm-game-meta">
+          <span>Nintendo</span><span>·</span><span>콘솔 RPG</span><span>·</span><span>닌텐도 스위치</span>
+        </div>
       </div>
     </div>
-    <div class="ecm-game-meta">
-      <span>Nintendo</span><span>·</span><span>콘솔 RPG</span><span>·</span><span>닌텐도 스위치</span><span>·</span><span>쿠폰 확인 2026.09.28</span>
-    </div>
+    <p class="ecm-verify"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><b>2026.09.28 확인</b> · 게임사 공식 채널에서 확인한 코드만 올려요.</span></p>
     <p class="ecm-lede">ECM 쿠폰(Every Coupon Matters)이 2026.09.28 기준으로 확인한 포켓몬스터 스칼렛·바이올렛 쿠폰 코드 5개와 보상, 만료일, 입력 방법입니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인한 것만 올립니다.</p>
 
     <h2 id="codes">지금 쓸 수 있는 코드 (5)</h2>
-    <table>
+    <table class="ecm-codes">
       <thead><tr><th>코드</th><th>보상</th><th>만료</th><th></th></tr></thead>
       <tbody>
 <tr>
-          <td><code class="ecm-code">STRACKSU1T</code> <span class="ecm-pill new">NEW</span></td>
-          <td>트레이닝복 아바타 의상 (스칼렛 전용)</td>
-          <td class="ecm-nowrap">상시 유효</td>
+          <td class="c-code"><code class="ecm-code">STRACKSU1T</code> <span class="ecm-pill new">NEW</span></td>
+          <td class="c-reward"><span class="c-label">보상</span>트레이닝복 아바타 의상 (스칼렛 전용)</td>
+          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>상시 유효</td>
           <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="STRACKSU1T"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
-          <td><code class="ecm-code">VTRACKSU1T</code> <span class="ecm-pill new">NEW</span></td>
-          <td>트레이닝복 아바타 의상 (바이올렛 전용)</td>
-          <td class="ecm-nowrap">상시 유효</td>
+          <td class="c-code"><code class="ecm-code">VTRACKSU1T</code> <span class="ecm-pill new">NEW</span></td>
+          <td class="c-reward"><span class="c-label">보상</span>트레이닝복 아바타 의상 (바이올렛 전용)</td>
+          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>상시 유효</td>
           <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="VTRACKSU1T"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
-          <td><code class="ecm-code">SB00KC0VER</code> <span class="ecm-pill new">NEW</span></td>
-          <td>로트폼폰 케이스 '북 커버' (스칼렛 전용)</td>
-          <td class="ecm-nowrap">상시 유효</td>
+          <td class="c-code"><code class="ecm-code">SB00KC0VER</code> <span class="ecm-pill new">NEW</span></td>
+          <td class="c-reward"><span class="c-label">보상</span>로트폼폰 케이스 '북 커버' (스칼렛 전용)</td>
+          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>상시 유효</td>
           <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SB00KC0VER"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
-          <td><code class="ecm-code">VB00KC0VER</code> <span class="ecm-pill new">NEW</span></td>
-          <td>로트폼폰 케이스 '북 커버' (바이올렛 전용)</td>
-          <td class="ecm-nowrap">상시 유효</td>
+          <td class="c-code"><code class="ecm-code">VB00KC0VER</code> <span class="ecm-pill new">NEW</span></td>
+          <td class="c-reward"><span class="c-label">보상</span>로트폼폰 케이스 '북 커버' (바이올렛 전용)</td>
+          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>상시 유효</td>
           <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="VB00KC0VER"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
-          <td><code class="ecm-code">NE0R0T0MC0VER</code> <span class="ecm-pill new">NEW</span></td>
-          <td>로트폼폰 케이스 '네오 키타카미' (스칼렛·바이올렛 공용)</td>
-          <td class="ecm-nowrap">상시 유효</td>
+          <td class="c-code"><code class="ecm-code">NE0R0T0MC0VER</code> <span class="ecm-pill new">NEW</span></td>
+          <td class="c-reward"><span class="c-label">보상</span>로트폼폰 케이스 '네오 키타카미' (스칼렛·바이올렛 공용)</td>
+          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>상시 유효</td>
           <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="NE0R0T0MC0VER"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
       </tbody>
@@ -274,8 +305,8 @@
 
     <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
-      <p><strong>🧭 어디서:</strong> 인게임 메뉴 &gt; 신비한 선물 &gt; 시리얼 코드/합언어로 받기</p>
-      <p><a href="https://pokemonkorea.co.kr" target="_blank" rel="noopener noreferrer">공식 사이트 열기 ↗</a></p>
+      <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 어디서:</strong> 인게임 메뉴 &gt; 신비한 선물 &gt; 시리얼 코드/합언어로 받기</p>
+      <p><a class="ecm-open" href="https://pokemonkorea.co.kr" target="_blank" rel="noopener noreferrer">공식 사이트 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
     </div>
     <ol>
       <li>위 표에서 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.</li>
@@ -301,16 +332,16 @@
 
     <h2 id="more">같은 장르의 다른 게임 쿠폰</h2>
     <div class="ecm-sib">
-      <a href="/game/starrail.html">🚂 붕괴: 스타레일 <span class="ecm-count">1</span></a>
-      <a href="/game/bluearchive.html">📘 블루 아카이브</a>
-      <a href="/game/cookierun.html">🍪 쿠키런: 킹덤</a>
-      <a href="/game/roblox-blox-fruits.html">🍎 블록스 프루트 <span class="ecm-count">24</span></a>
-      <a href="/game/roblox-grow-a-garden.html">🌱 그로우 어 가든 <span class="ecm-count">2</span></a>
-      <a href="/game/roblox-fisch.html">🎣 피쉬 (Fisch) <span class="ecm-count">4</span></a>
+      <a href="/game/starrail.html">붕괴: 스타레일 <span class="ecm-count">1</span></a>
+      <a href="/game/bluearchive.html">블루 아카이브</a>
+      <a href="/game/cookierun.html">쿠키런: 킹덤</a>
+      <a href="/game/roblox-blox-fruits.html">블록스 프루트 <span class="ecm-count">24</span></a>
+      <a href="/game/roblox-grow-a-garden.html">그로우 어 가든 <span class="ecm-count">2</span></a>
+      <a href="/game/roblox-fisch.html">피쉬 (Fisch) <span class="ecm-count">4</span></a>
     </div>
 
 
-    <p style="margin-top:2rem;font-size:.85rem"><a href="/game/">← 게임 쿠폰 홈</a></p>
+    <p class="ecm-back" style="margin-top:2rem;font-size:.85rem"><a href="/game/">← 게임 쿠폰 홈</a></p>
     </article>
   </main>
 

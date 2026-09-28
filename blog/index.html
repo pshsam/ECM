@@ -41,7 +41,7 @@
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"></noscript>
   <style>
-    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: #f8fafc; color: #0f172a; }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: var(--bg); color: var(--ink); }
     .post-card { position: relative; overflow: hidden; }
     .post-thumb { display: block; width: calc(100% + 2.5rem); margin: -1.25rem -1.25rem 1rem; aspect-ratio: 1200 / 630; object-fit: cover; background: #FFF3B0; }
     .post-card .arrow { opacity: 0; transform: translateX(-4px); transition: opacity .15s, transform .15s; }
@@ -96,9 +96,9 @@
         <div class="ecm-drawer-head"><span>메뉴</span><button type="button" class="ecm-drawer-close" data-close-menu aria-label="메뉴 닫기"><i class="fa-solid fa-xmark"></i></button></div>
         <div id="megaGridContainer"></div>
         <div class="ecm-drawer-links">
-          <a href="/game/">🎮 게임 쿠폰</a>
-          <a href="/shop/">🛍️ 쇼핑 할인</a>
-          <a href="/">🏠 홈</a>
+          <a href="/game/"><i class="fa-solid fa-gamepad"></i> 게임 쿠폰</a>
+          <a href="/shop/"><i class="fa-solid fa-bag-shopping"></i> 쇼핑 할인</a>
+          <a href="/"><i class="fa-solid fa-house"></i> 홈</a>
         </div>
       </div>
     </div>

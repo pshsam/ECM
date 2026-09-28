@@ -18,7 +18,7 @@ const HUB_CSS = `
     .hub-crumb { font-size: .8rem; color: var(--ink-3); margin: 0 0 .4rem; }
     .hub-crumb a { color: var(--ink-3); text-decoration: none; }
     .hub-crumb a:hover { color: var(--brown); text-decoration: underline; }
-    .hub-head h1 { font-size: 1.75rem; font-weight: 900; letter-spacing: -.02em; line-height: 1.3; margin: .2rem 0 .4rem; }
+    .hub-head h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -.035em; line-height: 1.3; margin: .2rem 0 .4rem; }
     .hub-head h1 small { font-size: .9rem; font-weight: 600; color: var(--ink-3); }
     .hub-lede { color: var(--ink-2); font-size: .95rem; line-height: 1.75; margin: 0 0 1rem; max-width: 52rem; }
     .hub-stats { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.25rem; }
@@ -27,10 +27,12 @@ const HUB_CSS = `
     .hub-chips { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; padding: .1rem 0 1rem; }
     .hub-chips::-webkit-scrollbar { display: none; }
     .hub-chip { flex: none; display: inline-flex; align-items: center; gap: .3rem; padding: .45rem .9rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: .85rem; color: var(--ink); text-decoration: none; }
-    .hub-chip:hover { border-color: var(--y-deep); background: var(--y-pale); }
+    .hub-chip:hover { border-color: var(--ink-3); background: var(--sf); }
     .hub-sec { margin: 1.5rem 0 2rem; scroll-margin-top: 84px; }
-    .hub-sec > h2 { font-size: 1.2rem; font-weight: 900; margin: 0 0 .75rem; display: flex; align-items: baseline; gap: .45rem; flex-wrap: wrap; }
+    .hub-sec > h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 .75rem; display: flex; align-items: baseline; gap: .45rem; flex-wrap: wrap; }
     .hub-sec > h2 small { font-weight: 600; color: var(--ink-3); font-size: .8rem; }
+    .hub-sec > h2 > i { font-size: .9rem; color: var(--ink-3); }
+    .hub-chip i { font-size: .8rem; color: var(--ink-3); }
     .hub-sec h3 { font-size: .78rem; font-weight: 800; color: var(--ink-3); letter-spacing: .04em; margin: 1rem 0 .5rem; }
     .hub-more { font-size: .85rem; margin: .6rem 0 0; }
     .hub-more a, .hub-link { color: var(--brown); font-weight: 800; text-decoration: none; }
@@ -38,8 +40,8 @@ const HUB_CSS = `
 
     .hub-rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; }
     .hub-row { display: flex; align-items: center; gap: .75rem; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .7rem .9rem; color: inherit; text-decoration: none; }
-    .hub-row:hover { border-color: var(--y-deep); }
-    .hub-ico { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; background: var(--y-pale); display: grid; place-items: center; font-size: 1.2rem; }
+    .hub-row:hover { border-color: #D6D4CC; }
+    .hub-ico { width: 40px; height: 40px; flex-shrink: 0; border-radius: 11px; background: var(--sf); display: grid; place-items: center; font-size: 1rem; }
     .hub-row .main { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: .1rem; }
     .hub-row .t { font-weight: 800; font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hub-row .d { font-size: .78rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -47,14 +49,14 @@ const HUB_CSS = `
 
     .hub-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
     .hub-tile { position: relative; display: flex; flex-direction: column; gap: .5rem; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .85rem; color: inherit; text-decoration: none; }
-    .hub-tile:hover { border-color: var(--y-deep); box-shadow: 0 6px 16px rgba(0,0,0,.05); }
+    .hub-tile:hover { border-color: #D6D4CC; box-shadow: 0 8px 22px rgba(23,22,15,.06); }
     .hub-tile .top { display: flex; align-items: center; gap: .55rem; min-width: 0; }
     .hub-tile .hub-ico { width: 36px; height: 36px; font-size: 1.1rem; border-radius: 10px; }
     .hub-tile .name { min-width: 0; font-weight: 800; font-size: .9rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .hub-tile .sub { font-size: .75rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hub-tile .foot { display: flex; align-items: center; gap: .3rem; flex-wrap: wrap; margin-top: auto; }
     .hub-badge { display: inline-flex; align-items: center; font-size: .72rem; font-weight: 800; padding: .15rem .55rem; border-radius: 999px; background: var(--y); color: var(--ink); white-space: nowrap; }
-    .hub-badge.muted { background: #F4F2E8; color: var(--ink-3); }
+    .hub-badge.muted { background: var(--sf); color: var(--ink-3); }
     .hub-badge.due { background: #FFEDD5; color: #9A3412; }
 
     .hub-shops { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; }
@@ -70,14 +72,14 @@ const HUB_CSS = `
     .hub-checked { display: inline-flex; align-items: center; gap: .25rem; }
     .hub-checked.no { color: #B45309; }
 
-    .hub-note { background: var(--y-pale); border: 1px solid #F3E9B8; border-radius: 14px; padding: .9rem 1.1rem; font-size: .85rem; color: var(--ink-2); line-height: 1.75; margin: 1rem 0; }
+    .hub-note { background: var(--sf); border: 0; border-radius: 14px; padding: .9rem 1.1rem; font-size: .85rem; color: var(--ink-2); line-height: 1.75; margin: 1rem 0; }
     .hub-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .35rem; }
     .hub-list a { display: block; padding: .55rem .75rem; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: .88rem; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .hub-list a:hover { border-color: var(--y-deep); }
+    .hub-list a:hover { border-color: #D6D4CC; }
 
     .hub-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
     .hub-table th, .hub-table td { border: 1px solid var(--line); padding: .55rem .7rem; text-align: left; vertical-align: top; line-height: 1.6; }
-    .hub-table th { background: var(--y-pale); font-weight: 800; white-space: nowrap; }
+    .hub-table th { background: var(--sf); font-weight: 800; white-space: nowrap; }
     .ecm-nowrap { white-space: nowrap; }
     .hub-prose p, .hub-prose li { font-size: .95rem; line-height: 1.8; color: var(--ink-2); }
     .hub-prose ul, .hub-prose ol { padding-left: 1.3rem; margin: 0 0 1rem; }

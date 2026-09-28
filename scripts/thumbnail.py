@@ -41,7 +41,18 @@ PALETTE = {
     "platform": ("#2B3A55", "#4A5E85"),
 }
 YELLOW = "#FFE14D"
-INK = "#1A1600"
+INK = "#17160F"
+INK3 = "#8C897F"
+
+# 2026-09-29 개편(클린 노랑): 진한 배경에 흰 글자 대신, 분류별 옅은 바탕에 검은 글자.
+# 사이트의 첫 글자 타일과 같은 색 언어다. 노랑은 라벨 칩에만 쓴다.
+TINT = {
+    "mmorpg": "#EEEAFB", "rpg": "#E6EFFC", "action": "#FCEEE2", "fps": "#FCE8E9", "sports": "#E4F4EA",
+    "game": "#EEEAFB",
+    "fashion": "#FBE8F0", "grocery": "#E4F4EA", "ott": "#FCE8E9", "beauty": "#FBE8F3",
+    "delivery": "#FCEEE2", "travel": "#E6EFFC", "life": "#E4F4EA",
+    "guide": "#FFF4C4", "platform": "#E8ECF3",
+}
 
 
 def font(size, bold=True):
@@ -182,37 +193,28 @@ def fit_title(text, max_w, max_lines=3, start=76, end=48):
 
 # ───────── 합성 ─────────
 def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.jpg", site="ecm-coupon.com"):
-    key = genre if (kind == "game" and genre in PALETTE) else kind
-    dark, light = PALETTE.get(key, PALETTE["guide"])
-    img = Image.new("RGB", (W, H), hex_rgb(dark))
-    d = ImageDraw.Draw(img)
+    key = genre if (kind == "game" and genre in TINT) else kind
+    if kind == "game" and genre not in TINT:
+        # 장르를 모르면 제목으로 게임 장르 색 중 하나를 고른다 (글마다 표지 색이 달라 보이게)
+        key = ["mmorpg", "rpg", "action", "fps", "sports"][sum(map(ord, title)) % 5]
+    tint = TINT.get(key, TINT["guide"])
+    dark, _ = PALETTE.get(key, PALETTE["guide"])
+    img = Image.new("RGB", (W, H), hex_rgb(tint))
 
     if bg and os.path.exists(bg):
         photo = Image.open(bg).convert("RGB")
-        # 꽉 채우도록 자르고, 글자가 읽히게 어둡게 + 분류색을 살짝 입힌다
+        # 꽉 채우도록 자르고, 검은 제목이 읽히게 분류 바탕색으로 아주 옅게 덮는다
         r = max(W / photo.width, H / photo.height)
         photo = photo.resize((int(photo.width * r) + 1, int(photo.height * r) + 1), Image.LANCZOS)
         x0, y0 = (photo.width - W) // 2, (photo.height - H) // 2
-        photo = photo.crop((x0, y0, x0 + W, y0 + H)).filter(ImageFilter.GaussianBlur(1.2))
-        tint = Image.new("RGB", (W, H), hex_rgb(dark))
-        img = Image.blend(photo, tint, 0.55)
-        d = ImageDraw.Draw(img)
+        photo = photo.crop((x0, y0, x0 + W, y0 + H)).filter(ImageFilter.GaussianBlur(2))
+        img = Image.blend(photo, img, 0.84)
     else:
-        # 밋밋하지 않게 큰 원 두 개를 연한 색으로
+        # 마스코트 뒤에 조금 진한 원 하나 (분류색을 10%만)
         ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         od = ImageDraw.Draw(ov)
-        lr = hex_rgb(light) + (90,)
-        od.ellipse([760, -220, 1360, 380], fill=lr)
-        od.ellipse([-260, 330, 340, 930], fill=hex_rgb(light) + (60,))
+        od.ellipse([720, 60, 1300, 640], fill=hex_rgb(dark) + (22,))
         img = Image.alpha_composite(img.convert("RGBA"), ov).convert("RGB")
-        d = ImageDraw.Draw(img)
-
-    # 왼쪽 아래→위 어두운 그라데이션 (글자 밑)
-    grad = Image.new("L", (1, H))
-    for y in range(H):
-        grad.putpixel((0, y), int(90 * (y / H)))
-    shade = Image.new("RGB", (W, H), (0, 0, 0))
-    img.paste(shade, (0, 0), grad.resize((W, H)))
     d = ImageDraw.Draw(img)
 
     # 라벨 칩
@@ -228,8 +230,7 @@ def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.jpg", si
     total = lh * len(lines)
     y = (H - total) // 2 + 30
     for ln in lines:
-        d.text((74, y + 3), ln, font=f, fill=(0, 0, 0, 90))  # 그림자
-        d.text((72, y), ln, font=f, fill="white")
+        d.text((72, y), ln, font=f, fill=INK)
         y += lh
 
     # 마스코트 (오른쪽 아래)
@@ -239,7 +240,7 @@ def make(title, kind="guide", genre=None, label="", bg=None, out="thumb.jpg", si
     # 사이트 주소
     sf = font(22, bold=False)
     d = ImageDraw.Draw(img)
-    d.text((72, H - 52), site, font=sf, fill=(255, 255, 255, 200))
+    d.text((72, H - 52), site, font=sf, fill=INK3)
 
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     if out.lower().endswith(".jpg") or out.lower().endswith(".jpeg"):
