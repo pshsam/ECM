@@ -115,7 +115,8 @@ function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'web
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}">
   <link rel="canonical" href="${url}">
-  <link rel="icon" type="image/svg+xml" href="/assets/mascot.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:type" content="${ogType}">
   <meta property="og:site_name" content="ECM 쿠폰 (Every Coupon Matters)">
   <meta property="og:url" content="${url}">

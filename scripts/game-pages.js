@@ -47,8 +47,7 @@ function headerHtml() {
   return `  <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
       <a href="/" class="ecm-logo" aria-label="ECM 홈">
-        <img class="ecm-logo-mark" src="/assets/mascot.svg" alt="" width="36" height="36">
-        <span>ECM</span>
+        <img class="ecm-logo-img" src="/assets/logo.svg" alt="" width="360" height="100">
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
         <a href="/game/" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></a>
@@ -275,7 +274,8 @@ function pageHtml(g, ctx) {
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}">
   <link rel="canonical" href="${url}">
-  <link rel="icon" type="image/svg+xml" href="/assets/mascot.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ECM 쿠폰 (Every Coupon Matters)">
   <meta property="og:url" content="${url}">

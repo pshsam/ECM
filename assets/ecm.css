@@ -51,7 +51,9 @@ body { overflow-x: clip; }
   font-weight: 900; font-size: 1.3rem; letter-spacing: -.03em;
   color: var(--ink); text-decoration: none; flex-shrink: 0;
 }
-.ecm-logo-mark { width: 34px; height: 34px; display: block; transform: rotate(-6deg); }
+/* 로고: 먹 쿠폰 티켓 속 철모 병아리 + 스텐실 ECM (assets/logo.svg) */
+.ecm-logo-img { height: 28px; width: auto; display: block; }
+@media (min-width: 768px) { .ecm-logo-img { height: 32px; } }
 .ecm-menu { display: none; align-items: center; gap: .15rem; }
 .ecm-menu-btn, .ecm-menu-link {
   display: inline-flex; align-items: center; gap: .35rem;
