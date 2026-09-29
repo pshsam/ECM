@@ -248,3 +248,42 @@
   var want = (location.hash || '').slice(1);
   show(['game', 'platform', 'life', 'guide'].indexOf(want) >= 0 ? want : 'latest');
 })();
+
+// ── 공유 버튼과 공유 추적 ──
+// 게임 페이지의 "친구에게 공유": 휴대폰은 공유 창(카카오톡 등), 컴퓨터는 링크 복사.
+// 공유 주소에는 꼬리표(utm_source=share)를 붙여 그 링크로 온 방문을 GA4에서 따로 센다.
+// 카카오톡 안 브라우저로 열린 방문은 세션당 한 번 kakaotalk_open 이벤트로 센다.
+(function () {
+  function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params); }
+  function shareUrl(medium) {
+    var p = location.pathname;
+    return location.origin + p + '?utm_source=share&utm_medium=' + medium + '&utm_campaign=' + (p.split('/')[1] || 'home');
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.ecm-share') : null;
+    if (!btn) return;
+    var title = btn.getAttribute('data-share-title') || document.title;
+    var text = btn.getAttribute('data-share-text') || '';
+    var params = { content_type: location.pathname.split('/')[1] || 'home', item_id: location.pathname };
+    if (navigator.share) {
+      var url = shareUrl('web_share');
+      navigator.share({ title: title, text: text, url: url }).then(function () {
+        params.method = 'web_share'; track('share', params);
+      }).catch(function () { /* 공유 창을 닫음: 세지 않는다 */ });
+      return;
+    }
+    var copyUrl = shareUrl('copy');
+    var label = btn.innerHTML;
+    (navigator.clipboard ? navigator.clipboard.writeText(text + '\n' + copyUrl) : Promise.reject()).then(function () {
+      params.method = 'copy'; track('share', params);
+      btn.textContent = '링크를 복사했어요';
+      setTimeout(function () { btn.innerHTML = label; }, 2000);
+    }).catch(function () { window.prompt ? window.prompt('이 링크를 복사해 보내세요', copyUrl) : null; });
+  });
+  try {
+    if (/KAKAOTALK/i.test(navigator.userAgent) && !sessionStorage.getItem('ga_kakao')) {
+      sessionStorage.setItem('ga_kakao', '1');
+      track('kakaotalk_open', { page_path: location.pathname });
+    }
+  } catch (err) { /* 저장소를 못 쓰는 브라우저 */ }
+})();

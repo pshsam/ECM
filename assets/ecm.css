@@ -326,3 +326,9 @@ article a[href="/"]:not([class*="ecm-"]):hover,
 article a[href^="/game/"]:not([class*="ecm-"]):hover,
 article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale); }
 
+
+/* 게임 페이지 "친구에게 공유" */
+.ecm-share-row { margin: .5rem 0 0; }
+.ecm-share { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 600; font-size: .88rem; cursor: pointer; }
+.ecm-share:hover { background: var(--y-pale); border-color: var(--y-deep); }
+.ecm-share:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }

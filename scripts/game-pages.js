@@ -367,6 +367,7 @@ ${headerHtml()}
       </div>
     </div>
     <p class="ecm-verify"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><b>${esc(fmt(version))} 확인</b> · ${isRoblox ? '개발팀 공식 채널과 코드 전문 매체에서' : '게임사 공식 채널에서'} 확인한 ${active.length ? '코드만 올려요.' : '정보예요. 지금 살아 있는 코드는 없어요.'}</span></p>
+    <p class="ecm-share-row"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(active.length ? `${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요` : `${g.title} 쿠폰 입력 방법과 새 코드 소식`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 친구에게 공유</button></p>
     <p class="ecm-lede">${active.length
       ? `ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(version))} 기준으로 확인한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법입니다.`
       : `ECM 쿠폰(Every Coupon Matters)이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인한 것만 올립니다.</p>
