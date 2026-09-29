@@ -1,5 +1,5 @@
 /**
- * 게임 무료 혜택: /free/ (허브) · /free/preregister.html (사전예약 보상 모음)
+ * 게임 무료 혜택: /free/ (허브) · /free/preregister.html (사전예약 보상 모음) · /free/roblox-codes.html (로블록스 코드 공통 안내)
  *
  * 쿠폰 코드는 나올 때만 검색되지만, "무료로 받는 게임 보상"은 1년 내내 찾는다.
  * 쿠폰·사전예약·방송 쿠폰·PC방·출석·복귀처럼 돈 안 드는 보상을 한곳에 모은다.
@@ -42,6 +42,7 @@ const CSS = `
     .pr-src { font-size: .78rem; color: var(--ink-3); margin: .4rem 0 0; }
     .pr-src a { color: var(--ink-2); }
     .fr-faq h3 { font-size: .98rem; color: var(--ink); letter-spacing: 0; margin: 1rem 0 .3rem; }
+    .fr-tablewrap { overflow-x: auto; }
     .fr-faq p { font-size: .9rem; color: var(--ink-2); line-height: 1.75; margin: 0; }
 `;
 
@@ -90,6 +91,7 @@ function writeFreePages(rootDir, { games = [], evaluate, gamePageIds = [], heade
       <a class="fr-card" href="/today/"><span class="fr-num">${codes}</span><b>지금 쓸 수 있는 쿠폰 코드</b><span>게임 ${withCodes}개 · 오늘 새로 나온 코드와 곧 끝나는 코드를 먼저 보여 줘요.</span></a>
       <a class="fr-card" href="/free/preregister.html"><span class="fr-num">${open.length}</span><b>사전예약 중인 신작</b><span>출시 전에 신청만 해 두면 출시 날 보상을 받아요.</span></a>
       <a class="fr-card" href="/game/"><span class="fr-num">${gamePageIds.length}</span><b>게임별 쿠폰 입력 방법</b><span>어디서 넣는지, 안 될 때 확인할 점까지 게임마다 정리했어요.</span></a>
+      <a class="fr-card" href="/free/roblox-codes.html"><b>로블록스 코드 사용법</b><span>게임 코드와 roblox.com/redeem 코드는 넣는 곳이 달라요. 종류별로 정리했어요.</span></a>
     </div>
 
     <section class="hub-sec">
@@ -158,6 +160,73 @@ ${followHtml('preregister')}
     breadcrumbLd([{ name: 'ECM 쿠폰', path: '/' }, { name: '게임 무료 혜택', path: '/free/' }, { name: '사전예약 보상', path: '/free/preregister.html' }]),
   ];
   if (writeIfChanged(fs, path.join(dir, 'preregister.html'), pageShell({ title: preTitle, desc: preDesc, path: '/free/preregister.html', ld: preLd, style: CSS, body: preBody, headerHtml, footerHtml }))) written++;
+
+  // ── /free/roblox-codes.html (로블록스 코드 공통 안내: 로블록스 공식 도움말 기준)
+  // 로블록스 게임 페이지마다 같은 설명을 길게 반복하지 않도록, 공통 내용은 여기 한 곳에 두고 게임 페이지는 링크만 건다.
+  const rbx = games.filter(g => String(g.id).startsWith('roblox-') && gamePageIds.includes(g.id));
+  const rbxRow = g => {
+    const n = (g.coupons || []).filter(c => evaluate ? evaluate(c.expireDate).active : true).length;
+    return `        <tr><td><a href="/game/${esc(g.id)}.html">${esc(g.title)}</a></td><td>${esc(g.redeemHow || '게임 안 코드 입력 메뉴')}</td><td>${n ? `${n}개` : '-'}</td></tr>`;
+  };
+  const RB_HELP = 'https://en.help.roblox.com/hc/ko/articles/';
+  const rbxTitle = '로블록스 코드 사용법 총정리: 게임 코드·프로모션 코드·기프트 카드 | ECM';
+  const rbxDesc = '로블록스 게임 코드는 어디에 넣고, roblox.com/redeem에는 어떤 코드를 넣는지 로블록스 공식 도움말 기준으로 정리했어요. 게임별 입력 위치 표도 함께 있어요.';
+  const rbxBody = `    <p class="hub-crumb"><a href="/">ECM</a> › <a href="/free/">게임 무료 혜택</a> › 로블록스 코드 사용법</p>
+    <header class="hub-head">
+      <h1>로블록스 코드 사용법 총정리</h1>
+      <p class="hub-lede">로블록스에서 "코드"라고 부르는 건 세 종류예요. 넣는 곳이 다 달라서, 엉뚱한 곳에 넣으면 "잘못된 코드"라고 나와요. 아래 내용은 로블록스 공식 도움말을 기준으로 정리했어요.</p>
+    </header>
+
+    <div class="fr-cards">
+      <div class="fr-card"><b>① 게임(체험) 코드</b><span>블록스 프루트, 그로우 어 가든처럼 각 게임을 만든 개발자가 주는 코드예요. <b>그 게임 안</b>의 코드 입력 창에 넣어요.</span></div>
+      <div class="fr-card"><b>② 로블록스 프로모션·기프트 카드 코드</b><span>로블록스가 이벤트로 주는 코드나 기프트 카드 번호예요. <b>roblox.com/redeem</b>에서 넣어요.</span></div>
+      <div class="fr-card"><b>③ 장난감(굿즈) 코드</b><span>로블록스 장난감·굿즈에 들어 있는 가상 아이템 코드예요. 이것도 <b>roblox.com/redeem</b>에서 넣어요.</span></div>
+    </div>
+
+    <section class="hub-sec">
+      <h2><i class="fa-solid fa-gamepad" aria-hidden="true"></i> ① 게임 코드는 게임 안에서 넣어요</h2>
+      <p class="hub-lede">게임 코드는 게임마다 입력 위치가 달라요. 게임에 들어가서 화면의 Codes, 설정(톱니바퀴), 상점 같은 버튼을 찾아야 해요. ECM에서 쿠폰을 모으는 로블록스 게임의 입력 위치는 아래와 같아요.</p>
+      <div class="fr-tablewrap"><table class="hub-table">
+        <thead><tr><th>게임</th><th>코드 넣는 곳</th><th>지금 쓸 수 있는 코드</th></tr></thead>
+        <tbody>
+${rbx.map(rbxRow).join('\n')}
+        </tbody>
+      </table></div>
+      <p class="pr-src">게임 코드는 개발자가 업데이트 때 공개하고, 짧게 끝나는 경우가 많아요. 게임 페이지에서 코드마다 등록일과 만료일을 확인하세요.</p>
+    </section>
+
+    <section class="hub-sec">
+      <h2><i class="fa-solid fa-ticket" aria-hidden="true"></i> ② roblox.com/redeem에 넣는 코드</h2>
+      <ul class="fr-tips">
+        <li><b>브라우저에서 넣어요</b><span>roblox.com/redeem에 들어가 로그인하고 코드를 넣은 뒤 [사용]을 누르면 돼요. 일반 모바일 앱과 콘솔에는 이 사용 메뉴가 없어서 웹 브라우저로 해야 해요. 삼성 갤럭시 기기만 로블록스 앱 안에서 바로 넣을 수 있어요.</span></li>
+        <li><b>잘못된 코드라고 나오면</b><span>비슷하게 생긴 글자를 바꿔 보세요. 숫자 0은 알파벳 O, 1은 I, 2는 Z, 5는 S, 6은 G나 Q, 8은 B로 바꿔서 넣으면 되는 경우가 있어요.</span></li>
+        <li><b>프로모션 코드는 빨리 쓰세요</b><span>로블록스 프로모션 코드는 짧은 기간 안에 만료되거나 비활성화될 수 있어요. 받으면 바로 쓰는 게 좋아요.</span></li>
+        <li><b>다른 나라 기프트 카드도 돼요</b><span>로블록스 코드는 전 세계에서 쓸 수 있고, 금액은 내 계정의 현지 통화로 바뀌어 들어가요.</span></li>
+      </ul>
+    </section>
+
+    <section class="hub-sec">
+      <h2><i class="fa-solid fa-cube" aria-hidden="true"></i> ③ 장난감(굿즈) 코드</h2>
+      <p class="hub-lede">장난감 코드는 패키지 안 코드 카드나 토큰에 있어요. 가려져 있으면 살살 긁어서 확인한 뒤 roblox.com/redeem에 넣으면, 계정 인벤토리의 해당 카테고리(모자, 배낭 등)에 아이템이 들어가요. 같은 아이템 코드는 계정당 한 번만 쓸 수 있고, 받은 아이템은 팔거나 거래할 수 없어요. 게임 안 굿즈 코드(예: <a href="/game/roblox-pet-simulator-99.html">펫 시뮬레이터 99</a>)는 그 게임 안에서 넣어요.</p>
+    </section>
+
+    <section class="hub-sec">
+      <h2><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> "무료 Robux 코드"는 모두 사기예요</h2>
+      <p class="hub-lede">로블록스는 무료 Robux나 구독을 주는 코드, 요령, 생성기는 존재하지 않는다고 안내해요. 그런 걸 준다는 사람·영상·사이트는 비밀번호와 계정을 노리는 속임수예요. 로블록스 로그인 페이지가 아닌 곳에는 비밀번호를 넣지 말고, 의심스러운 링크는 누르지 마세요.</p>
+      <p class="pr-src">확인한 곳: <a href="${RB_HELP}115005566223" target="_blank" rel="noopener noreferrer">Roblox 지원: 기프트 카드 교환 및 사용 방법</a> · <a href="${RB_HELP}360029650831" target="_blank" rel="noopener noreferrer">프로모션 코드 사용 방법</a> · <a href="${RB_HELP}360000316606" target="_blank" rel="noopener noreferrer">장난감 및 가상 아이템 코드 사용 방법</a> · <a href="${RB_HELP}204262550" target="_blank" rel="noopener noreferrer">무료 Robux 또는 구독 생성기</a> (2026. 9. 29. 확인)</p>
+    </section>
+
+    <section class="hub-sec">
+      <h2><i class="fa-solid fa-bell" aria-hidden="true"></i> 새 로블록스 코드 알림 받기</h2>
+${followHtml('roblox')}
+    </section>
+`;
+  const rbxLd = [
+    { '@context': 'https://schema.org', '@type': 'Article', headline: '로블록스 코드 사용법 총정리', description: rbxDesc, url: SITE + '/free/roblox-codes.html', inLanguage: 'ko', dateModified: today,
+      author: { '@type': 'Organization', name: 'ECM 쿠폰', url: SITE + '/' } },
+    breadcrumbLd([{ name: 'ECM 쿠폰', path: '/' }, { name: '게임 무료 혜택', path: '/free/' }, { name: '로블록스 코드 사용법', path: '/free/roblox-codes.html' }]),
+  ];
+  if (rbx.length && writeIfChanged(fs, path.join(dir, 'roblox-codes.html'), pageShell({ title: rbxTitle, desc: rbxDesc, path: '/free/roblox-codes.html', ld: rbxLd, style: CSS, body: rbxBody, headerHtml, footerHtml }))) written++;
 
   return { written, open: open.length };
 }

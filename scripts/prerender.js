@@ -589,6 +589,7 @@ function main() {
     { loc: '/today/', file: 'today/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/free/', file: 'free/index.html', freq: 'weekly', priority: '0.8' },
     { loc: '/free/preregister.html', file: 'free/preregister.html', freq: 'weekly', priority: '0.8' },
+    { loc: '/free/roblox-codes.html', file: 'free/roblox-codes.html', freq: 'weekly', priority: '0.7' },
     { loc: '/shop/', file: 'shop/index.html', freq: 'weekly', priority: '0.9' },
     ...sp.ids.map(id => ({ loc: `/shop/${id}.html`, file: `shop/${id}.html`, freq: 'weekly', priority: '0.7' })),
   ]);

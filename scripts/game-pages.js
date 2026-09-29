@@ -48,14 +48,27 @@ function evaluate(expireDate, today) {
   return { active: false, text: `${-left}일 전 만료`, left };
 }
 
+// 로블록스 게임: 게임별 공식 코드 안내가 없어서, 짧은 공통 안내 + 로블록스 코드 사용법 페이지 링크만 둔다
+// (긴 공통 설명은 /free/roblox-codes.html 한 곳에만 두어 페이지마다 같은 글이 반복되지 않게 한다)
+const ROBLOX_GUIDE = '/free/roblox-codes.html';
+const isRoblox = g => String(g.id).startsWith('roblox-');
+function robloxNoteHtml(g) {
+  return `    <h2 id="coupon-notes">${esc(g.title)} 코드, 이것만 알아 두세요</h2>
+    <p>${esc(g.title)} 코드는 로블록스 사이트가 아니라 게임 안에서 넣어요. 넣는 곳은 아래 "입력 방법"을 보세요. roblox.com/redeem은 기프트 카드와 로블록스 프로모션 코드를 넣는 곳이라 이 게임 코드를 넣는 곳이 아니에요. 무료 Robux를 준다는 코드는 모두 사기예요.</p>
+    <p class="ecm-note-src"><a href="${ROBLOX_GUIDE}">로블록스 코드 종류별 사용법 전체 보기</a> · 확인한 곳: <a href="https://en.help.roblox.com/hc/ko/articles/115005566223" target="_blank" rel="noopener noreferrer">Roblox 지원</a></p>
+
+`;
+}
+
 /** 게임별 쿠폰 특징 단락 */
 function noteHtml(g) {
   const n = GAME_NOTES[g.id];
+  if ((!n || !n.note) && isRoblox(g)) return robloxNoteHtml(g);
   if (!n || !n.note) return '';
   const src = (n.sources || []).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a>`).join(' · ');
   return `    <h2 id="coupon-notes">${esc(g.title)} 쿠폰, 이것만 알아 두세요</h2>
     <p>${esc(n.note)}</p>
-    <p class="ecm-note-src">확인한 곳: ${src}${n.checked ? ` (${esc(fmt(n.checked))} 확인)` : ''}</p>
+    <p class="ecm-note-src">${isRoblox(g) ? `<a href="${ROBLOX_GUIDE}">로블록스 코드 종류별 사용법 전체 보기</a> · ` : ''}확인한 곳: ${src}${n.checked ? ` (${esc(fmt(n.checked))} 확인)` : ''}</p>
 
 `;
 }
