@@ -35,6 +35,10 @@
     "hash": "076d739511b38017",
     "modified": "2026-09-27"
   },
+  "coupon-code-not-working-guide": {
+    "hash": "007f18e4c356997d",
+    "modified": "2026-09-29"
+  },
   "coupon-notification-automation": {
     "hash": "adf6c813b9fb71f0",
     "modified": "2026-09-23"
@@ -56,7 +60,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "dfc4a855cd429158",
+    "hash": "fc120c9255b16d2c",
     "modified": "2026-09-29"
   },
   "game-coupon-expiry-reminder-template": {
