@@ -13,7 +13,12 @@ on:
       - index.html
   schedule:
     - cron: '5 23 * * *'   # 매일 08:05 KST
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "연결 확인용 테스트 메시지만 보내기"
+        type: boolean
+        default: false
 
 concurrency:
   group: telegram-notify
@@ -34,6 +39,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TEST_MESSAGE: ${{ inputs.test && '1' || '0' }}
         run: node scripts/notify-telegram.js
       - name: 보낸 기록 저장
         run: |

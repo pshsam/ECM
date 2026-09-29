@@ -87,6 +87,17 @@ async function main() {
     return;
   }
 
+  if (process.env.TEST_MESSAGE === "1") {
+    await send(token, chatId, [
+      '✅ ECM 쿠폰 정찰병이 연결됐어요.',
+      '이제 새 게임 쿠폰이 확인되면 이 채널로 바로 알려 드릴게요. 🎟',
+      '',
+      '👉 https://ecm-coupon.com/?utm_source=telegram&utm_medium=channel&utm_campaign=hello',
+    ].join('\n'));
+    console.log("테스트 메시지를 보냈어요.");
+    return;
+  }
+
   const { date: today, hour } = kstNow();
   const seen = JSON.parse(fs.readFileSync(SEEN, 'utf8'));
   const games = loadCatalog();
