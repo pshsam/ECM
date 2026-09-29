@@ -52,8 +52,9 @@ const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400
 const md = d => d.slice(5).replace('-', '/');
 
 function messageFor(g, coupons, today) {
-  const page = fs.existsSync(path.join(ROOT, 'game', `${g.id}.html`)) ? `/game/${g.id}.html` : '/game/';
-  const url = `${SITE}${page}?utm_source=telegram&utm_medium=channel&utm_campaign=new_coupon`;
+  // 짧게: .html 없이, 꼬리표는 출처(telegram) 하나만. 글에서는 주소 대신 "입력 방법 보기" 글자로 보인다
+  const page = fs.existsSync(path.join(ROOT, 'game', `${g.id}.html`)) ? `/game/${g.id}` : '/game/';
+  const url = `${SITE}${page}?utm_source=telegram`;
   const lines = coupons.map(c => {
     const exp = !c.expireDate || c.expireDate === '상시' || /9999/.test(c.expireDate) ? '상시' : `~${md(c.expireDate.slice(0, 10))}`;
     return `<code>${esc(c.code)}</code> · ${esc(c.reward || '보상 확인 중')} (${exp})`;
@@ -63,7 +64,7 @@ function messageFor(g, coupons, today) {
     '',
     ...lines,
     '',
-    `👉 입력 방법: ${url}`,
+    `👉 <a href="${url}">입력 방법 보기</a>`,
     '<i>코드를 누르면 복사돼요 · 알림 그만 받기: 채널 나가기</i>',
   ].join('\n');
 }

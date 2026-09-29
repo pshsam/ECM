@@ -32,8 +32,9 @@ const md = d => `${+d.slice(5, 7)}/${+d.slice(8, 10)}`;
 const permanent = e => !e || e === '상시' || /9999/.test(e);
 const alive = (e, today) => permanent(e) || String(e).slice(0, 10) >= today;
 const link = (id, campaign) => {
-  const page = fs.existsSync(path.join(ROOT, 'game', `${id}.html`)) ? `/game/${id}.html` : '/game/';
-  return `${SITE}${page}?utm_source=kakao&utm_medium=channel_post&utm_campaign=${campaign}`;
+  // 짧게: .html 없이, 꼬리표는 출처(kakao) 하나만
+  const page = fs.existsSync(path.join(ROOT, 'game', `${id}.html`)) ? `/game/${id}` : '/game/';
+  return `${SITE}${page}?utm_source=kakao`;
 };
 const expText = e => (permanent(e) ? '상시' : `${md(String(e).slice(0, 10))}까지`);
 
@@ -96,7 +97,7 @@ function main() {
   if (groups.length > MAX_GAMES) body.push(`그 밖에 ${groups.length - MAX_GAMES}개 게임의 새 쿠폰도 사이트에 있어요.`, '');
   const outro = [
     '💡 새 쿠폰은 채널 친구에게 가장 먼저 알려 드려요.',
-    `전체 쿠폰 모음 👉 ${SITE}/?utm_source=kakao&utm_medium=channel_post&utm_campaign=${campaign}`,
+    `전체 쿠폰 모음 👉 ${SITE}/?utm_source=kakao`,
   ];
   console.log([title, '', ...intro, ...body, ...outro].join('\n'));
 }
