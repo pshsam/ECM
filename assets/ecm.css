@@ -347,3 +347,11 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 /* 게임 페이지 쿠폰 특징 출처 */
 .ecm-note-src { font-size: .8rem; color: var(--ink-3); }
 .ecm-note-src a { color: var(--ink-2); }
+
+/* 텔레그램 새 쿠폰 알림 버튼 */
+.ecm-share.ecm-tg { color: #0b6fa4; border-color: #bfe0f2; text-decoration: none; }
+.ecm-share.ecm-tg:hover { background: #eaf6fd; border-color: #229ed9; }
+.ecm-share-row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.ecm-tg-cta { margin: .6rem 0 0; font-size: .88rem; }
+.ecm-tg-cta a { color: #0b6fa4; font-weight: 600; text-decoration: none; }
+.ecm-tg-cta a:hover { text-decoration: underline; }

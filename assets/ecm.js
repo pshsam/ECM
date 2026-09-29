@@ -312,3 +312,9 @@
     if (typeof window.gtag === 'function') window.gtag('event', i >= 0 ? 'unfavorite_game' : 'favorite_game', { game_id: id });
   });
 })();
+
+// ── 텔레그램 알림 채널 가입 버튼 클릭 수 (GA4: telegram_join_click)
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('[data-tg]') : null;
+  if (a && typeof window.gtag === 'function') window.gtag('event', 'telegram_join_click', { location: a.getAttribute('data-tg'), page_path: location.pathname });
+});
