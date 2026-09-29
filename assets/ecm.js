@@ -318,3 +318,9 @@ document.addEventListener('click', function (e) {
   var a = e.target.closest ? e.target.closest('[data-tg]') : null;
   if (a && typeof window.gtag === 'function') window.gtag('event', 'telegram_join_click', { location: a.getAttribute('data-tg'), page_path: location.pathname });
 });
+
+// ── 카카오톡 채널 추가 버튼 클릭 수 (GA4: kakao_channel_click)
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('[data-kc]') : null;
+  if (a && typeof window.gtag === 'function') window.gtag('event', 'kakao_channel_click', { location: a.getAttribute('data-kc'), page_path: location.pathname });
+});

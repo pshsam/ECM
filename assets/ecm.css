@@ -355,3 +355,8 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 .ecm-tg-cta { margin: .6rem 0 0; font-size: .88rem; }
 .ecm-tg-cta a { color: #0b6fa4; font-weight: 600; text-decoration: none; }
 .ecm-tg-cta a:hover { text-decoration: underline; }
+
+/* 카카오톡 채널 추가 버튼 */
+.ecm-share.ecm-kc { background: #FEE500; border-color: #FEE500; color: #191919; text-decoration: none; }
+.ecm-share.ecm-kc:hover { background: #F5DA00; border-color: #F5DA00; }
+.ecm-tg-cta a[data-kc] { color: #3C1E1E; }
