@@ -3,65 +3,196 @@
   "lostark": {
     "note": "로스트아크 쿠폰은 등록만으로 끝나지 않아요. 웹샵 쿠폰 페이지나 게임 안 알림 창에서 코드를 넣은 뒤 [사용하기]를 눌러야 아이템이 지급돼요. 지급된 아이템은 게임 안 상품함(알림 창이나 로스트아크샵 F4)에서 [받기]로 가져가고, 받을 캐릭터와 원정대 귀속 여부를 먼저 확인하세요. 쿠폰 번호는 게임사 이벤트·프로모션 페이지로 나오고, 로아온 같은 공식 행사 방송에서도 공개돼요.",
     "sources": [
-      { "name": "로스트아크 공식 게임 가이드: 쿠폰", "url": "https://m-lostark.game.onstove.com/GameGuide/Pages/%EC%BF%A0%ED%8F%B0" },
-      { "name": "로아 인벤: 로아온 보상 정리와 쿠폰 코드", "url": "https://m.inven.co.kr/board/lostark/4811/9197276" }
+      {
+        "name": "로스트아크 공식 게임 가이드: 쿠폰",
+        "url": "https://m-lostark.game.onstove.com/GameGuide/Pages/%EC%BF%A0%ED%8F%B0"
+      },
+      {
+        "name": "로아 인벤: 로아온 보상 정리와 쿠폰 코드",
+        "url": "https://m.inven.co.kr/board/lostark/4811/9197276"
+      }
     ],
     "checked": "2026-09-29"
   },
   "fconline": {
     "note": "FC 온라인 쿠폰은 넥슨 쿠폰함에서 등록해요. 넥슨 홈페이지 상단의 쿠폰 아이콘이나 하단 [쿠폰입력], 또는 게임 안 캐시샵의 쿠폰함을 쓰고, 대표 캐릭터를 먼저 정해야 해요. 공식 리그 FCL 생방송에서는 회차마다 화면에 쿠폰 코드가 나오는데, 정해진 입력 시간 안에만 등록할 수 있어요. 넥슨 프리미엄 PC방 이벤트로 스페셜 쿠폰을 준 적도 있어요.",
     "sources": [
-      { "name": "넥슨 고객센터: 쿠폰 등록 방법", "url": "https://cs.nexon.com/helpBoard/popuphelpview/25713" },
-      { "name": "FC 온라인 공지: 2026 FCL 대회·이벤트 안내", "url": "https://fconline.nexon.com/news/notice/view?n4ArticleSN=6235" },
-      { "name": "FC 온라인 PC방 스페셜 쿠폰 이벤트", "url": "https://events.fconline.nexon.com/220811/pccafecoupon" }
+      {
+        "name": "넥슨 고객센터: 쿠폰 등록 방법",
+        "url": "https://cs.nexon.com/helpBoard/popuphelpview/25713"
+      },
+      {
+        "name": "FC 온라인 공지: 2026 FCL 대회·이벤트 안내",
+        "url": "https://fconline.nexon.com/news/notice/view?n4ArticleSN=6235"
+      },
+      {
+        "name": "FC 온라인 PC방 스페셜 쿠폰 이벤트",
+        "url": "https://events.fconline.nexon.com/220811/pccafecoupon"
+      }
     ],
     "checked": "2026-09-29"
   },
   "maplestory": {
     "note": "메이플스토리 쿠폰은 넥슨 쿠폰함에서 등록해요. 넥슨 홈페이지에 로그인해 상단 쿠폰 아이콘이나 하단 [쿠폰입력]을 누르거나, 게임 안 캐시샵의 쿠폰함 버튼을 써요. 대표 캐릭터를 먼저 정해야 하고, 캐시 쿠폰은 '캐시'를 골라 입력해요. 네이버로 가입한 채널링 계정은 상단 쿠폰 아이콘이 보이지 않으니 하단 탭이나 게임 안 쿠폰함을 쓰세요.",
     "sources": [
-      { "name": "넥슨 고객센터: 쿠폰 등록 방법", "url": "https://cs.nexon.com/helpBoard/popuphelpview/25713" },
-      { "name": "메이플스토리 공지: 넥슨 쿠폰함 서비스 리뉴얼", "url": "https://maplestory.nexon.com/News/Notice/Notice/134615" }
+      {
+        "name": "넥슨 고객센터: 쿠폰 등록 방법",
+        "url": "https://cs.nexon.com/helpBoard/popuphelpview/25713"
+      },
+      {
+        "name": "메이플스토리 공지: 넥슨 쿠폰함 서비스 리뉴얼",
+        "url": "https://maplestory.nexon.com/News/Notice/Notice/134615"
+      }
     ],
     "checked": "2026-09-29"
   },
   "lineagem": {
     "note": "리니지M 쿠폰은 엔씨 NShop 쿠폰 등록 페이지에서 서버를 고르고 넣으면 게임 안으로 들어와요. 공식 생방송에서 공개되는 쿠폰도 같은 웹 페이지에서 등록할 수 있어서, 방송을 보는 중에 휴대폰 게임을 따로 켜지 않아도 돼요.",
     "sources": [
-      { "name": "리니지M NShop 쿠폰 등록", "url": "https://nshop.plaync.com/shop/lms/kr/coupon" },
-      { "name": "리니지M 인벤: 생방송 쿠폰 웹에서 등록하는 방법", "url": "https://www.inven.co.kr/board/lineagem/5056/20093" }
+      {
+        "name": "리니지M NShop 쿠폰 등록",
+        "url": "https://nshop.plaync.com/shop/lms/kr/coupon"
+      },
+      {
+        "name": "리니지M 인벤: 생방송 쿠폰 웹에서 등록하는 방법",
+        "url": "https://www.inven.co.kr/board/lineagem/5056/20093"
+      }
     ],
     "checked": "2026-09-29"
   },
   "cookierun": {
     "note": "쿠키런: 킹덤 쿠폰은 데브플레이 쿠폰 페이지에서 넣어요. 이때 게임에 연결된 DevPlay 계정을 알아야 하는데, 게임 안 ☰ > 환경설정 > 정보 탭에서 확인할 수 있어요. 쿠폰마다 입력 기간이 있어서 보이면 바로 쓰는 게 안전해요.",
     "sources": [
-      { "name": "쿠키런: 킹덤 공식 쿠폰 입력 페이지", "url": "https://coupon.devplay.com/coupon/ck/ko" },
-      { "name": "데브시스터즈 고객센터: 쿠키런 킹덤 쿠폰 페이지", "url": "https://cs-cookierunkingdom.devsisters.com/hc/en-us/articles/35085257005593-CookieRun-Kingdom-Coupon-Page" }
+      {
+        "name": "쿠키런: 킹덤 공식 쿠폰 입력 페이지",
+        "url": "https://coupon.devplay.com/coupon/ck/ko"
+      },
+      {
+        "name": "데브시스터즈 고객센터: 쿠키런 킹덤 쿠폰 페이지",
+        "url": "https://cs-cookierunkingdom.devsisters.com/hc/en-us/articles/35085257005593-CookieRun-Kingdom-Coupon-Page"
+      }
     ],
     "checked": "2026-09-29"
   },
   "bluearchive": {
     "note": "블루 아카이브 쿠폰은 넥슨 모바일 쿠폰 페이지에서 회원코드로 넣어요. 회원코드를 입력해야 쿠폰 상태를 확인하고 쓸 수 있고, 서버와 캐릭터를 골라 등록해요. 회원코드 찾는 법은 쿠폰 페이지의 '회원코드 확인하는 방법' 안내에 그림으로 나와 있어요.",
     "sources": [
-      { "name": "블루 아카이브 넥슨 모바일 쿠폰", "url": "https://mcoupon.nexon.com/bluearchive" },
-      { "name": "블루 아카이브 공식 커뮤니티: 쿠폰 사용 및 조회 방법", "url": "https://forum.nexon.com/bluearchive/board_view?board=1072&thread=1595648" }
+      {
+        "name": "블루 아카이브 넥슨 모바일 쿠폰",
+        "url": "https://mcoupon.nexon.com/bluearchive"
+      },
+      {
+        "name": "블루 아카이브 공식 커뮤니티: 쿠폰 사용 및 조회 방법",
+        "url": "https://forum.nexon.com/bluearchive/board_view?board=1072&thread=1595648"
+      }
     ],
     "checked": "2026-09-29"
   },
   "nikke": {
     "note": "니케는 따로 웹 쿠폰 페이지가 없고 게임 안에서만 넣어요. 로비 오른쪽 위 공지(종 모양) > 이벤트 공지의 교환 코드(CD-Key) 페이지에서 코드를 넣으면 보상이 우편함으로 와요. 주년 기념 특별 방송 같은 큰 행사 때 교환 코드를 여러 개 한꺼번에 공개하는 편이라, 공식 계정 소식을 챙겨 보면 좋아요.",
     "sources": [
-      { "name": "승리의 여신: 니케 공식 X(@NIKKE_kr)", "url": "https://x.com/NIKKE_kr" },
-      { "name": "니케 공식 사이트", "url": "https://nikke-kr.com" }
+      {
+        "name": "승리의 여신: 니케 공식 X(@NIKKE_kr)",
+        "url": "https://x.com/NIKKE_kr"
+      },
+      {
+        "name": "니케 공식 사이트",
+        "url": "https://nikke-kr.com"
+      }
     ],
     "checked": "2026-09-29"
   },
   "summonerswar": {
     "note": "서머너즈 워 쿠폰은 게임 안 이벤트 > 게임 가이드 탭의 '이벤트 쿠폰 교환소'나 하이브 쿠폰 페이지에서 넣어요. 주년 기념 같은 큰 행사 때는 쿠폰을 여러 개 한꺼번에 내기도 해요. 11주년 때는 쿠폰 3개를 정해진 기간(2025년 6월 8일 23시 59분까지)에만 받을 수 있었어요.",
     "sources": [
-      { "name": "서머너즈 워 쿠폰 교환소", "url": "https://event.withhive.com/ci/smon/evt_coupon" },
-      { "name": "서머너즈 워 공지: 출시 11주년 특별 선물 쿠폰", "url": "https://www.summonerswar.com/ko/skyarena/news/list/5622" }
+      {
+        "name": "서머너즈 워 쿠폰 교환소",
+        "url": "https://event.withhive.com/ci/smon/evt_coupon"
+      },
+      {
+        "name": "서머너즈 워 공지: 출시 11주년 특별 선물 쿠폰",
+        "url": "https://www.summonerswar.com/ko/skyarena/news/list/5622"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "dnf-mobile": {
+    "note": "던전앤파이터 모바일은 아이폰·아이패드에서는 게임 안 쿠폰 입력이 안 돼서, 넥슨 모바일 쿠폰 페이지에서 회원코드를 넣고 등록해야 해요. 안드로이드는 게임 안 [게임 설정] > [개인정보] > [쿠폰 입력]에서도 넣을 수 있어요.",
+    "sources": [
+      {
+        "name": "던전앤파이터 모바일 FAQ: 쿠폰 사용 방법",
+        "url": "https://dnfm.nexon.com/Customer/Faq/View/1659225"
+      },
+      {
+        "name": "던전앤파이터 모바일 팁: 쿠폰 입력 방법",
+        "url": "https://dnfm.nexon.com/Community/Tip/View/1666433"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "mabinogi-mobile": {
+    "note": "마비노기 모바일 쿠폰은 넥슨 모바일 쿠폰 페이지에서 등록하고, 보상은 게임 안 우편함으로 받아요. 휴대폰 인증이나 넥슨ID 로그인을 하면 공식 사전예약·이벤트로 발급된 내 쿠폰을 조회할 수 있어서, 받은 쿠폰 번호를 잊어버렸을 때 유용해요.",
+    "sources": [
+      {
+        "name": "마비노기 모바일 넥슨 모바일 쿠폰",
+        "url": "https://mcoupon.nexon.com/mabinogimobile/"
+      },
+      {
+        "name": "넥슨 고객센터: 쿠폰 번호 등록 방법",
+        "url": "https://cs.nexon.com/helpBoard/popuphelpview/14829"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "fc-mobile": {
+    "note": "FC 모바일 쿠폰은 공식 홈페이지의 쿠폰 등록 페이지에서 넣어요. 코드를 넣고 [사용하기]를 누른 뒤, 보상은 게임 안 캐시샵에서 확인하면 돼요.",
+    "sources": [
+      {
+        "name": "FC 모바일 공식 쿠폰 등록",
+        "url": "https://fcmobile.nexon.com/Coupon/Index"
+      },
+      {
+        "name": "FC 모바일 공식 커뮤니티: 쿠폰 등록 방법 안내",
+        "url": "https://forum.nexon.com/fcmobile/board_view?board=447&thread=173920"
+      },
+      {
+        "name": "넥슨 고객센터: FC 모바일 쿠폰 안내",
+        "url": "https://cs.nexon.com/helpBoard/popuphelpview/25713"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "pubg-battlegrounds": {
+    "note": "배틀그라운드(PC·콘솔) 코드는 PUBG 공식 리딤 페이지에서 넣어요. 배틀그라운드 모바일은 다른 게임이라 코드가 서로 호환되지 않으니, 어느 게임용 코드인지 먼저 확인하세요.",
+    "sources": [
+      {
+        "name": "PUBG: 배틀그라운드 공식 리딤 페이지",
+        "url": "https://pubg.com/ko/events/redeem"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "sudden-attack": {
+    "note": "서든어택 쿠폰은 서든어택 홈페이지의 [쿠폰등록]이나 넥슨 쿠폰함에서 넣고, 아이템은 게임 안 선물함에서 받아요. PC방 쿠폰 이벤트나 지스타 같은 행사 기념 쿠폰 이벤트가 열리기도 하니 공식 공지를 챙겨 보세요.",
+    "sources": [
+      {
+        "name": "서든어택 공지: 넥슨 지스타 기념 쿠폰 이벤트",
+        "url": "https://sa.nexon.com/news/notice/view.aspx?ArticleSN=145534"
+      },
+      {
+        "name": "서든어택 PC방 쿠폰 이벤트",
+        "url": "https://event.sa.nexon.com/events/new_coupon/coupon2.aspx"
+      }
+    ],
+    "checked": "2026-09-29"
+  },
+  "lineage-w": {
+    "note": "리니지W 쿠폰은 엔씨 NShop 쿠폰 등록 페이지에서 지역(한국/대만)과 서버를 고르고, 캐릭터명과 쿠폰 번호를 넣어요. 캐릭터가 있어야 입력할 수 있으니 먼저 만들어 두세요. 사전예약 쿠폰은 사전예약 때 쓴 휴대폰 번호로 조회할 수 있어요.",
+    "sources": [
+      {
+        "name": "리니지W NShop 쿠폰 등록",
+        "url": "https://nshop.plaync.com/shop/linw/coupon"
+      }
     ],
     "checked": "2026-09-29"
   }
