@@ -22,6 +22,7 @@ const fs = require('fs');
 const path = require('path');
 const { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
+const { writeTodayPage } = require('./today-page');
 const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { ensureAnalytics } = require('./analytics');
@@ -577,9 +578,12 @@ function main() {
   const sp = writeShopPages(rootDir, shopArgs);
   writeShopHub(rootDir, { ...shopArgs, pageIds: sp.ids });
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
+  // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
+  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, headerHtml, footerHtml, version });
 
   const urls = writeSitemap(rootDir, gp.ids, [
     { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
+    { loc: '/today/', file: 'today/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/shop/', file: 'shop/index.html', freq: 'weekly', priority: '0.9' },
     ...sp.ids.map(id => ({ loc: `/shop/${id}.html`, file: `shop/${id}.html`, freq: 'weekly', priority: '0.7' })),
   ]);

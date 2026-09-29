@@ -332,3 +332,14 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 .ecm-share { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 600; font-size: .88rem; cursor: pointer; }
 .ecm-share:hover { background: var(--y-pale); border-color: var(--y-deep); }
 .ecm-share:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* 내 게임에 담기 (게임 페이지) · 오늘의 쿠폰 링크 */
+.ecm-fav.is-on { background: var(--y-soft); border-color: var(--y-deep); }
+.ecm-fav.is-on i { color: #B8860B; }
+.ecm-fav-link { font-size: .82rem; color: var(--ink-3) !important; font-weight: 600 !important; text-decoration: none !important; white-space: nowrap; }
+.ecm-fav-link::after { content: none !important; }
+.ecm-fav-link:hover { color: var(--ink) !important; }
+.ecm-today-cta { display: flex; align-items: center; gap: .5rem; padding: .7rem .9rem; border-radius: 12px; background: var(--y-soft); color: var(--ink); text-decoration: none; font-size: .88rem; font-weight: 600; }
+.ecm-today-cta i { color: var(--brown); }
+.ecm-today-cta span { margin-left: auto; font-weight: 800; }
+.ecm-today-cta:hover { background: var(--y); }

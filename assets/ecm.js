@@ -287,3 +287,28 @@
     }
   } catch (err) { /* 저장소를 못 쓰는 브라우저 */ }
 })();
+
+// 내 게임에 담기: 게임 페이지의 [data-fav] 버튼. 이 기기(localStorage ecm:fav)에만 저장하고,
+// 오늘의 쿠폰(/today/) "내 게임" 칸이 같은 목록을 읽는다.
+(function () {
+  var KEY = 'ecm:fav';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+  function save(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+  function paint(b) {
+    var on = load().indexOf(b.getAttribute('data-fav')) >= 0;
+    b.classList.toggle('is-on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var i = b.querySelector('i'); if (i) i.className = (on ? 'fa-solid' : 'fa-regular') + ' fa-star';
+    var t = b.querySelector('span'); if (t) t.textContent = on ? '내 게임에 담았어요' : '내 게임에 담기';
+  }
+  Array.prototype.slice.call(document.querySelectorAll('[data-fav]')).forEach(paint);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-fav]');
+    if (!b) return;
+    var id = b.getAttribute('data-fav'), a = load(), i = a.indexOf(id);
+    if (i >= 0) a.splice(i, 1); else a.push(id);
+    save(a);
+    paint(b);
+    if (typeof window.gtag === 'function') window.gtag('event', i >= 0 ? 'unfavorite_game' : 'favorite_game', { game_id: id });
+  });
+})();
