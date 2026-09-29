@@ -23,6 +23,7 @@ const path = require('path');
 const { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
+const { writeFreePages } = require('./free-pages');
 const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { ensureAnalytics } = require('./analytics');
@@ -580,10 +581,14 @@ function main() {
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
   writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, headerHtml, footerHtml, version });
+  // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
+  writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.ids, headerHtml, footerHtml });
 
   const urls = writeSitemap(rootDir, gp.ids, [
     { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/today/', file: 'today/index.html', freq: 'daily', priority: '0.9' },
+    { loc: '/free/', file: 'free/index.html', freq: 'weekly', priority: '0.8' },
+    { loc: '/free/preregister.html', file: 'free/preregister.html', freq: 'weekly', priority: '0.8' },
     { loc: '/shop/', file: 'shop/index.html', freq: 'weekly', priority: '0.9' },
     ...sp.ids.map(id => ({ loc: `/shop/${id}.html`, file: `shop/${id}.html`, freq: 'weekly', priority: '0.7' })),
   ]);

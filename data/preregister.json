@@ -1,0 +1,47 @@
+{
+  "_설명": "사전예약 보상 모음(/free/preregister.html). 게임사 발표나 공식 스토어·기사로 확인한 것만 적는다. 출시하면 status 를 'launched', 사전예약이 끝나면 'closed' 로 바꾸고, 출시 한 달 뒤에는 지운다. scripts/free-pages.js 가 읽는다.",
+  "updated": "2026-09-29",
+  "games": [
+    {
+      "id": "palworld-online",
+      "title": "팰월드 온라인",
+      "publisher": "가레나 (원작 포켓페어)",
+      "platform": "모바일 (구글 플레이·앱스토어)",
+      "genre": "오픈월드 생존·크래프팅·몬스터 수집 RPG",
+      "status": "open",
+      "start": "2026-09-02",
+      "launch": "2026년 (한국 첫 출시)",
+      "rewards": ["사전예약 인원 달성 보상: 금화 50,000, 수련의 서(M) 20, 도그 코인 50, 신록의 거대한 알, 테라 스피어 10", "사전예약 참여자 전원 보상은 추후 공개"],
+      "how": "구글 플레이·앱스토어의 게임 페이지에서 사전 등록",
+      "sources": [{ "name": "엑스포츠뉴스: 팰월드 온라인 국내 사전 예약 시작", "url": "https://www.xportsnews.com/article/2191205" }],
+      "checked": "2026-09-29"
+    },
+    {
+      "id": "dragon-raid",
+      "title": "드래곤 레이드",
+      "publisher": "퍼니스톰",
+      "platform": "모바일 (구글 플레이·앱스토어)",
+      "genre": "모바일 RPG",
+      "status": "open",
+      "launch": "2026-10-14",
+      "rewards": ["파이오니어 캐릭터 코스튬 2종 (능력치 없는 외형 아이템)", "출시 후 문자(SMS) 쿠폰 코드로 지급"],
+      "how": "사전예약 페이지에서 휴대폰 번호로 신청 → 출시 후 받은 쿠폰 코드를 공식 쿠폰 페이지에 입력",
+      "redeemUrl": "https://dr-store.funnystorm.com/redeem/",
+      "sources": [{ "name": "인벤 사전예약: 드래곤 레이드 (게임사 보상 안내)", "url": "https://pick.inven.co.kr/campaign/992/dragonraid" }],
+      "checked": "2026-09-29"
+    },
+    {
+      "id": "seal-m2",
+      "title": "씰M2",
+      "publisher": "플레이위드코리아",
+      "platform": "모바일 (안드로이드·iOS)",
+      "genre": "MMORPG",
+      "status": "open",
+      "launch": "출시일 미정",
+      "rewards": ["게임사 보상은 아직 공개 전 (보상은 게임사 사정에 따라 바뀔 수 있음)"],
+      "how": "사전예약 페이지에서 신청",
+      "sources": [{ "name": "인벤 사전예약: 씰M2", "url": "https://pick.inven.co.kr/campaign/989/SealM2" }],
+      "checked": "2026-09-29"
+    }
+  ]
+}
