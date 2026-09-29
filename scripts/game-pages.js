@@ -14,6 +14,11 @@ const { GA_SNIPPET } = require('./analytics');
 const { monoBox } = require('./mono');
 
 const SITE = 'https://ecm-coupon.com';
+
+/** 게임별 "쿠폰, 이것만 알아 두세요" (data/game-notes.json). 공식 안내로 확인한 내용과 출처·확인일. 없으면 단락을 만들지 않는다 */
+const GAME_NOTES = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'game-notes.json'), 'utf8')); } catch (e) { return {}; }
+})();
 const AUTHOR_NAME = '겜대';
 
 const GENRE_LABELS = { mmorpg: 'MMORPG', rpg: '수집형/RPG', action: '액션/오픈월드', fps: 'FPS/슈팅', sports: '스포츠/전략' };
@@ -41,6 +46,18 @@ function evaluate(expireDate, today) {
   const left = Math.round((Date.UTC(+m[1], +m[2] - 1, +m[3]) - kstTodayUTC()) / 86400000);
   if (left >= 0) return { active: true, text: left === 0 ? '오늘 마감' : `D-${left}`, left };
   return { active: false, text: `${-left}일 전 만료`, left };
+}
+
+/** 게임별 쿠폰 특징 단락 */
+function noteHtml(g) {
+  const n = GAME_NOTES[g.id];
+  if (!n || !n.note) return '';
+  const src = (n.sources || []).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a>`).join(' · ');
+  return `    <h2 id="coupon-notes">${esc(g.title)} 쿠폰, 이것만 알아 두세요</h2>
+    <p>${esc(n.note)}</p>
+    <p class="ecm-note-src">확인한 곳: ${src}${n.checked ? ` (${esc(fmt(n.checked))} 확인)` : ''}</p>
+
+`;
 }
 
 function headerHtml() {
@@ -391,7 +408,7 @@ ${codeRows}
     <p>${esc(src.where)}</p>
     <p>${esc(src.form)}${g.officialUrl ? ` 공식 사이트: <a href="${esc(g.officialUrl)}" target="_blank" rel="noopener noreferrer">${esc(g.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))} ↗</a>` : ''}</p>
 
-    <h2 id="how">입력 방법</h2>
+${noteHtml(g)}    <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
       <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 어디서:</strong> ${g.redeemHow ? esc(g.redeemHow) : '확인 중 — 공식 사이트나 게임 안 설정 메뉴에서 쿠폰/교환 코드 입력란을 찾아 주세요.'}</p>
       ${redeemUrl ? `<p><a class="ecm-open" href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer">${g.redeemUrl ? '쿠폰 입력 페이지 열기' : '공식 사이트 열기'} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>` : ''}

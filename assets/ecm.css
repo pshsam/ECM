@@ -343,3 +343,7 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 .ecm-today-cta i { color: var(--brown); }
 .ecm-today-cta span { margin-left: auto; font-weight: 800; }
 .ecm-today-cta:hover { background: var(--y); }
+
+/* 게임 페이지 쿠폰 특징 출처 */
+.ecm-note-src { font-size: .8rem; color: var(--ink-3); }
+.ecm-note-src a { color: var(--ink-2); }
