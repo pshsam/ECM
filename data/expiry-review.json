@@ -121,63 +121,87 @@
    "code": "BH633-66F5C-WFBB5-33TJB-CBSR9",
    "expireDate": "2030-12-31",
    "first_seen": "2026-09-24",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://x.com/Borderlands/status/2023820124403499106",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "borderlands",
    "code": "3S6BB-ZXT93-KRT3W-BT3T3-JW6TZ",
    "expireDate": "2030-12-31",
    "first_seen": "2026-09-24",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://www.threads.com/@borderlands/post/DQKSDpBgW9S",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "borderlands",
    "code": "3SX3J-3XZ55-CR33C-JBBJT-XH395",
    "expireDate": "2030-12-31",
    "first_seen": "2026-09-29",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://x.com/Borderlands/status/2104649036859060676",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "eclipse-awakening",
    "code": "0910ECLIPSE",
    "expireDate": "2026-11-10",
    "first_seen": "2026-09-23",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공지 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "maplestory-idle",
    "code": "PINKBEANATTACK",
    "expireDate": "2026-10-14",
    "first_seen": "2026-09-24",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://forum.nexon.com/maplestoryidle-kr/board_list?board=6697",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "kingshot",
    "code": "MIDAUTUMN26",
    "expireDate": "2026-09-30",
    "first_seen": "2026-09-25",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "이미 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "aion2",
    "code": "HAPPYCHUSEOKAION2",
    "expireDate": "2026-10-14",
    "first_seen": "2026-09-25",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공지 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "epic-seven",
    "code": "TY_E8_INFINITY",
    "expireDate": "2026-10-28",
    "first_seen": "2026-09-25",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://epic7.onstove.com/en/promotion/anniv/8th",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "epic-seven",
    "code": "EPICWITHCZN",
    "expireDate": "2026-10-29",
    "first_seen": "2026-09-25",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://epic7.onstove.com/en/promotion/collabo/czn",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "pokemon-go",
@@ -202,7 +226,9 @@
    "code": "ROK2026666",
    "expireDate": "2026-10-31",
    "first_seen": "2026-09-28",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공지 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "rise-of-kingdoms",
