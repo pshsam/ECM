@@ -444,7 +444,7 @@ ${headerHtml()}
       </div>
     </div>
     <div class="ecm-status">
-      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 목록 갱신 <b>${esc(fmt(version).slice(5))}</b></span>
+      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${g.checked ? `마지막 확인 <b>${esc(fmt(g.checked).slice(5))}</b>` : `목록 갱신 <b>${esc(fmt(version).slice(5))}</b>`}</span>
       ${active.length ? `<span>쓸 수 있는 코드 <b>${active.length}</b>개</span>` : '<span>지금 쓸 수 있는 코드 없음</span>'}
       ${unknownN ? `<span>만료일 미공개 <b>${unknownN}</b>개</span>` : ''}
       ${active.length >= 5 ? '<a href="#how">입력 방법 바로가기 ↓</a>' : ''}
@@ -468,7 +468,7 @@ ${codeRows}
 
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
       <p>${active.length
-      ? `ECM 쿠폰이 ${esc(fmt(version))} 목록 갱신 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
+      ? `ECM 쿠폰이 ${esc(fmt(g.checked || version))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
       : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
       <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
     </details>

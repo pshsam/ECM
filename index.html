@@ -4264,7 +4264,7 @@
       mi.className = 'ecm-icon ecm-icon-lg ecm-mono';
       mi.style.setProperty && mi.style.setProperty('--mh', mo.h);
       document.getElementById('modalGameTitle').innerText = game.title;
-      document.getElementById('modalGamePublisher').innerText = `${game.publisher} · ${game.category}`;
+      document.getElementById('modalGamePublisher').innerText = `${game.publisher} · ${game.category}${game.checked ? ` · 마지막 확인 ${fmtDate(game.checked)}` : ''}`;
       const redeemUrl = game.redeemUrl || game.officialUrl || '';
       const link = document.getElementById('modalOfficialLink');
       if (link) {
