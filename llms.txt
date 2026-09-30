@@ -3,7 +3,7 @@
 > 한국어 게임 쿠폰 코드·생활 할인 정보 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.
 
 - 운영: 겜대 (1인 운영), 2026년 9월 개설
-- 마지막 쿠폰 확인일: 2026-09-29
+- 마지막 쿠폰 확인일: 2026-09-30
 - 갱신 주기: 게임 쿠폰 4시간마다, 로블록스 코드 하루 2번, 게임 목록 매일
 - 등록 기준: 1급 게임사 공식 채널 1곳, 또는 2급 매체 기사 1곳 + 독립된 다른 출처 1곳. 유저 게시글만으로는 등록하지 않는다. 자세한 기준: https://ecm-coupon.com/about.html
 - 게임사 공식 파트너가 아니며, 코드 입력은 각 게임사 공식 페이지나 게임 안에서 한다.
@@ -75,9 +75,9 @@
 - [제우스: 오만의 신 쿠폰 코드](https://ecm-coupon.com/game/zeus-arrogance-of-gods.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [메이플 키우기 쿠폰 코드](https://ecm-coupon.com/game/maplestory-idle.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [SOL: 인챈트 쿠폰 코드](https://ecm-coupon.com/game/sol-enchant.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [킹샷 쿠폰 코드](https://ecm-coupon.com/game/kingshot.html): 지금 쓸 수 있는 코드 5개, 보상·만료일, 입력 방법
+- [킹샷 쿠폰 코드](https://ecm-coupon.com/game/kingshot.html): 지금 쓸 수 있는 코드 6개, 보상·만료일, 입력 방법
 - [쿠키런: 크럼블 쿠폰 코드](https://ecm-coupon.com/game/cookierun-crumble.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [아이온2 쿠폰 코드](https://ecm-coupon.com/game/aion2.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
+- [아이온2 쿠폰 코드](https://ecm-coupon.com/game/aion2.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [마비노기 모바일 쿠폰 코드](https://ecm-coupon.com/game/mabinogi-mobile.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [오딘: 발할라 라이징 쿠폰 코드](https://ecm-coupon.com/game/odin-valhalla-rising.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [라스트 워: 서바이벌 쿠폰 코드](https://ecm-coupon.com/game/last-war-survival.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
