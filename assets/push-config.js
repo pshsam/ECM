@@ -11,5 +11,5 @@ self.ECM_PUSH = {
   projectId: 'ecm-coupon',
   messagingSenderId: '943813816097',
   appId: '1:943813816097:web:af8f056be921d1698c1860',
-  vapidKey: '', // 웹 푸시 인증서 키 쌍 — 아직 받지 못함. 채우기 전에는 알림 버튼이 숨겨져 있다
+  vapidKey: 'BOUNaAEEIYr0202IZFaeEucCa-VMN90VNuEQnQX0LCbh7T84A2jWhoMIJTyJfRjxwFaW-nr9s1UAJCyeIemwr1g', // 웹 푸시 인증서 키 쌍(공개 키)
 };
