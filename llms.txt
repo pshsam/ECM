@@ -46,7 +46,7 @@
 - [로스트아크 쿠폰 코드](https://ecm-coupon.com/game/lostark.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [메이플스토리 쿠폰 코드](https://ecm-coupon.com/game/maplestory.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [FC 온라인 쿠폰 코드](https://ecm-coupon.com/game/fconline.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [검은사막 PC 쿠폰 코드](https://ecm-coupon.com/game/blackdesert.html): 지금 쓸 수 있는 코드 4개, 보상·만료일, 입력 방법
+- [검은사막 PC 쿠폰 코드](https://ecm-coupon.com/game/blackdesert.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
 - [리니지M 쿠폰 코드](https://ecm-coupon.com/game/lineagem.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [블루 아카이브 쿠폰 코드](https://ecm-coupon.com/game/bluearchive.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [승리의 여신: 니케 쿠폰 코드](https://ecm-coupon.com/game/nikke.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
@@ -75,7 +75,7 @@
 - [제우스: 오만의 신 쿠폰 코드](https://ecm-coupon.com/game/zeus-arrogance-of-gods.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [메이플 키우기 쿠폰 코드](https://ecm-coupon.com/game/maplestory-idle.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [SOL: 인챈트 쿠폰 코드](https://ecm-coupon.com/game/sol-enchant.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [킹샷 쿠폰 코드](https://ecm-coupon.com/game/kingshot.html): 지금 쓸 수 있는 코드 6개, 보상·만료일, 입력 방법
+- [킹샷 쿠폰 코드](https://ecm-coupon.com/game/kingshot.html): 지금 쓸 수 있는 코드 5개, 보상·만료일, 입력 방법
 - [쿠키런: 크럼블 쿠폰 코드](https://ecm-coupon.com/game/cookierun-crumble.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [아이온2 쿠폰 코드](https://ecm-coupon.com/game/aion2.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [마비노기 모바일 쿠폰 코드](https://ecm-coupon.com/game/mabinogi-mobile.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
@@ -98,8 +98,8 @@
 - [아니모 쿠폰 코드](https://ecm-coupon.com/game/aniimo.html): 지금 쓸 수 있는 코드 13개, 보상·만료일, 입력 방법
 - [열혈강호: 넥스트 쿠폰 코드](https://ecm-coupon.com/game/yulhyulgangho-next.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [FC 모바일 쿠폰 코드](https://ecm-coupon.com/game/fc-mobile.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [마구마구 2026 쿠폰 코드](https://ecm-coupon.com/game/magmagu-2026.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [포켓몬 GO 쿠폰 코드](https://ecm-coupon.com/game/pokemon-go.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
+- [마구마구 2026 쿠폰 코드](https://ecm-coupon.com/game/magmagu-2026.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
+- [포켓몬 GO 쿠폰 코드](https://ecm-coupon.com/game/pokemon-go.html): 지금 쓸 수 있는 코드 4개, 보상·만료일, 입력 방법
 - [TL (쓰론 앤 리버티) 쿠폰 코드](https://ecm-coupon.com/game/throne-and-liberty.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [검은사막 모바일 쿠폰 코드](https://ecm-coupon.com/game/blackdesert-mobile.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
 - [소녀전선2: 망명 쿠폰 코드](https://ecm-coupon.com/game/girls-frontline-2.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
