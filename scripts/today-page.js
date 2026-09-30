@@ -14,6 +14,8 @@ const fs = require('fs');
 const path = require('path');
 const { SITE, esc, fitTitle, fitDesc, pageShell, breadcrumbLd, writeIfChanged } = require('./page-shell');
 const { monoOf } = require('./mono');
+// 상세 페이지 코드 줄의 앵커 (game-pages.js 와 같은 규칙). game-pages 를 불러오면 순환 참조가 되어 여기 둔다
+const codeAnchor = code => 'code-' + [...String(code)].map(ch => /[A-Za-z0-9_-]/.test(ch) ? ch : '.' + ch.codePointAt(0).toString(16)).join('');
 
 const BASELINE_DATE = '2026-09-21'; // 사이트를 연 날 한꺼번에 넣은 코드는 "새 코드"로 치지 않는다 (hubs.js 와 같다)
 
@@ -55,7 +57,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
       if (!ev.active) continue;
       const seen = firstSeen[g.id + ':' + c.code] || '';
       items.push({
-        id: g.id, t: g.title, u: pages.has(g.id) ? `/game/${g.id}.html` : '/game/', mh: m.h, mc: m.ch,
+        id: g.id, t: g.title, u: pages.has(g.id) ? `/game/${g.id}.html#${codeAnchor(c.code)}` : '/game/', mh: m.h, mc: m.ch,
         c: c.code, r: c.reward || '', e: c.expireDate || '', s: seen > BASELINE_DATE ? seen : '',
       });
     }

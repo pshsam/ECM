@@ -542,6 +542,19 @@
       .ecm-hero { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; gap: 1rem 3rem; padding-top: 2rem; padding-bottom: 1rem; }
       .ecm-hero-stats { padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: 14px; }
     }
+    /* 검색 중: 통계·알림·바로가기를 접고 결과 요약을 먼저 */
+    body.is-searching .ecm-hero-stats, body.is-searching .ecm-quick, body.is-searching .ecm-hero-sub, body.is-searching .ecm-find-hint { display: none; }
+    body.search-empty main { display: none; }
+    body.search-few .ecm-filters, body.search-few #gameCatalogView .ecm-toolbar-right { display: none; }
+    .ecm-search-summary { margin: .2rem 0 .4rem; }
+    .ecm-ss-title { font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em; margin: 0; }
+    .ecm-ss-title b { font-variant-numeric: tabular-nums; }
+    .ecm-ss-help { font-size: .82rem; color: var(--ink-2); margin: .2rem 0 0; }
+    .ecm-ss-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: .7rem 0 0; }
+    .ecm-ss-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border: 1px solid var(--ink); border-radius: 10px; background: #fff; color: var(--ink); font: inherit; font-size: .88rem; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .ecm-chip[hidden] { display: none; }
+    body.is-searching .ecm-chips.is-single { display: none; }
+
     /* 쇼핑 할인은 게임 쿠폰 흐름과 구분되는 옅은 바탕 구역 */
     .ecm-shop-zone { background: var(--sf); border-radius: 18px; padding: 1.1rem 1rem 1.2rem; }
     .ecm-shop-desc { font-size: .82rem; color: var(--ink-2); margin: -.2rem 0 .8rem; }
@@ -578,7 +591,10 @@
     .ecm-upd-desc { font-size: .82rem; color: var(--ink-2); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
     .ecm-upd-desc code { font-family: ui-monospace, SFMono-Regular, monospace; background: var(--sf); padding: 0 .3rem; border-radius: 4px; color: var(--ink); }
     .ecm-upd-meta { grid-column: 2; display: flex; align-items: center; gap: .45rem; margin-top: .4rem; font-size: .75rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .ecm-upd-meta { flex-wrap: wrap; row-gap: .35rem; }
     .ecm-upd-meta .ecm-code-btn { margin-left: auto; }
+    .ecm-upd-info { display: inline-flex; align-items: center; gap: .35rem; white-space: nowrap; font-size: .8rem; color: var(--ink-2); font-weight: 600; }
+    .ecm-nw { white-space: nowrap; }
     .ecm-upd-empty { padding: 1rem; color: var(--ink-3); font-size: .85rem; }
     .ecm-more-link { display: inline-block; margin-top: .55rem; font-size: .85rem; font-weight: 700; color: var(--ink); text-decoration: none; }
     .ecm-more-link:hover { text-decoration: underline; }
@@ -788,6 +804,8 @@
     <div id="herostatsGridContainer" class="ecm-hero-stats"><!--PRERENDER:herostats--><p class="ecm-stats-line"><a href="/game/">쿠폰 있는 게임 <b>35</b></a><a href="/game/">추적 중 <b>80</b></a><a href="/shop/">쇼핑 할인 <b>56</b></a></p><p class="ecm-trust"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>공식 공지나 서로 다른 출처 2곳에서 확인된 코드만 올려요. 목록 갱신 09.30 · <a href="/about.html#criteria">확인 기준</a></span></p><p class="ecm-channels"><span>새 쿠폰 알림</span><a href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="home"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램</a><a href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="home"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a href="/today/"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 오늘의 쿠폰</a></p><!--/PRERENDER:herostats--></div>
   </section>
 
+  <section class="ecm-wrap"><div id="searchSummary" class="ecm-search-summary" role="status" aria-live="polite" hidden></div></section>
+
   <!-- 카테고리 칩: 어느 화면 폭에서든 한 줄, 좁으면 가로로 넘긴다 -->
   <section class="ecm-wrap">
     <div class="ecm-chips hidden" id="categoryChips" role="tablist" aria-label="카테고리">
@@ -922,7 +940,7 @@
             <h2 id="latestTitle"><i class="fa-regular fa-clock"></i> 최신 쿠폰</h2>
             <span class="ecm-updated" id="updatesStamp"></span>
           </div>
-          <div id="updatesGridContainer" class="ecm-upd-list"><!--PRERENDER:updates--><a class="ecm-upd" href="/game/magmagu-2026.html"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc" title="루키 선수 영입권 5장 · 레전드 프차 픽업팩 1개 · 강화 행운권(+50%) 1개">루키 선수 영입권 5장 외 2개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 3개</span><span aria-hidden="true">·</span><time datetime="2026-09-30">09.30 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-shindo-life.html"><span class="ecm-upd-icon ecm-mono" style="--mh:170" aria-hidden="true">신</span><span class="ecm-upd-main"><span class="ecm-upd-title">신도 라이프</span><span class="ecm-upd-desc" title="RELL코인 10,000 + 스핀 100회">RELL코인 10,000 + 스핀 100회</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 1개</span><span aria-hidden="true">·</span><time datetime="2026-09-30">09.30 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/kingshot.html"><span class="ecm-upd-icon ecm-mono" style="--mh:195" aria-hidden="true">킹</span><span class="ecm-upd-main"><span class="ecm-upd-title">킹샷</span><span class="ecm-upd-desc" title="보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개">보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 1개</span><span aria-hidden="true">·</span><time datetime="2026-09-30">09.30 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc" title="아디다스 콜라보 아바타 신발">아디다스 콜라보 아바타 신발</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 1개</span><span aria-hidden="true">·</span><time datetime="2026-09-30">09.30 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-anime-vanguards.html"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">애</span><span class="ecm-upd-main"><span class="ecm-upd-title">애니메 뱅가드</span><span class="ecm-upd-desc" title="메모리아 조각 100개 · 트레이트 리롤 1,000개 + 서머 캡슐 100개 · 트레이트 리롤 50개 + 아이스티 5,000개 · 메모리아 조각 50개 + 아이스티 5,000개 · 트레이트 리롤 50개 + 메모리아 조각 50개 + 레인보우 에센스 5개 · 트레이트 리롤 1,500개 · 메모리아 조각 50개 + 레인보우 에센스 5개 · 트레이트 리롤 50개 + 그린 에센스 50개 · 트레이트 리롤 50개 + 메모리아 조각 50개">메모리아 조각 100개 외 8개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 9개</span><span aria-hidden="true">·</span><time datetime="2026-09-29">09.29 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-da-hood.html"><span class="ecm-upd-icon ecm-mono" style="--mh:42" aria-hidden="true">다</span><span class="ecm-upd-main"><span class="ecm-upd-title">다후드</span><span class="ecm-upd-desc" title="DHC 300,000 · DHC 1,000,000 · DHC 400,000 · DHC 600,000 · DHC 400,000">DHC 300,000 외 4개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 5개</span><span aria-hidden="true">·</span><time datetime="2026-09-29">09.29 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc" title="최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰) · 엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰) · 사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)">최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰) 외 2개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 3개</span><span aria-hidden="true">·</span><time datetime="2026-09-29">09.29 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/borderlands.html"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">보</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT)</span><span class="ecm-upd-desc" title="(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개 · (보더랜드4) Loveless 볼트 헌터 스킨 'Mint Chipset'">(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개 외 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill new">NEW</span><span>새 코드 2개</span><span aria-hidden="true">·</span><time datetime="2026-09-29">09.29 등록</time><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:updates--></div>
+          <div id="updatesGridContainer" class="ecm-upd-list"><!--PRERENDER:updates--><a class="ecm-upd" href="/game/magmagu-2026.html#added-2026-09-30" aria-label="마구마구 2026 신규 코드 3개 (09.30 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc" title="루키 선수 영입권 5장 · 레전드 프차 픽업팩 1개 · 강화 행운권(+50%) 1개">루키 선수 영입권 5장 외 2개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 3개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-30" title="2026-09-30 등록">09.30</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-shindo-life.html#added-2026-09-30" aria-label="신도 라이프 신규 코드 1개 (09.30 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:170" aria-hidden="true">신</span><span class="ecm-upd-main"><span class="ecm-upd-title">신도 라이프</span><span class="ecm-upd-desc" title="RELL코인 10,000 + 스핀 100회">RELL코인 10,000 + 스핀 100회</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 1개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-30" title="2026-09-30 등록">09.30</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/kingshot.html#added-2026-09-30" aria-label="킹샷 신규 코드 1개 (09.30 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:195" aria-hidden="true">킹</span><span class="ecm-upd-main"><span class="ecm-upd-title">킹샷</span><span class="ecm-upd-desc" title="보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개">보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 1개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-30" title="2026-09-30 등록">09.30</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html#added-2026-09-30" aria-label="포켓몬 GO 신규 코드 1개 (09.30 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc" title="아디다스 콜라보 아바타 신발">아디다스 콜라보 아바타 신발</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 1개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-30" title="2026-09-30 등록">09.30</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-anime-vanguards.html#added-2026-09-29" aria-label="애니메 뱅가드 신규 코드 9개 (09.29 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">애</span><span class="ecm-upd-main"><span class="ecm-upd-title">애니메 뱅가드</span><span class="ecm-upd-desc" title="메모리아 조각 100개 · 트레이트 리롤 1,000개 + 서머 캡슐 100개 · 트레이트 리롤 50개 + 아이스티 5,000개 · 메모리아 조각 50개 + 아이스티 5,000개 · 트레이트 리롤 50개 + 메모리아 조각 50개 + 레인보우 에센스 5개 · 트레이트 리롤 1,500개 · 메모리아 조각 50개 + 레인보우 에센스 5개 · 트레이트 리롤 50개 + 그린 에센스 50개 · 트레이트 리롤 50개 + 메모리아 조각 50개">메모리아 조각 100개 외 8개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 9개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-29" title="2026-09-29 등록">09.29</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/roblox-da-hood.html#added-2026-09-29" aria-label="다후드 신규 코드 5개 (09.29 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:42" aria-hidden="true">다</span><span class="ecm-upd-main"><span class="ecm-upd-title">다후드</span><span class="ecm-upd-desc" title="DHC 300,000 · DHC 1,000,000 · DHC 400,000 · DHC 600,000 · DHC 400,000">DHC 300,000 외 4개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 5개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-29" title="2026-09-29 등록">09.29</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#added-2026-09-29" aria-label="트릭컬 리바이브 신규 코드 3개 (09.29 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc" title="최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰) · 엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰) · 사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)">최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰) 외 2개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 3개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-29" title="2026-09-29 등록">09.29</time></span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/borderlands.html#added-2026-09-29" aria-label="보더랜드 (SHiFT) 신규 코드 2개 (09.29 등록) 보기"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">보</span><span class="ecm-upd-main"><span class="ecm-upd-title">보더랜드 (SHiFT)</span><span class="ecm-upd-desc" title="(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개 · (보더랜드4) Loveless 볼트 헌터 스킨 'Mint Chipset'">(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개 외 1개</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 2개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="2026-09-29" title="2026-09-29 등록">09.29</time></span><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:updates--></div>
           <a class="ecm-more-link" href="/game/#new">새 쿠폰 전체 보기 →</a>
         </section>
         <section class="ecm-home-sec" aria-labelledby="deadlineTitle">
@@ -930,7 +948,7 @@
             <h2 id="deadlineTitle"><i class="fa-solid fa-hourglass-half"></i> 마감 임박 쿠폰</h2>
             <span class="ecm-updated">2주 안에 끝나는 코드</span>
           </div>
-          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/game/magmagu-2026.html"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">루키 선수 영입권 5장</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/magmagu-2026.html"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">레전드 프차 픽업팩 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/magmagu-2026.html"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">강화 행운권(+50%) 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc">레고 콜라보 모자 아바타 아이템, 산딸기류 열매 각 3개, XP 1000, 스타더스트 1000</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc">MLB 콜라보 아바타 티셔츠</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-1</span><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:deadline--></div>
+          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/game/magmagu-2026.html#code-2609UPDATENOTICE"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">루키 선수 영입권 5장</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/magmagu-2026.html#code-ADIEU26SUMMER"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">레전드 프차 픽업팩 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/magmagu-2026.html#code-MAKEBETTERMAGU"><span class="ecm-upd-icon ecm-mono" style="--mh:330" aria-hidden="true">마</span><span class="ecm-upd-main"><span class="ecm-upd-title">마구마구 2026</span><span class="ecm-upd-desc">강화 행운권(+50%) 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html#code-LEGOxPOKEMONGOxCAP"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc">레고 콜라보 모자 아바타 아이템, 산딸기류 열매 각 3개, XP 1000, 스타더스트 1000</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/pokemon-go.html#code-MLBxPOKEMONGO2026"><span class="ecm-upd-icon ecm-mono" style="--mh:285" aria-hidden="true">포</span><span class="ecm-upd-main"><span class="ecm-upd-title">포켓몬 GO</span><span class="ecm-upd-desc">MLB 콜라보 아바타 티셔츠</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">오늘 마감</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-BOLEUMDAL"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-1</span><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:deadline--></div>
         </section>
       </div>
 
@@ -3699,8 +3717,9 @@
       const conf = CATEGORY_CONFIG[cat];
       const heroTitle = document.getElementById('heroTitle');
       const heroSubtitle = document.getElementById('heroSubtitle');
-      if (heroTitle) heroTitle.innerHTML = conf.heroTitle;
-      if (heroSubtitle) heroSubtitle.innerText = conf.heroSubtitle;
+      const shown = searchQuery ? CATEGORY_CONFIG.home : conf;
+      if (heroTitle) heroTitle.innerHTML = shown.heroTitle;
+      if (heroSubtitle) heroSubtitle.innerText = shown.heroSubtitle;
     }
 
     function toggleActiveOnlyMode() {
@@ -3747,6 +3766,14 @@
     }
     function gameHref(game) {
       return hasGamePage(game) ? `/game/${game.id}.html` : `/#${game.id}`;
+    }
+    // 상세 페이지의 코드 줄 id 와 같은 규칙 (scripts/game-pages.js codeAnchor). 영문·숫자·_- 는 그대로, 나머지는 '.'+16진수
+    function codeAnchor(code) {
+      return 'code-' + [...String(code)].map(ch => /[A-Za-z0-9_-]/.test(ch) ? ch : '.' + ch.codePointAt(0).toString(16)).join('');
+    }
+    // 업데이트 줄 → 상세 페이지의 '그날 등록된 코드 묶음'. 연결 근거는 등록일 장부(COUPON_FIRST_SEEN)의 날짜뿐이다
+    function updateHref(game, date) {
+      return hasGamePage(game) ? `/game/${game.id}.html#added-${date}` : gameHref(game);
     }
     function badgesHtml(game) {
       return (gameIsHot(game) ? '<span class="ecm-pill hot">HOT</span>' : '')
@@ -4035,14 +4062,12 @@
         return;
       }
       box.innerHTML = items.map(it => {
-        const isNew = isNewDate(it.date);
-        const pill = isNew ? '<span class="ecm-pill new">NEW</span>' : '';
         // 게임명 → 핵심 보상(한 줄) → 새 코드 수·등록일 → 코드 보기. 코드는 여기서 보여주지 않는다(복사·입력 방법이 있는 상세로 보낸다)
         const g = it.game;
         const first = it.coupons[0];
         const more = it.coupons.length > 1 ? ` 외 ${it.coupons.length - 1}개` : '';
         const reward = esc(first.reward || '보상 확인 중') + more;
-        return `<a class="ecm-upd" href="${gameHref(g)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`}>${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc" title="${esc(it.coupons.map(c => c.reward || '').join(' · '))}">${reward}</span></span><span class="ecm-upd-meta">${pill}<span>새 코드 ${it.coupons.length}개</span><span aria-hidden="true">·</span><time datetime="${esc(it.date)}">${esc(fmtDate(it.date))} 등록</time><span class="ecm-code-btn">코드 보기</span></span></a>`;
+        return `<a class="ecm-upd" href="${updateHref(g, it.date)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`} aria-label="${esc(g.title)} 신규 코드 ${it.coupons.length}개 (${esc(fmtDate(it.date))} 등록) 보기">${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc" title="${esc(it.coupons.map(c => c.reward || '').join(' · '))}">${reward}</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 ${it.coupons.length}개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="${esc(it.date)}" title="${esc(it.date)} 등록">${esc(fmtDate(it.date))}</time></span><span class="ecm-code-btn">코드 보기</span></span></a>`;
       }).join('');
     }
 
@@ -4068,7 +4093,7 @@
       box.innerHTML = rows.slice(0, DEADLINE_MAX).map(r => {
         const g = r.game;
         const pill = `<span class="ecm-pill ${r.left <= 3 ? 'due-soon' : 'due'}">${esc(r.ddayText)}</span>`; // 오늘 마감·D-n 글자와 색을 같이
-        return `<a class="ecm-upd" href="${gameHref(g)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`}>${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc">${esc(r.coupon.reward || '보상 확인')}</span></span><span class="ecm-upd-meta">${pill}<span class="ecm-code-btn">코드 보기</span></span></a>`;
+        return `<a class="ecm-upd" href="${hasGamePage(g) ? `/game/${g.id}.html#${codeAnchor(r.coupon.code)}` : gameHref(g)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`}>${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc">${esc(r.coupon.reward || '보상 확인')}</span></span><span class="ecm-upd-meta">${pill}<span class="ecm-code-btn">코드 보기</span></span></a>`;
       }).join('');
     }
 
@@ -4231,12 +4256,12 @@
       const wasEmpty = !searchQuery;
       searchQuery = (val || '').trim().toLowerCase();
       if (wasEmpty && searchQuery) searchFromHome = currentMainCategory === 'home';
-      if (!searchQuery && searchFromHome) { searchFromHome = false; SHOP_CATS.forEach(renderShops); renderGames(); applyCategoryCounts(); setMainCategory('home'); const c = document.getElementById('clearSearchBtn'); if (c) c.classList.add('hidden'); return; }
+      if (!searchQuery && searchFromHome) { searchFromHome = false; SHOP_CATS.forEach(renderShops); renderGames(); applyCategoryCounts(); setMainCategory('home'); const c = document.getElementById('clearSearchBtn'); if (c) c.classList.add('hidden'); searchSummary(); return; }
       const clearBtn = document.getElementById('clearSearchBtn');
       if (clearBtn) clearBtn.classList.toggle('hidden', !searchQuery);
       SHOP_CATS.forEach(renderShops);
       renderGames();
-      if (!searchQuery) { applyCategoryCounts(); return; }
+      if (!searchQuery) { applyCategoryCounts(); searchSummary(); return; }
       // 검색 중엔 칩에 "어디에 몇 개 걸렸는지"를 보여주고, 지금 탭에 없으면 있는 탭으로 옮긴다
       const counts = searchCounts();
       Object.keys(CATEGORY_TAB_LABEL).forEach(cat => {
@@ -4247,6 +4272,43 @@
         const first = Object.keys(CATEGORY_TAB_LABEL).find(cat => counts[cat] > 0);
         if (first) setMainCategory(first);
       }
+      searchSummary();
+    }
+    function searchSummary() {
+      const box = document.getElementById('searchSummary');
+      if (!box) return;
+      const body = document.body;
+      const chipIds = ['home', ...Object.keys(CATEGORY_TAB_LABEL)];
+      if (!searchQuery) {
+        box.hidden = true; box.innerHTML = '';
+        body.classList.remove('is-searching', 'search-empty', 'search-few');
+        chipIds.forEach(c => { const b = document.getElementById('catBtn-' + c); if (b) b.hidden = false; });
+        return;
+      }
+      const counts = searchCounts();
+      const cats = Object.keys(CATEGORY_TAB_LABEL);
+      const total = cats.reduce((n, c) => n + (counts[c] || 0), 0);
+      const q = esc((document.getElementById('globalSearchInput') || {}).value || searchQuery).trim();
+      body.classList.add('is-searching');
+      body.classList.toggle('search-empty', total === 0);
+      // 결과가 적으면 플랫폼·장르·정렬 조절기를 접는다(결과보다 조절기가 커 보이지 않게)
+      body.classList.toggle('search-few', total > 0 && (counts[currentMainCategory] || 0) < 6);
+      // 결과가 0개인 분야 버튼은 숨긴다. 홈 버튼도 검색 중에는 숨긴다(검색어를 지우면 돌아온다)
+      chipIds.forEach(c => { const b = document.getElementById('catBtn-' + c); if (b) b.hidden = c === 'home' || !counts[c]; });
+      box.hidden = false;
+      if (!total) {
+        box.innerHTML = `<p class="ecm-ss-title">‘${q}’ 검색 결과가 없어요</p>`
+          + `<p class="ecm-ss-help">게임 이름을 조금 짧게 쓰거나(예: ‘블록스’) 띄어쓰기를 바꿔 보세요. 쇼핑몰 이름도 찾을 수 있어요.</p>`
+          + `<p class="ecm-ss-actions"><a href="/game/" class="ecm-ss-btn">전체 게임 보기</a><button type="button" class="ecm-ss-btn" onclick="clearSearch()">검색어 지우기</button></p>`;
+        return;
+      }
+      const hit = cats.filter(c => counts[c]);
+      // 결과가 한 분야뿐이면 분야 버튼 줄은 요약과 같은 말이라 숨긴다
+      const chipsRow = document.getElementById('categoryChips');
+      if (chipsRow) chipsRow.classList.toggle('is-single', hit.length <= 1);
+      const parts = hit.map(c => `${CATEGORY_TAB_LABEL[c]} ${counts[c]}개`).join(' · ');
+      box.innerHTML = `<p class="ecm-ss-title">‘${q}’ 검색 결과 <b>${total}</b>개</p>`
+        + `<p class="ecm-ss-help">분야별: ${parts}${hit.length > 1 ? ' · 아래 분야 버튼으로 바꿔 볼 수 있어요' : ''}</p>`;
     }
     function clearSearch() {
       const input = document.getElementById('globalSearchInput');

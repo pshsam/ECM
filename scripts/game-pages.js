@@ -64,6 +64,14 @@ function evaluate(x, today) {
   return { active: false, text: `${-left}일 전 만료`, left, known: true };
 }
 
+/**
+ * 코드별 고정 앵커: 코드 문자열 그대로에서 만든다(같은 코드는 언제나 같은 주소).
+ * 영문·숫자·_- 는 그대로, 나머지 글자(!, 한글 등)는 '.'+유니코드 16진수. index.html 의 codeAnchor 와 규칙이 같아야 한다.
+ */
+function codeAnchor(code) {
+  return 'code-' + [...String(code)].map(ch => /[A-Za-z0-9_-]/.test(ch) ? ch : '.' + ch.codePointAt(0).toString(16)).join('');
+}
+
 /** 상태 뱃지: 색과 글자를 같이. 공식 만료일이 없으면 날짜 대신 "만료일 미공개" */
 function statusPill(ev) {
   if (!ev.known) return `<span class="ecm-pill muted">${esc(ev.text)}</span>`;
@@ -291,13 +299,20 @@ function pageHtml(g, ctx) {
     ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
     : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.`;
 
-  const codeRows = active.map(({ c, ev }) => {
-    const seen = firstSeen[g.id + ':' + c.code];
+  // 등록일(코드가 처음 확인된 날, data/coupon-seen.json) 최신순. 같은 날 들어온 코드는 한데 모인다(홈 업데이트에서 바로 찾아오게)
+  const seenOf = c => (firstSeen[g.id + ':' + c.code] || '');
+  const activeSorted = active.map((x, i) => ({ ...x, i })).sort((a, b) => seenOf(b.c).localeCompare(seenOf(a.c)) || a.i - b.i);
+  const codeRows = activeSorted.map(({ c, ev }) => {
+    const seen = seenOf(c);
     const isNew = seen && (today.getTime() - new Date(seen).getTime()) / 86400000 <= 7 && seen > '2026-09-21';
-    return `<tr>
-          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new">NEW</span>' : ''}</td>
+    // 만료일 칸: 공식 날짜가 없으면 '미공개'(날짜·D-day 를 만들지 않는다). 실제 만료는 아래 '최근 만료된 코드'에만 나온다
+    const exp = !ev.known ? '<span class="ecm-pill muted">미공개</span>'
+      : ev.known && !ev.permanent && ev.left > FAR_DAYS ? `<span class="ecm-pill muted">${esc(fmt(c.expireDate))}까지</span>`
+      : statusPill(ev) + (!ev.permanent ? ` <small>${esc(fmt(c.expireDate).slice(5))}까지</small>` : '');
+    return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''}>
+          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
           <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}</td>
-          <td class="c-exp"><span class="c-label">만료</span>${ev.known && !ev.permanent && ev.left > FAR_DAYS ? `<span class="ecm-pill muted">${esc(fmt(c.expireDate))}까지</span>` : statusPill(ev) + (ev.known && !ev.permanent ? ` <small>${esc(fmt(c.expireDate).slice(5))}까지</small>` : '')}</td>
+          <td class="c-exp"><span class="c-label">만료일</span>${exp}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>`;
   }).join('\n');
@@ -381,6 +396,13 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
     details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
     .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
+    table.ecm-codes tr { scroll-margin-top: 140px; }
+    table.ecm-codes tr.is-target td { background: var(--y-pale); }
+    table.ecm-codes tr.is-target td:first-child { box-shadow: inset 4px 0 0 var(--ink); }
+    .ecm-target-tag { display: inline-flex; align-items: center; margin-left: .35rem; font-size: 11px; font-weight: 800; color: var(--ink); background: #fff; border: 1.5px solid var(--ink); border-radius: 6px; padding: 1px 6px; white-space: nowrap; vertical-align: 2px; }
+    .ecm-target-note { background: var(--y-pale); border: 1px solid var(--y-deep); border-radius: 12px; padding: .65rem .9rem; font-size: .88rem !important; color: var(--ink) !important; margin: 0 0 .8rem; }
+    .ecm-target-note a { color: var(--ink) !important; }
+    @media (max-width: 640px) { table.ecm-codes tr.is-target { border-width: 2.5px; background: var(--y-pale); } table.ecm-codes tr.is-target td { background: transparent; } table.ecm-codes tr.is-target td:first-child { box-shadow: none; } }
     .ecm-verify { display: flex; align-items: flex-start; gap: .55rem; background: var(--new-soft); color: #0B5E31; border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; line-height: 1.55; margin: 1.1rem 0 1.2rem; }
     .ecm-verify i { margin-top: .2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
@@ -452,13 +474,14 @@ ${headerHtml()}
     </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
+    <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
 ${active.length ? `    <table class="ecm-codes">
-      <thead><tr><th>코드</th><th>보상</th><th>만료</th><th></th></tr></thead>
+      <thead><tr><th>코드</th><th>보상</th><th>만료일</th><th></th></tr></thead>
       <tbody>
 ${codeRows}
       </tbody>
     </table>
-    <p class="ecm-code-note">NEW는 등록 7일 안. 만료일이 공지되지 않은 코드는 <b>만료일 미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>`
+    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>`
 : `    <div class="ecm-empty">
       <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
       <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
@@ -538,6 +561,47 @@ ${samePub.map(x => `      <a href="/game/${esc(x.id)}.html">${esc(x.title)}${ctx
 ${footerHtml()}
   <div id="copyToast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full ecm-toast text-xs font-bold shadow-2xl">복사했습니다</div>
   <script>
+    // 홈·게임 쿠폰 홈에서 온 링크: #added-YYYY-MM-DD 는 그날 등록된 코드 묶음, #code-… 는 코드 하나.
+    // 대상에 '이번 업데이트' 글자와 테두리를 붙이고 고정 헤더 아래로 스크롤한다. 대상이 없으면(만료·제거) 안내하고 전체 목록을 그대로 둔다.
+    (function () {
+      function kstToday() { return new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10); }
+      var today = kstToday();
+      Array.prototype.forEach.call(document.querySelectorAll('tr[data-added="' + today + '"] [data-new]'), function (p) { p.textContent = '오늘 추가'; });
+      function mark() {
+        var h = decodeURIComponent((location.hash || '').slice(1));
+        var note = document.getElementById('targetNote');
+        Array.prototype.forEach.call(document.querySelectorAll('tr.is-target'), function (r) { r.classList.remove('is-target'); var t = r.querySelector('.ecm-target-tag'); if (t) t.remove(); });
+        if (!note) return;
+        note.hidden = true;
+        var rows = [], label = '';
+        var m = /^added-(\\d{4}-\\d{2}-\\d{2})$/.exec(h);
+        if (m) { rows = Array.prototype.slice.call(document.querySelectorAll('tr[data-added="' + m[1] + '"]')); label = m[1].slice(5).replace('-', '.') + ' 업데이트'; }
+        else if (/^code-/.test(h)) { var r = document.getElementById(h); if (r && r.tagName === 'TR') rows = [r]; label = '찾는 코드'; }
+        else return;
+        if (!rows.length) {
+          note.innerHTML = (m ? label + '의 코드는' : '찾는 코드는') + ' 만료됐거나 목록에서 빠졌어요. 아래 <b>지금 쓸 수 있는 코드</b> 전체 목록을 확인하세요.';
+          note.hidden = false;
+          note.scrollIntoView({ block: 'center' });
+          return;
+        }
+        rows.forEach(function (r) {
+          r.classList.add('is-target');
+          var tag = document.createElement('span'); tag.className = 'ecm-target-tag'; tag.textContent = m ? '이번 업데이트' : '찾는 코드';
+          r.querySelector('.c-code').appendChild(tag);
+        });
+        note.textContent = m ? label + ' 코드 ' + rows.length + '개를 표시했어요. 아래 목록에서 바로 복사하세요.' : '찾는 코드를 표시했어요. 아래에서 바로 복사하세요.';
+        note.hidden = false;
+        var head = document.getElementById('siteHeader');
+        // 안내 문구부터 보이게(바로 아래가 코드). 안내와 첫 코드가 한 화면에 안 들어가면 첫 코드를 기준으로
+        var hh = head ? head.offsetHeight : 0;
+        var noteTop = note.getBoundingClientRect().top, rowTop = rows[0].getBoundingClientRect().top;
+        var anchor = (rowTop - noteTop) < window.innerHeight * 0.5 ? noteTop : rowTop;
+        var y = anchor + window.scrollY - hh - 12;
+        window.scrollTo(0, Math.max(0, y));
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark); else mark();
+      window.addEventListener('hashchange', mark);
+    })();
     // 복사 버튼: data-copy 의 코드를 글자 그대로 클립보드로. 성공·실패를 버튼 글자와 토스트로 알려 준다
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-copy]');
@@ -584,4 +648,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen) {
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')) };
 }
 
-module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, codeAnchor, GENRE_LABELS };

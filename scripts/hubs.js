@@ -46,7 +46,8 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
     return { g, left: left.length ? Math.min(...left) : null, n: left.length };
   }).filter(x => x.left !== null).sort((a, b) => a.left - b.left);
 
-  const row = (g, main, meta) => `      <a class="hub-row" href="/game/${esc(g.id)}.html">${monoBox('hub-ico', g.title)}<span class="main"><span class="t">${esc(g.title)}</span><span class="d">${main}</span></span><span class="meta">${meta}</span></a>`;
+  // hash: 상세 페이지의 도착 위치(#added-날짜 = 그날 등록된 코드 묶음)
+  const row = (g, main, meta, hash = '') => `      <a class="hub-row" href="/game/${esc(g.id)}.html${hash ? '#' + esc(hash) : ''}">${monoBox('hub-ico', g.title)}<span class="main"><span class="t">${esc(g.title)}</span><span class="d">${main}</span></span><span class="meta">${meta}</span></a>`;
   const tile = g => {
     const n = activeOf(g).length;
     const badges = (isHot(g) ? '<span class="ecm-pill hot">HOT</span>' : '') + (newCodes(g).length ? '<span class="ecm-pill new">NEW</span>' : '');
@@ -79,7 +80,7 @@ ${fresh.length ? `
     <section class="hub-sec" id="new" aria-labelledby="newTitle">
       <h2 id="newTitle"><i class="fa-solid fa-bolt"></i> 새 쿠폰 <small>최근 ${NEW_DAYS}일 안에 새로 확인된 코드</small></h2>
       <div class="hub-rows">
-${fresh.slice(0, 12).map(x => row(x.g, `새 코드 ${x.n}개 · ${esc(x.g.category || '')}`, `<span class="ecm-pill new">NEW</span> ${esc(fmt(x.latest).slice(5))}`)).join('\n')}
+${fresh.slice(0, 12).map(x => row(x.g, `새 코드 ${x.n}개 · ${esc(x.g.category || '')}`, `<span class="ecm-pill new">NEW</span> ${esc(fmt(x.latest).slice(5))}`, `added-${x.latest}`)).join('\n')}
       </div>
     </section>` : ''}
 ${due.length ? `
