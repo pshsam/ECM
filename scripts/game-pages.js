@@ -38,15 +38,41 @@ function kstTodayUTC() {
   return Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate());
 }
 
-// today 인자는 예전 호출과의 호환용이다. 날짜만(YYYY-MM-DD) 한국 기준으로 비교한다.
-function evaluate(expireDate, today) {
-  if (!expireDate || expireDate === '상시' || /9999/.test(expireDate)) return { active: true, text: '상시 유효', left: null };
-  const m = String(expireDate).match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (!m) return { active: true, text: '상시 유효', left: null };
-  const left = Math.round((Date.UTC(+m[1], +m[2] - 1, +m[3]) - kstTodayUTC()) / 86400000);
-  if (left >= 0) return { active: true, text: left === 0 ? '오늘 마감' : `D-${left}`, left };
-  return { active: false, text: `${-left}일 전 만료`, left };
+const daysLeftKST = s => {
+  const m = String(s || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? Math.round((Date.UTC(+m[1], +m[2] - 1, +m[3]) - kstTodayUTC()) / 86400000) : null;
+};
+
+/**
+ * 쿠폰 상태. 인자는 쿠폰 객체(권장) 또는 예전처럼 expireDate 문자열.
+ *   expireDate  공식 만료일만. "상시"는 공식적으로 기한 없음.
+ *   recheckBy   내부 재확인 기한(공식 만료일 아님). 화면에 날짜로 보여 주지 않고, 지나면 "확인이 오래된 코드"로 목록에서 내린다.
+ * 반환: active(목록에 보일지), text(표시 문구), left(공식 만료일까지 남은 날, 모르면 null), known(공식 만료일이 있는지), stale(재확인 기한 지남)
+ * today 인자는 예전 호출과의 호환용이다. 날짜는 한국 기준으로 비교한다.
+ */
+function evaluate(x, today) {
+  const c = x && typeof x === 'object' ? x : { expireDate: x };
+  const e = c.expireDate;
+  if (e === '상시' || /9999/.test(e || '')) return { active: true, text: '상시', left: null, known: true, permanent: true };
+  const left = daysLeftKST(e);
+  if (left === null) {
+    const r = daysLeftKST(c.recheckBy);
+    if (r !== null && r < 0) return { active: false, stale: true, text: '재확인 필요', left: null, known: false };
+    return { active: true, text: '만료일 미공개', left: null, known: false };
+  }
+  if (left >= 0) return { active: true, text: left === 0 ? '오늘 마감' : `D-${left}`, left, known: true };
+  return { active: false, text: `${-left}일 전 만료`, left, known: true };
 }
+
+/** 상태 뱃지: 색과 글자를 같이. 공식 만료일이 없으면 날짜 대신 "만료일 미공개" */
+function statusPill(ev) {
+  if (!ev.known) return `<span class="ecm-pill muted">${esc(ev.text)}</span>`;
+  if (ev.permanent) return '<span class="ecm-pill muted">상시</span>';
+  if (!ev.active) return '<span class="ecm-pill expired">만료</span>';
+  return `<span class="ecm-pill ${ev.left <= 3 ? 'due-soon' : 'due'}">${esc(ev.text)}</span>`;
+}
+/** 공식 만료일이 두 달 넘게 남았으면 D-숫자 대신 날짜로 (D-1553 처럼 읽기 어려운 표시를 피한다) */
+const FAR_DAYS = 60;
 
 // 로블록스 게임: 게임별 공식 코드 안내가 없어서, 짧은 공통 안내 + 로블록스 코드 사용법 페이지 링크만 둔다
 // (긴 공통 설명은 /free/roblox-codes.html 한 곳에만 두어 페이지마다 같은 글이 반복되지 않게 한다)
@@ -88,7 +114,7 @@ function headerHtml() {
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
+        <input type="search" name="q" placeholder="게임·쇼핑몰 이름 검색" aria-label="게임·쇼핑몰 이름 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
       <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
@@ -200,7 +226,7 @@ function tipsFor(g) {
   const tips = [];
   if (isRoblox) {
     tips.push('로블록스 코드는 <strong>대소문자를 구분</strong>합니다. 복사 버튼으로 옮기면 틀릴 일이 없습니다.');
-    tips.push('코드는 개발팀이 예고 없이 닫습니다. 위 표의 만료일은 공지가 없을 때 <strong>확인일 기준 30일</strong>로 적은 것이라, 그 전에 닫힐 수도 있습니다.');
+    tips.push('로블록스 코드는 대부분 만료일을 공지하지 않습니다. 공지가 없는 코드는 <strong>만료일 미공개</strong>로 표시하고, 개발팀이 예고 없이 닫을 수 있습니다.');
     tips.push('코드 입력 칸은 게임마다 다른 곳에 있습니다. 위 "입력 방법"의 버튼 위치를 그대로 따라가세요.');
     tips.push('한 코드는 계정당 한 번만 됩니다. "이미 사용됨"이 뜨면 그 계정으로는 받은 겁니다.');
   } else {
@@ -233,9 +259,10 @@ function faqFor(g) {
 function pageHtml(g, ctx) {
   const { today, posts, allGames, version, firstSeen } = ctx;
   const coupons = g.coupons || [];
-  const evald = coupons.map(c => ({ c, ev: evaluate(c.expireDate, today) }));
+  const evald = coupons.map(c => ({ c, ev: evaluate(c, today) }));
   const active = evald.filter(x => x.ev.active);
-  const expired = evald.filter(x => !x.ev.active);
+  const expired = evald.filter(x => !x.ev.active && !x.ev.stale);
+  const unknownN = active.filter(x => !x.ev.known).length;
   const isRoblox = (g.platforms || []).includes('roblox');
   const ym = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
   const url = `${SITE}/game/${g.id}.html`;
@@ -270,12 +297,12 @@ function pageHtml(g, ctx) {
     return `<tr>
           <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new">NEW</span>' : ''}</td>
           <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>${esc(ev.text)}${c.expireDate && c.expireDate !== '상시' ? `<br><small>${esc(c.expireDate)}</small>` : ''}</td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-exp"><span class="c-label">만료</span>${ev.known && !ev.permanent && ev.left > FAR_DAYS ? `<span class="ecm-pill muted">${esc(fmt(c.expireDate))}까지</span>` : statusPill(ev) + (ev.known && !ev.permanent ? ` <small>${esc(fmt(c.expireDate).slice(5))}까지</small>` : '')}</td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>`;
   }).join('\n');
 
-  const expiredRows = expired.map(({ c, ev }) => `<tr><td><code class="ecm-code is-dead">${esc(c.code)}</code></td><td>${esc(c.reward || '')}</td><td>${esc(ev.text)}</td></tr>`).join('\n');
+  const expiredRows = expired.map(({ c, ev }) => `<tr><td><code class="ecm-code is-dead">${esc(c.code)}</code></td><td>${esc(c.reward || '')}</td><td><span class="ecm-pill expired">만료</span> <small>${esc(ev.text)}</small></td></tr>`).join('\n');
 
   const ld = [
     {
@@ -338,6 +365,22 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .ecm-game-head .ecm-icon { width: 56px; height: 56px; font-size: 1.45rem; border-radius: 15px; }
     .ecm-lede { font-size: .95rem; margin: 0 0 1rem; }
     .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: .1rem 0 0; }
+    .ecm-status { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; margin: .9rem 0 .2rem; font-size: .85rem; color: var(--ink-2); }
+    .ecm-status b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-status i { color: var(--new); }
+    .ecm-page .ecm-status a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ecm-page .ecm-status a::after { content: none !important; }
+    .ecm-fav-mini { margin-left: auto; display: inline-flex; align-items: center; gap: .3rem; border: 1px solid var(--line); background: var(--bg); color: var(--ink-2); border-radius: 999px; padding: .3rem .7rem; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .ecm-fav-mini:hover { border-color: var(--ink-3); color: var(--ink); }
+    @media (max-width: 480px) { .ecm-fav-mini { margin-left: 0; } }
+    .ecm-page h2#codes { margin-top: 1.2rem; }
+    .ecm-code-note { font-size: .82rem !important; color: var(--ink-3) !important; margin: 0 0 .9rem; }
+    .ecm-page a.ecm-share { color: var(--ink-2); font-weight: 600; }
+    .ecm-page a.ecm-share::after { content: none !important; }
+    details.ecm-criteria { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; }
+    details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
+    details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
+    .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
     .ecm-verify { display: flex; align-items: flex-start; gap: .55rem; background: var(--new-soft); color: #0B5E31; border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; line-height: 1.55; margin: 1.1rem 0 1.2rem; }
     .ecm-verify i { margin-top: .2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
@@ -355,12 +398,12 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
       table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
       table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
       table.ecm-codes td.c-code { grid-column: 1; }
-      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; }
+      table.ecm-codes td.c-code { min-width: 0; }
+      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; overflow-wrap: anywhere; word-break: break-all; }
       table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
       table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
       table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
-      table.ecm-codes td.c-exp br { display: none; }
-      table.ecm-codes td.c-exp small { margin-left: .35rem; color: var(--ink-3); }
+      table.ecm-codes td.c-exp { display: flex; align-items: center; gap: .4rem; }
       .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
     }
     .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
@@ -400,11 +443,13 @@ ${headerHtml()}
         </div>
       </div>
     </div>
-    <p class="ecm-verify"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><b>${esc(fmt(version))} 확인</b> · ${isRoblox ? '개발팀 공식 채널과 코드 전문 매체에서' : '게임사 공식 채널에서'} 확인한 ${active.length ? '코드만 올려요.' : '정보예요. 지금 살아 있는 코드는 없어요.'}</span></p>
-    <p class="ecm-share-row"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(active.length ? `${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요` : `${g.title} 쿠폰 입력 방법과 새 코드 소식`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 친구에게 공유</button> <a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 새 쿠폰 알림 받기</a> <a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널 추가</a> <button type="button" class="ecm-share ecm-fav" data-fav="${esc(g.id)}" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button> <a class="ecm-fav-link" href="/today/#mine">오늘의 쿠폰에서 모아 보기 →</a></p>
-    <p class="ecm-lede">${active.length
-      ? `ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(version))} 기준으로 확인한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법입니다.`
-      : `ECM 쿠폰(Every Coupon Matters)이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인한 것만 올립니다.</p>
+    <div class="ecm-status">
+      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 목록 갱신 <b>${esc(fmt(version).slice(5))}</b></span>
+      ${active.length ? `<span>쓸 수 있는 코드 <b>${active.length}</b>개</span>` : '<span>지금 쓸 수 있는 코드 없음</span>'}
+      ${unknownN ? `<span>만료일 미공개 <b>${unknownN}</b>개</span>` : ''}
+      ${active.length >= 5 ? '<a href="#how">입력 방법 바로가기 ↓</a>' : ''}
+      <button type="button" class="ecm-fav-mini ecm-fav" data-fav="${esc(g.id)}" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+    </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
 ${active.length ? `    <table class="ecm-codes">
@@ -413,11 +458,20 @@ ${active.length ? `    <table class="ecm-codes">
 ${codeRows}
       </tbody>
     </table>
-    <p style="font-size:.82rem;color:var(--ink-3)">코드는 ${isRoblox ? '개발팀 공식 채널과 코드 전문 매체 2곳' : '게임사 공식 채널'}에서 확인한 것만 올립니다. 등록일이 7일 안이면 NEW 표시가 붙습니다.</p>`
+    <p class="ecm-code-note">NEW는 등록 7일 안. 만료일이 공지되지 않은 코드는 <b>만료일 미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>`
 : `    <div class="ecm-empty">
       <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
       <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
     </div>`}
+
+    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(active.length ? `${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요` : `${g.title} 쿠폰 입력 방법과 새 코드 소식`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+
+    <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
+      <p>${active.length
+      ? `ECM 쿠폰이 ${esc(fmt(version))} 목록 갱신 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
+      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
+    </details>
 
     <h2 id="source">코드가 나오는 곳</h2>
     <p>${esc(src.where)}</p>
@@ -484,15 +538,18 @@ ${samePub.map(x => `      <a href="/game/${esc(x.id)}.html">${esc(x.title)}${ctx
 ${footerHtml()}
   <div id="copyToast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full ecm-toast text-xs font-bold shadow-2xl">복사했습니다</div>
   <script>
-    // 복사 버튼: 코드를 그대로 클립보드로
+    // 복사 버튼: data-copy 의 코드를 글자 그대로 클립보드로. 성공·실패를 버튼 글자와 토스트로 알려 준다
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-copy]');
       if (!b) return;
-      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
-        var t = document.getElementById('copyToast');
-        t.classList.remove('hidden');
-        setTimeout(function () { t.classList.add('hidden'); }, 1500);
-      });
+      var code = b.getAttribute('data-copy'), label = b.innerHTML, t = document.getElementById('copyToast');
+      function show(msg, fail) {
+        t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
+        clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
+      }
+      function done() { b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });
   </script>
 </body>
@@ -508,7 +565,7 @@ function writeGamePages(rootDir, games, posts, version, firstSeen) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const activeOf = g => (g.coupons || []).filter(c => evaluate(c.expireDate, today).active);
+  const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
   const ctx = { today, posts, allGames: games, version, firstSeen, activeOf };
   const keep = new Set();
   let written = 0;

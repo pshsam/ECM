@@ -9,6 +9,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { evaluate } = require('./game-pages');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://ecm-coupon.com';
@@ -29,14 +30,13 @@ function loadCatalog() {
 
 const kstToday = () => new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
 const md = d => `${+d.slice(5, 7)}/${+d.slice(8, 10)}`;
-const permanent = e => !e || e === '상시' || /9999/.test(e);
-const alive = (e, today) => permanent(e) || String(e).slice(0, 10) >= today;
 const link = (id, campaign) => {
   // 짧게: .html 없이, 꼬리표는 출처(kakao) 하나만
   const page = fs.existsSync(path.join(ROOT, 'game', `${id}.html`)) ? `/game/${id}` : '/game/';
   return `${SITE}${page}?utm_source=kakao`;
 };
-const expText = e => (permanent(e) ? '상시' : `${md(String(e).slice(0, 10))}까지`);
+// 공식 만료일이 없으면(recheckBy 만 있는 코드) 날짜를 쓰지 않는다
+const expText = c => { const ev = evaluate(c); return ev.permanent ? '상시' : ev.known ? `${md(String(c.expireDate).slice(0, 10))}까지` : '만료일 미공개'; };
 
 function main() {
   const today = kstToday();
@@ -44,7 +44,7 @@ function main() {
   const seen = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'coupon-seen.json'), 'utf8'));
   const live = [];
   for (const g of games) for (const c of (g.coupons || [])) {
-    if (alive(c.expireDate, today)) live.push({ g, c, seenAt: seen[`${g.id}:${c.code}`] || '' });
+    if (evaluate(c).active) live.push({ g, c, seenAt: seen[`${g.id}:${c.code}`] || '' });
   }
 
   const top = arg('--top', 0);
@@ -53,7 +53,7 @@ function main() {
     // 첫 소식: 로블록스보다 일반 게임을 먼저, 만료가 먼 순
     const score = x => (x.g.id.startsWith('roblox') ? 1 : 0);
     picked = live
-      .filter(x => !permanent(x.c.expireDate))
+      .filter(x => evaluate(x.c).known && !evaluate(x.c).permanent)
       .sort((a, b) => score(a) - score(b) || String(b.c.expireDate).localeCompare(String(a.c.expireDate)))
       .filter((x, i, arr) => arr.findIndex(y => y.g.id === x.g.id) === i)
       .slice(0, top);
@@ -89,7 +89,7 @@ function main() {
   const body = [];
   for (const { g, items } of groups.slice(0, MAX_GAMES)) {
     body.push(`▶ ${g.title}`);
-    for (const { c } of items.slice(0, MAX_CODES)) body.push(`  ${c.code} · ${c.reward || '보상 확인 중'} (${expText(c.expireDate)})`);
+    for (const { c } of items.slice(0, MAX_CODES)) body.push(`  ${c.code} · ${c.reward || '보상 확인 중'} (${expText(c)})`);
     if (items.length > MAX_CODES) body.push(`  외 ${items.length - MAX_CODES}개 더`);
     body.push(`  입력 방법 👉 ${link(g.id, campaign)}`);
     body.push('');

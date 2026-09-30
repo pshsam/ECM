@@ -85,79 +85,79 @@
       "@type": "ListItem",
       "position": 1,
       "name": "RAMADAN",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "SHARKATTACK",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "SUMMERWHEEL",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "SUMMERSTARTSHERE",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 5,
       "name": "FROGS",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 6,
       "name": "RNGEMOTES",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 7,
       "name": "FREESPINS",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 8,
       "name": "2BTHANKS",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 9,
       "name": "4BVISITS",
-      "description": "Bubble Wand Sword 스킨 (만료일 미공지)"
+      "description": "Bubble Wand Sword 스킨"
     },
     {
       "@type": "ListItem",
       "position": 10,
       "name": "GIVEMELUCK",
-      "description": "AFK/RNG 월드 4배 행운 부스트 10분 (만료일 미공지)"
+      "description": "AFK/RNG 월드 4배 행운 부스트 10분"
     },
     {
       "@type": "ListItem",
       "position": 11,
       "name": "SPOOKYSEASON",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 12,
       "name": "ENERGYSWORDS",
-      "description": "무료 스핀 1회 (만료일 미공지)"
+      "description": "무료 스핀 1회"
     },
     {
       "@type": "ListItem",
       "position": 13,
       "name": "BATTLEROYALE",
-      "description": "무료 스핀 1회 / 스톰 티켓 (만료일 미공지)"
+      "description": "무료 스핀 1회 / 스톰 티켓"
     }
   ]
 }
@@ -216,6 +216,22 @@
     .ecm-game-head .ecm-icon { width: 56px; height: 56px; font-size: 1.45rem; border-radius: 15px; }
     .ecm-lede { font-size: .95rem; margin: 0 0 1rem; }
     .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: .1rem 0 0; }
+    .ecm-status { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; margin: .9rem 0 .2rem; font-size: .85rem; color: var(--ink-2); }
+    .ecm-status b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-status i { color: var(--new); }
+    .ecm-page .ecm-status a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ecm-page .ecm-status a::after { content: none !important; }
+    .ecm-fav-mini { margin-left: auto; display: inline-flex; align-items: center; gap: .3rem; border: 1px solid var(--line); background: var(--bg); color: var(--ink-2); border-radius: 999px; padding: .3rem .7rem; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .ecm-fav-mini:hover { border-color: var(--ink-3); color: var(--ink); }
+    @media (max-width: 480px) { .ecm-fav-mini { margin-left: 0; } }
+    .ecm-page h2#codes { margin-top: 1.2rem; }
+    .ecm-code-note { font-size: .82rem !important; color: var(--ink-3) !important; margin: 0 0 .9rem; }
+    .ecm-page a.ecm-share { color: var(--ink-2); font-weight: 600; }
+    .ecm-page a.ecm-share::after { content: none !important; }
+    details.ecm-criteria { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; }
+    details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
+    details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
+    .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
     .ecm-verify { display: flex; align-items: flex-start; gap: .55rem; background: var(--new-soft); color: #0B5E31; border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; line-height: 1.55; margin: 1.1rem 0 1.2rem; }
     .ecm-verify i { margin-top: .2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
@@ -233,12 +249,12 @@
       table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
       table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
       table.ecm-codes td.c-code { grid-column: 1; }
-      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; }
+      table.ecm-codes td.c-code { min-width: 0; }
+      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; overflow-wrap: anywhere; word-break: break-all; }
       table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
       table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
       table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
-      table.ecm-codes td.c-exp br { display: none; }
-      table.ecm-codes td.c-exp small { margin-left: .35rem; color: var(--ink-3); }
+      table.ecm-codes td.c-exp { display: flex; align-items: center; gap: .4rem; }
       .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
     }
     .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
@@ -278,7 +294,7 @@
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
+        <input type="search" name="q" placeholder="게임·쇼핑몰 이름 검색" aria-label="게임·쇼핑몰 이름 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
       <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
@@ -310,9 +326,13 @@
         </div>
       </div>
     </div>
-    <p class="ecm-verify"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><b>2026.09.30 확인</b> · 개발팀 공식 채널과 코드 전문 매체에서 확인한 코드만 올려요.</span></p>
-    <p class="ecm-share-row"><button type="button" class="ecm-share" data-share-title="블레이드 볼 쿠폰 코드 | ECM" data-share-text="블레이드 볼 쿠폰 코드 13개, ECM에서 확인했어요"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 친구에게 공유</button> <a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 새 쿠폰 알림 받기</a> <a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널 추가</a> <button type="button" class="ecm-share ecm-fav" data-fav="roblox-blade-ball" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button> <a class="ecm-fav-link" href="/today/#mine">오늘의 쿠폰에서 모아 보기 →</a></p>
-    <p class="ecm-lede">ECM 쿠폰(Every Coupon Matters)이 2026.09.30 기준으로 확인한 블레이드 볼 쿠폰 코드 13개와 보상, 만료일, 입력 방법입니다. 코드는 개발팀 공식 채널이나 코드 전문 매체 2곳에서 확인한 것만 올립니다.</p>
+    <div class="ecm-status">
+      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 목록 갱신 <b>09.30</b></span>
+      <span>쓸 수 있는 코드 <b>13</b>개</span>
+      <span>만료일 미공개 <b>13</b>개</span>
+      <a href="#how">입력 방법 바로가기 ↓</a>
+      <button type="button" class="ecm-fav-mini ecm-fav" data-fav="roblox-blade-ball" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+    </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드 (13)</h2>
     <table class="ecm-codes">
@@ -320,85 +340,92 @@
       <tbody>
 <tr>
           <td class="c-code"><code class="ecm-code">RAMADAN</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="RAMADAN"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="RAMADAN"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">SHARKATTACK</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SHARKATTACK"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SHARKATTACK"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">SUMMERWHEEL</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SUMMERWHEEL"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SUMMERWHEEL"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">SUMMERSTARTSHERE</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SUMMERSTARTSHERE"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SUMMERSTARTSHERE"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">FROGS</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="FROGS"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="FROGS"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">RNGEMOTES</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="RNGEMOTES"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="RNGEMOTES"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">FREESPINS</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="FREESPINS"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="FREESPINS"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">2BTHANKS</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2BTHANKS"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2BTHANKS"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">4BVISITS</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>Bubble Wand Sword 스킨 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="4BVISITS"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>Bubble Wand Sword 스킨</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="4BVISITS"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">GIVEMELUCK</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>AFK/RNG 월드 4배 행운 부스트 10분 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="GIVEMELUCK"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>AFK/RNG 월드 4배 행운 부스트 10분</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="GIVEMELUCK"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">SPOOKYSEASON</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SPOOKYSEASON"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SPOOKYSEASON"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">ENERGYSWORDS</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="ENERGYSWORDS"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="ENERGYSWORDS"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
 <tr>
           <td class="c-code"><code class="ecm-code">BATTLEROYALE</code> <span class="ecm-pill new">NEW</span></td>
-          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 / 스톰 티켓 (만료일 미공지)</td>
-          <td class="c-exp ecm-nowrap"><span class="c-label">만료</span>D-25<br><small>2026-10-25</small></td>
-          <td class="ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="BATTLEROYALE"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-reward"><span class="c-label">보상</span>무료 스핀 1회 / 스톰 티켓</td>
+          <td class="c-exp"><span class="c-label">만료</span><span class="ecm-pill muted">만료일 미공개</span></td>
+          <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="BATTLEROYALE"><i class="fa-regular fa-copy"></i> 복사</button></td>
         </tr>
       </tbody>
     </table>
-    <p style="font-size:.82rem;color:var(--ink-3)">코드는 개발팀 공식 채널과 코드 전문 매체 2곳에서 확인한 것만 올립니다. 등록일이 7일 안이면 NEW 표시가 붙습니다.</p>
+    <p class="ecm-code-note">NEW는 등록 7일 안. 만료일이 공지되지 않은 코드는 <b>만료일 미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>
+
+    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="블레이드 볼 쿠폰 코드 | ECM" data-share-text="블레이드 볼 쿠폰 코드 13개, ECM에서 확인했어요"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+
+    <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
+      <p>ECM 쿠폰이 2026.09.30 목록 갱신 기준으로 정리한 블레이드 볼 쿠폰 코드 13개와 보상, 만료 상태, 입력 방법입니다. 코드는 개발팀 공식 채널이나 코드 전문 매체 2곳에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
+    </details>
 
     <h2 id="source">코드가 나오는 곳</h2>
     <p>개발팀이 직접 냅니다. 로블록스 게임 페이지 설명란, 개발팀 공식 X(트위터), 공식 디스코드 공지에 먼저 올라오고, 좋아요·방문자 수 달성이나 업데이트 기념으로 나오는 경우가 많습니다.</p>
@@ -422,7 +449,7 @@
     <h2 id="tips">주의할 점</h2>
     <ul>
       <li>로블록스 코드는 <strong>대소문자를 구분</strong>합니다. 복사 버튼으로 옮기면 틀릴 일이 없습니다.</li>
-      <li>코드는 개발팀이 예고 없이 닫습니다. 위 표의 만료일은 공지가 없을 때 <strong>확인일 기준 30일</strong>로 적은 것이라, 그 전에 닫힐 수도 있습니다.</li>
+      <li>로블록스 코드는 대부분 만료일을 공지하지 않습니다. 공지가 없는 코드는 <strong>만료일 미공개</strong>로 표시하고, 개발팀이 예고 없이 닫을 수 있습니다.</li>
       <li>코드 입력 칸은 게임마다 다른 곳에 있습니다. 위 "입력 방법"의 버튼 위치를 그대로 따라가세요.</li>
       <li>한 코드는 계정당 한 번만 됩니다. "이미 사용됨"이 뜨면 그 계정으로는 받은 겁니다.</li>
     </ul>
@@ -475,15 +502,18 @@
   </footer>
   <div id="copyToast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full ecm-toast text-xs font-bold shadow-2xl">복사했습니다</div>
   <script>
-    // 복사 버튼: 코드를 그대로 클립보드로
+    // 복사 버튼: data-copy 의 코드를 글자 그대로 클립보드로. 성공·실패를 버튼 글자와 토스트로 알려 준다
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-copy]');
       if (!b) return;
-      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
-        var t = document.getElementById('copyToast');
-        t.classList.remove('hidden');
-        setTimeout(function () { t.classList.add('hidden'); }, 1500);
-      });
+      var code = b.getAttribute('data-copy'), label = b.innerHTML, t = document.getElementById('copyToast');
+      function show(msg, fail) {
+        t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
+        clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
+      }
+      function done() { b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });
   </script>
 </body>

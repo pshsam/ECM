@@ -128,6 +128,22 @@
     .ecm-game-head .ecm-icon { width: 56px; height: 56px; font-size: 1.45rem; border-radius: 15px; }
     .ecm-lede { font-size: .95rem; margin: 0 0 1rem; }
     .ecm-game-meta { font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: .1rem 0 0; }
+    .ecm-status { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; margin: .9rem 0 .2rem; font-size: .85rem; color: var(--ink-2); }
+    .ecm-status b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-status i { color: var(--new); }
+    .ecm-page .ecm-status a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ecm-page .ecm-status a::after { content: none !important; }
+    .ecm-fav-mini { margin-left: auto; display: inline-flex; align-items: center; gap: .3rem; border: 1px solid var(--line); background: var(--bg); color: var(--ink-2); border-radius: 999px; padding: .3rem .7rem; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .ecm-fav-mini:hover { border-color: var(--ink-3); color: var(--ink); }
+    @media (max-width: 480px) { .ecm-fav-mini { margin-left: 0; } }
+    .ecm-page h2#codes { margin-top: 1.2rem; }
+    .ecm-code-note { font-size: .82rem !important; color: var(--ink-3) !important; margin: 0 0 .9rem; }
+    .ecm-page a.ecm-share { color: var(--ink-2); font-weight: 600; }
+    .ecm-page a.ecm-share::after { content: none !important; }
+    details.ecm-criteria { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; }
+    details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
+    details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
+    .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
     .ecm-verify { display: flex; align-items: flex-start; gap: .55rem; background: var(--new-soft); color: #0B5E31; border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; line-height: 1.55; margin: 1.1rem 0 1.2rem; }
     .ecm-verify i { margin-top: .2rem; }
     .ecm-page table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; background: #fff; }
@@ -145,12 +161,12 @@
       table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
       table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
       table.ecm-codes td.c-code { grid-column: 1; }
-      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; }
+      table.ecm-codes td.c-code { min-width: 0; }
+      table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; overflow-wrap: anywhere; word-break: break-all; }
       table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
       table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
       table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
-      table.ecm-codes td.c-exp br { display: none; }
-      table.ecm-codes td.c-exp small { margin-left: .35rem; color: var(--ink-3); }
+      table.ecm-codes td.c-exp { display: flex; align-items: center; gap: .4rem; }
       .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
     }
     .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
@@ -190,7 +206,7 @@
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" name="q" placeholder="ECM에서 검색" aria-label="ECM에서 검색" autocomplete="off">
+        <input type="search" name="q" placeholder="게임·쇼핑몰 이름 검색" aria-label="게임·쇼핑몰 이름 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
       <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
@@ -222,15 +238,26 @@
         </div>
       </div>
     </div>
-    <p class="ecm-verify"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><b>2026.09.30 확인</b> · 게임사 공식 채널에서 확인한 정보예요. 지금 살아 있는 코드는 없어요.</span></p>
-    <p class="ecm-share-row"><button type="button" class="ecm-share" data-share-title="메이플스토리 쿠폰 코드 | ECM" data-share-text="메이플스토리 쿠폰 입력 방법과 새 코드 소식"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 친구에게 공유</button> <a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 새 쿠폰 알림 받기</a> <a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널 추가</a> <button type="button" class="ecm-share ecm-fav" data-fav="maplestory" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button> <a class="ecm-fav-link" href="/today/#mine">오늘의 쿠폰에서 모아 보기 →</a></p>
-    <p class="ecm-lede">ECM 쿠폰(Every Coupon Matters)이 정리한 메이플스토리 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. 2026.09.30 기준으로 살아 있는 코드는 없습니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인한 것만 올립니다.</p>
+    <div class="ecm-status">
+      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 목록 갱신 <b>09.30</b></span>
+      <span>지금 쓸 수 있는 코드 없음</span>
+      
+      
+      <button type="button" class="ecm-fav-mini ecm-fav" data-fav="maplestory" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+    </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드</h2>
     <div class="ecm-empty">
       <p><strong>2026.09.30 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(게임사 공식 채널이나 인벤 기사와 독립된 출처에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
       <p>ECM 은 넥슨 공식 채널과 인벤 기사를 4시간마다 확인합니다. 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.</p>
     </div>
+
+    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="메이플스토리 쿠폰 코드 | ECM" data-share-text="메이플스토리 쿠폰 입력 방법과 새 코드 소식"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+
+    <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
+      <p>ECM 쿠폰이 정리한 메이플스토리 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. 2026.09.30 기준으로 살아 있는 코드는 없습니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
+    </details>
 
     <h2 id="source">코드가 나오는 곳</h2>
     <p>넥슨 게임은 공식 홈페이지 공지, 넥슨 공식 카페, 라이브 방송(쇼케이스·업데이트 방송)에서 코드를 냅니다. 방송 중 공개되는 코드는 유효 기간이 짧은 편입니다.</p>
@@ -309,15 +336,18 @@
   </footer>
   <div id="copyToast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full ecm-toast text-xs font-bold shadow-2xl">복사했습니다</div>
   <script>
-    // 복사 버튼: 코드를 그대로 클립보드로
+    // 복사 버튼: data-copy 의 코드를 글자 그대로 클립보드로. 성공·실패를 버튼 글자와 토스트로 알려 준다
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-copy]');
       if (!b) return;
-      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
-        var t = document.getElementById('copyToast');
-        t.classList.remove('hidden');
-        setTimeout(function () { t.classList.add('hidden'); }, 1500);
-      });
+      var code = b.getAttribute('data-copy'), label = b.innerHTML, t = document.getElementById('copyToast');
+      function show(msg, fail) {
+        t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
+        clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
+      }
+      function done() { b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });
   </script>
 </body>

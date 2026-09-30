@@ -11,6 +11,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { evaluate } = require('./game-pages');
 
 const ROOT = path.join(__dirname, '..');
 const SEEN = path.join(ROOT, 'data', 'coupon-seen.json');
@@ -42,11 +43,8 @@ function kstNow() {
   return { date: d.toISOString().slice(0, 10), hour: d.getUTCHours() };
 }
 
-function isActive(expireDate, today) {
-  if (!expireDate || expireDate === '상시' || /9999/.test(expireDate)) return true;
-  const m = String(expireDate).match(/^(\d{4}-\d{2}-\d{2})/);
-  return !m || m[1] >= today;
-}
+// 공식 만료일(expireDate)만 날짜로 본다. 공지가 없는 코드는 recheckBy(내부 재확인 기한)가 지나기 전까지 살아 있는 것으로 친다.
+const isActive = c => evaluate(c).active;
 
 const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
 const md = d => d.slice(5).replace('-', '/');
@@ -56,7 +54,8 @@ function messageFor(g, coupons, today) {
   const page = fs.existsSync(path.join(ROOT, 'game', `${g.id}.html`)) ? `/game/${g.id}` : '/game/';
   const url = `${SITE}${page}?utm_source=telegram`;
   const lines = coupons.map(c => {
-    const exp = !c.expireDate || c.expireDate === '상시' || /9999/.test(c.expireDate) ? '상시' : `~${md(c.expireDate.slice(0, 10))}`;
+    const ev = evaluate(c);
+    const exp = ev.permanent ? '상시' : ev.known ? `~${md(c.expireDate.slice(0, 10))}` : '만료일 미공개';
     return `<code>${esc(c.code)}</code> · ${esc(c.reward || '보상 확인 중')} (${exp})`;
   });
   return [
@@ -110,7 +109,7 @@ async function main() {
   const live = [];
   for (const g of games) {
     for (const c of (g.coupons || [])) {
-      if (!isActive(c.expireDate, today)) continue;
+      if (!isActive(c)) continue;
       live.push({ key: `${g.id}:${c.code}`, g, c });
     }
   }

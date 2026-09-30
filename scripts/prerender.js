@@ -133,7 +133,7 @@ function run(html) {
  * 실어서 크롤러도 읽을 수 있게 한다(숨긴 텍스트를 본문에 심는 방식은 쓰지 않는다).
  */
 function itemListJsonLd(games) {
-  const withCoupons = games.filter(g => (g.coupons || []).length > 0);
+  const withCoupons = games.filter(g => (g.coupons || []).some(c => evaluate(c).active));
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -141,7 +141,7 @@ function itemListJsonLd(games) {
     description: '현재 ECM에서 확인 가능한 게임별 쿠폰 코드 목록입니다.',
     numberOfItems: withCoupons.length,
     itemListElement: withCoupons.map((g, i) => {
-      const codes = (g.coupons || [])
+      const codes = (g.coupons || []).filter(c => evaluate(c).active)
         .map(c => `${c.code} (${c.reward})`)
         .join(', ');
       return {
@@ -185,16 +185,18 @@ function noscriptHtml(data) {
 }
 
 /** 홈에서 블로그 글로 바로 가는 링크 (검색엔진이 따라갈 수 있는 정적 링크) */
-function blogLinksHtml(dir) {
-  const files = fs.readdirSync(dir)
-    .filter(f => f.endsWith('.html') && f !== 'index.html')
-    .sort();
-  return '\n' + files.map(f => {
-    const html = fs.readFileSync(path.join(dir, f), 'utf8');
-    const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-    const title = (m ? m[1] : f).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    return `        <li><a href="/blog/${f}" class="ecm-guide">${title}</a></li>`;
-  }).join('\n') + '\n      ';
+/**
+ * 홈 아래 "쿠폰 사용 가이드": 전체 글을 길게 늘어놓지 않고, 처음 온 사람에게 필요한 가이드만 짧게.
+ * 필독 가이드(cat: guide) 중 아래 순서를 먼저, 나머지는 최신순으로 채워 GUIDE_MAX 개. 전체 글은 블로그 목록으로.
+ */
+const GUIDE_MAX = 6;
+const GUIDE_FIRST = ['coupon-code-not-working-guide', 'game-coupon-complete-guide', 'coupon-scam', 'hoyoverse', 'nexon', 'netmarble', 'stove', 'kakao'];
+function guideLinksHtml(posts) {
+  const guides = posts.filter(p => p.cat === 'guide');
+  const rank = p => { const i = GUIDE_FIRST.findIndex(k => p.url.includes(k)); return i < 0 ? 99 : i; };
+  const picked = guides.slice().sort((a, b) => rank(a) - rank(b) || (b.date || '').localeCompare(a.date || '')).slice(0, GUIDE_MAX);
+  const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return '\n' + picked.map(p => `        <li><a href="${esc(p.url)}" class="ecm-guide">${esc(p.title)}</a></li>`).join('\n') + '\n      ';
 }
 
 /**
@@ -565,7 +567,7 @@ function main() {
   html = replaceBlock(html, 'itemlist', ld);
   html = replaceBlock(html, 'noscript', noscriptHtml(data));
 
-  const blogLinks = blogLinksHtml(blogDir);
+  const blogLinks = guideLinksHtml(posts);
   html = replaceBlock(html, 'bloglinks', blogLinks);
 
   fs.writeFileSync(FILE, html);

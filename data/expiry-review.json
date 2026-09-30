@@ -1,0 +1,204 @@
+{
+ "generated": "2026-09-30",
+ "moved_by_marker": 189,
+ "moved_by_pattern": [
+  {
+   "game": "blackdesert-mobile",
+   "code": "PRESENTFROMGM",
+   "date": "2026-10-27",
+   "first_seen": "2026-09-27",
+   "why": "처음 본 날 + 30일과 같아 추정값으로 봄"
+  },
+  {
+   "game": "blackdesert-mobile",
+   "code": "DEVCOMMENTARY26",
+   "date": "2026-10-27",
+   "first_seen": "2026-09-27",
+   "why": "처음 본 날 + 30일과 같아 추정값으로 봄"
+  }
+ ],
+ "kept_as_official": [
+  {
+   "game": "blackdesert",
+   "code": "모험가님행복한한가위되세요",
+   "expireDate": "2026-10-28",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "blackdesert",
+   "code": "영롱한풀의광명석",
+   "expireDate": "2026-09-30",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "blackdesert",
+   "code": "BEYONDTHEJOURNEY",
+   "expireDate": "2026-11-26",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "blackdesert",
+   "code": "TYALLADVENTURERS",
+   "expireDate": "2026-11-26",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "J963B-S66WK-56J3K-JJT3T-BF9T5",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "3ZRT3-K59KK-W6BJ5-B3TJ3-9WT99",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "BZ6JJ-CB6CT-WXJJW-3TT3B-56FZ5",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "J96JT-BCXKT-C6JJ5-JTJBB-BZTXJ",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "JZ6BJ-SBR5J-WF3BK-BT3BB-TX9HB",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "TZXT3-XJXCB-CXBJW-BTTJT-9SK6B",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "BH633-66F5C-WFBB5-33TJB-CBSR9",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "3S6BB-ZXT93-KRT3W-BT3T3-JW6TZ",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "borderlands",
+   "code": "3SX3J-3XZ55-CR33C-JBBJT-XH395",
+   "expireDate": "2030-12-31",
+   "first_seen": "2026-09-29",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "eclipse-awakening",
+   "code": "0910ECLIPSE",
+   "expireDate": "2026-11-10",
+   "first_seen": "2026-09-23",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "maplestory-idle",
+   "code": "PINKBEANATTACK",
+   "expireDate": "2026-10-14",
+   "first_seen": "2026-09-24",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "kingshot",
+   "code": "MIDAUTUMN26",
+   "expireDate": "2026-09-30",
+   "first_seen": "2026-09-25",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "aion2",
+   "code": "HAPPYCHUSEOKAION2",
+   "expireDate": "2026-10-14",
+   "first_seen": "2026-09-25",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "epic-seven",
+   "code": "TY_E8_INFINITY",
+   "expireDate": "2026-10-28",
+   "first_seen": "2026-09-25",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "epic-seven",
+   "code": "EPICWITHCZN",
+   "expireDate": "2026-10-29",
+   "first_seen": "2026-09-25",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "pokemon-go",
+   "code": "LEGOxPOKEMONGOxCAP",
+   "expireDate": "2026-09-30",
+   "first_seen": "2026-09-26",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "pokemon-go",
+   "code": "MLBxPOKEMONGO2026",
+   "expireDate": "2026-09-30",
+   "first_seen": "2026-09-26",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "rise-of-kingdoms",
+   "code": "ROK2026666",
+   "expireDate": "2026-10-31",
+   "first_seen": "2026-09-28",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "rise-of-kingdoms",
+   "code": "ROKINFINI8",
+   "expireDate": "2026-10-11",
+   "first_seen": "2026-09-28",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "rise-of-kingdoms",
+   "code": "8YEAROFROK",
+   "expireDate": "2026-10-06",
+   "first_seen": "2026-09-28",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "trickcal-revive",
+   "code": "BOLEUMDAL",
+   "expireDate": "2026-10-01",
+   "first_seen": "2026-09-29",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  },
+  {
+   "game": "trickcal-revive",
+   "code": "3RDBOLTHDAY",
+   "expireDate": "2026-10-22",
+   "first_seen": "2026-09-29",
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+  }
+ ]
+}

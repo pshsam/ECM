@@ -51,12 +51,12 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
   for (const g of games) {
     const m = monoOf(g.title);
     for (const c of g.coupons || []) {
-      const ev = evaluate(c.expireDate);
+      const ev = evaluate(c);
       if (!ev.active) continue;
       const seen = firstSeen[g.id + ':' + c.code] || '';
       items.push({
         id: g.id, t: g.title, u: pages.has(g.id) ? `/game/${g.id}.html` : '/game/', mh: m.h, mc: m.ch,
-        c: c.code, r: c.reward || '', e: c.expireDate || '상시', s: seen > BASELINE_DATE ? seen : '',
+        c: c.code, r: c.reward || '', e: c.expireDate || '', s: seen > BASELINE_DATE ? seen : '',
       });
     }
   }
@@ -73,7 +73,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
   const week = items.filter(x => leftOf(x) !== null && leftOf(x) >= 2 && leftOf(x) <= 7).sort((a, b) => leftOf(a) - leftOf(b));
   const row = x => {
     const l = leftOf(x);
-    const pill = l === null ? '<span class="ecm-pill due">상시</span>' : `<span class="ecm-pill ${l <= 1 ? 'hot' : 'due'}">${l === 0 ? '오늘 마감' : `D-${l}`}</span>`;
+    const pill = l === null ? (x.e === '상시' ? '<span class="ecm-pill muted">상시</span>' : '<span class="ecm-pill muted">만료일 미공개</span>') : `<span class="ecm-pill ${l <= 1 ? 'hot' : 'due'}">${l === 0 ? '오늘 마감' : `D-${l}`}</span>`;
     return `<li class="td-row"><span class="td-ico ecm-mono" style="--mh:${x.mh}" aria-hidden="true">${esc(x.mc)}</span><div class="td-main"><a class="td-game" href="${esc(x.u)}">${esc(x.t)}</a><code class="td-code">${esc(x.c)}</code><span class="td-reward">${esc(x.r)}</span></div><div class="td-side">${x.s === iso ? '<span class="ecm-pill new">NEW</span>' : ''}${pill}<button type="button" class="ecm-btn-primary" data-copy="${esc(x.c)}"><i class="fa-regular fa-copy"></i> 복사</button></div></li>`;
   };
   const list = (arr, empty) => arr.length ? `<ul class="td-list">\n${arr.map(row).join('\n')}\n</ul>` : `<p class="td-empty">${empty}</p>`;
@@ -144,7 +144,7 @@ const CLIENT = `
   var live = data.items.filter(function (x) { var l = left(x.e); return l === null || l >= 0; });
   function row(x) {
     var l = left(x.e);
-    var pill = l === null ? '<span class="ecm-pill due">상시</span>' : '<span class="ecm-pill ' + (l <= 1 ? 'hot' : 'due') + '">' + (l === 0 ? '오늘 마감' : 'D-' + l) + '</span>';
+    var pill = l === null ? (x.e === '상시' ? '<span class="ecm-pill muted">상시</span>' : '<span class="ecm-pill muted">만료일 미공개</span>') : '<span class="ecm-pill ' + (l <= 1 ? 'hot' : 'due') + '">' + (l === 0 ? '오늘 마감' : 'D-' + l) + '</span>';
     return '<li class="td-row"><span class="td-ico ecm-mono" style="--mh:' + x.mh + '" aria-hidden="true">' + esc(x.mc) + '</span><div class="td-main"><a class="td-game" href="' + esc(x.u) + '">' + esc(x.t) + '</a><code class="td-code">' + esc(x.c) + '</code><span class="td-reward">' + esc(x.r) + '</span></div><div class="td-side">' + (x.s === iso ? '<span class="ecm-pill new">NEW</span>' : '') + pill + '<button type="button" class="ecm-btn-primary" data-copy="' + esc(x.c) + '"><i class="fa-regular fa-copy"></i> 복사</button></div></li>';
   }
   function list(arr, empty) { return arr.length ? '<ul class="td-list">' + arr.map(row).join('') + '</ul>' : '<p class="td-empty">' + empty + '</p>'; }

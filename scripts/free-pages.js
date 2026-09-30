@@ -74,7 +74,7 @@ function writeFreePages(rootDir, { games = [], evaluate, gamePageIds = [], heade
   // 지금 쓸 수 있는 쿠폰 수
   let codes = 0, withCodes = 0;
   for (const g of games) {
-    const n = (g.coupons || []).filter(c => evaluate ? evaluate(c.expireDate).active : true).length;
+    const n = (g.coupons || []).filter(c => evaluate ? evaluate(c).active : true).length;
     codes += n; if (n) withCodes++;
   }
 
@@ -165,7 +165,7 @@ ${followHtml('preregister')}
   // 로블록스 게임 페이지마다 같은 설명을 길게 반복하지 않도록, 공통 내용은 여기 한 곳에 두고 게임 페이지는 링크만 건다.
   const rbx = games.filter(g => String(g.id).startsWith('roblox-') && gamePageIds.includes(g.id));
   const rbxRow = g => {
-    const n = (g.coupons || []).filter(c => evaluate ? evaluate(c.expireDate).active : true).length;
+    const n = (g.coupons || []).filter(c => evaluate ? evaluate(c).active : true).length;
     return `        <tr><td><a href="/game/${esc(g.id)}.html">${esc(g.title)}</a></td><td>${esc(g.redeemHow || '게임 안 코드 입력 메뉴')}</td><td>${n ? `${n}개` : '-'}</td></tr>`;
   };
   const RB_HELP = 'https://en.help.roblox.com/hc/ko/articles/';

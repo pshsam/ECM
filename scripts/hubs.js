@@ -20,7 +20,7 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const pages = new Set(gamePageIds);
   const withPage = games.filter(g => pages.has(g.id));
-  const activeOf = g => (g.coupons || []).map(c => ({ c, ev: evaluate(c.expireDate, today) })).filter(x => x.ev.active);
+  const activeOf = g => (g.coupons || []).map(c => ({ c, ev: evaluate(c, today) })).filter(x => x.ev.active);
   const isRoblox = g => (g.platforms || []).includes('roblox');
   const daysAgo = d => (today.getTime() - new Date(d).getTime()) / 86400000;
   const newCodes = g => activeOf(g).filter(({ c }) => {

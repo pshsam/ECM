@@ -11,7 +11,7 @@ const SITE = 'https://ecm-coupon.com';
 
 // 쿠폰 D-day 와 같은 기준(한국 날짜)으로 판단한다.
 function isActive(c) {
-  return require('./game-pages').evaluate(c.expireDate).active;
+  return require('./game-pages').evaluate(c).active;
 }
 
 function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {
