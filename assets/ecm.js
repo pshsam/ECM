@@ -326,6 +326,30 @@ document.addEventListener('click', function (e) {
   if (a && typeof window.gtag === 'function') window.gtag('event', 'kakao_channel_click', { location: a.getAttribute('data-kc'), page_path: location.pathname });
 });
 
+// ── 기기·브라우저 판단 (설치 안내·푸시 알림이 같이 쓴다) ──
+// 아이폰은 크롬·파이어폭스도 속은 사파리 엔진이라 탭에서는 웹 알림이 안 되고, "홈 화면에 추가"한 앱에서만 된다(iOS 16.4+).
+// 아이패드는 데스크톱 사파리처럼 보이므로 터치 지원으로 가려낸다.
+// 카카오톡·네이버·인스타그램·페이스북·라인 앱 안의 브라우저는 설치도 알림도 안 되므로 "다른 브라우저로 열기"를 안내한다.
+window.ECM_ENV = (function () {
+  var ua = navigator.userAgent || '';
+  var ipad = /iPad/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var ios = /iPhone|iPod/.test(ua) || ipad;
+  var v = /OS (\d+)_(\d+)/.exec(ua);
+  var iosVer = v ? (+v[1]) * 100 + (+v[2]) : (ios ? 9999 : 0); // 16.4 → 1604. 아이패드(데스크톱 표기)는 버전을 알 수 없어 최신으로 본다
+  var inApp = /KAKAOTALK/i.test(ua) ? '카카오톡' : /NAVER\(inapp|NAVER/.test(ua) && !/Whale/.test(ua) ? '네이버 앱' : /Instagram/.test(ua) ? '인스타그램'
+    : /FBAN|FBAV/.test(ua) ? '페이스북' : /Line\//.test(ua) ? '라인' : /DaumApps|daumapps/.test(ua) ? '다음 앱' : '';
+  var browser = /CriOS/.test(ua) ? 'chrome' : /FxiOS/.test(ua) ? 'firefox' : /EdgiOS/.test(ua) ? 'edge' : 'safari';
+  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  function addToHomeHow() {
+    if (inApp) return inApp + ' 안의 브라우저에서는 설치와 알림을 쓸 수 없어요. 오른쪽 위(또는 아래) 메뉴에서 "다른 브라우저로 열기"를 누른 뒤 다시 시도해 주세요.';
+    if (!ios) return '';
+    if (browser === 'chrome') return '크롬 주소창 오른쪽의 공유 버튼(네모에 위쪽 화살표) → "홈 화면에 추가"를 누르고, 홈 화면에 생긴 ECM 앱으로 열어 주세요.';
+    if (browser === 'safari') return (ipad ? '사파리 위쪽' : '사파리 아래쪽') + '의 공유 버튼(네모에 위쪽 화살표) → "홈 화면에 추가"를 누르고, 홈 화면에 생긴 ECM 앱으로 열어 주세요.';
+    return '사파리나 크롬으로 열어 공유 버튼 → "홈 화면에 추가"를 누르고, 홈 화면에 생긴 ECM 앱으로 열어 주세요.';
+  }
+  return { ios: ios, ipad: ipad, iosVer: iosVer, inApp: inApp, browser: browser, standalone: standalone, addToHomeHow: addToHomeHow };
+})();
+
 // ── 홈 화면에 설치하는 웹앱 (서비스 워커 /sw.js). 페이지는 늘 새로 받고, 끊겼을 때만 오프라인 안내 ──
 if ('serviceWorker' in navigator && location.protocol === 'https:' || location.hostname === 'localhost') {
   window.addEventListener('load', function () { if (navigator.serviceWorker) navigator.serviceWorker.register('/sw.js').catch(function () {}); });
@@ -336,18 +360,18 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' || location.h
   var KEY = 'ecm:install-dismissed';
   var deferred = null;
   function ls(v) { try { if (v === undefined) return localStorage.getItem(KEY); localStorage.setItem(KEY, v); } catch (e) { return null; } }
-  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
-  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  var env = window.ECM_ENV, standalone = env.standalone, isIOS = env.ios;
   window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
   function recentlyDismissed() { var t = +ls() || 0; return Date.now() - t < 30 * 864e5; }
   function show() {
     if (standalone || recentlyDismissed() || document.getElementById('installBar')) return;
-    if (!deferred && !isIOS) return;
+    if (env.inApp) return; // 앱 안 브라우저는 설치가 안 된다(알림 버튼을 누르면 다른 브라우저로 열라고 안내)
+    if (!deferred && !(isIOS && env.iosVer >= 1604)) return;
     var bar = document.createElement('div');
     bar.id = 'installBar'; bar.className = 'ecm-install'; bar.setAttribute('role', 'dialog'); bar.setAttribute('aria-label', 'ECM 쿠폰 앱 설치');
     bar.innerHTML = '<img src="/assets/icon-192.png" alt="" width="36" height="36"><p>' + (deferred
       ? '<b>ECM 쿠폰을 홈 화면에 추가</b>하면 다음에 앱처럼 바로 열려요.'
-      : '<b>홈 화면에 추가</b>하려면 사파리 아래 공유 버튼을 누르고 "홈 화면에 추가"를 고르세요.') + '</p>'
+      : '<b>홈 화면에 추가</b>하면 앱처럼 열려요. ' + env.addToHomeHow()) + '</p>'
       + (deferred ? '<button type="button" class="ecm-btn-primary" data-install>추가</button>' : '')
       + '<button type="button" class="ecm-install-x" data-install-close aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>';
     document.body.appendChild(bar);

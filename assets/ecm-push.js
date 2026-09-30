@@ -13,8 +13,8 @@
   var SDK = 'https://www.gstatic.com/firebasejs/10.12.2/';
   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
   function favs() { try { return JSON.parse(ls(FAV) || '[]'); } catch (e) { return []; } }
-  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  var standalone = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  var env = window.ECM_ENV || { ios: false, standalone: false, inApp: '', iosVer: 0, addToHomeHow: function () { return ''; } };
+  var isIOS = env.ios, standalone = env.standalone;
   var supported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
   var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-push-toggle]'));
   if (!READY || !buttons.length) return;
@@ -54,7 +54,9 @@
     return fetch(docUrl(token), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) { if (!r.ok) throw new Error('save ' + r.status); });
   }
   function turnOn(btn) {
-    if (isIOS && !standalone) { say('아이폰은 사파리 공유 버튼 → "홈 화면에 추가"로 ECM을 설치한 뒤, 설치한 앱에서 알림을 켤 수 있어요.'); return; }
+    if (env.inApp) { say(env.addToHomeHow()); return; }
+    if (isIOS && env.iosVer < 1604) { say('아이폰은 iOS 16.4 이상에서 웹 알림을 받을 수 있어요. 텔레그램이나 카카오톡 채널로 새 쿠폰 소식을 받아 보세요.'); return; }
+    if (isIOS && !standalone) { say('아이폰은 사파리·크롬 모두 브라우저 탭에서는 알림을 켤 수 없어요. ' + env.addToHomeHow() + ' 그 앱에서 이 버튼을 누르면 알림이 켜져요.'); return; }
     if (!supported) { say('이 브라우저는 웹 알림을 지원하지 않아요. 텔레그램이나 카카오톡 채널로 새 쿠폰 소식을 받을 수 있어요.'); return; }
     var gid = btn.getAttribute('data-game');
     if (gid) { var a = favs(); if (a.indexOf(gid) < 0) { a.push(gid); ls(FAV, JSON.stringify(a)); document.dispatchEvent(new CustomEvent('ecm:fav-change')); } }
