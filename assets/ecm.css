@@ -373,3 +373,15 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 .ecm-share-row.is-compact .ecm-share { padding: .3rem .7rem; font-size: .8rem; font-weight: 600; color: var(--ink-2); }
 .ecm-share-row.is-compact .ecm-share i { color: var(--ink-3); }
 @media (pointer: coarse) { .ecm-share-row.is-compact .ecm-share { min-height: 36px; } }
+
+/* 홈 화면 설치 안내(복사 뒤 한 번, 아래쪽 작게) · 푸시 알림 버튼 */
+.ecm-install { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 60; width: min(92vw, 30rem); display: flex; align-items: center; gap: .7rem; background: #fff; border: 1.5px solid var(--ink); border-radius: 16px; padding: .7rem .8rem; box-shadow: 0 10px 30px rgba(23,22,15,.18); }
+.ecm-install img { border-radius: 9px; flex: none; }
+.ecm-install p { margin: 0; font-size: .85rem; line-height: 1.5; color: var(--ink-2); flex: 1; min-width: 0; }
+.ecm-install b { color: var(--ink); }
+.ecm-install .ecm-btn-primary { flex: none; min-height: 40px; padding: 0 1rem; font-size: .88rem; }
+.ecm-install-x { flex: none; width: 36px; height: 36px; border: 0; background: none; color: var(--ink-3); cursor: pointer; font-size: 1rem; }
+[data-push-toggle][hidden] { display: none !important; }
+[data-push-toggle].is-on { border-color: var(--ink) !important; color: var(--ink) !important; }
+[data-push-toggle].is-on i { color: #A87400; }
+.ecm-push-note { flex-basis: 100%; font-size: .82rem !important; color: var(--ink-2) !important; margin: .2rem 0 0 !important; }

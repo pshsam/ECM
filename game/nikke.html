@@ -12,7 +12,13 @@
   <!-- /Google tag -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>승리의 여신: 니케 쿠폰 코드 입력 방법 (9월) | ECM 쿠폰</title>
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ECM 쿠폰">
+  <!-- /PWA -->
+  <title>승리의 여신: 니케 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰</title>
   <meta name="description" content="승리의 여신: 니케 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.">
   <link rel="canonical" href="https://ecm-coupon.com/game/nikke.html">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -20,7 +26,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ECM 쿠폰 (Every Coupon Matters)">
   <meta property="og:url" content="https://ecm-coupon.com/game/nikke.html">
-  <meta property="og:title" content="승리의 여신: 니케 쿠폰 코드 입력 방법 (9월) | ECM 쿠폰">
+  <meta property="og:title" content="승리의 여신: 니케 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰">
   <meta property="og:description" content="승리의 여신: 니케 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.">
   <meta property="og:image" content="https://ecm-coupon.com/og-image.png">
   <meta property="og:locale" content="ko_KR">
@@ -34,7 +40,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "승리의 여신: 니케 쿠폰 코드 입력 방법 (9월) | ECM 쿠폰",
+  "name": "승리의 여신: 니케 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰",
   "description": "승리의 여신: 니케 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.",
   "url": "https://ecm-coupon.com/game/nikke.html",
   "dateModified": "2026-09-30",
@@ -239,7 +245,7 @@
     <div class="ecm-game-head">
       <div class="ecm-icon ecm-mono" style="--mh:250" aria-hidden="true">승</div>
       <div>
-        <h1>승리의 여신: 니케 쿠폰 코드 <small style="font-weight:600;color:var(--ink-3);font-size:.9rem">(2026년 9월)</small></h1>
+        <h1>승리의 여신: 니케 쿠폰 코드 <small style="font-weight:600;color:var(--ink-3);font-size:.9rem">(2026년 10월)</small></h1>
         <div class="ecm-game-meta">
           <span>Shift Up</span><span>·</span><span>건슈팅 RPG</span><span>·</span><span>크로스플랫폼 · PC · 모바일</span>
         </div>
@@ -251,6 +257,7 @@
       
       
       <button type="button" class="ecm-fav-mini ecm-fav" data-fav="nikke" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+      <button type="button" class="ecm-fav-mini" data-push-toggle data-game="nikke" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
     </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드</h2>
@@ -394,7 +401,7 @@
         t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
         clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
       }
-      function done() { b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      function done() { try { document.dispatchEvent(new CustomEvent('ecm:copied')); } catch (x) {} b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
       function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });

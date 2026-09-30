@@ -1,0 +1,46 @@
+# 내 게임 새 쿠폰 웹 푸시 알림
+# 쿠폰 루틴이 새 코드를 올리면(push) 그 게임을 "내 게임"에 담은 기기에 알리고, 밤에 올라온 코드는 아침 8시 5분(한국 시간)에 모아서 알린다.
+# 필요한 설정 (저장소 Settings > Secrets and variables > Actions):
+#   Secrets → FIREBASE_SERVICE_ACCOUNT : 파이어베이스 서비스 계정 키(JSON 파일 내용 전체)
+# 설정 전에는 "건너뜀"만 찍고 끝난다.
+name: 새 쿠폰 푸시 알림
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/coupon-seen.json
+      - index.html
+  schedule:
+    - cron: '5 23 * * *'   # 매일 08:05 KST
+  workflow_dispatch:
+
+concurrency:
+  group: push-notify
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 새 쿠폰 푸시 보내기
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node scripts/notify-push.js
+      - name: 보낸 기록 저장
+        run: |
+          if [ -n "$(git status --porcelain data/push-sent.json)" ]; then
+            git config user.name "ecm-push-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/push-sent.json
+            git commit -m "푸시 알림 기록 [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

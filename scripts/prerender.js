@@ -27,6 +27,7 @@ const { writeFreePages } = require('./free-pages');
 const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { ensureAnalytics } = require('./analytics');
+const { ensurePwaHead } = require('./pwa');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
@@ -611,6 +612,9 @@ function main() {
   // 구글 애널리틱스 태그: 모든 페이지 (새 글·새 게임 페이지 포함)
   const ga = ensureAnalytics(rootDir);
   if (ga) console.log(`애널리틱스 태그: ${ga}개 페이지에 넣음`);
+  // 홈 화면 설치(웹앱) 태그: 모든 페이지
+  const pwa = ensurePwaHead(rootDir);
+  if (pwa) console.log(`웹앱 태그: ${pwa}개 페이지에 넣음`);
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 

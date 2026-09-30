@@ -90,6 +90,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
 
     <section class="hub-sec" id="mine" aria-labelledby="mineTitle">
       <h2 id="mineTitle"><i class="fa-solid fa-star"></i> 내 게임</h2>
+      <p class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-push-toggle aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button></p>
       <div id="tdMine"><p class="td-empty">게임 페이지에서 <b>내 게임에 담기</b>를 누르거나, 아래에서 게임을 골라 담아 보세요.</p></div>
       <div class="td-pick" id="tdPick" hidden>
         <select id="tdPickSel" aria-label="담을 게임 고르기"><option value="">코드가 있는 게임 ${gameList.length}종</option>${gameList.map(g => `<option value="${esc(g.id)}">${esc(g.t)}</option>`).join('')}</select>
@@ -185,6 +186,7 @@ const CLIENT = `
     var b = e.target.closest && e.target.closest('[data-copy]');
     if (!b) return;
     navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      try { document.dispatchEvent(new CustomEvent('ecm:copied')); } catch (x) {}
       var t = document.getElementById('copyToast');
       t.classList.remove('hidden');
       setTimeout(function () { t.classList.add('hidden'); }, 1500);

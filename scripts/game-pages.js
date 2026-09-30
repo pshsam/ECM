@@ -471,6 +471,7 @@ ${headerHtml()}
       ${unknownN ? `<span>만료일 미공개 <b>${unknownN}</b>개</span>` : ''}
       ${active.length >= 5 ? '<a href="#how">입력 방법 바로가기 ↓</a>' : ''}
       <button type="button" class="ecm-fav-mini ecm-fav" data-fav="${esc(g.id)}" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+      <button type="button" class="ecm-fav-mini" data-push-toggle data-game="${esc(g.id)}" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
     </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
@@ -611,7 +612,7 @@ ${footerHtml()}
         t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
         clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
       }
-      function done() { b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      function done() { try { document.dispatchEvent(new CustomEvent('ecm:copied')); } catch (x) {} b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
       function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });

@@ -309,6 +309,7 @@
     if (i >= 0) a.splice(i, 1); else a.push(id);
     save(a);
     paint(b);
+    try { document.dispatchEvent(new CustomEvent('ecm:fav-change')); } catch (err) {}
     if (typeof window.gtag === 'function') window.gtag('event', i >= 0 ? 'unfavorite_game' : 'favorite_game', { game_id: id });
   });
 })();
@@ -324,3 +325,56 @@ document.addEventListener('click', function (e) {
   var a = e.target.closest ? e.target.closest('[data-kc]') : null;
   if (a && typeof window.gtag === 'function') window.gtag('event', 'kakao_channel_click', { location: a.getAttribute('data-kc'), page_path: location.pathname });
 });
+
+// ── 홈 화면에 설치하는 웹앱 (서비스 워커 /sw.js). 페이지는 늘 새로 받고, 끊겼을 때만 오프라인 안내 ──
+if ('serviceWorker' in navigator && location.protocol === 'https:' || location.hostname === 'localhost') {
+  window.addEventListener('load', function () { if (navigator.serviceWorker) navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+}
+
+// ── 설치 안내: 방문자를 막지 않게, 코드를 한 번 복사한 뒤에만 아래쪽에 작게. 닫으면 30일 동안 안 띄운다 ──
+(function () {
+  var KEY = 'ecm:install-dismissed';
+  var deferred = null;
+  function ls(v) { try { if (v === undefined) return localStorage.getItem(KEY); localStorage.setItem(KEY, v); } catch (e) { return null; } }
+  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
+  function recentlyDismissed() { var t = +ls() || 0; return Date.now() - t < 30 * 864e5; }
+  function show() {
+    if (standalone || recentlyDismissed() || document.getElementById('installBar')) return;
+    if (!deferred && !isIOS) return;
+    var bar = document.createElement('div');
+    bar.id = 'installBar'; bar.className = 'ecm-install'; bar.setAttribute('role', 'dialog'); bar.setAttribute('aria-label', 'ECM 쿠폰 앱 설치');
+    bar.innerHTML = '<img src="/assets/icon-192.png" alt="" width="36" height="36"><p>' + (deferred
+      ? '<b>ECM 쿠폰을 홈 화면에 추가</b>하면 다음에 앱처럼 바로 열려요.'
+      : '<b>홈 화면에 추가</b>하려면 사파리 아래 공유 버튼을 누르고 "홈 화면에 추가"를 고르세요.') + '</p>'
+      + (deferred ? '<button type="button" class="ecm-btn-primary" data-install>추가</button>' : '')
+      + '<button type="button" class="ecm-install-x" data-install-close aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>';
+    document.body.appendChild(bar);
+    if (typeof window.gtag === 'function') window.gtag('event', 'install_prompt_shown', { kind: deferred ? 'native' : 'ios' });
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-install-close]')) { ls(String(Date.now())); var b = document.getElementById('installBar'); if (b) b.remove(); return; }
+    if (e.target.closest && e.target.closest('[data-install]') && deferred) {
+      deferred.prompt();
+      deferred.userChoice.then(function (r) {
+        if (typeof window.gtag === 'function') window.gtag('event', 'install_prompt_result', { outcome: r.outcome });
+        deferred = null; var b = document.getElementById('installBar'); if (b) b.remove(); if (r.outcome !== 'accepted') ls(String(Date.now()));
+      });
+    }
+  });
+  // 복사 성공 뒤(각 페이지의 복사 코드가 ecm:copied 를 보낸다) 조금 기다렸다가
+  document.addEventListener('ecm:copied', function () { setTimeout(show, 1800); });
+})();
+
+// ── 새 쿠폰 푸시 알림: 알림 버튼([data-push-toggle])이 있는 페이지에서만 설정·모듈을 불러온다 ──
+(function () {
+  if (!document.querySelector('[data-push-toggle]')) return;
+  var s = document.createElement('script'); s.src = '/assets/push-config.js';
+  s.onload = function () {
+    var c = window.ECM_PUSH || {};
+    if (!(c.apiKey && c.projectId && c.vapidKey)) return; // 설정 전: 버튼은 계속 숨김
+    var m = document.createElement('script'); m.src = '/assets/ecm-push.js'; document.head.appendChild(m);
+  };
+  document.head.appendChild(s);
+})();
