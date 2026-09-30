@@ -64,7 +64,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "6865b0906c76cddd",
+    "hash": "5d7764bf9b886a54",
     "modified": "2026-09-30"
   },
   "game-coupon-expiry-reminder-template": {
@@ -106,6 +106,10 @@
   "lost-ark-coupon-codes": {
     "hash": "fa770d9f0713e69f",
     "modified": "2026-09-26"
+  },
+  "mabinogi-mobile-coupon-codes": {
+    "hash": "e132b16c10b910a6",
+    "modified": "2026-09-30"
   },
   "maplestory-idle-coupon-codes": {
     "hash": "022263cb89540d32",
