@@ -14,6 +14,11 @@ on:
   schedule:
     - cron: '5 23 * * *'   # 매일 08:05 KST
   workflow_dispatch:
+    inputs:
+      check:
+        description: "연결 점검만 하기 (알림은 보내지 않음)"
+        type: boolean
+        default: false
 
 concurrency:
   group: push-notify
@@ -33,6 +38,7 @@ jobs:
       - name: 새 쿠폰 푸시 보내기
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          CHECK: ${{ inputs.check && '1' || '0' }}
         run: node scripts/notify-push.js
       - name: 보낸 기록 저장
         run: |

@@ -11,6 +11,7 @@
  *
  * 환경변수: FIREBASE_SERVICE_ACCOUNT (비밀, 서비스 계정 JSON 전체). 없으면 조용히 건너뛴다.
  *           DRY_RUN=1 이면 보내지 않고 화면에만 찍는다. FORCE=1 이면 밤 시간 규칙을 무시한다.
+ *           CHECK=1 이면 구글 인증과 구독 기기 수만 확인한다(보내지 않음).
  */
 const fs = require('fs');
 const path = require('path');
@@ -96,6 +97,19 @@ async function main() {
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
   if (!raw && !dry) { console.log('푸시 알림 설정 전이라 건너뜀 (FIREBASE_SERVICE_ACCOUNT 없음)'); return; }
   const sa = raw ? JSON.parse(raw) : null;
+
+  // 연결 점검: 구글 인증 + 구독 기기 수만 확인하고 끝낸다(알림은 보내지 않음). 워크플로 수동 실행의 check 옵션
+  if (process.env.CHECK === '1') {
+    const auth = await accessToken(sa);
+    const url = `https://firestore.googleapis.com/v1/projects/${sa.project_id}/databases/(default)/documents:runAggregationQuery`;
+    const res = await fetch(url, { method: 'POST', headers: { Authorization: `Bearer ${auth}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ structuredAggregationQuery: { structuredQuery: { from: [{ collectionId: 'subscribers' }] }, aggregations: [{ alias: 'n', count: {} }] } }) });
+    const j = await res.json();
+    const n = Array.isArray(j) && j[0] && j[0].result ? j[0].result.aggregateFields.n.integerValue : null;
+    console.log(n !== null ? `연결 점검 통과: 프로젝트 ${sa.project_id}, 알림 켠 기기 ${n}대` : '연결 점검 실패: ' + JSON.stringify(j).slice(0, 200));
+    if (n === null) process.exit(1);
+    return;
+  }
 
   const { date: today, hour } = kstNow();
   const seen = JSON.parse(fs.readFileSync(SEEN, 'utf8'));
