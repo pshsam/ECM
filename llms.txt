@@ -39,7 +39,7 @@
 
 ## 게임별 쿠폰 코드 페이지
 
-- [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
+- [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
 - [붕괴: 스타레일 쿠폰 코드](https://ecm-coupon.com/game/starrail.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [젠레스 존 제로 쿠폰 코드](https://ecm-coupon.com/game/zzz.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [명조: 워더링 웨이브 쿠폰 코드](https://ecm-coupon.com/game/wuthering.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
@@ -52,7 +52,7 @@
 - [승리의 여신: 니케 쿠폰 코드](https://ecm-coupon.com/game/nikke.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [쿠키런: 킹덤 쿠폰 코드](https://ecm-coupon.com/game/cookierun.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [포켓몬스터 스칼렛·바이올렛 쿠폰 코드](https://ecm-coupon.com/game/pokemon.html): 지금 쓸 수 있는 코드 5개, 보상·만료일, 입력 방법
-- [보더랜드 (SHiFT) 쿠폰 코드](https://ecm-coupon.com/game/borderlands.html): 지금 쓸 수 있는 코드 12개, 보상·만료일, 입력 방법
+- [보더랜드 (SHiFT) 쿠폰 코드](https://ecm-coupon.com/game/borderlands.html): 지금 쓸 수 있는 코드 14개, 보상·만료일, 입력 방법
 - [이클립스: 더 어웨이크닝 쿠폰 코드](https://ecm-coupon.com/game/eclipse-awakening.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [EA SPORTS FC 27 쿠폰 코드](https://ecm-coupon.com/game/ea-sports-fc-27.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [화이트아웃 서바이벌 쿠폰 코드](https://ecm-coupon.com/game/whiteout-survival.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
@@ -66,8 +66,8 @@
 - [신도 라이프 쿠폰 코드](https://ecm-coupon.com/game/roblox-shindo-life.html): 지금 쓸 수 있는 코드 38개, 보상·만료일, 입력 방법
 - [킹 레거시 쿠폰 코드](https://ecm-coupon.com/game/roblox-king-legacy.html): 지금 쓸 수 있는 코드 9개, 보상·만료일, 입력 방법
 - [비 스웜 시뮬레이터 쿠폰 코드](https://ecm-coupon.com/game/roblox-bee-swarm-simulator.html): 지금 쓸 수 있는 코드 12개, 보상·만료일, 입력 방법
-- [명일방주: 엔드필드 쿠폰 코드](https://ecm-coupon.com/game/arknights-endfield.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
-- [이환 (Neverness to Everness) 쿠폰 코드](https://ecm-coupon.com/game/neverness-to-everness.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
+- [명일방주: 엔드필드 쿠폰 코드](https://ecm-coupon.com/game/arknights-endfield.html): 지금 쓸 수 있는 코드 5개, 보상·만료일, 입력 방법
+- [이환 (Neverness to Everness) 쿠폰 코드](https://ecm-coupon.com/game/neverness-to-everness.html): 지금 쓸 수 있는 코드 5개, 보상·만료일, 입력 방법
 - [왕좌의 게임: 킹스로드 쿠폰 코드](https://ecm-coupon.com/game/got-kingsroad.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [PUBG: 배틀그라운드 쿠폰 코드](https://ecm-coupon.com/game/pubg-battlegrounds.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [NBA 2K27 쿠폰 코드](https://ecm-coupon.com/game/nba2k27.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
@@ -101,7 +101,7 @@
 - [마구마구 2026 쿠폰 코드](https://ecm-coupon.com/game/magmagu-2026.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [포켓몬 GO 쿠폰 코드](https://ecm-coupon.com/game/pokemon-go.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
 - [TL (쓰론 앤 리버티) 쿠폰 코드](https://ecm-coupon.com/game/throne-and-liberty.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
-- [검은사막 모바일 쿠폰 코드](https://ecm-coupon.com/game/blackdesert-mobile.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
+- [검은사막 모바일 쿠폰 코드](https://ecm-coupon.com/game/blackdesert-mobile.html): 지금 쓸 수 있는 코드 6개, 보상·만료일, 입력 방법
 - [소녀전선2: 망명 쿠폰 코드](https://ecm-coupon.com/game/girls-frontline-2.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [메이크 드라마: MAD 쿠폰 코드](https://ecm-coupon.com/game/make-drama-mad.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [나이트 크로우 쿠폰 코드](https://ecm-coupon.com/game/nightcrows.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
@@ -114,7 +114,7 @@
 - [리니지W 쿠폰 코드](https://ecm-coupon.com/game/lineage-w.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [트릭컬 리바이브 쿠폰 코드](https://ecm-coupon.com/game/trickcal-revive.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
 - [AFK: 새로운 여정 쿠폰 코드](https://ecm-coupon.com/game/afk-journey.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
-- [인피니티 니키 쿠폰 코드](https://ecm-coupon.com/game/infinity-nikki.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
+- [인피니티 니키 쿠폰 코드](https://ecm-coupon.com/game/infinity-nikki.html): 지금 쓸 수 있는 코드 3개, 보상·만료일, 입력 방법
 - [벽람항로 쿠폰 코드](https://ecm-coupon.com/game/azurlane.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [열혈강호: 귀환 쿠폰 코드](https://ecm-coupon.com/game/yulhyulgangho-return.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 
