@@ -444,6 +444,9 @@ function articleFingerprint(html) {
   const body = (html.match(/<article[^>]*>([\s\S]*?)<\/article>/) || ['', html])[1]
     .replace(/<p class="ecm-byline">[\s\S]*?<\/p>/g, '')
     .replace(/<!--PRERENDER:([a-z-]+)-->[\s\S]*?<!--\/PRERENDER:\1-->/g, '')
+    // 빌드가 이미지에 덧붙이는 것(scripts/media.js: WebP <picture>, 맨 앞 decoding·loading)은 글 수정이 아니다
+    .replace(/<picture class="ecm-pic"><source [^>]*>|<\/picture>/g, '')
+    .replace(/<img decoding="async"/g, '<img').replace(/<img loading="lazy"/g, '<img')
     .replace(/\s+/g, ' ').trim();
   return require('crypto').createHash('sha1').update(body).digest('hex').slice(0, 16);
 }
