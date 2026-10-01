@@ -1,5 +1,7 @@
 {
   "sent": [
+    "afk-journey:AFKJ2YRS2026",
+    "afk-journey:HQC0ZFSC6QYTX",
     "aion2:AION2CHAPTERONE",
     "aion2:HAPPYCHUSEOKAION2",
     "aniimo:ANIIMOGIFT",
@@ -19,6 +21,7 @@
     "arknights-endfield:ENDFIELDGIFT",
     "arknights-endfield:ZAU2SYXHWX5L4ZH",
     "blackdesert-mobile:DEVCOMMENTARY26",
+    "blackdesert-mobile:HEIDEL2026",
     "blackdesert-mobile:PRESENTFROMGM",
     "blackdesert:BEYONDTHEJOURNEY",
     "blackdesert:TYALLADVENTURERS",
@@ -40,6 +43,8 @@
     "epic-seven:EPICWITHCZN",
     "epic-seven:TY_E8_INFINITY",
     "genshin:GENSHINGIFT",
+    "infinity-nikki:EYESONTHEGOLDENFEAST",
+    "infinity-nikki:ShroomFriendDC",
     "kingshot:EXPLORETHEWORLD",
     "kingshot:JPHolidaySEP",
     "kingshot:KS0919",
@@ -51,6 +56,7 @@
     "neverness-to-everness:COMEBACK",
     "neverness-to-everness:NTEGIFT",
     "neverness-to-everness:ZANKOU0819",
+    "pokemon-go:ADIDASxPOKEMON",
     "pokemon-go:LEGOxPOKEMONGOxBERRIES",
     "pokemon-go:LEGOxPOKEMONGOxCAP",
     "pokemon-go:MLBxPOKEMONGO2026",
@@ -209,5 +215,5 @@
     "zzz:ZENLESSGIFT"
   ],
   "startedAt": "2026-09-29",
-  "lastSentAt": "2026-09-30"
+  "lastSentAt": "2026-10-01"
 }
