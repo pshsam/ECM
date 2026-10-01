@@ -65,7 +65,7 @@
       ls(TOKEN, r.token); ls(ON, '1');
       return saveDoc(r.token);
     }).then(function () {
-      say(favs().length ? '켰어요. 내 게임(' + favs().length + '개)에 새 쿠폰이 올라오면 알려 드려요. 알림에서 바로 코드를 복사할 수 있어요.' : '켰어요. 내 게임에 담은 게임의 새 쿠폰을 알려 드려요.');
+      say(favs().length ? '켰어요. 내 게임(' + favs().length + '개)에 새 쿠폰이 올라오면 알려 드려요. 알림을 누르면 바로 그 게임 코드로 가요.' : '켰어요. 내 게임에 담은 게임의 새 쿠폰을 알려 드려요.');
       paint();
       if (typeof window.gtag === 'function') window.gtag('event', 'push_on', { games: favs().length, app: 1 });
     }).catch(function (e) {

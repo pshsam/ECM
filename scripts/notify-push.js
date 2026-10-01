@@ -8,8 +8,8 @@
  * - 밤 9시~아침 8시(한국 시간)에는 보내지 않고, 아침 8시 5분 예약 실행 때 모아서 보낸다.
  * - 알림을 누르면 그 게임 페이지의 "그날 추가된 코드 묶음"(#added-날짜)으로 간다.
  * - 끊긴 기기(토큰 만료)는 구독 문서를 지운다.
- * - ECM 쿠폰 안드로이드 앱(구독 문서 ua: native-android)에는 웹 푸시 대신 "데이터 메시지"를 보낸다.
- *   앱이 직접 알림을 만들어 [코드 복사] [입력하러 가기] 버튼을 붙인다 (앱 저장소 EcmMessagingService.java).
+ * - ECM 쿠폰 안드로이드 앱(구독 문서 ua: native-android)에는 웹 푸시 대신 "데이터 메시지"를 보낸다 (앱 저장소 EcmMessagingService.java).
+ *   알림에는 코드를 넣지 않는다 — 눌러서 앱에 들어와 확인하게 한다.
  *
  * 환경변수: FIREBASE_SERVICE_ACCOUNT (비밀, 서비스 계정 JSON 전체). 없으면 조용히 건너뛴다.
  *           DRY_RUN=1 이면 보내지 않고 화면에만 찍는다. FORCE=1 이면 밤 시간 규칙을 무시한다.
@@ -88,8 +88,6 @@ async function subscribersOf(projectId, token, gameId) {
 /** 앱 기기용 데이터 메시지 (모든 값은 문자열이어야 한다) */
 function nativeMessage(fcm, msg) {
   const data = { title: msg.title, body: msg.appBody || msg.body, link: msg.link, tag: msg.tag };
-  if (msg.code) data.code = msg.code;
-  if (msg.redeem) data.redeem = msg.redeem;
   return { token: fcm, data, android: { priority: 'HIGH', ttl: '86400s' } };
 }
 
@@ -167,10 +165,8 @@ async function main() {
       body: (cut(rewards[0] || '보상은 페이지에서 확인하세요', 50)) + (rewards.length > 1 ? ` 외 ${rewards.length - 1}개` : '') + ' · 눌러서 코드 복사',
       link: `${SITE}/game/${g.id}.html?utm_source=push#added-${date}`,
       tag: `ecm-${g.id}-${date}`,
-      // 앱 알림: 첫 코드를 바로 복사할 수 있게, 공식 입력 페이지가 있으면 [입력하러 가기]
-      code: items[0].c.code,
-      redeem: /^https:\/\//.test(g.redeemUrl || '') ? g.redeemUrl : '',
-      appBody: `${items[0].c.code} · ${cut(rewards[0] || '보상은 페이지에서 확인하세요', 44)}` + (items.length > 1 ? ` 외 ${items.length - 1}개` : ''),
+      // 앱 알림: 코드는 넣지 않고 보상만 (눌러서 앱에서 확인)
+      appBody: cut(rewards[0] || '보상은 앱에서 확인하세요', 50) + (rewards.length > 1 ? ` 외 ${rewards.length - 1}개` : '') + ' · 눌러서 코드 보기',
     };
     if (dry) { console.log('--- (보내지 않음) ---', JSON.stringify(msg)); items.forEach(x => sent.add(x.key)); games_++; continue; }
     const subs = await subscribersOf(sa.project_id, auth, g.id);
