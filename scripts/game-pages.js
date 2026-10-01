@@ -357,9 +357,9 @@ function pageHtml(g, ctx) {
   <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(desc)}">
-  <meta property="og:image" content="${SITE}/og-image.png">
+  <meta property="og:image" content="${SITE}${(ctx.ogImages || {})[g.id] || '/og-image.png'}">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="${(ctx.ogImages || {})[g.id] ? 'summary_large_image' : 'summary'}">
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
   <script src="/assets/ecm.js" defer></script>
@@ -626,12 +626,12 @@ ${footerHtml()}
  * 게임 페이지를 만들고, 자격을 잃은 게임의 페이지는 지운다.
  * @returns {{written: number, removed: number, ids: string[]}}
  */
-function writeGamePages(rootDir, games, posts, version, firstSeen) {
+function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
-  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf };
+  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages };
   const keep = new Set();
   let written = 0;
   for (const g of games) {

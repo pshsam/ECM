@@ -169,8 +169,8 @@ ${followHtml('preregister')}
     return `        <tr><td><a href="/game/${esc(g.id)}.html">${esc(g.title)}</a></td><td>${esc(g.redeemHow || '게임 안 코드 입력 메뉴')}</td><td>${n ? `${n}개` : '-'}</td></tr>`;
   };
   const RB_HELP = 'https://en.help.roblox.com/hc/ko/articles/';
-  const rbxTitle = '로블록스 코드 사용법 총정리: 게임 코드·프로모션 코드·기프트 카드 | ECM';
-  const rbxDesc = '로블록스 게임 코드는 어디에 넣고, roblox.com/redeem에는 어떤 코드를 넣는지 로블록스 공식 도움말 기준으로 정리했어요. 게임별 입력 위치 표도 함께 있어요.';
+  const rbxTitle = '로블록스 코드 사용법: 게임 코드·프로모션 코드 넣는 곳 | ECM 쿠폰';
+  const rbxDesc = '로블록스 게임 코드는 게임 안에, 프로모션·기프트 카드 코드는 roblox.com/redeem에 넣어요. 게임별 입력 위치 표 포함.';
   const rbxBody = `    <p class="hub-crumb"><a href="/">ECM</a> › <a href="/free/">게임 무료 혜택</a> › 로블록스 코드 사용법</p>
     <header class="hub-head">
       <h1>로블록스 코드 사용법 총정리</h1>

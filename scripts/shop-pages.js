@@ -102,7 +102,7 @@ ${lifePosts.map(p => `        <li><a href="${esc(p.url)}">${esc(p.title)}</a></l
   return writeIfChanged(fs, path.join(dir, 'index.html'), html);
 }
 
-function shopPageHtml(m, d, { catLabels, shopsInCat, pages, posts, headerHtml, footerHtml }) {
+function shopPageHtml(m, d, { catLabels, shopsInCat, pages, posts, ogImage, headerHtml, footerHtml }) {
   const name = shortName(m.name);
   const url = `/shop/${m.id}.html`;
   const mon = monthOf(d.checked);
@@ -191,11 +191,11 @@ ${siblings.map(x => `        <li><a href="${pages.has(x.id) ? `/shop/${esc(x.id)
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     breadcrumbLd([{ name: 'ECM 쿠폰', path: '/' }, { name: '쇼핑 할인', path: '/shop/' }, { name: `${name} 쿠폰·할인`, path: url }]),
   ];
-  return pageShell({ title, desc, path: url, ld, body, ogType: 'article', headerHtml, footerHtml });
+  return pageShell({ title, desc, path: url, ld, body, ogType: 'article', ogImage, headerHtml, footerHtml });
 }
 
 /** 자격이 있는 쇼핑몰 페이지를 쓰고, 자격을 잃은 페이지는 지운다(index.html 은 남긴다). */
-function writeShopPages(rootDir, { shopCats, shopCatalogs, catLabels, details, posts, headerHtml, footerHtml }) {
+function writeShopPages(rootDir, { shopCats, shopCatalogs, catLabels, details, posts, ogImages = {}, headerHtml, footerHtml }) {
   const dir = path.join(rootDir, 'shop');
   fs.mkdirSync(dir, { recursive: true });
   const shops = allShops(shopCats, shopCatalogs);
@@ -204,7 +204,7 @@ function writeShopPages(rootDir, { shopCats, shopCatalogs, catLabels, details, p
   let written = 0;
   for (const m of shops) {
     if (!pages.has(m.id)) continue;
-    const html = shopPageHtml(m, details[m.id], { catLabels, shopsInCat: shops.filter(x => x.cat === m.cat), pages, posts, headerHtml, footerHtml });
+    const html = shopPageHtml(m, details[m.id], { catLabels, shopsInCat: shops.filter(x => x.cat === m.cat), pages, posts, ogImage: ogImages[m.id], headerHtml, footerHtml });
     if (writeIfChanged(fs, path.join(dir, `${m.id}.html`), html)) written++;
   }
   let removed = 0;

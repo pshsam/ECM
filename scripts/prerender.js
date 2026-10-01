@@ -28,9 +28,11 @@ const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require
 const { writeLlmsTxt } = require('./llms-txt');
 const { ensureAnalytics } = require('./analytics');
 const { ensurePwaHead } = require('./pwa');
+const { ensureOgImages, ensureWebp, ensureImageMarkup } = require('./media');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
+const SHOP_CATS_ALL = ['fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const CATS = ['mega', 'herostats', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글마다 본문 지문과 마지막 실제 수정일. 빌드가 채우고 고친다 (손으로 고치지 않는다).
@@ -490,6 +492,8 @@ function recentPosts(blogDir, limit = 500) {
       if (fs.existsSync(path.join(blogDir, '..', thumbRel.replace(/^\//, '')))) {
         post.image = thumbRel;
         post.imageAlt = title;
+        const webpRel = thumbRel.replace(/\.jpg$/, '.webp');
+        if (fs.existsSync(path.join(blogDir, '..', webpRel.replace(/^\//, '')))) post.imageWebp = webpRel;
       } else {
         const img = body.match(/<img[^>]*src="(\/blog\/images\/[^"]+)"[^>]*>/);
         if (img) {
@@ -533,6 +537,8 @@ function main() {
 
   // 새 글 썸네일 (없을 때만 만든다), 글 스키마(작성일·수정일)
   const thumbs = ensureThumbnails(blogDir, rootDir);
+  // 블로그 이미지의 WebP 사본 (홈 카드·글 목록이 먼저 쓴다). 파이썬이 없으면 건너뛴다
+  const webp = ensureWebp(rootDir);
   const articles = ensureArticleSchema(blogDir, rootDir);
 
   // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
@@ -554,12 +560,15 @@ function main() {
   const data = run(html);
   const { grids, games, version } = data;
 
+  // 처음엔 숨어 있는 메뉴(드롭다운)·쇼핑 분류 목록은 미리 그려 두지 않는다: 홈 HTML 이 130KB 가까이 줄고,
+  // 화면을 열면 init() 이 그대로 그린다. 게임 페이지 링크는 게임 목록(game)과 noscript 에 남아 검색엔진이 따라간다.
+  const CLIENT_ONLY = new Set(['mega', ...SHOP_CATS_ALL]);
   let filled = 0;
   for (const c of CATS) {
     const markup = grids[c];
     if (!markup) throw new Error(`${c} 그리드가 비어 있습니다. 렌더 함수를 확인하세요.`);
-    html = replaceBlock(html, c, markup);
-    filled++;
+    html = replaceBlock(html, c, CLIENT_ONLY.has(c) ? '' : markup);
+    if (!CLIENT_ONLY.has(c)) filled++;
   }
 
   const ld = `\n  <script type="application/ld+json">\n${JSON.stringify(itemListJsonLd(games), null, 2)}\n  </script>\n  `;
@@ -573,12 +582,19 @@ function main() {
 
   fs.writeFileSync(FILE, html);
 
+  // 게임·쇼핑몰 페이지의 공유 이미지 (카카오톡·SNS 미리보기). 제목이 바뀔 때만 새로 만든다
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const pageGames = games.filter(g => qualifies(g, x => (x.coupons || []).filter(c => evaluate(c, today0).active)));
+  const shopWithPage = {};
+  for (const cat of data.shop.cats) shopWithPage[cat] = data.shop.catalogs[cat].filter(m => shopQualifies(shopDetails[m.id]));
+  const og = ensureOgImages(rootDir, pageGames, shopWithPage);
+
   // 게임별 쿠폰 페이지 (/game/<id>.html). 살아 있는 코드가 있거나 입력 방법이 확인된 게임만
-  const gp = writeGamePages(rootDir, games, posts, version, seen);
+  const gp = writeGamePages(rootDir, games, posts, version, seen, og.game);
 
   // 섹션 홈: 게임 쿠폰 홈(/game/), 쇼핑 할인 홈(/shop/), 쇼핑몰 페이지(/shop/<id>.html)
   const shopArgs = { shopCats: data.shop.cats, shopCatalogs: data.shop.catalogs, subLabels: data.shop.subs, catLabels: data.shop.labels, catIcons: data.shop.icons,
-    details: shopDetails, posts, headerHtml, footerHtml };
+    details: shopDetails, posts, ogImages: og.shop, headerHtml, footerHtml };
   const sp = writeShopPages(rootDir, shopArgs);
   writeShopHub(rootDir, { ...shopArgs, pageIds: sp.ids });
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
@@ -600,7 +616,7 @@ function main() {
   // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
   const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version, { shops: sp.ids.map(id => ({ id, name: (Object.values(data.shop.catalogs).flat().find(m => m.id === id) || {}).name || id })) });
 
-  const chars = CATS.reduce((n, c) => n + grids[c].length, 0);
+  const chars = CATS.filter(c => !CLIENT_ONLY.has(c)).reduce((n, c) => n + grids[c].length, 0);
   const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
   console.log(`카탈로그 버전: ${version}`);
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
@@ -615,6 +631,11 @@ function main() {
   // 홈 화면 설치(웹앱) 태그: 모든 페이지
   const pwa = ensurePwaHead(rootDir);
   if (pwa) console.log(`웹앱 태그: ${pwa}개 페이지에 넣음`);
+  // 블로그 이미지: <picture>(WebP 먼저)·지연 로딩 표시
+  console.log(webp);
+  const marked = ensureImageMarkup(rootDir);
+  if (marked) console.log(`이미지 표시(WebP·지연 로딩) 갱신: ${marked}개 페이지`);
+  console.log(`공유 이미지: 게임 ${Object.keys(og.game).length} · 쇼핑몰 ${Object.keys(og.shop).length} (새로 만듦 ${og.made})` + (og.error ? ` · 실패: ${og.error}` : ''));
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 

@@ -104,7 +104,7 @@ const HUB_CSS = `
  * 페이지 한 장. path 는 사이트 안 주소('/game/', '/shop/musinsa.html'), ld 는 JSON-LD 객체 배열.
  * headerHtml·footerHtml 은 순환 참조를 피하려고 호출하는 쪽에서 넘긴다.
  */
-function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'website', headerHtml, footerHtml }) {
+function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'website', ogImage = '', headerHtml, footerHtml }) {
   const url = SITE + path;
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -122,9 +122,9 @@ function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'web
   <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(desc)}">
-  <meta property="og:image" content="${SITE}/og-image.png">
+  <meta property="og:image" content="${SITE}${ogImage || '/og-image.png'}">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(desc)}">
   <link rel="stylesheet" href="/assets/styles.css">

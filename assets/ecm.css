@@ -385,3 +385,9 @@ article a[href^="/shop/"]:not([class*="ecm-"]):hover { background: var(--y-pale)
 [data-push-toggle].is-on { border-color: var(--ink) !important; color: var(--ink) !important; }
 [data-push-toggle].is-on i { color: #A87400; }
 .ecm-push-note { flex-basis: 100%; font-size: .82rem !important; color: var(--ink-2) !important; margin: .2rem 0 0 !important; }
+
+/* WebP 를 감싼 <picture> 는 자리를 차지하지 않는다: 안의 <img> 가 원래 자리에서 그대로 꾸며진다 */
+picture.ecm-pic { display: contents; }
+
+/* 복사 버튼: 손가락으로 누르기 쉬운 크기(44px 이상). 페이지별 글자 크기·안쪽 여백 설정은 그대로 둔다 */
+button.ecm-btn-primary[data-copy] { min-height: 44px; min-width: 72px; justify-content: center; }
