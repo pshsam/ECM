@@ -235,28 +235,38 @@
    "code": "ROKINFINI8",
    "expireDate": "2026-10-11",
    "first_seen": "2026-09-28",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공지 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "rise-of-kingdoms",
    "code": "8YEAROFROK",
    "expireDate": "2026-10-06",
    "first_seen": "2026-09-28",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공지 없음",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "trickcal-revive",
    "code": "BOLEUMDAL",
    "expireDate": "2026-10-01",
    "first_seen": "2026-09-29",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://cafe.naver.com/trickcal/214262",
+   "checked_on": "2026-10-01"
   },
   {
    "game": "trickcal-revive",
    "code": "3RDBOLTHDAY",
    "expireDate": "2026-10-22",
    "first_seen": "2026-09-29",
-   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장"
+   "why": "만료일 미공지 표시가 없어 공식 날짜로 둠 — 공식 공지로 한 번 더 확인 권장",
+   "result": "공식 확인",
+   "source": "https://x.com/Trickcal_Re/status/2104135444472725590",
+   "checked_on": "2026-10-01"
   }
  ]
 }
