@@ -37,6 +37,9 @@ node scripts/prerender.js
 ## 확인 방법
 
 ```bash
+# 자동 테스트: 검색·쿠폰 만료 판정·데이터 형식 (push 하면 GitHub Actions 도 돌린다)
+node --test "tests/*.test.js"
+
 # 자바스크립트 문법 검사
 node -e "new Function(require('fs').readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1])"
 

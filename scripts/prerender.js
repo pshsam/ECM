@@ -642,4 +642,7 @@ function main() {
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 
-main();
+// 테스트(tests/)가 페이지 스크립트를 같은 방식으로 돌려 볼 수 있게 DOM 흉내를 내보낸다.
+// 직접 실행할 때만 빌드한다.
+module.exports = { makeDom };
+if (require.main === module) main();

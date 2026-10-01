@@ -1,0 +1,31 @@
+# 자동 테스트 (tests/*.test.js)
+# 사람이든 쿠폰 루틴이든 index.html·scripts·data 를 고쳐 올리면 검색·쿠폰 만료 판정·데이터 형식을 확인한다.
+# 실패하면 GitHub 가 저장소 주인에게 메일을 보낸다. 사이트 배포(GitHub Pages)를 막지는 않으니, 메일이 오면 바로 확인할 것.
+# 로컬에서 돌리기: node --test "tests/*.test.js"
+name: 자동 테스트
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - scripts/**
+      - data/**
+      - assets/*.js
+      - tests/**
+      - .github/workflows/test.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 테스트
+        run: node --test "tests/*.test.js"

@@ -3242,7 +3242,9 @@
         handleSearch(q);
       }
       const hash = (location.hash || '').slice(1);
-      if (!hash) { setMainCategory('home'); return; }
+      // 검색어로 들어왔으면 handleSearch 가 결과 있는 탭으로 옮겨 둔 것을 홈으로 되돌리지 않는다
+      // (되돌리면 '검색 결과 1개'라고 나오는데 결과 카드가 안 보였다)
+      if (!hash) { if (!q || currentMainCategory === 'home') setMainCategory('home'); return; }
       if (CATEGORY_CONFIG[hash]) { setMainCategory(hash); return; }
       if (games.some(g => g.id === hash)) {
         setMainCategory('games');
