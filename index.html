@@ -3364,8 +3364,14 @@
     }
 
     // ── 쇼핑 카테고리 6개: 카드 하나로 통일 ─────────────────────────────
+    // 검색 비교: 대소문자·띄어쓰기·문장부호를 무시한다 ('펫시뮬레이터' → '펫 시뮬레이터 99', '붕괴 스타레일' → '붕괴: 스타레일')
+    function searchKey(t) { return String(t || '').toLowerCase().replace(/[\s\p{P}]/gu, ''); }
+    function searchHit(text) {
+      const q = searchKey(searchQuery);
+      return q ? searchKey(text).includes(q) : String(text || '').toLowerCase().includes(searchQuery);
+    }
     function matchesShopSearch(m) {
-      return !searchQuery || m.name.toLowerCase().includes(searchQuery) || (m.benefit || '').toLowerCase().includes(searchQuery);
+      return !searchQuery || searchHit(m.name) || searchHit(m.benefit);
     }
     function renderShops(cat) {
       const grid = document.getElementById(`${cat}GridContainer`);
@@ -3407,8 +3413,8 @@
 
     // ── 게임 목록 ────────────────────────────────────────────────────────
     function matchesGameSearch(g) {
-      return !searchQuery || g.title.toLowerCase().includes(searchQuery) || g.category.toLowerCase().includes(searchQuery)
-        || (g.coupons || []).some(c => c.code.toLowerCase().includes(searchQuery));
+      return !searchQuery || searchHit(g.title) || searchHit(g.category)
+        || (g.coupons || []).some(c => searchHit(c.code));
     }
     function renderGames() {
       const grid = document.getElementById('gameGridContainer');
@@ -3526,7 +3532,7 @@
       box.hidden = false;
       if (!total) {
         box.innerHTML = `<p class="ecm-ss-title">‘${q}’ 검색 결과가 없어요</p>`
-          + `<p class="ecm-ss-help">게임 이름을 조금 짧게 쓰거나(예: ‘블록스’) 띄어쓰기를 바꿔 보세요. 쇼핑몰 이름도 찾을 수 있어요.</p>`
+          + `<p class="ecm-ss-help">게임 이름을 조금 짧게 쓰거나(예: ‘블록스’) 다른 이름으로 찾아 보세요. 쇼핑몰 이름도 찾을 수 있어요.</p>`
           + `<p class="ecm-ss-actions"><a href="/game/" class="ecm-ss-btn">전체 게임 보기</a><button type="button" class="ecm-ss-btn" onclick="clearSearch()">검색어 지우기</button></p>`;
         return;
       }

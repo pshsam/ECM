@@ -95,8 +95,10 @@
       paint();
     });
     box.querySelector('#onbQ').addEventListener('input', function (e) {
-      var q = e.target.value.trim().toLowerCase();
-      Array.prototype.forEach.call(box.querySelectorAll('#onbGrid button'), function (b) { b.hidden = q && b.getAttribute('data-name').toLowerCase().indexOf(q) < 0; });
+      // 홈 검색과 같은 규칙: 대소문자·띄어쓰기·문장부호 무시
+      var key = function (t) { return String(t || '').toLowerCase().replace(/[\s\p{P}]/gu, ''); };
+      var q = key(e.target.value);
+      Array.prototype.forEach.call(box.querySelectorAll('#onbGrid button'), function (b) { b.hidden = q && key(b.getAttribute('data-name')).indexOf(q) < 0; });
     });
     function close() { ls(DONE, '1'); box.remove(); document.documentElement.style.overflow = ''; }
     box.querySelector('#onbSkip').addEventListener('click', function () { close(); track('app_onboarding', { result: 'skip' }); });

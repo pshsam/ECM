@@ -18,10 +18,9 @@ test('모든 게임은 자기 이름으로 찾아진다', () => {
   }
 });
 
-test('이름 앞 두 글자로도 찾아진다', () => {
-  // 지금 검색은 띄어쓰기를 그대로 비교한다 ('펫시'로는 '펫 시뮬레이터'가 안 나옴). 그래서 이름 앞부분 그대로 자른다.
+test('이름 일부를 띄어쓰기 없이 써도 찾아진다', () => {
   for (const g of games) {
-    const part = [...g.title].slice(0, 2).join('').trim();
+    const part = [...g.title.replace(/[\s\p{P}]/gu, '')].slice(0, 3).join('');
     search(part);
     assert.ok(matchesGameSearch(g), `${g.id}: '${part}'로 검색해도 안 나옴`);
   }
@@ -36,6 +35,38 @@ test('쿠폰 코드로 찾아지고, 대소문자를 가리지 않는다', () =>
       assert.ok(matchesGameSearch(g), `${g.id}: 코드 ${c.code} 대문자 검색 실패`);
     }
   }
+});
+
+test('띄어쓰기·문장부호를 무시한다', () => {
+  const pick = id => games.find(g => g.id === id);
+  const cases = [
+    ['펫시뮬레이터', 'roblox-pet-simulator-99'],
+    ['붕괴 스타레일', 'starrail'],
+    ['붕괴스타레일', 'starrail'],
+    ['로스트 아크', 'lostark'],
+    ['젠레스존제로', 'zzz'],
+  ];
+  for (const [q, id] of cases) {
+    const g = pick(id);
+    if (!g) continue; // 카탈로그에서 빠진 게임은 건너뜀
+    search(q);
+    assert.ok(matchesGameSearch(g), `'${q}'로 ${id} 가 안 나옴`);
+  }
+});
+
+test('하이픈 넣은 코드도, 뺀 코드도 찾아진다', () => {
+  const g = games.find(x => (x.coupons || []).some(c => c.code.includes('-')));
+  if (!g) return;
+  const code = g.coupons.find(c => c.code.includes('-')).code;
+  search(code.replace(/-/g, ''));
+  assert.ok(matchesGameSearch(g));
+  search(code.toLowerCase());
+  assert.ok(matchesGameSearch(g));
+});
+
+test('문장부호만 쓴 검색어는 전부를 띄우지 않는다', () => {
+  search('!!!');
+  assert.ok(games.filter(matchesGameSearch).length < games.length);
 });
 
 test('쇼핑몰은 이름으로 찾아진다', () => {
