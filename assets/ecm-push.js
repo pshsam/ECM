@@ -15,12 +15,15 @@
   function favs() { try { return JSON.parse(ls(FAV) || '[]'); } catch (e) { return []; } }
   var env = window.ECM_ENV || { ios: false, standalone: false, inApp: '', iosVer: 0, addToHomeHow: function () { return ''; } };
   var isIOS = env.ios, standalone = env.standalone;
-  var supported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+  // ECM 쿠폰 안드로이드 앱 안: 웹 푸시 대신 앱 알림(EcmPush 플러그인, ECM 앱 저장소)을 쓴다. 같은 subscribers 목록에 ua: native-android 로 저장
+  var nativeApp = !!(env.app && window.Capacitor && typeof window.Capacitor.nativePromise === 'function');
+  function native(method) { return window.Capacitor.nativePromise('EcmPush', method, {}); }
+  var supported = nativeApp || ('serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window);
   var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-push-toggle]'));
   if (!READY || !buttons.length) return;
 
   function paint() {
-    var on = ls(ON) === '1' && Notification.permission === 'granted';
+    var on = ls(ON) === '1' && (nativeApp || Notification.permission === 'granted');
     buttons.forEach(function (b) {
       b.hidden = false;
       b.classList.toggle('is-on', on);
@@ -49,11 +52,31 @@
     var body = { fields: {
       games: { arrayValue: { values: favs().slice(0, 100).map(function (g) { return { stringValue: g }; }) } },
       updated: { timestampValue: new Date().toISOString() },
-      ua: { stringValue: (isIOS ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop') + (standalone ? '-app' : '-web') }
+      // 앱은 ua 를 native-android 로 적는다 (발송 스크립트가 이 값으로 앱 기기를 가려 데이터 메시지를 보낸다. 파이어스토어 규칙상 필드는 games·updated·ua 만)
+      ua: { stringValue: nativeApp ? 'native-android' : (isIOS ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop') + (standalone ? '-app' : '-web') }
     } };
     return fetch(docUrl(token), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) { if (!r.ok) throw new Error('save ' + r.status); });
   }
+  function turnOnNative(btn) {
+    var gid = btn.getAttribute('data-game');
+    if (gid) { var a = favs(); if (a.indexOf(gid) < 0) { a.push(gid); ls(FAV, JSON.stringify(a)); document.dispatchEvent(new CustomEvent('ecm:fav-change')); } }
+    btn.disabled = true;
+    return native('register').then(function (r) {
+      ls(TOKEN, r.token); ls(ON, '1');
+      return saveDoc(r.token);
+    }).then(function () {
+      say(favs().length ? '켰어요. 내 게임(' + favs().length + '개)에 새 쿠폰이 올라오면 알려 드려요. 알림에서 바로 코드를 복사할 수 있어요.' : '켰어요. 내 게임에 담은 게임의 새 쿠폰을 알려 드려요.');
+      paint();
+      if (typeof window.gtag === 'function') window.gtag('event', 'push_on', { games: favs().length, app: 1 });
+    }).catch(function (e) {
+      var denied = e && /DENIED|권한/.test((e.code || '') + (e.message || ''));
+      say(denied ? '알림 권한이 꺼져 있어요. 휴대폰 설정에서 ECM 쿠폰 알림을 허용해 주세요.' : '알림을 켜지 못했어요. 잠시 뒤 다시 시도해 주세요.');
+      if (denied) native('openSettings').catch(function () {});
+      ls(ON, null); paint();
+    }).then(function () { btn.disabled = false; });
+  }
   function turnOn(btn) {
+    if (nativeApp) return turnOnNative(btn);
     if (env.inApp) { say(env.addToHomeHow()); return; }
     if (isIOS && env.iosVer < 1604) { say('아이폰은 iOS 16.4 이상에서 웹 알림을 받을 수 있어요. 텔레그램이나 카카오톡 채널로 새 쿠폰 소식을 받아 보세요.'); return; }
     if (isIOS && !standalone) { say('아이폰은 사파리·크롬 모두 브라우저 탭에서는 알림을 켤 수 없어요. ' + env.addToHomeHow() + ' 그 앱에서 이 버튼을 누르면 알림이 켜져요.'); return; }
@@ -82,12 +105,26 @@
     ls(ON, null); ls(TOKEN, null); paint();
     say('알림을 껐어요.');
     if (token) fetch(docUrl(token), { method: 'DELETE' }).catch(function () {});
+    if (nativeApp) return;
     sdk().then(function () { return firebase.messaging().deleteToken(); }).catch(function () {});
   }
   buttons.forEach(function (b) {
-    b.addEventListener('click', function () { if (ls(ON) === '1' && Notification.permission === 'granted') turnOff(); else turnOn(b); });
+    b.addEventListener('click', function () { if (ls(ON) === '1' && (nativeApp || Notification.permission === 'granted')) turnOff(); else turnOn(b); });
   });
   // 내 게임을 바꾸면 알림 받을 게임 목록도 바꾼다
   document.addEventListener('ecm:fav-change', function () { var t = ls(TOKEN); if (ls(ON) === '1' && t) saveDoc(t).catch(function () {}); });
+  // 앱: 알림 권한을 껐거나 토큰이 바뀌었으면 구독 목록을 맞춘다
+  if (nativeApp && ls(ON) === '1') {
+    native('status').then(function (r) {
+      if (r.permission !== 'granted') { ls(ON, null); paint(); return; }
+      var old = ls(TOKEN);
+      if (r.token && r.token !== old) {
+        if (old) fetch(docUrl(old), { method: 'DELETE' }).catch(function () {});
+        ls(TOKEN, r.token);
+        saveDoc(r.token).catch(function () {});
+      }
+    }).catch(function () {});
+  }
+  window.ECM_PUSH_TURN_ON = function () { return ls(ON) === '1' ? Promise.resolve() : turnOn(buttons[0]); };
   paint();
 })();

@@ -339,7 +339,8 @@ window.ECM_ENV = (function () {
   var inApp = /KAKAOTALK/i.test(ua) ? '카카오톡' : /NAVER\(inapp|NAVER/.test(ua) && !/Whale/.test(ua) ? '네이버 앱' : /Instagram/.test(ua) ? '인스타그램'
     : /FBAN|FBAV/.test(ua) ? '페이스북' : /Line\//.test(ua) ? '라인' : /DaumApps|daumapps/.test(ua) ? '다음 앱' : '';
   var browser = /CriOS/.test(ua) ? 'chrome' : /FxiOS/.test(ua) ? 'firefox' : /EdgiOS/.test(ua) ? 'edge' : 'safari';
-  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  var app = /ECMApp/.test(ua); // ECM 쿠폰 안드로이드 앱 (앱이 사용자 에이전트 끝에 붙인다)
+  var standalone = app || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
   function addToHomeHow() {
     if (inApp) return inApp + ' 안의 브라우저에서는 설치와 알림을 쓸 수 없어요. 오른쪽 위(또는 아래) 메뉴에서 "다른 브라우저로 열기"를 누른 뒤 다시 시도해 주세요.';
     if (!ios) return '';
@@ -347,8 +348,13 @@ window.ECM_ENV = (function () {
     if (browser === 'safari') return (ipad ? '사파리 위쪽' : '사파리 아래쪽') + '의 공유 버튼(네모에 위쪽 화살표) → "홈 화면에 추가"를 누르고, 홈 화면에 생긴 ECM 앱으로 열어 주세요.';
     return '사파리나 크롬으로 열어 공유 버튼 → "홈 화면에 추가"를 누르고, 홈 화면에 생긴 ECM 앱으로 열어 주세요.';
   }
-  return { ios: ios, ipad: ipad, iosVer: iosVer, inApp: inApp, browser: browser, standalone: standalone, addToHomeHow: addToHomeHow };
+  return { ios: ios, ipad: ipad, iosVer: iosVer, inApp: inApp, browser: browser, standalone: standalone, app: app, addToHomeHow: addToHomeHow };
 })();
+
+// ── ECM 쿠폰 안드로이드 앱 안에서만: 쇼핑 숨기기·처음 실행 게임 고르기 (assets/ecm-app.js) ──
+if (window.ECM_ENV.app) {
+  (function () { var s = document.createElement('script'); s.src = '/assets/ecm-app.js'; document.head.appendChild(s); })();
+}
 
 // ── 홈 화면에 설치하는 웹앱 (서비스 워커 /sw.js). 페이지는 늘 새로 받고, 끊겼을 때만 오프라인 안내 ──
 if ('serviceWorker' in navigator && location.protocol === 'https:' || location.hostname === 'localhost') {
