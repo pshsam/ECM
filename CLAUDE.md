@@ -5,7 +5,7 @@
 비밀값은 GitHub Actions Secrets 에만 둔다(`TELEGRAM_BOT_TOKEN`, `FIREBASE_SERVICE_ACCOUNT`).
 `assets/push-config.js` 의 파이어베이스 값은 공개용이라 괜찮다. 보안은 파이어스토어 규칙이 맡는다.
 
-자세한 빌드 설명은 [README.md](README.md).
+자세한 빌드 설명은 [README.md](README.md), 사람용 폴더 설명은 [폴더_안내.md](폴더_안내.md).
 
 ## 작업 전후 순서
 
