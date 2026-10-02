@@ -120,6 +120,7 @@
 
 ## 가이드 글
 
+- [로스트아크 10월 3일 임시 점검 정리: 모르둠 하향과 클래스 밸런스](https://ecm-coupon.com/blog/lostark-mordum-nerf-maintenance.html): 업데이트 정리 · 2026-10-03
 - [오딘: 발할라 라이징 쿠폰 코드 총정리와 카카오게임즈 등록 방법](https://ecm-coupon.com/blog/odin-coupon-codes.html): 코드 총정리 · 2026-10-02
 - [PS5 디스크 에디션 vs 디지털 에디션, 뭐가 다를까](https://ecm-coupon.com/blog/ps5-disc-vs-digital-edition.html): 기기 비교 · 2026-10-02
 - [쿠키런: 킹덤·크럼블 쿠폰 코드, DevPlay 등록 방법과 받는 법](https://ecm-coupon.com/blog/cookierun-devplay-coupon-guide.html): 코드 총정리 · 2026-10-01
