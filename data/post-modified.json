@@ -68,7 +68,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "b041346caec89e7f",
+    "hash": "c48c40da496d15dc",
     "modified": "2026-10-03"
   },
   "game-coupon-expiry-reminder-template": {
@@ -98,6 +98,10 @@
   "kakao-hive-nshop-coupon-guide": {
     "hash": "af3814f40a844831",
     "modified": "2026-09-29"
+  },
+  "kingshot-coupon-codes": {
+    "hash": "b542ec29c84a4f6c",
+    "modified": "2026-10-03"
   },
   "kurly-vs-coupang-rocket-fresh": {
     "hash": "255d830d5bddb8e7",
