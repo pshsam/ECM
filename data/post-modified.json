@@ -72,7 +72,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "371a6e135fd3cb8a",
+    "hash": "dbe0a174970f7823",
     "modified": "2026-10-05"
   },
   "game-coupon-expiry-reminder-template": {
@@ -138,6 +138,10 @@
   "maplestory-idle-coupon-codes": {
     "hash": "022263cb89540d32",
     "modified": "2026-09-28"
+  },
+  "mobile-game-subscription-cancel-guide": {
+    "hash": "b97c2dcefca9d5ad",
+    "modified": "2026-10-05"
   },
   "musinsa-coupon-guide": {
     "hash": "98c7cfd3dfb3da5c",
