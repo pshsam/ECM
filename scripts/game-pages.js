@@ -359,7 +359,8 @@ function pageHtml(g, ctx) {
   <meta property="og:description" content="${esc(desc)}">
   <meta property="og:image" content="${SITE}${(ctx.ogImages || {})[g.id] || '/og-image.png'}">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="${(ctx.ogImages || {})[g.id] ? 'summary_large_image' : 'summary'}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${SITE}${(ctx.ogImages || {})[g.id] || '/og-image.png'}">
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
   <script src="/assets/ecm.js" defer></script>

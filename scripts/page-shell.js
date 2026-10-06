@@ -124,7 +124,8 @@ function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'web
   <meta property="og:description" content="${esc(desc)}">
   <meta property="og:image" content="${SITE}${ogImage || '/og-image.png'}">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${SITE}${ogImage || '/og-image.png'}">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(desc)}">
   <link rel="stylesheet" href="/assets/styles.css">
