@@ -39,9 +39,9 @@
 
 ## 게임별 쿠폰 코드 페이지
 
-- [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 2개, 보상·만료일, 입력 방법
-- [붕괴: 스타레일 쿠폰 코드](https://ecm-coupon.com/game/starrail.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
-- [젠레스 존 제로 쿠폰 코드](https://ecm-coupon.com/game/zzz.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
+- [원신 쿠폰 코드](https://ecm-coupon.com/game/genshin.html): 지금 쓸 수 있는 코드 7개, 보상·만료일, 입력 방법
+- [붕괴: 스타레일 쿠폰 코드](https://ecm-coupon.com/game/starrail.html): 지금 쓸 수 있는 코드 7개, 보상·만료일, 입력 방법
+- [젠레스 존 제로 쿠폰 코드](https://ecm-coupon.com/game/zzz.html): 지금 쓸 수 있는 코드 4개, 보상·만료일, 입력 방법
 - [명조: 워더링 웨이브 쿠폰 코드](https://ecm-coupon.com/game/wuthering.html): 지금 쓸 수 있는 코드 1개, 보상·만료일, 입력 방법
 - [로스트아크 쿠폰 코드](https://ecm-coupon.com/game/lostark.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
 - [메이플스토리 쿠폰 코드](https://ecm-coupon.com/game/maplestory.html): 입력 방법, 코드가 나오는 곳, 지난 코드 이력
