@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://ecm-coupon.com/blog/index.html</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -782,7 +782,7 @@
   </url>
   <url>
     <loc>https://ecm-coupon.com/blog/game-coupon-complete-guide.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -790,6 +790,12 @@
     <loc>https://ecm-coupon.com/blog/game-coupon-expiry-reminder-template.html</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ecm-coupon.com/blog/game-preregister-reward-guide.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
