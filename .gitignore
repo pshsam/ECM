@@ -1,0 +1,27 @@
+# 이 저장소는 공개된다. 비밀값이 실수로 커밋되지 않게 막는다 (CLAUDE.md 참고).
+# 비밀값은 GitHub Actions Secrets 에만 둔다.
+
+# 환경변수 파일
+.env
+.env.*
+*.env
+!.env.example
+
+# 키·인증서
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# 파이어베이스 서비스 계정 등 인증 JSON
+*service-account*.json
+*serviceAccount*.json
+*-firebase-adminsdk-*.json
+credentials*.json
+
+# 로컬 도구 찌꺼기
+node_modules/
+__pycache__/
+*.pyc
