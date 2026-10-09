@@ -84,7 +84,7 @@
     "modified": "2026-09-23"
   },
   "game-coupon-complete-guide": {
-    "hash": "a6a6f992a3d87299",
+    "hash": "0035cb65b946c755",
     "modified": "2026-10-09"
   },
   "game-coupon-expiry-reminder-template": {
@@ -194,6 +194,10 @@
   "odin-coupon-codes": {
     "hash": "186c4dfa09cf273b",
     "modified": "2026-10-02"
+  },
+  "pokemon-go-coupon-redeem-guide": {
+    "hash": "64abe8aac96f6b6a",
+    "modified": "2026-10-09"
   },
   "ps5-disc-vs-digital-edition": {
     "hash": "e58834ab659d3c0c",
