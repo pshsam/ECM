@@ -1,0 +1,3566 @@
+{
+ "games": {
+  "roblox-blox-fruits": {
+   "name": "Blox Fruits",
+   "slug": "roblox-blox-fruits",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "EASTEREXP",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "LIGHTNINGABUSE",
+     "reward": "20 minutes of 2x EXP",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://www.destructoid.com/blox-fruits-codes/"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/roblox-blox-fruits-codes/"
+    },
+    {
+     "code": "Axiore",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Bignews",
+     "reward": "In-game title \"Big News\"",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Bluxxy",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Enyu_is_Pro",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Fudd10",
+     "reward": "$1 in-game currency",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Fudd10_v2",
+     "reward": "2 Beli",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-09-30",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "JCWK",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "KITT_RESET",
+     "reward": "Stat refund/reset",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Kittgaming",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-09-30",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "Magicbus",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "StrawHatMaine",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Sub2CaptainMaui",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Sub2Daigrock",
+     "reward": "2x EXP (duration disputed: 15 vs 20 min)",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Sub2NoobMaster123",
+     "reward": "2x EXP (duration disputed: 15 vs 20 min)",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Sub2OfficialNoobie",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Sub2UncleKizaru",
+     "reward": "Stat refund",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "TantaiGaming",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "TheGreatAce",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "kittgaming",
+     "reward": "2x EXP for 20 minutes",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "fudd10_v2",
+     "reward": "$2 in-game currency",
+     "sources": [
+      "https://beebom.com/roblox-blox-fruits-codes/",
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Starcodeheo",
+     "reward": "20 minutes of 2x EXP",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://beebom.com/roblox-blox-fruits-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "Sub2Fer999",
+     "reward": "20 minutes of 2x EXP",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://beebom.com/roblox-blox-fruits-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "expired",
+     "expired_on": "2026-10-08",
+     "expired_source": "https://www.pockettactics.com/roblox/blox-fruits-codes"
+    },
+    {
+     "code": "SUB2GAMERROBOT_EXP1",
+     "reward": "30 minutes of 2x EXP",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://beebom.com/roblox-blox-fruits-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "SUB2GAMERROBOT_RESET1",
+     "reward": "Stat reset",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://beebom.com/roblox-blox-fruits-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "expired",
+     "expired_on": "2026-10-08",
+     "expired_source": "https://www.pockettactics.com/roblox/blox-fruits-codes"
+    },
+    {
+     "code": "CHANDLER",
+     "reward": "Joke code, redeems for $0 Beli",
+     "sources": [
+      "https://www.pockettactics.com/blox-fruits/codes",
+      "https://beebom.com/roblox-blox-fruits-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 994732206,
+   "redeem": "Tap the gear (Settings) icon on the left side of the screen, open Redeem, enter the code and press Redeem.",
+   "us_coverage": [
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "LIGHTNINGABUSE, Sub2Fer999, SUB2GAMERROBOT_RESET1 moved to expired (one source called each expired).",
+   "last_checked": "2026-10-10",
+   "playing": 193618,
+   "visits": 64886386606,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 30.5,
+    "코드": 40.0,
+    "경쟁 여유": 20
+   },
+   "score": 90,
+   "evidence": "Roblox 동시 접속 193,618명 · 살아 있는 코드 19개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 1곳이 다룸",
+   "code_source": "https://www.roblox.com/games/2753915549",
+   "place_id": 2753915549,
+   "redeem_sources": [
+    "https://beebom.com/roblox-blox-fruits-codes/",
+    "https://www.pockettactics.com/roblox/blox-fruits-codes",
+    "https://www.destructoid.com/blox-fruits-codes/"
+   ]
+  },
+  "roblox-blade-ball": {
+   "name": "Blade Ball",
+   "slug": "roblox-blade-ball",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "RAMADAN",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "4BVISITS",
+     "reward": "Sword (private servers only, per Pocket Tactics)",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "2BTHANKS",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SPOOKYSEASON",
+     "reward": "1x Free Spin / sword",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "FROGS",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "ENERGYSWORDS",
+     "reward": "Miscellaneous free rewards",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SHARKATTACK",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SUMMERWHEEL",
+     "reward": "Multiple Free Spins",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SUMMERSTARTSHERE",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "RNGEMOTES",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "GIVEMELUCK",
+     "reward": "4x Luck boost in AFK world for 10 minutes",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "GOODVSEVIL",
+     "reward": "Free Wheel Spin",
+     "sources": [
+      "https://www.gamesradar.com/games/action/blade-ball-codes/",
+      "https://www.pockettactics.com/blade-ball/codes"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-09-30",
+     "status": "expired",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://www.pockettactics.com/blade-ball/codes"
+    },
+    {
+     "code": "DUNGEONSRELEASE",
+     "reward": "50 Dungeon Runes",
+     "sources": [
+      "https://www.gamesradar.com/games/action/blade-ball-codes/",
+      "https://www.pockettactics.com/blade-ball/codes"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-09-30",
+     "status": "expired",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://www.pockettactics.com/blade-ball/codes"
+    },
+    {
+     "code": "FREESPINS",
+     "reward": "1x Free Spin",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BATTLEROYALE",
+     "reward": "Storm Ticket",
+     "sources": [
+      "https://www.pockettactics.com/blade-ball/codes",
+      "https://beebom.com/roblox-blade-ball-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 4777817887,
+   "redeem": "In-game, win at least one match, then open the EXTRA menu, select CODES, and enter the code.",
+   "us_coverage": [
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "No new code confirmed. SERPENT disputed, moved to expired per 'expired wins' rule.",
+   "last_checked": "2026-10-10",
+   "playing": 15726,
+   "visits": 6477493943,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 16.0,
+    "코드": 40.0,
+    "경쟁 여유": 20
+   },
+   "score": 76,
+   "evidence": "Roblox 동시 접속 15,726명 · 살아 있는 코드 13개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 1곳이 다룸",
+   "code_source": "https://www.roblox.com/games/13772394625",
+   "place_id": 13772394625
+  },
+  "roblox-anime-vanguards": {
+   "name": "Anime Vanguards",
+   "slug": "roblox-anime-vanguards",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "Assault",
+     "reward": "100 Trait Rerolls",
+     "sources": [
+      "https://progameguides.com/roblox/anime-vanguards-codes/",
+      "https://www.g2a.com/news/features/games-codes/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SummerLeaving",
+     "reward": "100 Memoria Shards",
+     "sources": [
+      "https://progameguides.com/roblox/anime-vanguards-codes/",
+      "https://www.g2a.com/news/features/games-codes/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "AnniNextHopefully",
+     "reward": "100 Trait Rerolls, 100 Memoria Shards, and 5,000 Gems (Level 30)",
+     "sources": [
+      "https://progameguides.com/roblox/anime-vanguards-codes/",
+      "https://www.g2a.com/news/features/games-codes/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "MiniUpd2",
+     "reward": "200 Trait Rerolls and 50,000 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "expired",
+     "expired_on": "2026-10-08",
+     "expired_source": "https://progameguides.com/roblox/anime-vanguards-codes/"
+    },
+    {
+     "code": "Wrath",
+     "reward": "200 Memoria Shards and 50,000 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "expired",
+     "expired_on": "2026-10-08",
+     "expired_source": "https://progameguides.com/roblox/anime-vanguards-codes/"
+    },
+    {
+     "code": "Retribution",
+     "reward": "20,000 Gems, 50 Trait Rerolls, and 50 Memoria Shards",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "1DayDelay",
+     "reward": "200 Trait Rerolls (Requires Level 30)",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "25thHour",
+     "reward": "50 Trait Rerolls and 50 Memoria Shards (Requires Level 30)",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "LetTheLarpingBegin",
+     "reward": "50 Controller Tokens, 10,000 Gems, and 50,000 Gold",
+     "sources": [
+      "https://www.pockettactics.com/anime-vanguards/codes",
+      "https://beebom.com/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "EEPart1",
+     "reward": "50 Gambler Tokens, 50 Trait Rerolls, 10,000 Gems",
+     "sources": [
+      "https://progameguides.com/roblox/anime-vanguards-codes/",
+      "https://www.pocketgamer.com/roblox/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-09-27",
+     "last_verified": "2026-09-30",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/anime-vanguards-codes/"
+    },
+    {
+     "code": "Prepare",
+     "reward": "Red Key",
+     "sources": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pocketgamer.com/roblox/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "Miniupdate1",
+     "reward": "50 Trait Rerolls, 50 Memoria Shards",
+     "sources": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pocketgamer.com/roblox/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "2BVisits",
+     "reward": "200 Trait Rerolls, 200 Memoria Shards",
+     "sources": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pocketgamer.com/roblox/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "100thTournament",
+     "reward": "100 Trait Rerolls (Level 10)",
+     "sources": [
+      "https://progameguides.com/roblox/anime-vanguards-codes/",
+      "https://twinfinite.net/roblox/anime-vanguards-codes/"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 5578556129,
+   "redeem": "Reach level 10, open the Profile button, go to the Codes tab, and enter the code (case-sensitive).",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com",
+    "pcgamer.com"
+   ],
+   "in_kr": true,
+   "note": "2주년 이벤트 코드 일부는 보상 설명이 출처마다 달라 제외. Retribution/1DayDelay/25thHour/LetTheLarpingBegin/Prepare/Miniupdate1/2BVisits는 10월 출처로 재확인 안 돼 제외.",
+   "last_checked": "2026-10-10",
+   "playing": 0,
+   "visits": 2062763682,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 25.0,
+    "경쟁 여유": 12
+   },
+   "score": 37,
+   "evidence": "살아 있는 코드 4개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 3곳이 다룸",
+   "code_source": "https://www.roblox.com/games/16146832113",
+   "place_id": 16146832113,
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 로블록스 이름이 'Vanguards: 2nd Anniversary'로 바뀌고 10/10 동시 접속자 1명 — 첫 공개 목록에서 뺌"
+   }
+  },
+  "roblox-bee-swarm-simulator": {
+   "name": "Bee Swarm Simulator",
+   "slug": "roblox-bee-swarm-simulator",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "FOURtunate",
+     "reward": "1 Marshmallow Bee, 4 Strawberries, 4 Sunflower Seeds, 4 Blueberries, 4 Pineapples, 4 Micro-Converters, 4 Field Dice, 4 Gumdrops, 4 Jelly Beans, 4 Stingers",
+     "sources": [
+      "https://www.dexerto.com/roblox/roblox-bee-swarm-simulator-codes-1664631/",
+      "https://www.sportskeeda.com/roblox-news/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "15MMembers",
+     "reward": "Gumdrops, fruit, Bitterberries, a Marshmallow Bee, and a Red Balloon (requires joining the official Roblox group)",
+     "sources": [
+      "https://www.dexerto.com/roblox/roblox-bee-swarm-simulator-codes-1664631/",
+      "https://www.theclick.gg/bee-swarm-simulator-codes/"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "38217",
+     "reward": "5 Tickets",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BeesBuzz123",
+     "reward": "Gumdrops, Bitterberries, and a Cloud Vial",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "ClubBean",
+     "reward": "A Magic Bean and Pineapple Patch Boosts (requires joining the group/club)",
+     "sources": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes",
+      "https://www.theclick.gg/bee-swarm-simulator-codes/"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Bopmaster",
+     "reward": "5 tickets",
+     "sources": [
+      "https://www.pockettactics.com/bee-swarm-simulator/codes",
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-09-30",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "Connoisseur",
+     "reward": "5 Tickets",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Crawlers",
+     "reward": "5 Tickets",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Nectar",
+     "reward": "5,000 Honey",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Roof",
+     "reward": "5 Tickets",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://gameboost.com/blog/bee-swarm-simulator-codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "Wax",
+     "reward": "5 Tickets and 5,000 Honey",
+     "sources": [
+      "https://www.pockettactics.com/bee-swarm-simulator/codes",
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-08",
+     "status": "unconfirmed",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+    },
+    {
+     "code": "BopMaster",
+     "reward": "5 Tickets",
+     "sources": [
+      "https://www.theclick.gg/bee-swarm-simulator-codes/",
+      "https://www.dexerto.com/roblox/roblox-bee-swarm-simulator-codes-1664631/"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "ThreeBeeVee",
+     "reward": "48 hours of x2 Pollen and Convert Rate, 1 Loaded Dice, Mountain Top Field boost",
+     "sources": [
+      "https://beebom.com/roblox-bee-swarm-simulator-codes/",
+      "https://www.gamesradar.com/games/simulation/bee-swarm-simulator-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-04",
+     "status": "expired",
+     "expired_on": "2026-10-08",
+     "expired_source": "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 601130232,
+   "redeem": "Open the in-game Settings menu and enter the code into the Promo Codes box.",
+   "us_coverage": [],
+   "in_kr": true,
+   "note": "'Wax'는 출처 충돌(일부 목록 누락)로 제외.",
+   "last_checked": "2026-10-10",
+   "playing": 26690,
+   "visits": 4598624327,
+   "roblox_updated": "2026-08-22",
+   "score_parts": {
+    "수요": 19.0,
+    "코드": 25.0,
+    "경쟁 여유": 20
+   },
+   "score": 64,
+   "evidence": "Roblox 동시 접속 26,690명 · 살아 있는 코드 10개 · 미국 큰 코드 사이트 0곳이 다룸",
+   "code_source": "https://www.roblox.com/games/1537690962",
+   "place_id": 1537690962
+  },
+  "roblox-blue-lock-rivals": {
+   "name": "Blue Lock: Rivals",
+   "slug": "roblox-blue-lock-rivals",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "SNUFFYUPD",
+     "reward": "5 Lucky Style Spins and 5 Lucky Flow Spins",
+     "sources": [
+      "https://beebom.com/blue-lock-rivals-codes/",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-02",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/blue-lock-rivals-codes/"
+    },
+    {
+     "code": "WSNUFFY",
+     "reward": "10 Lucky Flow Spins",
+     "sources": [
+      "https://beebom.com/blue-lock-rivals-codes/",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-02",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/blue-lock-rivals-codes/"
+    },
+    {
+     "code": "UBERSVOTE",
+     "reward": "10 Lucky Style Spins",
+     "sources": [
+      "https://beebom.com/blue-lock-rivals-codes/",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-02",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/blue-lock-rivals-codes/"
+    },
+    {
+     "code": "NEWMASTER",
+     "reward": "10 Lucky Style Spins and 10 Lucky Flow Spins",
+     "sources": [
+      "https://beebom.com/blue-lock-rivals-codes/",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-02",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://beebom.com/blue-lock-rivals-codes/"
+    },
+    {
+     "code": "DONREVAMP",
+     "reward": "5 Lucky Style Spins and 5 Lucky Flow Spins",
+     "sources": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.dexerto.com/roblox/blue-lock-rivals-codes-3252484/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SENDOUNEXT",
+     "reward": "5 Lucky Flow Spins",
+     "sources": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.dexerto.com/roblox/blue-lock-rivals-codes-3252484/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "ACEEATER",
+     "reward": "5 Lucky Style Spins",
+     "sources": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.dexerto.com/roblox/blue-lock-rivals-codes-3252484/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 6325068386,
+   "redeem": "Reach Level 10 in-game (and, per beebom, join the official Blue Lock: Rivals Roblox group), then open the in-game Codes menu and enter the code.",
+   "us_coverage": [
+    "pockettactics.com",
+    "dexerto.com",
+    "pcgamer.com"
+   ],
+   "in_kr": true,
+   "note": "No change. DONREVAMP, SENDOUNEXT, ACEEATER reconfirmed active via beebom.com (Oct 3) and pockettactics.com (Oct 4). Previously-tracked expired codes unchanged.",
+   "last_checked": "2026-10-10",
+   "playing": 15252,
+   "visits": 4989036086,
+   "roblox_updated": "2026-10-03",
+   "score_parts": {
+    "수요": 15.8,
+    "코드": 22.5,
+    "경쟁 여유": 12
+   },
+   "score": 50,
+   "evidence": "Roblox 동시 접속 15,252명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 3곳이 다룸",
+   "code_source": "https://www.roblox.com/games/18668065416/Blue-Lock-Rivals"
+  },
+  "roblox-fisch": {
+   "name": "Fisch",
+   "slug": "roblox-fisch",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "LittleBudlingUpdate",
+     "reward": "1000 Coins, Walrus boat, 5x Icy Fisch'n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, Random Totem",
+     "sources": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes/"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-09-30",
+     "status": "expired",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://progameguides.com/roblox/fisch-codes/"
+    },
+    {
+     "code": "scarlet",
+     "reward": "Scarlet skin for Nate's Blade",
+     "sources": [
+      "https://www.pockettactics.com/fisch/codes",
+      "https://beebom.com/roblox-fisch-codes/"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "TemporarySubmarine",
+     "reward": "Back Fins, Submarine Top, Metal Panels, Side Fins, and Windows",
+     "sources": [
+      "https://www.pockettactics.com/fisch/codes",
+      "https://beebom.com/roblox-fisch-codes/"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "CARBON",
+     "reward": "Carbon Bobber",
+     "sources": [
+      "https://www.pockettactics.com/fisch/codes",
+      "https://beebom.com/roblox-fisch-codes/"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "VroomVroom",
+     "reward": "1000 Coins, Pancaked Flimsy rod skin, 10x Instant Catcher, 5x Luminous Larva, Random item",
+     "sources": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.gamesradar.com/games/simulation/fisch-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-04",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "Happy2ndYear",
+     "reward": "$2,026, Giant Fisch Cake, Birthday Title, 25 Cupcakes, and a random item",
+     "sources": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pcgamer.com/games/roblox/fisch-codes/"
+     ],
+     "first_seen": "2026-10-04",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 5750914919,
+   "redeem": "Open the in-game Menu button, go to the Codes section in the left sidebar, and enter the code.",
+   "code_source": "https://www.roblox.com/games/16732694052/Fisch",
+   "us_coverage": [
+    "pcgamer.com",
+    "gamesradar.com",
+    "progameguides.com",
+    "beebom.com",
+    "destructoid.com",
+    "dexerto.com",
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "No change. scarlet, TemporarySubmarine, CARBON, Happy2ndYear reconfirmed via beebom.com (Oct 3) and pockettactics.com (Oct 7). omoji/spookyomoji (beebom-only) and VroomVroom (absent from pockettactics' newer list) not added -- single-source.",
+   "last_checked": "2026-10-08",
+   "playing": 74293,
+   "visits": 4995738265,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 24.9,
+    "코드": 25.0,
+    "경쟁 여유": 0
+   },
+   "score": 50,
+   "evidence": "Roblox 동시 접속 74,293명 · 살아 있는 코드 4개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 7곳이 다룸"
+  },
+  "kingshot": {
+   "name": "Kingshot",
+   "slug": "kingshot",
+   "added": "2026-09-30",
+   "codes": [
+    {
+     "code": "MIDAUTUMN26",
+     "reward": "1x 1K Gems, 20x 5m General Speedup, 5x 10 Governor Stamina, 3x 10K Hero XP, 3x 100 VIP XP, 50x 1K Bread, 50x 1K Wood, 10x 1K Stone (expires September 30, 2026)",
+     "sources": [
+      "https://www.gamesradar.com/games/strategy/kingshot-codes-gift/",
+      "https://www.pocketgamer.com/kingshot/codes/"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-09-30",
+     "status": "expired",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://www.pocketgamer.com/kingshot/codes/"
+    },
+    {
+     "code": "Kingshot888",
+     "reward": "2x Gold Key, 2x Mythic Conquest Skill Book, 200x Diamonds, 2x Mythic Expedition Skill Manual",
+     "sources": [
+      "https://beebom.com/kingshot-codes/",
+      "https://www.pockettactics.com/kingshot/codes"
+     ],
+     "first_seen": "2026-09-28",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "VIP777",
+     "reward": "2x Gold Key, 2x Mythic Conquest Skill Book, 200x Diamonds, 2x Mythic Expedition Skill Manual",
+     "sources": [
+      "https://beebom.com/kingshot-codes/",
+      "https://www.pockettactics.com/kingshot/codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "mobile",
+   "app_name": "Kingshot",
+   "redeem": "Complete the tutorial, then tap your profile avatar (top-left) > Settings > Gift Code, enter the code, and tap Redeem. Alternatively redeem via the official Gift Code Center using your Player ID.",
+   "code_source": "https://ks-giftcode.centurygame.com/",
+   "us_coverage": [
+    "beebom.com",
+    "progameguides.com",
+    "destructoid.com",
+    "gamesradar.com",
+    "dexerto.com",
+    "pockettactics.com",
+    "gamerant.com"
+   ],
+   "in_kr": true,
+   "note": "No change. Kingshot888 and VIP777 reconfirmed active via beebom.com (Oct 1) and pockettactics.com (Sep 24). AKeYD8gK8/EXPLORETHEWORLD remain single-source, not added. MIDAUTUMN26 remains expired (unchanged).",
+   "last_checked": "2026-10-08",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 20.0,
+    "경쟁 여유": 0
+   },
+   "score": 20,
+   "evidence": "살아 있는 코드 2개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 7곳이 다룸"
+  },
+  "genshin-impact": {
+   "name": "Genshin Impact",
+   "slug": "genshin-impact",
+   "added": "2026-10-01",
+   "codes": [
+    {
+     "code": "OPERACOLLAB",
+     "reward": "30 Primogems, 2 Hero's Wit, 20,000 Mora",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "VesnaOnPatrol",
+     "reward": "40 Primogems, 3 Hero's Wit, 20,000 Mora",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "EPIC2026",
+     "reward": "40 Primogems, 5 Hero's Wit, 20,000 Mora",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "Y6JYMKV6JKSL",
+     "reward": "60 Primogems, 5 Adventurer's Experience",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "Y1INABQB6DEX",
+     "reward": "60 Primogems, 5 Adventurer's Experience",
+     "sources": [
+      "https://www.pcgamesn.com/genshin-impact/codes-redeem-promo",
+      "https://www.pockettactics.com/genshin-impact/codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "2BJ64QRZ7RT8",
+     "reward": "60 Primogems, 5 Adventurer's Experience",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "GENSHINGIFT",
+     "reward": "50 Primogems, 3 Hero's Wit (periodic, new-player code)",
+     "sources": [
+      "https://www.pockettactics.com/genshin-impact/codes",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "BALLETCOLLAB",
+     "reward": "30 Primogems, 10k Mora, 3 Hero's Wit, 3 Mystic Enhancement Ore",
+     "sources": [
+      "https://www.pcgamesn.com/genshin-impact/codes-redeem-promo",
+      "https://beebom.com/genshin-impact-codes-how-redeem/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-02",
+     "status": "expired",
+     "expired_on": "2026-10-03",
+     "expired_source": "https://www.pcgamesn.com/genshin-impact/codes-redeem-promo"
+    },
+    {
+     "code": "PLDXIB886Y1S",
+     "reward": "10,000 Mora, 10 Adventurer's Experience, 5 Fine Enhancement Ore, 5 Jueyun Chili Chicken, 5 Stir-Fried Fish Noodles",
+     "sources": [
+      "https://beebom.com/genshin-impact-codes-how-redeem/",
+      "https://www.dexerto.com/genshin-impact/genshin-impact-codes-redeem-primogems-mora-1428686/"
+     ],
+     "first_seen": "2026-10-04",
+     "last_verified": "2026-10-04",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "PNKZ3WLNN8G6",
+     "reward": "5 Teachings of Charity, 5 Teachings of Fortitude, 5 Teachings of Glory",
+     "sources": [
+      "https://beebom.com/genshin-impact-codes-how-redeem/",
+      "https://www.dexerto.com/genshin-impact/genshin-impact-codes-redeem-primogems-mora-1428686/"
+     ],
+     "first_seen": "2026-10-04",
+     "last_verified": "2026-10-04",
+     "status": "unconfirmed"
+    }
+   ],
+   "platform": "pc",
+   "app_name": "Genshin Impact",
+   "redeem": "Redeem in-game via Settings > Account > Redeem Code (requires Adventure Rank 10), or on the official HoYoverse gift site (login required).",
+   "code_source": "https://genshin.hoyoverse.com/en/gift",
+   "us_coverage": [
+    "pockettactics.com",
+    "beebom.com",
+    "progameguides.com",
+    "pcgamer.com",
+    "dexerto.com",
+    "gamesradar.com",
+    "gamerant.com",
+    "sportskeeda.com"
+   ],
+   "in_kr": true,
+   "note": "Y1INABQB6DEX upgraded from unconfirmed to active: pcgamesn.com (Oct 1) + pockettactics.com (Oct 2) now both list it. Other 6 previously-active codes reconfirmed via beebom.com (Oct 1) and pockettactics.com (Oct 2). BALLETCOLLAB remains expired (unchanged). PLDXIB886Y1S and PNKZ3WLNN8G6 remain unconfirmed (single-source).",
+   "last_checked": "2026-10-08",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 17.5,
+    "경쟁 여유": 0
+   },
+   "score": 18,
+   "evidence": "살아 있는 코드 7개 · 미국 큰 코드 사이트 8곳이 다룸"
+  },
+  "roblox-jujutsu-shenanigans": {
+   "name": "Jujutsu Shenanigans",
+   "slug": "roblox-jujutsu-shenanigans",
+   "added": "2026-10-01",
+   "codes": [
+    {
+     "code": "A7D2L26RNEPG74A3Q",
+     "reward": "Nep achievement and Woven Insight emote",
+     "sources": [
+      "https://www.pockettactics.com/jujutsu-shenanigans/codes",
+      "https://beebom.com/jujutsu-shenanigans-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 3508322461,
+   "redeem": "Open the Shop menu, select the Codes/Rewards tab, then enter and redeem the code.",
+   "us_coverage": [
+    "pcgamer.com",
+    "beebom.com",
+    "pockettactics.com",
+    "destructoid.com",
+    "gamesradar.com",
+    "dexerto.com",
+    "sportskeeda.com",
+    "progameguides.com",
+    "gamerant.com"
+   ],
+   "in_kr": true,
+   "note": "No change. A7D2L26RNEPG74A3Q reconfirmed active via beebom.com (Oct 4) and pockettactics.com (Oct 2). New code RIA2026 is beebom-only (not on pockettactics' Oct 2 page), not added.",
+   "last_checked": "2026-10-08",
+   "playing": 144632,
+   "visits": 7552163124,
+   "roblox_updated": "2026-10-08",
+   "score_parts": {
+    "수요": 28.8,
+    "코드": 2.5,
+    "경쟁 여유": 0
+   },
+   "score": 31,
+   "evidence": "Roblox 동시 접속 144,632명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 9곳이 다룸",
+   "code_source": "https://www.roblox.com/games/9391468976",
+   "place_id": 9391468976,
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
+   }
+  },
+  "roblox-slayers-2": {
+   "name": "Slayers 2",
+   "slug": "roblox-slayers-2",
+   "added": "2026-10-01",
+   "codes": [
+    {
+     "code": "ANIM4L",
+     "reward": "50 Spins and 5 Ores",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "SPINS50",
+     "reward": "50 Spins",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "ARTRESET",
+     "reward": "Evil art reset",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "BREATHRESET",
+     "reward": "Breathing style reset",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "SKILLTREERESET",
+     "reward": "Skill tree/skill point reset",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "Release26",
+     "reward": "100 Wen, 30 Spins, and 1 Refinement Ore",
+     "sources": [
+      "https://www.pcgamesn.com/roblox/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-03",
+     "status": "expired",
+     "expired_on": "2026-10-04",
+     "expired_source": "https://www.pockettactics.com/slayers-2-codes"
+    },
+    {
+     "code": "M1LL1ON",
+     "reward": "50 Spins, 10000 Wen, and 2x Luck",
+     "sources": [
+      "https://www.pockettactics.com/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "RoguelikeRaceReset",
+     "reward": "Reset Race",
+     "sources": [
+      "https://www.pockettactics.com/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "Roguelike",
+     "reward": "35 Spins",
+     "sources": [
+      "https://www.pockettactics.com/slayers-2-codes",
+      "https://beebom.com/slayers-2-codes/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 5595353122,
+   "redeem": "Open the main menu, type the code into the 'Enter a code' box, and click Redeem. (Must join the official Ouw Productions Roblox group first.)",
+   "us_coverage": [
+    "pockettactics.com",
+    "dexerto.com",
+    "beebom.com"
+   ],
+   "in_kr": false,
+   "note": "All 3 previously active codes reconfirmed (pockettactics.com Oct 4, beebom.com Oct 5). Fixed dead code_source URL to place_id form.",
+   "last_checked": "2026-10-09",
+   "playing": 66623,
+   "visits": 119112332,
+   "roblox_updated": "2026-10-10",
+   "score_parts": {
+    "수요": 24.3,
+    "코드": 22.5,
+    "경쟁 여유": 12
+   },
+   "score": 59,
+   "evidence": "Roblox 동시 접속 66,623명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 3곳이 다룸",
+   "code_source": "https://www.roblox.com/games/16205713724"
+  },
+  "roblox-sols-rng": {
+   "name": "Sol's RNG",
+   "slug": "roblox-sols-rng",
+   "added": "2026-10-02",
+   "codes": [
+    {
+     "code": "UPD20260919",
+     "reward": "20 Potion Chests and 5 Rare Potion Chests",
+     "sources": [
+      "https://www.dexerto.com/roblox/sols-rng-codes-3297873/",
+      "https://www.game.guide/roblox-codes/sols-rng"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SRY4DEALY",
+     "reward": "20 Potion Chests and 5 Rare Potion Chests",
+     "sources": [
+      "https://www.game.guide/roblox-codes/sols-rng",
+      "https://rocodes.gg/codes/sols-rng"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "UPD20260905",
+     "reward": "20 Potion Chests and 5 Rare Potion Chests",
+     "sources": [
+      "https://www.game.guide/roblox-codes/sols-rng",
+      "https://rocodes.gg/codes/sols-rng"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "UPD20261003",
+     "reward": "20 Potion Chest and 5 Rare Potion Chest",
+     "sources": [
+      "https://www.destructoid.com/sols-rng-codes/",
+      "https://www.game.guide/roblox-codes/sols-rng"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 5361032378,
+   "redeem": "Open the menu button, click Settings, click Miscellaneous, then type or paste the code and hit enter.",
+   "code_source": "https://www.roblox.com/games/15532962292",
+   "us_coverage": [
+    "pockettactics.com",
+    "gamesradar.com",
+    "dexerto.com",
+    "destructoid.com"
+   ],
+   "in_kr": true,
+   "note": "20260815UPD, SUMMER2026, BLAZINGSUN, 20260711UPD도 일부 사이트가 active라 했으나 최근 14일 내 2곳 이상 일치 확인이 안 돼 제외함.",
+   "last_checked": "2026-10-10",
+   "playing": 32864,
+   "visits": 2220731946,
+   "roblox_updated": "2026-10-03",
+   "score_parts": {
+    "수요": 20.2,
+    "코드": 25.0,
+    "경쟁 여유": 5
+   },
+   "score": 50,
+   "evidence": "Roblox 동시 접속 32,864명 · 살아 있는 코드 4개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 4곳이 다룸",
+   "place_id": 15532962292
+  },
+  "roblox-tower-defense-simulator": {
+   "name": "Tower Defense Simulator",
+   "slug": "roblox-tower-defense-simulator",
+   "added": "2026-10-02",
+   "codes": [
+    {
+     "code": "2MILLION",
+     "reward": "Mercenary skin for the Pursuit tower (requires owning the Pursuit tower)",
+     "sources": [
+      "https://www.dexerto.com/roblox/tower-defense-simulator-tds-codes-3349205/",
+      "https://www.destructoid.com/tower-defense-simulator-codes/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "1MILCOMMUNITY",
+     "reward": "Community skin for the Shotgunner tower (requires owning the Shotgunner tower)",
+     "sources": [
+      "https://www.dexerto.com/roblox/tower-defense-simulator-tds-codes-3349205/",
+      "https://www.destructoid.com/tower-defense-simulator-codes/"
+     ],
+     "first_seen": "2026-10-04",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 1176784616,
+   "redeem": "In the lobby, click the Codes icon/button, enter the code in the text box, and click Redeem.",
+   "code_source": "https://www.roblox.com/games/3260590327/Tower-Defense-Simulator",
+   "us_coverage": [
+    "pockettactics.com",
+    "dexerto.com",
+    "progameguides.com",
+    "destructoid.com",
+    "beebom.com"
+   ],
+   "in_kr": true,
+   "note": "1MILCOMMUNITY 2곳 출처(14일 이내)로 재확인되어 활성 전환. 2MILLION도 재확인(변경 없음).",
+   "last_checked": "2026-10-10",
+   "playing": 23441,
+   "visits": 5008352058,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 18.3,
+    "코드": 20.0,
+    "경쟁 여유": 5
+   },
+   "score": 43,
+   "evidence": "Roblox 동시 접속 23,441명 · 살아 있는 코드 2개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 5곳이 다룸"
+  },
+  "roblox-99-nights-in-the-forest": {
+   "name": "99 Nights in the Forest",
+   "slug": "roblox-99-nights-in-the-forest",
+   "added": "2026-10-03",
+   "codes": [
+    {
+     "code": "AWARDWINNER_YAY",
+     "reward": "15 Diamonds and 3 Flames (newest code, released to celebrate the game's award win)",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://www.destructoid.com/99-nights-in-the-forest-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-03",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "FORESTWAKESUP26",
+     "reward": "15 Diamonds and 3 Flames",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://www.pcgamesn.com/99-nights-in-the-forest/codes"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-07",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "AFTERPARTY",
+     "reward": "15 Diamonds",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://www.pcgamesn.com/99-nights-in-the-forest/codes"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-07",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "yay fishing",
+     "reward": "2 Gems (type in chat while fishing with a rod, after Campfire level 2; not entered via the code box)",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://beebom.com/99-nights-in-the-forest-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "awardwinner_yay",
+     "reward": "15 Diamonds and three flames",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://beebom.com/99-nights-in-the-forest-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "forestwakesup26",
+     "reward": "15 Diamonds and three flames",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://beebom.com/99-nights-in-the-forest-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "afterparty",
+     "reward": "15 Diamonds",
+     "sources": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes",
+      "https://beebom.com/99-nights-in-the-forest-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 7326934954,
+   "redeem": "Click the Diamond icon near the green plus button (bottom-left), click the blue CODES button, paste the code, and hit Submit.",
+   "code_source": "https://www.roblox.com/games/79546208627805",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "AWARDWINNER_YAY now confirmed active (lowercase form on both fresh sources), resolving last check's unconfirmed status.",
+   "last_checked": "2026-10-09",
+   "playing": 241982,
+   "visits": 29958893485,
+   "roblox_updated": "2026-10-07",
+   "score_parts": {
+    "수요": 31.8,
+    "코드": 25.0,
+    "경쟁 여유": 12
+   },
+   "score": 69,
+   "evidence": "Roblox 동시 접속 241,982명 · 살아 있는 코드 4개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 2곳이 다룸"
+  },
+  "roblox-fish-it": {
+   "name": "Fish It!",
+   "slug": "roblox-fish-it",
+   "added": "2026-10-03",
+   "codes": [
+    {
+     "code": "MERDEKA",
+     "reward": "Free rewards (exact item not specified by source)",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "POTIONSSS",
+     "reward": "Two Mutation II potions",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "MUTATION2",
+     "reward": "Two Mutation II potions",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "YEEHAW",
+     "reward": "Cowboy hat halo",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "1M_GOAL",
+     "reward": "Potions (amount unspecified)",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "500K_GOAL_FXCB",
+     "reward": "Potions (amount unspecified)",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "EASTER2026",
+     "reward": "Two Luck II potions and one Carrot I potion",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "DIVING",
+     "reward": "Two Luck II potions",
+     "sources": [
+      "https://www.pockettactics.com/fish-it-codes",
+      "https://www.pcgamer.com/games/roblox/fish-it-codes/"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 6701277882,
+   "redeem": "Reach level 10, click the shopping basket/Shop icon, enter the code in the text box, and click REDEEM.",
+   "code_source": "https://www.roblox.com/games/121864768012064",
+   "us_coverage": [
+    "pockettactics.com",
+    "pcgamer.com",
+    "dexerto.com",
+    "beebom.com",
+    "gamesradar.com",
+    "destructoid.com"
+   ],
+   "in_kr": true,
+   "note": "8개 코드 전부 재확인(변경 없음). 만료 코드 5개 확인(NEWYEARLANTERN 등).",
+   "last_checked": "2026-10-10",
+   "playing": 74169,
+   "visits": 4774335316,
+   "roblox_updated": "2026-10-08",
+   "score_parts": {
+    "수요": 24.9,
+    "코드": 20.0,
+    "경쟁 여유": 0
+   },
+   "score": 45,
+   "evidence": "Roblox 동시 접속 74,169명 · 살아 있는 코드 8개 · 미국 큰 코드 사이트 6곳이 다룸"
+  },
+  "roblox-dandys-world": {
+   "name": "Dandy's World",
+   "slug": "roblox-dandys-world",
+   "added": "2026-10-04",
+   "codes": [
+    {
+     "code": "ICHOR",
+     "reward": "50 Ichor",
+     "sources": [
+      "https://www.pcgamesn.com/dandys-world/codes",
+      "https://www.pockettactics.com/dandys-world/codes"
+     ],
+     "first_seen": "2026-10-03",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 5569032992,
+   "redeem": "Open the Settings cog icon in-game and use the Redeem Code option.",
+   "code_source": "https://www.roblox.com/games/16116270224/Dandys-World",
+   "us_coverage": [
+    "dexerto.com"
+   ],
+   "in_kr": true,
+   "note": "ICHOR re-confirmed active (pcgamesn.com, pockettactics.com, both Oct 8). RESEARCHMOBILE not re-added: conflicting/stale sources, no clean 2-domain fresh confirmation.",
+   "last_checked": "2026-10-09",
+   "playing": 192925,
+   "visits": 7595910175,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 30.5,
+    "코드": 2.5,
+    "경쟁 여유": 20
+   },
+   "score": 53,
+   "evidence": "Roblox 동시 접속 192,925명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 1곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
+   }
+  },
+  "roblox-the-strongest-battlegrounds": {
+   "name": "The Strongest Battlegrounds",
+   "slug": "roblox-the-strongest-battlegrounds",
+   "added": "2026-10-04",
+   "codes": [
+    {
+     "code": "81305726611791",
+     "reward": "Jackpot Kill Sound Effect",
+     "sources": [
+      "https://www.dexerto.com/roblox/the-strongest-battlegrounds-codes-3366131/",
+      "https://www.gfinityesports.com/article/the-strongest-battlegrounds-codes-all-working-kill-sound-ids"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "103976786559083",
+     "reward": "Grab SFX Kill Sound Effect",
+     "sources": [
+      "https://www.dexerto.com/roblox/the-strongest-battlegrounds-codes-3366131/",
+      "https://www.gfinityesports.com/article/the-strongest-battlegrounds-codes-all-working-kill-sound-ids"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "1837879082",
+     "reward": "Paradise Falls Kill Sound Effect",
+     "sources": [
+      "https://www.dexerto.com/roblox/the-strongest-battlegrounds-codes-3366131/",
+      "https://www.gfinityesports.com/article/the-strongest-battlegrounds-codes-all-working-kill-sound-ids"
+     ],
+     "first_seen": "2026-09-21",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "70982573243341",
+     "reward": "Fortnite death Kill Sound Effect",
+     "sources": [
+      "https://www.dexerto.com/roblox/the-strongest-battlegrounds-codes-3366131/",
+      "https://www.gfinityesports.com/article/the-strongest-battlegrounds-codes-all-working-kill-sound-ids"
+     ],
+     "first_seen": "2026-09-21",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "937885646",
+     "reward": "Ultra Kill Sound Effect",
+     "sources": [
+      "https://www.dexerto.com/roblox/the-strongest-battlegrounds-codes-3366131/",
+      "https://www.gfinityesports.com/article/the-strongest-battlegrounds-codes-all-working-kill-sound-ids"
+     ],
+     "first_seen": "2026-09-26",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 3808081382,
+   "redeem": "Buy the Kill Sound pack, then open the gear icon > Customize Kill Sound and paste the numeric Sound ID code into the Enter Sound ID field.",
+   "code_source": "https://www.roblox.com/games/10449761463/The-Strongest-Battlegrounds",
+   "us_coverage": [
+    "beebom.com",
+    "gamesradar.com",
+    "dexerto.com",
+    "gamerant.com",
+    "sportskeeda.com"
+   ],
+   "in_kr": true,
+   "note": "기존 Sound ID 코드 5개 모두 최근 14일 2곳 교차확인 기준 미충족으로 제외. 공식 코드 발표 채널 없음, 서드파티 집계 신뢰도 낮음.",
+   "last_checked": "2026-10-10",
+   "playing": 60921,
+   "visits": 19384384543,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 23.8,
+    "코드": 0.0,
+    "경쟁 여유": 5
+   },
+   "score": 29,
+   "evidence": "Roblox 동시 접속 60,921명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
+   }
+  },
+  "borderlands-shift": {
+   "name": "Borderlands",
+   "slug": "borderlands-shift",
+   "added": "2026-10-04",
+   "codes": [
+    {
+     "code": "39FJ3-CTJTK-CXTBC-JTJ3T-W95RK",
+     "reward": "3 Golden Keys (Borderlands 4) — expires October 6, 2026",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "expired",
+     "expired_on": "2026-10-06",
+     "expired_source": "https://beebom.com/borderlands-4-shift-codes/"
+    },
+    {
+     "code": "THX3B-H9FCW-CRBT5-BBJ3T-SXT65",
+     "reward": "1 Golden Key + Ellie DLC Credits (Borderlands 4)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "3ZRT3-K59KK-W6BJ5-B3TJ3-9WT99",
+     "reward": "C4SH Cosmetic \"Like Vermillion Bucks\" (expires December 31, 2030)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://gamedevtools.net/shift-codes-borderlands-4/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "J963B-S66WK-56J3K-JJT3T-BF9T5",
+     "reward": "\"Luck of the Kairish\" Vault Hunter skin (Borderlands 4) — expires December 31, 2030",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "3SX3J-3XZ55-CR33C-JBBJT-XH395",
+     "reward": "Mint Chipset Skin for Loveless the Hacker (expires December 31, 2030)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-09-29",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "BH633-66F5C-WFBB5-33TJB-CBSR9",
+     "reward": "\"You're So Vein\" Vault Hunter skin, usable by all Vault Hunters (Borderlands 4) — expires December 31, 2030",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "J9RTT-KWCK3-CFBB5-BTBT3-FKRB6",
+     "reward": "1 Golden Key (Borderlands 4)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "THFB3-R9XKK-CFBJW-T33BB-9R3CC",
+     "reward": "Halloween cosmetics — The Crate Pumpkin bundle (Borderlands 4) — expires December 31, 2030",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.gamesradar.com/games/borderlands/borderlands-4-shift-codes-golden-keys/"
+     ],
+     "first_seen": "2026-10-02",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "CSKJJ-63XZ6-BSKHK-SBBJJ-RRB9F",
+     "reward": "2 Golden Keys (one source reports 5 Golden Keys instead - quantity unconfirmed)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://mentalmars.com/game-news/borderlands-4-shift-codes/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "WZ53T-6SC9F-B95ZW-H3T33-W3JS6",
+     "reward": "2 Golden Keys",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://mentalmars.com/game-news/borderlands-4-shift-codes/"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "T9RJB-BFKRR-3RBTW-B33TB-KCZB9",
+     "reward": "1 Golden Key (permanent code, no expiry)",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://gamedevtools.net/shift-codes-borderlands-4/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "BZR3T-TXHZB-KXTJ5-3JTJ3-CZ5WH",
+     "reward": "1 Golden Key",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://mentalmars.com/game-news/borderlands-4-shift-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "THFB3-SW99B-W6JB5-JTTJ3-SKK9W",
+     "reward": "1 Golden Key",
+     "sources": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://mentalmars.com/game-news/borderlands-4-shift-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "pc",
+   "app_name": "Borderlands",
+   "redeem": "Enter SHiFT codes in-game via Pause Menu > SHiFT > Rewards, or log into a SHiFT account on the official SHiFT/Borderlands site and paste the code into the Rewards tab.",
+   "code_source": "https://shift.gearboxsoftware.com/rewards",
+   "us_coverage": [],
+   "in_kr": true,
+   "note": "First confirmed-active codes for this game: 7 codes each backed by 2 independent recent domains (beebom.com cross-checked against mentalmars.com/gamesradar.com/gamedevtools.net). Official shift.gearboxsoftware.com returned 403, could not verify directly.",
+   "last_checked": "2026-10-09",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 32.5,
+    "경쟁 여유": 20
+   },
+   "score": 52,
+   "evidence": "살아 있는 코드 7개 (14일 안 새 코드 5개) · 미국 큰 코드 사이트 0곳이 다룸"
+  },
+  "roblox-anime-dice": {
+   "name": "Anime Dice",
+   "slug": "roblox-anime-dice",
+   "added": "2026-10-05",
+   "codes": [
+    {
+     "code": "UPDATE6",
+     "reward": "5 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "400KLIKES",
+     "reward": "5 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE5",
+     "reward": "5 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "250KLIKES",
+     "reward": "5 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "100KLIKES",
+     "reward": "3 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "40KCCU",
+     "reward": "2 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "30KCCU",
+     "reward": "2 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE4",
+     "reward": "10 Trait Rerolls, 10 Tickets, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "20KCCU",
+     "reward": "2 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "10KCCU",
+     "reward": "2 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "5KCCU",
+     "reward": "3 Lucky Spins, 3 Trait Rerolls, 3 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "1KCCU",
+     "reward": "3 Lucky Spins, 3 Trait Rerolls, 3 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE3",
+     "reward": "3 Lucky Spins, 3 Trait Rerolls, 3 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE2",
+     "reward": "3 Lucky Spins, 3 Trait Rerolls, 3 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE1",
+     "reward": "2 Lucky Spins, 3 Trait Rerolls, 3 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "RELEASE",
+     "reward": "1 Lucky Spin, 2 Trait Rerolls, 2 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://www.pockettactics.com/anime-dice-codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "UPDATE7",
+     "reward": "5 Lucky Spins, 10 Trait Rerolls, 10 Gems",
+     "sources": [
+      "https://beebom.com/anime-dice-codes/",
+      "https://allthings.how/?p=234152"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 10708913337,
+   "redeem": "Open the Shop menu in-game, scroll to the Codes section, type or paste the code, and click Redeem.",
+   "code_source": "https://www.roblox.com/games/113290951185459",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com",
+    "beebom.com"
+   ],
+   "in_kr": false,
+   "note": "New milestone code UPDATE7 confirmed active (beebom.com + allthings.how, both referencing official Discord post). Fixed dead code_source URL to place_id form.",
+   "last_checked": "2026-10-09",
+   "playing": 56768,
+   "visits": 83809961,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 23.4,
+    "코드": 40.0,
+    "경쟁 여유": 12
+   },
+   "score": 75,
+   "evidence": "Roblox 동시 접속 56,768명 · 살아 있는 코드 17개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 3곳이 다룸"
+  },
+  "honkai-star-rail": {
+   "name": "Honkai: Star Rail",
+   "slug": "honkai-star-rail",
+   "added": "2026-10-05",
+   "codes": [
+    {
+     "code": "OMEGA",
+     "reward": "60 Stellar Jade and 1 Fuel (one source gives 50 Stellar Jade instead)",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "CREATIONNYMPH",
+     "reward": "60 Stellar Jade and 1 Fuel",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "FAREWELL",
+     "reward": "60 Stellar Jade and 1 Fuel",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "IFYOUAREREADINGTHIS",
+     "reward": "60 Stellar Jade and 1 Fuel",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "STARRAILGIFT",
+     "reward": "50 Stellar Jade, 10k Credits, 2 Traveler's Guides, 5 Bottled Soda (permanent code)",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "WA4AV2F24PYX",
+     "reward": "50 Stellar Jade and 10,000 Credits",
+     "sources": [
+      "https://beebom.com/honkai-star-rail-redeem-codes/",
+      "https://www.pcgamesn.com/honkai-star-rail/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "WAVEFLAIRSTYLE",
+     "reward": "3 Traveler's Guide and 2 Speeding Jet Surfboard",
+     "sources": [
+      "https://beebom.com/honkai-star-rail-redeem-codes/",
+      "https://www.pcgamesn.com/honkai-star-rail/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-05",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "RT4BPNA8FBS3",
+     "reward": "50 Stellar Jade and 10k Credits",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "PEARLAPPRAISE",
+     "reward": "3 Traveler's Guides and 2 Cold Jokes",
+     "sources": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.giga.de/games/honkai-star-rail-alle-aktuellen-redeem-codes-oktober-2026--01J5QTSB66RKVJSY1MPZQP1QCJ"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "pc",
+   "app_name": "Honkai: Star Rail",
+   "redeem": "Open the in-game Phone/ESC menu, click the three dots next to your profile, choose Redemption Code, enter the code, and collect the reward from your in-game mailbox (or redeem on the official HoYoverse website).",
+   "code_source": "https://hsr.hoyoverse.com/gift",
+   "us_coverage": [],
+   "in_kr": true,
+   "note": "All 7 candidate codes now confirmed active via 2 fresh domains (pockettactics.com + giga.de), resolving last check's 0-confirmed state. WA4AV2F24PYX/WAVEFLAIRSTYLE could not be confirmed either active or expired -> dropped from tracking.",
+   "last_checked": "2026-10-09",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 32.5,
+    "경쟁 여유": 20
+   },
+   "score": 52,
+   "evidence": "살아 있는 코드 7개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 0곳이 다룸"
+  },
+  "wuthering-waves": {
+   "name": "Wuthering Waves",
+   "slug": "wuthering-waves",
+   "added": "2026-10-05",
+   "codes": [
+    {
+     "code": "WUTHERINGGIFT",
+     "reward": "50 Astrite, 2x Premium Resonance Potion, 2x Medium Revival Inhaler, 2x Medium Energy Bag, plus Shell Credits (sources disagree on exact amount)",
+     "sources": [
+      "https://www.game.guide/wuthering-waves-codes",
+      "https://www.giga.de/games/wuthering-waves-codes-einloesen-oktober-2026--01J5QXVC7ZE2P9TB9DBEMR24YF"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "pc",
+   "app_name": "Wuthering Waves",
+   "redeem": "In-game, go to Settings > Other Settings > Redemption Code, enter the code, hit Confirm, and collect the reward from in-game mail.",
+   "code_source": "https://wutheringwaves.kurogames.com/en/main/news",
+   "us_coverage": [],
+   "in_kr": true,
+   "note": "None of the 10 target US domains appeared on page 1 of a plain 'Wuthering Waves codes' search.",
+   "last_checked": "2026-10-10",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 2.5,
+    "경쟁 여유": 20
+   },
+   "score": 22,
+   "evidence": "살아 있는 코드 1개 · 미국 큰 코드 사이트 0곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
+   }
+  },
+  "zenless-zone-zero": {
+   "name": "Zenless Zone Zero",
+   "slug": "zenless-zone-zero",
+   "added": "2026-10-05",
+   "codes": [
+    {
+     "code": "ZZZVOID32",
+     "reward": "20 Polychrome and 2,222 Denny",
+     "sources": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes",
+      "https://www.pcgamesn.com/zenless-zone-zero/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "ZZZINK32",
+     "reward": "20 Polychrome and 2,222 Denny",
+     "sources": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes",
+      "https://www.pcgamesn.com/zenless-zone-zero/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "ZZZGRIND32",
+     "reward": "20 Polychrome and 2,222 Denny",
+     "sources": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes",
+      "https://www.pcgamesn.com/zenless-zone-zero/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "ZENLESSGIFT",
+     "reward": "50 Polychrome, 2 Official Investigator Logs, 3 W-Engine Power Supplies, 1 Bangboo Algorithm Module",
+     "sources": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes",
+      "https://www.pcgamesn.com/zenless-zone-zero/codes"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "pc",
+   "app_name": "Zenless Zone Zero",
+   "redeem": "Enter the code in-game via Menu > Others > Redemption Code, or on the official HoYoverse web page by signing in and submitting the code.",
+   "code_source": "https://zenless.hoyoverse.com/redemption",
+   "us_coverage": [],
+   "in_kr": true,
+   "note": "No change. All 4 tracked codes reconfirmed active via pockettactics.com and pcgamesn.com (both Oct 1, 2026).",
+   "last_checked": "2026-10-08",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 10.0,
+    "경쟁 여유": 20
+   },
+   "score": 30,
+   "evidence": "살아 있는 코드 4개 · 미국 큰 코드 사이트 0곳이 다룸"
+  },
+  "roblox-steal-a-brainrot": {
+   "name": "Steal a Brainrot",
+   "slug": "roblox-steal-a-brainrot",
+   "added": "2026-10-06",
+   "codes": [
+    {
+     "code": "BESTBRAINROTEVER",
+     "reward": "La Vacca Saturno Saturnita",
+     "sources": [
+      "https://www.pockettactics.com/steal-a-brainrot-codes",
+      "https://esportnow.gg/games/news/roblox-steal-a-brainrot-codes-all-working-codes-and-how-to-redeem"
+     ],
+     "first_seen": "2026-10-05",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 7709344486,
+   "redeem": "Open the game, click the Codes button, type the code into the pop-up box, and press Enter/Submit.",
+   "code_source": "https://www.roblox.com/games/109983668079237",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "BESTBRAINROTEVER reconfirmed (pockettactics.com Oct 5, esportnow.gg Oct 4). Fixed dead code_source URL (universe_id form 404s; place_id form resolves).",
+   "last_checked": "2026-10-09",
+   "playing": 83019,
+   "visits": 73881118507,
+   "roblox_updated": "2026-10-10",
+   "score_parts": {
+    "수요": 25.6,
+    "코드": 2.5,
+    "경쟁 여유": 12
+   },
+   "score": 40,
+   "evidence": "Roblox 동시 접속 83,019명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
+   }
+  },
+  "whiteout-survival": {
+   "name": "Whiteout Survival",
+   "slug": "whiteout-survival",
+   "added": "2026-10-06",
+   "codes": [
+    {
+     "code": "1stYoutubeKR",
+     "reward": "500 Gems, 50,000 Hero XP, 1x Construction Speedup (1h), 1x Troop Training Speedup (1h), 50,000 Meat, 50,000 Wood, 10,000 Coal, 5,000 Iron",
+     "sources": [
+      "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
+      "https://www.topuplive.com/news/newest-whiteout-survival-gift-codes.html"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-06",
+     "expired_source": "https://www.pockettactics.com/whiteout-survival/codes"
+    },
+    {
+     "code": "2ndYoutubeKR",
+     "reward": "500 Gems, 100 Chief Stamina, 3x General Speedup (1h), 200 Enhancement XP Component, 50,000 Meat, 500,000 Wood, 10,000 Coal, 5,000 Iron",
+     "sources": [
+      "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
+      "https://www.topuplive.com/news/newest-whiteout-survival-gift-codes.html"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-06",
+     "expired_source": "https://www.pockettactics.com/whiteout-survival/codes"
+    },
+    {
+     "code": "GuDokYTKOR",
+     "reward": "500 Gems, 100 Chief Stamina, 3x General Speedup (1h), 200 Enhancement XP Component, 50,000 Meat, 50,000 Wood, 10,000 Coal, 5,000 Iron",
+     "sources": [
+      "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
+      "https://www.topuplive.com/news/newest-whiteout-survival-gift-codes.html"
+     ],
+     "first_seen": "2026-09-30",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-06",
+     "expired_source": "https://www.pockettactics.com/whiteout-survival/codes"
+    },
+    {
+     "code": "gogoWOS",
+     "reward": "500 Gems, 10,000 Hero XP, 2 Gold Keys, 20x General Speedup (5m)",
+     "sources": [
+      "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
+      "https://beebom.com/whiteout-survival-codes/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-06",
+     "expired_source": "https://www.pockettactics.com/whiteout-survival/codes"
+    }
+   ],
+   "platform": "mobile",
+   "app_name": "Whiteout Survival",
+   "redeem": "Enter the code on the official Whiteout Survival gift-code redemption website using your in-game Player ID and Verification Code; the reward is delivered to in-game mail.",
+   "code_source": "https://wos-giftcode.centurygame.com/",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "All four previously tracked codes now explicitly expired per pockettactics.com (Oct 6). New code THXTeacher seen on one site only with vague reward text -> not added.",
+   "last_checked": "2026-10-09",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 0.0,
+    "경쟁 여유": 12
+   },
+   "score": 12,
+   "evidence": "살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
+   }
+  },
+  "pokemon-go": {
+   "name": "Pokemon GO",
+   "slug": "pokemon-go",
+   "added": "2026-10-06",
+   "codes": [
+    {
+     "code": "ADIDASxPOKEMON",
+     "reward": "a pair of Adidas shoes for your avatar",
+     "sources": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "LEGOxPOKEMONGOxCAP",
+     "reward": "unlocks a timed research challenge",
+     "sources": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-10-01",
+     "expired_source": "https://www.nintenderos.com/2026/10/pokemon-codigos-activos-y-a-punto-de-caducar-en-todos-sus-juegos-agosto-2026/"
+    },
+    {
+     "code": "LEGOxPOKEMONGOxBERRIES",
+     "reward": "five Razz Berries, ten Poké Balls, five Pinap Berries, and five Nanab Berries",
+     "sources": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "unconfirmed"
+    },
+    {
+     "code": "MLBxPOKEMONGO2026",
+     "reward": "an MLB T-shirt for your avatar",
+     "sources": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2026-09-30",
+     "expired_source": "https://pokemongo.com/en/news/mlb-2026"
+    },
+    {
+     "code": "FENDIxFRGMTxPOKEMON",
+     "reward": "FENDIxFRGMTxPOKEMON Avatar Hoodie",
+     "sources": [
+      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/",
+      "https://www.dexerto.com/pokemon/pokemon-go-promo-codes-free-items-1350276/"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-06",
+     "status": "expired",
+     "expired_on": "2025-01-04",
+     "expired_source": "https://pokemongo.com/post/FENDIxFRGMTxPOKEMON"
+    }
+   ],
+   "platform": "mobile",
+   "app_name": "Pokémon GO",
+   "redeem": "Promo codes are not entered in-app; they are redeemed on the official Pokémon GO web store by signing in, entering the code under Offer Redemption, and submitting, after which the item appears on next login.",
+   "code_source": "https://store.pokemongo.com/offer-redemption",
+   "us_coverage": [
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "No code met the 2-fresh-domain bar today. Three previously active codes now expired (one via official Niantic post). ADIDASxPOKEMON/LEGOxPOKEMONGOxBERRIES not reconfirmed -> left for unconfirmed status.",
+   "last_checked": "2026-10-09",
+   "app_rank": {},
+   "score_parts": {
+    "수요": 0.0,
+    "코드": 0.0,
+    "경쟁 여유": 20
+   },
+   "score": 20,
+   "evidence": "살아 있는 코드 0개 · 미국 큰 코드 사이트 1곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
+   }
+  },
+  "roblox-rivals": {
+   "name": "RIVALS",
+   "slug": "roblox-rivals",
+   "added": "2026-10-07",
+   "codes": [
+    {
+     "code": "FREE200",
+     "reward": "3 Keys",
+     "sources": [
+      "https://www.pockettactics.com/rivals-codes",
+      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/"
+     ],
+     "first_seen": "2026-10-03",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "COMMUNITY26",
+     "reward": "1 Community Wrap for a random weapon",
+     "sources": [
+      "https://www.pockettactics.com/rivals-codes",
+      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/"
+     ],
+     "first_seen": "2026-10-03",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 6035872082,
+   "redeem": "Open the Rewards menu at the bottom of the screen, enter the code in the redeem-codes field, and click Verify (requires reaching Level 10 first).",
+   "code_source": "https://www.roblox.com/games/17625359962",
+   "us_coverage": [
+    "dexerto.com"
+   ],
+   "in_kr": false,
+   "note": "Both codes reconfirmed (pockettactics.com Oct 8, roonby.com Oct 6).",
+   "last_checked": "2026-10-09",
+   "playing": 173479,
+   "visits": 18620063449,
+   "roblox_updated": "2026-10-07",
+   "score_parts": {
+    "수요": 29.9,
+    "코드": 5.0,
+    "경쟁 여유": 20
+   },
+   "score": 55,
+   "evidence": "Roblox 동시 접속 173,479명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 1곳이 다룸"
+  },
+  "roblox-shindo-life": {
+   "name": "Shindo Life",
+   "slug": "roblox-shindo-life",
+   "added": "2026-10-08",
+   "codes": [
+    {
+     "code": "NewBugPatchandFixes250!",
+     "reward": "10K RELLcoins and 100 Spins",
+     "sources": [
+      "https://beebom.com/roblox-shindo-life-codes/",
+      "https://www.pockettactics.com/shindo-life/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "NewFREEFALLings2026!",
+     "reward": "10K RELLcoins and 100 Spins",
+     "sources": [
+      "https://beebom.com/roblox-shindo-life-codes/",
+      "https://www.pockettactics.com/shindo-life/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "20NewCloaksAdded!",
+     "reward": "10K RELLcoins and 100 Spins",
+     "sources": [
+      "https://beebom.com/roblox-shindo-life-codes/",
+      "https://www.pockettactics.com/shindo-life/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "FixUpdateIsOutEarly!",
+     "reward": "10K RELLcoins and 100 Spins",
+     "sources": [
+      "https://beebom.com/roblox-shindo-life-codes/",
+      "https://www.pockettactics.com/shindo-life/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 1511883870,
+   "redeem": "Open the in-game Edit menu, click the YOUTUBE CODE button on the right, and paste the code into the text box -- it auto-redeems as soon as you type the code's final exclamation mark.",
+   "code_source": "https://www.roblox.com/games/4616652839/Shindo-Life",
+   "us_coverage": [
+    "pockettactics.com",
+    "gamesradar.com",
+    "beebom.com",
+    "sportskeeda.com"
+   ],
+   "in_kr": true,
+   "note": "New game. Official current name is still 'Shindo Life' (formerly Shinobi Life 2). Place ID 4616652839, universe_id 1511883870 -- confirmed via Roblox's own search API after the research agent's first-pass place ID (5084678830) turned out to be wrong; corrected before merging. Codes confirmed by beebom.com (Oct 1) and pockettactics.com (Oct 7).",
+   "last_checked": "2026-10-08",
+   "playing": 3463,
+   "visits": 2731288585,
+   "roblox_updated": "2026-08-10",
+   "score_parts": {
+    "수요": 7.2,
+    "코드": 10.0,
+    "경쟁 여유": 5
+   },
+   "score": 22,
+   "evidence": "Roblox 동시 접속 3,463명 · 살아 있는 코드 4개 · 미국 큰 코드 사이트 4곳이 다룸"
+  },
+  "roblox-king-legacy": {
+   "name": "King Legacy",
+   "slug": "roblox-king-legacy",
+   "added": "2026-10-08",
+   "codes": [
+    {
+     "code": "<3LEEPUNGG",
+     "reward": "2x EXP for 30 minutes",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "DinoxLive",
+     "reward": "100k cash",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "Peodiz",
+     "reward": "100k cash",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "WELCOMETOKINGLEGACY",
+     "reward": "Free 2x EXP for 30 minutes",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "SKGames",
+     "reward": "Free 2x EXP for 30 minutes (requires joining the Sea King Games Roblox group)",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "DragonColorRefund",
+     "reward": "50 Gems (10 Gems if your Dragon color before Update 7 was the original red)",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "RainbowDragon",
+     "reward": "100 Gems (only works if you unlocked the Rainbow Dragon color before Update 7)",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "FREESTATSRESET",
+     "reward": "Free Refund Stats",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    },
+    {
+     "code": "2MFAV",
+     "reward": "Free Refund Stats",
+     "sources": [
+      "https://www.pockettactics.com/king-legacy/codes",
+      "https://www.pcgamesn.com/king-legacy/codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-08",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 1451439645,
+   "redeem": "Open the in-game menu button located under your HP bar, click the gear/cog (settings) icon, and type or paste the code into the code box that appears, then confirm.",
+   "code_source": "https://www.roblox.com/games/4520749081/King-Legacy",
+   "us_coverage": [
+    "pcgamer.com",
+    "pockettactics.com",
+    "sportskeeda.com",
+    "destructoid.com"
+   ],
+   "in_kr": true,
+   "note": "New game. Official current name is still 'King Legacy' (developer Sea King Games; 'King Piece' is an old/alternate name). Place ID 4520749081, universe_id 1451439645 -- confirmed via Roblox's own search API after the research agent's first-pass IDs (universe_id 39559307, place 1451439645 as a 'games' page) turned out to point to a dead/unlisted place; corrected before merging. Codes confirmed by pockettactics.com and pcgamesn.com (both Oct 2).",
+   "last_checked": "2026-10-08",
+   "score_parts": {
+    "수요": 11.3,
+    "코드": 22.5,
+    "경쟁 여유": 5
+   },
+   "score": 39,
+   "evidence": "Roblox 동시 접속 6,980명 · 살아 있는 코드 9개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "playing": 6980,
+   "visits": 4063999146,
+   "roblox_updated": "2026-07-25"
+  },
+  "roblox-anime-zero": {
+   "name": "Anime Zero",
+   "slug": "roblox-anime-zero",
+   "added": "2026-10-09",
+   "codes": [
+    {
+     "code": "UPDATESOONWEPROMISE",
+     "reward": "100 trait rerolls, 100k coins, and 11 lucky spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "NEWRAID",
+     "reward": "100 trait rerolls, 75k coins, and 10k gems (requires level 50 or more)",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "SORRYFORDELAY",
+     "reward": "50 trait rerolls, 25k coins, and 5k gems (requires level 25 or more)",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "TYASHIRA",
+     "reward": "500 Lucky Spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "TYFRIGID",
+     "reward": "222 Trait Rerolls",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "SERVERLIVE67",
+     "reward": "222 Lucky Spins and 67 Trait Rerolls",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "BENICE2ME",
+     "reward": "100k Gold and 222 Trait Rerolls",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "BACKUPSTRONGER",
+     "reward": "25k Gold, 25 Trait Rerolls, and 50 Lucky Spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "LAPASSION",
+     "reward": "10k Gold, 25 Trait Rerolls, and 60 Lucky Spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "1MVISITS",
+     "reward": "50k Gold, 200 Trait Rerolls, and 300 Lucky Spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "SIXSEVEN",
+     "reward": "67 Gold",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "LESSLAG",
+     "reward": "10 Trait Rerolls, 25 Lucky Spins, and 300 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "AZISOUT",
+     "reward": "1 Lucky Spins, 5 Rolls, and 1.5k Gold",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "LETSGO",
+     "reward": "20 Rolls, 5 Trait Rerolls, and 2k Gold",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "HOP3YOU3NJOY",
+     "reward": "250 Rolls",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "PATCH1",
+     "reward": "10 Rolls, 3 Lucky Spins, and 150 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "PATCH2",
+     "reward": "5k Gold, 3 Trait Rerolls, and 250 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "PATCHNOTE67",
+     "reward": "10k Gold, 50 Trait Rerolls, and 75 Lucky Spins",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "SORRYXD67",
+     "reward": "25 Lucky Spins and 300 Gems",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    },
+    {
+     "code": "RELEASE",
+     "reward": "1 Lucky Spins, 10 Rolls, and 2.5k Gold",
+     "sources": [
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://beebom.com/anime-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-09",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 10512942223,
+   "redeem": "In the main lobby, click the 'Codes' button on the right side of the screen, paste the code exactly, and press Redeem (some codes are level-gated).",
+   "code_source": "https://www.roblox.com/games/114574503491412",
+   "us_coverage": [
+    "pockettactics.com",
+    "beebom.com",
+    "progameguides.com"
+   ],
+   "in_kr": false,
+   "note": "New discovery: ranks in US Roblox Top Playing Now top-40 (36,781 CCU). 20 codes independently confirmed active by pockettactics.com (Oct 6) and beebom.com (Oct 7).",
+   "last_checked": "2026-10-09",
+   "playing": 42262,
+   "visits": 15280553,
+   "roblox_updated": "2026-10-10",
+   "score_parts": {
+    "수요": 21.7,
+    "코드": 25.0,
+    "경쟁 여유": 12
+   },
+   "score": 59,
+   "evidence": "Roblox 동시 접속 42,262명 · 살아 있는 코드 20개 · 미국 큰 코드 사이트 3곳이 다룸"
+  },
+  "roblox-grow-a-garden": {
+   "name": "Grow a Garden",
+   "slug": "roblox-grow-a-garden",
+   "added": "2026-10-10",
+   "codes": [
+    {
+     "code": "RDCAward",
+     "reward": "RDC Award cosmetic",
+     "sources": [
+      "https://beebom.com/roblox-grow-a-garden-codes/",
+      "https://www.pcgamesn.com/grow-a-garden/codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BEANORLEAVE10",
+     "reward": "Green Bean Chamber cosmetic",
+     "sources": [
+      "https://beebom.com/roblox-grow-a-garden-codes/",
+      "https://www.pcgamesn.com/grow-a-garden/codes"
+     ],
+     "first_seen": "2026-10-01",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 7436755782,
+   "redeem": "Open the Settings menu (gear icon, top-left), scroll to the code box, type the code, and click Claim.",
+   "code_source": "https://www.roblox.com/games/126884695634066",
+   "us_coverage": [
+    "dexerto.com",
+    "gamesradar.com",
+    "pockettactics.com",
+    "beebom.com",
+    "progameguides.com"
+   ],
+   "in_kr": true,
+   "note": "신규. 'Grow a Garden 2'(별도 게임)와 혼동 주의 — 다수 사이트가 두 게임 코드를 섞어 올림.",
+   "last_checked": "2026-10-10",
+   "playing": 20942,
+   "visits": 35963387114,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 17.6,
+    "코드": 5.0,
+    "경쟁 여유": 5
+   },
+   "score": 28,
+   "evidence": "Roblox 동시 접속 20,942명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 5곳이 다룸"
+  },
+  "roblox-basketball-zero": {
+   "name": "Basketball Zero",
+   "slug": "roblox-basketball-zero",
+   "added": "2026-10-10",
+   "codes": [
+    {
+     "code": "DELAY",
+     "reward": "5 Lucky Spins and 10K Cash",
+     "sources": [
+      "https://www.pocketgamer.com/roblox/basketball-zero-codes/",
+      "https://www.gamesradar.com/games/sports/basketball-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "PERFV2",
+     "reward": "15 Lucky Spins and 50K Cash",
+     "sources": [
+      "https://www.pocketgamer.com/roblox/basketball-zero-codes/",
+      "https://www.gamesradar.com/games/sports/basketball-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "15PERFV2",
+     "reward": "10 Lucky Spins and 100K Cash",
+     "sources": [
+      "https://www.pocketgamer.com/roblox/basketball-zero-codes/",
+      "https://www.g2a.com/news/features/games-codes/basketball-zero-codes/"
+     ],
+     "first_seen": "2026-10-09",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 7028566528,
+   "redeem": "Join the game's official Roblox group, then select the Codes button in the main menu and enter the code (case-sensitive).",
+   "code_source": "https://www.roblox.com/games/130739873848552",
+   "us_coverage": [
+    "dexerto.com",
+    "pockettactics.com"
+   ],
+   "in_kr": true,
+   "note": "신규. 코드 제도 확인됨(그룹 가입 필요).",
+   "last_checked": "2026-10-10",
+   "playing": 10661,
+   "visits": 1150183740,
+   "roblox_updated": "2026-10-10",
+   "score_parts": {
+    "수요": 13.7,
+    "코드": 7.5,
+    "경쟁 여유": 12
+   },
+   "score": 33,
+   "evidence": "Roblox 동시 접속 10,661명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 2곳이 다룸"
+  },
+  "roblox-da-hood": {
+   "name": "Da Hood",
+   "slug": "roblox-da-hood",
+   "added": "2026-10-10",
+   "codes": [
+    {
+     "code": "PVP",
+     "reward": "500k DHC",
+     "sources": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.sportskeeda.com/roblox-news/da-hood-codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BUFF",
+     "reward": "3.5M DHC",
+     "sources": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.sportskeeda.com/roblox-news/da-hood-codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "DOG",
+     "reward": "300k DHC",
+     "sources": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.sportskeeda.com/roblox-news/da-hood-codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "SHARK",
+     "reward": "300k DHC",
+     "sources": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.sportskeeda.com/roblox-news/da-hood-codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "WORLDCUP26",
+     "reward": "2M DHC",
+     "sources": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.sportskeeda.com/roblox-news/da-hood-codes"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "FOURTH26",
+     "reward": "2,444,444 DHC",
+     "sources": [
+      "https://fossbytes.com/da-hood-codes/",
+      "https://mmoculture.com/redeem-codes/roblox-da-hood-redeem-codes/"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BALLOON",
+     "reward": "300,000 DHC",
+     "sources": [
+      "https://fossbytes.com/da-hood-codes/",
+      "https://driffle.com/blog/all-da-hood-codes/"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    },
+    {
+     "code": "BOSS",
+     "reward": "300,000 DHC",
+     "sources": [
+      "https://fossbytes.com/da-hood-codes/",
+      "https://driffle.com/blog/all-da-hood-codes/"
+     ],
+     "first_seen": "2026-10-08",
+     "last_verified": "2026-10-10",
+     "status": "active"
+    }
+   ],
+   "platform": "roblox",
+   "universe_id": 1008451066,
+   "redeem": "Open the game, click the Codes (chest) icon at the bottom of the screen, enter the code, and press Redeem.",
+   "code_source": "https://www.roblox.com/games/2788229376",
+   "us_coverage": [
+    "dexerto.com"
+   ],
+   "in_kr": true,
+   "note": "신규. 한국판의 옛 코드 5개와 다른, 10/8 기준 현재 코드 세트.",
+   "last_checked": "2026-10-10",
+   "playing": 3088,
+   "visits": 2955201060,
+   "roblox_updated": "2026-10-09",
+   "score_parts": {
+    "수요": 6.5,
+    "코드": 20.0,
+    "경쟁 여유": 20
+   },
+   "score": 46,
+   "evidence": "Roblox 동시 접속 3,088명 · 살아 있는 코드 8개 · 미국 큰 코드 사이트 1곳이 다룸",
+   "launch_exclude": {
+    "decided": "2026-10-10",
+    "reason": "사용자 결정: 로블록스 공개 정보에서 제목이 'TITLE UNAVAILABLE'로 나옴(연령 제한 게임으로 보임) — 첫 공개 목록에서 뺌"
+   }
+  }
+ },
+ "updated": "2026-10-10 13:27"
+}

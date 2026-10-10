@@ -70,3 +70,12 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 홈 검색(`searchKey`/`searchHit`)과 앱 첫 화면 검색(`assets/ecm-app.js`)은 대소문자·띄어쓰기·문장부호를 무시한다.
   ('펫시뮬레이터' → '펫 시뮬레이터 99', '붕괴 스타레일' → '붕괴: 스타레일'). 두 곳 규칙을 같이 고친다.
 - 데이터의 `choseong` 필드는 아직 검색에 안 쓴다.
+
+## 영어판 /en/ (en-site 브랜치, 아직 공개 전)
+
+- 애드센스 승인 전까지 **main 에 합치지 않는다.** GitHub Pages 는 main 만 공개하므로 이 브랜치는 사이트에 안 보인다.
+- 데이터: `data/en-catalog.json` = ecm-blog-posting `automation/us/catalog.json` 스냅샷(미국 코드 발굴 루틴이 매일 갱신).
+- 생성: `node scripts/en-pages.js` → `en/index.html`, `en/game/<slug>.html`, `en/about.html`, `en/privacy.html`. `en/assets/en.css`·`en.js` 는 손으로 쓴다.
+- 첫 공개 대상 = `launch_exclude` 가 없고 살아 있는 코드가 1개 이상인 게임. "unconfirmed"·"case_replaced" 코드는 보이지 않는다.
+- 공개할 때 할 일: 카탈로그 최신본으로 다시 생성 → 한국판 게임 페이지에 hreflang(en) 추가 → sitemap 에 /en/ 추가 → 영어 OG 이미지 → main 에 합치기.
+
