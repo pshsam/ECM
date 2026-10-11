@@ -339,7 +339,7 @@ window.ECM_ENV = (function () {
   var inApp = /KAKAOTALK/i.test(ua) ? '카카오톡' : /NAVER\(inapp|NAVER/.test(ua) && !/Whale/.test(ua) ? '네이버 앱' : /Instagram/.test(ua) ? '인스타그램'
     : /FBAN|FBAV/.test(ua) ? '페이스북' : /Line\//.test(ua) ? '라인' : /DaumApps|daumapps/.test(ua) ? '다음 앱' : '';
   var browser = /CriOS/.test(ua) ? 'chrome' : /FxiOS/.test(ua) ? 'firefox' : /EdgiOS/.test(ua) ? 'edge' : 'safari';
-  var app = /ECMApp/.test(ua); // ECM 쿠폰 안드로이드 앱 (앱이 사용자 에이전트 끝에 붙인다)
+  var app = /ECMApp/.test(ua); // ECM 쿠폰 앱 — 안드로이드·아이폰 (앱이 사용자 에이전트 끝에 붙인다)
   var standalone = app || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
   function addToHomeHow() {
     if (inApp) return inApp + ' 안의 브라우저에서는 설치와 알림을 쓸 수 없어요. 오른쪽 위(또는 아래) 메뉴에서 "다른 브라우저로 열기"를 누른 뒤 다시 시도해 주세요.';
@@ -351,7 +351,7 @@ window.ECM_ENV = (function () {
   return { ios: ios, ipad: ipad, iosVer: iosVer, inApp: inApp, browser: browser, standalone: standalone, app: app, addToHomeHow: addToHomeHow };
 })();
 
-// ── ECM 쿠폰 안드로이드 앱 안에서만: 쇼핑 숨기기·처음 실행 게임 고르기 (assets/ecm-app.js) ──
+// ── ECM 쿠폰 앱 안에서만: 쇼핑 숨기기·처음 실행 게임 고르기·아이폰 위젯 (assets/ecm-app.js) ──
 if (window.ECM_ENV.app) {
   (function () { var s = document.createElement('script'); s.src = '/assets/ecm-app.js'; document.head.appendChild(s); })();
 }

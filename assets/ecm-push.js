@@ -15,8 +15,9 @@
   function favs() { try { return JSON.parse(ls(FAV) || '[]'); } catch (e) { return []; } }
   var env = window.ECM_ENV || { ios: false, standalone: false, inApp: '', iosVer: 0, addToHomeHow: function () { return ''; } };
   var isIOS = env.ios, standalone = env.standalone;
-  // ECM 쿠폰 안드로이드 앱 안: 웹 푸시 대신 앱 알림(EcmPush 플러그인, ECM 앱 저장소)을 쓴다. 같은 subscribers 목록에 ua: native-android 로 저장
+  // ECM 쿠폰 앱(안드로이드·아이폰) 안: 웹 푸시 대신 앱 알림(EcmPush 플러그인, ECM 앱 저장소)을 쓴다. 같은 subscribers 목록에 ua: native-android / native-ios 로 저장
   var nativeApp = !!(env.app && window.Capacitor && typeof window.Capacitor.nativePromise === 'function');
+  var nativeUa = nativeApp && typeof window.Capacitor.getPlatform === 'function' && window.Capacitor.getPlatform() === 'ios' ? 'native-ios' : 'native-android';
   function native(method) { return window.Capacitor.nativePromise('EcmPush', method, {}); }
   var supported = nativeApp || ('serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window);
   var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-push-toggle]'));
@@ -52,8 +53,8 @@
     var body = { fields: {
       games: { arrayValue: { values: favs().slice(0, 100).map(function (g) { return { stringValue: g }; }) } },
       updated: { timestampValue: new Date().toISOString() },
-      // 앱은 ua 를 native-android 로 적는다 (발송 스크립트가 이 값으로 앱 기기를 가려 데이터 메시지를 보낸다. 파이어스토어 규칙상 필드는 games·updated·ua 만)
-      ua: { stringValue: nativeApp ? 'native-android' : (isIOS ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop') + (standalone ? '-app' : '-web') }
+      // 앱은 ua 를 native-android / native-ios 로 적는다 (발송 스크립트가 이 값으로 앱 기기를 가려 앱용 알림을 보낸다. 파이어스토어 규칙상 필드는 games·updated·ua 만)
+      ua: { stringValue: nativeApp ? nativeUa : (isIOS ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop') + (standalone ? '-app' : '-web') }
     } };
     return fetch(docUrl(token), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) { if (!r.ok) throw new Error('save ' + r.status); });
   }

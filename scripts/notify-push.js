@@ -9,6 +9,8 @@
  * - 알림을 누르면 그 게임 페이지의 "그날 추가된 코드 묶음"(#added-날짜)으로 간다.
  * - 끊긴 기기(토큰 만료)는 구독 문서를 지운다.
  * - ECM 쿠폰 안드로이드 앱(구독 문서 ua: native-android)에는 웹 푸시 대신 "데이터 메시지"를 보낸다 (앱 저장소 EcmMessagingService.java).
+ * - 아이폰 앱(ua: native-ios)에는 FCM 의 apns 알림을 보낸다. 데이터만 보내면 아이폰은 알림을 화면에 띄우지 않는다.
+ *   link 는 알림 안 데이터로 넣고, 누르면 앱(EcmPushPlugin.swift)이 그 페이지를 연다.
  *   알림에는 코드를 넣지 않는다 — 눌러서 앱에 들어와 확인하게 한다.
  *
  * 환경변수: FIREBASE_SERVICE_ACCOUNT (비밀, 서비스 계정 JSON 전체). 없으면 조용히 건너뛴다.
@@ -81,21 +83,45 @@ async function subscribersOf(projectId, token, gameId) {
   return rows.filter(r => r.document).map(r => ({
     name: r.document.name,
     fcm: decodeURIComponent(r.document.name.split('/').pop()),
-    native: ((r.document.fields || {}).ua || {}).stringValue === 'native-android',
+    native: nativeOf(((r.document.fields || {}).ua || {}).stringValue),
   }));
 }
 
-/** 앱 기기용 데이터 메시지 (모든 값은 문자열이어야 한다) */
+/** 구독 문서 ua → 앱 종류 ('android' | 'ios'), 웹이면 '' */
+function nativeOf(ua) {
+  return ua === 'native-android' ? 'android' : ua === 'native-ios' ? 'ios' : '';
+}
+
+/** 안드로이드 앱용 데이터 메시지 (모든 값은 문자열이어야 한다) */
 function nativeMessage(fcm, msg) {
   const data = { title: msg.title, body: msg.appBody || msg.body, link: msg.link, tag: msg.tag };
   return { token: fcm, data, android: { priority: 'HIGH', ttl: '86400s' } };
 }
 
-async function sendOne(projectId, token, fcm, msg, native = false) {
-  const message = native ? nativeMessage(fcm, msg) : { token: fcm, webpush: {
+/** 아이폰 앱용 알림. 같은 tag(게임·날짜)는 알림 하나로 덮어쓴다(apns-collapse-id 는 64바이트까지) */
+function iosMessage(fcm, msg) {
+  return {
+    token: fcm,
+    notification: { title: msg.title, body: msg.appBody || msg.body },
+    data: { link: msg.link, tag: msg.tag },
+    apns: {
+      headers: { 'apns-priority': '10', 'apns-collapse-id': msg.tag.slice(0, 64), 'apns-expiration': String(Math.floor(Date.now() / 1000) + 86400) },
+      payload: { aps: { sound: 'default', 'thread-id': msg.tag.replace(/-\d{4}-\d{2}-\d{2}$/, '') } },
+    },
+  };
+}
+
+function messageFor(fcm, msg, native) {
+  if (native === 'android') return nativeMessage(fcm, msg);
+  if (native === 'ios') return iosMessage(fcm, msg);
+  return { token: fcm, webpush: {
     notification: { title: msg.title, body: msg.body, icon: `${SITE}/assets/icon-192.png`, badge: `${SITE}/assets/icon-192.png`, tag: msg.tag },
     fcm_options: { link: msg.link },
   } };
+}
+
+async function sendOne(projectId, token, fcm, msg, native = '') {
+  const message = messageFor(fcm, msg, native);
   const res = await fetch(`https://fcm.googleapis.com/v1/projects/${projectId}/messages:send`, {
     method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ message }),
@@ -190,4 +216,6 @@ async function main() {
   console.log(`${games_}개 게임 알림 ${dry ? '(미리보기)' : `보냄 · 전달 ${delivered}건 · 끊긴 기기 정리 ${removed}대`}`);
 }
 
-main().catch(err => { console.error(err.message); process.exit(1); });
+// 테스트(tests/)가 알림 모양을 확인할 수 있게 내보낸다. 직접 실행할 때만 보낸다.
+module.exports = { messageFor, nativeOf };
+if (require.main === module) main().catch(err => { console.error(err.message); process.exit(1); });

@@ -26,6 +26,7 @@ const { writeTodayPage } = require('./today-page');
 const { writeFreePages } = require('./free-pages');
 const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
+const { writeWidgetFeed } = require('./widget-feed');
 const { ensureAnalytics } = require('./analytics');
 const { ensurePwaHead } = require('./pwa');
 const { ensureOgImages, ensureWebp, ensureImageMarkup } = require('./media');
@@ -605,6 +606,8 @@ function main() {
   writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, headerHtml, footerHtml, version });
   // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
   writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.ids, headerHtml, footerHtml });
+  // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음)
+  const widgetGames = writeWidgetFeed(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, version });
 
   const urls = writeSitemap(rootDir, gp.ids, [
     { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
@@ -624,7 +627,7 @@ function main() {
   console.log(`카탈로그 버전: ${version}`);
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
-  console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개`);
+  console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개 · 앱 위젯 요약 게임 ${widgetGames}개`);
   console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 쇼핑몰 페이지: ${sp.ids.length}개 (새로 씀 ${sp.written}, 지움 ${sp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);

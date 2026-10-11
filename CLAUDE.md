@@ -28,10 +28,11 @@ scripts/prerender.js    빌드. index.html 스크립트를 가짜 DOM 에서 실
   hubs.js                 /game/            today-page.js  /today/
   shop-pages.js           /shop/            free-pages.js  /free/
   llms-txt.js · analytics.js · pwa.js · media.js(+python) · mono.js
-scripts/notify-*.js     새 쿠폰 텔레그램·푸시 알림 (.github/workflows 가 실행)
+  widget-feed.js          /app/widget.json  (아이폰 앱 위젯용 쿠폰 요약. 코드 문자열은 넣지 않는다)
+scripts/notify-*.js     새 쿠폰 텔레그램·푸시 알림 (.github/workflows 가 실행). 앱 기기는 ua native-android / native-ios
 data/                   빌드·알림이 쓰는 장부 (coupon-seen = 코드 첫 등록일, *-sent = 알림 보낸 기록)
 assets/ecm.js           모든 페이지 공통 스크립트 (메뉴, 내 게임, 서비스 워커 등록)
-assets/ecm-app.js       안드로이드 앱 안에서만 (쇼핑 숨김, 탭 바)
+assets/ecm-app.js       ECM 쿠폰 앱(안드로이드·아이폰) 안에서만 (쇼핑 숨김, 탭 바, 아이폰 위젯에 내 게임 넘기기)
 assets/ecm-push.js      웹 푸시 구독 → 파이어스토어 subscribers/{토큰} 에 {games, updated, ua} 만 저장
 blog/                   블로그 글 (정적 HTML, 글쓰기 루틴이 추가)
 radar/                  내부용 트렌드 레이더 (noindex)
@@ -51,6 +52,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 쿠폰 만료 판정 | `evaluateCoupon` | `game-pages.js` `evaluate` | tests/coupon.test.js |
 | 글자 타일 | `monoOf` | `mono.js` | tests/data.test.js |
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
+| 위젯 요약 형식·"새 코드" 3일 | (앱 저장소 `ios/App/Shared/CouponFeed.swift`) | `widget-feed.js`, `notify-*.js` | tests/widget.test.js |
 
 ## 쿠폰 데이터 규칙
 
