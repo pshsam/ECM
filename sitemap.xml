@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://ecm-coupon.com/blog/index.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -109,6 +109,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ecm-coupon.com/shop/lfmall.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ecm-coupon.com/shop/emart-mall.html</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -123,6 +129,12 @@
   <url>
     <loc>https://ecm-coupon.com/shop/kurly.html</loc>
     <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecm-coupon.com/shop/homeplus.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -177,6 +189,12 @@
   <url>
     <loc>https://ecm-coupon.com/shop/yeogi.html</loc>
     <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecm-coupon.com/shop/klook.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -344,7 +362,7 @@
   </url>
   <url>
     <loc>https://ecm-coupon.com/game/roblox-king-legacy.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -806,7 +824,7 @@
   </url>
   <url>
     <loc>https://ecm-coupon.com/blog/game-coupon-complete-guide.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
