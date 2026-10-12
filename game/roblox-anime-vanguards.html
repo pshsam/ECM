@@ -250,7 +250,23 @@
     details.ecm-criteria { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; }
     details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
     details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
-    .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
+    .c-exp small { color: var(--ink-2); font-size: .8rem; white-space: nowrap; }
+    .c-exp .c-seen { display: block; color: var(--ink-3); font-size: .78rem; margin-top: .15rem; }
+    .c-reward { color: var(--ink); font-weight: 600; }
+    .ecm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    /* 코드 표 위 입력 안내: 복사 → 바로 옆 버튼으로 입력 페이지 */
+    .ecm-redeem-bar { display: flex; align-items: center; gap: .6rem 1rem; border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem .75rem 1rem; margin: 0 0 .8rem; }
+    .ecm-redeem-bar p { margin: 0; flex: 1; font-size: .88rem !important; line-height: 1.6; }
+    .ecm-redeem-bar p b { display: block; color: var(--ink); font-size: .8rem; }
+    .ecm-redeem-bar .ecm-open { flex-shrink: 0; }
+    .ecm-page a.ecm-open.is-next { box-shadow: 0 0 0 3px var(--y); }
+    @media (max-width: 640px) { .ecm-redeem-bar { flex-direction: column; align-items: stretch; } .ecm-page .ecm-redeem-bar a.ecm-open { justify-content: center; } }
+    /* 사용함 표시: 이 기기에만 저장. 복사와 따로 누른다(복사만 하고 못 쓴 코드를 완료로 착각하지 않게) */
+    .ecm-used-btn { display: inline-flex; align-items: center; gap: .35rem; min-height: 40px; border: 1px solid var(--line); background: #fff; color: var(--ink-2); border-radius: .6rem; padding: .4rem .7rem; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .ecm-used-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+    .ecm-used-btn.is-on { background: var(--new-soft); border-color: transparent; color: #0A7A3C; }
+    table.ecm-codes tr.is-used td.c-code, table.ecm-codes tr.is-used td.c-reward, table.ecm-codes tr.is-used td.c-exp { opacity: .5; }
+    table.ecm-codes tr.is-used .ecm-btn-primary { background: var(--sf); color: var(--ink-2); }
     table.ecm-codes tr { scroll-margin-top: 140px; }
     table.ecm-codes tr.is-target td { background: var(--y-pale); }
     table.ecm-codes tr.is-target td:first-child { box-shadow: inset 4px 0 0 var(--ink); }
@@ -274,14 +290,16 @@
       table.ecm-codes thead { display: none; }
       table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
       table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
-      table.ecm-codes td.c-code { grid-column: 1; }
-      table.ecm-codes td.c-code { min-width: 0; }
+      table.ecm-codes td.c-code { grid-column: 1; grid-row: 1; min-width: 0; }
       table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; overflow-wrap: anywhere; word-break: break-all; }
-      table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
-      table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
+      table.ecm-codes td.c-act { grid-column: 2; grid-row: 1; }
+      table.ecm-codes td.c-reward { grid-column: 1 / -1; grid-row: 2; white-space: normal; font-size: .95rem; line-height: 1.55; color: var(--ink); }
+      table.ecm-codes td.c-exp { grid-column: 1; grid-row: 3; white-space: normal; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .4rem; }
+      table.ecm-codes td.c-exp .c-seen { display: inline; margin: 0; }
+      table.ecm-codes td.c-used { grid-column: 2; grid-row: 3; justify-self: end; }
       table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
-      table.ecm-codes td.c-exp { display: flex; align-items: center; gap: .4rem; }
-      .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
+      .ecm-page .ecm-codes .ecm-btn-primary { font-size: .9rem; padding: .55rem 1rem; min-height: 44px; }
+      .ecm-used-btn { min-height: 44px; }
     }
     .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
     .ecm-redeem-box p { margin: 0 0 .7rem; }
@@ -290,7 +308,8 @@
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
-    .ecm-page .ecm-btn-primary { font-size: .78rem; padding: .4rem .75rem; }
+    .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
+    .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
     .ecm-sib { display: flex; flex-wrap: wrap; gap: .4rem; }
     .ecm-page .ecm-sib a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border: 0; border-radius: 999px; background: var(--sf); color: var(--ink); font-size: .85rem; font-weight: 600; text-decoration: none; }
@@ -363,102 +382,121 @@
 
     <h2 id="codes">지금 쓸 수 있는 코드 (15)</h2>
     <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
-    <table class="ecm-codes">
-      <thead><tr><th>코드</th><th>보상</th><th>만료일</th><th></th></tr></thead>
+    <div class="ecm-redeem-bar">
+      <p><b>복사한 뒤 넣는 곳</b> 화면 오른쪽 Profile 버튼 → Codes 메뉴의 입력 칸에 코드 입력 후 Redeem</p>
+      <a class="ecm-open" href="https://www.roblox.com/games/11197615267/Anime-Vanguards" target="_blank" rel="noopener noreferrer" data-redeem="bar">로블록스에서 게임 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    </div>
+    <table class="ecm-codes" data-game="roblox-anime-vanguards">
+      <thead><tr><th>코드</th><th>보상</th><th>만료일</th><th></th><th><span class="ecm-sr">사용 표시</span></th></tr></thead>
       <tbody>
-<tr id="code-2ndAnniDay4" data-added="2026-10-12">
+<tr id="code-2ndAnniDay4" data-added="2026-10-12" data-code="2ndAnniDay4">
           <td class="c-code"><code class="ecm-code">2ndAnniDay4</code> <span class="ecm-pill new" data-new>NEW</span></td>
           <td class="c-reward"><span class="c-label">보상</span>메모리아 조각 100개 (2주년 기념 연속 코드 4)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.12 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay4"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay4" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-2ndAnniDay5" data-added="2026-10-12">
+<tr id="code-2ndAnniDay5" data-added="2026-10-12" data-code="2ndAnniDay5">
           <td class="c-code"><code class="ecm-code">2ndAnniDay5</code> <span class="ecm-pill new" data-new>NEW</span></td>
           <td class="c-reward"><span class="c-label">보상</span>리롤 100개 (2주년 기념 연속 코드 5)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.12 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay5"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay5" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-2ndAnniDay6" data-added="2026-10-12">
+<tr id="code-2ndAnniDay6" data-added="2026-10-12" data-code="2ndAnniDay6">
           <td class="c-code"><code class="ecm-code">2ndAnniDay6</code> <span class="ecm-pill new" data-new>NEW</span></td>
           <td class="c-reward"><span class="c-label">보상</span>메모리아 조각 100개 (2주년 기념 연속 코드 6)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.12 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay6"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay6" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-2ndAnniDay1" data-added="2026-10-05">
-          <td class="c-code"><code class="ecm-code">2ndAnniDay1</code> <span class="ecm-pill new" data-new>NEW</span></td>
+<tr id="code-2ndAnniDay1" data-added="2026-10-05" data-code="2ndAnniDay1">
+          <td class="c-code"><code class="ecm-code">2ndAnniDay1</code></td>
           <td class="c-reward"><span class="c-label">보상</span>트레이트 리롤 100개 (2주년 기념 연속 코드 1)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.05 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay1"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay1" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-2ndAnniDay2" data-added="2026-10-05">
-          <td class="c-code"><code class="ecm-code">2ndAnniDay2</code> <span class="ecm-pill new" data-new>NEW</span></td>
+<tr id="code-2ndAnniDay2" data-added="2026-10-05" data-code="2ndAnniDay2">
+          <td class="c-code"><code class="ecm-code">2ndAnniDay2</code></td>
           <td class="c-reward"><span class="c-label">보상</span>메모리아 조각 100개 (2주년 기념 연속 코드 2)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.05 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay2"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay2" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-2ndAnniDay3" data-added="2026-10-05">
-          <td class="c-code"><code class="ecm-code">2ndAnniDay3</code> <span class="ecm-pill new" data-new>NEW</span></td>
+<tr id="code-2ndAnniDay3" data-added="2026-10-05" data-code="2ndAnniDay3">
+          <td class="c-code"><code class="ecm-code">2ndAnniDay3</code></td>
           <td class="c-reward"><span class="c-label">보상</span>리롤 100개 (2주년 기념 연속 코드 3)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">10.05 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="2ndAnniDay3"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="2ndAnniDay3" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-Assault" data-added="2026-09-23">
+<tr id="code-Assault" data-added="2026-09-23" data-code="Assault">
           <td class="c-code"><code class="ecm-code">Assault</code></td>
           <td class="c-reward"><span class="c-label">보상</span>특성 재설정권 100개</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="Assault"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="Assault" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-SummerLeaving" data-added="2026-09-23">
+<tr id="code-SummerLeaving" data-added="2026-09-23" data-code="SummerLeaving">
           <td class="c-code"><code class="ecm-code">SummerLeaving</code></td>
           <td class="c-reward"><span class="c-label">보상</span>메모리아 조각 100개</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="SummerLeaving"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="SummerLeaving" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-AnniNextHopefully" data-added="2026-09-23">
+<tr id="code-AnniNextHopefully" data-added="2026-09-23" data-code="AnniNextHopefully">
           <td class="c-code"><code class="ecm-code">AnniNextHopefully</code></td>
           <td class="c-reward"><span class="c-label">보상</span>특성 재설정권 100개, 메모리아 조각 100개, 젬 5,000개 (레벨 30 필요)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="AnniNextHopefully"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="AnniNextHopefully" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-MiniUpd2" data-added="2026-09-23">
+<tr id="code-MiniUpd2" data-added="2026-09-23" data-code="MiniUpd2">
           <td class="c-code"><code class="ecm-code">MiniUpd2</code></td>
           <td class="c-reward"><span class="c-label">보상</span>트레이트 리롤 200개 + 젬 50,000개</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="MiniUpd2"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="MiniUpd2" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-Wrath" data-added="2026-09-23">
+<tr id="code-Wrath" data-added="2026-09-23" data-code="Wrath">
           <td class="c-code"><code class="ecm-code">Wrath</code></td>
           <td class="c-reward"><span class="c-label">보상</span>메모리아 조각 200개 + 젬 50,000개</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="Wrath"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="Wrath" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-Retribution" data-added="2026-09-23">
+<tr id="code-Retribution" data-added="2026-09-23" data-code="Retribution">
           <td class="c-code"><code class="ecm-code">Retribution</code></td>
           <td class="c-reward"><span class="c-label">보상</span>젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 10 필요)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="Retribution"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="Retribution" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-1DayDelay" data-added="2026-09-23">
+<tr id="code-1DayDelay" data-added="2026-09-23" data-code="1DayDelay">
           <td class="c-code"><code class="ecm-code">1DayDelay</code></td>
           <td class="c-reward"><span class="c-label">보상</span>트레이트 리롤 200개 (레벨 30 필요)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="1DayDelay"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="1DayDelay" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-25thHour" data-added="2026-09-23">
+<tr id="code-25thHour" data-added="2026-09-23" data-code="25thHour">
           <td class="c-code"><code class="ecm-code">25thHour</code></td>
           <td class="c-reward"><span class="c-label">보상</span>트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 30 필요)</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="25thHour"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="25thHour" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
-<tr id="code-LetTheLarpingBegin" data-added="2026-09-23">
+<tr id="code-LetTheLarpingBegin" data-added="2026-09-23" data-code="LetTheLarpingBegin">
           <td class="c-code"><code class="ecm-code">LetTheLarpingBegin</code></td>
           <td class="c-reward"><span class="c-label">보상</span>컨트롤러 토큰 50개 + 젬 10,000개 + 골드 50,000개</td>
-          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span></td>
+          <td class="c-exp"><span class="c-label">만료일</span><span class="ecm-pill muted">미공개</span> <small class="c-seen">09.23 등록</small></td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="LetTheLarpingBegin"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="LetTheLarpingBegin" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>
       </tbody>
     </table>
-    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>
+    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.</p>
 
     <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="애니메 뱅가드 쿠폰 코드 | ECM" data-share-text="애니메 뱅가드 쿠폰 코드 15개, ECM에서 확인했어요"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
 
@@ -478,7 +516,7 @@
     <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
       <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 어디서:</strong> 화면 오른쪽 Profile 버튼 → Codes 메뉴의 입력 칸에 코드 입력 후 Redeem</p>
-      <p><a class="ecm-open" href="https://www.roblox.com/games/11197615267/Anime-Vanguards" target="_blank" rel="noopener noreferrer">공식 사이트 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
+      <p><a class="ecm-open" href="https://www.roblox.com/games/11197615267/Anime-Vanguards" target="_blank" rel="noopener noreferrer" data-redeem="how">공식 사이트 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
     </div>
     <ol>
       <li>위 표에서 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.</li>
@@ -603,10 +641,57 @@
         t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
         clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
       }
-      function done() { try { document.dispatchEvent(new CustomEvent('ecm:copied')); } catch (x) {} b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      // 복사 다음 할 일: 표 위 "입력 페이지 열기" 버튼을 잠깐 강조하고 토스트로 알려 준다(버튼이 없으면 아래 입력 방법으로)
+      var next = document.querySelector('[data-redeem="bar"]');
+      function done() {
+        var tb = b.closest('table'), tr = b.closest('tr');
+        try { document.dispatchEvent(new CustomEvent('ecm:copied', { detail: { game: tb && tb.getAttribute('data-game'), row: tr ? Array.prototype.indexOf.call(tr.parentNode.children, tr) + 1 : 0 } })); } catch (x) {}
+        b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨';
+        show(next ? '복사했어요. 위 \'' + next.textContent.trim() + '\'에서 붙여 넣으세요' : '복사했어요. 아래 입력 방법대로 붙여 넣으세요');
+        if (next) { next.classList.add('is-next'); clearTimeout(next._h); next._h = setTimeout(function () { next.classList.remove('is-next'); }, 3000); }
+        setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600);
+      }
       function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });
+    // 입력 페이지 열기 클릭 수 (GA4: redeem_click). where = bar(표 위) / how(입력 방법 단락)
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-redeem]');
+      var tb = document.querySelector('table.ecm-codes');
+      if (a && typeof window.gtag === 'function') window.gtag('event', 'redeem_click', { where: a.getAttribute('data-redeem'), game_id: tb ? tb.getAttribute('data-game') : location.pathname.replace(/^.*\/|\.html$/g, '') });
+    });
+    // 사용함 표시: localStorage ecm:used = { 게임id: [코드...] }. 이 기기에만 남는다.
+    // 누르면 그 자리에서 흐려지기만 하고(목록이 눈앞에서 움직이지 않게), 다음에 열 때 목록 아래로 내려간다. 다시 누르면 되돌린다.
+    (function () {
+      var tb = document.querySelector('table.ecm-codes');
+      if (!tb) return;
+      var KEY = 'ecm:used', gid = tb.getAttribute('data-game'), body = tb.tBodies[0];
+      function load() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+      function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+      function paint(tr, on) {
+        tr.classList.toggle('is-used', on);
+        var b = tr.querySelector('[data-used]'); if (!b) return;
+        b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        b.querySelector('i').className = (on ? 'fa-solid fa-square-check' : 'fa-regular fa-square');
+        b.setAttribute('aria-label', on ? '사용함 표시 되돌리기' : '사용함으로 표시');
+      }
+      var store = load(), used = store[gid] || [], rows = Array.prototype.slice.call(body.rows);
+      // 지금 표에 없는 코드(만료·삭제)는 장부에서 정리한다
+      var live = rows.map(function (r) { return r.getAttribute('data-code'); });
+      var kept = used.filter(function (c) { return live.indexOf(c) >= 0; });
+      if (kept.length !== used.length) { if (kept.length) store[gid] = kept; else delete store[gid]; save(store); }
+      rows.forEach(function (r) { var on = kept.indexOf(r.getAttribute('data-code')) >= 0; paint(r, on); if (on) body.appendChild(r); });
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('[data-used]');
+        if (!b) return;
+        var code = b.getAttribute('data-used'), s = load(), a = s[gid] || [], i = a.indexOf(code);
+        if (i >= 0) a.splice(i, 1); else a.push(code);
+        if (a.length) s[gid] = a; else delete s[gid];
+        save(s);
+        paint(b.closest('tr'), i < 0);
+        if (typeof window.gtag === 'function') window.gtag('event', i < 0 ? 'mark_code_used' : 'unmark_code_used', { game_id: gid });
+      });
+    })();
   </script>
 </body>
 </html>

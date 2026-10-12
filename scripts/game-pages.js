@@ -107,6 +107,21 @@ function noteHtml(g) {
 `;
 }
 
+/**
+ * 코드 표 바로 위의 "어디에 넣나 + 입력 페이지 열기" 줄. 복사한 다음 할 일을 아래 입력 방법까지 내려가 찾지 않게 한다.
+ * 아래 "입력 방법" 단락은 그대로 둔다(자세한 순서와 검색용 본문).
+ */
+function redeemBarHtml(g) {
+  const url = g.redeemUrl || g.officialUrl || '';
+  if (!g.redeemHow && !url) return '';
+  const label = g.redeemUrl ? '쿠폰 입력 페이지 열기' : isRoblox(g) ? '로블록스에서 게임 열기' : '공식 사이트 열기';
+  return `    <div class="ecm-redeem-bar">
+      <p><b>복사한 뒤 넣는 곳</b> ${g.redeemHow ? esc(g.redeemHow) : '공식 사이트나 게임 안 설정 메뉴의 쿠폰 입력란'}</p>
+      ${url ? `<a class="ecm-open" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-redeem="bar">${label} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>` : ''}
+    </div>
+`;
+}
+
 function headerHtml() {
   return `  <header id="siteHeader" class="ecm-header">
     <div class="ecm-header-inner">
@@ -309,11 +324,14 @@ function pageHtml(g, ctx) {
     const exp = !ev.known ? '<span class="ecm-pill muted">미공개</span>'
       : ev.known && !ev.permanent && ev.left > FAR_DAYS ? `<span class="ecm-pill muted">${esc(fmt(c.expireDate))}까지</span>`
       : statusPill(ev) + (!ev.permanent ? ` <small>${esc(fmt(c.expireDate).slice(5))}까지</small>` : '');
-    return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''}>
+    // 등록일: 이 코드를 ECM 이 처음 확인해 올린 날(장부). 게임 단위 '마지막 확인'과 다른 값이라 따로 적는다
+    const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
+    return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
           <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
           <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}</td>
-          <td class="c-exp"><span class="c-label">만료일</span>${exp}</td>
+          <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
+          <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="${esc(c.code)}" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
         </tr>`;
   }).join('\n');
 
@@ -396,7 +414,23 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     details.ecm-criteria { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 12px; padding: .7rem 1rem; }
     details.ecm-criteria summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
     details.ecm-criteria p { margin: .6rem 0 0; font-size: .88rem; }
-    .c-exp small { color: var(--ink-3); font-size: .78rem; white-space: nowrap; }
+    .c-exp small { color: var(--ink-2); font-size: .8rem; white-space: nowrap; }
+    .c-exp .c-seen { display: block; color: var(--ink-3); font-size: .78rem; margin-top: .15rem; }
+    .c-reward { color: var(--ink); font-weight: 600; }
+    .ecm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    /* 코드 표 위 입력 안내: 복사 → 바로 옆 버튼으로 입력 페이지 */
+    .ecm-redeem-bar { display: flex; align-items: center; gap: .6rem 1rem; border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem .75rem 1rem; margin: 0 0 .8rem; }
+    .ecm-redeem-bar p { margin: 0; flex: 1; font-size: .88rem !important; line-height: 1.6; }
+    .ecm-redeem-bar p b { display: block; color: var(--ink); font-size: .8rem; }
+    .ecm-redeem-bar .ecm-open { flex-shrink: 0; }
+    .ecm-page a.ecm-open.is-next { box-shadow: 0 0 0 3px var(--y); }
+    @media (max-width: 640px) { .ecm-redeem-bar { flex-direction: column; align-items: stretch; } .ecm-page .ecm-redeem-bar a.ecm-open { justify-content: center; } }
+    /* 사용함 표시: 이 기기에만 저장. 복사와 따로 누른다(복사만 하고 못 쓴 코드를 완료로 착각하지 않게) */
+    .ecm-used-btn { display: inline-flex; align-items: center; gap: .35rem; min-height: 40px; border: 1px solid var(--line); background: #fff; color: var(--ink-2); border-radius: .6rem; padding: .4rem .7rem; font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .ecm-used-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+    .ecm-used-btn.is-on { background: var(--new-soft); border-color: transparent; color: #0A7A3C; }
+    table.ecm-codes tr.is-used td.c-code, table.ecm-codes tr.is-used td.c-reward, table.ecm-codes tr.is-used td.c-exp { opacity: .5; }
+    table.ecm-codes tr.is-used .ecm-btn-primary { background: var(--sf); color: var(--ink-2); }
     table.ecm-codes tr { scroll-margin-top: 140px; }
     table.ecm-codes tr.is-target td { background: var(--y-pale); }
     table.ecm-codes tr.is-target td:first-child { box-shadow: inset 4px 0 0 var(--ink); }
@@ -420,14 +454,16 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
       table.ecm-codes thead { display: none; }
       table.ecm-codes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; align-items: center; border: 1.5px solid var(--ink); border-radius: 14px; padding: .95rem 1rem; margin-bottom: .65rem; }
       table.ecm-codes td { border: 0; padding: 0; font-size: .85rem; color: var(--ink-2); }
-      table.ecm-codes td.c-code { grid-column: 1; }
-      table.ecm-codes td.c-code { min-width: 0; }
+      table.ecm-codes td.c-code { grid-column: 1; grid-row: 1; min-width: 0; }
       table.ecm-codes td.c-code .ecm-code { background: none; padding: 0; font-size: 1.1rem; overflow-wrap: anywhere; word-break: break-all; }
-      table.ecm-codes td:last-child { grid-column: 2; grid-row: 1; }
-      table.ecm-codes td.c-reward, table.ecm-codes td.c-exp { grid-column: 1 / -1; white-space: normal; }
+      table.ecm-codes td.c-act { grid-column: 2; grid-row: 1; }
+      table.ecm-codes td.c-reward { grid-column: 1 / -1; grid-row: 2; white-space: normal; font-size: .95rem; line-height: 1.55; color: var(--ink); }
+      table.ecm-codes td.c-exp { grid-column: 1; grid-row: 3; white-space: normal; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .4rem; }
+      table.ecm-codes td.c-exp .c-seen { display: inline; margin: 0; }
+      table.ecm-codes td.c-used { grid-column: 2; grid-row: 3; justify-self: end; }
       table.ecm-codes .c-label { display: inline; color: var(--ink-3); font-size: .78rem; margin-right: .45rem; }
-      table.ecm-codes td.c-exp { display: flex; align-items: center; gap: .4rem; }
-      .ecm-page .ecm-codes .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; }
+      .ecm-page .ecm-codes .ecm-btn-primary { font-size: .9rem; padding: .55rem 1rem; min-height: 44px; }
+      .ecm-used-btn { min-height: 44px; }
     }
     .ecm-redeem-box { background: var(--sf); border-radius: 14px; padding: 1rem 1.15rem; margin: .5rem 0 1rem; }
     .ecm-redeem-box p { margin: 0 0 .7rem; }
@@ -436,7 +472,8 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
-    .ecm-page .ecm-btn-primary { font-size: .78rem; padding: .4rem .75rem; }
+    .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
+    .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
     .ecm-sib { display: flex; flex-wrap: wrap; gap: .4rem; }
     .ecm-page .ecm-sib a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border: 0; border-radius: 999px; background: var(--sf); color: var(--ink); font-size: .85rem; font-weight: 600; text-decoration: none; }
@@ -477,13 +514,13 @@ ${headerHtml()}
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
     <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
-${active.length ? `    <table class="ecm-codes">
-      <thead><tr><th>코드</th><th>보상</th><th>만료일</th><th></th></tr></thead>
+${active.length ? redeemBarHtml(g) : ''}${active.length ? `    <table class="ecm-codes" data-game="${esc(g.id)}">
+      <thead><tr><th>코드</th><th>보상</th><th>만료일</th><th></th><th><span class="ecm-sr">사용 표시</span></th></tr></thead>
       <tbody>
 ${codeRows}
       </tbody>
     </table>
-    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요.</p>`
+    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.</p>`
 : `    <div class="ecm-empty">
       <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
       <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
@@ -505,7 +542,7 @@ ${codeRows}
 ${noteHtml(g)}    <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
       <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 어디서:</strong> ${g.redeemHow ? esc(g.redeemHow) : '확인 중 — 공식 사이트나 게임 안 설정 메뉴에서 쿠폰/교환 코드 입력란을 찾아 주세요.'}</p>
-      ${redeemUrl ? `<p><a class="ecm-open" href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer">${g.redeemUrl ? '쿠폰 입력 페이지 열기' : '공식 사이트 열기'} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>` : ''}
+      ${redeemUrl ? `<p><a class="ecm-open" href="${esc(redeemUrl)}" target="_blank" rel="noopener noreferrer" data-redeem="how">${g.redeemUrl ? '쿠폰 입력 페이지 열기' : '공식 사이트 열기'} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>` : ''}
     </div>
     <ol>
       <li>${active.length ? '위 표에서 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.' : '코드가 올라오면 위 표의 <strong>복사</strong>를 누릅니다. 코드가 그대로 복사됩니다.'}</li>
@@ -613,10 +650,57 @@ ${footerHtml()}
         t.textContent = msg; t.classList.toggle('is-fail', !!fail); t.classList.remove('hidden');
         clearTimeout(t._h); t._h = setTimeout(function () { t.classList.add('hidden'); }, fail ? 5000 : 1600);
       }
-      function done() { try { document.dispatchEvent(new CustomEvent('ecm:copied')); } catch (x) {} b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨'; show('복사했어요. 아래 입력 방법대로 붙여 넣으세요'); setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600); }
+      // 복사 다음 할 일: 표 위 "입력 페이지 열기" 버튼을 잠깐 강조하고 토스트로 알려 준다(버튼이 없으면 아래 입력 방법으로)
+      var next = document.querySelector('[data-redeem="bar"]');
+      function done() {
+        var tb = b.closest('table'), tr = b.closest('tr');
+        try { document.dispatchEvent(new CustomEvent('ecm:copied', { detail: { game: tb && tb.getAttribute('data-game'), row: tr ? Array.prototype.indexOf.call(tr.parentNode.children, tr) + 1 : 0 } })); } catch (x) {}
+        b.classList.add('is-done'); b.innerHTML = '<i class="fa-solid fa-check"></i> 복사됨';
+        show(next ? '복사했어요. 위 \\'' + next.textContent.trim() + '\\'에서 붙여 넣으세요' : '복사했어요. 아래 입력 방법대로 붙여 넣으세요');
+        if (next) { next.classList.add('is-next'); clearTimeout(next._h); next._h = setTimeout(function () { next.classList.remove('is-next'); }, 3000); }
+        setTimeout(function () { b.classList.remove('is-done'); b.innerHTML = label; }, 1600);
+      }
       function fail() { b.classList.add('is-fail'); b.textContent = '복사 실패'; show('복사하지 못했어요. 코드를 길게 눌러 직접 복사하세요: ' + code, true); setTimeout(function () { b.classList.remove('is-fail'); b.innerHTML = label; }, 2200); }
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fail); else fail();
     });
+    // 입력 페이지 열기 클릭 수 (GA4: redeem_click). where = bar(표 위) / how(입력 방법 단락)
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-redeem]');
+      var tb = document.querySelector('table.ecm-codes');
+      if (a && typeof window.gtag === 'function') window.gtag('event', 'redeem_click', { where: a.getAttribute('data-redeem'), game_id: tb ? tb.getAttribute('data-game') : location.pathname.replace(/^.*\\/|\\.html$/g, '') });
+    });
+    // 사용함 표시: localStorage ecm:used = { 게임id: [코드...] }. 이 기기에만 남는다.
+    // 누르면 그 자리에서 흐려지기만 하고(목록이 눈앞에서 움직이지 않게), 다음에 열 때 목록 아래로 내려간다. 다시 누르면 되돌린다.
+    (function () {
+      var tb = document.querySelector('table.ecm-codes');
+      if (!tb) return;
+      var KEY = 'ecm:used', gid = tb.getAttribute('data-game'), body = tb.tBodies[0];
+      function load() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+      function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+      function paint(tr, on) {
+        tr.classList.toggle('is-used', on);
+        var b = tr.querySelector('[data-used]'); if (!b) return;
+        b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        b.querySelector('i').className = (on ? 'fa-solid fa-square-check' : 'fa-regular fa-square');
+        b.setAttribute('aria-label', on ? '사용함 표시 되돌리기' : '사용함으로 표시');
+      }
+      var store = load(), used = store[gid] || [], rows = Array.prototype.slice.call(body.rows);
+      // 지금 표에 없는 코드(만료·삭제)는 장부에서 정리한다
+      var live = rows.map(function (r) { return r.getAttribute('data-code'); });
+      var kept = used.filter(function (c) { return live.indexOf(c) >= 0; });
+      if (kept.length !== used.length) { if (kept.length) store[gid] = kept; else delete store[gid]; save(store); }
+      rows.forEach(function (r) { var on = kept.indexOf(r.getAttribute('data-code')) >= 0; paint(r, on); if (on) body.appendChild(r); });
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('[data-used]');
+        if (!b) return;
+        var code = b.getAttribute('data-used'), s = load(), a = s[gid] || [], i = a.indexOf(code);
+        if (i >= 0) a.splice(i, 1); else a.push(code);
+        if (a.length) s[gid] = a; else delete s[gid];
+        save(s);
+        paint(b.closest('tr'), i < 0);
+        if (typeof window.gtag === 'function') window.gtag('event', i < 0 ? 'mark_code_used' : 'unmark_code_used', { game_id: gid });
+      });
+    })();
   </script>
 </body>
 </html>

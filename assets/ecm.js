@@ -314,6 +314,14 @@
   });
 })();
 
+// ── 코드 복사 수 (GA4: copy_code). 각 페이지의 복사 코드가 성공하면 ecm:copied 를 보낸다.
+// 게임 페이지는 detail 에 게임 id 와 몇 번째 줄인지를 담는다. 코드 문자열은 보내지 않는다.
+document.addEventListener('ecm:copied', function (e) {
+  if (typeof window.gtag !== 'function') return;
+  var d = (e && e.detail) || {};
+  window.gtag('event', 'copy_code', { game_id: d.game || '', row: d.row || 0, page_type: location.pathname.split('/')[1] || 'home' });
+});
+
 // ── 텔레그램 알림 채널 가입 버튼 클릭 수 (GA4: telegram_join_click)
 document.addEventListener('click', function (e) {
   var a = e.target.closest ? e.target.closest('[data-tg]') : null;
