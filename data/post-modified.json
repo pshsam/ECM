@@ -104,8 +104,8 @@
     "modified": "2026-10-12"
   },
   "game-coupon-complete-guide": {
-    "hash": "4a5e5fd30e6e1632",
-    "modified": "2026-10-12"
+    "hash": "cdb5f8edd61e1eed",
+    "modified": "2026-10-13"
   },
   "game-coupon-expiry-reminder-template": {
     "hash": "f636d91436d9981f",
@@ -234,6 +234,10 @@
   "pubg-battlegrounds-coupon-codes": {
     "hash": "9df884bf4d77f7a1",
     "modified": "2026-10-04"
+  },
+  "pubg-deadnet-console-test": {
+    "hash": "54f0908e0cc358a5",
+    "modified": "2026-10-13"
   },
   "rise-of-kingdoms-coupon-codes": {
     "hash": "822ad6b270657f56",
