@@ -27,7 +27,7 @@
 
   var css = document.createElement('style');
   css.textContent = [
-    'a[href^="/shop"], a[href*="ecm-coupon.com/shop"], [data-shop], .ecm-install { display: none !important; }',
+    'a[href^="/shop"], a[href*="ecm-coupon.com/shop"], [data-shop], .ecm-install, .ecm-mega[data-panel="shops"] { display: none !important; }',
     'body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }',
     '.ecm-apptabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: repeat(3, 1fr); background: #fff; border-top: 1px solid var(--line, #EBEAE4); padding: 6px 4px calc(8px + env(safe-area-inset-bottom)); }',
     '.ecm-apptabs a { display: grid; justify-items: center; gap: 2px; font-size: 11px; font-weight: 700; color: var(--ink-3, #6B685F); text-decoration: none; padding: 4px 0; }',

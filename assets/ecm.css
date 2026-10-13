@@ -152,6 +152,8 @@ body { overflow-x: clip; }
 
 @media (max-width: 1023.98px) {
   .ecm-mega-wrap { position: fixed; inset: 0; background: rgba(0,0,0,.35); }
+  /* 머리말의 backdrop-filter 가 fixed 서랍의 기준을 머리말 상자로 바꿔 서랍이 머리말 높이만큼 잘리던 것: 열려 있을 때만 끈다 */
+  body.ecm-lock .ecm-header { -webkit-backdrop-filter: none; backdrop-filter: none; background: #fff; }
   .ecm-drawer {
     position: absolute; top: 0; right: 0; bottom: 0; width: min(92vw, 400px);
     background: #fff; overflow: auto; padding: 1rem; margin: 0;
