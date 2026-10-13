@@ -131,6 +131,60 @@
   }
   document.addEventListener('ecm:fav-change', syncWidget);
 
-  function start() { tabs(); searchHint(); onboarding(); syncWidget(); }
+  // ── 광고 (애드몹, 앱 플러그인 @capacitor-community/admob) ──
+  // 웹뷰 안에서는 애드센스를 쓰지 않는다(scripts/analytics.js 가 ECMApp 이면 건너뜀). 앱 광고는 여기서만.
+  // live: false 면 구글 테스트 광고. 스토어 출시 + 애드몹 '스토어 추가' 뒤에 true 로 바꾼다(앱 업데이트 필요 없음).
+  //   테스트 기기에서 실제 광고가 눌리면 무효 트래픽이 되니 출시 전에는 false 그대로 둔다.
+  // 애드몹 플러그인이 없는 예전 앱 빌드에서는 호출이 실패하고 조용히 넘어간다.
+  var ADMOB = {
+    live: false,
+    android: { banner: 'ca-app-pub-2513976449143160/1385702966', interstitial: 'ca-app-pub-2513976449143160/5934402196' },
+    ios: { banner: 'ca-app-pub-2513976449143160/3952156554', interstitial: 'ca-app-pub-2513976449143160/9977763995' },
+    test: {
+      android: { banner: 'ca-app-pub-3940256099942544/9214589741', interstitial: 'ca-app-pub-3940256099942544/1033173712' },
+      ios: { banner: 'ca-app-pub-3940256099942544/2435281174', interstitial: 'ca-app-pub-3940256099942544/4411468910' }
+    }
+  };
+  // 전면 광고: 게임 페이지 5번째마다, 광고 사이 최소 3분, 앱을 처음 연 뒤 하루는 없음, 알림을 눌러 들어온 화면에는 없음 (아워운세와 같은 기준)
+  var AD_EVERY = 5, AD_GAP = 3 * 60e3, AD_GRACE = 24 * 3600e3, AD_KEY = 'ecm:app-ad', FIRST_KEY = 'ecm:app-first-open', BANNER_H = 'ecm:app-banner-h';
+  function ads() {
+    var C = window.Capacitor;
+    if (!C || typeof C.nativePromise !== 'function' || typeof C.getPlatform !== 'function') return;
+    if (document.querySelector('.ecm-onb')) return; // 첫 실행 게임 고르기 화면 위에는 띄우지 않는다(고르고 나면 페이지를 다시 연다)
+    var ios = C.getPlatform() === 'ios', units = (ADMOB.live ? ADMOB : ADMOB.test)[ios ? 'ios' : 'android'];
+    function call(m, o) { return C.nativePromise('AdMob', m, o || {}); }
+    var nav = document.querySelector('.ecm-apptabs'), tabH = nav ? nav.offsetHeight : 0;
+    // 배너는 네이티브 화면이라 페이지 위에 겹친다: 탭 바 바로 위에 두고, 그 높이만큼 본문 아래 여백을 늘린다
+    function pad(h) { document.body.style.paddingBottom = 'calc(' + (tabH + h) + 'px + env(safe-area-inset-bottom))'; }
+    try { var saved = +sessionStorage.getItem(BANNER_H); if (saved > 0) pad(saved); } catch (e) {}
+    if (typeof C.addListener === 'function') C.addListener('AdMob', 'bannerAdSizeChanged', function (s) {
+      var h = s && s.height > 0 ? s.height : 0; pad(h);
+      try { sessionStorage.setItem(BANNER_H, String(h)); } catch (e) {}
+    });
+    // 아이폰은 추적 동의를 먼저 묻는다(이미 답했으면 바로 넘어감). 거절해도 광고는 나온다(맞춤 광고가 아닐 뿐)
+    var ready = (ios ? call('trackingAuthorizationStatus').then(function (r) { if (r && r.status === 'notDetermined') return call('requestTrackingAuthorization'); }).catch(function () {}) : Promise.resolve())
+      .then(function () { return call('initialize', {}); });
+    ready.then(function () {
+      return call('showBanner', { adId: units.banner, adSize: 'ADAPTIVE_BANNER', position: 'BOTTOM_CENTER', margin: tabH, isTesting: !ADMOB.live });
+    }).catch(function () {});
+
+    if (path.indexOf('/game/') !== 0 || /[?&]utm_source=push/.test(location.search)) return;
+    var now = Date.now(), first = +ls(FIRST_KEY);
+    if (!(first > 0)) { first = now; ls(FIRST_KEY, String(now)); }
+    if (now - first < AD_GRACE) return;
+    var st = { views: 0, last: 0 };
+    try { var o = JSON.parse(ls(AD_KEY) || '{}'); st.views = +o.views || 0; st.last = +o.last || 0; } catch (e) {}
+    st.views++;
+    var due = st.views >= AD_EVERY && now - st.last >= AD_GAP;
+    if (due) { st.views = 0; st.last = now; }
+    ls(AD_KEY, JSON.stringify(st));
+    var opts = { adId: units.interstitial, isTesting: !ADMOB.live };
+    ready.then(function () {
+      // 다음 차례 바로 전 페이지에서 미리 받아 둔다(네이티브 쪽에 남아 다음 페이지에서 바로 뜬다)
+      if (due) return call('showInterstitial').then(function () { track('app_interstitial', { result: 'shown' }); }, function () { return call('prepareInterstitial', opts); });
+      if (st.views >= AD_EVERY - 1) return call('prepareInterstitial', opts);
+    }).catch(function () {});
+  }
+  function start() { tabs(); searchHint(); onboarding(); syncWidget(); ads(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
