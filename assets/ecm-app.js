@@ -151,7 +151,9 @@
   function ads() {
     var C = window.Capacitor;
     if (!C || typeof C.nativePromise !== 'function' || typeof C.getPlatform !== 'function') return;
-    if (document.querySelector('.ecm-onb')) return; // 첫 실행 게임 고르기 화면 위에는 띄우지 않는다(고르고 나면 페이지를 다시 연다)
+    // 첫 실행 게임 고르기 화면 위에는 배너를 두지 않는다. 배너는 네이티브 화면이라 앞 페이지에서 띄운 것이 남아 있으면
+    // 고르기 버튼을 가린다(2026-10-13 실기기 시험) → 숨기고, 고르고 나서 페이지를 다시 열 때 resumeBanner 로 되살린다
+    if (document.querySelector('.ecm-onb')) { C.nativePromise('AdMob', 'hideBanner', {}).catch(function () {}); return; }
     var ios = C.getPlatform() === 'ios', units = (ADMOB.live ? ADMOB : ADMOB.test)[ios ? 'ios' : 'android'];
     function call(m, o) { return C.nativePromise('AdMob', m, o || {}); }
     var nav = document.querySelector('.ecm-apptabs'), tabH = nav ? nav.offsetHeight : 0;
@@ -167,11 +169,15 @@
       .then(function () { return call('initialize', {}); });
     ready.then(function () {
       return call('showBanner', { adId: units.banner, adSize: 'ADAPTIVE_BANNER', position: 'BOTTOM_CENTER', margin: tabH, isTesting: !ADMOB.live });
+    }).then(function () {
+      // 이미 있던 배너는 showBanner 가 새 광고만 받고 숨김은 풀지 않는다(플러그인 동작) → 숨겨 둔 배너를 다시 보이게
+      return call('resumeBanner');
     }).catch(function () {});
 
-    if (path.indexOf('/game/') !== 0 || /[?&]utm_source=push/.test(location.search)) return;
+    // 첫 실행 시각은 어느 페이지든 앱을 처음 연 때로 센다(전면 광고 첫날 유예)
     var now = Date.now(), first = +ls(FIRST_KEY);
     if (!(first > 0)) { first = now; ls(FIRST_KEY, String(now)); }
+    if (path.indexOf('/game/') !== 0 || /[?&]utm_source=push/.test(location.search)) return;
     if (now - first < AD_GRACE) return;
     var st = { views: 0, last: 0 };
     try { var o = JSON.parse(ls(AD_KEY) || '{}'); st.views = +o.views || 0; st.last = +o.last || 0; } catch (e) {}
