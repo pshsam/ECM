@@ -77,8 +77,9 @@
     var box = document.createElement('div');
     box.className = 'ecm-onb'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-labelledby', 'onbTitle');
     box.innerHTML = '<div class="ecm-onb-body"><img src="/assets/logo.svg" alt="ECM" height="26" style="height:26px;width:auto">'
-      + '<h2 id="onbTitle">어떤 게임 하세요?</h2><p>고른 게임에 새 쿠폰이 올라오면 바로 알려 드려요. 나중에 게임 페이지의 ‘내 게임에 담기’로 바꿀 수 있어요.</p>'
-      + '<input type="search" id="onbQ" placeholder="게임 이름 검색 (지금 코드가 있는 게임 ' + games.length + '종)" aria-label="게임 이름 검색">'
+      + '<h2 id="onbTitle">어떤 게임 하세요?</h2><p>지금 코드가 있는 게임 ' + games.length + '종 중에서 골라 주세요. 고른 게임에 새 쿠폰이 올라오면 바로 알려 드려요. 나중에 게임 페이지의 ‘내 게임에 담기’로 바꿀 수 있어요.</p>'
+      // 안내 글은 짧게: 글자 크기를 크게 쓰는 휴대폰(170%)에서 긴 안내 글이 잘렸다(2026-10-13 실기기 시험)
+      + '<input type="search" id="onbQ" placeholder="게임 이름 검색" aria-label="게임 이름 검색">'
       + '<div class="ecm-onb-grid" id="onbGrid">' + games.map(function (g) {
         var m = mono(g.name);
         return '<button type="button" aria-pressed="false" data-id="' + esc(g.id) + '" data-name="' + esc(g.name) + '"><span class="ecm-onb-tile" style="background:hsl(' + m.h + ' 72% 94%);color:hsl(' + m.h + ' 48% 30%)">' + esc(m.ch) + '</span>' + esc(g.name) + '</button>';
