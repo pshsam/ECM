@@ -168,10 +168,10 @@
     var ready = (ios ? call('trackingAuthorizationStatus').then(function (r) { if (r && r.status === 'notDetermined') return call('requestTrackingAuthorization'); }).catch(function () {}) : Promise.resolve())
       .then(function () { return call('initialize', {}); });
     ready.then(function () {
+      // 이미 있던 배너에는 showBanner 가 새 광고만 받고 숨김은 풀지 않으며, 응답(resolve)도 오지 않는다(플러그인 8.2 동작,
+      // 2026-10-13 실기기에서 확인) → showBanner 를 기다리지 말고 resumeBanner 를 먼저 따로 부른다. 배너가 아직 없으면 실패하고 넘어간다
+      call('resumeBanner').catch(function () {});
       return call('showBanner', { adId: units.banner, adSize: 'ADAPTIVE_BANNER', position: 'BOTTOM_CENTER', margin: tabH, isTesting: !ADMOB.live });
-    }).then(function () {
-      // 이미 있던 배너는 showBanner 가 새 광고만 받고 숨김은 풀지 않는다(플러그인 동작) → 숨겨 둔 배너를 다시 보이게
-      return call('resumeBanner');
     }).catch(function () {});
 
     // 첫 실행 시각은 어느 페이지든 앱을 처음 연 때로 센다(전면 광고 첫날 유예)
