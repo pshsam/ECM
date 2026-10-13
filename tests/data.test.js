@@ -42,6 +42,27 @@ test('쿠폰 날짜는 "상시" 또는 실제 있는 YYYY-MM-DD', () => {
   }
 });
 
+// 코드별 근거(2026-10-13~, 쿠폰 루틴이 채운다): src = 근거로 센 출처 글 주소 1~3개, verified = 출처로 확인한 한국 날짜, cond = 조건(선택)
+test('쿠폰 출처·확인일은 형식이 맞고, 확인일은 미래가 아니다', () => {
+  const kstToday = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  for (const g of catalog) {
+    for (const c of g.coupons) {
+      const where = `${g.id} ${c.code}`;
+      if (c.src !== undefined) {
+        assert.ok(Array.isArray(c.src) && c.src.length >= 1 && c.src.length <= 3, `${where}: src 는 주소 1~3개 배열`);
+        for (const u of c.src) assert.match(u, /^https:\/\/[^\s/]+\.[^\s/]+\/\S+/, `${where}: src '${u}' (글 단위 https 주소여야 함)`);
+        assert.ok(!c.src.some(u => /google\.[a-z.]+\/search|bing\.com\/search|webcache/.test(u)), `${where}: 검색 결과·캐시 주소는 출처가 아님`);
+      }
+      if (c.verified !== undefined) {
+        assert.ok(realDate(c.verified), `${where}: verified '${c.verified}'`);
+        assert.ok(c.verified <= kstToday, `${where}: verified ${c.verified} 가 오늘(${kstToday})보다 뒤`);
+        assert.ok(c.src !== undefined, `${where}: verified 가 있으면 src 도 있어야 함`);
+      }
+      if (c.cond !== undefined) assert.ok(typeof c.cond === 'string' && c.cond.trim() && c.cond.length <= 40, `${where}: cond 는 40자 안의 짧은 문구`);
+    }
+  }
+});
+
 test('한 게임 안에서 같은 코드가 두 번 나오지 않는다', () => {
   for (const g of catalog) {
     const codes = g.coupons.map(c => c.code.toUpperCase());
