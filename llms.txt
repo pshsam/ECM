@@ -123,6 +123,7 @@
 
 ## 가이드 글
 
+- [리니지M 10월14일 정기점검 시간 정리, 패치 내용은 언제 나올까](https://ecm-coupon.com/blog/lineagem-maintenance-coupon-guide.html): 점검 정리 · 2026-10-14
 - [PUBG: 데드넷, 콘솔 비공개 테스트로 뭐가 달라지나](https://ecm-coupon.com/blog/pubg-deadnet-console-test.html): 테스트 소식 · 2026-10-13
 - [니케 4주년 특별방송 '전원 집결', 10월24일 뭐가 나올까](https://ecm-coupon.com/blog/nikke-4th-anniversary-stream.html): 이벤트 소식 · 2026-10-13
 - [씰M2 10월22일 출시 확정, 씰 온라인 잇는 신작 모바일 MMORPG](https://ecm-coupon.com/blog/sealm2-launch-preorder-guide.html): 출시 정리 · 2026-10-12

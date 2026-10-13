@@ -104,8 +104,8 @@
     "modified": "2026-10-12"
   },
   "game-coupon-complete-guide": {
-    "hash": "cdb5f8edd61e1eed",
-    "modified": "2026-10-13"
+    "hash": "28f893c0d94745c0",
+    "modified": "2026-10-14"
   },
   "game-coupon-expiry-reminder-template": {
     "hash": "f636d91436d9981f",
@@ -166,6 +166,10 @@
   "lineagem-jigurat-season10-update": {
     "hash": "7732239f1d29d68f",
     "modified": "2026-10-01"
+  },
+  "lineagem-maintenance-coupon-guide": {
+    "hash": "74a44fde7196e0e8",
+    "modified": "2026-10-14"
   },
   "lost-ark-coupon-codes": {
     "hash": "fa770d9f0713e69f",
