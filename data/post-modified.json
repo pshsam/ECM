@@ -112,7 +112,7 @@
     "modified": "2026-10-12"
   },
   "game-coupon-complete-guide": {
-    "hash": "8de53ef2e42c25b2",
+    "hash": "847a0fba5b229402",
     "modified": "2026-10-15"
   },
   "game-coupon-expiry-reminder-template": {
@@ -194,6 +194,10 @@
   "maplestory-idle-coupon-codes": {
     "hash": "022263cb89540d32",
     "modified": "2026-09-28"
+  },
+  "maplestory-idle-update-preview-guide": {
+    "hash": "7428921abe51b940",
+    "modified": "2026-10-15"
   },
   "mobile-game-subscription-cancel-guide": {
     "hash": "b97c2dcefca9d5ad",
