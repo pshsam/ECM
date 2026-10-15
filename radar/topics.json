@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-16 06:18",
+ "updated": "2026-10-16 06:26",
  "mode": "새 날",
  "blogs": {
   "gamenews": [
@@ -665,193 +665,185 @@
   ]
  },
  "ecm": {
-  "report_date": "2026-10-15",
+  "report_date": "2026-10-16",
   "topics": [
    {
     "rank": 1,
-    "title": "메이플 키우기 10월15일 업데이트 미리보기, 지금 쓸 수 있는 코드",
+    "title": "GTA6, 11월19일 출시 재확인한 런치 트레일러 공개 — 지금까지 나온 정보 정리",
     "keywords": [
-     "메이플 키우기 쿠폰",
-     "메이플 키우기 업데이트",
-     "메이플 키우기 코드"
+     "GTA6 출시일",
+     "GTA6 트레일러"
     ],
-    "reason": "넥슨 공식 커뮤니티에 10월15일(목) 업데이트 미리보기 공지가 올라왔고, 월간 검색량 11,650으로 TOP10 중 가장 높다. (네이버 검색량지수 18.9, 추세 하락, 경쟁글 없음)",
-    "outline": "1) 10/15 업데이트 미리보기 공지 핵심 2) 공식 노트 원문에서 재확인 필요한 세부 내용 3) 지금 카탈로그에 등록된 코드와 입력 방법 4) 다음 업데이트에서 기대할 점",
-    "score": 8.5,
-    "game_name": "메이플 키우기",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://forum.nexon.com/maplestoryidle-kr/board_view?board=6633&thread=3560170&stickyBoard=1",
+    "reason": "로스타게임즈 공식 런치 트레일러로 11월19일 출시를 재확인, 역대급 검색 관심도가 몰리는 시점(인벤 10/15 보도)",
+    "outline": "런치 트레일러 핵심 장면 → 11월19일 출시 재확인 → 에디션·사전예약(공식 발표만) → ECM 게임 쿠폰 사이트로서 신작 소식 전달",
+    "score": 9.0,
+    "game_name": "GTA6 (Grand Theft Auto VI)",
+    "catalog_status": "없음",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=322179",
     "fact_check": "확인",
-    "blog_post_count": null,
-    "search_volume_latest": 18.90502,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 11650,
-    "est_click_total": 19
+    "blog_post_count": 12919,
+    "search_volume_latest": 43.89772,
+    "search_volume_trend": "보합",
+    "monthly_search_total": 23640,
+    "est_click_total": 311
    },
    {
     "rank": 2,
-    "title": "이클립스: 더 어웨이크닝 쿠폰 코드, 지금 받을 수 있는 보상 정리",
+    "title": "마비노기 영웅전 10월15일 업데이트, 신규 레이드 '고대 신전 폐허' 핵심 정리",
     "keywords": [
-     "이클립스 더 어웨이크닝 쿠폰",
-     "이클립스 쿠폰 코드"
+     "마비노기영웅전 운명의권좌"
     ],
-    "reason": "카탈로그에 이미 코드 1개가 등록돼 있는 게임으로, 경쟁 블로그 글이 적어(경쟁도 낮음) 틈새가 있다. (네이버 검색량지수 26.1, 추세 하락, 경쟁글 없음)",
-    "outline": "1) 지금 쓸 수 있는 코드와 보상 2) 코드 입력 방법(스마일게이트 공식 경로) 3) 최근 업데이트 소식(공식 확인분만) 4) 코드가 안 먹힐 때 체크리스트",
-    "score": 8.0,
-    "game_name": "이클립스: 더 어웨이크닝",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-15",
-    "evidence_url": "https://ecm-coupon.com/game/eclipse-awakening.html",
-    "fact_check": "확인",
-    "blog_post_count": null,
-    "search_volume_latest": 26.09561,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 2100,
-    "est_click_total": 0
-   },
-   {
-    "rank": 3,
-    "title": "블루 아카이브 5주년 페스티벌 11월7일, 2차 예매 전 챙길 쿠폰 코드",
-    "keywords": [
-     "블루 아카이브 쿠폰",
-     "블루 아카이브 5주년"
-    ],
-    "reason": "1차 예매 8,000석이 3분 매진, 10/16 2차 예매를 앞두고 팬덤 관심이 뜨겁다. (네이버 검색량지수 8.9, 추세 하락, 경쟁글 6351건)",
-    "outline": "1) 5주년 페스티벌 개요(11/7~8 킨텍스) 2) 2차 예매(10/16) 놓치지 않는 법 3) 지금 카탈로그 코드 재확인 4) 현장 기대 포인트(공식 발표 기준)",
-    "score": 7.8,
-    "game_name": "블루 아카이브",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=322105",
-    "fact_check": "확인",
-    "blog_post_count": 6351,
-    "search_volume_latest": 8.92086,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 270,
-    "est_click_total": 0
-   },
-   {
-    "rank": 4,
-    "title": "메트로 2039 디지털판 예약판매, 에디션 구성 총정리",
-    "keywords": [
-     "메트로 2039",
-     "메트로 2039 예약판매"
-    ],
-    "reason": "인벤이 10/14 단독 보도한 예약판매 개시 소식으로 검색 추세가 '상승'으로 나타난다. (네이버 검색량지수 32.4, 추세 상승, 경쟁글 1502건)",
-    "outline": "1) 메트로 2039 소개 2) 예약판매 시작(10/14)과 플랫폼 3) 에디션별 구성 비교 4) 스토리 확장 DLC",
-    "score": 6.5,
-    "game_name": "메트로 2039",
-    "catalog_status": "없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=322101",
-    "fact_check": "확인",
-    "blog_post_count": 1502,
-    "search_volume_latest": 32.44147,
-    "search_volume_trend": "상승",
-    "monthly_search_total": 320,
-    "est_click_total": 0
-   },
-   {
-    "rank": 5,
-    "title": "젤다 시간의 오카리나 리메이크 11월5일 출시, 스위치2로 다시 만나는 명작",
-    "keywords": [
-     "시간의 오카리나 리메이크",
-     "닌텐도 스위치2"
-    ],
-    "reason": "인벤 핸즈온 기사와 뉴시스 보도로 11/5 출시가 교차 확인됐다(쿠폰 게임은 아니나 트래픽 유입용). (네이버 검색량지수 14.5, 추세 하락, 경쟁글 2234건)",
-    "outline": "1) 왜 지금 리메이크인지 2) 핸즈온 체험 요약 3) 원작 대비 바뀐 점 4) 출시일·플랫폼",
-    "score": 6.2,
-    "game_name": "젤다의 전설: 시간의 오카리나",
-    "catalog_status": "없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=322086",
-    "fact_check": "확인",
-    "blog_post_count": 2234,
-    "search_volume_latest": 14.46733,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 1120,
-    "est_click_total": 0
-   },
-   {
-    "rank": 6,
-    "title": "히루가오 노벨게임 10월27일 스팀 출시",
-    "keywords": [
-     "히루가오",
-     "노벨게임"
-    ],
-    "reason": "게임메카가 10/14 보도한 출시일 발표 소식, 카마이타치의 밤 계열 팬층의 니치 관심 소재. (네이버 검색량지수 41.2, 추세 하락, 경쟁글 3426건)",
-    "outline": "1) 히루가오 소개 2) 출시일·플랫폼 3) 무료 체험판 4) 비슷한 장르 추천",
+    "reason": "신규 레이드·보스·125레벨 장비가 한번에 추가된 대형 업데이트(게임메카+인벤 2곳 확인)",
+    "outline": "점검·보상 → 신규 레이드·보스 → 125레벨 장비·인챈트 → 공략 꿀팁",
     "score": 6.0,
-    "game_name": "히루가오",
+    "game_name": "마비노기 영웅전",
     "catalog_status": "없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781778",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781855",
     "fact_check": "확인",
-    "blog_post_count": 3426,
-    "search_volume_latest": 41.17647,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 50,
-    "est_click_total": 0
-   },
-   {
-    "rank": 7,
-    "title": "신의 탑: 새로운 세계 쿠폰 코드 입력 방법과 최근 업데이트 소식",
-    "keywords": [
-     "신의 탑 새로운 세계 쿠폰",
-     "신의 탑 코드 입력"
-    ],
-    "reason": "카탈로그 등록 게임이나 현재 쿠폰이 없어(있음_쿠폰없음) 입력법 중심 글로 대기 수요를 노린다. 10/14 업데이트 소식은 매체 1곳만 확인돼 세부 내용은 보수적으로 다룬다. (네이버 검색량지수 12.8, 추세 하락, 경쟁글 4569건)",
-    "outline": "1) 코드 입력 방법(공식 경로) 2) 과거 코드 이력 3) 최근 업데이트 소식(확인된 사실만) 4) 다음 코드가 나올 때 확인하는 법",
-    "score": 5.0,
-    "game_name": "신의 탑: 새로운 세계",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781765",
-    "fact_check": "확인",
-    "blog_post_count": 4569,
-    "search_volume_latest": 12.82051,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 50,
-    "est_click_total": 0
-   },
-   {
-    "rank": 8,
-    "title": "던전앤파이터 윈도우10 지원 종료, 내 PC 사양 확인하는 법",
-    "keywords": [
-     "던전앤파이터 윈도우10",
-     "던파 다이렉트X9"
-    ],
-    "reason": "공식 홈페이지에서 10/15 점검 후 윈도우10 미만·DX9 지원 종료를 직접 확인했다. PC판은 카탈로그에 없어(모바일판만 등록) 0.5점 감점. (네이버 검색량지수 없음, 추세 없음, 경쟁글 886건)",
-    "outline": "1) 무엇이 바뀌나(지원 종료 환경) 2) 내 PC가 해당되는지 확인하는 법 3) 업그레이드가 필요하면 할 일 4) 점검 일정",
-    "score": 4.5,
-    "game_name": "던전앤파이터",
-    "catalog_status": "없음",
-    "evidence_date": "2026-10-14",
-    "evidence_url": "https://df.nexon.com/df/main",
-    "fact_check": "확인",
-    "blog_post_count": 886,
+    "blog_post_count": 5,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
     "est_click_total": 0
    },
    {
-    "rank": 9,
-    "title": "오버워치2 10월 핫픽스, 솜브라·로드호그 밸런스 전후 비교",
+    "rank": 3,
+    "title": "'플래닛 주 2' 정식 출시, 스팀 71% 긍정 받은 이유 3가지",
     "keywords": [
-     "오버워치2 핫픽스",
-     "오버워치2 밸런스"
+     "플래닛 주 2 평가"
     ],
-    "reason": "넥슨 공식 패치노트(848호)로 수치까지 직접 재확인됨. 오버워치2는 카탈로그에 없어(쿠폰 성격 게임이 아님) 0.5점 감점. (네이버 검색량지수 없음, 추세 없음, 경쟁글 178건)",
-    "outline": "1) 핫픽스 적용 시점 2) 조정된 영웅 5종 수치표(이전→이후) 3) 체감 변화 4) 다음 패치 전망",
-    "score": 4.3,
-    "game_name": "오버워치2",
+    "reason": "동물원 시뮬레이션 신작, 스팀 리뷰 918건 중 71% 긍정 집계(게임메카 10/14)",
+    "outline": "신작 소개 → 수생·비행 동물 콘텐츠 → 스팀 반응 → 호평·아쉬운 점",
+    "score": 7.5,
+    "game_name": "플래닛 주 2 (Planet Zoo 2)",
     "catalog_status": "없음",
     "evidence_date": "2026-10-14",
-    "evidence_url": "https://overwatch.nexon.com/news/patchnotes/848",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781745",
     "fact_check": "확인",
-    "blog_post_count": 178,
+    "blog_post_count": 29602,
+    "search_volume_latest": 100,
+    "search_volume_trend": "상승",
+    "monthly_search_total": null,
+    "est_click_total": 0
+   },
+   {
+    "rank": 4,
+    "title": "스타세이비어 10월15일 업데이트, 신규 캐릭터 '리디아' 핵심 정리",
+    "keywords": [
+     "스타세이비어 리디아"
+    ],
+    "reason": "신규 메인스토리+구원자 캐릭터 '리디아' 픽업 동시 시작(게임메카+인벤 2곳 확인)",
+    "outline": "점검·보상 → 신규 캐릭터 소개 → 메인스토리 → 픽업 기간",
+    "score": 5.5,
+    "game_name": "스타세이비어",
+    "catalog_status": "없음",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781833",
+    "fact_check": "확인",
+    "blog_post_count": 115,
+    "search_volume_latest": 100,
+    "search_volume_trend": "보합",
+    "monthly_search_total": null,
+    "est_click_total": 0
+   },
+   {
+    "rank": 5,
+    "title": "소울 스트라이크 10월15일 업데이트, '유물 결속' 핵심 정리 (정복자 상한 상향)",
+    "keywords": [
+     "소울스트라이크 유물결속"
+    ],
+    "reason": "신규 성장시스템 추가와 정복자 스테이지 상한 상향(게임메카+네이버 게임라운지 확인)",
+    "outline": "점검·보상 → 유물 결속 시스템 → 전→후 수치표 → 공략 꿀팁",
+    "score": 5.0,
+    "game_name": "소울 스트라이크",
+    "catalog_status": "없음",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781824",
+    "fact_check": "확인",
+    "blog_post_count": 10,
+    "search_volume_latest": null,
+    "search_volume_trend": null,
+    "monthly_search_total": null,
+    "est_click_total": 0
+   },
+   {
+    "rank": 6,
+    "title": "도원암귀: 크림슨 인페르노, 일본 사전예약 시작 — 한국 출시는 언제?",
+    "keywords": [
+     "도원암귀 크림슨 인페르노"
+    ],
+    "reason": "컴투스 일본 애니 IP 신작 사전예약 시작, 글로벌 확장 예고(게임메카 10/15)",
+    "outline": "신작 소개 → 일본 사전예약 → 글로벌 확장 계획(공식 발표만) → 한국 출시 전망",
+    "score": 4.5,
+    "game_name": "도원암귀: 크림슨 인페르노",
+    "catalog_status": "없음",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781854",
+    "fact_check": "확인",
+    "blog_post_count": 203,
+    "search_volume_latest": 6.4935,
+    "search_volume_trend": "하락",
+    "monthly_search_total": null,
+    "est_click_total": 0
+   },
+   {
+    "rank": 7,
+    "title": "마벨러스 신작 JRPG '이터널 아니마', 2027년 3월 한국어판 출시 확정",
+    "keywords": [
+     "이터널 아니마"
+    ],
+    "reason": "스위치2·PS5용 신작 한국어판 출시일 공식 발표(아크시스템웍스아시아, 게임메카 10/15)",
+    "outline": "신작 소개 → 전투 시스템 → 한국어판 출시일 → 사전 기대 포인트",
+    "score": 4.0,
+    "game_name": "이터널 아니마 (Eternal Anima)",
+    "catalog_status": "없음",
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1781850",
+    "fact_check": "확인",
+    "blog_post_count": 137,
+    "search_volume_latest": 10.63829,
+    "search_volume_trend": "하락",
+    "monthly_search_total": 100,
+    "est_click_total": 0
+   },
+   {
+    "rank": 8,
+    "title": "스팀 가드 2단계 인증 설정법, 계정 해킹당했을 때 복구 순서까지",
+    "keywords": [
+     "스팀 가드 설정법",
+     "스팀 계정 복구"
+    ],
+    "reason": "쿠폰·계정 탈취 피싱 뉴스가 꾸준해, '계정 보안 설정법'은 꾸준 검색 주제",
+    "outline": "스팀 가드란 → 설정하는 법 → 해킹당했을 때 복구 순서 → 평소 지킬 습관",
+    "score": 5.5,
+    "game_name": null,
+    "catalog_status": null,
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://help.steampowered.com/en/faqs/view/6891-E071-C9D9-0134",
+    "fact_check": "확인",
+    "blog_post_count": 1301,
+    "search_volume_latest": 25.23076,
+    "search_volume_trend": "하락",
+    "monthly_search_total": null,
+    "est_click_total": 0
+   },
+   {
+    "rank": 9,
+    "title": "VR 헤드셋 고르는 법, 메타 퀘스트3 vs PSVR2 뭐가 다를까",
+    "keywords": [
+     "메타 퀘스트3 PSVR2 비교"
+    ],
+    "reason": "독립형 vs PS5전용 유선 구도는 꾸준 비교 검색 주제, ECM 방문자(콘솔·모바일 게이머) 관심사와 맞음",
+    "outline": "두 기기 구조 차이 → 콘텐츠·생태계 비교 → 가격(공식 스토어 재확인) → 추천 기준",
+    "score": 4.0,
+    "game_name": null,
+    "catalog_status": null,
+    "evidence_date": "2026-10-15",
+    "evidence_url": "https://direct.playstation.com/ko-kr/categories/accessories/playstation-vr2",
+    "fact_check": "확인",
+    "blog_post_count": 237,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
@@ -859,23 +851,22 @@
    },
    {
     "rank": 10,
-    "title": "유비소프트 레드링크스 스튜디오 폐쇄, 게임업계에 무슨 일이",
+    "title": "닌텐도 스위치 온라인 멤버십, 무료 플랜과 추가팩 뭐가 다를까",
     "keywords": [
-     "유비소프트 레드링크스",
-     "스튜디오 폐쇄"
+     "닌텐도 스위치 온라인 추가팩"
     ],
-    "reason": "업계 동향 소재로 카탈로그·쿠폰과 직접 관련은 없지만, 게임업계 뉴스를 챙기는 독자층 유입용. (네이버 검색량지수 없음, 추세 없음, 경쟁글 620건)",
-    "outline": "1) 무슨 일이 있었나 2) 트라이얼 시리즈란 3) 유비소프트 최근 상황 4) 앞으로 전망",
-    "score": 3.8,
+    "reason": "스위치2 보급 이후 가입 여부 검색 꾸준, 2026년 5월 인상된 최신 가격 반영 가능",
+    "outline": "두 플랜 비교 → 최신 가격(개인 49,900원·패밀리 84,900원) → 추천 기준 → 가입·해지 방법",
+    "score": 3.5,
     "game_name": null,
     "catalog_status": null,
     "evidence_date": "2026-10-15",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=322109",
+    "evidence_url": "https://www.nintendo.com/kr/nintendo-switch-online/expansion-pack/",
     "fact_check": "확인",
-    "blog_post_count": 620,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
+    "blog_post_count": 5843,
+    "search_volume_latest": 13.43283,
+    "search_volume_trend": "하락",
+    "monthly_search_total": 140,
     "est_click_total": 0
    }
   ]
