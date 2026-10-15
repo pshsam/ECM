@@ -42,7 +42,7 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
   lines.push('');
   for (const g of pageGames) {
     const n = (g.coupons || []).filter(c => isActive(c, today)).length;
-    const what = n ? `지금 쓸 수 있는 코드 ${n}개, 보상·만료일, 입력 방법` : '입력 방법, 코드가 나오는 곳, 지난 코드 이력';
+    const what = n ? `지금 쓸 수 있는 코드 ${n}개, 보상·만료일, 입력 방법` : '입력 방법과 코드가 나오는 곳 (지금은 살아 있는 코드 없음)';
     lines.push(`- [${g.title} 쿠폰 코드](${SITE}/game/${g.id}.html): ${what}`);
   }
   lines.push('');

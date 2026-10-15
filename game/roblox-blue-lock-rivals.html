@@ -242,6 +242,40 @@
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
+    /* 지금 코드가 없는 페이지: 상태 한 줄 → 기록 요약 → 넣는 곳 → 새 코드 알림 → 지난 코드 기록 */
+    .ecm-status-none b { color: var(--ink); }
+    .ecm-status-none i { color: var(--ink-3) !important; }
+    .ecm-nocode { border: 1px solid var(--line); border-radius: 14px; padding: .85rem 1rem; margin: 0 0 .8rem; background: #fff; }
+    .ecm-page .ecm-nocode p { margin: 0; font-size: .9rem; }
+    .ecm-alert { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem; margin: 1.4rem 0 0; }
+    .ecm-page .ecm-alert h2 { margin: 0 0 .25rem; font-size: 1rem; }
+    .ecm-page .ecm-alert p { margin: 0 0 .7rem; font-size: .88rem; }
+    .ecm-page .ecm-alert p.ecm-alert-note { margin: .7rem 0 0; font-size: .8rem; color: var(--ink-3); }
+    .ecm-alert-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
+    .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
+    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
+    .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
+    .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-muted { color: var(--ink-3); }
+    table.ecm-hist td.h-date, table.ecm-hist td.h-end { white-space: nowrap; }
+    @media (min-width: 641px) { table.ecm-hist td.h-code .ecm-code { white-space: nowrap; word-break: normal; } }
+    /* 휴대폰: 지난 코드도 표 대신 줄마다 카드 (코드 · 등록일 / 보상 / 끝난 날) */
+    @media (max-width: 640px) {
+      table.ecm-hist, table.ecm-hist tbody { display: block; }
+      table.ecm-hist thead { display: none; }
+      table.ecm-hist tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem .75rem; padding: .7rem .1rem; border-bottom: 1px solid var(--line); }
+      .ecm-page table.ecm-hist td { border: 0; padding: 0; font-size: .85rem; }
+      table.ecm-hist td.h-code { grid-column: 1; grid-row: 1; min-width: 0; }
+      table.ecm-hist td.h-code .ecm-code { overflow-wrap: anywhere; word-break: normal; }
+      table.ecm-hist td.h-date { grid-column: 2; grid-row: 1; color: var(--ink-3); font-size: .78rem; }
+      table.ecm-hist td.h-reward { grid-column: 1 / -1; grid-row: 2; color: var(--ink); }
+      table.ecm-hist td.h-end { grid-column: 1 / -1; grid-row: 3; white-space: normal; color: var(--ink-2); font-size: .8rem; }
+      table.ecm-hist .c-label { display: inline; color: var(--ink-3); font-size: .75rem; margin-right: .35rem; }
+    }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -381,20 +415,28 @@
     </ul>
 
 
-    <h2 id="history">코드 이력</h2>
-    <p>ECM 이 이 게임에서 확인해 등록했던 코드입니다. 지금은 쓸 수 없지만, 이 게임이 어떤 형식의 코드를 얼마나 자주 내는지 볼 수 있습니다. (ECM 등록일 2026.09.23)</p>
-    <table>
-      <thead><tr><th>코드</th><th>등록일</th><th>상태</th></tr></thead>
+    <h2 id="history">지난 코드 기록</h2>
+    <p class="ecm-hist-lede">지금은 쓸 수 없는 코드예요. ECM이 2026.09.23부터 직접 기록한 등록일 기준이에요.</p>
+    <h3 class="ecm-flow-title">코드가 나온 흐름</h3>
+    <ul class="ecm-flow">
+      <li><span>ECM이 기록한 코드</span><b>10개</b></li>
+      <li><span>마지막 새 코드 등록</span><b>2026.10.04</b></li>
+      <li><span>새 코드가 올라온 날</span><b>3번</b></li>
+      <li><span>올라온 날 사이 평균</span><b>6일</b></li>
+    </ul>
+    <table class="ecm-hist">
+      <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>
-        <tr><td><code class="ecm-code is-dead">SNUFFYUPD</code></td><td class="ecm-nowrap">2026.09.26</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">WSNUFFY</code></td><td class="ecm-nowrap">2026.09.26</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">UBERSVOTE</code></td><td class="ecm-nowrap">2026.09.26</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">NEWMASTER</code></td><td class="ecm-nowrap">2026.09.26</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">SNUFFYSOON</code></td><td class="ecm-nowrap">2026.09.23</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">BUGFIXES</code></td><td class="ecm-nowrap">2026.09.23</td><td>만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">UBERSCONTINUES</code></td><td class="ecm-nowrap">2026.09.23</td><td>만료</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">NEWMASTER</code></td><td class="h-reward">럭키 스타일 스핀 10개 + 럭키 플로우 스핀 10개</td><td class="h-date"><span class="c-label">등록</span>2026.09.26</td><td class="h-end"><span class="c-label">끝남</span>2026.10.05 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">SNUFFYUPD</code></td><td class="h-reward">럭키 스타일 스핀 5개 + 럭키 플로우 스핀 5개</td><td class="h-date"><span class="c-label">등록</span>2026.09.26</td><td class="h-end"><span class="c-label">끝남</span>2026.10.05 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">UBERSVOTE</code></td><td class="h-reward">럭키 플로우 스핀 10개</td><td class="h-date"><span class="c-label">등록</span>2026.09.26</td><td class="h-end"><span class="c-label">끝남</span>2026.10.05 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">WSNUFFY</code></td><td class="h-reward">럭키 스타일 스핀 10개</td><td class="h-date"><span class="c-label">등록</span>2026.09.26</td><td class="h-end"><span class="c-label">끝남</span>2026.10.05 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">BUGFIXES</code></td><td class="h-reward">럭키 플로우 5개</td><td class="h-date"><span class="c-label">등록</span>2026.09.23</td><td class="h-end"><span class="c-label">끝남</span>2026.09.27 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">SNUFFYSOON</code></td><td class="h-reward">럭키 스핀 5개, 럭키 플로우 5개</td><td class="h-date"><span class="c-label">등록</span>2026.09.23</td><td class="h-end"><span class="c-label">끝남</span>2026.09.27 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">UBERSCONTINUES</code></td><td class="h-reward">럭키 스핀 5개</td><td class="h-date"><span class="c-label">등록</span>2026.09.23</td><td class="h-end"><span class="c-label">끝남</span>2026.09.27 목록에서 내림</td></tr>
       </tbody>
     </table>
+    <p class="ecm-code-note">코드는 기록한 글자 그대로예요. 다시 넣어도 받을 수 없어요. <b>목록에서 내림</b>은 ECM이 쓸 수 없는 코드로 보고 목록에서 뺀 날이에요.</p>
 
 
     <h2 id="faq">자주 묻는 질문</h2>
@@ -406,11 +448,11 @@
     <h2 id="more">같은 장르의 다른 게임 쿠폰</h2>
     <div class="ecm-sib">
       <a href="/game/fconline.html">FC 온라인</a>
-      <a href="/game/ea-sports-fc-27.html">EA SPORTS FC 27</a>
       <a href="/game/whiteout-survival.html">화이트아웃 서바이벌 <span class="ecm-count">1</span></a>
       <a href="/game/nba2k27.html">NBA 2K27 <span class="ecm-count">2</span></a>
       <a href="/game/kingshot.html">킹샷 <span class="ecm-count">3</span></a>
-      <a href="/game/last-war-survival.html">라스트 워: 서바이벌</a>
+      <a href="/game/roblox-plants-vs-brainrots.html">플랜츠 vs 브레인랏 <span class="ecm-count">5</span></a>
+      <a href="/game/roblox-basketball-zero.html">바스켓볼 제로</a>
     </div>
 
 
