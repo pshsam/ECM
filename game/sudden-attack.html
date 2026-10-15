@@ -25,7 +25,7 @@
   <meta name="apple-mobile-web-app-title" content="ECM 쿠폰">
   <!-- /PWA -->
   <title>서든어택 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰</title>
-  <meta name="description" content="서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.">
+  <meta name="description" content="서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳. 새 코드는 확인 즉시 등록.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://ecm-coupon.com/game/sudden-attack.html">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -34,7 +34,7 @@
   <meta property="og:site_name" content="ECM 쿠폰 (Every Coupon Matters)">
   <meta property="og:url" content="https://ecm-coupon.com/game/sudden-attack.html">
   <meta property="og:title" content="서든어택 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰">
-  <meta property="og:description" content="서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.">
+  <meta property="og:description" content="서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳. 새 코드는 확인 즉시 등록.">
   <meta property="og:image" content="https://ecm-coupon.com/game/og/sudden-attack.jpg?v=9cbead92cc41">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
@@ -49,7 +49,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "서든어택 쿠폰 코드 입력 방법 (10월) | ECM 쿠폰",
-  "description": "서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.",
+  "description": "서든어택 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳. 새 코드는 확인 즉시 등록.",
   "url": "https://ecm-coupon.com/game/sudden-attack.html",
   "dateModified": "2026-10-15",
   "inLanguage": "ko",
@@ -215,6 +215,26 @@
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
+    /* 지금 코드가 없는 페이지: 상태 한 줄 → 기록 요약 → 넣는 곳 → 새 코드 알림 → 지난 코드 기록 */
+    .ecm-status-none b { color: var(--ink); }
+    .ecm-status-none i { color: var(--ink-3) !important; }
+    .ecm-nocode { border: 1px solid var(--line); border-radius: 14px; padding: .85rem 1rem; margin: 0 0 .8rem; background: #fff; }
+    .ecm-page .ecm-nocode p { margin: 0; font-size: .9rem; }
+    .ecm-alert { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem; margin: 1.4rem 0 0; }
+    .ecm-page .ecm-alert h2 { margin: 0 0 .25rem; font-size: 1rem; }
+    .ecm-page .ecm-alert p { margin: 0 0 .7rem; font-size: .88rem; }
+    .ecm-page .ecm-alert p.ecm-alert-note { margin: .7rem 0 0; font-size: .8rem; color: var(--ink-3); }
+    .ecm-alert-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
+    .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
+    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
+    .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
+    .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-muted { color: var(--ink-3); }
+    @media (max-width: 640px) { table.ecm-hist th:nth-child(2), table.ecm-hist td:nth-child(2) { min-width: 7rem; } }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -277,25 +297,34 @@
       </div>
     </div>
     <div class="ecm-status">
-      <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 마지막 확인 <b>10.15</b></span>
-      <span>지금 쓸 수 있는 코드 없음</span>
-      
-      
-      <button type="button" class="ecm-fav-mini ecm-fav" data-fav="sudden-attack" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
-      <button type="button" class="ecm-fav-mini" data-push-toggle data-game="sudden-attack" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
+      <span class="ecm-status-none"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i> <b>지금 쓸 수 있는 코드가 없어요</b> · 마지막 확인 2026.10.15</span>
     </div>
 
     <h2 id="codes">지금 쓸 수 있는 코드</h2>
     <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
-    <div class="ecm-empty">
-      <p><strong>2026.10.15 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(게임사 공식 채널이나 인벤 기사와 독립된 출처에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
-      <p>ECM 은 넥슨 공식 채널과 인벤 기사를 4시간마다 확인합니다. 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.</p>
+    <div class="ecm-nocode">
+      <p>ECM이 2026.09.24부터 이 게임을 기록하는 동안 등록 기준을 통과한 코드는 아직 없어요. 새 코드가 확인되면 이 자리에 등록일과 함께 올라와요.</p>
+    </div>
+    <div class="ecm-redeem-bar">
+      <p><b>코드를 넣는 곳</b> 공식 이벤트 쿠폰 페이지에서 쿠폰번호 등록 후 게임 내 우편함에서 수령</p>
+      <a class="ecm-open" href="https://event.sa.nexon.com/events/new_coupon/coupon2.aspx" target="_blank" rel="noopener noreferrer" data-redeem="bar">쿠폰 입력 페이지 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
     </div>
 
-    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="서든어택 쿠폰 코드 | ECM" data-share-text="서든어택 쿠폰 입력 방법과 새 코드 소식"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+
+    <section class="ecm-alert" aria-labelledby="alertTitle">
+      <h2 id="alertTitle">새 코드 알림</h2>
+      <p>서든어택 코드가 새로 확인되면 아래 방법으로 바로 알 수 있어요.</p>
+      <div class="ecm-alert-row">
+        <button type="button" class="ecm-share ecm-fav" data-fav="sudden-attack" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+        <button type="button" class="ecm-share" data-push-toggle data-game="sudden-attack" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
+        <a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 @ecmcoupon</a>
+        <a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a>
+      </div>
+      <p class="ecm-alert-note">내 게임에 담은 게임은 <a href="/today/#mine">오늘의 쿠폰</a>의 내 게임 칸에 모여요. 이 기기에만 저장돼요.</p>
+    </section>
 
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
-      <p>ECM 쿠폰이 정리한 서든어택 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. 2026.10.15 기준으로 살아 있는 코드는 없습니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      <p>ECM 쿠폰이 정리한 서든어택 쿠폰 입력 방법과 코드가 나오는 곳입니다. 2026.10.15 확인 기준으로 살아 있는 코드는 없습니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
       <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
     </details>
 
@@ -326,8 +355,6 @@
     </ul>
 
 
-    <h2 id="history">코드 이력</h2>
-    <p>ECM 에 2026.09.24 등록된 뒤 아직 확인된 코드가 없는 게임입니다. 첫 코드가 확인되면 위 표와 여기에 등록일과 함께 남습니다.</p>
 
 
     <h2 id="faq">자주 묻는 질문</h2>

@@ -155,12 +155,13 @@ function noteHtml(g) {
  * 코드 표 바로 위의 "어디에 넣나 + 입력 페이지 열기" 줄. 복사한 다음 할 일을 아래 입력 방법까지 내려가 찾지 않게 한다.
  * 아래 "입력 방법" 단락은 그대로 둔다(자세한 순서와 검색용 본문).
  */
-function redeemBarHtml(g) {
+// noCodes: 지금 코드가 없는 페이지에서는 "복사한 뒤" 대신 "코드를 넣는 곳"
+function redeemBarHtml(g, noCodes = false) {
   const url = g.redeemUrl || g.officialUrl || '';
   if (!g.redeemHow && !url) return '';
   const label = g.redeemUrl ? '쿠폰 입력 페이지 열기' : isRoblox(g) ? '로블록스에서 게임 열기' : '공식 사이트 열기';
   return `    <div class="ecm-redeem-bar">
-      <p><b>복사한 뒤 넣는 곳</b> ${g.redeemHow ? esc(g.redeemHow) : '공식 사이트나 게임 안 설정 메뉴의 쿠폰 입력란'}</p>
+      <p><b>${noCodes ? '코드를 넣는 곳' : '복사한 뒤 넣는 곳'}</b> ${g.redeemHow ? esc(g.redeemHow) : '공식 사이트나 게임 안 설정 메뉴의 쿠폰 입력란'}</p>
       ${url ? `<a class="ecm-open" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-redeem="bar">${label} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>` : ''}
     </div>
 `;
@@ -275,15 +276,51 @@ function sourceInfo(g) {
   };
 }
 
-/** 장부(data/coupon-seen.json)에서 이 게임에 등록됐던 코드 이력. 지금 표에 없는 것만. */
-function historyFor(g, firstSeen, coupons) {
+// ECM 이 코드를 기록하기 시작한 날(사이트 연 날). 이날 첫 커밋에만 있다 빠진 코드는 실제로 확인한 코드가 아닌 예시 데이터라 기록에서 뺀다
+const TRACK_START = '2026-09-21';
+const HISTORY_MAX = 10;
+
+/** 이 게임에 ECM 이 기록한 코드 전부 (등록일 장부 data/coupon-seen.json 기준). 사이트 연 날의 예시 데이터는 뺀다 */
+function recordedCodes(g, firstSeen, coupons) {
   const now = new Set((coupons || []).map(c => c.code));
-  const rows = Object.keys(firstSeen || {})
+  return Object.keys(firstSeen || {})
     .filter(k => k.startsWith(g.id + ':'))
-    .map(k => ({ code: k.slice(g.id.length + 1), date: firstSeen[k] }))
-    .filter(r => r.code && !now.has(r.code))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-  return rows.slice(0, 8);
+    .map(k => ({ code: k.slice(g.id.length + 1), date: firstSeen[k] || '', inCatalog: now.has(k.slice(g.id.length + 1)) }))
+    .filter(r => r.code && (r.inCatalog || r.date > TRACK_START));
+}
+
+/**
+ * 지난 코드 기록: 지금 카탈로그에 없는(끝난) 코드. 보상·끝난 날은 지난 코드 장부(data/coupon-history.json, prerender.js 가 관리)에서.
+ * 끝난 날: 공식 만료일이 있고 그 전에 목록에서 내리지 않았으면 "만료", 아니면 ECM 목록에서 내린 날.
+ */
+function historyFor(g, firstSeen, coupons, ledger = {}) {
+  return recordedCodes(g, firstSeen, coupons)
+    .filter(r => !r.inCatalog)
+    .map(r => {
+      const h = ledger[g.id + ':' + r.code] || {};
+      const exp = /^\d{4}-\d{2}-\d{2}$/.test(h.expireDate || '') ? h.expireDate : '';
+      let end = '';
+      if (exp && (!h.removed || exp <= h.removed)) end = `${fmt(exp)} 만료`;
+      else if (h.removed) end = `${fmt(h.removed)} 목록에서 내림`;
+      return { code: r.code, date: r.date, reward: h.reward || '', end };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date) || a.code.localeCompare(b.code));
+}
+
+/**
+ * 코드가 나온 흐름: ECM 기록(등록일 장부)만으로 센 숫자. 예측은 하지 않는다.
+ *   start 이 게임을 기록하기 시작한 날, n 기록한 코드 수, last 마지막 새 코드 등록일,
+ *   days 새 코드가 올라온 날 수(사이트 연 날 제외), gap 그 날들 사이 평균 간격(날이 3번 이상일 때만)
+ */
+function flowFor(g, firstSeen, coupons) {
+  const rows = recordedCodes(g, firstSeen, coupons);
+  const added = (firstSeen || {})['game:' + g.id] || '';
+  const start = added > TRACK_START ? added : TRACK_START;
+  const dates = [...new Set(rows.map(r => r.date).filter(d => d > TRACK_START))].sort();
+  const last = dates.length ? dates[dates.length - 1] : '';
+  let gap = null;
+  if (dates.length >= 3) gap = Math.round((Date.parse(last) - Date.parse(dates[0])) / 86400000 / (dates.length - 1));
+  return { start, n: rows.length, last, days: dates.length, gap };
 }
 
 function tipsFor(g) {
@@ -340,8 +377,9 @@ function pageHtml(g, ctx) {
   const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && isListed(x, ctx.activeOf)).slice(0, 6) : [];
   const listed = isListed(g, ctx.activeOf);
   const src = sourceInfo(g);
-  const history = historyFor(g, firstSeen, coupons);
-  const addedOn = firstSeen && firstSeen['game:' + g.id];
+  const history = historyFor(g, firstSeen, coupons, ctx.ledger);
+  const flow = flowFor(g, firstSeen, coupons);
+  const checkedOn = g.checked || version;
 
   // 검색 결과 제목은 한국어 40자쯤에서 잘린다. 긴 게임 이름이면 뒤부터 덜어낸다.
   const mon = `${today.getMonth() + 1}월`;
@@ -356,7 +394,24 @@ function pageHtml(g, ctx) {
   const title = titleCands.find(t => t.length <= 40) || titleCands[titleCands.length - 1];
   const desc = active.length
     ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
-    : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳과 지난 코드 이력. 새 코드는 확인 즉시 등록.`;
+    : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳${history.length ? '과 지난 코드 기록' : ''}. 새 코드는 확인 즉시 등록.`;
+
+  // ── 지난 코드 기록 + 코드가 나온 흐름 (기록이 없으면 단락을 만들지 않는다)
+  const shownHistory = history.slice(0, HISTORY_MAX);
+  const historyHtml = !history.length ? '' : `    <h2 id="history">지난 코드 기록</h2>
+    <p class="ecm-hist-lede">지금은 쓸 수 없는 코드예요. ECM이 ${esc(fmt(flow.start))}부터 직접 기록한 등록일 기준이에요.</p>
+    <h3 class="ecm-flow-title">코드가 나온 흐름</h3>
+    <ul class="ecm-flow">
+      <li><span>ECM이 기록한 코드</span><b>${flow.n}개</b></li>
+${flow.last ? `      <li><span>마지막 새 코드 등록</span><b>${esc(fmt(flow.last))}</b></li>\n` : ''}${flow.days >= 2 ? `      <li><span>새 코드가 올라온 날</span><b>${flow.days}번</b></li>\n` : ''}${flow.gap !== null ? `      <li><span>올라온 날 사이 평균</span><b>${flow.gap}일</b></li>\n` : ''}    </ul>
+    <table class="ecm-hist">
+      <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
+      <tbody>
+${shownHistory.map(r => `        <tr><td><code class="ecm-code is-dead">${esc(r.code)}</code></td><td>${r.reward ? esc(r.reward) : '<span class="ecm-muted">기록 없음</span>'}</td><td class="ecm-nowrap">${esc(fmt(r.date))}</td><td class="ecm-nowrap">${r.end ? esc(r.end) : '지금은 쓸 수 없음'}</td></tr>`).join('\n')}
+      </tbody>
+    </table>
+    <p class="ecm-code-note">${history.length > shownHistory.length ? `최근 ${shownHistory.length}개만 보여요(전체 ${history.length}개). ` : ''}코드는 기록한 글자 그대로예요. 다시 넣어도 받을 수 없어요. <b>목록에서 내림</b>은 ECM이 쓸 수 없는 코드로 보고 목록에서 뺀 날이에요.</p>
+`;
 
   // 등록일(코드가 처음 확인된 날, data/coupon-seen.json) 최신순. 같은 날 들어온 코드는 한데 모인다(홈 업데이트에서 바로 찾아오게)
   const seenOf = c => (firstSeen[g.id + ':' + c.code] || '');
@@ -516,6 +571,26 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
+    /* 지금 코드가 없는 페이지: 상태 한 줄 → 기록 요약 → 넣는 곳 → 새 코드 알림 → 지난 코드 기록 */
+    .ecm-status-none b { color: var(--ink); }
+    .ecm-status-none i { color: var(--ink-3) !important; }
+    .ecm-nocode { border: 1px solid var(--line); border-radius: 14px; padding: .85rem 1rem; margin: 0 0 .8rem; background: #fff; }
+    .ecm-page .ecm-nocode p { margin: 0; font-size: .9rem; }
+    .ecm-alert { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem; margin: 1.4rem 0 0; }
+    .ecm-page .ecm-alert h2 { margin: 0 0 .25rem; font-size: 1rem; }
+    .ecm-page .ecm-alert p { margin: 0 0 .7rem; font-size: .88rem; }
+    .ecm-page .ecm-alert p.ecm-alert-note { margin: .7rem 0 0; font-size: .8rem; color: var(--ink-3); }
+    .ecm-alert-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
+    .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
+    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
+    .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
+    .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-muted { color: var(--ink-3); }
+    @media (max-width: 640px) { table.ecm-hist th:nth-child(2), table.ecm-hist td:nth-child(2) { min-width: 7rem; } }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -547,14 +622,16 @@ ${headerHtml()}
         </div>
       </div>
     </div>
-    <div class="ecm-status">
+${active.length ? `    <div class="ecm-status">
       <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${g.checked ? `마지막 확인 <b>${esc(fmt(g.checked).slice(5))}</b>` : `목록 갱신 <b>${esc(fmt(version).slice(5))}</b>`}</span>
-      ${active.length ? `<span>쓸 수 있는 코드 <b>${active.length}</b>개</span>` : '<span>지금 쓸 수 있는 코드 없음</span>'}
+      <span>쓸 수 있는 코드 <b>${active.length}</b>개</span>
       ${unknownN ? `<span>만료일 미공개 <b>${unknownN}</b>개</span>` : ''}
       ${active.length >= 5 ? '<a href="#how">입력 방법 바로가기 ↓</a>' : ''}
       <button type="button" class="ecm-fav-mini ecm-fav" data-fav="${esc(g.id)}" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
       <button type="button" class="ecm-fav-mini" data-push-toggle data-game="${esc(g.id)}" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
-    </div>
+    </div>` : `    <div class="ecm-status">
+      <span class="ecm-status-none"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i> <b>지금 쓸 수 있는 코드가 없어요</b> · ${g.checked ? '마지막 확인' : '목록 갱신'} ${esc(fmt(checkedOn))}</span>
+    </div>`}
 
     <h2 id="codes">지금 쓸 수 있는 코드${active.length ? ` (${active.length})` : ''}</h2>
     <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
@@ -565,17 +642,31 @@ ${codeRows}
       </tbody>
     </table>
     <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.${active.some(x => couponSourceHtml(x.c)) ? ' 코드 아래 <b>확인</b>은 출처 글로 그 코드를 확인한 날, <b>출처</b>는 근거로 삼은 글이에요.' : ''}</p>`
-: `    <div class="ecm-empty">
-      <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
-      <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
-    </div>`}
-
-    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(active.length ? `${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요` : `${g.title} 쿠폰 입력 방법과 새 코드 소식`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
-
+: `    <div class="ecm-nocode">
+      <p>${flow.n
+        ? `${flow.last ? `ECM이 마지막으로 새 코드를 등록한 날은 <b>${esc(fmt(flow.last))}</b>이고, ` : ''}지금까지 기록한 코드는 ${flow.n}개예요.${history.length ? ' <a href="#history">지난 코드 기록</a>에 남겨 두었어요.' : expired.length ? ' <a href="#expired">최근 만료된 코드</a>에 남겨 두었어요.' : ''}`
+        : `ECM이 ${esc(fmt(flow.start))}부터 이 게임을 기록하는 동안 등록 기준을 통과한 코드는 아직 없어요.`} 새 코드가 확인되면 이 자리에 등록일과 함께 올라와요.</p>
+    </div>
+${redeemBarHtml(g, true)}`}
+${active.length ? `
+    <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(`${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+` : `
+    <section class="ecm-alert" aria-labelledby="alertTitle">
+      <h2 id="alertTitle">새 코드 알림</h2>
+      <p>${esc(g.title)} 코드가 새로 확인되면 아래 방법으로 바로 알 수 있어요.</p>
+      <div class="ecm-alert-row">
+        <button type="button" class="ecm-share ecm-fav" data-fav="${esc(g.id)}" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i> <span>내 게임에 담기</span></button>
+        <button type="button" class="ecm-share" data-push-toggle data-game="${esc(g.id)}" aria-pressed="false" hidden><i class="fa-regular fa-bell" aria-hidden="true"></i> <span>새 쿠폰 알림 받기</span></button>
+        <a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 @ecmcoupon</a>
+        <a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a>
+      </div>
+      <p class="ecm-alert-note">내 게임에 담은 게임은 <a href="/today/#mine">오늘의 쿠폰</a>의 내 게임 칸에 모여요. 이 기기에만 저장돼요.</p>
+    </section>
+${historyHtml}`}
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
       <p>${active.length
       ? `ECM 쿠폰이 ${esc(fmt(g.checked || version))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
-      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳, 지난 코드 이력입니다. ${esc(fmt(version))} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
       <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
     </details>
 
@@ -608,17 +699,7 @@ ${expiredRows}
       </tbody>
     </table>
 ` : ''}
-${history.length ? `    <h2 id="history">코드 이력</h2>
-    <p>ECM 이 이 게임에서 확인해 등록했던 코드입니다. 지금은 쓸 수 없지만, 이 게임이 어떤 형식의 코드를 얼마나 자주 내는지 볼 수 있습니다.${addedOn ? ` (ECM 등록일 ${esc(fmt(addedOn))})` : ''}</p>
-    <table>
-      <thead><tr><th>코드</th><th>등록일</th><th>상태</th></tr></thead>
-      <tbody>
-${history.map(r => `        <tr><td><code class="ecm-code is-dead">${esc(r.code)}</code></td><td class="ecm-nowrap">${esc(fmt(r.date))}</td><td>만료</td></tr>`).join('\n')}
-      </tbody>
-    </table>
-` : (addedOn && !active.length ? `    <h2 id="history">코드 이력</h2>
-    <p>ECM 에 ${esc(fmt(addedOn))} 등록된 뒤 아직 확인된 코드가 없는 게임입니다. 첫 코드가 확인되면 위 표와 여기에 등록일과 함께 남습니다.</p>
-` : '')}
+${active.length ? historyHtml : ''}
 ${related.length ? `    <h2 id="related">${esc(g.title)} 관련 글</h2>
     <ul>
 ${related.map(p => `      <li><a href="${esc(p.url)}">${esc(p.title)}</a> <small>${esc(fmt(p.date))}</small></li>`).join('\n')}
@@ -756,12 +837,12 @@ ${footerHtml()}
  * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록·사이트맵에 넣을 게임(isListed). 나머지는 noindex 페이지로만 남는다.
  * @returns {{written: number, removed: number, ids: string[], listedIds: string[]}}
  */
-function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}) {
+function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
-  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages };
+  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger };
   const keep = new Set();
   const listedIds = [];
   let written = 0;
@@ -781,4 +862,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
 }
 
-module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };

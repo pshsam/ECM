@@ -266,6 +266,26 @@
     .ecm-page a.ecm-open { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink); color: #fff; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; text-decoration: none; }
     .ecm-page a.ecm-open:hover { background: #2E2C24; }
     .ecm-empty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 1rem 1.2rem; color: var(--ink-3); }
+    /* 지금 코드가 없는 페이지: 상태 한 줄 → 기록 요약 → 넣는 곳 → 새 코드 알림 → 지난 코드 기록 */
+    .ecm-status-none b { color: var(--ink); }
+    .ecm-status-none i { color: var(--ink-3) !important; }
+    .ecm-nocode { border: 1px solid var(--line); border-radius: 14px; padding: .85rem 1rem; margin: 0 0 .8rem; background: #fff; }
+    .ecm-page .ecm-nocode p { margin: 0; font-size: .9rem; }
+    .ecm-alert { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem; margin: 1.4rem 0 0; }
+    .ecm-page .ecm-alert h2 { margin: 0 0 .25rem; font-size: 1rem; }
+    .ecm-page .ecm-alert p { margin: 0 0 .7rem; font-size: .88rem; }
+    .ecm-page .ecm-alert p.ecm-alert-note { margin: .7rem 0 0; font-size: .8rem; color: var(--ink-3); }
+    .ecm-alert-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
+    .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
+    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
+    .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
+    .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ecm-muted { color: var(--ink-3); }
+    @media (max-width: 640px) { table.ecm-hist th:nth-child(2), table.ecm-hist td:nth-child(2) { min-width: 7rem; } }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -433,14 +453,6 @@
     </ul>
 
 
-    <h2 id="history">코드 이력</h2>
-    <p>ECM 이 이 게임에서 확인해 등록했던 코드입니다. 지금은 쓸 수 없지만, 이 게임이 어떤 형식의 코드를 얼마나 자주 내는지 볼 수 있습니다. (ECM 등록일 2026.09.21)</p>
-    <table>
-      <thead><tr><th>코드</th><th>등록일</th><th>상태</th></tr></thead>
-      <tbody>
-        <tr><td><code class="ecm-code is-dead">NATLANEXPLORE26</code></td><td class="ecm-nowrap">2026.09.21</td><td>만료</td></tr>
-      </tbody>
-    </table>
 
     <h2 id="related">원신 관련 글</h2>
     <ul>
