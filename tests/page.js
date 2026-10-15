@@ -18,7 +18,7 @@ const INDEX = path.join(ROOT, 'index.html');
 const FNS = [
   'evaluateCoupon', 'countActiveCoupons', 'purgeOldCoupons',
   'matchesGameSearch', 'searchCounts', 'handleSearch', 'clearSearch',
-  'renderGames', 'monoOf', 'codeAnchor', 'esc',
+  'renderGames', 'monoOf', 'codeAnchor', 'couponSourceHtml', 'esc',
 ];
 
 function pageScript(html) {

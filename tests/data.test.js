@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { loadPage, ROOT } = require('./page');
 const mono = require('../scripts/mono');
-const { codeAnchor } = require('../scripts/game-pages');
+const { codeAnchor, couponSourceHtml } = require('../scripts/game-pages');
 
 const page = loadPage();
 const { initialGameCatalog: catalog, COUPON_FIRST_SEEN } = page.state();
@@ -83,6 +83,36 @@ test('글자 타일 규칙이 화면(index.html)과 빌드(scripts/mono.js)에�
 test('코드 앵커 규칙이 화면과 빌드에서 같다', () => {
   const codes = [...catalog.flatMap(g => g.coupons.map(c => c.code)), '한글코드!', 'A-B_c'];
   for (const c of codes) assert.equal(page.fn.codeAnchor(c), codeAnchor(c), `'${c}'`);
+});
+
+test('코드별 확인일·출처 줄이 화면(index.html)과 빌드(scripts/game-pages.js)에서 같다', () => {
+  const samples = [
+    ...catalog.flatMap(g => g.coupons),
+    {},
+    { src: ['https://www.example.com/a', 'https://example.com/b', 'https://other.kr/news/1'], verified: '2026-10-13', cond: '신규 계정만' },
+    { src: ['https://example.com/a?x=1&y="2"'] },
+    { verified: '2026-10-13' },
+    { cond: '<b>조건</b>' },
+    { src: ['잘못된 주소'] },
+  ];
+  for (const c of samples) assert.equal(page.fn.couponSourceHtml(c), couponSourceHtml(c), JSON.stringify(c));
+});
+
+test('확인일·출처 줄: 값이 없으면 아무것도 찍지 않고, 있으면 날짜·도메인·조건을 보여 준다', () => {
+  assert.equal(couponSourceHtml({ code: 'X', reward: 'y' }), '');
+  const html = couponSourceHtml({ src: ['https://www.pockettactics.com/wuthering-waves/codes', 'https://www.pcgamesn.com/wuthering-waves/codes'], verified: '2026-10-15', cond: '레벨 10 이상' });
+  assert.match(html, /확인 2026\.10\.15 · 출처 <a [^>]*>pockettactics\.com<\/a>, <a [^>]*>pcgamesn\.com<\/a>/);
+  assert.match(html, /조건: 레벨 10 이상/);
+  assert.match(html, /target="_blank" rel="noopener nofollow"/);
+  assert.doesNotMatch(couponSourceHtml({ cond: '<img src=x>' }), /<img/);
+});
+
+test('게임 페이지 코드 표에 확인일·출처가 나온다 (src 가 있는 코드)', () => {
+  const g = catalog.find(x => x.coupons.some(c => c.src && page.fn.evaluateCoupon(c).status === 'active'));
+  if (!g) return; // 아직 출처가 붙은 살아 있는 코드가 없으면 건너뜀
+  const file = path.join(ROOT, 'game', g.id + '.html');
+  if (!fs.existsSync(file)) return;
+  assert.match(fs.readFileSync(file, 'utf8'), /class="ecm-src"/, `${g.id}: prerender 후 게임 페이지에 출처 줄이 없음`);
 });
 
 test('홈 HTML 에 미리 그린 목록이 들어 있다 (prerender 를 돌렸는지)', () => {

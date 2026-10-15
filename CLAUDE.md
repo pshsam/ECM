@@ -52,6 +52,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 쿠폰 만료 판정 | `evaluateCoupon` | `game-pages.js` `evaluate` | tests/coupon.test.js |
 | 글자 타일 | `monoOf` | `mono.js` | tests/data.test.js |
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
+| 코드별 확인일·출처 줄 | `couponSourceHtml` (홈 쿠폰 창) | `game-pages.js` `couponSourceHtml` (코드 표) | tests/data.test.js |
 | 위젯 요약 형식·"새 코드" 3일 | (앱 저장소 `ios/App/Shared/CouponFeed.swift`) | `widget-feed.js`, `notify-*.js` | tests/widget.test.js |
 
 ## 쿠폰 데이터 규칙
@@ -59,7 +60,8 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - `expireDate`: **공식 만료일만**. `"상시"` 또는 `YYYY-MM-DD`. 공지가 없으면 필드를 뺀다(→ "만료일 미공개").
 - `recheckBy`: 내부 재확인 기한. 화면에 날짜로 안 보인다. 지나면 "재확인 필요"로 목록에서 내려간다.
 - `src` / `verified` / `cond` (2026-10-13~, 쿠폰 루틴이 채움): 근거로 센 출처 글 주소 1~3개 / 출처로 확인한 날 / 조건(선택).
-  아직 화면에 안 쓴다(애드센스 승인 뒤 게임 페이지에 "출처·확인일"로 보여 줄 예정). 형식은 tests/data.test.js 가 검사한다.
+  게임 페이지 코드 표와 홈 쿠폰 창의 보상 아래에 "확인 YYYY.MM.DD · 출처 도메인" (+ "조건: …")으로 보인다. 없으면 아무것도 안 찍는다.
+  형식은 tests/data.test.js 가 검사한다.
   `checked`(게임 단위 조사일)와 다르다. 루틴 지침: 블로그 오토 저장소 `automation/routines/쿠폰_검증_루틴_지침.md`, `로블록스_쿠폰_루틴_지침.md`.
 - 날짜는 한국 시간 기준. 만료 후 90일이 지나면 목록에서 지운다.
 - 공식 공지나 서로 다른 출처 2곳에서 확인된 코드만 올린다(/about.html#criteria).

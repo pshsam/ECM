@@ -304,6 +304,12 @@ main article p.text-sm, main article li, main article .text-sm:not(table):not(th
 .ecm-blog-chips .ecm-chip.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
 main section[data-cat][hidden] { display: none; }
 
+/* 쿠폰 코드별 확인일·출처 (게임 페이지 코드 표, 홈 쿠폰 창). 보상 아래 작은 회색 줄 */
+.ecm-src { display: block; margin-top: .25rem; font-size: .76rem; line-height: 1.55; color: var(--ink-3); font-weight: 500; }
+.ecm-src-cond { display: block; color: var(--ink-2); }
+.ecm-src a.ecm-src-link { color: var(--ink-2); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--line); overflow-wrap: anywhere; }
+.ecm-src a.ecm-src-link:hover { color: var(--ink); text-decoration-color: currentColor; }
+
 /* 글쓴이 줄 */
 .ecm-byline { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--ink-3); margin: -.25rem 0 1.25rem; }
 .ecm-byline img { width: 22px; height: 22px; }

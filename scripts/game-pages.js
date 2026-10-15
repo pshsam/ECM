@@ -79,6 +79,30 @@ function statusPill(ev) {
   if (!ev.active) return '<span class="ecm-pill expired">만료</span>';
   return `<span class="ecm-pill ${ev.left <= 3 ? 'due-soon' : 'due'}">${esc(ev.text)}</span>`;
 }
+/**
+ * 코드별 확인일·출처 줄 (src / verified / cond, 2026-10-13~ 쿠폰 루틴이 채운다).
+ * "확인 YYYY.MM.DD · 출처 도메인1, 도메인2" + 조건이 있으면 "조건: …". 값이 없으면 빈 문자열(“출처 없음”을 찍지 않는다).
+ * index.html 의 couponSourceHtml 과 같은 규칙이어야 한다 (tests/data.test.js 가 비교한다).
+ */
+function couponSourceHtml(c) {
+  const src = c && Array.isArray(c.src) ? c.src : [];
+  const count = {};
+  const links = src.map(u => {
+    let host = '';
+    try { host = new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+    count[host] = (count[host] || 0) + 1;
+    const label = count[host] > 1 ? `${host} ${count[host]}` : host;
+    return `<a class="ecm-src-link" href="${esc(u)}" target="_blank" rel="noopener nofollow">${esc(label)}</a>`;
+  }).filter(Boolean);
+  const verified = c && /^\d{4}-\d{2}-\d{2}$/.test(c.verified || '') ? c.verified : '';
+  const parts = [];
+  if (verified) parts.push(`확인 ${esc(verified.replace(/-/g, '.'))}`);
+  if (links.length) parts.push(`출처 ${links.join(', ')}`);
+  const cond = c && typeof c.cond === 'string' && c.cond.trim() ? c.cond.trim() : '';
+  if (!parts.length && !cond) return '';
+  return `<span class="ecm-src">${cond ? `<span class="ecm-src-cond">조건: ${esc(cond)}</span>` : ''}${parts.length ? `<span class="ecm-src-line">${parts.join(' · ')}</span>` : ''}</span>`;
+}
+
 /** 공식 만료일이 두 달 넘게 남았으면 D-숫자 대신 날짜로 (D-1553 처럼 읽기 어려운 표시를 피한다) */
 const FAR_DAYS = 60;
 
@@ -326,7 +350,7 @@ function pageHtml(g, ctx) {
     const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
     return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
           <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
-          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}</td>
+          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}</td>
           <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
           <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="${esc(c.code)}" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
@@ -518,7 +542,7 @@ ${active.length ? redeemBarHtml(g) : ''}${active.length ? `    <table class="ecm
 ${codeRows}
       </tbody>
     </table>
-    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.</p>`
+    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.${active.some(x => couponSourceHtml(x.c)) ? ' 코드 아래 <b>확인</b>은 출처 글로 그 코드를 확인한 날, <b>출처</b>는 근거로 삼은 글이에요.' : ''}</p>`
 : `    <div class="ecm-empty">
       <p><strong>${esc(fmt(version))} 기준으로 살아 있는 코드가 없습니다.</strong> 등록 기준을 통과한 코드(${isRoblox ? '개발팀 공식 채널이나 코드 매체 2곳 이상' : '게임사 공식 채널이나 인벤 기사와 독립된 출처'}에서 확인)만 올리기 때문에, 다른 곳에 떠도는 코드가 여기 없으면 대개 만료됐거나 확인이 안 된 것입니다.</p>
       <p>${esc(src.cadence)} 새 코드가 확인되면 이 표에 등록일과 함께 올라옵니다.${history.length ? ' 이 게임은 아래 "코드 이력"에 지금까지 나왔던 코드가 있습니다.' : ''}</p>
@@ -732,4 +756,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')) };
 }
 
-module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, codeAnchor, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };
