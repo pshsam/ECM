@@ -70,6 +70,8 @@ function writeFreePages(rootDir, { games = [], evaluate, gamePageIds = [], heade
   const today = kstToday();
   const pre = loadPre(rootDir);
   const open = (pre.games || []).filter(g => g.status === 'open');
+  // 게임 페이지 링크는 목록에 보이는 게임(gamePageIds)일 때만. 코드가 없어 숨긴 게임은 이름만 쓴다
+  const gameLink = (id, text) => gamePageIds.includes(id) ? `<a href="/game/${esc(id)}.html">${esc(text)}</a>` : esc(text);
 
   // 지금 쓸 수 있는 쿠폰 수
   let codes = 0, withCodes = 0;
@@ -97,9 +99,9 @@ function writeFreePages(rootDir, { games = [], evaluate, gamePageIds = [], heade
     <section class="hub-sec">
       <h2><i class="fa-solid fa-gift" aria-hidden="true"></i> 놓치기 쉬운 무료 보상</h2>
       <ul class="fr-tips">
-        <li><b>공식 방송 쿠폰</b><span>게임사가 업데이트 발표 방송이나 대회 중계 화면에 쿠폰 코드를 띄우는 경우가 있어요. 입력 시간이 정해진 경우가 많으니 방송 중에 바로 넣으세요. 예: <a href="/game/fconline.html">FC 온라인 FCL 생방송</a>, <a href="/game/lostark.html">로스트아크 로아온</a></span></li>
+        <li><b>공식 방송 쿠폰</b><span>게임사가 업데이트 발표 방송이나 대회 중계 화면에 쿠폰 코드를 띄우는 경우가 있어요. 입력 시간이 정해진 경우가 많으니 방송 중에 바로 넣으세요. 예: ${gameLink('fconline', 'FC 온라인 FCL 생방송')}, ${gameLink('lostark', '로스트아크 로아온')}</span></li>
         <li><b>사전예약 보상</b><span>신작은 출시 전 사전예약만 해도 아이템을 줘요. 예약 인원이 목표를 넘을 때마다 보상이 늘어나는 방식도 많아요. <a href="/free/preregister.html">사전예약 보상 모음 보기</a></span></li>
-        <li><b>PC방 혜택</b><span>일부 PC 게임은 제휴 PC방에서 접속하면 추가 보상이나 전용 쿠폰을 줘요. 게임 공식 홈페이지의 PC방 이벤트 안내를 확인하세요. 예: <a href="/game/fconline.html">FC 온라인 PC방 스페셜 쿠폰</a></span></li>
+        <li><b>PC방 혜택</b><span>일부 PC 게임은 제휴 PC방에서 접속하면 추가 보상이나 전용 쿠폰을 줘요. 게임 공식 홈페이지의 PC방 이벤트 안내를 확인하세요. 예: ${gameLink('fconline', 'FC 온라인 PC방 스페셜 쿠폰')}</span></li>
         <li><b>출석·복귀 이벤트</b><span>업데이트 때 며칠 접속만 해도 주는 출석 보상, 오래 쉬었던 계정에 주는 복귀 보상은 쿠폰 없이 게임 안에서 받아요. 오랜만에 들어가면 이벤트 공지부터 확인하세요.</span></li>
         <li><b>쿠폰은 계정당 한 번</b><span>대부분 쿠폰은 계정마다 한 번만 쓸 수 있고, 만료일이 지나면 받을 수 없어요. 등록일과 만료일이 적힌 곳에서 확인해야 헛걸음하지 않아요.</span></li>
       </ul>
@@ -207,7 +209,7 @@ ${rbx.map(rbxRow).join('\n')}
 
     <section class="hub-sec">
       <h2><i class="fa-solid fa-cube" aria-hidden="true"></i> ③ 장난감(굿즈) 코드</h2>
-      <p class="hub-lede">장난감 코드는 패키지 안 코드 카드나 토큰에 있어요. 가려져 있으면 살살 긁어서 확인한 뒤 roblox.com/redeem에 넣으면, 계정 인벤토리의 해당 카테고리(모자, 배낭 등)에 아이템이 들어가요. 같은 아이템 코드는 계정당 한 번만 쓸 수 있고, 받은 아이템은 팔거나 거래할 수 없어요. 게임 안 굿즈 코드(예: <a href="/game/roblox-pet-simulator-99.html">펫 시뮬레이터 99</a>)는 그 게임 안에서 넣어요.</p>
+      <p class="hub-lede">장난감 코드는 패키지 안 코드 카드나 토큰에 있어요. 가려져 있으면 살살 긁어서 확인한 뒤 roblox.com/redeem에 넣으면, 계정 인벤토리의 해당 카테고리(모자, 배낭 등)에 아이템이 들어가요. 같은 아이템 코드는 계정당 한 번만 쓸 수 있고, 받은 아이템은 팔거나 거래할 수 없어요. 게임 안 굿즈 코드(예: ${gameLink('roblox-pet-simulator-99', '펫 시뮬레이터 99')})는 그 게임 안에서 넣어요.</p>
     </section>
 
     <section class="hub-sec">

@@ -32,6 +32,26 @@ function qualifies(g, activeOf) {
   return activeOf(g).length > 0 || !!(g.redeemHow && g.redeemHow.trim());
 }
 
+/**
+ * 코드가 0개여도 목록에 남길 게임 (data/game-listing.json, 2026-10-15 A안). 이 목록은 그 파일 한 곳에만 둔다.
+ * prerender.js 가 같은 목록을 index.html 의 KEEP_LISTED_WITHOUT_CODES 에 써 넣는다.
+ */
+const KEEP_LISTED_WITHOUT_CODES = (() => {
+  try {
+    const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'game-listing.json'), 'utf8'));
+    return Array.isArray(j.keepListedWithoutCodes) ? j.keepListedWithoutCodes : [];
+  } catch (e) { return []; }
+})();
+
+/**
+ * 목록에 보일 게임: 페이지가 있고, 살아 있는 코드가 있거나 위 목록에 있는 게임.
+ * 빠진 게임(B안)은 홈·메뉴·/game/·사이트맵·llms.txt·관련 게임 칩에 안 나오고, 페이지는 noindex 로 남는다.
+ * index.html 의 isListedGame 과 같은 규칙이어야 한다 (tests/listing.test.js 가 비교한다).
+ */
+function isListed(g, activeOf) {
+  return qualifies(g, activeOf) && (activeOf(g).length > 0 || KEEP_LISTED_WITHOUT_CODES.includes(g.id));
+}
+
 /** 한국 날짜 기준 오늘(자정)을 UTC 밀리초로. 빌드가 한국(PC)에서 돌든 UTC(클라우드 루틴)에서 돌든 같은 D-day 가 나오게 한다. */
 function kstTodayUTC() {
   const k = new Date(Date.now() + 9 * 3600 * 1000);
@@ -314,9 +334,11 @@ function pageHtml(g, ctx) {
   const redeemUrl = g.redeemUrl || g.officialUrl || '';
   const platforms = (g.platforms || []).map(p => PLATFORM_LABELS[p] || p).join(' · ');
   const related = posts.filter(p => p.title.includes(g.title.split(' (')[0].split(':')[0]));
-  const siblings = allGames.filter(x => x.id !== g.id && x.genre === g.genre && qualifies(x, ctx.activeOf)).slice(0, 6);
+  // 관련 게임 칩은 목록에 보이는 게임만 (숨긴 게임 페이지로 링크하지 않는다)
+  const siblings = allGames.filter(x => x.id !== g.id && x.genre === g.genre && isListed(x, ctx.activeOf)).slice(0, 6);
   const pubKey = (g.publisher || '').split(/[ (·]/)[0];
-  const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && qualifies(x, ctx.activeOf)).slice(0, 6) : [];
+  const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && isListed(x, ctx.activeOf)).slice(0, 6) : [];
+  const listed = isListed(g, ctx.activeOf);
   const src = sourceInfo(g);
   const history = historyFor(g, firstSeen, coupons);
   const addedOn = firstSeen && firstSeen['game:' + g.id];
@@ -389,7 +411,7 @@ function pageHtml(g, ctx) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}">
-  <link rel="canonical" href="${url}">
+${listed ? '' : '  <meta name="robots" content="noindex">\n'}  <link rel="canonical" href="${url}">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
@@ -731,7 +753,8 @@ ${footerHtml()}
 
 /**
  * 게임 페이지를 만들고, 자격을 잃은 게임의 페이지는 지운다.
- * @returns {{written: number, removed: number, ids: string[]}}
+ * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록·사이트맵에 넣을 게임(isListed). 나머지는 noindex 페이지로만 남는다.
+ * @returns {{written: number, removed: number, ids: string[], listedIds: string[]}}
  */
 function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}) {
   const dir = path.join(rootDir, 'game');
@@ -740,9 +763,11 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
   const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages };
   const keep = new Set();
+  const listedIds = [];
   let written = 0;
   for (const g of games) {
     if (!qualifies(g, activeOf)) continue;
+    if (isListed(g, activeOf)) listedIds.push(g.id);
     const file = path.join(dir, `${g.id}.html`);
     const html = pageHtml(g, ctx);
     const prev = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
@@ -753,7 +778,7 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   for (const f of fs.readdirSync(dir)) {
     if (f.endsWith('.html') && f !== 'index.html' && !keep.has(f)) { fs.unlinkSync(path.join(dir, f)); removed++; }
   }
-  return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')) };
+  return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
 }
 
-module.exports = { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };

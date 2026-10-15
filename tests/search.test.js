@@ -80,13 +80,20 @@ test('검색어가 비면 전부 보인다', () => {
   assert.ok(games.every(matchesGameSearch));
 });
 
-test('쿠폰 없는 게임도 검색하면 목록에 나오고, 쿠폰 있는 게임이 위에 온다', () => {
+test('목록에 남긴 쿠폰 없는 게임은 검색되고, 목록에서 뺀 게임은 안 나오며, 쿠폰 있는 게임이 위에 온다', () => {
+  // 쿠폰이 없어도 목록에 남기기로 한 게임(data/game-listing.json)만. 나머지 쿠폰 없는 게임은 검색에도 안 나온다
   const p = loadPage();
   const { games: gs } = p.state();
-  const none = gs.find(g => p.fn.countActiveCoupons(g) === 0);
-  assert.ok(none, '쿠폰 없는 게임이 하나도 없어 이 테스트를 건너뜀');
-  p.fn.handleSearch(none.title);
-  assert.match(p.grids.game, new RegExp(`data-game-id="${none.id}"`));
+  const none = gs.find(g => p.fn.countActiveCoupons(g) === 0 && p.fn.isListedGame(g));
+  if (none) {
+    p.fn.handleSearch(none.title);
+    assert.match(p.grids.game, new RegExp(`data-game-id="${none.id}"`));
+  }
+  const hidden = gs.find(g => !p.fn.isListedGame(g));
+  if (hidden) {
+    p.fn.handleSearch(hidden.title);
+    assert.doesNotMatch(p.grids.game, new RegExp(`data-game-id="${hidden.id}"`), `${hidden.id}: 목록에서 뺀 게임이 검색에 나옴`);
+  }
 
   // 쿠폰 있는 게임 카드가 '현재 쿠폰 없음' 카드보다 먼저
   p.fn.handleSearch('');
@@ -98,7 +105,7 @@ test('쿠폰 없는 게임도 검색하면 목록에 나오고, 쿠폰 있는 �
 
 test('홈에서 게임 이름을 검색하면 게임 탭으로 옮겨 간다', () => {
   const p = loadPage({ search: '' });
-  p.fn.handleSearch(p.state().games[0].title);
+  p.fn.handleSearch(p.state().games.find(p.fn.isListedGame).title);
   assert.equal(p.state().currentMainCategory, 'games');
 });
 
@@ -110,7 +117,7 @@ test('쇼핑 할인 기능은 남아 있지 않다 (2026-10 게임 쿠폰 전용
 
 test('블로그 검색창(/?q=)으로 들어오면 결과가 있는 탭이 열린다', () => {
   // 2026-10-01 고침: 결과 탭으로 옮긴 뒤 다시 홈으로 되돌려서, '검색 결과 1개'인데 카드가 안 보였다
-  const g = games[0];
+  const g = games.find(page.fn.isListedGame);
   const p = loadPage({ search: '?q=' + encodeURIComponent(g.title) });
   assert.equal(p.document.getElementById('globalSearchInput').value, g.title);
   assert.equal(p.state().currentMainCategory, 'games');

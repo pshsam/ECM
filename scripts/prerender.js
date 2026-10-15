@@ -20,7 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
+const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeFreePages } = require('./free-pages');
@@ -156,7 +156,7 @@ function itemListJsonLd(games) {
  * 예전에는 손으로 적어둬서 개수와 게임 목록이 실제 데이터와 어긋나 있었다.
  * 이제 카탈로그에서 그대로 만들어 어긋날 수 없게 한다.
  */
-function noscriptHtml(data) {
+function noscriptHtml(data, games = data.games) {
   const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const names = arr => arr.map(x => esc(x.title || x.name)).join(', ');
   const section = (heading, body) => `      <h2>${esc(heading)}</h2>\n      <p>${body}</p>\n`;
@@ -167,8 +167,8 @@ function noscriptHtml(data) {
     'ECM은 MMORPG, 수집형 RPG, 액션, FPS, 스포츠, 로블록스 게임의 쿠폰 코드를 공식 채널과 독립된 출처로 확인해 등록일·만료일과 함께 정리하는 사이트입니다.'
   );
   out += section(
-    `게임 쿠폰 (${data.games.length}종)`,
-    `${names(data.games)} 등 PC·모바일·PS5·닌텐도 스위치 게임의 쿠폰 코드를 장르별로 정리해 제공합니다.`
+    `게임 쿠폰 (${games.length}종)`,
+    `${names(games)} 등 PC·모바일·PS5·닌텐도 스위치 게임의 쿠폰 코드를 장르별로 정리해 제공합니다.`
   );
   out += '      <p>자세한 실시간 쿠폰 코드는 JavaScript를 활성화한 브라우저에서 확인하실 수 있습니다.</p>\n';
   return '\n' + out + '    ';
@@ -248,6 +248,19 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
 
   fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), xml);
   return entries.length;
+}
+
+/** 블로그 글(이동 안내 파일 제외)에서 숨긴 게임 페이지로 가는 링크. [{ post, ids }] */
+function blogLinksToHidden(blogDir, hidden) {
+  if (!hidden.size) return [];
+  const out = [];
+  for (const f of fs.readdirSync(blogDir).filter(f => f.endsWith('.html')).sort()) {
+    const html = fs.readFileSync(path.join(blogDir, f), 'utf8');
+    if (isRedirectStub(html)) continue;
+    const ids = [...new Set([...html.matchAll(/href="\/game\/([a-z0-9_-]+)\.html/g)].map(m => m[1]).filter(id => hidden.has(id)))];
+    if (ids.length) out.push({ post: f, ids });
+  }
+  return out;
 }
 
 /** 다른 주소로 옮긴 글 자리에 남긴 이동 안내 파일인지 (noindex + meta refresh) */
@@ -538,6 +551,9 @@ function main() {
   const webp = ensureWebp(rootDir);
   const articles = ensureArticleSchema(blogDir, rootDir);
 
+  // 코드가 없어도 목록에 남길 게임 (data/game-listing.json 한 곳). 화면 스크립트의 isListedGame 이 같은 목록을 쓴다
+  html = replaceJsBlock(html, 'listed', `\n    const KEEP_LISTED_WITHOUT_CODES = ${JSON.stringify(KEEP_LISTED_WITHOUT_CODES)};\n    `);
+
   // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
   const first = run(html);
   const { seen, added } = updateSeen(first.games, first.version, rootDir);
@@ -566,7 +582,10 @@ function main() {
   // 블로그·정보 페이지의 드롭다운은 이 파일을 불러와 쓴다 (assets/ecm.js)
   fs.writeFileSync(path.join(rootDir, 'assets', 'menu.html'), grids.mega);
   html = replaceBlock(html, 'itemlist', ld);
-  html = replaceBlock(html, 'noscript', noscriptHtml(data));
+  // 목록에 보일 게임만 (코드가 없어 숨긴 게임은 이름도 넣지 않는다)
+  const today1 = new Date(); today1.setHours(0, 0, 0, 0);
+  const activeOf1 = x => (x.coupons || []).filter(c => evaluate(c, today1).active);
+  html = replaceBlock(html, 'noscript', noscriptHtml(data, games.filter(g => isListed(g, activeOf1))));
 
   const blogLinks = guideLinksHtml(posts);
   html = replaceBlock(html, 'bloglinks', blogLinks);
@@ -582,15 +601,16 @@ function main() {
   const gp = writeGamePages(rootDir, games, posts, version, seen, og.game);
 
   // 섹션 홈: 게임 쿠폰 홈(/game/)
-  writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
+  // 목록·허브·사이트맵·llms.txt 에는 목록에 보일 게임(gp.listedIds)만 넘긴다. 코드가 없어 숨긴 게임은 noindex 페이지로만 남는다
+  writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
-  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, headerHtml, footerHtml, version });
+  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, headerHtml, footerHtml, version });
   // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
-  writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.ids, headerHtml, footerHtml });
-  // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음)
+  writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.listedIds, headerHtml, footerHtml });
+  // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음). 내 게임에 담은 숨긴 게임도 보여야 하므로 페이지가 있는 게임 전부(gp.ids)
   const widgetGames = writeWidgetFeed(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, version });
 
-  const urls = writeSitemap(rootDir, gp.ids, [
+  const urls = writeSitemap(rootDir, gp.listedIds, [
     { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/today/', file: 'today/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/free/', file: 'free/index.html', freq: 'weekly', priority: '0.8' },
@@ -599,14 +619,17 @@ function main() {
   ]);
 
   // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
-  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version);
+  const llmsGames = writeLlmsTxt(rootDir, games, gp.listedIds, posts, version);
 
   const chars = CATS.filter(c => !CLIENT_ONLY.has(c)).reduce((n, c) => n + grids[c].length, 0);
   console.log(`카탈로그 버전: ${version}`);
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개 · 앱 위젯 요약 게임 ${widgetGames}개`);
-  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
+  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 목록에 보임 ${gp.listedIds.length} · 코드 없어 숨김(noindex) ${gp.ids.length - gp.listedIds.length}`);
+  // 블로그 글 본문이 숨긴 게임 페이지로 링크하면 알려만 준다 (글 본문은 자동으로 고치지 않는다)
+  const hiddenLinks = blogLinksToHidden(blogDir, new Set(gp.ids.filter(id => !gp.listedIds.includes(id))));
+  if (hiddenLinks.length) console.log(`숨긴 게임으로 가는 블로그 링크: ${hiddenLinks.map(x => `${x.post} → ${x.ids.join(', ')}`).join(' · ')}`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
   // 구글 애널리틱스 태그: 모든 페이지 (새 글·새 게임 페이지 포함)
@@ -625,5 +648,5 @@ function main() {
 
 // 테스트(tests/)가 페이지 스크립트를 같은 방식으로 돌려 볼 수 있게 DOM 흉내를 내보낸다.
 // 직접 실행할 때만 빌드한다.
-module.exports = { makeDom, isRedirectStub };
+module.exports = { makeDom, isRedirectStub, blogLinksToHidden, writeSitemap };
 if (require.main === module) main();
