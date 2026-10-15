@@ -20,7 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, GENRE_LABELS } = require('./game-pages');
+const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, couponSourceHtml, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeFreePages } = require('./free-pages');
@@ -699,7 +699,7 @@ function main() {
   // 목록·허브·사이트맵·llms.txt 에는 목록에 보일 게임(gp.listedIds)만 넘긴다. 코드가 없어 숨긴 게임은 noindex 페이지로만 남는다
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
-  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, headerHtml, footerHtml, version });
+  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, couponSourceHtml, headerHtml, footerHtml, version });
   // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
   writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.listedIds, headerHtml, footerHtml });
   // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음). 내 게임에 담은 숨긴 게임도 보여야 하므로 페이지가 있는 게임 전부(gp.ids)

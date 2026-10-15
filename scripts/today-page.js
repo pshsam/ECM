@@ -47,7 +47,7 @@ const CSS = `
     @media (max-width: 480px) { .td-row { grid-template-columns: 40px minmax(0, 1fr); } .td-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; margin-top: .35rem; } }
 `;
 
-function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, headerHtml, footerHtml, version }) {
+function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, couponSourceHtml = () => '', headerHtml, footerHtml, version }) {
   const pages = new Set(gamePageIds);
   const items = [];
   for (const g of games) {
@@ -59,6 +59,8 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
       items.push({
         id: g.id, t: g.title, u: pages.has(g.id) ? `/game/${g.id}.html#${codeAnchor(c.code)}` : '/game/', mh: m.h, mc: m.ch,
         c: c.code, r: c.reward || '', e: c.expireDate || '', s: seen > BASELINE_DATE ? seen : '',
+        // 확인일·출처 줄 (game-pages.js couponSourceHtml 이 만든 HTML, 값이 없으면 빈 문자열)
+        h: couponSourceHtml(c),
       });
     }
   }
@@ -76,7 +78,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, head
   const row = x => {
     const l = leftOf(x);
     const pill = l === null ? (x.e === '상시' ? '<span class="ecm-pill muted">상시</span>' : '<span class="ecm-pill muted">만료일 미공개</span>') : `<span class="ecm-pill ${l <= 1 ? 'hot' : 'due'}">${l === 0 ? '오늘 마감' : `D-${l}`}</span>`;
-    return `<li class="td-row"><span class="td-ico ecm-mono" style="--mh:${x.mh}" aria-hidden="true">${esc(x.mc)}</span><div class="td-main"><a class="td-game" href="${esc(x.u)}">${esc(x.t)}</a><code class="td-code">${esc(x.c)}</code><span class="td-reward">${esc(x.r)}</span></div><div class="td-side">${x.s === iso ? '<span class="ecm-pill new">NEW</span>' : ''}${pill}<button type="button" class="ecm-btn-primary" data-copy="${esc(x.c)}"><i class="fa-regular fa-copy"></i> 복사</button></div></li>`;
+    return `<li class="td-row"><span class="td-ico ecm-mono" style="--mh:${x.mh}" aria-hidden="true">${esc(x.mc)}</span><div class="td-main"><a class="td-game" href="${esc(x.u)}">${esc(x.t)}</a><code class="td-code">${esc(x.c)}</code><span class="td-reward">${esc(x.r)}</span>${x.h || ''}</div><div class="td-side">${x.s === iso ? '<span class="ecm-pill new">NEW</span>' : ''}${pill}<button type="button" class="ecm-btn-primary" data-copy="${esc(x.c)}"><i class="fa-regular fa-copy"></i> 복사</button></div></li>`;
   };
   const list = (arr, empty) => arr.length ? `<ul class="td-list">\n${arr.map(row).join('\n')}\n</ul>` : `<p class="td-empty">${empty}</p>`;
 
@@ -148,7 +150,7 @@ const CLIENT = `
   function row(x) {
     var l = left(x.e);
     var pill = l === null ? (x.e === '상시' ? '<span class="ecm-pill muted">상시</span>' : '<span class="ecm-pill muted">만료일 미공개</span>') : '<span class="ecm-pill ' + (l <= 1 ? 'hot' : 'due') + '">' + (l === 0 ? '오늘 마감' : 'D-' + l) + '</span>';
-    return '<li class="td-row"><span class="td-ico ecm-mono" style="--mh:' + x.mh + '" aria-hidden="true">' + esc(x.mc) + '</span><div class="td-main"><a class="td-game" href="' + esc(x.u) + '">' + esc(x.t) + '</a><code class="td-code">' + esc(x.c) + '</code><span class="td-reward">' + esc(x.r) + '</span></div><div class="td-side">' + (x.s === iso ? '<span class="ecm-pill new">NEW</span>' : '') + pill + '<button type="button" class="ecm-btn-primary" data-copy="' + esc(x.c) + '"><i class="fa-regular fa-copy"></i> 복사</button></div></li>';
+    return '<li class="td-row"><span class="td-ico ecm-mono" style="--mh:' + x.mh + '" aria-hidden="true">' + esc(x.mc) + '</span><div class="td-main"><a class="td-game" href="' + esc(x.u) + '">' + esc(x.t) + '</a><code class="td-code">' + esc(x.c) + '</code><span class="td-reward">' + esc(x.r) + '</span>' + (x.h || '') + '</div><div class="td-side">' + (x.s === iso ? '<span class="ecm-pill new">NEW</span>' : '') + pill + '<button type="button" class="ecm-btn-primary" data-copy="' + esc(x.c) + '"><i class="fa-regular fa-copy"></i> 복사</button></div></li>';
   }
   function list(arr, empty) { return arr.length ? '<ul class="td-list">' + arr.map(row).join('') + '</ul>' : '<p class="td-empty">' + empty + '</p>'; }
   var byLeft = function (a, b) { return left(a.e) - left(b.e); };
