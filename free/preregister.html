@@ -145,19 +145,6 @@
     .hub-badge.muted { background: var(--sf); color: var(--ink-3); }
     .hub-badge.due { background: #FFEDD5; color: #9A3412; }
 
-    .hub-shops { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; }
-    .hub-shop { display: flex; flex-direction: column; gap: .5rem; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; }
-    .hub-shop .top { display: flex; align-items: center; gap: .65rem; min-width: 0; }
-    .hub-shop .hub-ico { border-radius: 999px; }
-    .hub-shop .name { font-weight: 800; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .hub-shop .benefit { font-size: .78rem; font-weight: 800; color: var(--brown); }
-    .hub-shop .tip { font-size: .83rem; color: var(--ink-2); line-height: 1.6; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .hub-shop .foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: auto; font-size: .75rem; color: var(--ink-3); }
-    .hub-shop .foot a { color: var(--brown); font-weight: 800; text-decoration: none; white-space: nowrap; }
-    .hub-shop .foot a:hover { text-decoration: underline; }
-    .hub-checked { display: inline-flex; align-items: center; gap: .25rem; }
-    .hub-checked.no { color: #B45309; }
-
     .hub-note { background: var(--sf); border: 0; border-radius: 14px; padding: .9rem 1.1rem; font-size: .85rem; color: var(--ink-2); line-height: 1.75; margin: 1rem 0; }
     .hub-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .35rem; }
     .hub-list a { display: block; padding: .55rem .75rem; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: .88rem; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -175,14 +162,12 @@
 
     @media (min-width: 640px) {
       .hub-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .hub-shops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hub-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hub-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
       .hub-head h1 { font-size: 2rem; }
       .hub-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .hub-shops { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .fr-cards { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 0 0 1.5rem; }
@@ -226,14 +211,13 @@
       </a>
       <nav class="ecm-menu" aria-label="주 메뉴">
         <a href="/game/" class="ecm-menu-btn" data-menu="games" aria-haspopup="true" aria-expanded="false">게임 쿠폰 <i class="fa-solid fa-chevron-down"></i></a>
-        <a href="/shop/" class="ecm-menu-btn" data-menu="shops" aria-haspopup="true" aria-expanded="false">쇼핑 할인 <i class="fa-solid fa-chevron-down"></i></a>
         <a href="/blog/index.html" class="ecm-menu-btn" data-menu="blog" aria-haspopup="true" aria-expanded="false">블로그 <i class="fa-solid fa-chevron-down"></i></a>
         <a href="/today/" class="ecm-menu-link">오늘의 쿠폰</a>
         <a href="/free/" class="ecm-menu-link">무료 혜택</a>
       </nav>
       <form class="ecm-search" role="search" action="/" method="get">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" name="q" placeholder="게임·쇼핑몰 이름 검색" aria-label="게임·쇼핑몰 이름 검색" autocomplete="off">
+        <input type="search" name="q" placeholder="게임 이름 검색" aria-label="게임 이름 검색" autocomplete="off">
       </form>
       <a href="/" class="ecm-report"><i class="fa-solid fa-ticket"></i> 쿠폰 모음</a>
       <button type="button" id="burgerBtn" class="ecm-burger" aria-label="메뉴 열기" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
@@ -246,7 +230,6 @@
           <a href="/today/"><i class="fa-regular fa-calendar-check"></i> 오늘의 쿠폰</a>
           <a href="/free/"><i class="fa-solid fa-gift"></i> 게임 무료 혜택</a>
           <a href="/game/"><i class="fa-solid fa-gamepad"></i> 게임 쿠폰</a>
-          <a href="/shop/"><i class="fa-solid fa-bag-shopping"></i> 쇼핑 할인</a>
           <a href="/"><i class="fa-solid fa-house"></i> 홈</a>
         </div>
       </div>
@@ -314,7 +297,7 @@
           <a href="/terms.html" class="ecm-link">이용약관</a>
         </nav>
       </div>
-      <p class="text-[11px] leading-relaxed">ECM은 각 게임사·쇼핑몰의 공식 파트너가 아니며, 게시된 쿠폰·혜택 정보는 공개된 자료를 확인해 정리한 참고용 정보입니다. 실제 적용 여부는 각 공식 사이트에서 다시 확인해 주세요. 운영자: 겜대 · 문의: contact@ecm-coupon.com</p>
+      <p class="text-[11px] leading-relaxed">ECM은 각 게임사의 공식 파트너가 아니며, 게시된 쿠폰·혜택 정보는 공개된 자료를 확인해 정리한 참고용 정보입니다. 실제 적용 여부는 각 공식 사이트에서 다시 확인해 주세요. 운영자: 겜대 · 문의: contact@ecm-coupon.com</p>
     </div>
   </footer>
 </body>

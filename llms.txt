@@ -1,6 +1,6 @@
 # ECM 쿠폰 (Every Coupon Matters)
 
-> 한국어 게임 쿠폰 코드·생활 할인 정보 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.
+> 한국어 게임 쿠폰 코드 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.
 
 - 운영: 겜대 (1인 운영), 2026년 9월 개설
 - 마지막 쿠폰 확인일: 2026-10-15
@@ -11,34 +11,9 @@
 ## 섹션 홈
 
 - [게임 쿠폰 코드 모음](https://ecm-coupon.com/game/): 게임별 쿠폰 페이지, 새 쿠폰, 마감 임박 코드
-- [쇼핑 할인·쿠폰 모음](https://ecm-coupon.com/shop/): 쇼핑몰별 정기 쿠폰·가입 혜택과 확인일
-- [ECM 쿠폰 블로그](https://ecm-coupon.com/blog/index.html): 쿠폰 등록 방법·코드 가이드·알뜰 쇼핑 글
-
-## 쇼핑몰별 혜택 페이지
-
-- [무신사 쿠폰·할인 혜택](https://ecm-coupon.com/shop/musinsa.html)
-- [29CM 쿠폰·할인 혜택](https://ecm-coupon.com/shop/29cm.html)
-- [W컨셉 쿠폰·할인 혜택](https://ecm-coupon.com/shop/wconcept.html)
-- [에이블리 쿠폰·할인 혜택](https://ecm-coupon.com/shop/ably.html)
-- [지그재그 쿠폰·할인 혜택](https://ecm-coupon.com/shop/zigzag.html)
-- [크림 쿠폰·할인 혜택](https://ecm-coupon.com/shop/kream.html)
-- [LF몰 쿠폰·할인 혜택](https://ecm-coupon.com/shop/lfmall.html)
-- [이마트몰 쿠폰·할인 혜택](https://ecm-coupon.com/shop/emart-mall.html)
-- [쿠팡 로켓프레시 쿠폰·할인 혜택](https://ecm-coupon.com/shop/coupang-rocketfresh.html)
-- [마켓컬리 쿠폰·할인 혜택](https://ecm-coupon.com/shop/kurly.html)
-- [홈플러스온라인 쿠폰·할인 혜택](https://ecm-coupon.com/shop/homeplus.html)
-- [넷플릭스 쿠폰·할인 혜택](https://ecm-coupon.com/shop/netflix.html)
-- [티빙 쿠폰·할인 혜택](https://ecm-coupon.com/shop/tving.html)
-- [올리브영 쿠폰·할인 혜택](https://ecm-coupon.com/shop/oliveyoung.html)
-- [배달의민족 쿠폰·할인 혜택](https://ecm-coupon.com/shop/baemin.html)
-- [요기요 쿠폰·할인 혜택](https://ecm-coupon.com/shop/yogiyo.html)
-- [쿠팡이츠 쿠폰·할인 혜택](https://ecm-coupon.com/shop/coupangeats.html)
-- [스타벅스 쿠폰·할인 혜택](https://ecm-coupon.com/shop/starbucks.html)
-- [야놀자 쿠폰·할인 혜택](https://ecm-coupon.com/shop/yanolja.html)
-- [여기어때 쿠폰·할인 혜택](https://ecm-coupon.com/shop/yeogi.html)
-- [클룩 쿠폰·할인 혜택](https://ecm-coupon.com/shop/klook.html)
-- [아고다 쿠폰·할인 혜택](https://ecm-coupon.com/shop/agoda.html)
-- [마이리얼트립 쿠폰·할인 혜택](https://ecm-coupon.com/shop/myrealtrip.html)
+- [오늘의 쿠폰](https://ecm-coupon.com/today/): 오늘 새로 올라온 코드와 이번 주 마감 코드
+- [게임 무료 혜택](https://ecm-coupon.com/free/): 쿠폰 외 사전예약·방송·PC방 보상 모음
+- [ECM 쿠폰 블로그](https://ecm-coupon.com/blog/index.html): 쿠폰 등록 방법·게임 업데이트·사기 구별 가이드
 
 ## 게임별 쿠폰 코드 페이지
 

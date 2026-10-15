@@ -4,8 +4,8 @@ const assert = require('node:assert/strict');
 const { loadPage } = require('./page');
 
 const page = loadPage();
-const { games, SHOP_CATS, SHOP_CATALOGS } = page.state();
-const { matchesGameSearch, matchesShopSearch } = page.fn;
+const { games } = page.state();
+const { matchesGameSearch } = page.fn;
 
 function search(q) {
   page.setQuery(q.trim().toLowerCase());
@@ -69,15 +69,6 @@ test('문장부호만 쓴 검색어는 전부를 띄우지 않는다', () => {
   assert.ok(games.filter(matchesGameSearch).length < games.length);
 });
 
-test('쇼핑몰은 이름으로 찾아진다', () => {
-  for (const cat of SHOP_CATS) {
-    for (const m of SHOP_CATALOGS[cat]) {
-      search(m.name);
-      assert.ok(matchesShopSearch(m), `${cat}/${m.id}: '${m.name}'로 검색해도 안 나옴`);
-    }
-  }
-});
-
 test('엉뚱한 검색어는 아무것도 걸리지 않는다', () => {
   search('zzqqxx없는검색어');
   const counts = page.fn.searchCounts();
@@ -105,11 +96,16 @@ test('쿠폰 없는 게임도 검색하면 목록에 나오고, 쿠폰 있는 �
   if (lastActive >= 0 && firstSoon >= 0) assert.ok(lastActive < firstSoon, '쿠폰 없는 게임이 쿠폰 있는 게임보다 위에 있음');
 });
 
-test('홈에서 쇼핑몰 이름을 검색하면 그 분야 탭으로 옮겨 간다', () => {
+test('홈에서 게임 이름을 검색하면 게임 탭으로 옮겨 간다', () => {
   const p = loadPage({ search: '' });
-  const m = p.state().SHOP_CATALOGS.fashion[0];
-  p.fn.handleSearch(m.name);
-  assert.equal(p.state().currentMainCategory, 'fashion');
+  p.fn.handleSearch(p.state().games[0].title);
+  assert.equal(p.state().currentMainCategory, 'games');
+});
+
+test('쇼핑 할인 기능은 남아 있지 않다 (2026-10 게임 쿠폰 전용으로 정리)', () => {
+  const p = loadPage();
+  assert.doesNotMatch(p.html, /href="\/shop\//, '홈에 /shop/ 링크가 남아 있음');
+  assert.doesNotMatch(p.html, /raw(Fashion|Grocery|Ott|Beauty|Delivery|Travel)Catalog/, '쇼핑 카탈로그 데이터가 남아 있음');
 });
 
 test('블로그 검색창(/?q=)으로 들어오면 결과가 있는 탭이 열린다', () => {

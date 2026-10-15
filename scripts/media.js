@@ -1,7 +1,7 @@
 /**
  * 이미지 관련 빌드 단계 (prerender.js 가 부른다). 파이썬·Pillow 가 없으면 조용히 건너뛰고 예전처럼 동작한다.
  *
- * 1. ensureOgImages: 게임·쇼핑몰 페이지마다 공유 이미지(카카오톡·SNS 미리보기)를 만든다. game/og/<id>.jpg, shop/og/<id>.jpg
+ * 1. ensureOgImages: 게임 페이지마다 공유 이미지(카카오톡·SNS 미리보기)를 만든다. game/og/<id>.jpg
  *    제목·분류가 바뀔 때만 다시 만든다(data/og-images.json 에 지문 저장). 쿠폰 개수처럼 자주 바뀌는 값은 넣지 않는다.
  * 2. ensureWebp: blog/images 의 JPG·PNG 옆에 WebP 를 만든다.
  * 3. ensureImageMarkup: 페이지 안 이미지에 WebP 를 먼저 주고(<picture>), 첫 화면 밖 이미지에 지연 로딩을 붙인다.
@@ -24,11 +24,11 @@ function runPy(args, input) {
 const GENRE_KIND = { mmorpg: 'mmorpg', rpg: 'rpg', action: 'action', fps: 'fps', sports: 'sports' };
 
 /**
- * games: 페이지가 있는 게임만, shops: { 분류: [쇼핑몰] } 중 페이지가 있는 것만 넘긴다.
- * @returns {{ game: Object<string,string>, shop: Object<string,string>, made: number, error: string }}
+ * games: 페이지가 있는 게임만 넘긴다.
+ * @returns {{ game: Object<string,string>, made: number, error: string }}
  *   id → 이미지 주소(?v=지문: 이미지가 바뀌면 카카오톡 등의 미리보기 캐시도 새로 받게)
  */
-function ensureOgImages(rootDir, games, shopCatalogs) {
+function ensureOgImages(rootDir, games) {
   const manifestPath = path.join(rootDir, 'data', 'og-images.json');
   let manifest = {};
   try { manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')); } catch (e) { manifest = {}; }
@@ -38,12 +38,6 @@ function ensureOgImages(rootDir, games, shopCatalogs) {
     const roblox = (g.platforms || []).includes('roblox');
     const job = { out: `game/og/${g.id}.jpg`, title: `${g.title} 쿠폰 코드`, kind: 'game', genre: roblox ? 'game' : (GENRE_KIND[g.genre] || 'game'), label: roblox ? '로블록스 · 게임 코드' : '게임 쿠폰 · 입력 방법' };
     want.push(['game', g.id, job]);
-  }
-  for (const [cat, list] of Object.entries(shopCatalogs || {})) {
-    for (const m of list) {
-      const name = String(m.name || m.id).split(' (')[0];
-      want.push(['shop', m.id, { out: `shop/og/${m.id}.jpg`, title: `${name} 할인·쿠폰`, kind: cat, label: '쇼핑 할인 · 혜택 정리' }]);
-    }
   }
   for (const [, , job] of want) {
     const key = crypto.createHash('sha1').update(JSON.stringify(job) + '|v2').digest('hex').slice(0, 12);
@@ -57,7 +51,7 @@ function ensureOgImages(rootDir, games, shopCatalogs) {
     else error = r.out;
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1) + '\n');
   }
-  const has = { game: {}, shop: {} };
+  const has = { game: {} };
   for (const [kind, id, job] of want) {
     if (manifest[job.out] && fs.existsSync(path.join(rootDir, job.out))) has[kind][id] = `/${job.out}?v=${manifest[job.out]}`;
   }

@@ -17,7 +17,7 @@ const INDEX = path.join(ROOT, 'index.html');
 // 꺼내 쓸 안쪽 함수. 이름이 바뀌면 여기서 바로 깨져서 알 수 있다.
 const FNS = [
   'evaluateCoupon', 'countActiveCoupons', 'purgeOldCoupons',
-  'matchesGameSearch', 'matchesShopSearch', 'searchCounts', 'handleSearch', 'clearSearch',
+  'matchesGameSearch', 'searchCounts', 'handleSearch', 'clearSearch',
   'renderGames', 'monoOf', 'codeAnchor', 'esc',
 ];
 
@@ -43,7 +43,7 @@ function loadPage(opt = {}) {
     return {
       fn: { ${FNS.join(', ')} },
       setQuery(q) { searchQuery = q; },
-      state() { return { games, searchQuery, currentMainCategory, initialGameCatalog, SHOP_CATS, SHOP_CATALOGS, COUPON_FIRST_SEEN }; },
+      state() { return { games, searchQuery, currentMainCategory, initialGameCatalog, COUPON_FIRST_SEEN }; },
     };
   `;
   const run = new Function('document', 'window', 'localStorage', 'console', 'navigator', 'location', body);

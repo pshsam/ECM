@@ -8,7 +8,7 @@ const mono = require('../scripts/mono');
 const { codeAnchor } = require('../scripts/game-pages');
 
 const page = loadPage();
-const { initialGameCatalog: catalog, SHOP_CATS, SHOP_CATALOGS, COUPON_FIRST_SEEN } = page.state();
+const { initialGameCatalog: catalog, COUPON_FIRST_SEEN } = page.state();
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const realDate = s => DATE.test(s) && !isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
 
@@ -71,23 +71,12 @@ test('한 게임 안에서 같은 코드가 두 번 나오지 않는다', () => 
   }
 });
 
-test('쇼핑몰 id 는 분야 안에서 겹치지 않고 주소가 https 다', () => {
-  for (const cat of SHOP_CATS) {
-    const ids = new Set();
-    for (const m of SHOP_CATALOGS[cat]) {
-      assert.ok(!ids.has(m.id), `${cat}/${m.id} 중복`);
-      ids.add(m.id);
-      assert.match(m.url, /^https:\/\//, `${cat}/${m.id}: url '${m.url}'`);
-    }
-  }
-});
-
 test('쿠폰 등록일 장부 날짜가 올바르다', () => {
   for (const [k, d] of Object.entries(COUPON_FIRST_SEEN)) assert.ok(realDate(d), `${k}: '${d}'`);
 });
 
 test('글자 타일 규칙이 화면(index.html)과 빌드(scripts/mono.js)에서 같다', () => {
-  const names = [...catalog.map(g => g.title), ...SHOP_CATS.flatMap(c => SHOP_CATALOGS[c].map(m => m.name)), '', '7DS', '2XKO'];
+  const names = [...catalog.map(g => g.title), '', '7DS', '2XKO'];
   for (const n of names) assert.deepEqual(page.fn.monoOf(n), mono.monoOf(n), `'${n}'`);
 });
 
@@ -99,8 +88,8 @@ test('코드 앵커 규칙이 화면과 빌드에서 같다', () => {
 test('홈 HTML 에 미리 그린 목록이 들어 있다 (prerender 를 돌렸는지)', () => {
   const html = page.html;
   const markers = [...html.matchAll(/<!--PRERENDER:([a-z]+)-->/g)].map(m => m[1]);
-  // mega·쇼핑 6분야는 일부러 브라우저에서만 그린다(prerender.js CLIENT_ONLY)
-  for (const name of ['game', 'herostats', 'tiles', 'itemlist']) {
+  // mega 는 일부러 브라우저에서만 그린다(prerender.js CLIENT_ONLY)
+  for (const name of ['game', 'herostats', 'itemlist']) {
     assert.ok(markers.includes(name), `PRERENDER:${name} 마커 없음`);
     const m = html.match(new RegExp(`<!--PRERENDER:${name}-->([\\s\\S]*?)<!--/PRERENDER:${name}-->`));
     assert.ok(m && m[1].trim().length > 100, `PRERENDER:${name} 안이 비어 있음`);

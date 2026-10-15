@@ -24,7 +24,7 @@ function withPwa(html) {
 
 /** 사이트의 HTML 페이지에 태그가 있게 한다(내부용 radar/ 는 빼고). 바꾼 파일 수를 돌려준다. */
 function ensurePwaHead(rootDir) {
-  const dirs = ['', 'blog', 'game', 'shop', 'today', 'free'].map(d => path.join(rootDir, d));
+  const dirs = ['', 'blog', 'game', 'today', 'free'].map(d => path.join(rootDir, d));
   let n = 0;
   for (const d of dirs) {
     if (!fs.existsSync(d)) continue;

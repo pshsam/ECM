@@ -1,5 +1,5 @@
 /**
- * 허브 페이지(게임 쿠폰 홈·쇼핑 할인 홈)와 쇼핑몰 페이지가 함께 쓰는 틀: <head>, 헤더, 푸터, 공통 스타일.
+ * 허브 페이지(게임 쿠폰 홈·오늘의 쿠폰·무료 혜택)가 함께 쓰는 틀: <head>, 헤더, 푸터, 공통 스타일.
  * 헤더·푸터는 게임 페이지와 같은 것을 쓴다 (game-pages.js).
  */
 const { GA_SNIPPET } = require('./analytics');
@@ -59,19 +59,6 @@ const HUB_CSS = `
     .hub-badge.muted { background: var(--sf); color: var(--ink-3); }
     .hub-badge.due { background: #FFEDD5; color: #9A3412; }
 
-    .hub-shops { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; }
-    .hub-shop { display: flex; flex-direction: column; gap: .5rem; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; }
-    .hub-shop .top { display: flex; align-items: center; gap: .65rem; min-width: 0; }
-    .hub-shop .hub-ico { border-radius: 999px; }
-    .hub-shop .name { font-weight: 800; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .hub-shop .benefit { font-size: .78rem; font-weight: 800; color: var(--brown); }
-    .hub-shop .tip { font-size: .83rem; color: var(--ink-2); line-height: 1.6; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .hub-shop .foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: auto; font-size: .75rem; color: var(--ink-3); }
-    .hub-shop .foot a { color: var(--brown); font-weight: 800; text-decoration: none; white-space: nowrap; }
-    .hub-shop .foot a:hover { text-decoration: underline; }
-    .hub-checked { display: inline-flex; align-items: center; gap: .25rem; }
-    .hub-checked.no { color: #B45309; }
-
     .hub-note { background: var(--sf); border: 0; border-radius: 14px; padding: .9rem 1.1rem; font-size: .85rem; color: var(--ink-2); line-height: 1.75; margin: 1rem 0; }
     .hub-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .35rem; }
     .hub-list a { display: block; padding: .55rem .75rem; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: .88rem; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -89,19 +76,17 @@ const HUB_CSS = `
 
     @media (min-width: 640px) {
       .hub-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .hub-shops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hub-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hub-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
       .hub-head h1 { font-size: 2rem; }
       .hub-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .hub-shops { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 `;
 
 /**
- * 페이지 한 장. path 는 사이트 안 주소('/game/', '/shop/musinsa.html'), ld 는 JSON-LD 객체 배열.
+ * 페이지 한 장. path 는 사이트 안 주소('/game/', '/free/preregister.html'), ld 는 JSON-LD 객체 배열.
  * headerHtml·footerHtml 은 순환 참조를 피하려고 호출하는 쪽에서 넘긴다.
  */
 function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'website', ogImage = '', headerHtml, footerHtml }) {

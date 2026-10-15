@@ -3,7 +3,7 @@
  * index.html의 카탈로그를 HTML에 미리 박아 넣는다.
  *
  * 왜 필요한가:
- *   목록 7개(게임/패션/장보기/OTT/뷰티/배달/여행)가 전부 자바스크립트로만 그려져서,
+ *   게임 목록이 자바스크립트로만 그려져서,
  *   서버가 보내는 HTML에는 빈 <div>만 있었다. 구글은 자바스크립트를 실행해주지만
  *   네이버(Yeti)·빙·AI 크롤러 상당수는 실행하지 않는다. 한국 쿠폰 사이트인데
  *   정작 네이버가 쿠폰을 한 글자도 못 읽는 상태였다.
@@ -24,7 +24,6 @@ const { writeGamePages, qualifies, headerHtml, footerHtml, evaluate, GENRE_LABEL
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeFreePages } = require('./free-pages');
-const { loadShopDetails, shopQualifies, writeShopHub, writeShopPages } = require('./shop-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { writeWidgetFeed } = require('./widget-feed');
 const { ensureAnalytics } = require('./analytics');
@@ -33,8 +32,7 @@ const { ensureOgImages, ensureWebp, ensureImageMarkup } = require('./media');
 
 const FILE = path.join(__dirname, '..', 'index.html');
 // mega = 헤더 드롭다운 메뉴, updates = 최신 업데이트 목록. 둘 다 카탈로그에서 만들어지므로 같이 미리 렌더링한다.
-const SHOP_CATS_ALL = ['fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
-const CATS = ['mega', 'herostats', 'updates', 'deadline', 'articles', 'tiles', 'game', 'fashion', 'grocery', 'ott', 'beauty', 'delivery', 'travel'];
+const CATS = ['mega', 'herostats', 'updates', 'deadline', 'articles', 'game'];
 const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글마다 본문 지문과 마지막 실제 수정일. 빌드가 채우고 고친다 (손으로 고치지 않는다).
 const POST_LEDGER = path.join(__dirname, '..', 'data', 'post-modified.json');
@@ -113,15 +111,6 @@ function run(html) {
     return {
       games: games,
       version: CATALOG_VERSION,
-      shop: { cats: SHOP_CATS, catalogs: SHOP_CATALOGS, subs: SUB_LABELS, labels: CATEGORY_MENU_LABEL, icons: CATEGORY_ICON },
-      groups: [
-        { label: '패션몰 할인', items: rawFashionCatalog, blurb: '쿠폰북·웰컴 혜택 정보를 제공합니다.' },
-        { label: '장보기 & 마트', items: rawGroceryCatalog, blurb: '새벽배송·유기농·대용량 장보기 할인 바우처 정보를 제공합니다.' },
-        { label: 'OTT·구독 서비스', items: rawOttCatalog, blurb: '번들 할인, 무료 체험, 결합 할인 정보를 제공합니다.' },
-        { label: '뷰티·화장품 할인', items: rawBeautyCatalog, blurb: '세일·쿠폰 정보를 제공합니다.' },
-        { label: '배달음식·외식 할인', items: rawDeliveryCatalog, blurb: '첫주문 쿠폰과 앱 전용 할인 정보를 제공합니다.' },
-        { label: '여행·숙박 할인', items: rawTravelCatalog, blurb: '국내외 숙박·투어 예약 할인 정보를 제공합니다.' },
-      ],
     };
   `;
   const fn = new Function('document', 'window', 'localStorage', 'console', 'navigator', body);
@@ -164,7 +153,7 @@ function itemListJsonLd(games) {
 
 /**
  * 자바스크립트를 실행하지 않는 크롤러·브라우저용 요약.
- * 예전에는 손으로 적어둬서 제휴 수(50개/20개)와 게임 목록이 실제 데이터와 어긋나 있었다.
+ * 예전에는 손으로 적어둬서 개수와 게임 목록이 실제 데이터와 어긋나 있었다.
  * 이제 카탈로그에서 그대로 만들어 어긋날 수 없게 한다.
  */
 function noscriptHtml(data) {
@@ -174,16 +163,13 @@ function noscriptHtml(data) {
 
   let out = '';
   out += section(
-    'ECM 쿠폰 (Every Coupon Matters) - 장르별 게임 쿠폰 & 올인원 할인 허브',
-    'ECM은 MMORPG, 수집형 RPG, 액션, FPS, 스포츠 등 장르별 대작 게임의 실시간 검증 쿠폰과 패션·장보기 할인 정보를 한곳에 모은 사이트입니다.'
+    'ECM 쿠폰 (Every Coupon Matters) - 매일 확인한 게임 쿠폰 코드 모음',
+    'ECM은 MMORPG, 수집형 RPG, 액션, FPS, 스포츠, 로블록스 게임의 쿠폰 코드를 공식 채널과 독립된 출처로 확인해 등록일·만료일과 함께 정리하는 사이트입니다.'
   );
   out += section(
     `게임 쿠폰 (${data.games.length}종)`,
     `${names(data.games)} 등 PC·모바일·PS5·닌텐도 스위치 게임의 쿠폰 코드를 장르별로 정리해 제공합니다.`
   );
-  for (const g of data.groups) {
-    out += section(`${g.label} (${g.items.length}곳)`, `${names(g.items)}의 ${g.blurb}`);
-  }
   out += '      <p>자세한 실시간 쿠폰 코드는 JavaScript를 활성화한 브라우저에서 확인하실 수 있습니다.</p>\n';
   return '\n' + out + '    ';
 }
@@ -221,8 +207,10 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
     return fs.statSync(path.join(rootDir, relPath)).mtime.toISOString().slice(0, 10);
   };
 
+  // 다른 주소로 옮긴 글(새로고침 이동 안내만 남은 파일)은 사이트맵에 넣지 않는다
   const posts = fs.readdirSync(path.join(rootDir, 'blog'))
     .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .filter(f => !isRedirectStub(fs.readFileSync(path.join(rootDir, 'blog', f), 'utf8')))
     .sort();
 
   const entries = [
@@ -260,6 +248,11 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
 
   fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), xml);
   return entries.length;
+}
+
+/** 다른 주소로 옮긴 글 자리에 남긴 이동 안내 파일인지 (noindex + meta refresh) */
+function isRedirectStub(html) {
+  return /<meta http-equiv="refresh"/i.test(html) && /<meta name="robots" content="noindex"/i.test(html);
 }
 
 /**
@@ -554,19 +547,13 @@ function main() {
   // 블로그·정보 페이지의 '블로그' 드롭다운은 이 파일을 읽어 채운다 (assets/ecm.js)
   fs.writeFileSync(path.join(rootDir, 'assets', 'posts.json'), JSON.stringify(posts.map(p => ({ url: p.url, title: p.title, date: p.date, category: p.category, cat: p.cat })), null, 0) + '\n');
 
-  // 쇼핑몰 페이지가 있는 쇼핑몰: 메뉴·카드가 그 페이지로 링크하도록 스크립트에 넣는다
-  const shopDetails = loadShopDetails(rootDir);
-  const shopPageIds = [];
-  for (const cat of first.shop.cats) for (const m of first.shop.catalogs[cat]) if (shopQualifies(shopDetails[m.id])) shopPageIds.push(m.id);
-  html = replaceJsBlock(html, 'shoppages', `\n    const SHOP_PAGES = ${JSON.stringify(shopPageIds)};\n    `);
-
   // 2차 실행: 등록일·최근 글이 반영된 상태로 그리드를 채운다
   const data = run(html);
   const { grids, games, version } = data;
 
-  // 처음엔 숨어 있는 메뉴(드롭다운)·쇼핑 분류 목록은 미리 그려 두지 않는다: 홈 HTML 이 130KB 가까이 줄고,
+  // 처음엔 숨어 있는 메뉴(드롭다운)는 미리 그려 두지 않는다: 홈 HTML 이 가벼워지고,
   // 화면을 열면 init() 이 그대로 그린다. 게임 페이지 링크는 게임 목록(game)과 noscript 에 남아 검색엔진이 따라간다.
-  const CLIENT_ONLY = new Set(['mega', ...SHOP_CATS_ALL]);
+  const CLIENT_ONLY = new Set(['mega']);
   let filled = 0;
   for (const c of CATS) {
     const markup = grids[c];
@@ -586,21 +573,15 @@ function main() {
 
   fs.writeFileSync(FILE, html);
 
-  // 게임·쇼핑몰 페이지의 공유 이미지 (카카오톡·SNS 미리보기). 제목이 바뀔 때만 새로 만든다
+  // 게임 페이지의 공유 이미지 (카카오톡·SNS 미리보기). 제목이 바뀔 때만 새로 만든다
   const today0 = new Date(); today0.setHours(0, 0, 0, 0);
   const pageGames = games.filter(g => qualifies(g, x => (x.coupons || []).filter(c => evaluate(c, today0).active)));
-  const shopWithPage = {};
-  for (const cat of data.shop.cats) shopWithPage[cat] = data.shop.catalogs[cat].filter(m => shopQualifies(shopDetails[m.id]));
-  const og = ensureOgImages(rootDir, pageGames, shopWithPage);
+  const og = ensureOgImages(rootDir, pageGames);
 
   // 게임별 쿠폰 페이지 (/game/<id>.html). 살아 있는 코드가 있거나 입력 방법이 확인된 게임만
   const gp = writeGamePages(rootDir, games, posts, version, seen, og.game);
 
-  // 섹션 홈: 게임 쿠폰 홈(/game/), 쇼핑 할인 홈(/shop/), 쇼핑몰 페이지(/shop/<id>.html)
-  const shopArgs = { shopCats: data.shop.cats, shopCatalogs: data.shop.catalogs, subLabels: data.shop.subs, catLabels: data.shop.labels, catIcons: data.shop.icons,
-    details: shopDetails, posts, ogImages: og.shop, headerHtml, footerHtml };
-  const sp = writeShopPages(rootDir, shopArgs);
-  writeShopHub(rootDir, { ...shopArgs, pageIds: sp.ids });
+  // 섹션 홈: 게임 쿠폰 홈(/game/)
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.ids, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
   writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, headerHtml, footerHtml, version });
@@ -615,20 +596,17 @@ function main() {
     { loc: '/free/', file: 'free/index.html', freq: 'weekly', priority: '0.8' },
     { loc: '/free/preregister.html', file: 'free/preregister.html', freq: 'weekly', priority: '0.8' },
     { loc: '/free/roblox-codes.html', file: 'free/roblox-codes.html', freq: 'weekly', priority: '0.7' },
-    { loc: '/shop/', file: 'shop/index.html', freq: 'weekly', priority: '0.9' },
-    ...sp.ids.map(id => ({ loc: `/shop/${id}.html`, file: `shop/${id}.html`, freq: 'weekly', priority: '0.7' })),
   ]);
 
   // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
-  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version, { shops: sp.ids.map(id => ({ id, name: (Object.values(data.shop.catalogs).flat().find(m => m.id === id) || {}).name || id })) });
+  const llmsGames = writeLlmsTxt(rootDir, games, gp.ids, posts, version);
 
   const chars = CATS.filter(c => !CLIENT_ONLY.has(c)).reduce((n, c) => n + grids[c].length, 0);
-  const shops = data.groups.reduce((n, g) => n + g.items.length, 0);
   console.log(`카탈로그 버전: ${version}`);
-  console.log(`그리드 ${filled}개 · 게임 ${games.length}종 · 제휴몰 ${shops}곳을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
+  console.log(`그리드 ${filled}개 · 게임 ${games.length}종을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개 · 앱 위젯 요약 게임 ${widgetGames}개`);
-  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 쇼핑몰 페이지: ${sp.ids.length}개 (새로 씀 ${sp.written}, 지움 ${sp.removed})`);
+  console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed})`);
   console.log(`쿠폰 등록일 장부: ${Object.keys(seen).length}건 (새로 적음 ${added}건) · 최근 글 ${posts.length}개`);
   if (articles) console.log(`글 스키마 갱신: ${articles}개`);
   // 구글 애널리틱스 태그: 모든 페이지 (새 글·새 게임 페이지 포함)
@@ -641,11 +619,11 @@ function main() {
   console.log(webp);
   const marked = ensureImageMarkup(rootDir);
   if (marked) console.log(`이미지 표시(WebP·지연 로딩) 갱신: ${marked}개 페이지`);
-  console.log(`공유 이미지: 게임 ${Object.keys(og.game).length} · 쇼핑몰 ${Object.keys(og.shop).length} (새로 만듦 ${og.made})` + (og.error ? ` · 실패: ${og.error}` : ''));
+  console.log(`공유 이미지: 게임 ${Object.keys(og.game).length} (새로 만듦 ${og.made})` + (og.error ? ` · 실패: ${og.error}` : ''));
   if (thumbs.made || thumbs.skipped) console.log(`썸네일: 새로 만듦 ${thumbs.made}장` + (thumbs.skipped ? ` · 못 만듦 ${thumbs.skipped}장 (python/Pillow 필요)` : ''));
 }
 
 // 테스트(tests/)가 페이지 스크립트를 같은 방식으로 돌려 볼 수 있게 DOM 흉내를 내보낸다.
 // 직접 실행할 때만 빌드한다.
-module.exports = { makeDom };
+module.exports = { makeDom, isRedirectStub };
 if (require.main === module) main();

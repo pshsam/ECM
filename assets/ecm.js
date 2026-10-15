@@ -38,8 +38,8 @@
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (a.target && a.target !== '_self') return;
     if (a.hasAttribute('download')) return;
-    // 메인 화면 안에서 처리하는 링크(게임·쇼핑·카테고리)는 페이지를 옮기지 않는다
-    if (typeof window.bindMenu === 'function' && (a.dataset.game || a.dataset.shop || a.dataset.cat)) return;
+    // 메인 화면 안에서 처리하는 링크(게임·카테고리)는 페이지를 옮기지 않는다
+    if (typeof window.bindMenu === 'function' && (a.dataset.game || a.dataset.cat)) return;
     var href = a.getAttribute('href') || '';
     if (!href || href.charAt(0) === '#' || /^(javascript:|mailto:|tel:)/i.test(href)) return;
     var url;
@@ -128,7 +128,7 @@
   var openName = null, closeTimer = null;
   var isDesktop = function () { return window.matchMedia('(min-width: 1024px)').matches; };
 
-  // 메인에서 미리 렌더링해 둔 메뉴 3개(게임·쇼핑·블로그). 링크는 메인(/#...)으로 간다.
+  // 메인에서 미리 렌더링해 둔 메뉴 2개(게임·블로그). 링크는 메인(/#...)으로 간다.
   fetch('/assets/menu.html', { cache: 'no-store' }).then(function (r) { return r.text(); })
     .then(function (html) { box.innerHTML = html; })
     .catch(function () { box.innerHTML = '<div class="ecm-mega" data-panel="blog"><div class="ecm-mega-panel"><div class="ecm-mega-body"><p class="ecm-mega-empty"><a href="/blog/index.html">블로그 목록 보기</a></p></div></div></div>'; });
@@ -359,7 +359,7 @@ window.ECM_ENV = (function () {
   return { ios: ios, ipad: ipad, iosVer: iosVer, inApp: inApp, browser: browser, standalone: standalone, app: app, addToHomeHow: addToHomeHow };
 })();
 
-// ── ECM 쿠폰 앱 안에서만: 쇼핑 숨기기·처음 실행 게임 고르기·아이폰 위젯 (assets/ecm-app.js) ──
+// ── ECM 쿠폰 앱 안에서만: 탭 바·처음 실행 게임 고르기·아이폰 위젯 (assets/ecm-app.js) ──
 if (window.ECM_ENV.app) {
   (function () { var s = document.createElement('script'); s.src = '/assets/ecm-app.js'; document.head.appendChild(s); })();
 }

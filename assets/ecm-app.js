@@ -2,14 +2,12 @@
  * ECM 쿠폰 앱(안드로이드·아이폰) 안에서만 불러오는 스크립트 (assets/ecm.js 가 사용자 에이전트의 "ECMApp" 을 보고 부른다).
  * 웹 방문자에게는 아무 영향이 없다. 앱 코드는 별도 저장소(바탕 화면 'ECM 앱')에 있다.
  *
- * - 쇼핑 할인 메뉴·페이지를 숨긴다 (앱은 게임 쿠폰 전용)
  * - 아래쪽 탭 바: 오늘 · 전체 게임 · 내 게임
  * - 처음 실행: 오늘의 쿠폰에서 "어떤 게임 하세요?" 고르기 → 새 쿠폰 알림 켜기 (assets/ecm-push.js 의 ECM_PUSH_TURN_ON)
  * - 아이폰: 내 게임 목록을 홈 화면 위젯에 넘긴다 (앱의 EcmWidget 플러그인. 위젯은 /app/widget.json 을 직접 읽는다)
  */
 (function () {
   var path = location.pathname;
-  if (/^\/shop(\/|$)/.test(path)) { location.replace('/today/?utm_source=app'); return; }
 
   var FAV = 'ecm:fav', DONE = 'ecm:app-onboarded';
   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
@@ -27,7 +25,7 @@
 
   var css = document.createElement('style');
   css.textContent = [
-    'a[href^="/shop"], a[href*="ecm-coupon.com/shop"], [data-shop], .ecm-install, .ecm-mega[data-panel="shops"] { display: none !important; }',
+    '.ecm-install { display: none !important; }',
     // 앱은 새 쿠폰 알림을 푸시로 보내므로 텔레그램·카카오톡 채널 안내는 숨긴다(웹사이트 흔적을 줄여 앱 심사 4.2 대응)
     '[data-tg], [data-kc], .ecm-channels, .hub-sec:has(.fr-follow) { display: none !important; }',
     'body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }',
@@ -121,11 +119,6 @@
     });
   }
 
-  // 검색창 안내 글에서 '쇼핑몰'을 뺀다 (앱은 게임 쿠폰만)
-  function searchHint() {
-    Array.prototype.forEach.call(document.querySelectorAll('input[placeholder*="쇼핑"]'), function (i) { i.placeholder = i.placeholder.replace(/·?\s*쇼핑몰/, ''); });
-  }
-
   // 아이폰 앱: 내 게임이 바뀔 때마다 위젯에 알린다 (안드로이드에는 위젯이 없다)
   function syncWidget() {
     var C = window.Capacitor;
@@ -194,6 +187,6 @@
       if (st.views >= AD_EVERY - 1) return call('prepareInterstitial', opts);
     }).catch(function () {});
   }
-  function start() { tabs(); searchHint(); onboarding(); syncWidget(); ads(); }
+  function start() { tabs(); onboarding(); syncWidget(); ads(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

@@ -14,7 +14,7 @@ function isActive(c) {
   return require('./game-pages').evaluate(c).active;
 }
 
-function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {
+function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const ids = new Set(gamePageIds);
   const pageGames = games.filter(g => ids.has(g.id));
@@ -23,7 +23,7 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {
   const lines = [];
   lines.push('# ECM 쿠폰 (Every Coupon Matters)');
   lines.push('');
-  lines.push('> 한국어 게임 쿠폰 코드·생활 할인 정보 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.');
+  lines.push('> 한국어 게임 쿠폰 코드 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.');
   lines.push('');
   lines.push('- 운영: 겜대 (1인 운영), 2026년 9월 개설');
   lines.push(`- 마지막 쿠폰 확인일: ${version}`);
@@ -34,15 +34,10 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version, extra = {}) {
   lines.push('## 섹션 홈');
   lines.push('');
   lines.push(`- [게임 쿠폰 코드 모음](${SITE}/game/): 게임별 쿠폰 페이지, 새 쿠폰, 마감 임박 코드`);
-  lines.push(`- [쇼핑 할인·쿠폰 모음](${SITE}/shop/): 쇼핑몰별 정기 쿠폰·가입 혜택과 확인일`);
-  lines.push(`- [ECM 쿠폰 블로그](${SITE}/blog/index.html): 쿠폰 등록 방법·코드 가이드·알뜰 쇼핑 글`);
+  lines.push(`- [오늘의 쿠폰](${SITE}/today/): 오늘 새로 올라온 코드와 이번 주 마감 코드`);
+  lines.push(`- [게임 무료 혜택](${SITE}/free/): 쿠폰 외 사전예약·방송·PC방 보상 모음`);
+  lines.push(`- [ECM 쿠폰 블로그](${SITE}/blog/index.html): 쿠폰 등록 방법·게임 업데이트·사기 구별 가이드`);
   lines.push('');
-  if (extra.shops && extra.shops.length) {
-    lines.push('## 쇼핑몰별 혜택 페이지');
-    lines.push('');
-    for (const sh of extra.shops) lines.push(`- [${String(sh.name).split(' (')[0]} 쿠폰·할인 혜택](${SITE}/shop/${sh.id}.html)`);
-    lines.push('');
-  }
   lines.push('## 게임별 쿠폰 코드 페이지');
   lines.push('');
   for (const g of pageGames) {
