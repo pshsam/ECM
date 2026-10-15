@@ -249,7 +249,21 @@
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
     .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
     .ecm-muted { color: var(--ink-3); }
-    @media (max-width: 640px) { table.ecm-hist th:nth-child(2), table.ecm-hist td:nth-child(2) { min-width: 7rem; } }
+    table.ecm-hist td.h-date, table.ecm-hist td.h-end { white-space: nowrap; }
+    @media (min-width: 641px) { table.ecm-hist td.h-code .ecm-code { white-space: nowrap; word-break: normal; } }
+    /* 휴대폰: 지난 코드도 표 대신 줄마다 카드 (코드 · 등록일 / 보상 / 끝난 날) */
+    @media (max-width: 640px) {
+      table.ecm-hist, table.ecm-hist tbody { display: block; }
+      table.ecm-hist thead { display: none; }
+      table.ecm-hist tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem .75rem; padding: .7rem .1rem; border-bottom: 1px solid var(--line); }
+      .ecm-page table.ecm-hist td { border: 0; padding: 0; font-size: .85rem; }
+      table.ecm-hist td.h-code { grid-column: 1; grid-row: 1; min-width: 0; }
+      table.ecm-hist td.h-code .ecm-code { overflow-wrap: anywhere; word-break: normal; }
+      table.ecm-hist td.h-date { grid-column: 2; grid-row: 1; color: var(--ink-3); font-size: .78rem; }
+      table.ecm-hist td.h-reward { grid-column: 1 / -1; grid-row: 2; color: var(--ink); }
+      table.ecm-hist td.h-end { grid-column: 1 / -1; grid-row: 3; white-space: normal; color: var(--ink-2); font-size: .8rem; }
+      table.ecm-hist .c-label { display: inline; color: var(--ink-3); font-size: .75rem; margin-right: .35rem; }
+    }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -386,13 +400,13 @@
     <table class="ecm-hist">
       <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>
-        <tr><td><code class="ecm-code is-dead">GAECHEONJEOL</code></td><td>젬 1,000개, 부대 가속 아이템, VIP 경험치 (용광로 Lv.7 이상 필요)</td><td class="ecm-nowrap">2026.10.06</td><td class="ecm-nowrap">2026.10.07 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">THXTeacher</code></td><td>젬 1,000개, 골드열쇠 2개, 강화 경험치 파츠 2x100, 고기/목재 각 50x1,000, 석탄 10x1,000, 철 5x1,000</td><td class="ecm-nowrap">2026.10.06</td><td class="ecm-nowrap">2026.10.08 만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">FallEquinox26</code></td><td>보석 1,000개, 골드 열쇠 2개, 강화 경험치 부품 100 x2, 고기·목재 각 5만, 석탄 1만, 철 5천</td><td class="ecm-nowrap">2026.09.25</td><td class="ecm-nowrap">2026.09.26 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">1stYoutubeKR</code></td><td>보석·자원 꾸러미 (보상 상세 미공개)</td><td class="ecm-nowrap">2026.09.24</td><td class="ecm-nowrap">2026.09.26 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">2ndYoutubeKR</code></td><td>보석 500개, 지휘관 체력 100, 1시간 가속 3개, 고기·나무·석탄·철 자원</td><td class="ecm-nowrap">2026.09.24</td><td class="ecm-nowrap">2026.09.25 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">GuDokYTKOR</code></td><td>젬 500개, 영웅 체력 100, 부대 가속 아이템</td><td class="ecm-nowrap">2026.09.24</td><td class="ecm-nowrap">2026.10.07 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">JPsilverweek26</code></td><td>보석 1,000개, 골드열쇠 2개, 강화 경험치 재료 2개, 고기·목재·석탄·철 등 각종 자원</td><td class="ecm-nowrap">2026.09.24</td><td class="ecm-nowrap">2026.10.01 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">GAECHEONJEOL</code></td><td class="h-reward">젬 1,000개, 부대 가속 아이템, VIP 경험치 (용광로 Lv.7 이상 필요)</td><td class="h-date"><span class="c-label">등록</span>2026.10.06</td><td class="h-end"><span class="c-label">끝남</span>2026.10.07 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">THXTeacher</code></td><td class="h-reward">젬 1,000개, 골드열쇠 2개, 강화 경험치 파츠 2x100, 고기/목재 각 50x1,000, 석탄 10x1,000, 철 5x1,000</td><td class="h-date"><span class="c-label">등록</span>2026.10.06</td><td class="h-end"><span class="c-label">끝남</span>2026.10.08 만료</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">FallEquinox26</code></td><td class="h-reward">보석 1,000개, 골드 열쇠 2개, 강화 경험치 부품 100 x2, 고기·목재 각 5만, 석탄 1만, 철 5천</td><td class="h-date"><span class="c-label">등록</span>2026.09.25</td><td class="h-end"><span class="c-label">끝남</span>2026.09.26 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">1stYoutubeKR</code></td><td class="h-reward">보석·자원 꾸러미 (보상 상세 미공개)</td><td class="h-date"><span class="c-label">등록</span>2026.09.24</td><td class="h-end"><span class="c-label">끝남</span>2026.09.26 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">2ndYoutubeKR</code></td><td class="h-reward">보석 500개, 지휘관 체력 100, 1시간 가속 3개, 고기·나무·석탄·철 자원</td><td class="h-date"><span class="c-label">등록</span>2026.09.24</td><td class="h-end"><span class="c-label">끝남</span>2026.09.25 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">GuDokYTKOR</code></td><td class="h-reward">젬 500개, 영웅 체력 100, 부대 가속 아이템</td><td class="h-date"><span class="c-label">등록</span>2026.09.24</td><td class="h-end"><span class="c-label">끝남</span>2026.10.07 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">JPsilverweek26</code></td><td class="h-reward">보석 1,000개, 골드열쇠 2개, 강화 경험치 재료 2개, 고기·목재·석탄·철 등 각종 자원</td><td class="h-date"><span class="c-label">등록</span>2026.09.24</td><td class="h-end"><span class="c-label">끝남</span>2026.10.01 목록에서 내림</td></tr>
       </tbody>
     </table>
     <p class="ecm-code-note">코드는 기록한 글자 그대로예요. 다시 넣어도 받을 수 없어요. <b>목록에서 내림</b>은 ECM이 쓸 수 없는 코드로 보고 목록에서 뺀 날이에요.</p>

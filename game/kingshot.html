@@ -261,7 +261,21 @@
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
     .ecm-page .ecm-flow li b { font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
     .ecm-muted { color: var(--ink-3); }
-    @media (max-width: 640px) { table.ecm-hist th:nth-child(2), table.ecm-hist td:nth-child(2) { min-width: 7rem; } }
+    table.ecm-hist td.h-date, table.ecm-hist td.h-end { white-space: nowrap; }
+    @media (min-width: 641px) { table.ecm-hist td.h-code .ecm-code { white-space: nowrap; word-break: normal; } }
+    /* 휴대폰: 지난 코드도 표 대신 줄마다 카드 (코드 · 등록일 / 보상 / 끝난 날) */
+    @media (max-width: 640px) {
+      table.ecm-hist, table.ecm-hist tbody { display: block; }
+      table.ecm-hist thead { display: none; }
+      table.ecm-hist tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem .75rem; padding: .7rem .1rem; border-bottom: 1px solid var(--line); }
+      .ecm-page table.ecm-hist td { border: 0; padding: 0; font-size: .85rem; }
+      table.ecm-hist td.h-code { grid-column: 1; grid-row: 1; min-width: 0; }
+      table.ecm-hist td.h-code .ecm-code { overflow-wrap: anywhere; word-break: normal; }
+      table.ecm-hist td.h-date { grid-column: 2; grid-row: 1; color: var(--ink-3); font-size: .78rem; }
+      table.ecm-hist td.h-reward { grid-column: 1 / -1; grid-row: 2; color: var(--ink); }
+      table.ecm-hist td.h-end { grid-column: 1 / -1; grid-row: 3; white-space: normal; color: var(--ink-2); font-size: .8rem; }
+      table.ecm-hist .c-label { display: inline; color: var(--ink-3); font-size: .75rem; margin-right: .35rem; }
+    }
     .ecm-page .ecm-btn-primary { font-size: .85rem; padding: .5rem .9rem; min-height: 40px; }
     .ecm-page a.ecm-open { min-height: 44px; }
     .ecm-nowrap { white-space: nowrap; }
@@ -412,12 +426,12 @@
     <table class="ecm-hist">
       <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>
-        <tr><td><code class="ecm-code is-dead">WELLDONE</code></td><td>다이아몬드 1,000개, 영웅 경험치 10,000x2, 빵 1,000x50, 돌 1,000x10, 목재 1,000x50, 철 1,000x5, 1시간 부대장 가속 x4</td><td class="ecm-nowrap">2026.10.06</td><td class="ecm-nowrap">2026.10.10 만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">EXPLORETHEWORLD</code></td><td>보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개</td><td class="ecm-nowrap">2026.09.30</td><td class="ecm-nowrap">2026.10.04 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">KS0919</code></td><td>3일 아바타 프레임, 보석 100개x5, 영웅 경험치 100x2, 5분 장군 가속 x10</td><td class="ecm-nowrap">2026.09.27</td><td class="ecm-nowrap">2026.10.04 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">JPHolidaySEP</code></td><td>다이아몬드 1,000개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 영웅 경험치 10,000 3개, 장군 가속 1시간 3개, 장인의 시선 1개, 문양 도안 1개, 문양 가이드 1개</td><td class="ecm-nowrap">2026.09.26</td><td class="ecm-nowrap">2026.10.04 목록에서 내림</td></tr>
-        <tr><td><code class="ecm-code is-dead">MIDAUTUMN26</code></td><td>다이아몬드 1,000개, 장군 가속 5분 x20, 총독 스태미나 10 x5, 영웅 경험치 10,000 x3, VIP 경험치 100 x3, 빵·목재 1,000 x50, 석재 1,000 x10</td><td class="ecm-nowrap">2026.09.25</td><td class="ecm-nowrap">2026.09.30 만료</td></tr>
-        <tr><td><code class="ecm-code is-dead">VIP777</code></td><td>다이아몬드 200개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 골드열쇠 2개</td><td class="ecm-nowrap">2026.09.24</td><td class="ecm-nowrap">2026.10.11 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">WELLDONE</code></td><td class="h-reward">다이아몬드 1,000개, 영웅 경험치 10,000x2, 빵 1,000x50, 돌 1,000x10, 목재 1,000x50, 철 1,000x5, 1시간 부대장 가속 x4</td><td class="h-date"><span class="c-label">등록</span>2026.10.06</td><td class="h-end"><span class="c-label">끝남</span>2026.10.10 만료</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">EXPLORETHEWORLD</code></td><td class="h-reward">보석 1,000개, 장인의 통찰 1개, 각인 도안 1개, 각인 가이드 1개, 신화 원정 스킬 교본 2개, 신화 정복 스킬북 2개</td><td class="h-date"><span class="c-label">등록</span>2026.09.30</td><td class="h-end"><span class="c-label">끝남</span>2026.10.04 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">KS0919</code></td><td class="h-reward">3일 아바타 프레임, 보석 100개x5, 영웅 경험치 100x2, 5분 장군 가속 x10</td><td class="h-date"><span class="c-label">등록</span>2026.09.27</td><td class="h-end"><span class="c-label">끝남</span>2026.10.04 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">JPHolidaySEP</code></td><td class="h-reward">다이아몬드 1,000개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 영웅 경험치 10,000 3개, 장군 가속 1시간 3개, 장인의 시선 1개, 문양 도안 1개, 문양 가이드 1개</td><td class="h-date"><span class="c-label">등록</span>2026.09.26</td><td class="h-end"><span class="c-label">끝남</span>2026.10.04 목록에서 내림</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">MIDAUTUMN26</code></td><td class="h-reward">다이아몬드 1,000개, 장군 가속 5분 x20, 총독 스태미나 10 x5, 영웅 경험치 10,000 x3, VIP 경험치 100 x3, 빵·목재 1,000 x50, 석재 1,000 x10</td><td class="h-date"><span class="c-label">등록</span>2026.09.25</td><td class="h-end"><span class="c-label">끝남</span>2026.09.30 만료</td></tr>
+        <tr><td class="h-code"><code class="ecm-code is-dead">VIP777</code></td><td class="h-reward">다이아몬드 200개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 골드열쇠 2개</td><td class="h-date"><span class="c-label">등록</span>2026.09.24</td><td class="h-end"><span class="c-label">끝남</span>2026.10.11 목록에서 내림</td></tr>
       </tbody>
     </table>
     <p class="ecm-code-note">코드는 기록한 글자 그대로예요. 다시 넣어도 받을 수 없어요. <b>목록에서 내림</b>은 ECM이 쓸 수 없는 코드로 보고 목록에서 뺀 날이에요.</p>
