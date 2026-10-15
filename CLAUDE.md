@@ -29,7 +29,8 @@ scripts/prerender.js    빌드. index.html 스크립트를 가짜 DOM 에서 실
   llms-txt.js · analytics.js · pwa.js · media.js(+python) · mono.js
   widget-feed.js          /app/widget.json  (아이폰 앱 위젯용 쿠폰 요약. 코드 문자열은 넣지 않는다)
 scripts/notify-*.js     새 쿠폰 텔레그램·푸시 알림 (.github/workflows 가 실행). 앱 기기는 ua native-android / native-ios
-data/                   빌드·알림이 쓰는 장부 (coupon-seen = 코드 첫 등록일, *-sent = 알림 보낸 기록)
+data/                   빌드·알림이 쓰는 장부 (coupon-seen = 코드 첫 등록일, coupon-history = 지난 코드의 보상·끝난 날,
+                        game-listing = 코드가 없어도 목록에 남길 게임, *-sent = 알림 보낸 기록)
 assets/ecm.js           모든 페이지 공통 스크립트 (메뉴, 내 게임, 서비스 워커 등록)
 assets/ecm-app.js       ECM 쿠폰 앱(안드로이드·아이폰) 안에서만 (탭 바, 아이폰 위젯에 내 게임 넘기기)
 assets/ecm-push.js      웹 푸시 구독 → 파이어스토어 subscribers/{토큰} 에 {games, updated, ua} 만 저장
@@ -53,7 +54,24 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 글자 타일 | `monoOf` | `mono.js` | tests/data.test.js |
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
 | 코드별 확인일·출처 줄 | `couponSourceHtml` (홈 쿠폰 창) | `game-pages.js` `couponSourceHtml` (코드 표) | tests/data.test.js |
+| 목록에 보일 게임 (아래 "코드 없는 게임") | `isListedGame` | `game-pages.js` `isListed` | tests/listing.test.js |
 | 위젯 요약 형식·"새 코드" 3일 | (앱 저장소 `ios/App/Shared/CouponFeed.swift`) | `widget-feed.js`, `notify-*.js` | tests/widget.test.js |
+
+## 코드 없는 게임 (2026-10-15~, 애드센스 "가치가 별로 없는 콘텐츠" 대응)
+
+빌드할 때마다 자동으로 정한다. 손으로 숨기거나 되살리지 않는다.
+
+- **A (남김)**: `data/game-listing.json` 의 `keepListedWithoutCodes` 게임. 이 목록은 **이 파일 한 곳에만** 둔다
+  (prerender.js 가 index.html 의 `KEEP_LISTED_WITHOUT_CODES` 에 써 넣는다). 코드가 없어도 홈·메뉴·/game/·사이트맵·llms.txt 에 남고,
+  페이지에 상태 한 줄 · 지난 코드 기록 · 코드가 나온 흐름 · 넣는 곳 · 새 코드 알림을 보여 준다.
+- **B (숨김)**: 그 밖의 게임은 살아 있는 코드(`evaluate`/`evaluateCoupon` 기준)가 0개면 홈 목록·검색·헤더 메뉴(assets/menu.html)·/game/·
+  사이트맵·llms.txt·관련 게임 칩·무료 혜택 링크·noscript 요약에서 빠진다. `/game/<id>.html` 은 지우지 않고 `noindex` 로 남긴다(북마크·옮긴 글 이동 안내용).
+  코드가 다시 생기면 다음 `node scripts/prerender.js` 에서 저절로 돌아온다. A 게임도 목록에서 빼면 B 를 따른다.
+- 앱 위젯 요약(/app/widget.json)은 숨긴 게임도 그대로 넣고, 내 게임 목록(localStorage ecm:fav)·푸시 구독(subscribers.games)은 건드리지 않는다.
+  숨긴 게임에 새 코드가 생기면 알림이 그대로 가고, 그 빌드에서 게임도 목록에 돌아온다.
+- 블로그 글 본문이 숨긴 게임 페이지로 링크하면 prerender 가 "숨긴 게임으로 가는 블로그 링크"로 알려 준다. 본문은 자동으로 고치지 않는다.
+- 지난 코드 기록의 근거는 `data/coupon-seen.json`(등록일)과 `data/coupon-history.json`(보상·공식 만료일·목록에서 내린 날, prerender 가 관리)뿐이다.
+  사이트를 연 날(2026-09-21) 첫 커밋에만 있던 예시 코드는 기록에 넣지 않는다.
 
 ## 쿠폰 데이터 규칙
 
