@@ -1,16 +1,12 @@
 {
-  "about": "살아 있는 코드가 0개인 게임을 목록에 남길지 정하는 곳 (2026-10-15, 애드센스 '가치가 별로 없는 콘텐츠' 대응). keepListedWithoutCodes 에 있는 게임은 코드가 없어도 홈·메뉴·/game/·사이트맵·llms.txt 에 남고 페이지에 지난 코드 기록을 보여 준다(A). 여기 없는 게임은 빌드 시점에 살아 있는 코드가 0개면 목록에서 빠지고 /game/<id>.html 은 noindex 로 남는다(B). 코드가 다시 생기면 다음 빌드에서 자동으로 돌아온다. 고친 뒤 node scripts/prerender.js",
+  "about": "살아 있는 코드가 0개인 게임을 목록에 남길지 정하는 곳 (2026-10-15, 애드센스 '가치가 별로 없는 콘텐츠' 대응). keepListedWithoutCodes 에 있는 게임은 코드가 없어도 홈·메뉴·/game/·사이트맵·llms.txt 에 남고 페이지에 지난 코드 기록을 보여 준다(A). 여기 없는 게임은 빌드 시점에 살아 있는 코드가 0개면 목록에서 빠지고 /game/<id>.html 은 noindex 로 남는다(B). 코드가 다시 생기면 다음 빌드에서 자동으로 돌아온다. 고친 뒤 node scripts/prerender.js (2026-10-15: 기록된 코드가 없는 maplestory·nikke·zeus-arrogance-of-gods·cookierun 은 재심사 동안 A 에서 뺌)",
   "keepListedWithoutCodes": [
     "lostark",
-    "maplestory",
     "fconline",
     "bluearchive",
-    "nikke",
     "aion2",
     "maplestory-idle",
     "magmagu-2026",
-    "roblox-basketball-zero",
-    "zeus-arrogance-of-gods",
-    "cookierun"
+    "roblox-basketball-zero"
   ]
 }
