@@ -465,8 +465,7 @@
     "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 6)"
   },
   "roblox-anime-vanguards:AnniNextHopefully": {
-    "reward": "특성 재설정권 100개, 메모리아 조각 100개, 젬 5,000개 (레벨 30 필요)",
-    "removed": "2026-10-13"
+    "reward": "트레이트 리롤 100개 + 메모리아 조각 100개 + 젬 5,000개"
   },
   "roblox-anime-vanguards:Assault": {
     "reward": "트레이트 리롤 100개"
@@ -623,8 +622,12 @@
   "roblox-bee-swarm-simulator:Wax": {
     "reward": "꿀 5,000 + 티켓 5개"
   },
-  "roblox-bee-swarm-simulator:fourtunate": {
+  "roblox-bee-swarm-simulator:fortunate": {
     "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩"
+  },
+  "roblox-bee-swarm-simulator:fourtunate": {
+    "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩",
+    "removed": "2026-10-17"
   },
   "roblox-blade-ball:2BTHANKS": {
     "reward": "무료 스핀 1회"
@@ -812,7 +815,7 @@
     "removed": "2026-10-01"
   },
   "roblox-da-hood:BUFF": {
-    "reward": "DHC 3,500,000"
+    "reward": "DHC 500,000"
   },
   "roblox-da-hood:BUILD": {
     "reward": "DHC 1,000,000",
@@ -823,7 +826,8 @@
     "removed": "2026-10-01"
   },
   "roblox-da-hood:DOG": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-17"
   },
   "roblox-da-hood:FOURTH26": {
     "reward": "DHC 2,444,444",
@@ -833,7 +837,8 @@
     "reward": "DHC 500,000"
   },
   "roblox-da-hood:SHARK": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-17"
   },
   "roblox-da-hood:SPRING26": {
     "reward": "DHC 400,000",
@@ -959,7 +964,7 @@
     "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 9/24"
   },
   "roblox-shindo-life:FACEIDFIXUPD!": {
-    "reward": "스핀 150회 + RELL코인 15,000"
+    "reward": "RELL코인 10,000 + 스핀 100회"
   },
   "roblox-shindo-life:FixUpdateIsOutEarly!": {
     "reward": "RELL코인 10,000 + 스핀 100회"
@@ -1025,7 +1030,7 @@
     "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 6/24"
   },
   "roblox-shindo-life:ThankYouForPatience249Patch!": {
-    "reward": "RELL코인 + 스핀 지급, 정확한 수량 매체별 미기재"
+    "reward": "RELL코인 10,000 + 스핀 100회"
   },
   "roblox-shindo-life:ThankYouForPatience250Patch!": {
     "reward": "RELL코인 10,000 + 스핀 100회"
