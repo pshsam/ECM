@@ -469,8 +469,7 @@
     "removed": "2026-10-13"
   },
   "roblox-anime-vanguards:Assault": {
-    "reward": "특성 재설정권 100개",
-    "removed": "2026-10-13"
+    "reward": "트레이트 리롤 100개"
   },
   "roblox-anime-vanguards:BPSoon": {
     "reward": "메모리아 조각 50개 + 그린 에센스 50개",
@@ -538,8 +537,7 @@
     "reward": "젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 10 필요)"
   },
   "roblox-anime-vanguards:SummerLeaving": {
-    "reward": "메모리아 조각 100개",
-    "removed": "2026-10-13"
+    "reward": "메모리아 조각 100개"
   },
   "roblox-anime-vanguards:WhoopsieDaisy": {
     "reward": "메모리아 조각 100개",
@@ -705,7 +703,8 @@
     "reward": "인게임 화폐 $1"
   },
   "roblox-blox-fruits:Fudd10_v2": {
-    "reward": "인게임 화폐 $2"
+    "reward": "인게임 화폐 $2",
+    "removed": "2026-10-16"
   },
   "roblox-blox-fruits:JCWK": {
     "reward": "2x EXP 부스트"
@@ -714,7 +713,8 @@
     "reward": "무료 스탯 초기화"
   },
   "roblox-blox-fruits:Kittgaming": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "removed": "2026-10-16"
   },
   "roblox-blox-fruits:LIGHTNINGABUSE": {
     "reward": "2x EXP 부스트 20분"
@@ -761,12 +761,10 @@
     "reward": "2x EXP 부스트"
   },
   "roblox-blox-fruits:fudd10_v2": {
-    "reward": "인게임 화폐 $2",
-    "removed": "2026-09-25"
+    "reward": "인게임 화폐 $2"
   },
   "roblox-blox-fruits:kittgaming": {
-    "reward": "2x EXP 부스트",
-    "removed": "2026-09-25"
+    "reward": "2x EXP 부스트"
   },
   "roblox-blue-lock-rivals:ACEEATER": {
     "reward": "럭키 스타일 스핀 5개"
