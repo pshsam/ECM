@@ -464,6 +464,9 @@
   "roblox-anime-vanguards:2ndAnniDay6": {
     "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 6)"
   },
+  "roblox-anime-vanguards:2ndAnniversary": {
+    "reward": "리롤 1,000개"
+  },
   "roblox-anime-vanguards:AnniNextHopefully": {
     "reward": "트레이트 리롤 100개 + 메모리아 조각 100개 + 젬 5,000개"
   },
@@ -494,9 +497,15 @@
     "reward": "트레이트 리롤 50개 + 카피캣 토큰 20개",
     "removed": "2026-09-27"
   },
+  "roblox-anime-vanguards:Finally": {
+    "reward": "메모리아 조각 1,000 + 골드 100,000 + 레인보우 에센스 30"
+  },
   "roblox-anime-vanguards:Gambler": {
     "reward": "트레이트 리롤 50개 + 메모리아 조각 50개 + 레인보우 에센스 5개",
     "removed": "2026-10-01"
+  },
+  "roblox-anime-vanguards:HappyAnniversary": {
+    "reward": "메모리아 메이커 퍼즐 조각 1개"
   },
   "roblox-anime-vanguards:HeavyEyes": {
     "reward": "메모리아 조각 50개 + 추방 토큰 50개",
@@ -518,7 +527,8 @@
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:MiniUpd2": {
-    "reward": "트레이트 리롤 200개 + 젬 50,000개"
+    "reward": "트레이트 리롤 200개 + 젬 50,000개",
+    "removed": "2026-10-18"
   },
   "roblox-anime-vanguards:Miniupdate1": {
     "reward": "트레이트 리롤 50개 + 메모리아 조각 50개",
@@ -533,17 +543,22 @@
     "removed": "2026-10-07"
   },
   "roblox-anime-vanguards:Retribution": {
-    "reward": "젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 10 필요)"
+    "reward": "젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 10 필요)",
+    "removed": "2026-10-18"
   },
   "roblox-anime-vanguards:SummerLeaving": {
     "reward": "메모리아 조각 100개"
+  },
+  "roblox-anime-vanguards:TrueShadowMonarch": {
+    "reward": "레드 키 + 젬 50,000 + 스탯 칩 500"
   },
   "roblox-anime-vanguards:WhoopsieDaisy": {
     "reward": "메모리아 조각 100개",
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:Wrath": {
-    "reward": "메모리아 조각 200개 + 젬 50,000개"
+    "reward": "메모리아 조각 200개 + 젬 50,000개",
+    "removed": "2026-10-18"
   },
   "roblox-basketball-zero:15KIRA": {
     "reward": "럭키 스타일 스핀 7개 + 럭키 존 스핀 7개 + 게임머니 50,000",
