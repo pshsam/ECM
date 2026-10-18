@@ -90,6 +90,10 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 새 화면에 이모지를 쓰지 않는다. 아이콘은 글자 타일(mono)과 Font Awesome.
 - Font Awesome 은 쓰는 아이콘만 남긴 `assets/fa.css`(+ `assets/fonts/fa-*.woff`)다. 새 아이콘을 쓰면 `python scripts/fa-subset.py <Font Awesome 6.5.1 package 폴더>` 로 다시 만든다
   (없는 아이콘은 빈칸으로 보이고, tests/fonts.test.js 가 잡는다). 글꼴 `<head>` 줄은 `scripts/font-head.js` 한 곳에서 관리한다 (Pretendard 동적 서브셋).
+- Pretendard CSS 는 `assets/pretendard.css`(`node scripts/pretendard-css.js <jsDelivr 의 pretendard-dynamic-subset.css>` 로 만든다, 글꼴 파일은 jsDelivr)이고
+  `font-display: optional` 이다. swap 으로 되돌리지 않는다: 글꼴이 늦게 오면 줄바꿈이 바뀌어 게임 페이지가 33px 튀었다(CLS 0.2, 2026-10-19).
+  처음 온 방문자는 첫 페이지를 시스템 글꼴로 보고, 다음 페이지부터 Pretendard 로 본다.
+- 첫 화면 아래 칸(게임 페이지 코드 표 다음 단락, 홈 마감·가이드 칸, 바닥글)은 `content-visibility: auto` 다. 코드 표(`table.ecm-codes`)에는 걸지 않는다(찾는 코드 표시가 줄 위치를 잰다).
 - `assets/styles.css` 는 미리 빌드한 Tailwind. 새 Tailwind 클래스는 동작하지 않으니 `<style>` 이나 `ecm.css` 에 쓴다.
 
 ## 검색 규칙

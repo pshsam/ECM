@@ -618,6 +618,9 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     details.ecm-faq { background: #fff; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .9rem .1rem; margin: 0; }
     details.ecm-faq summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
     details.ecm-faq p { margin: .6rem 0 0; }
+    /* 코드 표 다음 단락(코드가 나오는 곳·입력 방법·FAQ…)은 휴대폰 첫 화면 한참 아래라 화면에 다가올 때 배치한다.
+       코드 표는 빼 둔다(찾는 코드 표시가 줄 위치를 재서 스크롤한다). 숫자는 처음 그리기 전 자리 크기, 한 번 그리면 실제 크기를 기억한다 */
+    .ecm-page article > h2:not(#codes), .ecm-page article > h2:not(#codes) ~ * { content-visibility: auto; contain-intrinsic-size: auto 120px; }
     @media (max-width: 640px) { .ecm-page table { font-size: .82rem; } .ecm-page th, .ecm-page td { padding: .55rem .5rem; } }
   </style>
 </head>

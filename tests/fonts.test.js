@@ -54,3 +54,28 @@ test('템플릿·스크립트·사이트 페이지가 쓰는 아이콘은 모두
   }
   assert.deepEqual(missing, {}, 'assets/fa.css 에 없는 아이콘 — python scripts/fa-subset.py 로 다시 만든다');
 });
+
+// Pretendard CSS (2026-10-19): font-display optional — swap 이면 글꼴이 늦게 와서 줄바꿈이 바뀌고 게임 페이지가 튄다(CLS 0.2)
+test('Pretendard 는 /assets/pretendard.css (font-display: optional, 굵기 400-900, woff2 는 jsDelivr)', () => {
+  const css = fs.readFileSync(path.join(ROOT, 'assets', 'pretendard.css'), 'utf8');
+  const faces = css.match(/@font-face\{[^}]*\}/g) || [];
+  assert.ok(faces.length >= 500, '서브셋 @font-face 가 너무 적다: ' + faces.length);
+  for (const f of faces) {
+    assert.match(f, /font-display:optional/);
+    assert.match(f, /font-weight:[4-9]00;/);
+    assert.match(f, /src:url\(https:\/\/cdn\.jsdelivr\.net\/gh\/orioncactus\/pretendard@v[\d.]+\/packages\/pretendard\/dist\/web\/static\/woff2-dynamic-subset\/Pretendard-\w+\.subset\.\d+\.woff2\)/);
+  }
+  assert.doesNotMatch(css, /font-display:\s*swap/);
+  assert.match(FONT_HEAD, /<link rel="stylesheet" href="\/assets\/pretendard\.css">/);
+  const stale = pages.filter(p => fs.readFileSync(path.join(ROOT, p), 'utf8').includes('pretendard-dynamic-subset.css'));
+  assert.deepEqual(stale, [], 'jsDelivr CSS 를 직접 부르는 페이지가 남았다 (prerender 가 ensureFonts 로 바꾼다)');
+});
+
+test('withFonts: jsDelivr 동적 서브셋 줄(2026-10-18~19)을 /assets/pretendard.css 줄로 바꾼다', () => {
+  const cdn = 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css';
+  const old = '<head>\n  <link rel="stylesheet" href="/assets/fa.css">\n  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>\n'
+    + `  <link rel="preload" as="style" href="${cdn}" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="${cdn}"></noscript>\n</head>`;
+  const out = withFonts(old);
+  assert.equal(out, '<head>\n  ' + FONT_HEAD + '\n</head>');
+  assert.equal(withFonts(out), out);
+});

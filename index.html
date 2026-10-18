@@ -472,7 +472,7 @@
   <script src="/assets/ecm.js" defer></script>
   <link rel="stylesheet" href="/assets/fa.css">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css"></noscript>
+  <link rel="stylesheet" href="/assets/pretendard.css">
 
   <style>
     /* 페이지 전용 스타일. 공통(헤더·드롭다운·뱃지)은 /assets/ecm.css 에 있다. */
@@ -627,6 +627,9 @@
 
     /* 홈 화면 */
     .ecm-home-sec { margin: .25rem 0 1.75rem; }
+    /* 첫 화면 아래(휴대폰 기준) 칸은 화면에 다가올 때 배치한다. 숫자는 처음 그리기 전 자리 크기(휴대폰에서 잰 값), 한 번 그리면 실제 크기를 기억한다 */
+    #homeCatalogView .ecm-home-sec:not(:first-child) { content-visibility: auto; contain-intrinsic-size: auto 700px; }
+    main > .ecm-guides { content-visibility: auto; contain-intrinsic-size: auto 540px; }
     .ecm-home-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 1.5rem; }
     .ecm-home-grid > * { min-width: 0; }
     @media (min-width: 1024px) {
@@ -848,7 +851,7 @@
             <h2 id="deadlineTitle"><i class="fa-solid fa-hourglass-half"></i> 마감 임박 쿠폰</h2>
             <span class="ecm-updated">2주 안에 끝나는 코드</span>
           </div>
-          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/game/neverness-to-everness.html#code-BLACKBIRDINNTE"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">이</span><span class="ecm-upd-main"><span class="ecm-upd-title">이환 (Neverness to Everness)</span><span class="ecm-upd-desc">환석 20개, 비틀 코인 30,000개, 폰즈 10,000개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-2</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/neverness-to-everness.html#code-WONDERLOGGIFT"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">이</span><span class="ecm-upd-main"><span class="ecm-upd-title">이환 (Neverness to Everness)</span><span class="ecm-upd-desc">안눌리스 30개, 상급 헌터 가이드 3개, 폰즈 20,000개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-3</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/genshin.html#code-VesnaOnPatrol"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">원</span><span class="ecm-upd-main"><span class="ecm-upd-title">원신</span><span class="ecm-upd-desc">원석 40개, 영웅의 양식 3개, 모라 20,000</span></span><span class="ecm-upd-meta"><span class="ecm-pill due">D-4</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-3RDBOLTHDAY"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due">D-4</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-GOOGLETOP3"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">교주의 빛무리 선택권 1개, 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due">D-4</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-SILVERBOL"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">실비아 확정 모집권 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due">D-4</span><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:deadline--></div>
+          <div id="deadlineGridContainer" class="ecm-upd-list"><!--PRERENDER:deadline--><a class="ecm-upd" href="/game/neverness-to-everness.html#code-BLACKBIRDINNTE"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">이</span><span class="ecm-upd-main"><span class="ecm-upd-title">이환 (Neverness to Everness)</span><span class="ecm-upd-desc">환석 20개, 비틀 코인 30,000개, 폰즈 10,000개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-1</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/neverness-to-everness.html#code-WONDERLOGGIFT"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">이</span><span class="ecm-upd-main"><span class="ecm-upd-title">이환 (Neverness to Everness)</span><span class="ecm-upd-desc">안눌리스 30개, 상급 헌터 가이드 3개, 폰즈 20,000개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-2</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/genshin.html#code-VesnaOnPatrol"><span class="ecm-upd-icon ecm-mono" style="--mh:18" aria-hidden="true">원</span><span class="ecm-upd-main"><span class="ecm-upd-title">원신</span><span class="ecm-upd-desc">원석 40개, 영웅의 양식 3개, 모라 20,000</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-3</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-3RDBOLTHDAY"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-3</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-GOOGLETOP3"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">교주의 빛무리 선택권 1개, 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-3</span><span class="ecm-code-btn">코드 보기</span></span></a><a class="ecm-upd" href="/game/trickcal-revive.html#code-SILVERBOL"><span class="ecm-upd-icon ecm-mono" style="--mh:215" aria-hidden="true">트</span><span class="ecm-upd-main"><span class="ecm-upd-title">트릭컬 리바이브</span><span class="ecm-upd-desc">실비아 확정 모집권 1개</span></span><span class="ecm-upd-meta"><span class="ecm-pill due-soon">D-3</span><span class="ecm-code-btn">코드 보기</span></span></a><!--/PRERENDER:deadline--></div>
         </section>
       </div>
 
@@ -1173,7 +1176,7 @@
             <div>
               <div class="ecm-card-top">
                 <div class="ecm-icon ecm-mono" style="--mh:18" aria-hidden="true">이</div>
-                <div class="ecm-badges"></div>
+                <div class="ecm-badges"><span class="ecm-pill new">NEW</span></div>
               </div>
               <h3 class="ecm-card-title truncate">이환 (Neverness to Everness)</h3>
               <p class="ecm-card-sub"><span>오픈월드 액션RPG</span><span class="ecm-plat-badge">CROSS</span><span class="ecm-plat-badge">PC</span><span class="ecm-plat-badge">PS5</span><span class="ecm-plat-badge">MOBILE</span></p>
@@ -1248,7 +1251,7 @@
             <div>
               <div class="ecm-card-top">
                 <div class="ecm-icon ecm-mono" style="--mh:170" aria-hidden="true">플</div>
-                <div class="ecm-badges"><span class="ecm-pill new">NEW</span></div>
+                <div class="ecm-badges"></div>
               </div>
               <h3 class="ecm-card-title truncate">플랜츠 vs 브레인랏</h3>
               <p class="ecm-card-sub"><span>로블록스 · 타워디펜스</span><span class="ecm-plat-badge">로블록스</span></p>
@@ -1870,7 +1873,11 @@
 
       applyCategoryCounts();
       showLastUpdated();
-      renderMegaMenus();
+      // 드롭다운 메뉴는 처음엔 숨어 있으니 첫 화면을 그린 뒤 한가할 때 만든다(그 전에 열면 openMenu 가 바로 만든다).
+      // prerender 의 가짜 DOM 에는 타이머가 없어 바로 그린다 — assets/menu.html 이 이 결과다
+      const later = typeof window.requestIdleCallback === 'function' ? cb => window.requestIdleCallback(cb, { timeout: 3000 })
+        : typeof window.setTimeout === 'function' ? cb => window.setTimeout(cb, 300) : null;
+      if (later) later(ensureMegaMenus); else ensureMegaMenus();
       renderUpdates();
       renderDeadlines();
       renderArticles();
@@ -2005,6 +2012,12 @@
       const attr = hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`;
       return `<li><a href="${gameHref(g)}"${attr}>${monoBox('ecm-mega-icon', g.title)}<span class="ecm-mega-name">${esc(g.title)}</span>${badgesHtml(g)}</a></li>`;
     }
+    let megaRendered = false;
+    function ensureMegaMenus() {
+      if (megaRendered) return;
+      megaRendered = true;
+      renderMegaMenus();
+    }
     function renderMegaMenus() {
       const box = document.getElementById('megaGridContainer');
       if (!box) return;
@@ -2043,6 +2056,7 @@
       return typeof window.matchMedia === 'function' && window.matchMedia('(min-width: 1024px)').matches;
     }
     function openMenu(name) {
+      ensureMegaMenus();
       openMenuName = name;
       const wrap = document.getElementById('megaMenuWrap');
       if (wrap) wrap.classList.add('is-open');
@@ -2235,6 +2249,12 @@
     function fmtDate(d) {
       return /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? d.slice(5).replace('-', '.') : (d || '');
     }
+    // 마크업이 같으면 다시 넣지 않는다. 빌드가 미리 그려 둔 목록을 init() 이 똑같이 또 넣으면
+    // 노드를 다 버리고 새로 만들어 배치·글자 계산을 처음부터 다시 한다(휴대폰에서 첫 화면이 늦어진다).
+    // 날짜가 바뀌어 D-day·NEW 가 달라졌을 때만 바꿔 넣는다.
+    function setHtml(box, html) {
+      if (box.innerHTML !== html) box.innerHTML = html;
+    }
     function renderUpdates() {
       const box = document.getElementById('updatesGridContainer');
       if (!box) return;
@@ -2243,14 +2263,14 @@
         box.innerHTML = '<p class="ecm-upd-empty">최근 새로 등록된 쿠폰이 없어요. 게임 이름으로 찾아보세요.</p>';
         return;
       }
-      box.innerHTML = items.map(it => {
+      setHtml(box, items.map(it => {
         // 게임명 → 핵심 보상(한 줄) → 새 코드 수·등록일 → 코드 보기. 코드는 여기서 보여주지 않는다(복사·입력 방법이 있는 상세로 보낸다)
         const g = it.game;
         const first = it.coupons[0];
         const more = it.coupons.length > 1 ? ` 외 ${it.coupons.length - 1}개` : '';
         const reward = esc(first.reward || '보상 확인 중') + more;
         return `<a class="ecm-upd" href="${updateHref(g, it.date)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`} aria-label="${esc(g.title)} 신규 코드 ${it.coupons.length}개 (${esc(fmtDate(it.date))} 등록) 보기">${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc" title="${esc(it.coupons.map(c => c.reward || '').join(' · '))}">${reward}</span></span><span class="ecm-upd-meta"><span class="ecm-upd-info"><span class="ecm-nw">신규 ${it.coupons.length}개</span><span aria-hidden="true">·</span><time class="ecm-nw" datetime="${esc(it.date)}" title="${esc(it.date)} 등록">${esc(fmtDate(it.date))}</time></span><span class="ecm-code-btn">코드 보기</span></span></a>`;
-      }).join('');
+      }).join(''));
     }
 
     // ── 마감 임박 쿠폰 ───────────────────────────────────────────────────
@@ -2272,11 +2292,11 @@
         box.innerHTML = '<p class="ecm-upd-empty">2주 안에 마감되는 쿠폰이 없습니다. 지금 있는 코드는 여유 있게 쓰셔도 됩니다.</p>';
         return;
       }
-      box.innerHTML = rows.slice(0, DEADLINE_MAX).map(r => {
+      setHtml(box, rows.slice(0, DEADLINE_MAX).map(r => {
         const g = r.game;
         const pill = `<span class="ecm-pill ${r.left <= 3 ? 'due-soon' : 'due'}">${esc(r.ddayText)}</span>`; // 오늘 마감·D-n 글자와 색을 같이
         return `<a class="ecm-upd" href="${hasGamePage(g) ? `/game/${g.id}.html#${codeAnchor(r.coupon.code)}` : gameHref(g)}"${hasGamePage(g) ? '' : ` data-game="${esc(g.id)}"`}>${monoBox('ecm-upd-icon', g.title)}<span class="ecm-upd-main"><span class="ecm-upd-title">${esc(g.title)}</span><span class="ecm-upd-desc">${esc(r.coupon.reward || '보상 확인')}</span></span><span class="ecm-upd-meta">${pill}<span class="ecm-code-btn">코드 보기</span></span></a>`;
-      }).join('');
+      }).join(''));
     }
 
     // ── 새로 올라온 글 (사진 카드) ───────────────────────────────────────
@@ -2285,12 +2305,12 @@
       if (!box) return;
       const posts = (RECENT_BLOG_POSTS || []).slice(0, ARTICLES_MAX);
       if (!posts.length) { box.innerHTML = '<p class="ecm-upd-empty">아직 글이 없습니다.</p>'; return; }
-      box.innerHTML = posts.map(p => {
+      setHtml(box, posts.map(p => {
         const img = p.image
           ? `<div class="ecm-post-img">${p.imageWebp ? `<picture class="ecm-pic"><source type="image/webp" srcset="${esc(p.imageWebp)}">` : ''}<img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title)}" loading="lazy" decoding="async" width="1200" height="630" onerror="var b=this.closest('.ecm-post-img');b.classList.add('is-empty');b.innerHTML='<i class=&quot;fa-regular fa-file-lines&quot; aria-hidden=&quot;true&quot;></i>'">${p.imageWebp ? '</picture>' : ''}</div>`
           : `<div class="ecm-post-img is-empty"><i class="fa-regular fa-file-lines" aria-hidden="true"></i></div>`;
         return `<a class="ecm-post" href="${esc(p.url)}">${img}<div class="ecm-post-body">${p.category ? `<span class="ecm-post-cat">${esc(p.category)}</span>` : ''}<h3>${esc(p.title)}</h3>${p.excerpt ? `<p>${esc(p.excerpt)}</p>` : ''}<time datetime="${esc(p.date)}">${esc((p.date || '').replace(/-/g, '.'))}</time></div></a>`;
-      }).join('');
+      }).join(''));
     }
 
     // ── 히어로 숫자 세 칸 + 확인 기준 ─────────────────────────────────────
@@ -2298,9 +2318,9 @@
       const box = document.getElementById('herostatsGridContainer');
       if (!box) return;
       const withCoupons = games.filter(g => countActiveCoupons(g) > 0).length;
-      box.innerHTML = `<p class="ecm-stats-line"><a href="/game/">쿠폰 있는 게임 <b>${withCoupons}</b></a><a href="/game/">게임 목록 <b>${listedGames().length}</b></a></p>`
+      setHtml(box, `<p class="ecm-stats-line"><a href="/game/">쿠폰 있는 게임 <b>${withCoupons}</b></a><a href="/game/">게임 목록 <b>${listedGames().length}</b></a></p>`
         + `<p class="ecm-trust"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>공식 공지나 서로 다른 출처 2곳에서 확인된 코드만 올려요. 목록 갱신 ${esc(fmtDate(CATALOG_VERSION))} · <a href="/about.html#criteria">확인 기준</a></span></p>`
-        + `<p class="ecm-channels"><span>새 쿠폰 알림</span><a href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="home"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램</a><a href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="home"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a href="/today/"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 오늘의 쿠폰</a></p>`;
+        + `<p class="ecm-channels"><span>새 쿠폰 알림</span><a href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="home"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램</a><a href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="home"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a href="/today/"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 오늘의 쿠폰</a></p>`);
     }
 
     // 검색 비교: 대소문자·띄어쓰기·문장부호를 무시한다 ('펫시뮬레이터' → '펫 시뮬레이터 99', '붕괴 스타레일' → '붕괴: 스타레일')
@@ -2339,7 +2359,7 @@
       });
 
       document.getElementById('gameTotalCount').innerText = `${filtered.length}개`;
-      grid.innerHTML = filtered.map(game => {
+      setHtml(grid, filtered.map(game => {
         const activeCount = countActiveCoupons(game);
         const plats = (game.platforms || []).map(p => `<span class="ecm-plat-badge">${p === 'roblox' ? '로블록스' : p.toUpperCase()}</span>`).join('');
         return `
@@ -2358,7 +2378,7 @@
             </div>
           </div>
         `;
-      }).join('');
+      }).join(''));
     }
 
     // 드롭다운 값을 상태와 맞추고, 'all'이 아니면 색으로 표시한다

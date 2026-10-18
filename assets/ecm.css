@@ -271,6 +271,9 @@ body { overflow-x: clip; }
 /* 블로그 본문: 14px(text-sm) 는 모바일에서 작다. 본문 문단·목록은 16px 로 */
 main article p.text-sm, main article li, main article .text-sm:not(table):not(th):not(td) { font-size: 1rem; line-height: 1.8; }
 
+/* 바닥글은 늘 첫 화면 아래라 화면에 다가올 때 배치한다 (한 번 그리면 실제 크기를 기억한다) */
+body > footer { content-visibility: auto; contain-intrinsic-size: auto 240px; }
+
 /* ───────── 블로그 글 목차 ───────── */
 .ecm-toc-box { background: var(--sf); border: 1px solid transparent; border-radius: 12px; padding: .6rem .9rem; margin: 0 0 1.25rem; }
 .ecm-toc-box summary { cursor: pointer; font-weight: 800; font-size: .9rem; list-style: none; display: flex; align-items: center; gap: .4rem; }
