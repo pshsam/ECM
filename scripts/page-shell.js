@@ -3,6 +3,7 @@
  * 헤더·푸터는 게임 페이지와 같은 것을 쓴다 (game-pages.js).
  */
 const { GA_SNIPPET } = require('./analytics');
+const { FONT_HEAD } = require('./font-head');
 
 const SITE = 'https://ecm-coupon.com';
 const esc = t => String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -116,8 +117,7 @@ function pageShell({ title, desc, path, ld = [], style = '', body, ogType = 'web
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
   <script src="/assets/ecm.js" defer></script>
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"></noscript>
+  ${FONT_HEAD}
 ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n  </script>`).join('\n')}
   <style>${HUB_CSS}${style}
   </style>

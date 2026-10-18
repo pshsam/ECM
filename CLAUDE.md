@@ -88,6 +88,8 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 
 - "클린 노랑": 바탕·헤더는 흰색, 노랑은 로고·주요 버튼·강조에만. 노란 헤더로 되돌리지 않는다.
 - 새 화면에 이모지를 쓰지 않는다. 아이콘은 글자 타일(mono)과 Font Awesome.
+- Font Awesome 은 쓰는 아이콘만 남긴 `assets/fa.css`(+ `assets/fonts/fa-*.woff`)다. 새 아이콘을 쓰면 `python scripts/fa-subset.py <Font Awesome 6.5.1 package 폴더>` 로 다시 만든다
+  (없는 아이콘은 빈칸으로 보이고, tests/fonts.test.js 가 잡는다). 글꼴 `<head>` 줄은 `scripts/font-head.js` 한 곳에서 관리한다 (Pretendard 동적 서브셋).
 - `assets/styles.css` 는 미리 빌드한 Tailwind. 새 Tailwind 클래스는 동작하지 않으니 `<style>` 이나 `ecm.css` 에 쓴다.
 
 ## 검색 규칙

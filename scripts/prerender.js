@@ -28,6 +28,7 @@ const { writeLlmsTxt } = require('./llms-txt');
 const { writeWidgetFeed } = require('./widget-feed');
 const { ensureAnalytics } = require('./analytics');
 const { ensurePwaHead } = require('./pwa');
+const { ensureFonts, blogMissingIcons } = require('./font-head');
 const { ensureOgImages, ensureWebp, ensureImageMarkup } = require('./media');
 
 const FILE = path.join(__dirname, '..', 'index.html');
@@ -733,6 +734,11 @@ function main() {
   // 홈 화면 설치(웹앱) 태그: 모든 페이지
   const pwa = ensurePwaHead(rootDir);
   if (pwa) console.log(`웹앱 태그: ${pwa}개 페이지에 넣음`);
+  // 글꼴 태그(Pretendard 동적 서브셋·아이콘 부분집합): 모든 페이지 (옛 템플릿으로 쓴 새 글 포함)
+  const fonts = ensureFonts(rootDir);
+  if (fonts) console.log(`글꼴 태그: ${fonts}개 페이지 바꿈`);
+  const noIcon = blogMissingIcons(rootDir);
+  if (noIcon.length) console.log(`아이콘 부분집합(assets/fa.css)에 없는 아이콘: ${noIcon.map(x => `${x.post} → ${x.icons.join(', ')}`).join(' · ')} (python scripts/fa-subset.py 로 다시 만들거나 있는 아이콘으로 바꾼다)`);
   // 블로그 이미지: <picture>(WebP 먼저)·지연 로딩 표시
   console.log(webp);
   const marked = ensureImageMarkup(rootDir);

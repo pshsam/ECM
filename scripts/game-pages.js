@@ -11,6 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const { GA_SNIPPET } = require('./analytics');
+const { FONT_HEAD } = require('./font-head');
 const { monoBox } = require('./mono');
 
 const SITE = 'https://ecm-coupon.com';
@@ -481,8 +482,7 @@ ${listed ? '' : '  <meta name="robots" content="noindex">\n'}  <link rel="canoni
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
   <script src="/assets/ecm.js" defer></script>
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"></noscript>
+  ${FONT_HEAD}
 ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n  </script>`).join('\n')}
   <style>
     .ecm-page { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
