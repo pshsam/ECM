@@ -233,7 +233,8 @@
     "removed": "2026-09-25"
   },
   "genshin:2BJ64QRZ7RT8": {
-    "reward": "원석 60개, 모험가의 경험 5개"
+    "reward": "원석 60개, 모험가의 경험 5개",
+    "removed": "2026-10-19"
   },
   "genshin:EPIC2026": {
     "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000"
@@ -250,7 +251,8 @@
     "expireDate": "2026-10-22"
   },
   "genshin:Y1INABQB6DEX": {
-    "reward": "원석 60개, 모험가의 경험 5개"
+    "reward": "원석 60개, 모험가의 경험 5개",
+    "removed": "2026-10-19"
   },
   "genshin:Y6JYMKV6JKSL": {
     "reward": "원석 60개, 모험가의 경험 5개"
@@ -342,6 +344,9 @@
   "neverness-to-everness:COMEBACK": {
     "reward": "기만의 주사위 1개",
     "expireDate": "상시"
+  },
+  "neverness-to-everness:DRAGONGIRL": {
+    "reward": "안눌리스 30개, 폰즈 20,000개, 푸카 초코아 엘리 투어 스페셜 1개"
   },
   "neverness-to-everness:NTEGIFT": {
     "reward": "환석 50개, 라이징 헌터 가이드 5개, 연한 염료 5개",
