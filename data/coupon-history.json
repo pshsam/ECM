@@ -643,7 +643,8 @@
     "reward": "꿀 5,000 + 티켓 5개"
   },
   "roblox-bee-swarm-simulator:fortunate": {
-    "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩"
+    "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩",
+    "removed": "2026-10-19"
   },
   "roblox-bee-swarm-simulator:fourtunate": {
     "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩",
