@@ -177,6 +177,11 @@
     .td-pick select { height: 40px; border-radius: 10px; border: 1px solid var(--line); background: #fff; padding: 0 .6rem; font-family: inherit; font-size: .88rem; max-width: 100%; }
     .td-pick button { height: 40px; }
     .ecm-page-note { font-size: .85rem; color: var(--ink-3); }
+    /* 마감 캘린더 구독 (/calendar/ecm-expiring.ics) */
+    .td-cal { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .5rem; margin: .75rem 0 0; }
+    .td-cal a.td-cal-link, .td-cal button { display: inline-flex; align-items: center; gap: .35rem; height: 36px; padding: 0 .8rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: .85rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .td-cal a.td-cal-link:hover, .td-cal button:hover { border-color: var(--ink-3); }
+    .td-cal-how { flex-basis: 100%; font-size: .8rem; color: var(--ink-3); line-height: 1.6; margin: 0; }
     @media (max-width: 480px) { .td-row { grid-template-columns: 40px minmax(0, 1fr); } .td-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; margin-top: .35rem; } }
 
   </style>
@@ -258,6 +263,11 @@
 <li class="td-row"><span class="td-ico ecm-mono" style="--mh:215" aria-hidden="true">트</span><div class="td-main"><a class="td-game" href="/game/trickcal-revive.html#code-GOOGLETOP3">트릭컬 리바이브</a><code class="td-code">GOOGLETOP3</code><span class="td-reward">교주의 빛무리 선택권 1개, 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)</span><span class="ecm-src"><span class="ecm-src-line">확인 2026.10.19 · 출처 <a class="ecm-src-link" href="https://www.inven.co.kr/board/party/6303/374" target="_blank" rel="noopener nofollow">inven.co.kr</a></span></span></div><div class="td-side"><span class="ecm-pill due">D-3</span><button type="button" class="ecm-btn-primary" data-copy="GOOGLETOP3"><i class="fa-regular fa-copy"></i> 복사</button></div></li>
 <li class="td-row"><span class="td-ico ecm-mono" style="--mh:215" aria-hidden="true">트</span><div class="td-main"><a class="td-game" href="/game/trickcal-revive.html#code-SILVERBOL">트릭컬 리바이브</a><code class="td-code">SILVERBOL</code><span class="td-reward">실비아 확정 모집권 1개</span><span class="ecm-src"><span class="ecm-src-line">확인 2026.10.19 · 출처 <a class="ecm-src-link" href="https://www.inven.co.kr/board/party/6303/375" target="_blank" rel="noopener nofollow">inven.co.kr</a></span></span></div><div class="td-side"><span class="ecm-pill due">D-3</span><button type="button" class="ecm-btn-primary" data-copy="SILVERBOL"><i class="fa-regular fa-copy"></i> 복사</button></div></li>
 </ul></div>
+      <div class="td-cal" id="calendar">
+        <a class="td-cal-link" href="webcal://ecm-coupon.com/calendar/ecm-expiring.ics"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 캘린더로 받기</a>
+        <button type="button" data-copy-url="https://ecm-coupon.com/calendar/ecm-expiring.ics">주소 복사</button>
+        <p class="td-cal-how">게임사가 만료일을 공지한 코드만 마감일에 일정으로 들어가요. 아이폰은 링크를 누르면 구독 창이 뜨고, 구글 캘린더는 주소를 복사해 PC에서 <b>다른 캘린더 + → URL로 추가</b>에 붙여 넣으면 돼요.</p>
+      </div>
     </section>
 
     <p class="ecm-page-note">코드는 게임사 공식 채널에서 확인한 것만 올려요. 전체 목록은 <a class="hub-link" href="/game/">게임 쿠폰 홈</a>에 있어요.</p>
@@ -312,6 +322,14 @@
     var fav = load(); if (fav.indexOf(id) < 0) fav.push(id); save(fav); paintMine();
   });
   document.addEventListener('click', function (e) {
+    var cu = e.target.closest && e.target.closest('[data-copy-url]');
+    if (cu) {
+      var url = cu.getAttribute('data-copy-url');
+      var said = function (msg) { var t = document.getElementById('copyToast'); t.textContent = msg; t.classList.remove('hidden'); setTimeout(function () { t.classList.add('hidden'); t.textContent = '복사했습니다'; }, 2600); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(function () { said('캘린더 주소를 복사했어요'); }, function () { said(url); });
+      else said(url);
+      return;
+    }
     var u = e.target.closest && e.target.closest('[data-unfav]');
     if (u) { var fav = load().filter(function (x) { return x !== u.getAttribute('data-unfav'); }); save(fav); paintMine(); return; }
     var b = e.target.closest && e.target.closest('[data-copy]');

@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const { SITE, esc, fitTitle, fitDesc, pageShell, breadcrumbLd, writeIfChanged } = require('./page-shell');
 const { monoOf } = require('./mono');
+const { CAL_URL } = require('./calendar');
 // 상세 페이지 코드 줄의 앵커 (game-pages.js 와 같은 규칙). game-pages 를 불러오면 순환 참조가 되어 여기 둔다
 const codeAnchor = code => 'code-' + [...String(code)].map(ch => /[A-Za-z0-9_-]/.test(ch) ? ch : '.' + ch.codePointAt(0).toString(16)).join('');
 
@@ -44,6 +45,11 @@ const CSS = `
     .td-pick select { height: 40px; border-radius: 10px; border: 1px solid var(--line); background: #fff; padding: 0 .6rem; font-family: inherit; font-size: .88rem; max-width: 100%; }
     .td-pick button { height: 40px; }
     .ecm-page-note { font-size: .85rem; color: var(--ink-3); }
+    /* 마감 캘린더 구독 (/calendar/ecm-expiring.ics) */
+    .td-cal { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .5rem; margin: .75rem 0 0; }
+    .td-cal a.td-cal-link, .td-cal button { display: inline-flex; align-items: center; gap: .35rem; height: 36px; padding: 0 .8rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: .85rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .td-cal a.td-cal-link:hover, .td-cal button:hover { border-color: var(--ink-3); }
+    .td-cal-how { flex-basis: 100%; font-size: .8rem; color: var(--ink-3); line-height: 1.6; margin: 0; }
     @media (max-width: 480px) { .td-row { grid-template-columns: 40px minmax(0, 1fr); } .td-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; margin-top: .35rem; } }
 `;
 
@@ -115,6 +121,11 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, coup
     <section class="hub-sec" id="week" aria-labelledby="weekTitle">
       <h2 id="weekTitle"><i class="fa-regular fa-calendar"></i> 이번 주 안에 끝나요</h2>
       <div id="tdWeek">${list(week, '이번 주 안에 끝나는 코드는 없어요.')}</div>
+      <div class="td-cal" id="calendar">
+        <a class="td-cal-link" href="${esc(CAL_URL.replace(/^https:/, 'webcal:'))}"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 캘린더로 받기</a>
+        <button type="button" data-copy-url="${esc(CAL_URL)}">주소 복사</button>
+        <p class="td-cal-how">게임사가 만료일을 공지한 코드만 마감일에 일정으로 들어가요. 아이폰은 링크를 누르면 구독 창이 뜨고, 구글 캘린더는 주소를 복사해 PC에서 <b>다른 캘린더 + → URL로 추가</b>에 붙여 넣으면 돼요.</p>
+      </div>
     </section>
 
     <p class="ecm-page-note">코드는 게임사 공식 채널에서 확인한 것만 올려요. 전체 목록은 <a class="hub-link" href="/game/">게임 쿠폰 홈</a>에 있어요.</p>
@@ -185,6 +196,14 @@ const CLIENT = `
     var fav = load(); if (fav.indexOf(id) < 0) fav.push(id); save(fav); paintMine();
   });
   document.addEventListener('click', function (e) {
+    var cu = e.target.closest && e.target.closest('[data-copy-url]');
+    if (cu) {
+      var url = cu.getAttribute('data-copy-url');
+      var said = function (msg) { var t = document.getElementById('copyToast'); t.textContent = msg; t.classList.remove('hidden'); setTimeout(function () { t.classList.add('hidden'); t.textContent = '복사했습니다'; }, 2600); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(function () { said('캘린더 주소를 복사했어요'); }, function () { said(url); });
+      else said(url);
+      return;
+    }
     var u = e.target.closest && e.target.closest('[data-unfav]');
     if (u) { var fav = load().filter(function (x) { return x !== u.getAttribute('data-unfav'); }); save(fav); paintMine(); return; }
     var b = e.target.closest && e.target.closest('[data-copy]');
