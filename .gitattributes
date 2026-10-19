@@ -1,0 +1,2 @@
+# 쿠폰 마감 캘린더(.ics)는 RFC 5545 대로 줄 끝이 CRLF 여야 한다. git 이 줄 끝을 바꾸지 않게 둔다 (scripts/calendar.js)
+*.ics -text

@@ -28,6 +28,8 @@ scripts/prerender.js    빌드. index.html 스크립트를 가짜 DOM 에서 실
   free-pages.js           /free/
   llms-txt.js · analytics.js · pwa.js · media.js(+python) · mono.js
   widget-feed.js          /app/widget.json  (아이폰 앱 위젯용 쿠폰 요약. 코드 문자열은 넣지 않는다)
+  calendar.js             /calendar/ecm-expiring.ics (마감 캘린더 구독: 공식 만료일 있는 살아 있는 코드만, RFC 5545 CRLF.
+                          .gitattributes 가 줄 끝을 지킨다. 사이트맵에 넣지 않는다. /today/#calendar 에서 안내)
 scripts/notify-*.js     새 쿠폰 텔레그램·푸시 알림 (.github/workflows 가 실행). 앱 기기는 ua native-android / native-ios
 data/                   빌드·알림이 쓰는 장부 (coupon-seen = 코드 첫 등록일, coupon-history = 지난 코드의 보상·끝난 날,
                         game-listing = 코드가 없어도 목록에 남길 게임, tested = 운영자가 직접 넣어 본 코드, *-sent = 알림 보낸 기록)

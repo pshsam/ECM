@@ -1,0 +1,474 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ECM Coupon//Expiring Coupon Codes//KO
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:ECM 쿠폰 마감 알림
+X-WR-CALNAME:ECM 쿠폰 마감 알림
+X-WR-CALDESC:ECM(ecm-coupon.com)에 올라온 게임 쿠폰 코드 중 게
+ 임사가 만료일을 공지한 코드의 마감일. 만료일 미공개
+ ·상시 코드는 없습니다.
+X-WR-TIMEZONE:Asia/Seoul
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+URL:https://ecm-coupon.com/today/
+BEGIN:VEVENT
+UID:neverness-to-everness-c8e97cf215d08524@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:이환 (Neverness to Everness) 쿠폰 코드 마감
+DESCRIPTION:코드: WONDERLOGGIFT\n보상: 안눌리스 30개\, 상급 헌
+ 터 가이드 3개\, 폰즈 20\,000개\n공식 만료일: 2026.10.21\nhttp
+ s://ecm-coupon.com/game/neverness-to-everness.html#code-WONDERLOGGIFT
+URL:https://ecm-coupon.com/game/neverness-to-everness.html#code-WONDERLOGGI
+ FT
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:genshin-f17defcb76b27ab0@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:원신 쿠폰 코드 마감
+DESCRIPTION:코드: VesnaOnPatrol\n보상: 원석 40개\, 영웅의 양식 
+ 3개\, 모라 20\,000\n공식 만료일: 2026.10.22\nhttps://ecm-coupon.co
+ m/game/genshin.html#code-VesnaOnPatrol
+URL:https://ecm-coupon.com/game/genshin.html#code-VesnaOnPatrol
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:trickcal-revive-86964e231b665756@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:트릭컬 리바이브 쿠폰 코드 마감
+DESCRIPTION:코드: 3RDBOLTHDAY\n보상: 엘리프 927개\, 영원살이 
+ 일곱자매 선택권 1개 (3주년 기념 쿠폰)\n공식 만료일: 202
+ 6.10.22\nhttps://ecm-coupon.com/game/trickcal-revive.html#code-3RDBOLTHDAY
+URL:https://ecm-coupon.com/game/trickcal-revive.html#code-3RDBOLTHDAY
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:trickcal-revive-a377bdd6d4860d33@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:트릭컬 리바이브 쿠폰 코드 마감
+DESCRIPTION:코드: GOOGLETOP3\n보상: 교주의 빛무리 선택권 1개\
+ , 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)\n
+ 공식 만료일: 2026.10.22\nhttps://ecm-coupon.com/game/trickcal-revive.
+ html#code-GOOGLETOP3
+URL:https://ecm-coupon.com/game/trickcal-revive.html#code-GOOGLETOP3
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:trickcal-revive-406e28d6c08417f5@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:트릭컬 리바이브 쿠폰 코드 마감
+DESCRIPTION:코드: SILVERBOL\n보상: 실비아 확정 모집권 1개\n공
+ 식 만료일: 2026.10.22\nhttps://ecm-coupon.com/game/trickcal-revive.htm
+ l#code-SILVERBOL
+URL:https://ecm-coupon.com/game/trickcal-revive.html#code-SILVERBOL
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-3e7f6b157f0baf1d@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: DEVCOMMENTARY26\n보상: 돌파 복구권 100\,000개\,
+  오기에르의 가호 2개\, 정제수·유자차·시계 태엽 선택 
+ 상자 1개\, 상급 기술 교본 상자 50개\, 기술 비전 파편 2\,
+ 000개\n공식 만료일: 2026.10.27\nhttps://ecm-coupon.com/game/blackdes
+ ert-mobile.html#code-DEVCOMMENTARY26
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-DEVCOMMENTARY2
+ 6
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-e4cd6d6a931ee8e2@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: FORYOURGROWTH\n보상: 태양의 결정 50\,000개\, 
+ 오기에르의 숨결 1\,000개\, 협동 레이드 입장권 10개\, 7일
+  나크 축복 1개\n공식 만료일: 2026.10.27\nhttps://ecm-coupon.com/
+ game/blackdesert-mobile.html#code-FORYOURGROWTH
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-FORYOURGROWTH
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-42ee943474d52880@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: HEIDEL2026\n보상: W의 가호 3개\, 블랙펄 5\,000
+ 개\, 돌파 복구권 400\,000개\, 행운상점 10회권 30개\n공식 
+ 만료일: 2026.10.27\nhttps://ecm-coupon.com/game/blackdesert-mobile.html
+ #code-HEIDEL2026
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-HEIDEL2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-06f3f7f0e1c158f4@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: PLAYEASIER\n보상: 질서의 주문서 10종 상자 1
+ 개\, 고결한 여신의 눈물 300\,000개\, 파푸 이모티콘 상자 
+ 3개\, 흑정령 사당 입장권 10개\n공식 만료일: 2026.10.27\nhtt
+ ps://ecm-coupon.com/game/blackdesert-mobile.html#code-PLAYEASIER
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-PLAYEASIER
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-fdf4f9ae8a30e326@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: PRESENTFROMGM\n보상: 아침의 나라 하사품 500
+ 개\, 검은 태양의 성배 500개\, 빛의 성수 20\,000개\n공식 
+ 만료일: 2026.10.27\nhttps://ecm-coupon.com/game/blackdesert-mobile.html
+ #code-PRESENTFROMGM
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-PRESENTFROMGM
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-mobile-464c6c2ed225c034@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:검은사막 모바일 쿠폰 코드 마감
+DESCRIPTION:코드: THANKS4FEEDBACK\n보상: 클래스 변경 상자 2개\,
+  정제수·유자차·시계 태엽 선택 상자 3개\n공식 만료일:
+  2026.10.27\nhttps://ecm-coupon.com/game/blackdesert-mobile.html#code-THAN
+ KS4FEEDBACK
+URL:https://ecm-coupon.com/game/blackdesert-mobile.html#code-THANKS4FEEDBAC
+ K
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-cffc67c50a7019f6@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:검은사막 PC 쿠폰 코드 마감
+DESCRIPTION:코드: 2026마스터클래스한국대진표\n보상: 전투
+ 의 함성 3개\, 아이템 획득 증가 주문서 5개\, 플로린 비
+ 법서 5개\, 심해의 향수 5개\, 용기의 향수 5개\n공식 만료
+ 일: 2026.10.28\nhttps://ecm-coupon.com/game/blackdesert.html#code-2026.b9
+ c8.c2a4.d130.d074.b798.c2a4.d55c.ad6d.b300.c9c4.d45c
+URL:https://ecm-coupon.com/game/blackdesert.html#code-2026.b9c8.c2a4.d130.d
+ 074.b798.c2a4.d55c.ad6d.b300.c9c4.d45c
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-34e701a3ca56a264@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:검은사막 PC 쿠폰 코드 마감
+DESCRIPTION:코드: 모험가님행복한한가위되세요\n보상: 크론
+ 석 5\,000개\, 한가위 선물 꾸러미 5개\, 발루아 패키지(7일
+ )\, 풍경화 물감 선택상자 5개\, 오색송편(전투/생활) 각 1
+ 0개\, 관철·열망의 향수 각 10개\n공식 만료일: 2026.10.28\nh
+ ttps://ecm-coupon.com/game/blackdesert.html#code-.baa8.d5d8.ac00.b2d8.d589
+ .bcf5.d55c.d55c.ac00.c704.b418.c138.c694
+URL:https://ecm-coupon.com/game/blackdesert.html#code-.baa8.d5d8.ac00.b2d8.
+ d589.bcf5.d55c.d55c.ac00.c704.b418.c138.c694
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:epic-seven-c8db5e7686774712@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:에픽세븐 쿠폰 코드 마감
+DESCRIPTION:코드: TY_E8_INFINITY\n보상: 금빛 전승석 80개\, 상급
+  강화석 선택 상자 80개\, 골드 800\,000\n공식 만료일: 2026.1
+ 0.28\nhttps://ecm-coupon.com/game/epic-seven.html#code-TY_E8_INFINITY
+URL:https://ecm-coupon.com/game/epic-seven.html#code-TY_E8_INFINITY
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:epic-seven-ce48d4ba629d7f86@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:에픽세븐 쿠폰 코드 마감
+DESCRIPTION:코드: EPICWITHCZN\n보상: 인연의 서표 15개\, 골드 30
+ 0\,000 (CZN 콜라보 기념)\n공식 만료일: 2026.10.29\nhttps://ecm-c
+ oupon.com/game/epic-seven.html#code-EPICWITHCZN
+URL:https://ecm-coupon.com/game/epic-seven.html#code-EPICWITHCZN
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:valhalla-survival-2835b6a5f81369b9@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:발할라 서바이벌 쿠폰 코드 마감
+DESCRIPTION:코드: 2026CHUSEOK\n보상: 2026 추석 기념 보상 (수수
+ 께끼의 유물 랜덤 상자\, T5 보석 랜덤 소환권\, 영웅 조
+ 각 선택 상자\, 이그드라실의 씨앗 등)\n공식 만료일: 2026
+ .10.31\nhttps://ecm-coupon.com/game/valhalla-survival.html#code-2026CHUSEO
+ K
+URL:https://ecm-coupon.com/game/valhalla-survival.html#code-2026CHUSEOK
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-40c44e55481a8682@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:검은사막 PC 쿠폰 코드 마감
+DESCRIPTION:코드: BEYONDTHEJOURNEY\n보상: 크론석 50\,000개\, 진귀
+ 한 망치 선택상자 5개\, 발크스의 조언\, 무기 교환권 상
+ 자\n공식 만료일: 2026.11.26\nhttps://ecm-coupon.com/game/blackdesert
+ .html#code-BEYONDTHEJOURNEY
+URL:https://ecm-coupon.com/game/blackdesert.html#code-BEYONDTHEJOURNEY
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:blackdesert-f22a3b347430d515@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:검은사막 PC 쿠폰 코드 마감
+DESCRIPTION:코드: TYALLADVENTURERS\n보상: 감사한 마음의 프리미
+ 엄 의상 상자 10개\n공식 만료일: 2026.11.26\nhttps://ecm-coupon.
+ com/game/blackdesert.html#code-TYALLADVENTURERS
+URL:https://ecm-coupon.com/game/blackdesert.html#code-TYALLADVENTURERS
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:pokemon-go-7a570738ded50c4a@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:포켓몬 GO 쿠폰 코드 마감
+DESCRIPTION:코드: ADIDASxPOKEMON\n보상: 아디다스 콜라보 아바
+ 타 신발\n공식 만료일: 2027.01.15\nhttps://ecm-coupon.com/game/poke
+ mon-go.html#code-ADIDASxPOKEMON
+URL:https://ecm-coupon.com/game/pokemon-go.html#code-ADIDASxPOKEMON
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-9cde6b815de42d5c@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 39FJB-CT5S3-5FTTW-BBB3J-F3HKZ\n보상: (보더랜드4) 
+ 볼트 헌터 스킨 'Hype Squad'\n공식 만료일: 2030.12.31\nhttps://e
+ cm-coupon.com/game/borderlands.html#code-39FJB-CT5S3-5FTTW-BBB3J-F3HKZ
+URL:https://ecm-coupon.com/game/borderlands.html#code-39FJB-CT5S3-5FTTW-BBB
+ 3J-F3HKZ
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-abdfcd4d375d14f2@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 3HX3J-RJWSJ-CFBBC-3BJ3B-RWZ36\n보상: (보더랜드4) 
+ 볼트 헌터 스킨 'A Winter Borderland'\n공식 만료일: 2030.12.31\n
+ https://ecm-coupon.com/game/borderlands.html#code-3HX3J-RJWSJ-CFBBC-3BJ3B-
+ RWZ36
+URL:https://ecm-coupon.com/game/borderlands.html#code-3HX3J-RJWSJ-CFBBC-3BJ
+ 3B-RWZ36
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-a3c3cc16db9f82c1@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 3S6BB-ZXT93-KRT3W-BT3T3-JW6TZ\n보상: (보더랜드4) 
+ 전 볼트 헌터 공용 헤드 'Gourd Your Loins' + 무기 스킨 'Hex Ap
+ peal'\n공식 만료일: 2030.12.31\nhttps://ecm-coupon.com/game/borderlan
+ ds.html#code-3S6BB-ZXT93-KRT3W-BT3T3-JW6TZ
+URL:https://ecm-coupon.com/game/borderlands.html#code-3S6BB-ZXT93-KRT3W-BT3
+ T3-JW6TZ
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-28930d837694c83c@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 3SX3J-3XZ55-CR33C-JBBJT-XH395\n보상: (보더랜드4) 
+ Loveless 볼트 헌터 스킨 'Mint Chipset'\n공식 만료일: 2030.12.31
+ \nhttps://ecm-coupon.com/game/borderlands.html#code-3SX3J-3XZ55-CR33C-JBBJ
+ T-XH395
+URL:https://ecm-coupon.com/game/borderlands.html#code-3SX3J-3XZ55-CR33C-JBB
+ JT-XH395
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-e0d184dec552db75@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 3ZRT3-K59KK-W6BJ5-B3TJ3-9WT99\n보상: (보더랜드4) 
+ C4SH 볼트 헌터 스킨 'Like Vermillion Bucks'\n공식 만료일: 2030.
+ 12.31\nhttps://ecm-coupon.com/game/borderlands.html#code-3ZRT3-K59KK-W6BJ5
+ -B3TJ3-9WT99
+URL:https://ecm-coupon.com/game/borderlands.html#code-3ZRT3-K59KK-W6BJ5-B3T
+ J3-9WT99
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-63a77a8331fec5bf@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: 3ZXJB-HZBHT-KX3BK-BBTT3-BHHXJ\n보상: (보더랜드4) 
+ 볼트 헌터 스킨 'Children of the Vex'\n공식 만료일: 2030.12.31\n
+ https://ecm-coupon.com/game/borderlands.html#code-3ZXJB-HZBHT-KX3BK-BBTT3-
+ BHHXJ
+URL:https://ecm-coupon.com/game/borderlands.html#code-3ZXJB-HZBHT-KX3BK-BBT
+ T3-BHHXJ
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-bbffa4e32c71cf1b@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: BH633-66F5C-WFBB5-33TJB-CBSR9\n보상: (보더랜드4) 
+ 전 볼트 헌터 공용 스킨 'You're So Vein'\n공식 만료일: 2030.1
+ 2.31\nhttps://ecm-coupon.com/game/borderlands.html#code-BH633-66F5C-WFBB5-
+ 33TJB-CBSR9
+URL:https://ecm-coupon.com/game/borderlands.html#code-BH633-66F5C-WFBB5-33T
+ JB-CBSR9
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-bda361bda784d86b@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: BZ6J3-3JKHB-CX3B5-TTJTT-HJBZW\n보상: (보더랜드4) 
+ 볼트 헌터 스킨 'The World on His Shoulders'\n공식 만료일: 2030.
+ 12.31\nhttps://ecm-coupon.com/game/borderlands.html#code-BZ6J3-3JKHB-CX3B5
+ -TTJTT-HJBZW
+URL:https://ecm-coupon.com/game/borderlands.html#code-BZ6J3-3JKHB-CX3B5-TTJ
+ TT-HJBZW
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-52ca2666e011eb20@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: BZ6JJ-CB6CT-WXJJW-3TT3B-56FZ5\n보상: (보더랜드4) 
+ Vex 볼트 헌터 스킨 'Mass Market Appeal'\n공식 만료일: 2030.12.3
+ 1\nhttps://ecm-coupon.com/game/borderlands.html#code-BZ6JJ-CB6CT-WXJJW-3TT
+ 3B-56FZ5
+URL:https://ecm-coupon.com/game/borderlands.html#code-BZ6JJ-CB6CT-WXJJW-3TT
+ 3B-56FZ5
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-a94a85a26bfceb9b@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: J963B-S66WK-56J3K-JJT3T-BF9T5\n보상: (보더랜드4) 
+ 볼트 헌터 스킨 '카이리시의 행운' (Vex·Rafa·Amon·Harlowe 
+ 전용)\n공식 만료일: 2030.12.31\nhttps://ecm-coupon.com/game/borderl
+ ands.html#code-J963B-S66WK-56J3K-JJT3T-BF9T5
+URL:https://ecm-coupon.com/game/borderlands.html#code-J963B-S66WK-56J3K-JJT
+ 3T-BF9T5
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-7230b5ff8eac0f61@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: J96JT-BCXKT-C6JJ5-JTJBB-BZTXJ\n보상: (보더랜드4) 
+ Harlowe 볼트 헌터 스킨 'Maliwannabee'\n공식 만료일: 2030.12.31\
+ nhttps://ecm-coupon.com/game/borderlands.html#code-J96JT-BCXKT-C6JJ5-JTJBB
+ -BZTXJ
+URL:https://ecm-coupon.com/game/borderlands.html#code-J96JT-BCXKT-C6JJ5-JTJ
+ BB-BZTXJ
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-067722973bf4376f@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: J9XTB-SJWS3-WRTTC-BJTJJ-TH6TX\n보상: (보더랜드4) 
+ ECHO-4 드론 스킨 'A Winter Borderland'\n공식 만료일: 2030.12.31\n
+ https://ecm-coupon.com/game/borderlands.html#code-J9XTB-SJWS3-WRTTC-BJTJJ-
+ TH6TX
+URL:https://ecm-coupon.com/game/borderlands.html#code-J9XTB-SJWS3-WRTTC-BJT
+ JJ-TH6TX
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-48acd41a525dcef2@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: JS63J-JSCWJ-CFTBW-3TJ3J-WJS5R\n보상: (보더랜드4) 
+ 'Break Free' 볼트 헌터 스킨(Vex·Rafa·Amon·Harlowe 전용) + 레
+ 전더리 리퍼 쉴드 'Firebreak' + ECHO-4 드론 스킨 2종('Break Fre
+ e'·'Kn0x')\n공식 만료일: 2030.12.31\nhttps://ecm-coupon.com/game/bor
+ derlands.html#code-JS63J-JSCWJ-CFTBW-3TJ3J-WJS5R
+URL:https://ecm-coupon.com/game/borderlands.html#code-JS63J-JSCWJ-CFTBW-3TJ
+ 3J-WJS5R
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-8f6d02d738ad03eb@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: JZ6BJ-SBR5J-WF3BK-BT3BB-TX9HB\n보상: (보더랜드4) 
+ Amon 볼트 헌터 스킨 'Cult Classic'\n공식 만료일: 2030.12.31\nht
+ tps://ecm-coupon.com/game/borderlands.html#code-JZ6BJ-SBR5J-WF3BK-BT3BB-TX
+ 9HB
+URL:https://ecm-coupon.com/game/borderlands.html#code-JZ6BJ-SBR5J-WF3BK-BT3
+ BB-TX9HB
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:borderlands-55f61fdfe4a8f37c@ecm-coupon.com
+DTSTAMP:20261019T055922Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:보더랜드 (SHiFT) 쿠폰 코드 마감
+DESCRIPTION:코드: TZXT3-XJXCB-CXBJW-BTTJT-9SK6B\n보상: (보더랜드4) 
+ Rafa 볼트 헌터 스킨 'Savings Savior'\n공식 만료일: 2030.12.31\n
+ https://ecm-coupon.com/game/borderlands.html#code-TZXT3-XJXCB-CXBJW-BTTJT-
+ 9SK6B
+URL:https://ecm-coupon.com/game/borderlands.html#code-TZXT3-XJXCB-CXBJW-BTT
+ JT-9SK6B
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

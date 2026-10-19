@@ -23,6 +23,7 @@ const path = require('path');
 const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, couponSourceHtml, testedBadgeHtml, TESTED, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
+const { writeCalendar } = require('./calendar');
 const { writeFreePages } = require('./free-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { writeWidgetFeed } = require('./widget-feed');
@@ -703,6 +704,8 @@ function main() {
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
   writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, couponSourceHtml, tested: TESTED, testedBadgeHtml, headerHtml, footerHtml, version });
+  // 쿠폰 마감 캘린더 구독 (/calendar/ecm-expiring.ics): 공식 만료일이 있는 살아 있는 코드만. 사이트맵에는 넣지 않는다
+  const cal = writeCalendar(rootDir, { games, evaluate, pageIds: gp.listedIds });
   // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
   writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.listedIds, headerHtml, footerHtml });
   // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음). 내 게임에 담은 숨긴 게임도 보여야 하므로 페이지가 있는 게임 전부(gp.ids)
@@ -724,6 +727,7 @@ function main() {
   console.log(`그리드 ${filled}개 · 게임 ${games.length}종을 HTML에 미리 렌더링 (+${chars.toLocaleString()}자)`);
   console.log(`쿠폰 스키마 ${itemListJsonLd(games).numberOfItems}건 · 블로그 링크 ${(blogLinks.match(/<li>/g) || []).length}개`);
   console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개 · 앱 위젯 요약 게임 ${widgetGames}개`);
+  console.log(`마감 캘린더(/calendar/ecm-expiring.ics): 일정 ${cal.events}개${cal.written ? ' (새로 씀)' : ''}`);
   console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 목록에 보임 ${gp.listedIds.length} · 코드 없어 숨김(noindex) ${gp.ids.length - gp.listedIds.length}`);
   // 블로그 글 본문이 숨긴 게임 페이지로 링크하면 알려만 준다 (글 본문은 자동으로 고치지 않는다)
   const hiddenLinks = blogLinksToHidden(blogDir, new Set(gp.ids.filter(id => !gp.listedIds.includes(id))));
