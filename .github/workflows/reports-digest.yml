@@ -1,0 +1,40 @@
+# "이 코드 안 돼요" 신고 매일 모음
+# 파이어스토어 reports 의 최근 14일 신고를 data/report-digest.json 에 코드별 개수로 모은다 (scripts/reports-digest.js).
+# 필요한 설정: Secrets → FIREBASE_SERVICE_ACCOUNT (새 쿠폰 푸시 알림과 같은 비밀값).
+# scripts/reports.js 의 REPORTS_ENABLED 가 false 이거나 신고가 없으면 아무것도 커밋하지 않고 끝난다.
+name: 신고 모음
+
+on:
+  schedule:
+    - cron: '20 22 * * *'   # 매일 07:20 KST
+  workflow_dispatch:
+
+concurrency:
+  group: reports-digest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 신고 모으기
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node scripts/reports-digest.js
+      - name: 모음 저장
+        run: |
+          if [ -f data/report-digest.json ] && [ -n "$(git status --porcelain data/report-digest.json)" ]; then
+            git config user.name "ecm-report-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/report-digest.json
+            git commit -m "신고 모음 갱신 [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

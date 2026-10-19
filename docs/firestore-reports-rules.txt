@@ -1,0 +1,43 @@
+// ECM 파이어스토어 보안 규칙 — "이 코드 안 돼요" 신고(reports)용 제안 (2026-10-19)
+//
+// 붙여 넣는 곳: 파이어베이스 콘솔 → Firestore Database → 규칙(Rules)
+// 이 파일은 공개 저장소에 있다. 비밀값은 없다.
+//
+// 주의: 콘솔에 지금 있는 subscribers/{token} 규칙(새 쿠폰 푸시 알림 구독)은 지우거나 고치지 말고 그대로 둔다.
+//       아래 "기존 subscribers 블록" 자리에 콘솔에 있던 그 블록을 글자 그대로 남겨 두고,
+//       match /reports/{id} { ... } 블록만 같은 match /databases/{database}/documents { ... } 안에 더한다.
+//
+// 이 규칙이 하는 일
+//   - 누구나 reports 에 새 문서를 "만들기"만 할 수 있다. 필드는 game · code · reason · ts 네 개뿐이어야 한다.
+//   - game: 게임 id 글자(영소문자·숫자·_-), 1~60자 / code: 1~80자 / reason: expired · invalid · other 중 하나
+//   - ts: 서버 시각이어야 한다(request.time). 사이트(assets/ecm-report.js)는 documents:commit 의 REQUEST_TIME 변환으로 채운다.
+//   - 읽기·고치기·지우기는 모두 막는다. 매일 모음(.github/workflows/reports-digest.yml)은 서비스 계정으로 읽어서 규칙과 상관없다.
+//
+// 바꾼 뒤 확인: 사이트에서 신고를 켜기(scripts/reports.js REPORTS_ENABLED = true) 전에, 콘솔 규칙 화면의 "규칙 플레이그라운드"로
+//   reports/test 에 { game: "genshin", code: "ABC", reason: "expired", ts: request.time } 만들기가 허용되고
+//   필드를 하나 더 넣거나 읽기를 하면 거부되는지 본다.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── 기존 subscribers 블록: 콘솔에 지금 있는 match /subscribers/{token} { ... } 를 여기에 그대로 둔다 ──
+    // (이 파일에는 일부러 옮겨 적지 않았다. 지금 동작하는 푸시 구독 규칙을 짐작으로 바꾸지 않기 위해서다.)
+
+    // ── "이 코드 안 돼요" 신고 ──
+    match /reports/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['game', 'code', 'reason', 'ts'])
+                    && request.resource.data.keys().hasAll(['game', 'code', 'reason', 'ts'])
+                    && request.resource.data.game is string
+                    && request.resource.data.game.size() >= 1
+                    && request.resource.data.game.size() <= 60
+                    && request.resource.data.game.matches('^[a-z0-9_-]+$')
+                    && request.resource.data.code is string
+                    && request.resource.data.code.size() >= 1
+                    && request.resource.data.code.size() <= 80
+                    && request.resource.data.reason in ['expired', 'invalid', 'other']
+                    && request.resource.data.ts == request.time;
+      allow read, update, delete: if false;
+    }
+  }
+}

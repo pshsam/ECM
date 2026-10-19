@@ -217,5 +217,5 @@ async function main() {
 }
 
 // 테스트(tests/)가 알림 모양을 확인할 수 있게 내보낸다. 직접 실행할 때만 보낸다.
-module.exports = { messageFor, nativeOf };
+module.exports = { messageFor, nativeOf, accessToken };
 if (require.main === module) main().catch(err => { console.error(err.message); process.exit(1); });

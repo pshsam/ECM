@@ -13,6 +13,7 @@ const path = require('path');
 const { GA_SNIPPET } = require('./analytics');
 const { FONT_HEAD } = require('./font-head');
 const { monoBox } = require('./mono');
+const { REPORTS_ENABLED } = require('./reports');
 
 const SITE = 'https://ecm-coupon.com';
 
@@ -154,6 +155,15 @@ function testedBadgeHtml(t) {
     ? `<a class="${cls}" href="${esc(img)}" target="_blank" rel="noopener">${icon} ${esc(label)} <span class="ecm-tested-shot">캡처 보기</span></a>`
     : `<span class="${cls}">${icon} ${esc(label)}</span>`;
   return `<span class="ecm-tested-wrap">${badge}${note ? `<span class="ecm-tested-note">${esc(note)}</span>` : ''}</span>`;
+}
+
+/**
+ * "안 돼요" 신고 버튼 (scripts/reports.js 의 REPORTS_ENABLED 가 false 면 빈 문자열 — 지금은 꺼 둠).
+ * index.html 의 reportButtonHtml 과 같은 규칙이어야 한다 (tests/reports.test.js 가 비교한다).
+ */
+function reportButtonHtml(gameId, code, enabled = REPORTS_ENABLED) {
+  if (!enabled) return '';
+  return `<span class="ecm-report"><button type="button" class="ecm-report-btn" data-report-game="${esc(gameId)}" data-report-code="${esc(code)}" aria-expanded="false">안 돼요</button></span>`;
 }
 
 /** 공식 만료일이 두 달 넘게 남았으면 D-숫자 대신 날짜로 (D-1553 처럼 읽기 어려운 표시를 피한다) */
@@ -419,6 +429,8 @@ function faqFor(g) {
 function pageHtml(g, ctx) {
   const { today, posts, allGames, version, firstSeen } = ctx;
   const tested = ctx.tested || {};
+  // 신고 버튼: 기본은 scripts/reports.js 의 값 (테스트는 ctx.reportsEnabled 로 켜 본다)
+  const reportsOn = ctx.reportsEnabled === undefined ? REPORTS_ENABLED : !!ctx.reportsEnabled;
   const testedOf = c => testedBadgeHtml(tested[g.id + ':' + c.code]);
   const coupons = g.coupons || [];
   const evald = coupons.map(c => ({ c, ev: evaluate(c, today) }));
@@ -485,7 +497,7 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
     const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
     return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
           <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}${testedOf(c)}</td>
-          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}</td>
+          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}${reportButtonHtml(g.id, c.code, reportsOn)}</td>
           <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
           <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="${esc(c.code)}" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
@@ -539,7 +551,7 @@ ${listed ? '' : '  <meta name="robots" content="noindex">\n'}  <link rel="canoni
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/ecm.css">
   <script src="/assets/ecm.js" defer></script>
-  ${FONT_HEAD}
+${reportsOn && active.length ? '  <script src="/assets/ecm-report.js" defer></script>\n' : ''}  ${FONT_HEAD}
 ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n  </script>`).join('\n')}
   <style>
     .ecm-page { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
@@ -915,12 +927,12 @@ ${footerHtml()}
  * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록·사이트맵에 넣을 게임(isListed). 나머지는 noindex 페이지로만 남는다.
  * @returns {{written: number, removed: number, ids: string[], listedIds: string[]}}
  */
-function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}, tested = TESTED) {
+function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}, tested = TESTED, opts = {}) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
-  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger, tested };
+  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger, tested, reportsEnabled: opts.reportsEnabled };
   const keep = new Set();
   const listedIds = [];
   let written = 0;
@@ -940,4 +952,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
 }
 
-module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, testedBadgeHtml, TESTED, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, testedBadgeHtml, TESTED, reportButtonHtml, GENRE_LABELS };

@@ -1616,6 +1616,10 @@
     /*PRERENDER:tested*/
     const TESTED_CODES = {};
     /*/PRERENDER:tested*/
+    // "이 코드 안 돼요" 신고를 켤지. 원본은 scripts/reports.js 한 곳이고 prerender.js 가 써 넣는다. false 면 아무것도 그리지 않는다
+    /*PRERENDER:reports*/
+    const REPORTS_ENABLED = false;
+    /*/PRERENDER:reports*/
 
     // 인자: 쿠폰 객체(권장) 또는 expireDate 문자열.
     // expireDate 는 공식 만료일만 담는다. 공지가 없으면 필드가 없고 "만료일 미공개"로 보인다.
@@ -1884,6 +1888,13 @@
       return `<span class="ecm-tested-wrap">${badge}${note ? `<span class="ecm-tested-note">${esc(note)}</span>` : ''}</span>`;
     }
 
+    // "안 돼요" 신고 버튼. scripts/game-pages.js 의 reportButtonHtml 과 같은 규칙이어야 한다 (tests/reports.test.js).
+    // 신고가 꺼져 있으면(REPORTS_ENABLED false) 빈 문자열. 누르면 assets/ecm-report.js 가 이유 고르기를 펼친다
+    function reportButtonHtml(gameId, code, enabled = REPORTS_ENABLED) {
+      if (!enabled) return '';
+      return `<span class="ecm-report"><button type="button" class="ecm-report-btn" data-report-game="${esc(gameId)}" data-report-code="${esc(code)}" aria-expanded="false">안 돼요</button></span>`;
+    }
+
     function init() {
       // 예전엔 localStorage 에 카탈로그를 저장해 두고 CATALOG_VERSION 이 같으면 그걸 썼다.
       // 데이터는 어차피 이 파일 안에 있어서 얻는 게 없고, 같은 날 두 번 고치면 방문자가
@@ -1895,6 +1906,8 @@
 
       applyCategoryCounts();
       showLastUpdated();
+      // 신고를 켰을 때만 신고 스크립트를 불러온다 (꺼져 있으면 아무것도 하지 않는다)
+      if (REPORTS_ENABLED) { const rs = document.createElement('script'); rs.src = '/assets/ecm-report.js'; rs.defer = true; document.head.appendChild(rs); }
       // 드롭다운 메뉴는 처음엔 숨어 있으니 첫 화면을 그린 뒤 한가할 때 만든다(그 전에 열면 openMenu 가 바로 만든다).
       // prerender 의 가짜 DOM 에는 타이머가 없어 바로 그린다 — assets/menu.html 이 이 결과다
       const later = typeof window.requestIdleCallback === 'function' ? cb => window.requestIdleCallback(cb, { timeout: 3000 })
@@ -2530,7 +2543,7 @@
         <div class="ecm-coupon-row">
           <div class="min-w-0">
             <span class="ecm-code">${esc(c.code)}</span>${isNew} ${statusPill(ev)}
-            <p class="ecm-reward">${esc(c.reward)}</p>${couponSourceHtml(c)}${testedBadgeHtml(TESTED_CODES[game.id + ':' + c.code])}
+            <p class="ecm-reward">${esc(c.reward)}</p>${couponSourceHtml(c)}${testedBadgeHtml(TESTED_CODES[game.id + ':' + c.code])}${reportButtonHtml(game.id, c.code)}
           </div>
           <div class="ecm-coupon-actions">
             <button type="button" data-copy="${esc(c.code)}" data-redeem="${esc(redeemUrl)}" class="ecm-btn-primary"><i class="fa-regular fa-copy"></i> 복사</button>
@@ -2538,6 +2551,7 @@
           </div>
         </div>`;
         }).join('');
+      if (REPORTS_ENABLED && window.ECM_REPORT_PAINT) window.ECM_REPORT_PAINT();
       document.getElementById('couponDetailModal').classList.remove('hidden');
     }
     function closeDetailModal() { document.getElementById('couponDetailModal').classList.add('hidden'); }
