@@ -24,6 +24,7 @@ const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHt
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeCalendar } = require('./calendar');
+const { REPORTS_ENABLED } = require('./reports');
 const { writeFreePages } = require('./free-pages');
 const { writeLlmsTxt } = require('./llms-txt');
 const { writeWidgetFeed } = require('./widget-feed');
@@ -648,6 +649,8 @@ function main() {
 
   // 코드가 없어도 목록에 남길 게임 (data/game-listing.json 한 곳). 화면 스크립트의 isListedGame 이 같은 목록을 쓴다
   html = replaceJsBlock(html, 'listed', `\n    const KEEP_LISTED_WITHOUT_CODES = ${JSON.stringify(KEEP_LISTED_WITHOUT_CODES)};\n    `);
+  // "이 코드 안 돼요" 신고 스위치 (scripts/reports.js 한 곳). 홈 쿠폰 창의 reportButtonHtml 이 읽는다
+  html = replaceJsBlock(html, 'reports', `\n    const REPORTS_ENABLED = ${REPORTS_ENABLED ? 'true' : 'false'};\n    `);
   // 운영자가 직접 넣어 본 코드 (data/tested.json 한 곳). 홈 쿠폰 창의 testedBadgeHtml 이 읽는다
   html = replaceJsBlock(html, 'tested', `\n    const TESTED_CODES = ${JSON.stringify(TESTED).replace(/</g, '\\u003c')};\n    `);
 

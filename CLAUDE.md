@@ -57,6 +57,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
 | 코드별 확인일·출처 줄 | `couponSourceHtml` (홈 쿠폰 창) | `game-pages.js` `couponSourceHtml` (코드 표) | tests/data.test.js |
 | "직접 입력해 봤어요" 뱃지 | `testedBadgeHtml` (홈 쿠폰 창) | `game-pages.js` `testedBadgeHtml` (코드 표, /today/) | tests/tested.test.js |
+| "안 돼요" 신고 버튼 (스위치는 `scripts/reports.js` 한 곳) | `reportButtonHtml` (홈 쿠폰 창) | `game-pages.js` `reportButtonHtml` (코드 표) | tests/reports.test.js |
 | 목록에 보일 게임 (아래 "코드 없는 게임") | `isListedGame` | `game-pages.js` `isListed` | tests/listing.test.js |
 | 위젯 요약 형식·"새 코드" 3일 | (앱 저장소 `ios/App/Shared/CouponFeed.swift`) | `widget-feed.js`, `notify-*.js` | tests/widget.test.js |
 
@@ -89,6 +90,15 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 캡처는 `assets/tested/` 에 넣는다(webp·png·jpg). **올리기 전에 닉네임·UID·계정 정보가 보이는 부분을 잘라 내거나 흐리게 가린다.** 저장소와 사이트가 공개다.
 - 고친 뒤 `node scripts/prerender.js` → 게임 페이지 코드 표·홈 쿠폰 창·/today/ 에 "직접 입력해 봤어요 · 날짜"(실패면 "직접 넣어 보니 안 됐어요 · 날짜") 뱃지가 붙고, 캡처가 있으면 뱃지를 누르면 새 탭으로 열린다.
   형식은 tests/tested.test.js 가 검사한다.
+
+## "이 코드 안 돼요" 신고 (2026-10-19, 만들어 두고 꺼 둠)
+
+- 스위치 `REPORTS_ENABLED` 는 `scripts/reports.js` 한 곳. prerender 가 index.html 에 같은 값을 써 넣는다. false 면 버튼도 스크립트도 그리지 않는다.
+- 켜면: 게임 페이지 코드 표·홈 쿠폰 창의 보상 아래 "안 돼요" → "만료됐대요 / 잘못된 코드래요 / 기타" → 신고 한 건.
+  `assets/ecm-report.js` 가 파이어스토어 `reports/{id}` 에 `{game, code, reason, ts(서버 시각)}` 만 쓴다(글 입력 없음, 기기당 코드 하나에 한 번 = localStorage `ecm:reported`).
+- 매일 07:20(한국) `.github/workflows/reports-digest.yml` → `scripts/reports-digest.js` 가 최근 14일 신고를 `data/report-digest.json` 에 개수로만 모은다.
+- **켜기 전에** `docs/firestore-reports-rules.txt` 의 reports 규칙을 파이어베이스 콘솔에 올린다(지금 있는 subscribers 규칙은 그대로 둔다). 그다음 스위치를 true → prerender → 테스트 → push.
+  tests/reports.test.js 의 "지금 꺼져 있다" 검사도 같이 고친다.
 
 ## 쿠폰 데이터 규칙
 
