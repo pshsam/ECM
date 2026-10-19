@@ -34,7 +34,8 @@ const kstDate = iso => new Date(Date.parse(iso) + 9 * 3600e3).toISOString().slic
  * 신고 목록 → 코드별 모음. 최근 days 일(now 기준) 안의 신고만, 이유는 정해진 세 가지만 센다.
  * 키는 정렬해서 내므로 같은 신고면 언제나 같은 JSON 이 나온다.
  */
-function aggregateReports(reports, { now = new Date(), days = WINDOW_DAYS } = {}) {
+/** known: 사이트 카탈로그에 있는 '게임id:코드' Set. 주면 그 밖의 신고(시험·장난)는 세지 않는다 */
+function aggregateReports(reports, { now = new Date(), days = WINDOW_DAYS, known = null } = {}) {
   const since = now.getTime() - days * 86400e3;
   const out = {};
   for (const r of reports || []) {
@@ -44,6 +45,7 @@ function aggregateReports(reports, { now = new Date(), days = WINDOW_DAYS } = {}
     const t = Date.parse(r.ts);
     if (isNaN(t) || t < since || t > now.getTime() + 5 * 60e3) continue;
     const key = `${r.game}:${r.code}`;
+    if (known && !known.has(key)) continue;
     const d = out[key] || (out[key] = { count: 0, reasons: {}, last: '' });
     d.count++;
     d.reasons[r.reason] = (d.reasons[r.reason] || 0) + 1;
@@ -74,6 +76,23 @@ async function fetchReports(projectId, token, sinceIso) {
   return (Array.isArray(rows) ? rows : []).map(x => x.document && parseReportDoc(x.document)).filter(Boolean);
 }
 
+/** index.html 카탈로그의 모든 '게임id:코드' (notify-telegram.js 의 loadCatalog 와 같은 방식) */
+function knownCodes() {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const start = html.indexOf('const initialGameCatalog = [');
+  if (start < 0) return null;
+  const src = html.slice(start);
+  const open = src.indexOf('[');
+  let depth = 0, end = -1;
+  for (let i = open; i < src.length; i++) {
+    if (src[i] === '[') depth++;
+    else if (src[i] === ']' && --depth === 0) { end = i + 1; break; }
+  }
+  // eslint-disable-next-line no-new-func
+  const games = Function(`"use strict"; return (${src.slice(open, end)});`)();
+  return new Set(games.flatMap(g => (g.coupons || []).map(c => `${g.id}:${c.code}`)));
+}
+
 async function main() {
   if (!REPORTS_ENABLED) { console.log('신고 기능이 꺼져 있어(scripts/reports.js 의 REPORTS_ENABLED 가 false) 건너뜀'); return; }
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
@@ -84,7 +103,7 @@ async function main() {
   const now = new Date();
   const reports = await fetchReports(sa.project_id, token, new Date(now.getTime() - WINDOW_DAYS * 86400e3).toISOString());
   if (!reports.length) { console.log(`최근 ${WINDOW_DAYS}일 신고 없음`); return; }
-  const digest = aggregateReports(reports, { now });
+  const digest = aggregateReports(reports, { now, known: knownCodes() });
   const json = JSON.stringify(digest, null, 2) + '\n';
   const prev = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : null;
   if (prev === json) { console.log(`신고 ${reports.length}건 · 바뀐 것 없음`); return; }
@@ -93,5 +112,5 @@ async function main() {
 }
 
 // 테스트(tests/reports.test.js)가 모으는 규칙을 확인할 수 있게 내보낸다. 직접 실행할 때만 파이어스토어를 읽는다.
-module.exports = { aggregateReports, parseReportDoc, WINDOW_DAYS };
+module.exports = { aggregateReports, parseReportDoc, knownCodes, WINDOW_DAYS };
 if (require.main === module) main().catch(err => { console.error(err.message); process.exit(1); });

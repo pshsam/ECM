@@ -1619,7 +1619,7 @@
     /*/PRERENDER:tested*/
     // "이 코드 안 돼요" 신고를 켤지. 원본은 scripts/reports.js 한 곳이고 prerender.js 가 써 넣는다. false 면 아무것도 그리지 않는다
     /*PRERENDER:reports*/
-    const REPORTS_ENABLED = false;
+    const REPORTS_ENABLED = true;
     /*/PRERENDER:reports*/
 
     // 인자: 쿠폰 객체(권장) 또는 expireDate 문자열.
@@ -1908,7 +1908,7 @@
       applyCategoryCounts();
       showLastUpdated();
       // 신고를 켰을 때만 신고 스크립트를 불러온다 (꺼져 있으면 아무것도 하지 않는다)
-      if (REPORTS_ENABLED) { const rs = document.createElement('script'); rs.src = '/assets/ecm-report.js'; rs.defer = true; document.head.appendChild(rs); }
+      if (REPORTS_ENABLED && document.head) { const rs = document.createElement('script'); rs.src = '/assets/ecm-report.js'; rs.defer = true; document.head.appendChild(rs); }
       // 드롭다운 메뉴는 처음엔 숨어 있으니 첫 화면을 그린 뒤 한가할 때 만든다(그 전에 열면 openMenu 가 바로 만든다).
       // prerender 의 가짜 DOM 에는 타이머가 없어 바로 그린다 — assets/menu.html 이 이 결과다
       const later = typeof window.requestIdleCallback === 'function' ? cb => window.requestIdleCallback(cb, { timeout: 3000 })

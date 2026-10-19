@@ -1,4 +1,4 @@
-// "이 코드 안 돼요" 신고 (2026-10-19, 만들어 두고 꺼 둠). 스위치는 scripts/reports.js 의 REPORTS_ENABLED 한 곳.
+// "이 코드 안 돼요" 신고 (2026-10-19 만들고, 같은 날 규칙 게시 후 켬). 스위치는 scripts/reports.js 의 REPORTS_ENABLED 한 곳.
 //   화면: 게임 페이지 코드 표 · 홈 쿠폰 창의 "안 돼요" 버튼 (꺼져 있으면 아무것도 안 그린다)
 //   보내기: assets/ecm-report.js → 파이어스토어 reports/{id} = { game, code, reason, ts(서버 시각) }
 //   모으기: scripts/reports-digest.js (.github/workflows/reports-digest.yml) → data/report-digest.json
@@ -17,8 +17,8 @@ const { aggregateReports, parseReportDoc } = require('../scripts/reports-digest'
 const page = loadPage();
 const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 
-test('신고 스위치는 지금 꺼져 있고, index.html 의 값이 scripts/reports.js 와 같다 (prerender 를 돌렸는지)', () => {
-  assert.equal(REPORTS_ENABLED, false, '파이어스토어 규칙을 올리기 전에는 켜지 않는다 (docs/firestore-reports-rules.txt)');
+test('신고 스위치는 2026-10-19부터 켜져 있고, index.html 의 값이 scripts/reports.js 와 같다 (prerender 를 돌렸는지)', () => {
+  assert.equal(REPORTS_ENABLED, true, '2026-10-19 파이어스토어 규칙 게시 후 켬 (docs/firestore-reports-rules.txt)');
   assert.equal(page.state().REPORTS_ENABLED, REPORTS_ENABLED);
   // 스위치는 한 곳에만: 다른 파일에서 값을 따로 정하지 않는다
   for (const f of ['index.html', 'scripts/game-pages.js', 'scripts/reports-digest.js', 'assets/ecm-report.js']) {
@@ -31,8 +31,9 @@ test('신고 버튼 규칙이 화면(index.html)과 빌드(scripts/game-pages.js
   const samples = [['genshin', 'ABC123'], ['roblox-king-legacy', '<3LEEPUNGG'], ['roblox-99-nights-in-the-forest', 'yay fishing'], ['x', 'a"b']];
   for (const [g, c] of samples) {
     for (const on of [true, false]) assert.equal(page.fn.reportButtonHtml(g, c, on), reportButtonHtml(g, c, on), `${g} ${c} ${on}`);
-    assert.equal(reportButtonHtml(g, c), '', '기본값(꺼짐)이면 아무것도 안 그림');
-    assert.equal(page.fn.reportButtonHtml(g, c), '');
+    assert.equal(reportButtonHtml(g, c, false), '', '꺼져 있으면 아무것도 안 그림');
+    assert.equal(page.fn.reportButtonHtml(g, c, false), '');
+    assert.equal(reportButtonHtml(g, c), reportButtonHtml(g, c, REPORTS_ENABLED), '기본값은 scripts/reports.js 의 스위치를 따른다');
   }
   const on = reportButtonHtml('roblox-king-legacy', '<3LEEPUNGG', true);
   assert.match(on, /data-report-game="roblox-king-legacy" data-report-code="&lt;3LEEPUNGG"/);
@@ -40,7 +41,7 @@ test('신고 버튼 규칙이 화면(index.html)과 빌드(scripts/game-pages.js
   assert.match(page.html, /\$\{reportButtonHtml\(game\.id, c\.code\)\}/, '홈 쿠폰 창이 같은 함수를 쓰지 않음');
 });
 
-test('꺼져 있는 동안 사이트 페이지에 신고 버튼·스크립트가 없다', () => {
+test('꺼져 있는 동안 사이트 페이지에 신고 버튼·스크립트가 없다', { skip: REPORTS_ENABLED && '신고가 켜져 있음' }, () => {
   const pages = fs.readdirSync(path.join(ROOT, 'game')).filter(f => f.endsWith('.html')).map(f => 'game/' + f);
   for (const p of [...pages, 'index.html', 'today/index.html']) {
     const html = read(p).replace(/<script>[\s\S]*?<\/script>/g, '');
@@ -136,7 +137,7 @@ test('매일 모음: 최근 14일 신고만 코드별로 세고, 이유는 정�
   assert.equal(parseReportDoc(undefined), null);
 });
 
-test('매일 모음: 꺼져 있으면 비밀값이 있어도 아무 파일도 쓰지 않고 조용히 끝난다', () => {
+test('매일 모음: 꺼져 있으면 비밀값이 있어도 아무 파일도 쓰지 않고 조용히 끝난다', { skip: REPORTS_ENABLED && '신고가 켜져 있음' }, () => {
   const out = path.join(ROOT, 'data', 'report-digest.json');
   const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
   const log = execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'reports-digest.js')], {
@@ -155,4 +156,22 @@ test('매일 모음 워크플로: 07:20 KST · 손으로 실행 · 같은 비밀
   assert.match(y, /git status --porcelain data\/report-digest\.json/);
   assert.match(y, /\[skip ci\]/);
   assert.ok(y.indexOf('git pull --rebase origin main') < y.indexOf('git push origin HEAD:main'));
+});
+
+test('신고 모음: 카탈로그에 없는 게임·코드 신고(시험·장난)는 세지 않는다', () => {
+  const { aggregateReports } = require('../scripts/reports-digest');
+  const now = new Date('2026-10-19T12:00:00Z');
+  const ts = '2026-10-19T03:00:00Z';
+  const known = new Set(['genshin:REALCODE']);
+  const out = aggregateReports([
+    { game: 'genshin', code: 'REALCODE', reason: 'expired', ts },
+    { game: 'ecm-selftest', code: 'SELFTEST', reason: 'other', ts },
+  ], { now, known });
+  assert.deepEqual(Object.keys(out), ['genshin:REALCODE']);
+});
+
+test('켜져 있으면 살아 있는 코드가 있는 게임 페이지에 신고 버튼이 있다', { skip: !REPORTS_ENABLED && '신고가 꺼져 있음' }, () => {
+  const pages = fs.readdirSync(path.join(ROOT, 'game')).filter(f => f.endsWith('.html')).map(f => 'game/' + f);
+  const withButtons = pages.filter(p => /data-report-code=/.test(read(p)));
+  assert.ok(withButtons.length > 0, '신고 버튼이 있는 게임 페이지가 하나도 없음');
 });

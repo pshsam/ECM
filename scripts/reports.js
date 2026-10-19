@@ -11,7 +11,7 @@
  *   3. .github/workflows/reports-digest.yml 은 이미 있는 FIREBASE_SERVICE_ACCOUNT 비밀값을 쓴다. 매일 07:20(한국) 에
  *      최근 14일 신고를 data/report-digest.json 으로 모은다(개수만, 기기 정보 없음)
  */
-const REPORTS_ENABLED = false;
+const REPORTS_ENABLED = true;
 
 /** 신고 이유 (파이어스토어 규칙의 목록과 같아야 한다) */
 const REPORT_REASONS = { expired: '만료됐대요', invalid: '잘못된 코드래요', other: '기타' };
