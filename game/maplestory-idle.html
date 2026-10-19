@@ -228,7 +228,11 @@
     .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
     .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
     .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
-    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    /* 코드가 나온 흐름 상자: 코드 표 아래, 가볍게 (숫자 몇 개 + 근거 한 줄) */
+    .ecm-flowbox { margin: 1.3rem 0 0; }
+    .ecm-page .ecm-flowbox h3 { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page .ecm-flowbox ul.ecm-flow { margin: 0 0 .35rem; }
+    .ecm-page .ecm-flowbox p.ecm-flow-basis { font-size: .78rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
@@ -320,7 +324,7 @@
     <h2 id="codes">지금 쓸 수 있는 코드</h2>
     <p id="targetNote" class="ecm-target-note" role="status" hidden></p>
     <div class="ecm-nocode">
-      <p>ECM이 마지막으로 새 코드를 등록한 날은 <b>2026.09.24</b>이고, 지금까지 기록한 코드는 1개예요. <a href="#history">지난 코드 기록</a>에 남겨 두었어요. 새 코드가 확인되면 이 자리에 등록일과 함께 올라와요.</p>
+      <p>지금까지 기록한 코드는 1개예요. <a href="#history">지난 코드 기록</a>에 남겨 두었어요. 새 코드가 확인되면 이 자리에 등록일과 함께 올라와요.</p>
     </div>
     <div class="ecm-redeem-bar">
       <p><b>코드를 넣는 곳</b> 넥슨 모바일 쿠폰 등록 페이지 (로그인 필요)</p>
@@ -341,11 +345,6 @@
     </section>
     <h2 id="history">지난 코드 기록</h2>
     <p class="ecm-hist-lede">지금은 쓸 수 없는 코드예요. ECM이 2026.09.24부터 직접 기록한 등록일 기준이에요.</p>
-    <h3 class="ecm-flow-title">코드가 나온 흐름</h3>
-    <ul class="ecm-flow">
-      <li><span>ECM이 기록한 코드</span><b>1개</b></li>
-      <li><span>마지막 새 코드 등록</span><b>2026.09.24</b></li>
-    </ul>
     <table class="ecm-hist">
       <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>

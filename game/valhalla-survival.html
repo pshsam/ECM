@@ -244,7 +244,11 @@
     .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
     .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
     .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
-    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    /* 코드가 나온 흐름 상자: 코드 표 아래, 가볍게 (숫자 몇 개 + 근거 한 줄) */
+    .ecm-flowbox { margin: 1.3rem 0 0; }
+    .ecm-page .ecm-flowbox h3 { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page .ecm-flowbox ul.ecm-flow { margin: 0 0 .35rem; }
+    .ecm-page .ecm-flowbox p.ecm-flow-basis { font-size: .78rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
@@ -359,6 +363,15 @@
     <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.</p>
 
     <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="발할라 서바이벌 쿠폰 코드 | ECM" data-share-text="발할라 서바이벌 쿠폰 코드 1개, ECM에서 확인했어요"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
+    <section class="ecm-flowbox" aria-labelledby="flowTitle">
+      <h3 id="flowTitle">코드가 나온 흐름</h3>
+      <ul class="ecm-flow">
+        <li><span>새로 나타난 코드</span><b>1개</b></li>
+        <li><span>마지막 새 코드</span><b>2026.10.01</b></li>
+        <li><span>새 코드가 나온 날</span><b>1일</b></li>
+      </ul>
+      <p class="ecm-flow-basis">ECM이 2026.09.25부터 기록한 값이에요. 게임을 처음 올린 날 함께 넣은 코드는 세지 않았어요.</p>
+    </section>
 
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
       <p>ECM 쿠폰이 2026.10.19 확인 기준으로 정리한 발할라 서바이벌 쿠폰 코드 1개와 보상, 만료 상태, 입력 방법입니다. 코드는 게임사 공식 채널이나 독립된 출처 2곳에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>

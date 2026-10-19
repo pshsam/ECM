@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('fs');
 const path = require('path');
 const { loadPage, ROOT } = require('./page');
-const { historyFor, flowFor, evaluate, KEEP_LISTED_WITHOUT_CODES } = require('../scripts/game-pages');
+const { historyFor, flowFor, flowBoxHtml, evaluate, isListed, KEEP_LISTED_WITHOUT_CODES } = require('../scripts/game-pages');
 
 const page = loadPage();
 const { initialGameCatalog: catalog } = page.state();
@@ -66,6 +66,7 @@ test('지난 코드 기록: 끝난 코드만, 글자 그대로, 사이트 연 �
 
   const f = flowFor(g, fs0, g.coupons);
   assert.equal(f.start, '2026-09-24');
+  assert.equal(f.total, 5);
   assert.equal(f.n, 5);
   assert.equal(f.last, '2026-10-10');
   assert.equal(f.days, 5);
@@ -74,7 +75,7 @@ test('지난 코드 기록: 끝난 코드만, 글자 그대로, 사이트 연 �
 
 test('코드가 나온 흐름: 기록이 없으면 0개, 날이 3번 미만이면 평균 간격을 내지 않는다', () => {
   const g = { id: 'yy', coupons: [] };
-  assert.deepEqual(flowFor(g, { 'game:yy': '2026-09-21' }, []), { start: '2026-09-21', n: 0, last: '', days: 0, gap: null });
+  assert.deepEqual(flowFor(g, { 'game:yy': '2026-09-21' }, []), { start: '2026-09-21', total: 0, n: 0, last: '', days: 0, gap: null });
   const two = flowFor(g, { 'yy:A': '2026-10-01', 'yy:B': '2026-10-05' }, []);
   assert.equal(two.days, 2);
   assert.equal(two.gap, null);
@@ -107,4 +108,55 @@ test('코드가 없는 A 게임 페이지: 상태 한 줄·새 코드 알림이 
     if (rows.length) assert.match(html, /<h2 id="history">지난 코드 기록<\/h2>/, `${id}: 기록이 있는데 지난 코드 기록이 없음`);
     else assert.doesNotMatch(html, /id="history"/, `${id}: 기록이 없는데 빈 지난 코드 기록이 나옴`);
   }
+});
+
+test('코드가 나온 흐름: 게임을 올린 날 함께 넣은 코드는 "새로 나타난 코드"로 세지 않는다', () => {
+  const g = { id: 'xx', coupons: [{ code: 'NOW1', reward: 'r', expireDate: '상시' }] };
+  const fs0 = {
+    'game:xx': '2026-09-25',
+    'xx:BACK1': '2026-09-25', 'xx:BACK2': '2026-09-25', // 게임을 올린 날 한꺼번에 넣은 코드
+    'xx:NOW1': '2026-09-25',
+    'xx:N1': '2026-10-01', 'xx:N2': '2026-10-01', 'xx:N3': '2026-10-05', 'xx:N4': '2026-10-11',
+  };
+  const f = flowFor(g, fs0, g.coupons);
+  assert.equal(f.start, '2026-09-25');
+  assert.equal(f.total, 7);
+  assert.equal(f.n, 4);
+  assert.equal(f.days, 3);
+  assert.equal(f.last, '2026-10-11');
+  assert.equal(f.gap, 5); // (10-11 - 10-01) / 2
+
+  const box = flowBoxHtml(f);
+  assert.match(box, /새로 나타난 코드<\/span><b>4개/);
+  assert.match(box, /마지막 새 코드<\/span><b>2026\.10\.11/);
+  assert.match(box, /새 코드가 나온 날<\/span><b>3일/);
+  assert.match(box, /나온 날 사이 평균<\/span><b>5일/);
+  assert.match(box, /ECM이 2026\.09\.25부터 기록한 값/);
+
+  // 날이 2번이면 평균 간격을 내지 않는다
+  const two = flowBoxHtml(flowFor(g, { 'game:xx': '2026-09-25', 'xx:A': '2026-10-01', 'xx:B': '2026-10-03' }, []));
+  assert.match(two, /새 코드가 나온 날<\/span><b>2일/);
+  assert.doesNotMatch(two, /평균/);
+  // 올린 날 넣은 코드뿐이면 상자를 만들지 않는다
+  assert.equal(flowBoxHtml(flowFor(g, { 'game:xx': '2026-09-25', 'xx:BACK1': '2026-09-25' }, [])), '');
+  assert.equal(flowBoxHtml(null), '');
+});
+
+test('목록에 보이는 게임 페이지: 새로 나타난 코드가 있으면 코드가 나온 흐름 상자가 있고, 없으면 없다', () => {
+  const activeOf = g => g.coupons.filter(c => evaluate(c).active);
+  let checked = 0;
+  for (const g of catalog) {
+    const file = path.join(ROOT, 'game', g.id + '.html');
+    if (!fs.existsSync(file) || !isListed(g, activeOf)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const f = flowFor(g, seen, g.coupons);
+    if (f.n) {
+      assert.match(html, /<section class="ecm-flowbox"/, `${g.id}: 새 코드 ${f.n}개인데 흐름 상자가 없음`);
+      assert.ok(html.includes(`<b>${f.n}개</b>`), `${g.id}: 상자 숫자가 장부와 다름`);
+      if (activeOf(g).length) assert.ok(html.indexOf('<section class="ecm-flowbox"') > html.indexOf('<table class="ecm-codes"'), `${g.id}: 상자가 코드 표 위에 있음`);
+      checked++;
+    } else assert.doesNotMatch(html, /class="ecm-flowbox"/, `${g.id}: 새 코드가 없는데 상자가 나옴`);
+    assert.equal((html.match(/class="ecm-flowbox"/g) || []).length <= 1, true, `${g.id}: 상자가 두 번 나옴`);
+  }
+  assert.ok(checked > 0, '흐름 상자가 있는 페이지가 하나도 없음');
 });
