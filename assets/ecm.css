@@ -313,6 +313,17 @@ main section[data-cat][hidden] { display: none; }
 .ecm-src a.ecm-src-link { color: var(--ink-2); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--line); overflow-wrap: anywhere; }
 .ecm-src a.ecm-src-link:hover { color: var(--ink); text-decoration-color: currentColor; }
 
+/* 직접 입력해 봤어요 (data/tested.json: 운영자가 게임에서 직접 넣어 본 코드). 게임 페이지 코드 표, 홈 쿠폰 창, 오늘의 쿠폰 */
+.ecm-tested-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .45rem; margin-top: .3rem; }
+.ecm-tested { display: inline-flex; align-items: center; gap: .3rem; padding: .18rem .55rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4; letter-spacing: 0; white-space: nowrap; text-decoration: none; }
+.ecm-tested.is-ok { background: var(--new-soft); color: #0A7A3C; }
+.ecm-tested.is-fail { background: var(--sf); color: var(--ink-2); }
+a.ecm-tested.is-ok, .ecm-page a.ecm-tested.is-ok { color: #0A7A3C; }
+a.ecm-tested.is-fail, .ecm-page a.ecm-tested.is-fail { color: var(--ink-2); }
+a.ecm-tested::after { content: none !important; }
+a.ecm-tested .ecm-tested-shot { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.ecm-tested-note { font-size: .75rem; color: var(--ink-3); line-height: 1.5; }
+
 /* 글쓴이 줄 */
 .ecm-byline { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--ink-3); margin: -.25rem 0 1.25rem; }
 .ecm-byline img { width: 22px; height: 22px; }
