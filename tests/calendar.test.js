@@ -122,15 +122,19 @@ test('일정 내용이 그대로면 DTSTAMP 만 바뀌어도 파일을 다시 �
   }
 });
 
-test('사이트의 캘린더 파일: 형식이 맞고, 공식 만료일이 있는 살아 있는 코드 수와 일정 수가 같다 (prerender 를 돌렸는지)', () => {
+test('사이트의 캘린더 파일: 형식이 맞고, 공식 만료일이 있는 살아 있는 코드가 모두 들어 있다 (prerender 를 돌렸는지)', () => {
   const file = path.join(ROOT, CAL_FILE);
   assert.ok(fs.existsSync(file), 'node scripts/prerender.js 로 만드세요');
   const ics = fs.readFileSync(file, 'utf8');
   assertValidIcs(ics);
-  const expected = catalog.flatMap(g => g.coupons.filter(c => /^\d{4}-\d{2}-\d{2}$/.test(c.expireDate || '') && evaluate(c).active));
-  assert.equal(events(ics).length, expected.length);
   const uids = events(ics).map(e => e.UID);
   assert.equal(new Set(uids).size, uids.length, 'UID 가 겹침');
+  // 지금 살아 있는 공식 만료일 코드는 전부 들어 있어야 한다
+  const dated = catalog.flatMap(g => g.coupons.filter(c => /^\d{4}-\d{2}-\d{2}$/.test(c.expireDate || '')).map(c => ({ g, c })));
+  for (const { g, c } of dated.filter(x => evaluate(x.c).active)) assert.ok(uids.includes(uidFor(g.id, c.code)), `${g.id}:${c.code} 가 캘린더에 없음`);
+  // 일정은 모두 카탈로그의 공식 만료일 코드에서 나온 것 (빌드 뒤 자정을 넘겨 막 끝난 코드는 다음 빌드에서 빠진다)
+  const known = new Set(dated.map(x => uidFor(x.g.id, x.c.code)));
+  for (const u of uids) assert.ok(known.has(u), `${u}: 카탈로그에 없는 일정 (prerender 를 돌리세요)`);
   assert.doesNotMatch(fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8'), /\.ics/, '사이트맵에 캘린더가 들어감');
   assert.match(fs.readFileSync(path.join(ROOT, '.gitattributes'), 'utf8'), /^\*\.ics -text$/m, '.ics 줄 끝(CRLF)을 git 이 바꾸지 않게');
 });
