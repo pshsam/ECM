@@ -126,6 +126,12 @@
       }
     }).catch(function () {});
   }
+  // 하루 한 번 구독 문서를 다시 저장한다. 2026-10-19 파이어스토어 데이터베이스가 통째로 지워져 구독이 사라진 일이 있어,
+  // 알림을 켜 둔 기기는 다음 방문 때 저절로 다시 등록되게 한다 (기기당 하루 쓰기 1번 정도).
+  var SAVED = 'ecm:push-saved';
+  if (ls(ON) === '1' && ls(TOKEN) && (nativeApp || (supported && Notification.permission === 'granted'))) {
+    if (Date.now() - (+ls(SAVED) || 0) > 864e5) saveDoc(ls(TOKEN)).then(function () { ls(SAVED, String(Date.now())); }).catch(function () {});
+  }
   window.ECM_PUSH_TURN_ON = function () { return ls(ON) === '1' ? Promise.resolve() : turnOn(buttons[0]); };
   paint();
 })();
