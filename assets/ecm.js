@@ -405,9 +405,10 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' || location.h
   document.addEventListener('ecm:copied', function () { setTimeout(show, 1800); });
 })();
 
-// ── 새 쿠폰 푸시 알림: 알림 버튼([data-push-toggle])이 있는 페이지에서만 설정·모듈을 불러온다 ──
+// ── 새 쿠폰 푸시 알림: 알림 버튼([data-push-toggle])이 있는 페이지, 또는 알림을 켜 둔 기기(홈 등에서 구독 다시 저장)에서만 설정·모듈을 불러온다 ──
 (function () {
-  if (!document.querySelector('[data-push-toggle]')) return;
+  var on = false; try { on = localStorage.getItem('ecm:push') === '1'; } catch (e) {}
+  if (!document.querySelector('[data-push-toggle]') && !on) return;
   var s = document.createElement('script'); s.src = '/assets/push-config.js';
   s.onload = function () {
     var c = window.ECM_PUSH || {};

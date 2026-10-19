@@ -21,7 +21,7 @@
   function native(method) { return window.Capacitor.nativePromise('EcmPush', method, {}); }
   var supported = nativeApp || ('serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window);
   var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-push-toggle]'));
-  if (!READY || !buttons.length) return;
+  if (!READY) return; // 버튼이 없는 페이지(알림을 켠 기기의 홈 등)는 아래 구독 다시 저장만 하고 끝낸다
 
   function paint() {
     var on = ls(ON) === '1' && (nativeApp || Notification.permission === 'granted');
@@ -132,6 +132,7 @@
   if (ls(ON) === '1' && ls(TOKEN) && (nativeApp || (supported && Notification.permission === 'granted'))) {
     if (Date.now() - (+ls(SAVED) || 0) > 864e5) saveDoc(ls(TOKEN)).then(function () { ls(SAVED, String(Date.now())); }).catch(function () {});
   }
+  if (!buttons.length) return;
   window.ECM_PUSH_TURN_ON = function () { return ls(ON) === '1' ? Promise.resolve() : turnOn(buttons[0]); };
   paint();
 })();
