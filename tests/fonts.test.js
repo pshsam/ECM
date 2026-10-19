@@ -66,9 +66,20 @@ test('Pretendard 는 /assets/pretendard.css (font-display: optional, 굵기 400-
     assert.match(f, /src:url\(https:\/\/cdn\.jsdelivr\.net\/gh\/orioncactus\/pretendard@v[\d.]+\/packages\/pretendard\/dist\/web\/static\/woff2-dynamic-subset\/Pretendard-\w+\.subset\.\d+\.woff2\)/);
   }
   assert.doesNotMatch(css, /font-display:\s*swap/);
-  assert.match(FONT_HEAD, /<link rel="stylesheet" href="\/assets\/pretendard\.css">/);
+  // 화면을 막지 않게(preload → onload). 막는 stylesheet 로 두면 optional 대기 시간만큼 첫 화면이 늦다 (2026-10-19)
+  assert.match(FONT_HEAD, /<link rel="preload" as="style" href="\/assets\/pretendard\.css" onload="[^"]*"><noscript><link rel="stylesheet" href="\/assets\/pretendard\.css"><\/noscript>/);
   const stale = pages.filter(p => fs.readFileSync(path.join(ROOT, p), 'utf8').includes('pretendard-dynamic-subset.css'));
   assert.deepEqual(stale, [], 'jsDelivr CSS 를 직접 부르는 페이지가 남았다 (prerender 가 ensureFonts 로 바꾼다)');
+  const blocking = pages.filter(p => /(?<!<noscript>)<link rel="stylesheet" href="\/assets\/pretendard\.css">/.test(fs.readFileSync(path.join(ROOT, p), 'utf8')));
+  assert.deepEqual(blocking, [], '화면을 막는 pretendard.css 줄이 남았다 (prerender 가 ensureFonts 로 바꾼다)');
+});
+
+test('withFonts: 화면을 막던 pretendard.css 줄(2026-10-19)을 preload 줄로 바꾸고, 두 번 돌려도 그대로다', () => {
+  const old = '<head>\n  <link rel="stylesheet" href="/assets/fa.css">\n  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>\n'
+    + '  <link rel="stylesheet" href="/assets/pretendard.css">\n</head>';
+  const out = withFonts(old);
+  assert.equal(out, '<head>\n  ' + FONT_HEAD + '\n</head>');
+  assert.equal(withFonts(out), out);
 });
 
 test('withFonts: jsDelivr 동적 서브셋 줄(2026-10-18~19)을 /assets/pretendard.css 줄로 바꾼다', () => {

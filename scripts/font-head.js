@@ -15,8 +15,12 @@ const path = require('path');
 
 const PRETENDARD_CSS = '/assets/pretendard.css';
 
-// 일반 stylesheet 로 둔다(늦게 붙이면 글꼴 규칙이 첫 배치 뒤에 생겨 optional 이 소용없다). gzip 17KB, 같은 사이트라 연결도 안 는다
-const PRETENDARD_LINK = `<link rel="stylesheet" href="${PRETENDARD_CSS}">`;
+// 화면을 막지 않게 불러온다. 일반 stylesheet(10-19 하루)로 두면 첫 배치 때 이미 글꼴 규칙이 있어
+// optional 의 대기 시간(최대 0.1초) + 552개 규칙 처리만큼 첫 화면이 늦었다(홈 FCP·LCP +0.3초, devtools 스로틀).
+// 늦게 붙어도 처음 온 방문자는 그 페이지를 시스템 글꼴로 끝까지 보고(optional), 캐시가 있으면 처음부터 Pretendard — 어느 쪽도 화면이 튀지 않았다
+const PRETENDARD_LINK = `<link rel="preload" as="style" href="${PRETENDARD_CSS}" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="${PRETENDARD_CSS}"></noscript>`;
+// 2026-10-19 하루 쓴 줄 (화면을 막는 일반 stylesheet). <noscript> 안의 같은 줄은 건드리지 않는다
+const OLD_BLOCKING = '(?<!<noscript>)<link rel="stylesheet" href="\\/assets\\/pretendard\\.css">';
 const FONT_HEAD = `<link rel="stylesheet" href="/assets/fa.css">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   ${PRETENDARD_LINK}`;
@@ -30,7 +34,7 @@ const OLD_SUBSET = '<link rel="preload" as="style" href="https:\\/\\/cdn\\.jsdel
 
 /** 옛 글꼴 줄을 FONT_HEAD 로 바꾼 html (이미 바뀌었으면 그대로) */
 function withFonts(html) {
-  html = html.replace(new RegExp(OLD_SUBSET, 'g'), () => PRETENDARD_LINK);
+  html = html.replace(new RegExp(OLD_SUBSET + '|' + OLD_BLOCKING, 'g'), () => PRETENDARD_LINK);
   const hasFa = new RegExp(OLD_FA).test(html), hasPre = new RegExp(OLD_PRETENDARD).test(html);
   if (!hasFa && !hasPre) return html;
   const head = /\r\n/.test(html) ? FONT_HEAD.replace(/\n/g, '\r\n') : FONT_HEAD;
