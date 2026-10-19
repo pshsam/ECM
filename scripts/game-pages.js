@@ -124,6 +124,38 @@ function couponSourceHtml(c) {
   return `<span class="ecm-src">${cond ? `<span class="ecm-src-cond">조건: ${esc(cond)}</span>` : ''}${parts.length ? `<span class="ecm-src-line">${parts.join(' · ')}</span>` : ''}</span>`;
 }
 
+/**
+ * 운영자가 게임에서 직접 넣어 본 코드 (data/tested.json, 2026-10-19~). "게임id:코드" → { date, result: ok|fail, note?, img? }.
+ * index.html 과 달리 쿠폰 루틴이 건드리지 않는 따로 된 장부다. 운영자 본인이 실제로 넣어 본 것만 적는다.
+ */
+const TESTED = (() => {
+  try {
+    const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'tested.json'), 'utf8'));
+    return j && typeof j === 'object' && !Array.isArray(j) ? j : {};
+  } catch (e) { return {}; }
+})();
+
+/**
+ * "직접 입력해 봤어요 · YYYY.MM.DD" / "직접 넣어 보니 안 됐어요 · YYYY.MM.DD" 뱃지. 캡처(img)가 있으면 새 탭으로 여는 링크.
+ * 장부 값이 없거나 형식이 틀리면 빈 문자열. img 는 /assets/tested/ 안의 그림 파일만 받는다.
+ * index.html 의 testedBadgeHtml 과 같은 규칙이어야 한다 (tests/tested.test.js 가 비교한다).
+ */
+function testedBadgeHtml(t) {
+  if (!t || typeof t !== 'object') return '';
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(t.date || '') ? t.date : '';
+  if (!date || (t.result !== 'ok' && t.result !== 'fail')) return '';
+  const ok = t.result === 'ok';
+  const label = `${ok ? '직접 입력해 봤어요' : '직접 넣어 보니 안 됐어요'} · ${date.replace(/-/g, '.')}`;
+  const icon = ok ? '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' : '<i class="fa-regular fa-circle-xmark" aria-hidden="true"></i>';
+  const img = typeof t.img === 'string' && /^\/assets\/tested\/[A-Za-z0-9._-]+\.(webp|png|jpe?g)$/.test(t.img) ? t.img : '';
+  const note = typeof t.note === 'string' && t.note.trim() ? t.note.trim() : '';
+  const cls = `ecm-tested ${ok ? 'is-ok' : 'is-fail'}`;
+  const badge = img
+    ? `<a class="${cls}" href="${esc(img)}" target="_blank" rel="noopener">${icon} ${esc(label)} <span class="ecm-tested-shot">캡처 보기</span></a>`
+    : `<span class="${cls}">${icon} ${esc(label)}</span>`;
+  return `<span class="ecm-tested-wrap">${badge}${note ? `<span class="ecm-tested-note">${esc(note)}</span>` : ''}</span>`;
+}
+
 /** 공식 만료일이 두 달 넘게 남았으면 D-숫자 대신 날짜로 (D-1553 처럼 읽기 어려운 표시를 피한다) */
 const FAR_DAYS = 60;
 
@@ -386,6 +418,8 @@ function faqFor(g) {
 
 function pageHtml(g, ctx) {
   const { today, posts, allGames, version, firstSeen } = ctx;
+  const tested = ctx.tested || {};
+  const testedOf = c => testedBadgeHtml(tested[g.id + ':' + c.code]);
   const coupons = g.coupons || [];
   const evald = coupons.map(c => ({ c, ev: evaluate(c, today) }));
   const active = evald.filter(x => x.ev.active);
@@ -450,7 +484,7 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
     // 등록일: 이 코드를 ECM 이 처음 확인해 올린 날(장부). 게임 단위 '마지막 확인'과 다른 값이라 따로 적는다
     const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
     return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
-          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
+          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}${testedOf(c)}</td>
           <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}</td>
           <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
@@ -710,7 +744,7 @@ ${historyHtml}`}
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
       <p>${active.length
       ? `ECM 쿠폰이 ${esc(fmt(g.checked || version))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
-      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 코드를 직접 입력해 본 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.</p>
+      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 모든 코드를 직접 입력해 보는 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.${active.some(x => testedOf(x.c)) ? ' <b>직접 입력해 봤어요</b> 표시가 있는 코드는 운영자가 게임에서 직접 넣어 본 코드이고, 옆 날짜가 넣어 본 날이에요.' : ''}</p>
       <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
     </details>
 
@@ -881,12 +915,12 @@ ${footerHtml()}
  * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록·사이트맵에 넣을 게임(isListed). 나머지는 noindex 페이지로만 남는다.
  * @returns {{written: number, removed: number, ids: string[], listedIds: string[]}}
  */
-function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}) {
+function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}, tested = TESTED) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
-  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger };
+  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger, tested };
   const keep = new Set();
   const listedIds = [];
   let written = 0;
@@ -906,4 +940,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
 }
 
-module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, testedBadgeHtml, TESTED, GENRE_LABELS };

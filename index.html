@@ -1612,6 +1612,10 @@
     /*PRERENDER:listed*/
     const KEEP_LISTED_WITHOUT_CODES = ["lostark","fconline","bluearchive","aion2","maplestory-idle","magmagu-2026","roblox-basketball-zero"];
     /*/PRERENDER:listed*/
+    // 운영자가 게임에서 직접 넣어 본 코드("게임id:코드" → {date, result, note?, img?}). 원본은 data/tested.json 이고 prerender.js 가 써 넣는다. 손으로 고치지 마세요.
+    /*PRERENDER:tested*/
+    const TESTED_CODES = {};
+    /*/PRERENDER:tested*/
 
     // 인자: 쿠폰 객체(권장) 또는 expireDate 문자열.
     // expireDate 는 공식 만료일만 담는다. 공지가 없으면 필드가 없고 "만료일 미공개"로 보인다.
@@ -1860,6 +1864,24 @@
       const cond = c && typeof c.cond === 'string' && c.cond.trim() ? c.cond.trim() : '';
       if (!parts.length && !cond) return '';
       return `<span class="ecm-src">${cond ? `<span class="ecm-src-cond">조건: ${esc(cond)}</span>` : ''}${parts.length ? `<span class="ecm-src-line">${parts.join(' · ')}</span>` : ''}</span>`;
+    }
+
+    // "직접 입력해 봤어요" 뱃지. scripts/game-pages.js 의 testedBadgeHtml 과 같은 규칙이어야 한다 (tests/tested.test.js).
+    // 장부 값이 없거나 형식이 틀리면 빈 문자열. img 는 /assets/tested/ 안의 그림 파일만 받는다
+    function testedBadgeHtml(t) {
+      if (!t || typeof t !== 'object') return '';
+      const date = /^\d{4}-\d{2}-\d{2}$/.test(t.date || '') ? t.date : '';
+      if (!date || (t.result !== 'ok' && t.result !== 'fail')) return '';
+      const ok = t.result === 'ok';
+      const label = `${ok ? '직접 입력해 봤어요' : '직접 넣어 보니 안 됐어요'} · ${date.replace(/-/g, '.')}`;
+      const icon = ok ? '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' : '<i class="fa-regular fa-circle-xmark" aria-hidden="true"></i>';
+      const img = typeof t.img === 'string' && /^\/assets\/tested\/[A-Za-z0-9._-]+\.(webp|png|jpe?g)$/.test(t.img) ? t.img : '';
+      const note = typeof t.note === 'string' && t.note.trim() ? t.note.trim() : '';
+      const cls = `ecm-tested ${ok ? 'is-ok' : 'is-fail'}`;
+      const badge = img
+        ? `<a class="${cls}" href="${esc(img)}" target="_blank" rel="noopener">${icon} ${esc(label)} <span class="ecm-tested-shot">캡처 보기</span></a>`
+        : `<span class="${cls}">${icon} ${esc(label)}</span>`;
+      return `<span class="ecm-tested-wrap">${badge}${note ? `<span class="ecm-tested-note">${esc(note)}</span>` : ''}</span>`;
     }
 
     function init() {
@@ -2508,7 +2530,7 @@
         <div class="ecm-coupon-row">
           <div class="min-w-0">
             <span class="ecm-code">${esc(c.code)}</span>${isNew} ${statusPill(ev)}
-            <p class="ecm-reward">${esc(c.reward)}</p>${couponSourceHtml(c)}
+            <p class="ecm-reward">${esc(c.reward)}</p>${couponSourceHtml(c)}${testedBadgeHtml(TESTED_CODES[game.id + ':' + c.code])}
           </div>
           <div class="ecm-coupon-actions">
             <button type="button" data-copy="${esc(c.code)}" data-redeem="${esc(redeemUrl)}" class="ecm-btn-primary"><i class="fa-regular fa-copy"></i> 복사</button>

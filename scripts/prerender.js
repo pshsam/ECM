@@ -20,7 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, couponSourceHtml, GENRE_LABELS } = require('./game-pages');
+const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, couponSourceHtml, testedBadgeHtml, TESTED, GENRE_LABELS } = require('./game-pages');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeFreePages } = require('./free-pages');
@@ -647,6 +647,8 @@ function main() {
 
   // 코드가 없어도 목록에 남길 게임 (data/game-listing.json 한 곳). 화면 스크립트의 isListedGame 이 같은 목록을 쓴다
   html = replaceJsBlock(html, 'listed', `\n    const KEEP_LISTED_WITHOUT_CODES = ${JSON.stringify(KEEP_LISTED_WITHOUT_CODES)};\n    `);
+  // 운영자가 직접 넣어 본 코드 (data/tested.json 한 곳). 홈 쿠폰 창의 testedBadgeHtml 이 읽는다
+  html = replaceJsBlock(html, 'tested', `\n    const TESTED_CODES = ${JSON.stringify(TESTED).replace(/</g, '\\u003c')};\n    `);
 
   // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
   const first = run(html);
@@ -700,7 +702,7 @@ function main() {
   // 목록·허브·사이트맵·llms.txt 에는 목록에 보일 게임(gp.listedIds)만 넘긴다. 코드가 없어 숨긴 게임은 noindex 페이지로만 남는다
   writeGameHub(rootDir, { games, posts, version, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, GENRE_LABELS, headerHtml, footerHtml });
   // 오늘의 쿠폰 (/today/): 새 코드·마감 임박·내 게임을 매일 한곳에
-  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, couponSourceHtml, headerHtml, footerHtml, version });
+  writeTodayPage(rootDir, { games, firstSeen: seen, gamePageIds: gp.listedIds, evaluate, couponSourceHtml, tested: TESTED, testedBadgeHtml, headerHtml, footerHtml, version });
   // 게임 무료 혜택 (/free/, /free/preregister.html): 쿠폰·사전예약·방송·PC방 보상 모음
   writeFreePages(rootDir, { games, evaluate, gamePageIds: gp.listedIds, headerHtml, footerHtml });
   // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음). 내 게임에 담은 숨긴 게임도 보여야 하므로 페이지가 있는 게임 전부(gp.ids)

@@ -30,7 +30,7 @@ scripts/prerender.js    빌드. index.html 스크립트를 가짜 DOM 에서 실
   widget-feed.js          /app/widget.json  (아이폰 앱 위젯용 쿠폰 요약. 코드 문자열은 넣지 않는다)
 scripts/notify-*.js     새 쿠폰 텔레그램·푸시 알림 (.github/workflows 가 실행). 앱 기기는 ua native-android / native-ios
 data/                   빌드·알림이 쓰는 장부 (coupon-seen = 코드 첫 등록일, coupon-history = 지난 코드의 보상·끝난 날,
-                        game-listing = 코드가 없어도 목록에 남길 게임, *-sent = 알림 보낸 기록)
+                        game-listing = 코드가 없어도 목록에 남길 게임, tested = 운영자가 직접 넣어 본 코드, *-sent = 알림 보낸 기록)
 assets/ecm.js           모든 페이지 공통 스크립트 (메뉴, 내 게임, 서비스 워커 등록)
 assets/ecm-app.js       ECM 쿠폰 앱(안드로이드·아이폰) 안에서만 (탭 바, 아이폰 위젯에 내 게임 넘기기)
 assets/ecm-push.js      웹 푸시 구독 → 파이어스토어 subscribers/{토큰} 에 {games, updated, ua} 만 저장
@@ -54,6 +54,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 글자 타일 | `monoOf` | `mono.js` | tests/data.test.js |
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
 | 코드별 확인일·출처 줄 | `couponSourceHtml` (홈 쿠폰 창) | `game-pages.js` `couponSourceHtml` (코드 표) | tests/data.test.js |
+| "직접 입력해 봤어요" 뱃지 | `testedBadgeHtml` (홈 쿠폰 창) | `game-pages.js` `testedBadgeHtml` (코드 표, /today/) | tests/tested.test.js |
 | 목록에 보일 게임 (아래 "코드 없는 게임") | `isListedGame` | `game-pages.js` `isListed` | tests/listing.test.js |
 | 위젯 요약 형식·"새 코드" 3일 | (앱 저장소 `ios/App/Shared/CouponFeed.swift`) | `widget-feed.js`, `notify-*.js` | tests/widget.test.js |
 
@@ -72,6 +73,20 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 블로그 글 본문이 숨긴 게임 페이지로 링크하면 prerender 가 "숨긴 게임으로 가는 블로그 링크"로 알려 준다. 본문은 자동으로 고치지 않는다.
 - 지난 코드 기록의 근거는 `data/coupon-seen.json`(등록일)과 `data/coupon-history.json`(보상·공식 만료일·목록에서 내린 날, prerender 가 관리)뿐이다.
   사이트를 연 날(2026-09-21) 첫 커밋에만 있던 예시 코드는 기록에 넣지 않는다.
+
+## 직접 입력해 봤어요 (data/tested.json, 2026-10-19~)
+
+운영자가 **자기가 하는 게임에서 직접 넣어 본 코드만** 적는 장부다. 루틴·AI 가 대신 채우지 않는다(실제로 넣어 보지 않은 코드를 적으면 안 된다).
+쿠폰 루틴이 index.html 의 쿠폰 배열을 다시 쓰기 때문에 장부는 따로 둔다. 처음에는 빈 객체 `{}`.
+
+```json
+{ "genshin:EXAMPLE123": { "date": "2026-10-20", "result": "ok", "note": "우편함으로 바로 옴", "img": "/assets/tested/genshin-example123.webp" } }
+```
+
+- 키는 `게임id:코드`(코드는 카탈로그와 글자까지 같게). `date` 넣어 본 한국 날짜, `result` 는 `ok`(됨) 또는 `fail`(안 됨). `note`(60자 안), `img` 는 선택.
+- 캡처는 `assets/tested/` 에 넣는다(webp·png·jpg). **올리기 전에 닉네임·UID·계정 정보가 보이는 부분을 잘라 내거나 흐리게 가린다.** 저장소와 사이트가 공개다.
+- 고친 뒤 `node scripts/prerender.js` → 게임 페이지 코드 표·홈 쿠폰 창·/today/ 에 "직접 입력해 봤어요 · 날짜"(실패면 "직접 넣어 보니 안 됐어요 · 날짜") 뱃지가 붙고, 캡처가 있으면 뱃지를 누르면 새 탭으로 열린다.
+  형식은 tests/tested.test.js 가 검사한다.
 
 ## 쿠폰 데이터 규칙
 
