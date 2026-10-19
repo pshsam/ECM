@@ -63,7 +63,7 @@
     s.onerror = function () { cb({}); };
     document.head.appendChild(s);
   }
-  function done(box) { box.innerHTML = '<span class="ecm-report-done" role="status">' + THANKS + '</span>'; }
+  function done(box) { box.innerHTML = '<span class="ecm-flag-done" role="status">' + THANKS + '</span>'; }
   function paintReported() {
     var seen = load();
     Array.prototype.forEach.call(document.querySelectorAll('[data-report-code]'), function (b) {
@@ -77,10 +77,10 @@
     if (open) {
       var box = open.parentNode, game = open.getAttribute('data-report-game'), code = open.getAttribute('data-report-code');
       if (load()[reportKey(game, code)]) { done(box); return; }
-      var old = box.querySelector('.ecm-report-choice');
+      var old = box.querySelector('.ecm-flag-choice');
       if (old) { old.remove(); open.setAttribute('aria-expanded', 'false'); return; }
       var wrap = document.createElement('span');
-      wrap.className = 'ecm-report-choice'; wrap.setAttribute('role', 'group'); wrap.setAttribute('aria-label', '어떤 문제인가요');
+      wrap.className = 'ecm-flag-choice'; wrap.setAttribute('role', 'group'); wrap.setAttribute('aria-label', '어떤 문제인가요');
       Object.keys(REASONS).forEach(function (r) {
         var b = document.createElement('button'); b.type = 'button'; b.setAttribute('data-report-reason', r); b.textContent = REASONS[r];
         wrap.appendChild(b);
@@ -91,7 +91,7 @@
     }
     var pick = t.closest && t.closest('[data-report-reason]');
     if (!pick) return;
-    var box2 = pick.closest('.ecm-report'), btn = box2 && box2.querySelector('[data-report-code]');
+    var box2 = pick.closest('.ecm-flag'), btn = box2 && box2.querySelector('[data-report-code]');
     if (!btn) return;
     var g = btn.getAttribute('data-report-game'), c = btn.getAttribute('data-report-code'), reason = pick.getAttribute('data-report-reason');
     Array.prototype.forEach.call(box2.querySelectorAll('[data-report-reason]'), function (x) { x.disabled = true; });
@@ -99,8 +99,8 @@
       var body = cfg.apiKey ? reportPayload(cfg.projectId, randomId(), g, c, reason) : null;
       function fail() {
         Array.prototype.forEach.call(box2.querySelectorAll('[data-report-reason]'), function (x) { x.disabled = false; });
-        var n = box2.querySelector('.ecm-report-err') || box2.appendChild(document.createElement('span'));
-        n.className = 'ecm-report-err'; n.textContent = '보내지 못했어요. 잠시 뒤 다시 눌러 주세요';
+        var n = box2.querySelector('.ecm-flag-err') || box2.appendChild(document.createElement('span'));
+        n.className = 'ecm-flag-err'; n.textContent = '보내지 못했어요. 잠시 뒤 다시 눌러 주세요';
       }
       if (!body) return fail();
       fetch(commitUrl(cfg), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })

@@ -163,7 +163,7 @@ function testedBadgeHtml(t) {
  */
 function reportButtonHtml(gameId, code, enabled = REPORTS_ENABLED) {
   if (!enabled) return '';
-  return `<span class="ecm-report"><button type="button" class="ecm-report-btn" data-report-game="${esc(gameId)}" data-report-code="${esc(code)}" aria-expanded="false">안 돼요</button></span>`;
+  return `<span class="ecm-flag"><button type="button" class="ecm-flag-btn" data-report-game="${esc(gameId)}" data-report-code="${esc(code)}" aria-expanded="false">안 돼요</button></span>`;
 }
 
 /** 공식 만료일이 두 달 넘게 남았으면 D-숫자 대신 날짜로 (D-1553 처럼 읽기 어려운 표시를 피한다) */
@@ -496,8 +496,8 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
     // 등록일: 이 코드를 ECM 이 처음 확인해 올린 날(장부). 게임 단위 '마지막 확인'과 다른 값이라 따로 적는다
     const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
     return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
-          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}${testedOf(c)}</td>
-          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}${reportButtonHtml(g.id, c.code, reportsOn)}</td>
+          <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
+          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}${testedOf(c)}${reportButtonHtml(g.id, c.code, reportsOn)}</td>
           <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
           <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="${esc(c.code)}" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
@@ -585,6 +585,8 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .c-exp small { color: var(--ink-2); font-size: .8rem; white-space: nowrap; }
     .c-exp .c-seen { display: block; color: var(--ink-3); font-size: .78rem; margin-top: .15rem; }
     .c-reward { color: var(--ink); font-weight: 600; }
+    /* 넓은 화면: 보상 칸에 확인·출처·직접 입력 뱃지가 붙어 길어져도 코드 칸이 한두 글자씩 끊기지 않게 */
+    @media (min-width: 641px) { table.ecm-codes td.c-code { min-width: 8.5rem; } }
     .ecm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     /* 코드 표 위 입력 안내: 복사 → 바로 옆 버튼으로 입력 페이지 */
     .ecm-redeem-bar { display: flex; align-items: center; gap: .6rem 1rem; border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem .75rem 1rem; margin: 0 0 .8rem; }

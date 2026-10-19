@@ -315,7 +315,7 @@ main section[data-cat][hidden] { display: none; }
 
 /* 직접 입력해 봤어요 (data/tested.json: 운영자가 게임에서 직접 넣어 본 코드). 게임 페이지 코드 표, 홈 쿠폰 창, 오늘의 쿠폰 */
 .ecm-tested-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .45rem; margin-top: .3rem; }
-.ecm-tested { display: inline-flex; align-items: center; gap: .3rem; padding: .18rem .55rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4; letter-spacing: 0; white-space: nowrap; text-decoration: none; }
+.ecm-tested { display: inline-flex; align-items: center; gap: .3rem; max-width: 100%; padding: .18rem .55rem; border-radius: 10px; font-size: .74rem; font-weight: 700; line-height: 1.4; letter-spacing: 0; text-decoration: none; }
 .ecm-tested.is-ok { background: var(--new-soft); color: #0A7A3C; }
 .ecm-tested.is-fail { background: var(--sf); color: var(--ink-2); }
 a.ecm-tested.is-ok, .ecm-page a.ecm-tested.is-ok { color: #0A7A3C; }
@@ -325,15 +325,15 @@ a.ecm-tested .ecm-tested-shot { font-weight: 600; text-decoration: underline; te
 .ecm-tested-note { font-size: .75rem; color: var(--ink-3); line-height: 1.5; }
 
 /* "이 코드 안 돼요" 신고 (scripts/reports.js REPORTS_ENABLED 가 true 일 때만 그려진다). 보상 아래 작은 글자 버튼 */
-.ecm-report { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-top: .3rem; font-size: .75rem; font-weight: 500; }
-.ecm-report-btn { border: 0; background: none; padding: .2rem 0; font: inherit; color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
-.ecm-report-btn:hover { color: var(--ink); }
-.ecm-report-choice { display: inline-flex; flex-wrap: wrap; gap: .3rem; }
-.ecm-report-choice button { border: 1px solid var(--line); background: #fff; color: var(--ink-2); border-radius: 999px; padding: .25rem .6rem; font: inherit; cursor: pointer; }
-.ecm-report-choice button:hover { border-color: var(--ink-3); color: var(--ink); }
-.ecm-report-choice button:disabled { opacity: .5; cursor: default; }
-.ecm-report-done { color: #0A7A3C; font-weight: 600; }
-.ecm-report-err { flex-basis: 100%; color: var(--ink-2); }
+.ecm-flag { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-top: .3rem; font-size: .75rem; font-weight: 500; }
+.ecm-flag-btn { border: 0; background: none; padding: .2rem 0; font: inherit; color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.ecm-flag-btn:hover { color: var(--ink); }
+.ecm-flag-choice { display: inline-flex; flex-wrap: wrap; gap: .3rem; }
+.ecm-flag-choice button { border: 1px solid var(--line); background: #fff; color: var(--ink-2); border-radius: 999px; padding: .25rem .6rem; font: inherit; cursor: pointer; }
+.ecm-flag-choice button:hover { border-color: var(--ink-3); color: var(--ink); }
+.ecm-flag-choice button:disabled { opacity: .5; cursor: default; }
+.ecm-flag-done { color: #0A7A3C; font-weight: 600; }
+.ecm-flag-err { flex-basis: 100%; color: var(--ink-2); }
 
 /* 글쓴이 줄 */
 .ecm-byline { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--ink-3); margin: -.25rem 0 1.25rem; }
