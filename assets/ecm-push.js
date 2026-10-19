@@ -56,8 +56,11 @@
       // 앱은 ua 를 native-android / native-ios 로 적는다 (발송 스크립트가 이 값으로 앱 기기를 가려 앱용 알림을 보낸다. 파이어스토어 규칙상 필드는 games·updated·ua 만)
       ua: { stringValue: nativeApp ? nativeUa : (isIOS ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop') + (standalone ? '-app' : '-web') }
     } };
-    return fetch(docUrl(token), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) { if (!r.ok) throw new Error('save ' + r.status); });
+    return fetch(docUrl(token), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { mark('save ' + r.status); if (!r.ok) throw new Error('save ' + r.status); }, function (e) { mark('save 실패(네트워크) ' + (e && e.message || '')); throw e; });
   }
+  // 점검용: 마지막 구독 저장 결과를 기기에 남긴다 (?pushcheck=1 로 열면 보인다)
+  function mark(msg) { ls('ecm:push-last', msg + ' · ' + new Date().toLocaleString('ko-KR')); }
   function turnOnNative(btn) {
     var gid = btn.getAttribute('data-game');
     if (gid) { var a = favs(); if (a.indexOf(gid) < 0) { a.push(gid); ls(FAV, JSON.stringify(a)); document.dispatchEvent(new CustomEvent('ecm:fav-change')); } }
@@ -71,6 +74,7 @@
       if (typeof window.gtag === 'function') window.gtag('event', 'push_on', { games: favs().length, app: 1 });
     }).catch(function (e) {
       var denied = e && /DENIED|권한/.test((e.code || '') + (e.message || ''));
+      mark('앱 켜기 실패 ' + (e && (e.code || e.message) || e));
       say(denied ? '알림 권한이 꺼져 있어요. 휴대폰 설정에서 ECM 쿠폰 알림을 허용해 주세요.' : '알림을 켜지 못했어요. 잠시 뒤 다시 시도해 주세요.');
       if (denied) native('openSettings').catch(function () {});
       ls(ON, null); paint();
@@ -98,7 +102,7 @@
       say(favs().length ? '켰어요. 내 게임(' + favs().length + '개)에 새 쿠폰이 올라오면 알려 드려요. 밤 9시~아침 8시에는 모아서 아침에 보내요.' : '켰어요. 게임 페이지에서 "내 게임에 담기"를 누른 게임의 새 쿠폰을 알려 드려요.');
       paint();
       if (typeof window.gtag === 'function') window.gtag('event', 'push_on', { games: favs().length });
-    }).catch(function (e) { if (e !== 0) say('알림을 켜지 못했어요. 잠시 뒤 다시 시도해 주세요.'); ls(ON, null); paint(); })
+    }).catch(function (e) { if (e !== 0) { mark('켜기 실패 ' + (e && (e.code || e.message) || e)); say('알림을 켜지 못했어요. 잠시 뒤 다시 시도해 주세요.'); } ls(ON, null); paint(); })
       .then(function () { btn.disabled = false; });
   }
   function turnOff() {
@@ -131,6 +135,20 @@
   var SAVED = 'ecm:push-saved';
   if (ls(ON) === '1' && ls(TOKEN) && (nativeApp || (supported && Notification.permission === 'granted'))) {
     if (Date.now() - (+ls(SAVED) || 0) > 864e5) saveDoc(ls(TOKEN)).then(function () { ls(SAVED, String(Date.now())); }).catch(function () {});
+  }
+  // 점검 화면: 주소에 ?pushcheck=1 을 붙이면 이 기기의 알림 상태를 한 줄로 보여 준다 (방문자에게는 안 보임)
+  if (/[?&]pushcheck=1/.test(location.search)) {
+    var tk = ls(TOKEN) || '';
+    var info = '[알림 점검 v1019c] ' + (nativeApp ? '앱(' + nativeUa + ')' : '웹') +
+      ' · 권한 ' + (nativeApp ? '앱' : (window.Notification ? Notification.permission : '없음')) +
+      ' · 켜짐표시 ' + (ls(ON) === '1' ? '예' : '아니오') +
+      ' · 토큰 ' + (tk ? tk.slice(0, 6) + '…(' + tk.length + '자)' : '없음') +
+      ' · 마지막 저장 ' + (ls('ecm:push-last') || '기록 없음') +
+      ' · 내 게임 ' + favs().length + '개';
+    var box = document.createElement('p');
+    box.style.cssText = 'margin:12px 16px;padding:10px 12px;border:2px dashed #c00;font:13px/1.5 monospace;word-break:break-all;background:#fff;color:#000';
+    box.textContent = info;
+    (buttons[0] ? buttons[0].parentNode : document.body).insertAdjacentElement(buttons[0] ? 'afterend' : 'afterbegin', box);
   }
   if (!buttons.length) return;
   window.ECM_PUSH_TURN_ON = function () { return ls(ON) === '1' ? Promise.resolve() : turnOn(buttons[0]); };
