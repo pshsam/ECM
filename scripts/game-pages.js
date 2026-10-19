@@ -310,18 +310,43 @@ function historyFor(g, firstSeen, coupons, ledger = {}) {
 
 /**
  * 코드가 나온 흐름: ECM 기록(등록일 장부)만으로 센 숫자. 예측은 하지 않는다.
- *   start 이 게임을 기록하기 시작한 날, n 기록한 코드 수, last 마지막 새 코드 등록일,
- *   days 새 코드가 올라온 날 수(사이트 연 날 제외), gap 그 날들 사이 평균 간격(날이 3번 이상일 때만)
+ *   start 이 게임을 기록하기 시작한 날(장부의 game:<id>, 없으면 사이트 연 날)
+ *   total 기록한 코드 전부(게임을 올린 날 함께 넣은 코드 포함)
+ *   n     새로 나타난 코드 수: start 다음 날부터 처음 등록된 코드만. 게임을 올린 날 한꺼번에 넣은 코드는 "새 코드"가 아니다
+ *   last  마지막 새 코드 등록일, days 새 코드가 올라온 날 수, gap 그 날들 사이 평균 간격(날이 3번 이상일 때만)
  */
 function flowFor(g, firstSeen, coupons) {
   const rows = recordedCodes(g, firstSeen, coupons);
   const added = (firstSeen || {})['game:' + g.id] || '';
   const start = added > TRACK_START ? added : TRACK_START;
-  const dates = [...new Set(rows.map(r => r.date).filter(d => d > TRACK_START))].sort();
+  const fresh = rows.filter(r => r.date > start);
+  const dates = [...new Set(fresh.map(r => r.date))].sort();
   const last = dates.length ? dates[dates.length - 1] : '';
   let gap = null;
   if (dates.length >= 3) gap = Math.round((Date.parse(last) - Date.parse(dates[0])) / 86400000 / (dates.length - 1));
-  return { start, n: rows.length, last, days: dates.length, gap };
+  return { start, total: rows.length, n: fresh.length, last, days: dates.length, gap };
+}
+
+/**
+ * 코드가 나온 흐름 상자 (2026-10-19~, 목록에 보이는 게임 페이지 전부, 코드 표 아래).
+ * 새로 나타난 코드가 하나도 없으면 빈 문자열(상자를 만들지 않는다). 숫자는 flowFor 그대로이고 짐작한 값은 넣지 않는다.
+ */
+function flowBoxHtml(flow) {
+  if (!flow || !flow.n) return '';
+  const items = [
+    ['새로 나타난 코드', `${flow.n}개`],
+    ['마지막 새 코드', fmt(flow.last)],
+    ['새 코드가 나온 날', `${flow.days}일`],
+  ];
+  if (flow.gap !== null && flow.days >= 3) items.push(['나온 날 사이 평균', `${flow.gap}일`]);
+  return `    <section class="ecm-flowbox" aria-labelledby="flowTitle">
+      <h3 id="flowTitle">코드가 나온 흐름</h3>
+      <ul class="ecm-flow">
+${items.map(([k, v]) => `        <li><span>${esc(k)}</span><b>${esc(v)}</b></li>`).join('\n')}
+      </ul>
+      <p class="ecm-flow-basis">ECM이 ${esc(fmt(flow.start))}부터 기록한 값이에요. 게임을 처음 올린 날 함께 넣은 코드는 세지 않았어요.</p>
+    </section>
+`;
 }
 
 function tipsFor(g) {
@@ -380,6 +405,8 @@ function pageHtml(g, ctx) {
   const src = sourceInfo(g);
   const history = historyFor(g, firstSeen, coupons, ctx.ledger);
   const flow = flowFor(g, firstSeen, coupons);
+  // 코드가 나온 흐름 상자: 목록에 보이는 게임만, 코드 표(또는 "지금 코드 없음" 안내) 바로 아래
+  const flowBox = listed ? flowBoxHtml(flow) : '';
   const checkedOn = g.checked || version;
 
   // 검색 결과 제목은 한국어 40자쯤에서 잘린다. 긴 게임 이름이면 뒤부터 덜어낸다.
@@ -401,10 +428,6 @@ function pageHtml(g, ctx) {
   const shownHistory = history.slice(0, HISTORY_MAX);
   const historyHtml = !history.length ? '' : `    <h2 id="history">지난 코드 기록</h2>
     <p class="ecm-hist-lede">지금은 쓸 수 없는 코드예요. ECM이 ${esc(fmt(flow.start))}부터 직접 기록한 등록일 기준이에요.</p>
-    <h3 class="ecm-flow-title">코드가 나온 흐름</h3>
-    <ul class="ecm-flow">
-      <li><span>ECM이 기록한 코드</span><b>${flow.n}개</b></li>
-${flow.last ? `      <li><span>마지막 새 코드 등록</span><b>${esc(fmt(flow.last))}</b></li>\n` : ''}${flow.days >= 2 ? `      <li><span>새 코드가 올라온 날</span><b>${flow.days}번</b></li>\n` : ''}${flow.gap !== null ? `      <li><span>올라온 날 사이 평균</span><b>${flow.gap}일</b></li>\n` : ''}    </ul>
     <table class="ecm-hist">
       <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>
@@ -584,7 +607,11 @@ ${ld.map(o => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 
     .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
     .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
     .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
-    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    /* 코드가 나온 흐름 상자: 코드 표 아래, 가볍게 (숫자 몇 개 + 근거 한 줄) */
+    .ecm-flowbox { margin: 1.3rem 0 0; }
+    .ecm-page .ecm-flowbox h3 { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page .ecm-flowbox ul.ecm-flow { margin: 0 0 .35rem; }
+    .ecm-page .ecm-flowbox p.ecm-flow-basis { font-size: .78rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
@@ -660,14 +687,14 @@ ${codeRows}
     </table>
     <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.${active.some(x => couponSourceHtml(x.c)) ? ' 코드 아래 <b>확인</b>은 출처 글로 그 코드를 확인한 날, <b>출처</b>는 근거로 삼은 글이에요.' : ''}</p>`
 : `    <div class="ecm-nocode">
-      <p>${flow.n
-        ? `${flow.last ? `ECM이 마지막으로 새 코드를 등록한 날은 <b>${esc(fmt(flow.last))}</b>이고, ` : ''}지금까지 기록한 코드는 ${flow.n}개예요.${history.length ? ' <a href="#history">지난 코드 기록</a>에 남겨 두었어요.' : expired.length ? ' <a href="#expired">최근 만료된 코드</a>에 남겨 두었어요.' : ''}`
+      <p>${flow.total
+        ? `${flow.last ? `ECM이 마지막으로 새 코드를 등록한 날은 <b>${esc(fmt(flow.last))}</b>이고, ` : ''}지금까지 기록한 코드는 ${flow.total}개예요.${history.length ? ' <a href="#history">지난 코드 기록</a>에 남겨 두었어요.' : expired.length ? ' <a href="#expired">최근 만료된 코드</a>에 남겨 두었어요.' : ''}`
         : `ECM이 ${esc(fmt(flow.start))}부터 이 게임을 기록하는 동안 등록 기준을 통과한 코드는 아직 없어요.`} 새 코드가 확인되면 이 자리에 등록일과 함께 올라와요.</p>
     </div>
-${redeemBarHtml(g, true)}`}
+${redeemBarHtml(g, true)}${flowBox}`}
 ${active.length ? `
     <div class="ecm-share-row is-compact"><button type="button" class="ecm-share" data-share-title="${esc(g.title)} 쿠폰 코드 | ECM" data-share-text="${esc(`${g.title} 쿠폰 코드 ${active.length}개, ECM에서 확인했어요`)}"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 공유</button><a class="ecm-share ecm-tg" href="https://t.me/ecmcoupon" target="_blank" rel="noopener noreferrer" data-tg="game"><i class="fa-brands fa-telegram" aria-hidden="true"></i> 텔레그램 알림</a><a class="ecm-share ecm-kc" href="https://pf.kakao.com/_cIjxiX/friend" target="_blank" rel="noopener noreferrer" data-kc="game"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡 채널</a><a class="ecm-fav-link" href="/today/#mine">내 게임 모아 보기 →</a></div>
-` : `
+${flowBox}` : `
     <section class="ecm-alert" aria-labelledby="alertTitle">
       <h2 id="alertTitle">새 코드 알림</h2>
       <p>${esc(g.title)} 코드가 새로 확인되면 아래 방법으로 바로 알 수 있어요.</p>
@@ -879,4 +906,4 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
 }
 
-module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, GENRE_LABELS };

@@ -292,7 +292,11 @@
     .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
     .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
     .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
-    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    /* 코드가 나온 흐름 상자: 코드 표 아래, 가볍게 (숫자 몇 개 + 근거 한 줄) */
+    .ecm-flowbox { margin: 1.3rem 0 0; }
+    .ecm-page .ecm-flowbox h3 { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page .ecm-flowbox ul.ecm-flow { margin: 0 0 .35rem; }
+    .ecm-page .ecm-flowbox p.ecm-flow-basis { font-size: .78rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }

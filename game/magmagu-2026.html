@@ -228,7 +228,11 @@
     .ecm-page .ecm-alert-row a.ecm-share { color: var(--ink); font-weight: 600; text-decoration: none; }
     .ecm-page .ecm-alert-row a.ecm-share::after { content: none !important; }
     .ecm-page .ecm-hist-lede { font-size: .88rem; color: var(--ink-3); margin: 0 0 .6rem; }
-    .ecm-page h3.ecm-flow-title { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    /* 코드가 나온 흐름 상자: 코드 표 아래, 가볍게 (숫자 몇 개 + 근거 한 줄) */
+    .ecm-flowbox { margin: 1.3rem 0 0; }
+    .ecm-page .ecm-flowbox h3 { font-size: .85rem; font-weight: 700; color: var(--ink-2); margin: 0 0 .4rem; }
+    .ecm-page .ecm-flowbox ul.ecm-flow { margin: 0 0 .35rem; }
+    .ecm-page .ecm-flowbox p.ecm-flow-basis { font-size: .78rem; color: var(--ink-3); margin: 0; line-height: 1.6; }
     .ecm-page ul.ecm-flow { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .ecm-page .ecm-flow li { display: flex; flex-direction: column; gap: .05rem; padding: .6rem .85rem; border-left: 1px solid var(--line); margin-left: -1px; line-height: 1.4; }
     .ecm-page .ecm-flow li span { font-size: .75rem; color: var(--ink-3); }
@@ -326,6 +330,15 @@
       <p><b>코드를 넣는 곳</b> 넷마블 공식 쿠폰 등록 페이지에서 등록 (계정당 쿠폰별 1회, 우편함 지급)</p>
       <a class="ecm-open" href="https://coupon.netmarble.com/ma9bkr" target="_blank" rel="noopener noreferrer" data-redeem="bar">쿠폰 입력 페이지 열기 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
     </div>
+    <section class="ecm-flowbox" aria-labelledby="flowTitle">
+      <h3 id="flowTitle">코드가 나온 흐름</h3>
+      <ul class="ecm-flow">
+        <li><span>새로 나타난 코드</span><b>3개</b></li>
+        <li><span>마지막 새 코드</span><b>2026.09.30</b></li>
+        <li><span>새 코드가 나온 날</span><b>1일</b></li>
+      </ul>
+      <p class="ecm-flow-basis">ECM이 2026.09.25부터 기록한 값이에요. 게임을 처음 올린 날 함께 넣은 코드는 세지 않았어요.</p>
+    </section>
 
 
     <section class="ecm-alert" aria-labelledby="alertTitle">
@@ -341,11 +354,6 @@
     </section>
     <h2 id="history">지난 코드 기록</h2>
     <p class="ecm-hist-lede">지금은 쓸 수 없는 코드예요. ECM이 2026.09.25부터 직접 기록한 등록일 기준이에요.</p>
-    <h3 class="ecm-flow-title">코드가 나온 흐름</h3>
-    <ul class="ecm-flow">
-      <li><span>ECM이 기록한 코드</span><b>3개</b></li>
-      <li><span>마지막 새 코드 등록</span><b>2026.09.30</b></li>
-    </ul>
     <table class="ecm-hist">
       <thead><tr><th>코드</th><th>보상</th><th>등록일</th><th>끝난 날</th></tr></thead>
       <tbody>
