@@ -182,6 +182,8 @@
     .c-exp small { color: var(--ink-2); font-size: .8rem; white-space: nowrap; }
     .c-exp .c-seen { display: block; color: var(--ink-3); font-size: .78rem; margin-top: .15rem; }
     .c-reward { color: var(--ink); font-weight: 600; }
+    /* 넓은 화면: 보상 칸에 확인·출처·직접 입력 뱃지가 붙어 길어져도 코드 칸이 한두 글자씩 끊기지 않게 */
+    @media (min-width: 641px) { table.ecm-codes td.c-code { min-width: 8.5rem; } }
     .ecm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     /* 코드 표 위 입력 안내: 복사 → 바로 옆 버튼으로 입력 페이지 */
     .ecm-redeem-bar { display: flex; align-items: center; gap: .6rem 1rem; border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem .75rem 1rem; margin: 0 0 .8rem; }
