@@ -40,7 +40,7 @@ const SEEN_FILE = path.join(__dirname, '..', 'data', 'coupon-seen.json');
 // 글마다 본문 지문과 마지막 실제 수정일. 빌드가 채우고 고친다 (손으로 고치지 않는다).
 const POST_LEDGER = path.join(__dirname, '..', 'data', 'post-modified.json');
 // 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
-const AUTHOR_NAME = '겜대';
+const AUTHOR_NAME = 'GamerDaddy';
 const AUTHOR_ROLE = 'ECM 쿠폰 운영자';
 
 function makeDom() {
@@ -220,6 +220,8 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
     { loc: '/', file: 'index.html', freq: 'daily', priority: '1.0' },
     { loc: '/blog/index.html', file: 'blog/index.html', freq: 'weekly', priority: '0.8' },
     { loc: '/about.html', file: 'about.html', freq: 'monthly', priority: '0.5' },
+    { loc: '/guide.html', file: 'guide.html', freq: 'monthly', priority: '0.5' },
+    { loc: '/guide/redeem-errors.html', file: 'guide/redeem-errors.html', freq: 'monthly', priority: '0.6' },
     { loc: '/contact.html', file: 'contact.html', freq: 'monthly', priority: '0.4' },
     { loc: '/privacy.html', file: 'privacy.html', freq: 'yearly', priority: '0.3' },
     { loc: '/terms.html', file: 'terms.html', freq: 'yearly', priority: '0.3' },
@@ -506,7 +508,7 @@ function ensureArticleSchema(blogDir, rootDir) {
       datePublished: published,
       dateModified: modified,
       inLanguage: 'ko',
-      author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_ROLE, url: 'https://ecm-coupon.com/about.html' },
+      author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_ROLE, url: 'https://ecm-coupon.com/about.html#maker' },
       publisher: { '@type': 'Organization', name: 'ECM 쿠폰 (Every Coupon Matters)', url: 'https://ecm-coupon.com',
         logo: { '@type': 'ImageObject', url: 'https://ecm-coupon.com/og-image.png' } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `https://ecm-coupon.com/blog/${slug}.html` },

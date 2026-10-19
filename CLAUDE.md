@@ -128,3 +128,9 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 홈 검색(`searchKey`/`searchHit`)과 앱 첫 화면 검색(`assets/ecm-app.js`)은 대소문자·띄어쓰기·문장부호를 무시한다.
   ('펫시뮬레이터' → '펫 시뮬레이터 99', '붕괴 스타레일' → '붕괴: 스타레일'). 두 곳 규칙을 같이 고친다.
 - 데이터의 `choseong` 필드는 아직 검색에 안 쓴다.
+
+## 안내 페이지 (2026-10-19)
+
+- `guide.html` = 이용 안내(기능 설명·사용 방법·자주 묻는 질문·쿠폰 팁). 기능이 바뀌면 같이 고친다. 질문·답은 본문과 JSON-LD(FAQPage) 두 곳에 있다.
+- `guide/redeem-errors.html` = 쿠폰 오류 메시지 사전. `data/redeem-errors.json`(게임사 공식 출처만, 2026-10-19 확인)으로 `python scripts/redeem-errors-page.py` 가 만든다. 머리말·바닥글은 guide.html 것을 쓰므로 guide.html 을 고친 뒤 다시 돌린다.
+- 운영자 이름은 **GamerDaddy** 다(2026-10-19 "겜대"에서 바꿈). 소개 페이지 `about.html#maker` 에 운영자 이야기가 있다.

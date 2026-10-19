@@ -58,7 +58,7 @@ test('목록 규칙이 화면(index.html isListedGame)과 빌드(game-pages.js i
 test('B: 코드가 없는 게임은 사이트맵·llms.txt·/game/ 에서 빠지고 페이지는 noindex, 코드가 있는 게임은 들어간다', () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ecm-listing-'));
   try {
-    for (const f of ['index.html', 'about.html', 'contact.html', 'privacy.html', 'terms.html', 'blog/index.html']) {
+    for (const f of ['index.html', 'about.html', 'contact.html', 'privacy.html', 'terms.html', 'guide.html', 'guide/redeem-errors.html', 'blog/index.html']) {
       fs.mkdirSync(path.dirname(path.join(tmp, f)), { recursive: true });
       fs.writeFileSync(path.join(tmp, f), '');
     }

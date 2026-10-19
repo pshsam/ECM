@@ -25,7 +25,7 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
   lines.push('');
   lines.push('> 한국어 게임 쿠폰 코드 사이트(ecm-coupon.com). 게임사 공식 채널 등 출처 등급 기준을 통과한 코드만 올리고, 코드마다 등록일과 만료일을 적는다. 전자담배 쇼핑몰 ECM Vape 와는 관련이 없다.');
   lines.push('');
-  lines.push('- 운영: 겜대 (1인 운영), 2026년 9월 개설');
+  lines.push('- 운영: GamerDaddy (1인 운영), 2026년 9월 개설');
   lines.push(`- 마지막 쿠폰 확인일: ${version}`);
   lines.push('- 갱신 주기: 게임 쿠폰 4시간마다, 로블록스 코드 하루 2번, 게임 목록 매일');
   lines.push('- 등록 기준: 1급 게임사 공식 채널 1곳, 또는 2급 매체 기사 1곳 + 독립된 다른 출처 1곳. 유저 게시글만으로는 등록하지 않는다. 자세한 기준: ' + SITE + '/about.html');
@@ -53,6 +53,8 @@ function writeLlmsTxt(rootDir, games, gamePageIds, posts, version) {
   lines.push('## 사이트 정보');
   lines.push('');
   lines.push(`- [ECM 쿠폰 소개와 확인 기준](${SITE}/about.html)`);
+  lines.push(`- [이용 안내: 기능·사용법·자주 묻는 질문](${SITE}/guide.html)`);
+  lines.push(`- [쿠폰 오류 메시지 사전: 게임사별 오류 문구·원인·해결 (공식 안내 기준)](${SITE}/guide/redeem-errors.html)`);
   lines.push(`- [문의·제보](${SITE}/contact.html)`);
   lines.push(`- [개인정보처리방침](${SITE}/privacy.html)`);
   lines.push(`- [이용약관](${SITE}/terms.html)`);

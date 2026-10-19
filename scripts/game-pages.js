@@ -21,7 +21,7 @@ const SITE = 'https://ecm-coupon.com';
 const GAME_NOTES = (() => {
   try { return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'game-notes.json'), 'utf8')); } catch (e) { return {}; }
 })();
-const AUTHOR_NAME = '겜대';
+const AUTHOR_NAME = 'GamerDaddy';
 
 const GENRE_LABELS = { mmorpg: 'MMORPG', rpg: '수집형/RPG', action: '액션/오픈월드', fps: 'FPS/슈팅', sports: '스포츠/전략' };
 const PLATFORM_LABELS = { pc: 'PC', mobile: '모바일', ps5: 'PS5', switch: '닌텐도 스위치', cross: '크로스플랫폼', roblox: '로블록스' };
@@ -251,6 +251,7 @@ function footerHtml() {
         <p>&copy; 2026 ecm-coupon.com (ECM 쿠폰). All rights reserved.</p>
         <nav class="flex flex-wrap justify-center gap-4" aria-label="사이트 정보">
           <a href="/about.html" class="ecm-link">ECM 소개</a>
+          <a href="/guide.html" class="ecm-link">이용 안내</a>
           <a href="/contact.html" class="ecm-link">문의·제보</a>
           <a href="/privacy.html" class="ecm-link">개인정보처리방침</a>
           <a href="/terms.html" class="ecm-link">이용약관</a>
