@@ -127,15 +127,15 @@ test('코드가 나온 흐름: 게임을 올린 날 함께 넣은 코드는 "새
   assert.equal(f.gap, 5); // (10-11 - 10-01) / 2
 
   const box = flowBoxHtml(f);
-  assert.match(box, /새로 나타난 코드<\/span><b>4개/);
-  assert.match(box, /마지막 새 코드<\/span><b>2026\.10\.11/);
-  assert.match(box, /새 코드가 나온 날<\/span><b>3일/);
-  assert.match(box, /나온 날 사이 평균<\/span><b>5일/);
+  assert.match(box, /새로 확인한 코드<\/span><b>4개/);
+  assert.match(box, /마지막으로 확인한 날<\/span><b>2026\.10\.11/);
+  assert.match(box, /새 코드를 확인한 날<\/span><b>3일/);
+  assert.match(box, /확인한 날 사이 평균<\/span><b>5일/);
   assert.match(box, /ECM이 2026\.09\.25부터 기록한 값/);
 
   // 날이 2번이면 평균 간격을 내지 않는다
   const two = flowBoxHtml(flowFor(g, { 'game:xx': '2026-09-25', 'xx:A': '2026-10-01', 'xx:B': '2026-10-03' }, []));
-  assert.match(two, /새 코드가 나온 날<\/span><b>2일/);
+  assert.match(two, /새 코드를 확인한 날<\/span><b>2일/);
   assert.doesNotMatch(two, /평균/);
   // 올린 날 넣은 코드뿐이면 상자를 만들지 않는다
   assert.equal(flowBoxHtml(flowFor(g, { 'game:xx': '2026-09-25', 'xx:BACK1': '2026-09-25' }, [])), '');

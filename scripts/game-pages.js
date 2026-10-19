@@ -320,6 +320,40 @@ function sourceInfo(g) {
   };
 }
 
+/**
+ * 이 게임의 쿠폰 등록 체계 → 쿠폰 오류 메시지 사전(guide/redeem-errors.html)의 구역 id. 사전에 없는 체계면 ''.
+ * sourceInfo 와 같은 기준(공식 주소·퍼블리셔)으로 고른다.
+ */
+const ERROR_SYSTEM_NAMES = (() => {
+  try { return Object.fromEntries(JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'redeem-errors.json'), 'utf8')).systems.map(x => [x.id, x.name])); } catch (e) { return {}; }
+})();
+function errorSystemFor(g) {
+  const u = (g.officialUrl || '') + ' ' + (g.redeemUrl || '');
+  const pub = g.publisher || '';
+  if ((g.platforms || []).includes('roblox')) return 'roblox';
+  if (u.includes('nexon.com')) return 'nexon';
+  if (u.includes('netmarble')) return 'netmarble';
+  if (u.includes('plaync.com')) return 'ncsoft';
+  if (u.includes('kakaogames.com')) return 'kakaogames';
+  if (u.includes('onstove.com')) return 'stove';
+  if (u.includes('withhive.com') || pub.includes('컴투스')) return 'com2us-hive';
+  if (u.includes('hoyoverse.com')) return 'hoyoverse';
+  if (u.includes('devplay.com') || pub.includes('데브시스터즈')) return 'devplay';
+  if (u.includes('centurygame.com')) return 'centurygames';
+  return '';
+}
+
+/** 지금 목록에 있는 코드를 ECM 이 어디서 확인했는지: 출처 주소의 사이트별 코드 수 (코드 하나에 같은 사이트가 여러 번이면 한 번만) */
+function sourceTally(active) {
+  const count = {};
+  for (const { c } of active) {
+    const hosts = new Set();
+    for (const u of (c && Array.isArray(c.src) ? c.src : [])) { try { hosts.add(new URL(u).hostname.replace(/^www\./, '').replace(/^m\./, '')); } catch (e) { /* 주소가 아니면 건너뜀 */ } }
+    for (const h of hosts) count[h] = (count[h] || 0) + 1;
+  }
+  return Object.entries(count).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
 // ECM 이 코드를 기록하기 시작한 날(사이트 연 날). 이날 첫 커밋에만 있다 빠진 코드는 실제로 확인한 코드가 아닌 예시 데이터라 기록에서 뺀다
 const TRACK_START = '2026-09-21';
 const HISTORY_MAX = 10;
@@ -377,17 +411,17 @@ function flowFor(g, firstSeen, coupons) {
 function flowBoxHtml(flow) {
   if (!flow || !flow.n) return '';
   const items = [
-    ['새로 나타난 코드', `${flow.n}개`],
-    ['마지막 새 코드', fmt(flow.last)],
-    ['새 코드가 나온 날', `${flow.days}일`],
+    ['새로 확인한 코드', `${flow.n}개`],
+    ['마지막으로 확인한 날', fmt(flow.last)],
+    ['새 코드를 확인한 날', `${flow.days}일`],
   ];
-  if (flow.gap !== null && flow.days >= 3) items.push(['나온 날 사이 평균', `${flow.gap}일`]);
+  if (flow.gap !== null && flow.days >= 3) items.push(['확인한 날 사이 평균', `${flow.gap}일`]);
   return `    <section class="ecm-flowbox" aria-labelledby="flowTitle">
-      <h3 id="flowTitle">코드가 나온 흐름</h3>
+      <h3 id="flowTitle">ECM이 새 코드를 확인한 기록</h3>
       <ul class="ecm-flow">
 ${items.map(([k, v]) => `        <li><span>${esc(k)}</span><b>${esc(v)}</b></li>`).join('\n')}
       </ul>
-      <p class="ecm-flow-basis">ECM이 ${esc(fmt(flow.start))}부터 기록한 값이에요. 게임을 처음 올린 날 함께 넣은 코드는 세지 않았어요.</p>
+      <p class="ecm-flow-basis">ECM이 ${esc(fmt(flow.start))}부터 기록한 값이에요. 게임사가 코드를 낸 날이 아니라 ECM이 처음 확인한 날 기준이고, 게임을 처음 올린 날 함께 넣은 코드는 세지 않았어요.</p>
     </section>
 `;
 }
@@ -396,40 +430,36 @@ function tipsFor(g) {
   const isRoblox = (g.platforms || []).includes('roblox');
   const tips = [];
   if (isRoblox) {
-    tips.push('로블록스 코드는 <strong>대소문자를 구분</strong>합니다. 복사 버튼으로 옮기면 틀릴 일이 없습니다.');
-    tips.push('로블록스 코드는 대부분 만료일을 공지하지 않습니다. 공지가 없는 코드는 <strong>만료일 미공개</strong>로 표시하고, 개발팀이 예고 없이 닫을 수 있습니다.');
-    tips.push('코드 입력 칸은 게임마다 다른 곳에 있습니다. 위 "입력 방법"의 버튼 위치를 그대로 따라가세요.');
-    tips.push('"이미 사용함(Already redeemed)"이 뜨면 그 계정으로는 이미 받은 코드입니다.');
+    // 로블록스 공통 주의(대소문자·만료일 미공개·이미 사용함)는 로블록스 코드 가이드에 한 번만 적고, 여기서는 게임별로 확인한 것만
+    const rn = GAME_NOTES[g.id] || {};
+    if (rn.limit) tips.push(`<strong>사용 조건</strong>: ${esc(rn.limit)}`);
   } else {
     // 보상 받는 곳·사용 제한은 게임마다 다르다(로스트아크 상품함, 검은사막 웹 창고, 포켓몬 이상한 소포, 캐릭터·서버·저장 데이터 단위 제한 등).
     // 공식 안내로 확인한 게임만 data/game-notes.json 의 reward·limit 로 적고, 없으면 일반론으로 채우지 않는다.
     const n = GAME_NOTES[g.id] || {};
     // 보상 받는 곳(reward)은 위 "입력 방법" 3단계에 적으므로 여기서는 되풀이하지 않는다
     if (n.limit) tips.push(`<strong>사용 조건</strong>: ${esc(n.limit)}`);
-    if (!n.limit) tips.push('같은 코드를 다른 캐릭터·서버에서 다시 쓸 수 있는지는 ECM이 공식 안내로 아직 확인하지 못해 적지 않았습니다.');
     // "이것만 알아 두세요" 단락이 없는 게임은 reward·limit 의 출처를 여기 남긴다
     if (!n.note && (n.reward || n.limit) && (n.sources || []).length) tips.push(`확인한 곳: ${n.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a>`).join(' · ')}${n.checked ? ` (${esc(fmt(n.checked))} 확인)` : ''}`);
-    tips.push('코드를 넣기 전에 로그인한 계정과 고른 서버·캐릭터가 맞는지 확인하세요.');
-    tips.push('만료일이 "상시"인 코드도 게임사가 예고 없이 닫을 수 있습니다.');
   }
   return tips;
 }
 
-function faqFor(g) {
-  const isRoblox = (g.platforms || []).includes('roblox');
+function faqFor(g, flow) {
   const name = g.title;
+  const n = GAME_NOTES[g.id] || {};
   const faq = [
     { q: `${name} 쿠폰은 어디서 입력하나요?`,
       a: g.redeemHow ? `${g.redeemHow}${g.redeemUrl ? ' 입력 페이지 주소는 위 "입력 방법"에 있습니다.' : ''}` : '입력 위치는 확인 중입니다. 공식 홈페이지나 게임 안 설정 메뉴에서 쿠폰/교환 코드 입력란을 찾아 주세요.' },
-    { q: '코드를 넣었는데 "유효하지 않은 코드"라고 나와요.',
-      a: isRoblox ? '대소문자·띄어쓰기를 확인하고, 그래도 안 되면 개발팀이 코드를 닫은 것입니다. 이 페이지는 하루 두 번 다시 확인해 닫힌 코드를 내립니다.'
-                  : '대소문자·공백을 확인하세요. 코드가 정확한데도 안 되면 만료됐거나, 이미 사용했거나, 서버·캐릭터 같은 사용 조건이 맞지 않는 경우가 많습니다. 오류 문구별 뜻은 ECM 이용 안내의 쿠폰 오류 메시지 사전에 정리해 두었습니다.' },
-    { q: '새 코드는 언제 올라오나요?',
-      a: isRoblox ? '개발팀이 업데이트·좋아요 달성·버그 보상으로 수시로 냅니다. ECM은 개발팀 공식 채널과 코드 전문 매체를 하루 두 번 확인해 올립니다.'
-                  : '게임사가 업데이트·방송·이벤트 때 냅니다. ECM은 공식 채널을 4시간마다 확인해서 확인된 코드만 올립니다.' },
-    { q: `지금 코드가 없으면 ${name} 쿠폰은 어떻게 챙기나요?`,
-      a: `${sourceInfo(g).where} 이 페이지를 즐겨찾기해 두면 확인된 코드가 올라올 때 바로 볼 수 있습니다. 다른 사이트에 적힌 코드는 만료된 것이 섞여 있으니 등록일이 있는 곳에서 확인하세요.` },
   ];
+  // 게임별로 공식 안내에서 확인한 것만 (없으면 묻지 않는다)
+  if (n.reward) faq.push({ q: `${name} 쿠폰 보상은 어디로 들어오나요?`, a: n.reward });
+  if (n.limit) faq.push({ q: `${name} 쿠폰에 사용 조건이 있나요?`, a: n.limit });
+  // ECM 기록에서 나온 숫자만. 기록이 없으면 이 질문을 만들지 않는다
+  if (flow && flow.n) {
+    faq.push({ q: `${name} 새 코드는 얼마나 자주 올라왔나요?`,
+      a: `ECM이 ${fmt(flow.start)}부터 기록한 바로는 새 코드 ${flow.n}개를 ${flow.days}일에 걸쳐 처음 확인했고, 마지막으로 새 코드를 확인한 날은 ${fmt(flow.last)}입니다.${flow.gap !== null && flow.days >= 3 ? ` 확인한 날 사이 간격은 평균 ${flow.gap}일이었습니다.` : ''} (게임사 발표일이 아니라 ECM이 처음 확인한 날 기준)` });
+  }
   return faq;
 }
 
@@ -456,6 +486,8 @@ function pageHtml(g, ctx) {
   const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && isListed(x, ctx.activeOf)).slice(0, 6) : [];
   const listed = isListed(g, ctx.activeOf);
   const src = sourceInfo(g);
+  const tally = sourceTally(active);
+  const errSys = errorSystemFor(g);
   const history = historyFor(g, firstSeen, coupons, ctx.ledger);
   const flow = flowFor(g, firstSeen, coupons);
   // 코드가 나온 흐름 상자: 목록에 보이는 게임만, 코드 표(또는 "지금 코드 없음" 안내) 바로 아래
@@ -531,7 +563,7 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
     } : null,
     {
       '@context': 'https://schema.org', '@type': 'FAQPage',
-      mainEntity: faqFor(g).map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      mainEntity: faqFor(g, flow).map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
     },
   ].filter(Boolean);
 
@@ -766,12 +798,11 @@ ${historyHtml}`}
       <p>${active.length
       ? `ECM 쿠폰이 ${esc(fmt(g.checked || version))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
       : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 모든 코드를 직접 입력해 보는 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.${active.some(x => testedOf(x.c)) ? ' <b>직접 입력해 봤어요</b> 표시가 있는 코드는 운영자가 게임에서 직접 넣어 본 코드이고, 옆 날짜가 넣어 본 날이에요.' : ''}</p>
-      <p>만료일은 게임사가 공지한 날짜만 적습니다. 공지가 없으면 "만료일 미공개"로 두고 날짜를 짐작해 적지 않습니다.</p>
     </details>
 
     <h2 id="source">코드가 나오는 곳</h2>
-    <p>${esc(src.where)}</p>
-    <p>${esc(src.form)}${g.officialUrl ? ` 공식 사이트: <a href="${esc(g.officialUrl)}" target="_blank" rel="noopener noreferrer">${esc(g.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))} ↗</a>` : ''}</p>
+${tally.length ? `    <p>지금 목록에 있는 ${esc(g.title)} 코드 ${active.length}개를 ECM이 확인한 곳은 ${tally.slice(0, 5).map(([h, c]) => `${esc(h)} ${c}개`).join(', ')}${tally.length > 5 ? ` 외 ${tally.length - 5}곳` : ''}입니다. 코드마다 표의 "출처"에서 원문을 열어 볼 수 있어요.</p>` : `    <p>${esc(src.where)}</p>`}
+    <p>${g.officialUrl ? ` 공식 사이트: <a href="${esc(g.officialUrl)}" target="_blank" rel="noopener noreferrer">${esc(g.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))} ↗</a>` : ''}</p>
 
 ${noteHtml(g)}    <h2 id="how">입력 방법</h2>
     <div class="ecm-redeem-box">
@@ -784,11 +815,12 @@ ${noteHtml(g)}    <h2 id="how">입력 방법</h2>
       <li>붙여 넣고 등록합니다. ${isRoblox ? '보상을 받는 방식은 이 게임의 코드 입력 화면 안내를 따르세요.' : (GAME_NOTES[g.id] || {}).reward ? esc(GAME_NOTES[g.id].reward) : '보상이 들어오는 곳(우편함·상품함 등)은 ECM이 아직 공식 안내로 확인하지 못했어요. 등록 화면의 안내를 따르세요.'}</li>
     </ol>
 
-    <h2 id="tips">주의할 점</h2>
+${tipsFor(g).length ? `    <h2 id="tips">주의할 점</h2>
     <ul>
 ${tipsFor(g).map(t => `      <li>${t}</li>`).join('\n')}
     </ul>
-
+` : ''}${errSys ? `    <p class="ecm-err-link">코드를 넣었는데 오류 문구가 뜨면 쿠폰 오류 메시지 사전의 <a href="/guide/redeem-errors.html#${esc(errSys)}">${esc(ERROR_SYSTEM_NAMES[errSys] || '이 게임 쿠폰 등록 체계')} 항목</a>에서 문구별 뜻을 확인하세요.</p>
+` : ''}
 ${expired.length ? `    <h2 id="expired">최근 만료된 코드</h2>
     <p>다시 넣어도 되지 않습니다. 다른 곳에서 "아직 된다"고 적혀 있어도 이 목록에 있으면 끝난 코드입니다.</p>
     <table>
@@ -805,7 +837,7 @@ ${related.map(p => `      <li><a href="${esc(p.url)}">${esc(p.title)}</a> <small
     </ul>
 ` : ''}
     <h2 id="faq">자주 묻는 질문</h2>
-${faqFor(g).map(f => `    <details class="ecm-faq"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n')}
+${faqFor(g, flow).map(f => `    <details class="ecm-faq"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n')}
 
 ${siblings.length ? `    <h2 id="more">같은 장르의 다른 게임 쿠폰</h2>
     <div class="ecm-sib">
