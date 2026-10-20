@@ -263,17 +263,32 @@
   "genshin:Y6JYMKV6JKSL": {
     "reward": "원석 60개, 모험가의 경험 5개"
   },
+  "infinity-nikki:DANCEINTHEMIRROR": {
+    "reward": "다이아몬드 100개, 샤이니 버블 50개, 블링 30,000"
+  },
   "infinity-nikki:EYESONTHEGOLDENFEAST": {
     "reward": "헤드웨어 'Flavorful Moments'"
   },
+  "infinity-nikki:FINALCHAPTEROFITZALAND": {
+    "reward": "다이아몬드 100개, 순수의 실 50개, 블링 20,000"
+  },
+  "infinity-nikki:JOINNIKKIATTHEGOLDENFEAST": {
+    "reward": "계시의 결정 10개"
+  },
   "infinity-nikki:MOMOWISHESNIKKILISTENS": {
     "reward": "다이아 200개, 블링 20,000"
+  },
+  "infinity-nikki:SEEYOUINHEAVENSREACH": {
+    "reward": "다이아몬드 100개, 샤이니 버블 100개, 순수의 실 100개"
   },
   "infinity-nikki:ShroomFriendDC": {
     "reward": "샤이니버블 30개, 블링 20,000"
   },
   "infinity-nikki:TOGETHERUNDERMOON": {
     "reward": "다이아 200개, 블링 18,888"
+  },
+  "infinity-nikki:ZONGZIMOMOFRAGRANTNIKKI": {
+    "reward": "다이아몬드 200개, 블링 18,800"
   },
   "kingshot:AKeYD8gK8": {
     "reward": "무료 보상(세부 내용 미공개)"
