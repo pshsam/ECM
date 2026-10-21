@@ -846,43 +846,53 @@
     "removed": "2026-10-05"
   },
   "roblox-da-hood:BALLOON": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:BOSS": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:BUFF": {
     "reward": "DHC 500,000"
   },
   "roblox-da-hood:BUILD": {
-    "reward": "DHC 1,000,000"
+    "reward": "DHC 1,000,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:DEAGLE": {
-    "reward": "DHC 600,000"
+    "reward": "DHC 600,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:DOG": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:EASTER26": {
-    "reward": "DHC 867,000"
+    "reward": "DHC 867,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:FOURTH26": {
-    "reward": "DHC 2,444,444"
+    "reward": "DHC 2,444,444",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:PVP": {
     "reward": "DHC 500,000"
   },
   "roblox-da-hood:SHARK": {
-    "reward": "DHC 300,000"
+    "reward": "DHC 300,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:SPRING26": {
-    "reward": "DHC 400,000"
+    "reward": "DHC 400,000",
+    "removed": "2026-10-21"
   },
   "roblox-da-hood:SpringTime26": {
     "reward": "DHC 400,000"
   },
   "roblox-da-hood:WORLDCUP26": {
-    "reward": "DHC 2,000,000"
+    "reward": "DHC 2,000,000",
+    "removed": "2026-10-21"
   },
   "roblox-fisch:CARBON": {
     "reward": "카본 찌(Carbon Bobber)"
