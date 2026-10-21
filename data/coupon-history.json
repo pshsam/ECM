@@ -387,7 +387,8 @@
   },
   "neverness-to-everness:WONDERLOGGIFT": {
     "reward": "안눌리스 30개, 상급 헌터 가이드 3개, 폰즈 20,000개",
-    "expireDate": "2026-10-21"
+    "expireDate": "2026-10-21",
+    "removed": "2026-10-22"
   },
   "neverness-to-everness:ZANKOU0819": {
     "reward": "환석 30개, 안눌리스 50,000개, 비틀 코인 30,000개"
