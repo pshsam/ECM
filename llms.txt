@@ -62,6 +62,7 @@
 
 ## 가이드 글
 
+- [보더랜드 SHiFT 코드 25개 기록: 30일 동안 딱 1개만 빠졌다](https://ecm-coupon.com/blog/borderlands-shift-code-record-analysis.html): 기록 분석 · 2026-10-21
 - [애니메 뱅가드 코드 27일 기록: 처음 확인한 날과 목록에 머문 기간](https://ecm-coupon.com/blog/anime-vanguards-code-record-analysis.html): 기록 분석 · 2026-10-19
 - [게임 쿠폰 코드, 언제 올라오고 얼마나 목록에 남을까: ECM 쿠폰 기록 115개 분석](https://ecm-coupon.com/blog/game-coupon-code-record-analysis-2026-10.html): 기록 분석 · 2026-10-16
 - [신의 탑: 새로운 세계 쿠폰 코드 입력 방법과 10월14일 업데이트 정리](https://ecm-coupon.com/blog/tower-of-god-new-world-coupon-update.html): 게임 쿠폰 · 2026-10-15
