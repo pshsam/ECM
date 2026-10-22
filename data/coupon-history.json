@@ -1164,7 +1164,8 @@
   },
   "trickcal-revive:3RDBOLTHDAY": {
     "reward": "엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)",
-    "expireDate": "2026-10-22"
+    "expireDate": "2026-10-22",
+    "removed": "2026-10-22"
   },
   "trickcal-revive:BOLEUMDAL": {
     "reward": "최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰)",
@@ -1173,11 +1174,13 @@
   },
   "trickcal-revive:GOOGLETOP3": {
     "reward": "교주의 빛무리 선택권 1개, 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)",
-    "expireDate": "2026-10-22"
+    "expireDate": "2026-10-22",
+    "removed": "2026-10-22"
   },
   "trickcal-revive:SILVERBOL": {
     "reward": "실비아 확정 모집권 1개",
-    "expireDate": "2026-10-22"
+    "expireDate": "2026-10-22",
+    "removed": "2026-10-22"
   },
   "trickcal-revive:TRICKCALCOM": {
     "reward": "사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)",
@@ -1185,7 +1188,8 @@
   },
   "trickcal-revive:한글날": {
     "reward": "크레파스 지우개 10개, 왕사탕 1,000개, 골드 1,000,000 (한글날 제정 100주년 기념)",
-    "expireDate": "2026-10-22"
+    "expireDate": "2026-10-22",
+    "removed": "2026-10-22"
   },
   "valhalla-survival:2026CHUSEOK": {
     "reward": "2026 추석 기념 보상 (수수께끼의 유물 랜덤 상자, T5 보석 랜덤 소환권, 영웅 조각 선택 상자, 이그드라실의 씨앗 등)",
