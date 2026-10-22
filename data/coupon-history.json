@@ -242,6 +242,9 @@
     "reward": "원석 60개, 모험 경험 5개",
     "removed": "2026-10-20"
   },
+  "genshin:6LS3F3LS5K87": {
+    "reward": "원석 20개, 미리아스트라 원더랜드 이벤트 재화(Geode of Replication) 60개"
+  },
   "genshin:EPIC2026": {
     "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000"
   },
@@ -1179,6 +1182,10 @@
   "trickcal-revive:TRICKCALCOM": {
     "reward": "사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)",
     "expireDate": "상시"
+  },
+  "trickcal-revive:한글날": {
+    "reward": "크레파스 지우개 10개, 왕사탕 1,000개, 골드 1,000,000 (한글날 제정 100주년 기념)",
+    "expireDate": "2026-10-22"
   },
   "valhalla-survival:2026CHUSEOK": {
     "reward": "2026 추석 기념 보상 (수수께끼의 유물 랜덤 상자, T5 보석 랜덤 소환권, 영웅 조각 선택 상자, 이그드라실의 씨앗 등)",
