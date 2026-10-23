@@ -617,7 +617,8 @@
     "reward": "클럽 멤버 전용 보상 (마시멜로우 비 1개 등 다수 재료)"
   },
   "roblox-bee-swarm-simulator:38217": {
-    "reward": "티켓 5개"
+    "reward": "티켓 5개",
+    "removed": "2026-10-24"
   },
   "roblox-bee-swarm-simulator:777": {
     "reward": "허니데이 이벤트 버프, 슈퍼 스무디, 무제한 검드롭(7분) 등 다수 부스트·재료",
