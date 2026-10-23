@@ -324,16 +324,16 @@
    "in_kr": true,
    "note": "beebom(10/14)+pcgamesn(10/16) 교차 재확인, 20개 그대로 활성. us_coverage 를 pockettactics.com 1곳→3곳으로 고침(여러 번 재검색해도 destructoid·progameguides·gamesradar·gamerant·pcgamer·dexerto·polygon 기사는 1페이지에 안 보임). 대소문자 충돌 발견: SUB2CAPTAINMAUI(beebom) / Sub2CaptainMaui(pcgamesn) — 안 넣음. CHANDLER/Chandler, fudd10_v2/Fudd10_v2, kittgaming/Kittgaming 은 기존처럼 충돌로 안 넣음.",
    "last_checked": "2026-10-21",
-   "playing": 102559,
-   "visits": 65052504860,
-   "roblox_updated": "2026-10-11",
+   "playing": 102984,
+   "visits": 65063373435,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
     "수요": 26.8,
     "코드": 25.0,
     "경쟁 여유": 12
    },
    "score": 64,
-   "evidence": "Roblox 동시 접속 102,559명 · 살아 있는 코드 20개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "evidence": "Roblox 동시 접속 102,984명 · 살아 있는 코드 20개 · 미국 큰 코드 사이트 3곳이 다룸",
    "code_source": "https://www.roblox.com/games/2753915549",
    "place_id": 2753915549,
    "redeem_sources": [
@@ -538,16 +538,16 @@
    "in_kr": true,
    "note": "코드 없음(재확인): pockettactics.com(10/12, 14일 안)만 살아 있는 코드 14개를 보고했으나 두번째 독립 출처를 못 구해 전부 보류. gamesradar.com은 코드 목록이 같지만 자체 업데이트일이 2026-10-01로 14일 밖이라 최신 확인으로 치지 않음. sportskeeda.com 403, destructoid.com/dexerto.com/igeeksblog.com/ggrecon.com/allthings.how/pixeltwelve.com/findingdulcinea.com/samlover.com 모두 프록시 차단(connect_rejected) 또는 DNS 실패. 공식 Discord/X 코드 공지 주소를 찾지 못함. place_id 13772394625 확인(200).",
    "last_checked": "2026-10-22",
-   "playing": 10356,
-   "visits": 6500562509,
+   "playing": 10793,
+   "visits": 6502209420,
    "roblox_updated": "2026-10-18",
    "score_parts": {
-    "수요": 13.5,
+    "수요": 13.8,
     "코드": 0.0,
     "경쟁 여유": 12
    },
    "score": 26,
-   "evidence": "Roblox 동시 접속 10,356명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "evidence": "Roblox 동시 접속 10,793명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
    "code_source": "https://www.roblox.com/games/13772394625",
    "place_id": 13772394625
   },
@@ -560,104 +560,104 @@
      "code": "Assault",
      "reward": "100 Trait Rerolls",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "SummerLeaving",
      "reward": "100 Memoria Shards",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "AnniNextHopefully",
-     "reward": "100 Trait Rerolls, 100 Memoria Shards, and 5,000 Gems (requires Level 30)",
+     "reward": "100 Trait Rerolls, 100 Memoria Shards, 5,000 Gems. Requires Level 30.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "MiniUpd2",
-     "reward": "200 Trait Rerolls and 50,000 Gems (requires Level 30)",
+     "reward": "200 Trait Rerolls, 50,000 Gems. Requires Level 30.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed",
+     "last_verified": "2026-10-23",
+     "status": "active",
      "expired_on": "2026-10-08",
      "expired_source": "https://progameguides.com/roblox/anime-vanguards-codes/"
     },
     {
      "code": "Wrath",
-     "reward": "200 Memoria Shards and 50,000 Gems (requires Level 30)",
+     "reward": "200 Memoria Shards, 50,000 Gems. Requires Level 30.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed",
+     "last_verified": "2026-10-23",
+     "status": "active",
      "expired_on": "2026-10-08",
      "expired_source": "https://progameguides.com/roblox/anime-vanguards-codes/"
     },
     {
      "code": "Retribution",
-     "reward": "20,000 Gems, 50 Trait Rerolls, and 50 Memoria Shards",
+     "reward": "20,000 Gems, 50 Trait Rerolls, 50 Memoria Shards. Requires Level 10.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "1DayDelay",
-     "reward": "200 Trait Rerolls (requires Level 30)",
+     "reward": "200 Trait Rerolls. Requires Level 30.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "25thHour",
-     "reward": "50 Trait Rerolls and 50 Memoria Shards (requires Level 30)",
+     "reward": "50 Trait Rerolls, 50 Memoria Shards. Requires Level 30.",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "LetTheLarpingBegin",
-     "reward": "50 Controller Tokens, 10,000 Gems, and 50,000 Gold",
+     "reward": "50 Controller Tokens, 10,000 Gems, 50,000 Gold",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-09-27",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "EEPart1",
@@ -720,67 +720,67 @@
      "code": "2ndAnniDay1",
      "reward": "100 Trait Rerolls",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "2ndAnniDay2",
      "reward": "100 Memoria Shards",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "2ndAnniDay3",
      "reward": "100 Rerolls",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "2ndAnniDay4",
      "reward": "100 Memoria Shards",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "2ndAnniDay5",
      "reward": "100 Rerolls",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "2ndAnniDay6",
      "reward": "100 Memoria Shards",
      "sources": [
-      "https://pockettactics.com/anime-vanguards/codes",
+      "https://www.pockettactics.com/anime-vanguards/codes",
       "https://beebom.com/anime-vanguards-codes/"
      ],
      "first_seen": "2026-10-16",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     }
    ],
    "platform": "roblox",
@@ -795,21 +795,29 @@
     "gfinityesports.com",
     "twinfinite.net",
     "videogameschronicle.com",
-    "otgexp.com"
+    "otgexp.com",
+    "timesaver.gg",
+    "sixstoreys.com",
+    "seemeta.com",
+    "roonby.com",
+    "insider-gaming.com",
+    "mein-mmo.de",
+    "gearvn.com",
+    "samlover.com"
    ],
    "in_kr": true,
    "note": "재조사: 2ndAnniDay 계열 코드가 여러 출처에 나오지만 보상 설명이 서로 달라(Trait Rerolls vs Memoria Shards) 어느 쪽도 확정하지 못해 넣지 않음.",
-   "last_checked": "2026-10-19",
-   "playing": 34748,
-   "visits": 2091576842,
+   "last_checked": "2026-10-23",
+   "playing": 32997,
+   "visits": 2092970997,
    "roblox_updated": "2026-10-20",
    "score_parts": {
-    "수요": 20.5,
-    "코드": 0.0,
+    "수요": 20.2,
+    "코드": 40.0,
     "경쟁 여유": 5
    },
-   "score": 26,
-   "evidence": "Roblox 동시 접속 34,748명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "score": 65,
+   "evidence": "Roblox 동시 접속 32,997명 · 살아 있는 코드 15개 (14일 안 새 코드 6개) · 미국 큰 코드 사이트 4곳이 다룸",
    "code_source": "https://www.roblox.com/games/16146832113",
    "place_id": 16146832113,
    "launch_exclude": {
@@ -835,15 +843,14 @@
     },
     {
      "code": "15MMembers",
-     "reward": "A Red Balloon, a Marshmallow Bee, and 15 each of Gumdrops, Sunflower Seeds, Strawberries, Pineapples, Blueberries, and Bitterberries. Requires joining the official Roblox group.",
+     "reward": "Marshmallow Bee, Red Balloon, and 15 each of Gumdrops, Sunflower Seeds, Strawberries, Pineapples, Blueberries, and Bitterberries",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "38217",
@@ -858,27 +865,25 @@
     },
     {
      "code": "BeesBuzz123",
-     "reward": "A Cloud Vial, 5 Bitterberries, and 10 Gumdrops",
+     "reward": "Cloud Vial, 5 Bitterberries, 10 Gumdrops",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "ClubBean",
-     "reward": "A Magic Bean and 2 Pineapple Patch boosts. Requires the Bee Swarm Simulator club.",
+     "reward": "Free boosts and rewards. Requires joining the official Bee Swarm Simulator Roblox group.",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "Bopmaster",
@@ -895,62 +900,58 @@
     },
     {
      "code": "Connoisseur",
-     "reward": "5 Tickets",
+     "reward": "5 tickets",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "Crawlers",
-     "reward": "5 Tickets",
+     "reward": "5 tickets",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "Nectar",
      "reward": "5,000 Honey",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "Roof",
-     "reward": "5 Tickets",
+     "reward": "5 tickets",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
       "https://www.pcgamesn.com/bee-swarm-simulator/codes",
-      "https://beebom.com/roblox-bee-swarm-simulator-codes/"
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "unconfirmed"
+     "last_verified": "2026-10-23",
+     "status": "active"
     },
     {
      "code": "Wax",
-     "reward": "5,000 Honey and 5 Tickets",
+     "reward": "5,000 Honey and 5 tickets",
      "sources": [
-      "https://www.pockettactics.com/bee-swarm-simulator/codes",
-      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes",
+      "https://www.pockettactics.com/bee-swarm-simulator/codes"
      ],
      "first_seen": "2026-09-28",
-     "last_verified": "2026-10-16",
-     "status": "expired",
+     "last_verified": "2026-10-23",
+     "status": "active",
      "expired_on": "2026-10-01",
      "expired_source": "https://beebom.com/roblox-bee-swarm-simulator-codes/"
     },
@@ -1000,21 +1001,26 @@
     "videogameschronicle.com",
     "gfinityesports.com",
     "igeeksblog.com",
-    "ggrecon.com"
+    "ggrecon.com",
+    "tryhardguides.com",
+    "g2a.com",
+    "sixstoreys.com",
+    "nerdschalk.com",
+    "dexerto.com"
    ],
    "in_kr": true,
    "note": "재조사: DiscordMillion 등 10월 코드가 보이지만 두 번째 독립 출처가 없어 넣지 않음.",
-   "last_checked": "2026-10-19",
-   "playing": 27479,
-   "visits": 4619870858,
+   "last_checked": "2026-10-23",
+   "playing": 27898,
+   "visits": 4621571754,
    "roblox_updated": "2026-08-22",
    "score_parts": {
-    "수요": 19.2,
-    "코드": 0.0,
+    "수요": 19.3,
+    "코드": 20.0,
     "경쟁 여유": 12
    },
-   "score": 31,
-   "evidence": "Roblox 동시 접속 27,479명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "score": 51,
+   "evidence": "Roblox 동시 접속 27,898명 · 살아 있는 코드 8개 · 미국 큰 코드 사이트 3곳이 다룸",
    "code_source": "https://www.roblox.com/games/1537690962",
    "place_id": 1537690962
   },
@@ -1119,21 +1125,26 @@
     "pcgamer.com",
     "pcgamesn.com",
     "videogameschronicle.com",
-    "otgexp.com"
+    "otgexp.com",
+    "softwaretestinghelp.com",
+    "beatcopgame.com",
+    "insider-gaming.com",
+    "powerupgaming.co.uk",
+    "gfinityesports.com"
    ],
    "in_kr": true,
    "note": "재조사: VGTimes(10/3)만 SNUFFYUPD·NEWMASTER·UBERSVOTE·WSNUFFY를 활성으로 표시, 두 번째 출처를 못 찾아 넣지 않음.",
-   "last_checked": "2026-10-19",
-   "playing": 8736,
-   "visits": 5008592814,
+   "last_checked": "2026-10-23",
+   "playing": 8917,
+   "visits": 5009719484,
    "roblox_updated": "2026-10-17",
    "score_parts": {
-    "수요": 12.6,
+    "수요": 12.7,
     "코드": 0.0,
     "경쟁 여유": 12
    },
    "score": 25,
-   "evidence": "Roblox 동시 접속 8,736명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "evidence": "Roblox 동시 접속 8,917명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
    "code_source": "https://www.roblox.com/games/18668065416/Blue-Lock-Rivals"
   },
   "roblox-fisch": {
@@ -1231,16 +1242,16 @@
    "in_kr": true,
    "note": "10/20 재조사: pockettactics(10/7 갱신)·beebom(10/17 갱신) 둘 다 14일 이내로 scarlet/TemporarySubmarine/CARBON 을 같은 대소문자로 활성 표시 — 지난 회차엔 교차확인 출처가 오래돼(9월) '확인 필요'였던 3개가 이번에 active로 복귀. beebom 의 FischFright2026 은 pockettactics 에 없고 beebom 자체도 같은 코드에 서로 다른 보상 두 벌을 적어 신뢰도가 낮아 제외.",
    "last_checked": "2026-10-20",
-   "playing": 49607,
-   "visits": 5048681935,
+   "playing": 52983,
+   "visits": 5051908929,
    "roblox_updated": "2026-10-19",
    "score_parts": {
-    "수요": 22.6,
+    "수요": 23.0,
     "코드": 7.5,
     "경쟁 여유": 5
    },
-   "score": 35,
-   "evidence": "Roblox 동시 접속 49,607명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 36,
+   "evidence": "Roblox 동시 접속 52,983명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "kingshot": {
    "name": "Kingshot",
@@ -1503,16 +1514,16 @@
    "in_kr": true,
    "note": "다시 확인. A7D2L26RNEPG74A3Q 를 pockettactics.com(10/8 갱신)+pocketgamer.com(10/18 갱신) 직접 WebFetch로 교차확인(대소문자 일치) — 지난 회차엔 두 번째 독립 출처를 못 찾아 뺐었는데 이번엔 확인돼 다시 넣음.",
    "last_checked": "2026-10-21",
-   "playing": 73438,
-   "visits": 7695941912,
+   "playing": 81712,
+   "visits": 7706206123,
    "roblox_updated": "2026-10-20",
    "score_parts": {
-    "수요": 24.9,
+    "수요": 25.5,
     "코드": 2.5,
     "경쟁 여유": 5
    },
-   "score": 32,
-   "evidence": "Roblox 동시 접속 73,438명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "score": 33,
+   "evidence": "Roblox 동시 접속 81,712명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸",
    "code_source": "https://www.roblox.com/games/9391468976",
    "place_id": 9391468976,
    "launch_exclude": {
@@ -1654,16 +1665,16 @@
    "in_kr": false,
    "note": "다시 확인. pockettactics.com 10/19 갱신판을 직접 WebFetch — \"현재 활성 코드 없음\"이라며 M1LL1ON·Roguelike 를 포함한 12개를 전부 만료로 올림(지난 회차엔 10/4판에서 이 둘이 활성이었음). roonby.com·games.gg 는 이번에도 접속 차단(DNS)으로 교차확인 못함. 살아 있는 코드 0개로 바뀜.",
    "last_checked": "2026-10-21",
-   "playing": 16250,
-   "visits": 140146864,
-   "roblox_updated": "2026-10-22",
+   "playing": 15673,
+   "visits": 140965722,
+   "roblox_updated": "2026-10-23",
    "score_parts": {
-    "수요": 16.1,
+    "수요": 15.9,
     "코드": 0.0,
     "경쟁 여유": 12
    },
    "score": 28,
-   "evidence": "Roblox 동시 접속 16,250명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "evidence": "Roblox 동시 접속 15,673명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
    "code_source": "https://www.roblox.com/games/16205713724"
   },
   "roblox-sols-rng": {
@@ -1729,13 +1740,15 @@
     "deltiasgaming.com",
     "roonby.com",
     "insider-gaming.com",
-    "sixstoreys.com"
+    "sixstoreys.com",
+    "findingdulcinea.com",
+    "thefutureofthings.com"
    ],
    "in_kr": true,
    "note": "재조사: 10/19 기준 서로 다른 출처가 서로 충돌하는 코드 목록을 제시(일부는 \"코드 기능 없음\"이라고도 함). 2곳 이상이 같은 표기로 동시에 확인한 코드를 찾지 못해 넣지 않음.",
-   "last_checked": "2026-10-19",
-   "playing": 32131,
-   "visits": 2241215456,
+   "last_checked": "2026-10-23",
+   "playing": 32112,
+   "visits": 2243009050,
    "roblox_updated": "2026-10-22",
    "score_parts": {
     "수요": 20.1,
@@ -1743,7 +1756,7 @@
     "경쟁 여유": 5
    },
    "score": 25,
-   "evidence": "Roblox 동시 접속 32,131명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "evidence": "Roblox 동시 접속 32,112명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸",
    "place_id": 15532962292
   },
   "roblox-tower-defense-simulator": {
@@ -1790,21 +1803,24 @@
     "nerdschalk.com",
     "gfinityesports.com",
     "pcgamesn.com",
-    "sportskeeda.com"
+    "sportskeeda.com",
+    "gamerjournalist.com",
+    "allthings.how",
+    "otgexp.com"
    ],
    "in_kr": true,
    "note": "재조사: 가장 최근 교차 확인 가능한 출처가 7월(2MILLION, 1MILCOMMUNITY)로 14일 기준을 넘어 넣지 않음.",
-   "last_checked": "2026-10-19",
-   "playing": 8052,
-   "visits": 5031991241,
-   "roblox_updated": "2026-10-16",
+   "last_checked": "2026-10-23",
+   "playing": 9676,
+   "visits": 5033337925,
+   "roblox_updated": "2026-10-23",
    "score_parts": {
-    "수요": 12.1,
+    "수요": 13.1,
     "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 24,
-   "evidence": "Roblox 동시 접속 8,052명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "score": 25,
+   "evidence": "Roblox 동시 접속 9,676명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "roblox-99-nights-in-the-forest": {
    "name": "99 Nights in the Forest",
@@ -1910,16 +1926,16 @@
    "in_kr": true,
    "note": "다시 확인. beebom.com(10/8 갱신)+pcgamesn.com(10/19 갱신) 직접 WebFetch로 awardwinner_yay·forestwakesup26·afterparty 세 코드를 교차확인(대소문자 일치). 지난 회차엔 destructoid.com(8/19)만 보고 만료로 봤었는데 더 최신인 두 출처가 활성이라고 해 다시 살림. 보상 단위를 beebom은 Diamonds, pcgamesn은 Gems 로 다르게 부름(같은 재화로 보임).",
    "last_checked": "2026-10-21",
-   "playing": 97145,
-   "visits": 30180702859,
+   "playing": 111835,
+   "visits": 30193352979,
    "roblox_updated": "2026-10-21",
    "score_parts": {
-    "수요": 26.5,
+    "수요": 27.3,
     "코드": 22.5,
     "경쟁 여유": 12
    },
-   "score": 61,
-   "evidence": "Roblox 동시 접속 97,145명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 2곳이 다룸"
+   "score": 62,
+   "evidence": "Roblox 동시 접속 111,835명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-fish-it": {
    "name": "Fish It!",
@@ -2039,16 +2055,16 @@
    "in_kr": true,
    "note": "10/20 재조사: pockettactics(10/14 갱신)·pocketgamer(10/3 갱신 표시) 두 사이트를 다시 WebFetch로 열어 기존 8개 코드(MERDEKA/POTIONSSS/MUTATION2/YEEHAW/1M_GOAL/500K_GOAL_FXCB/EASTER2026/DIVING) 표기가 대소문자까지 양쪽에서 완전히 일치함을 재확인. 새 코드·만료 전환 없음(두 사이트의 만료 목록도 기존 그대로).",
    "last_checked": "2026-10-20",
-   "playing": 73149,
-   "visits": 4793555916,
+   "playing": 72331,
+   "visits": 4795037979,
    "roblox_updated": "2026-10-19",
    "score_parts": {
-    "수요": 24.9,
+    "수요": 24.8,
     "코드": 20.0,
     "경쟁 여유": 5
    },
    "score": 50,
-   "evidence": "Roblox 동시 접속 73,149명 · 살아 있는 코드 8개 · 미국 큰 코드 사이트 5곳이 다룸"
+   "evidence": "Roblox 동시 접속 72,331명 · 살아 있는 코드 8개 · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-dandys-world": {
    "name": "Dandy's World",
@@ -2078,16 +2094,16 @@
    "in_kr": true,
    "note": "ICHOR(50 Ichor) 재확인: beebom.com(10/10)·pcgamesn.com(10/08) 두 독립 출처, 대소문자(ICHOR) 일치 → 처음으로 2곳 기준 충족, 'active'로 올림. redeem 문구 정정: 기존 카탈로그의 '설정 톱니바퀴 아이콘' 설명은 beebom·pcgamesn 둘 다 'Use Code 버튼(화면 좌측)'이라고 해서 틀린 것으로 보고 고침. samlover.com·dexerto.com은 프록시 차단(connect_rejected/ENOTFOUND)으로 직접 확인 못함. QoM(신규 스티커 코드)은 beebom 단일 출처라 이번에도 보류. launch_exclude는 그대로 둠.",
    "last_checked": "2026-10-22",
-   "playing": 55339,
-   "visits": 7734074399,
-   "roblox_updated": "2026-10-16",
+   "playing": 59950,
+   "visits": 7741640164,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 23.2,
+    "수요": 23.7,
     "코드": 2.5,
     "경쟁 여유": 12
    },
    "score": 38,
-   "evidence": "Roblox 동시 접속 55,339명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "evidence": "Roblox 동시 접속 59,950명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 2곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
@@ -2177,16 +2193,16 @@
    "in_kr": true,
    "note": "10/20 재조사: gfinityesports.com 직접 열람이 프록시에서 막힘(DNS 실패). WebSearch 결과도 Sound ID 목록 서로 다르고 날짜 불일치(robloxden 전체 196개 vs 다른 곳 20개). 14일 이내 같은 숫자를 2곳이 일치시키는 교차확인을 찾지 못해 이번에도 살아 있는 코드 0개 유지.",
    "last_checked": "2026-10-20",
-   "playing": 35049,
-   "visits": 19463485609,
-   "roblox_updated": "2026-10-17",
+   "playing": 37508,
+   "visits": 19469093456,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 20.6,
+    "수요": 21.0,
     "코드": 0.0,
     "경쟁 여유": 0
    },
    "score": 21,
-   "evidence": "Roblox 동시 접속 35,049명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 6곳이 다룸",
+   "evidence": "Roblox 동시 접속 37,508명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 6곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
@@ -2747,16 +2763,16 @@
    "in_kr": false,
    "note": "이번 회차는 2곳 기준을 못 채워 코드를 넣지 않음: beebom.com(10/21, 14일 안)은 기존 16개+Halloween·JpCoooooode·UPDATE8을 그대로 active로 보고했지만, 두번째 출처였던 pockettactics.com이 자체 'Updated: Oct 3, 2026'로 14일 밖(또한 UPDATE5 보상이 beebom과 다름 — 구버전 캐시로 추정)이라 최신 확인으로 인정하지 않음. destructoid.com·dexerto.com·igeeksblog.com·nerdschalk.com·gamertweak.com·robloxden.com·bo3.gg·playhub.com·rosenberryrooms.com 전부 프록시 차단(connect_rejected) 또는 DNS 실패. 공식 Discord/Roblox 그룹 코드 공지 주소를 못 찾음. 기존 16개 active 코드는 merge 스크립트가 'unconfirmed'로 내릴 것으로 예상(다음 회차에 beebom 외 2번째 신선한 출처를 다시 찾아야 함). place_id 113290951185459 확인(200).",
    "last_checked": "2026-10-22",
-   "playing": 67083,
-   "visits": 122086906,
+   "playing": 68424,
+   "visits": 125442592,
    "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 24.4,
+    "수요": 24.5,
     "코드": 0.0,
     "경쟁 여유": 12
    },
    "score": 36,
-   "evidence": "Roblox 동시 접속 67,083명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "evidence": "Roblox 동시 접속 68,424명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "honkai-star-rail": {
    "name": "Honkai: Star Rail",
@@ -3061,16 +3077,16 @@
    "in_kr": true,
    "note": "10/20 재조사: pockettactics 직접 WebFetch(10/12 갱신, BESTBRAINROTEVER 유지, 만료 목록 없음). dexerto.com은 이번에도 프록시가 직접 접속을 막아(DNS 실패) WebSearch 색인 요약으로만 확인(같은 표기, 다만 그 요약은 7/19 기준이라 오래됨) — 지난 회차와 같은 방식. 새 코드 없음.",
    "last_checked": "2026-10-20",
-   "playing": 88477,
-   "visits": 74084601111,
-   "roblox_updated": "2026-10-21",
+   "playing": 94020,
+   "visits": 74097653145,
+   "roblox_updated": "2026-10-23",
    "score_parts": {
-    "수요": 26.0,
+    "수요": 26.3,
     "코드": 2.5,
     "경쟁 여유": 12
    },
-   "score": 40,
-   "evidence": "Roblox 동시 접속 88,477명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "score": 41,
+   "evidence": "Roblox 동시 접속 94,020명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
@@ -3176,13 +3192,13 @@
    "codes": [
     {
      "code": "ADIDASxPOKEMON",
-     "reward": "a pair of Adidas shoes for your avatar (expires January 16, 2027)",
+     "reward": "adidas-themed avatar items (jacket and cap), valid through the adidas x Pokemon GO campaign running to mid-January 2027",
      "sources": [
-      "https://www.pockettactics.com/pokemon-go/codes",
-      "https://www.gamesradar.com/games/pokemon/pokemon-go-codes-redeem/"
+      "https://pokemongo.com/news/pokemon-x-adidas-2026",
+      "https://timesaver.gg/blog/pokemon-go-codes"
      ],
      "first_seen": "2026-10-01",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
@@ -3207,7 +3223,7 @@
      ],
      "first_seen": "2026-10-01",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "MLBxPOKEMONGO2026",
@@ -3243,19 +3259,24 @@
    "us_coverage": [
     "pockettactics.com",
     "gamesradar.com",
-    "dexerto.com"
+    "dexerto.com",
+    "insider-gaming.com",
+    "timesaver.gg",
+    "allthings.how",
+    "bestforandroid.com",
+    "frvr.com"
    ],
    "in_kr": false,
    "note": "MLBxPOKEMONGO2026 shown active on pockettactics (Oct15) but the official pokemongo.com news page already marked it expired Sep30 - left as expired, not reactivated.",
-   "last_checked": "2026-10-19",
+   "last_checked": "2026-10-23",
    "app_rank": {},
    "score_parts": {
     "수요": 0.0,
-    "코드": 5.0,
+    "코드": 2.5,
     "경쟁 여유": 12
    },
-   "score": 17,
-   "evidence": "살아 있는 코드 2개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "score": 14,
+   "evidence": "살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
@@ -3270,11 +3291,11 @@
      "code": "FREE200",
      "reward": "3 Keys",
      "sources": [
-      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/",
-      "https://timesaver.gg/blog/roblox-rivals-codes-october-2026"
+      "https://timesaver.gg/blog/roblox-rivals-codes-october-2026",
+      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/amp/"
      ],
      "first_seen": "2026-10-03",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
@@ -3286,7 +3307,7 @@
      ],
      "first_seen": "2026-10-03",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "BACK2BACK",
@@ -3297,7 +3318,7 @@
      ],
      "first_seen": "2026-10-01",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "NOSNIYGAMESONTOP",
@@ -3308,7 +3329,7 @@
      ],
      "first_seen": "2026-10-01",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "BONUS",
@@ -3347,11 +3368,11 @@
      "code": "FREE199",
      "reward": "3 Keys",
      "sources": [
-      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/",
-      "https://timesaver.gg/blog/roblox-rivals-codes-october-2026"
+      "https://timesaver.gg/blog/roblox-rivals-codes-october-2026",
+      "https://roonby.com/2026/10/06/roblox-rivals-codes-october-2026-new/amp/"
      ],
      "first_seen": "2026-10-06",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     }
    ],
@@ -3362,21 +3383,30 @@
    "us_coverage": [
     "beebom.com",
     "dexerto.com",
-    "pcgamesn.com"
+    "pcgamesn.com",
+    "insider-gaming.com",
+    "timesaver.gg",
+    "roonby.com",
+    "findingdulcinea.com",
+    "pocketgamer.com",
+    "allthings.how",
+    "igeeksblog.com",
+    "deltiasgaming.com",
+    "mobilematters.gg"
    ],
    "in_kr": false,
    "note": "COMMUNITY27/FREE202 (beebom, Oct17) and roblox_rtc/ELBILLUG only had 1 fresh independent source each - not included. BONUS/BOOST skipped this round (pcgamesn's own page lists BOOST active but BONUS under its own expired section - contradictory single source); they'll fall to 'unconfirmed' and can be re-checked next pass.",
-   "last_checked": "2026-10-19",
-   "playing": 78720,
-   "visits": 18875729785,
-   "roblox_updated": "2026-10-21",
+   "last_checked": "2026-10-23",
+   "playing": 104635,
+   "visits": 18893045003,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 25.3,
-    "코드": 12.5,
+    "수요": 26.9,
+    "코드": 5.0,
     "경쟁 여유": 12
    },
-   "score": 50,
-   "evidence": "Roblox 동시 접속 78,720명 · 살아 있는 코드 5개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "score": 44,
+   "evidence": "Roblox 동시 접속 104,635명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-shindo-life": {
    "name": "Shindo Life",
@@ -3537,16 +3567,16 @@
    "in_kr": true,
    "note": "10/22 재확인: 기존 13개 코드 전부 pockettactics(10/21)+pcgamesn(10/21) 양쪽 표기 일치로 그대로 유지. pockettactics 페이지에 FACEIDFIXUPD!/ThankYouForPatience249Patch!/2mLikesC0d3d!/RELLGIFTsc!/RELLGIFTbag! 및 다수의 과거 기념일 코드가 같은 목록 구획에 더 보이지만 pcgamesn 등 2번째 출처가 없어 계속 제외.",
    "last_checked": "2026-10-22",
-   "playing": 2002,
-   "visits": 2733630723,
+   "playing": 2227,
+   "visits": 2733781996,
    "roblox_updated": "2026-08-10",
    "score_parts": {
-    "수요": 4.0,
+    "수요": 4.6,
     "코드": 40.0,
     "경쟁 여유": 20
    },
-   "score": 64,
-   "evidence": "Roblox 동시 접속 2,002명 · 살아 있는 코드 13개 (14일 안 새 코드 9개) · 미국 큰 코드 사이트 1곳이 다룸"
+   "score": 65,
+   "evidence": "Roblox 동시 접속 2,227명 · 살아 있는 코드 13개 (14일 안 새 코드 9개) · 미국 큰 코드 사이트 1곳이 다룸"
   },
   "roblox-king-legacy": {
    "name": "King Legacy",
@@ -3665,15 +3695,15 @@
    "note": "10/22 재확인: 기존 9개 코드 전부 pockettactics(10/16)+pcgamesn(10/16) 양쪽 표기 일치로 유지, 새 코드·만료 없음. redeem 3번째 단계는 pockettactics가 '장바구니 아이콘'이라고 적어 기존 카탈로그 '기어 아이콘'과 계속 불일치 — 2곳 합의 안 돼 기존 값 유지.",
    "last_checked": "2026-10-22",
    "score_parts": {
-    "수요": 8.1,
+    "수요": 8.2,
     "코드": 22.5,
     "경쟁 여유": 12
    },
    "score": 43,
-   "evidence": "Roblox 동시 접속 4,053명 · 살아 있는 코드 9개 · 미국 큰 코드 사이트 2곳이 다룸",
-   "playing": 4053,
-   "visits": 4068682913,
-   "roblox_updated": "2026-07-25"
+   "evidence": "Roblox 동시 접속 4,147명 · 살아 있는 코드 9개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "playing": 4147,
+   "visits": 4069003869,
+   "roblox_updated": "2026-10-22"
   },
   "roblox-anime-zero": {
    "name": "Anime Zero",
@@ -3682,266 +3712,266 @@
    "codes": [
     {
      "code": "UPDATESOONWEPROMISE",
-     "reward": "100 Trait Rerolls, 100k Coins, 11 Lucky Spins",
+     "reward": "lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "NEWRAID",
-     "reward": "100 Trait Rerolls, 75k Coins, 10k Gems (level 50+)",
+     "reward": "100 trait rerolls, 75k coins, 10k gems (level 50+)",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "SORRYFORDELAY",
-     "reward": "50 Trait Rerolls, 25k Coins, 5k Gems (level 25+)",
+     "reward": "50 trait rerolls, 25k coins, 5k gems (level 25+)",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "TYASHIRA",
-     "reward": "500 Lucky Spins",
+     "reward": "500 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "TYFRIGID",
-     "reward": "222 Trait Rerolls",
+     "reward": "222 trait rerolls",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "SERVERLIVE67",
-     "reward": "222 Lucky Spins, 67 Trait Rerolls",
+     "reward": "222 lucky spins, 67 trait rerolls",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "BENICE2ME",
-     "reward": "100k Coins, 222 Trait Rerolls",
+     "reward": "100k coins, 222 trait rerolls",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "BACKUPSTRONGER",
-     "reward": "25k Coins, 25 Trait Rerolls, 50 Lucky Spins",
+     "reward": "25k coins, 25 trait rerolls, 50 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "LAPASSION",
-     "reward": "10k Coins, 25 Trait Rerolls, 60 Lucky Spins",
+     "reward": "10k coins, 25 trait rerolls, 60 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "1MVISITS",
-     "reward": "50k Coins, 200 Trait Rerolls, 300 Lucky Spins",
+     "reward": "50k coins, 200 trait rerolls, 300 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "SIXSEVEN",
-     "reward": "67 Coins",
+     "reward": "67 coins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "LESSLAG",
-     "reward": "10 Trait Rerolls, 25 Lucky Spins, 300 Gems",
+     "reward": "10 spins, 25 lucky spins, 5k coins, 300 gems",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "AZISOUT",
-     "reward": "5 Rolls, 1 Lucky Spin, 1.5k Coins",
+     "reward": "5 spins, 1 lucky spin, 1.5k coins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "LETSGO",
-     "reward": "20 Rolls, 5 Trait Rerolls, 2k Coins",
+     "reward": "20 spins, 5 trait rerolls, 2k coins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "HOP3YOU3NJOY",
-     "reward": "250 Rolls",
+     "reward": "250 spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "PATCH1",
-     "reward": "10 Rolls, 3 Lucky Spins, 150 Gems",
+     "reward": "10 rolls, 3 lucky spins, 3k coins, 150 gems",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "PATCH2",
-     "reward": "5k Coins, 3 Trait Rerolls, 250 Gems",
+     "reward": "5k coins, 3 trait rerolls, 250 gems",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "PATCHNOTE67",
-     "reward": "10k Coins, 50 Trait Rerolls, 75 Lucky Spins",
+     "reward": "10k coins, 50 trait rerolls, 75 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "SORRYXD67",
-     "reward": "25 Lucky Spins, 300 Gems",
+     "reward": "25 lucky spins, 300 gems",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "RELEASE",
-     "reward": "1 Lucky Spin, 10 Rerolls, 2.5k Coins",
+     "reward": "1 lucky spin, 10 rerolls, 2.5k coins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://www.dexerto.com/roblox/anime-zero-codes-3416634/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "50KCCU",
-     "reward": "500 Lucky Spins, 350 Trait Rerolls, 250k Coins, 5k Gems",
+     "reward": "500 lucky spins, 350 trait rerolls, 250k coins, 5k gems",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://khelnow.com/gaming/latest-roblox-anime-zero-codes-for-october-2026"
      ],
      "first_seen": "2026-10-11",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "SORRYFORZEDELAY",
-     "reward": "333 Trait Rerolls, 222,222 Coins, 333 Lucky Spins (level 50+)",
+     "reward": "333 trait rerolls, 222,222 coins, 333 lucky spins",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://khelnow.com/gaming/latest-roblox-anime-zero-codes-for-october-2026"
      ],
      "first_seen": "2026-10-11",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "UPDATETWO",
-     "reward": "150 Trait Rerolls, 100,000 Coins, 150 Lucky Spins (level 50+)",
+     "reward": "150 trait rerolls, 100k coins, 150 lucky spins (level 50+)",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://khelnow.com/gaming/latest-roblox-anime-zero-codes-for-october-2026"
      ],
      "first_seen": "2026-10-11",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "ARISE67",
-     "reward": "222 Trait Rerolls, 200,000 Coins, 400 Lucky Spins (level 50+)",
+     "reward": "222 trait rerolls, 200k coins, 400 lucky spins (level 50+)",
      "sources": [
-      "https://progameguides.com/roblox/anime-zero-codes/",
-      "https://beebom.com/anime-zero-codes/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://khelnow.com/gaming/latest-roblox-anime-zero-codes-for-october-2026"
      ],
      "first_seen": "2026-10-11",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
@@ -3964,17 +3994,19 @@
      ],
      "first_seen": "2026-10-12",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "expired",
+     "expired_on": "2026-10-23",
+     "expired_source": "https://animezerowiki.com/codes/"
     },
     {
      "code": "TRIALSPATCH",
-     "reward": "300 Trait Rerolls, 1m Coins, 150 Lucky Spins (level 35+)",
+     "reward": "300 trait rerolls, 1 million coins, 150 lucky spins (level 35+)",
      "sources": [
-      "https://beebom.com/anime-zero-codes/",
-      "https://roonby.com/2026/10/12/anime-zero-codes-october-2026-release/amp/"
+      "https://www.pockettactics.com/anime-zero-codes",
+      "https://roonby.com/2026/10/18/anime-zero-codes-october-2026-release/"
      ],
      "first_seen": "2026-10-12",
-     "last_verified": "2026-10-19",
+     "last_verified": "2026-10-23",
      "status": "active"
     }
    ],
@@ -3987,21 +4019,32 @@
     "beebom.com",
     "pockettactics.com",
     "dexerto.com",
-    "destructoid.com"
+    "destructoid.com",
+    "cheatcc.com",
+    "joytify.com",
+    "bloxodes.com",
+    "igeeksblog.com",
+    "khelnow.com",
+    "bo3.gg",
+    "robloxden.com",
+    "gamepur.com",
+    "techwiser.com",
+    "roonby.com",
+    "ofzenandcomputing.com"
    ],
    "in_kr": false,
    "note": "BIGTYPO (already in catalog) wasn't re-confirmed this round (not in beebom's Oct18 list) - will auto-flip to unconfirmed, fine. THANKS4WAITING/UPDATEFOUR/SORRY4DELAY/UPDATE3LEGACY/3TIMESACHARM only on beebom (1 source) - not included.",
-   "last_checked": "2026-10-19",
-   "playing": 9028,
-   "visits": 51601172,
-   "roblox_updated": "2026-10-21",
+   "last_checked": "2026-10-23",
+   "playing": 8495,
+   "visits": 52637025,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 12.7,
+    "수요": 12.4,
     "코드": 40.0,
     "경쟁 여유": 5
    },
-   "score": 58,
-   "evidence": "Roblox 동시 접속 9,028명 · 살아 있는 코드 26개 (14일 안 새 코드 6개) · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 57,
+   "evidence": "Roblox 동시 접속 8,495명 · 살아 있는 코드 25개 (14일 안 새 코드 5개) · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-grow-a-garden": {
    "name": "Grow a Garden",
@@ -4047,16 +4090,16 @@
    "in_kr": true,
    "note": "다시 확인. beebom.com(10/1 갱신)·pcgamesn.com(9/26 갱신) 직접 WebFetch로 RDCAward·BEANORLEAVE10(+pcgamesn 만 torigate)을 봤지만 둘 다 14일 밖(기준 10/7 이후). 새 코드·만료 근거 없음, 살아 있는 코드 0개 유지.",
    "last_checked": "2026-10-21",
-   "playing": 16125,
-   "visits": 35983319538,
-   "roblox_updated": "2026-10-21",
+   "playing": 19052,
+   "visits": 35984664685,
+   "roblox_updated": "2026-10-23",
    "score_parts": {
-    "수요": 16.1,
+    "수요": 17.1,
     "코드": 0.0,
     "경쟁 여유": 0
    },
-   "score": 16,
-   "evidence": "Roblox 동시 접속 16,125명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 7곳이 다룸"
+   "score": 17,
+   "evidence": "Roblox 동시 접속 19,052명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 7곳이 다룸"
   },
   "roblox-basketball-zero": {
    "name": "Basketball Zero",
@@ -4120,16 +4163,16 @@
    "in_kr": true,
    "note": "다시 확인. pocketgamer.com(10/10)은 DELAY·PERFV2·15PERFV2 를 활성이라 하지만 같은 날 beebom.com 이 만료로 봄(기존 만료 유지). 1HRFUNSUNDAY·JOJORETURN·KIRA 등은 단일 출처(beatcopgame.com/roonby.com, 네트워크 차단돼 직접 확인 불가)라 넣지 않음.",
    "last_checked": "2026-10-21",
-   "playing": 6121,
-   "visits": 1160110710,
+   "playing": 6337,
+   "visits": 1160651061,
    "roblox_updated": "2026-10-20",
    "score_parts": {
-    "수요": 10.5,
+    "수요": 10.7,
     "코드": 0.0,
     "경쟁 여유": 0
    },
-   "score": 10,
-   "evidence": "Roblox 동시 접속 6,121명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 8곳이 다룸"
+   "score": 11,
+   "evidence": "Roblox 동시 접속 6,337명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 8곳이 다룸"
   },
   "roblox-da-hood": {
    "name": "Da Hood",
@@ -4247,16 +4290,16 @@
    "in_kr": true,
    "note": "10/22 재확인: PVP·BUFF 2개만 살아 있음(두 사이트 10/15 표기 일치). DOG/SHARK/WORLDCUP26/FOURTH26/BALLOON/BOSS는 두 사이트 모두 만료로 재확인. launch_exclude 그대로 유지(사용자 결정, 변경 안 함).",
    "last_checked": "2026-10-22",
-   "playing": 2172,
-   "visits": 2958998919,
+   "playing": 2368,
+   "visits": 2959254383,
    "roblox_updated": "2026-10-19",
    "score_parts": {
-    "수요": 4.5,
+    "수요": 5.0,
     "코드": 5.0,
     "경쟁 여유": 20
    },
    "score": 30,
-   "evidence": "Roblox 동시 접속 2,172명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 1곳이 다룸",
+   "evidence": "Roblox 동시 접속 2,368명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 1곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 로블록스 공개 정보에서 제목이 'TITLE UNAVAILABLE'로 나옴(연령 제한 게임으로 보임) — 첫 공개 목록에서 뺌"
@@ -4354,15 +4397,15 @@
    "note": "10/20 재조사: pockettactics(10/19 갱신)·beebom(10/18 갱신) 두 사이트 직접 WebFetch. 새 코드 GORILLA(25,000 Gems, 두 사이트 모두 'expires soon'/NEW 표시) 발견 — 대소문자 완전 일치로 교차확인. 기존 5개 코드 전부 유지, 만료 코드 없음(두 사이트 모두 만료 목록 없음).",
    "last_checked": "2026-10-20",
    "score_parts": {
-    "수요": 12.1,
+    "수요": 13.3,
     "코드": 30.0,
     "경쟁 여유": 5
    },
-   "score": 47,
-   "evidence": "Roblox 동시 접속 8,080명 · 살아 있는 코드 6개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 5곳이 다룸",
-   "playing": 8080,
-   "visits": 33915638,
-   "roblox_updated": "2026-10-22"
+   "score": 48,
+   "evidence": "Roblox 동시 접속 10,000명 · 살아 있는 코드 6개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 5곳이 다룸",
+   "playing": 10000,
+   "visits": 35111843,
+   "roblox_updated": "2026-10-23"
   },
   "roblox-sniper-arena": {
    "name": "Sniper Arena",
@@ -4378,7 +4421,7 @@
      ],
      "first_seen": "2026-10-07",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "freecase",
@@ -4389,7 +4432,7 @@
      ],
      "first_seen": "2026-10-07",
      "last_verified": "2026-10-19",
-     "status": "active"
+     "status": "unconfirmed"
     }
    ],
    "platform": "roblox",
@@ -4400,21 +4443,27 @@
     "pcgamesn.com",
     "dexerto.com",
     "progameguides.com",
-    "destructoid.com"
+    "destructoid.com",
+    "ofzenandcomputing.com",
+    "roonby.com",
+    "robloxden.com",
+    "nerdschalk.com",
+    "allthings.how",
+    "beatcopgame.com"
    ],
    "in_kr": false,
    "note": "FREELIKE6 (pcgamesn, Oct17) found on no other source anywhere (even older FREELIKE1-5 lists don't mention it) - likely a misprint, excluded. Previously-active FREELIKE4/FREELIKE2/newscrtcase/140mvisit are now shown EXPIRED on pcgamesn's Oct17 page - worth noting even though not submitting an 'expired' entry without a second confirming source.",
-   "last_checked": "2026-10-19",
+   "last_checked": "2026-10-23",
    "score_parts": {
-    "수요": 13.9,
-    "코드": 5.0,
+    "수요": 14.5,
+    "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 31,
-   "evidence": "Roblox 동시 접속 11,035명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 3곳이 다룸",
-   "playing": 11035,
-   "visits": 334710077,
-   "roblox_updated": "2026-10-22"
+   "score": 26,
+   "evidence": "Roblox 동시 접속 12,129명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "playing": 12129,
+   "visits": 336281359,
+   "roblox_updated": "2026-10-23"
   },
   "roblox-evade": {
    "name": "Evade",
@@ -4473,16 +4522,16 @@
    "in_kr": false,
    "note": "다시 확인. 가장 최근 교차확인(igeeksblog 8/24)이 14일 밖. twinfinite(9/1)는 다른 코드(indebt, indebt2 등)를 활성이라 하지만 두 번째 출처를 못 찾음. 새 코드·만료 근거 없음.",
    "last_checked": "2026-10-21",
-   "playing": 49358,
-   "visits": 9352913413,
+   "playing": 50770,
+   "visits": 9358782417,
    "roblox_updated": "2026-10-20",
    "score_parts": {
-    "수요": 22.6,
+    "수요": 22.7,
     "코드": 0.0,
     "경쟁 여유": 0
    },
    "score": 23,
-   "evidence": "Roblox 동시 접속 49,358명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 9곳이 다룸"
+   "evidence": "Roblox 동시 접속 50,770명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 9곳이 다룸"
   },
   "roblox-nfl-universe-football": {
    "name": "NFL Universe Football",
@@ -4955,16 +5004,16 @@
    "in_kr": false,
    "note": "재조사: 사이트마다 활성 코드 목록이 크게 엇갈리고 가장 최근 교차 확인 가능한 자료가 9월이라 14일 기준을 넘어 넣지 않음.",
    "last_checked": "2026-10-19",
-   "playing": 10275,
-   "visits": 1007428132,
-   "roblox_updated": "2026-10-20",
+   "playing": 10364,
+   "visits": 1008055007,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
     "수요": 13.5,
     "코드": 0.0,
     "경쟁 여유": 5
    },
    "score": 18,
-   "evidence": "Roblox 동시 접속 10,275명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "evidence": "Roblox 동시 접속 10,364명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "nba-2k27": {
    "name": "NBA 2K27",
@@ -5135,16 +5184,16 @@
    "in_kr": false,
    "note": "다시 확인(samlover.com·roonby.com 네트워크 차단돼 WebSearch 스니펫으로만 재확인). 기존 3개 코드 그대로 활성, 새 코드 없음.",
    "last_checked": "2026-10-21",
-   "playing": 34686,
-   "visits": 4017335513,
-   "roblox_updated": "2026-10-21",
+   "playing": 36680,
+   "visits": 4021776273,
+   "roblox_updated": "2026-10-22",
    "score_parts": {
-    "수요": 20.5,
+    "수요": 20.9,
     "코드": 7.5,
     "경쟁 여유": 12
    },
    "score": 40,
-   "evidence": "Roblox 동시 접속 34,686명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "evidence": "Roblox 동시 접속 36,680명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-huss-valley": {
    "name": "Huss Valley",
@@ -5186,16 +5235,16 @@
    "in_kr": false,
    "note": "다시 확인. beebom.com(10/18)이 새 코드 CANDY, tuesdaysRock 을 추가했지만 두 번째 독립 출처를 못 찾아(dexerto.com·khelnow.com·progameguides.com 등 네트워크 차단/403) 이번엔 넣지 않음. 다음 확인에서 재시도 필요.",
    "last_checked": "2026-10-21",
-   "playing": 30571,
-   "visits": 173976225,
-   "roblox_updated": "2026-10-22",
+   "playing": 29104,
+   "visits": 179218017,
+   "roblox_updated": "2026-10-23",
    "score_parts": {
-    "수요": 19.8,
+    "수요": 19.5,
     "코드": 5.0,
     "경쟁 여유": 12
    },
-   "score": 37,
-   "evidence": "Roblox 동시 접속 30,571명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "score": 36,
+   "evidence": "Roblox 동시 접속 29,104명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "afk-journey": {
    "name": "AFK Journey",
@@ -5253,76 +5302,76 @@
      "reward": "20 Glimmer (US servers only)",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "aniimonow",
-     "reward": "Three Growth Flowers and 10,000 Credits",
+     "reward": "3 Growth Flowers and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "anywhereaniimo",
-     "reward": "Three Growth Flowers and 10,000 Credits",
+     "reward": "3 Growth Flowers and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "anythinganiimo",
-     "reward": "Three Growth Flowers and 10,000 Credits",
+     "reward": "3 Growth Flowers and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "aniimoidyll",
-     "reward": "10,000 Credits and five Aniipods",
+     "reward": "5 Aniipod and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "aniimotogether",
-     "reward": "10,000 Credits and three Growth Flowers",
+     "reward": "3 Growth Flowers and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "aniimofreetoplay",
-     "reward": "50 Glimmer, five Growth Flowers, and five Aniipod Pros",
+     "reward": "50 Glimmer, 5 Aniipod Pro, and 5 Growth Flowers",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
@@ -5334,71 +5383,114 @@
      ],
      "first_seen": "2026-10-09",
      "last_verified": "2026-10-18",
-     "status": "active"
+     "status": "expired",
+     "expired_on": "2026-10-22",
+     "expired_source": "https://beebom.com/aniimo-codes/"
     },
     {
      "code": "anyoneaniimo",
-     "reward": "10,000 Credits and five Aniipods",
+     "reward": "5 Aniipod and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "aniimoopenworld",
-     "reward": "10,000 Credits and five Aniipods",
+     "reward": "5 Aniipod and 10,000 Credits",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "ANIIMOGIFT",
-     "reward": "10 Glimmer, 20,000 Credits, 10 Growth Flowers, and five Aniipod Pros",
+     "reward": "10 Glimmer, 20,000 Credits, 10 Growth Flowers, and 5 Aniipod Pro",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
      "status": "active"
     },
     {
      "code": "Aniimo2026",
-     "reward": "A SUSUTA egg special prize, two Aniipod Ultras, and 200 Glimmer",
+     "reward": "SUSUTA egg special prize, 2 Aniipod Ultra, and 200 Glimmer",
      "sources": [
       "https://www.pockettactics.com/aniimo/codes",
-      "https://www.pcgamesn.com/aniimo/codes"
+      "https://beebom.com/aniimo-codes/"
      ],
      "first_seen": "2026-10-09",
-     "last_verified": "2026-10-18",
+     "last_verified": "2026-10-23",
+     "status": "active"
+    },
+    {
+     "code": "twinewithaniimo",
+     "reward": "50 Glimmer, 5 Aniipod Pro, and 5 Growth Flowers",
+     "sources": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://beebom.com/aniimo-codes/"
+     ],
+     "first_seen": "2026-10-23",
+     "last_verified": "2026-10-23",
+     "status": "active"
+    },
+    {
+     "code": "aniimolaunch2026",
+     "reward": "5 Aniipod and 10,000 Credits",
+     "sources": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://beebom.com/aniimo-codes/"
+     ],
+     "first_seen": "2026-10-23",
+     "last_verified": "2026-10-23",
+     "status": "active"
+    },
+    {
+     "code": "aniimobonus",
+     "reward": "50 Glimmer",
+     "sources": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://beebom.com/aniimo-codes/"
+     ],
+     "first_seen": "2026-10-23",
+     "last_verified": "2026-10-23",
      "status": "active"
     }
    ],
    "platform": "pc",
    "redeem": "Open the settings menu. Go to the Account tab. Select Gift Code Redemption. Enter the code and confirm. Check your in-game mailbox for the reward.",
    "us_coverage": [
+    "mein-mmo.de",
+    "khelnow.com",
+    "gameblog.fr",
+    "booster-breakerz.fr",
+    "game.guide",
+    "roonby.com",
+    "primagames.com",
     "pcgamer.com",
     "pockettactics.com",
-    "dexerto.com"
+    "dexerto.com",
+    "beebom.com"
    ],
    "in_kr": true,
    "note": "pockettactics·pcgamesn 둘 다 10/9 업데이트, 대소문자까지 같은 표기 12개만 등록. twinewithaniimo·aniimolaunch2026·aniimobonus(두 출처 보상 불일치)·aniimoparty(pcgamesn 목록에 없어 단일 출처)는 제외.",
-   "last_checked": "2026-10-18",
+   "last_checked": "2026-10-23",
    "app_rank": {},
    "score_parts": {
     "수요": 0.0,
-    "코드": 25.0,
-    "경쟁 여유": 12
+    "코드": 40.0,
+    "경쟁 여유": 5
    },
-   "score": 37,
-   "evidence": "살아 있는 코드 12개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "score": 45,
+   "evidence": "살아 있는 코드 14개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "rise-of-kingdoms": {
    "name": "Rise of Kingdoms",
@@ -5448,5 +5540,5 @@
    "evidence": "살아 있는 코드 2개 · 미국 큰 코드 사이트 2곳이 다룸"
   }
  },
- "updated": "2026-10-22 13:19"
+ "updated": "2026-10-23 13:20"
 }
