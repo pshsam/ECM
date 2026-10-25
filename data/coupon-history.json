@@ -602,6 +602,9 @@
     "reward": "럭키 스핀 10개 + 캐시 100,000",
     "removed": "2026-10-12"
   },
+  "roblox-basketball-zero:15VAMPIRERETURN": {
+    "reward": "럭키 스타일 스핀 10회, 럭키 존 스핀 10회, 머니 100,000"
+  },
   "roblox-basketball-zero:CHROLLOBDAY": {
     "reward": "럭키 스타일 스핀 10개 + 럭키 존 스핀 10개 + 게임머니 100,000",
     "removed": "2026-10-06"
@@ -617,6 +620,9 @@
   "roblox-basketball-zero:PERFV2": {
     "reward": "럭키 스핀 15개 + 캐시 50,000",
     "removed": "2026-10-12"
+  },
+  "roblox-basketball-zero:VAMPIRERETURN": {
+    "reward": "럭키 스타일 스핀 15회, 럭키 존 스핀 15회, 머니 50,000"
   },
   "roblox-bee-swarm-simulator:15MMembers": {
     "reward": "클럽 멤버 전용 보상 (마시멜로우 비 1개 등 다수 재료)"
@@ -967,7 +973,8 @@
     "reward": "골드 100,000"
   },
   "roblox-king-legacy:RainbowDragon": {
-    "reward": "젬 100개 (업데이트7 이전 레인보우 드래곤 보유자)"
+    "reward": "젬 100개 (업데이트7 이전 레인보우 드래곤 보유자)",
+    "removed": "2026-10-26"
   },
   "roblox-king-legacy:SKGames": {
     "reward": "2x EXP 30분 (Sea King Games 로블록스 그룹 가입 필요)"
