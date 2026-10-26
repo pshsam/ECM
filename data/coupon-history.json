@@ -504,6 +504,7 @@
   "infinity-nikki:EYESONTHEGOLDENFEAST": {
     "reward": "헤드웨어 'Flavorful Moments'",
     "src": [
+      "https://x.com/InfinityNikkiEN/status/2086739343780323337",
       "https://www.pockettactics.com/infinity-nikki/codes",
       "https://www.pcgamesn.com/infinity-nikki/codes"
     ]
@@ -548,7 +549,8 @@
     "src": [
       "https://www.pockettactics.com/infinity-nikki/codes",
       "https://www.pcgamesn.com/infinity-nikki/codes"
-    ]
+    ],
+    "removed": "2026-10-27"
   },
   "infinity-nikki:ZONGZIMOMOFRAGRANTNIKKI": {
     "reward": "다이아몬드 200개, 블링 18,800",
