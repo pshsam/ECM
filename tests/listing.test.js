@@ -7,7 +7,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { loadPage, ROOT } = require('./page');
-const { isListed, KEEP_LISTED_WITHOUT_CODES, evaluate, writeGamePages, headerHtml, footerHtml, GENRE_LABELS } = require('../scripts/game-pages');
+const { isListed, isIndexed, KEEP_LISTED_WITHOUT_CODES, evaluate, writeGamePages, headerHtml, footerHtml, GENRE_LABELS } = require('../scripts/game-pages');
 const { writeGameHub } = require('../scripts/hubs');
 const { writeLlmsTxt } = require('../scripts/llms-txt');
 const { writeSitemap } = require('../scripts/prerender');
@@ -69,7 +69,8 @@ test('B: 코드가 없는 게임은 사이트맵·llms.txt·/game/ 에서 빠지
       { ...base, id: 'zz-live', title: '코드 있는 게임', coupons: [{ code: 'LIVE1', reward: 'r', expireDate: '상시' }] },
       { ...base, id: keep, title: '남기는 게임', coupons: [] },
     ];
-    const gp = writeGamePages(tmp, games, [], '2026-10-15', {}, {});
+    // 공식 출처 판정이 시작되기 전 날짜로 고정 (그 뒤 규칙은 tests/official.test.js)
+    const gp = writeGamePages(tmp, games, [], '2026-10-15', {}, {}, {}, {}, { todayKst: '2026-10-20' });
     assert.deepEqual(gp.ids.sort(), ['zz-hidden', 'zz-live', keep].sort(), '숨긴 게임도 페이지 파일은 남아야 함');
     assert.deepEqual(gp.listedIds.sort(), ['zz-live', keep].sort());
 
@@ -95,25 +96,34 @@ test('B: 코드가 없는 게임은 사이트맵·llms.txt·/game/ 에서 빠지
 });
 
 // ── 실제 빌드 결과 (node scripts/prerender.js 를 돌린 뒤) ──
+// noindex 는 두 가지다: 목록에서 뺀 게임(B) + 목록에는 보이지만 검색에 내보내지 않는 게임(isIndexed, 2026-10-27~)
+const LEDGER = JSON.parse(read('data/coupon-history.json'));
 const pageFiles = fs.readdirSync(path.join(ROOT, 'game')).filter(f => f.endsWith('.html') && f !== 'index.html');
 const hiddenIds = pageFiles.filter(f => NOINDEX.test(read('game/' + f))).map(f => f.replace(/\.html$/, ''));
 const shownIds = pageFiles.map(f => f.replace(/\.html$/, '')).filter(id => !hiddenIds.includes(id));
+const unlistedIds = pageFiles.map(f => f.replace(/\.html$/, '')).filter(id => { const g = catalog.find(x => x.id === id); return !g || !isListed(g, activeOf); });
 
-test('noindex 게임 페이지는 지금 살아 있는 코드가 없고, 남길 게임 목록에도 없는 게임이다', () => {
-  for (const id of hiddenIds) {
+test('noindex 게임 페이지는 검색에 내보내지 않기로 판정된 게임(isIndexed false)과 정확히 같다', () => {
+  for (const id of pageFiles.map(f => f.replace(/\.html$/, ''))) {
     const g = catalog.find(x => x.id === id);
     assert.ok(g, `${id}: 카탈로그에 없는 게임의 페이지가 남아 있음`);
-    assert.equal(activeOf(g).length, 0, `${id}: 살아 있는 코드가 있는데 noindex (prerender 를 다시 돌리세요)`);
-    assert.ok(!KEEP_LISTED_WITHOUT_CODES.includes(id), `${id}: 남길 게임인데 noindex`);
+    assert.equal(hiddenIds.includes(id), !isIndexed(g, activeOf, { ledger: LEDGER }), `${id}: 판정과 noindex 가 다름 (prerender 를 다시 돌리세요)`);
   }
 });
 
-test('살아 있는 코드가 있는 게임은 페이지가 noindex 가 아니고 사이트맵·llms.txt 에 있다', () => {
+test('목록에서 뺀 게임(B)은 살아 있는 코드가 없고 남길 게임 목록에도 없다', () => {
+  for (const id of unlistedIds) {
+    const g = catalog.find(x => x.id === id);
+    assert.equal(activeOf(g).length, 0, `${id}: 살아 있는 코드가 있는데 목록에서 빠짐`);
+    assert.ok(!KEEP_LISTED_WITHOUT_CODES.includes(id), `${id}: 남길 게임인데 목록에서 빠짐`);
+  }
+});
+
+test('검색에 내보내는 게임은 페이지가 noindex 가 아니고 사이트맵·llms.txt 에 있다', () => {
   const sitemap = read('sitemap.xml'), llms = read('llms.txt');
-  for (const g of catalog.filter(x => activeOf(x).length > 0)) {
-    assert.ok(shownIds.includes(g.id), `${g.id}: 코드가 있는데 페이지가 없거나 noindex`);
-    assert.ok(sitemap.includes(`/game/${g.id}.html`), `${g.id}: 사이트맵에 없음`);
-    assert.ok(llms.includes(`/game/${g.id}.html`), `${g.id}: llms.txt 에 없음`);
+  for (const id of shownIds) {
+    assert.ok(sitemap.includes(`/game/${id}.html`), `${id}: 사이트맵에 없음`);
+    assert.ok(llms.includes(`/game/${id}.html`), `${id}: llms.txt 에 없음`);
   }
 });
 
@@ -122,13 +132,17 @@ test('사이트맵의 게임 페이지는 noindex 가 아닌 페이지와 정확
   assert.deepEqual(inMap, shownIds.slice().sort());
 });
 
-test('목록·메뉴·허브·오늘의 쿠폰·무료 혜택·다른 게임 페이지가 noindex 게임 페이지로 링크하지 않는다', () => {
-  const files = ['index.html', 'assets/menu.html', 'game/index.html', 'today/index.html', 'llms.txt', 'sitemap.xml',
+test('llms.txt·사이트맵은 noindex 게임 페이지로, 목록·메뉴·허브·오늘의 쿠폰·무료 혜택·다른 게임 페이지는 목록에서 뺀 게임 페이지로 링크하지 않는다', () => {
+  for (const f of ['llms.txt', 'sitemap.xml']) {
+    const out = read(f);
+    for (const id of hiddenIds) assert.ok(!out.includes(`/game/${id}.html`), `${f} 에 noindex 게임 /game/${id}.html 이 있음`);
+  }
+  const files = ['index.html', 'assets/menu.html', 'game/index.html', 'today/index.html',
     ...fs.readdirSync(path.join(ROOT, 'free')).filter(f => f.endsWith('.html')).map(f => 'free/' + f),
     ...shownIds.map(id => `game/${id}.html`)];
   for (const f of files) {
     const html = read(f);
-    for (const id of hiddenIds) assert.ok(!html.includes(`/game/${id}.html`), `${f} 가 숨긴 게임 /game/${id}.html 로 링크함`);
+    for (const id of unlistedIds) assert.ok(!html.includes(`/game/${id}.html`), `${f} 가 숨긴 게임 /game/${id}.html 로 링크함`);
   }
 });
 

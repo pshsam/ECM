@@ -15,15 +15,17 @@ const ledger = fs.existsSync(LEDGER_FILE) ? JSON.parse(fs.readFileSync(LEDGER_FI
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const kstToday = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
 
-test('지난 코드 장부(data/coupon-history.json) 형식: "게임id:코드" → { reward?, expireDate?, removed? }', () => {
+test('지난 코드 장부(data/coupon-history.json) 형식: "게임id:코드" → { reward?, expireDate?, removed?, src? }', () => {
   assert.ok(fs.existsSync(LEDGER_FILE), 'prerender 를 돌려 장부를 만드세요');
   for (const [k, v] of Object.entries(ledger)) {
     assert.match(k, /^[a-z0-9_-]+:.+$/, `키 '${k}'`);
     assert.ok(v && typeof v === 'object' && !Array.isArray(v), `${k}: 객체가 아님`);
-    for (const f of Object.keys(v)) assert.ok(['reward', 'expireDate', 'removed'].includes(f), `${k}: 모르는 필드 ${f}`);
+    for (const f of Object.keys(v)) assert.ok(['reward', 'expireDate', 'removed', 'src'].includes(f), `${k}: 모르는 필드 ${f}`);
     if (v.reward !== undefined) assert.ok(typeof v.reward === 'string' && v.reward.trim(), `${k}: reward`);
     if (v.expireDate !== undefined) assert.ok(v.expireDate === '상시' || DATE.test(v.expireDate), `${k}: expireDate '${v.expireDate}'`);
     if (v.removed !== undefined) assert.ok(DATE.test(v.removed) && v.removed <= kstToday, `${k}: removed '${v.removed}'`);
+    // 출처 주소 (2026-10-27~): 공식 출처로 확인했던 코드인지 끝난 뒤에도 알 수 있게
+    if (v.src !== undefined) assert.ok(Array.isArray(v.src) && v.src.length >= 1 && v.src.length <= 3 && v.src.every(u => /^https?:\/\//.test(u)), `${k}: src`);
   }
 });
 

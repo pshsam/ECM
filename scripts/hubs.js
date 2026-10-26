@@ -72,7 +72,7 @@ function writeGameHub(rootDir, { games, posts, version, firstSeen, gamePageIds, 
   const body = `    <nav class="hub-crumb" aria-label="현재 위치"><a href="/">ECM 쿠폰</a> › 게임 쿠폰</nav>
     <div class="hub-head">
       <h1>게임 쿠폰 코드 모음 <small>(${ym})</small></h1>
-      <p class="hub-lede">ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(version))} 기준으로 확인한 게임 ${withPage.length}종의 쿠폰 코드와 입력 방법이에요. 코드는 게임사 공식 채널이나 독립된 출처 두 곳에서 확인한 것만 올리고, 만료되면 목록에서 내립니다.</p>
+      <p class="hub-lede">ECM 쿠폰(Every Coupon Matters)이 ${esc(fmt(version))} 기준으로 확인한 게임 ${withPage.length}종의 쿠폰 코드와 입력 방법이에요. 코드마다 확인일과 출처를 적고(공식 원문을 찾은 코드는 공식 출처로 표시), 만료되면 목록에서 내립니다.</p>
     </div>
     <div class="hub-stats"><span class="hub-stat">게임 <b>${withPage.length}</b>종</span><span class="hub-stat">지금 쓸 수 있는 코드 <b>${totalActive}</b>개</span><span class="hub-stat">새 쿠폰 게임 <b>${fresh.length}</b>곳</span><span class="hub-stat">마감 임박 <b>${due.length}</b>곳</span><span class="hub-stat">확인 ${esc(fmt(version))}</span></div>
     <nav class="hub-chips" aria-label="게임 쿠폰 바로가기">${chips}</nav>
@@ -99,7 +99,7 @@ ${s.list.map(tile).join('\n')}
     </section>`).join('')}
 ${roblox.length ? `
     <section class="hub-sec" id="roblox" aria-labelledby="g-roblox">
-      <h2 id="g-roblox"><i class="fa-solid fa-cube"></i> 로블록스 <small>${roblox.length}종 · 개발팀 공식 채널 기준, 하루 두 번 확인</small></h2>
+      <h2 id="g-roblox"><i class="fa-solid fa-cube"></i> 로블록스 <small>${roblox.length}종 · 하루 두 번 확인</small></h2>
       <div class="hub-tiles">
 ${roblox.map(tile).join('\n')}
       </div>

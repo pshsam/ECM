@@ -56,6 +56,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 | 글자 타일 | `monoOf` | `mono.js` | tests/data.test.js |
 | 코드 앵커 | `codeAnchor` | `game-pages.js` `codeAnchor` | tests/data.test.js |
 | 코드별 확인일·출처 줄 | `couponSourceHtml` (홈 쿠폰 창) | `game-pages.js` `couponSourceHtml` (코드 표) | tests/data.test.js |
+| 공식 출처 판정 | `srcKey` · `isOfficialSrc` | `official.js` | tests/official.test.js |
 | "직접 입력해 봤어요" 뱃지 | `testedBadgeHtml` (홈 쿠폰 창) | `game-pages.js` `testedBadgeHtml` (코드 표, /today/) | tests/tested.test.js |
 | "안 돼요" 신고 버튼 (스위치는 `scripts/reports.js` 한 곳) | `reportButtonHtml` (홈 쿠폰 창) | `game-pages.js` `reportButtonHtml` (코드 표) | tests/reports.test.js |
 | 목록에 보일 게임 (아래 "코드 없는 게임") | `isListedGame` | `game-pages.js` `isListed` | tests/listing.test.js |
@@ -76,6 +77,23 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
 - 블로그 글 본문이 숨긴 게임 페이지로 링크하면 prerender 가 "숨긴 게임으로 가는 블로그 링크"로 알려 준다. 본문은 자동으로 고치지 않는다.
 - 지난 코드 기록의 근거는 `data/coupon-seen.json`(등록일)과 `data/coupon-history.json`(보상·공식 만료일·목록에서 내린 날, prerender 가 관리)뿐이다.
   사이트를 연 날(2026-09-21) 첫 커밋에만 있던 예시 코드는 기록에 넣지 않는다.
+
+## 공식 출처·직접 확인 중심 (2026-10-27~, 애드센스 재심사)
+
+코드의 근거는 **게임사 공식 원문**이다. 코드 정리 사이트(pockettactics·beebom·pcgamesn 등)·매체·커뮤니티는 새 코드를 찾는 단서로만 쓴다.
+
+- `data/official-sources.json`: 게임별 공식 채널. `"lostark.game.onstove.com"`(주소만 = 하위 주소까지) 또는 `"x.com/LOSTARK_KR"`(경로까지 = 그 경로로 시작하는 글만).
+  X·유튜브·카페·로블록스처럼 여러 곳이 같이 쓰는 주소는 반드시 계정·경로까지 적는다. 매체는 넣지 않는다(tests/official.test.js 가 막는다).
+  쿠폰 루틴이 공식 원문을 찾을 때마다 더한다. prerender 가 index.html 의 `OFFICIAL_SOURCES` 에 써 넣는다.
+- 코드 출처 줄: src 중 공식 채널이 있으면 그 주소만 **공식 출처**로, 없으면 매체 주소를 **참고**로 보여 준다(`couponSourceHtml(c, gameId)`).
+- **검색에 내보낼 게임(noindex 여부, 사이트맵·llms.txt)은 목록과 따로 정한다** — `game-pages.js` `isIndexed`, 설정은 `data/game-listing.json`:
+  - `operatorGames`: 운영자가 하는 게임(로스트아크·FC 온라인·배틀그라운드). 목록에 보이면 내보낸다.
+  - `holdRobloxFromIndex: true`: 로블록스 게임 페이지는 전부 noindex(홈·/game/ 목록에는 그대로 보인다).
+  - `officialIndexFrom: "2026-11-10"`: 이날부터 그 밖의 게임은 살아 있는 코드 중 공식 출처나 직접 확인(tested ok)이 하나라도 있어야 내보낸다.
+    코드가 없는 A 게임은 지난 코드 장부(`data/coupon-history.json`, 2026-10-27~ `src` 를 같이 남김)에 공식 출처가 있어야 한다.
+- `data/blog-hold.json`: 검색에서 잠시 뺀 블로그 글 31편(지난 뉴스·일반론). prerender(`applyBlogHold`)가 글에 `<meta name="robots" content="noindex" data-hold>` 를 넣고,
+  블로그 목록 카드를 숨기고(카드가 전부 숨은 분류는 칩·섹션도), 사이트맵·홈 최근 글·assets/posts.json·llms.txt 에서 뺀다. 목록에서 지우면 되돌아온다. **손으로 data-hold 를 고치지 않는다.**
+- prerender 로그의 "검색에서 잠시 뺀 글로 가는 블로그 링크"는 알려만 준다(본문은 자동으로 고치지 않는다).
 
 ## 직접 입력해 봤어요 (data/tested.json, 2026-10-19~)
 
@@ -109,7 +127,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
   형식은 tests/data.test.js 가 검사한다.
   `checked`(게임 단위 조사일)와 다르다. 루틴 지침: 블로그 오토 저장소 `automation/routines/쿠폰_검증_루틴_지침.md`, `로블록스_쿠폰_루틴_지침.md`.
 - 날짜는 한국 시간 기준. 만료 후 90일이 지나면 목록에서 지운다.
-- 공식 공지나 서로 다른 출처 2곳에서 확인된 코드만 올린다(/about.html#criteria).
+- 공식 원문으로 확인된 코드만 올린다(/about.html#criteria, 위 "공식 출처·직접 확인 중심"). 2026-10 까지 매체 2곳으로 올린 코드는 "참고"로 보이고, 2026-11-09 까지 공식 원문을 못 찾으면 쿠폰 루틴이 내린다.
 
 ## 디자인 규칙
 

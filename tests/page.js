@@ -18,7 +18,7 @@ const INDEX = path.join(ROOT, 'index.html');
 const FNS = [
   'evaluateCoupon', 'countActiveCoupons', 'purgeOldCoupons',
   'matchesGameSearch', 'searchCounts', 'handleSearch', 'clearSearch',
-  'renderGames', 'monoOf', 'codeAnchor', 'couponSourceHtml', 'testedBadgeHtml', 'reportButtonHtml', 'esc', 'isListedGame', 'hasGamePage',
+  'renderGames', 'monoOf', 'codeAnchor', 'couponSourceHtml', 'testedBadgeHtml', 'reportButtonHtml', 'esc', 'isListedGame', 'hasGamePage', 'srcKey', 'isOfficialSrc',
 ];
 
 function pageScript(html) {
@@ -43,7 +43,7 @@ function loadPage(opt = {}) {
     return {
       fn: { ${FNS.join(', ')} },
       setQuery(q) { searchQuery = q; },
-      state() { return { games, searchQuery, currentMainCategory, initialGameCatalog, COUPON_FIRST_SEEN, KEEP_LISTED_WITHOUT_CODES, TESTED_CODES, REPORTS_ENABLED }; },
+      state() { return { games, searchQuery, currentMainCategory, initialGameCatalog, COUPON_FIRST_SEEN, KEEP_LISTED_WITHOUT_CODES, TESTED_CODES, REPORTS_ENABLED, OFFICIAL_SOURCES }; },
     };
   `;
   const run = new Function('document', 'window', 'localStorage', 'console', 'navigator', 'location', body);

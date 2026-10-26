@@ -14,6 +14,7 @@ const { GA_SNIPPET } = require('./analytics');
 const { FONT_HEAD } = require('./font-head');
 const { monoBox } = require('./mono');
 const { REPORTS_ENABLED } = require('./reports');
+const { isOfficialSrc, hasOfficialBasis } = require('./official');
 
 const SITE = 'https://ecm-coupon.com';
 
@@ -38,12 +39,21 @@ function qualifies(g, activeOf) {
  * 코드가 0개여도 목록에 남길 게임 (data/game-listing.json, 2026-10-15 A안). 이 목록은 그 파일 한 곳에만 둔다.
  * prerender.js 가 같은 목록을 index.html 의 KEEP_LISTED_WITHOUT_CODES 에 써 넣는다.
  */
-const KEEP_LISTED_WITHOUT_CODES = (() => {
-  try {
-    const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'game-listing.json'), 'utf8'));
-    return Array.isArray(j.keepListedWithoutCodes) ? j.keepListedWithoutCodes : [];
-  } catch (e) { return []; }
+const LISTING = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'game-listing.json'), 'utf8')); } catch (e) { return {}; }
 })();
+const KEEP_LISTED_WITHOUT_CODES = Array.isArray(LISTING.keepListedWithoutCodes) ? LISTING.keepListedWithoutCodes : [];
+
+/**
+ * 검색에 내보낼 게임 (2026-10-27~, 애드센스 재심사). 목록에 보이는 것(isListed)과 따로 정한다 — 목록에는 보여도 noindex 일 수 있다.
+ *   operatorGames         운영자가 실제로 하는 게임(직접 입력해 보는 게임). 목록에 보이면 검색에 내보낸다
+ *   holdRobloxFromIndex   true 면 로블록스 게임 페이지는 전부 noindex (코드 출처가 거의 매체라서)
+ *   officialIndexFrom     이 날(한국 날짜)부터는 살아 있는 코드 중 공식 출처나 직접 확인(tested ok)이 하나라도 있어야 검색에 내보낸다.
+ *                         그 전에는 목록 규칙만 따른다(쿠폰 루틴이 기존 코드의 출처를 공식 원문으로 바꿀 시간)
+ */
+const OPERATOR_GAMES = Array.isArray(LISTING.operatorGames) ? LISTING.operatorGames : [];
+const HOLD_ROBLOX = LISTING.holdRobloxFromIndex === true;
+const OFFICIAL_INDEX_FROM = /^\d{4}-\d{2}-\d{2}$/.test(LISTING.officialIndexFrom || '') ? LISTING.officialIndexFrom : '';
 
 /**
  * 목록에 보일 게임: 페이지가 있고, 살아 있는 코드가 있거나 위 목록에 있는 게임.
@@ -54,10 +64,29 @@ function isListed(g, activeOf) {
   return qualifies(g, activeOf) && (activeOf(g).length > 0 || KEEP_LISTED_WITHOUT_CODES.includes(g.id));
 }
 
+/**
+ * 검색에 내보낼 게임 페이지 (noindex 가 아닌 것, 사이트맵·llms.txt 에 들어감). 위 LISTING 설명 참고.
+ * 코드가 없는 A 목록 게임은 지난 코드 기록(data/coupon-history.json)에 공식 출처가 남은 코드가 있어야 한다.
+ * @param {string} todayKst 한국 날짜 YYYY-MM-DD (테스트에서 바꿔 넣는다)
+ */
+function isIndexed(g, activeOf, { ledger = {}, tested = TESTED, todayKst = kstTodayStr() } = {}) {
+  if (!isListed(g, activeOf)) return false;
+  if (HOLD_ROBLOX && (g.platforms || []).includes('roblox')) return false;
+  if (OPERATOR_GAMES.includes(g.id)) return true;
+  if (!OFFICIAL_INDEX_FROM || todayKst < OFFICIAL_INDEX_FROM) return true;
+  if (activeOf(g).some(c => hasOfficialBasis(g.id, c, tested))) return true;
+  return Object.keys(ledger).some(k => k.startsWith(g.id + ':') && (ledger[k].src || []).some(u => isOfficialSrc(g.id, u)));
+}
+
 /** 한국 날짜 기준 오늘(자정)을 UTC 밀리초로. 빌드가 한국(PC)에서 돌든 UTC(클라우드 루틴)에서 돌든 같은 D-day 가 나오게 한다. */
 function kstTodayUTC() {
   const k = new Date(Date.now() + 9 * 3600 * 1000);
   return Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate());
+}
+
+/** 한국 날짜 YYYY-MM-DD */
+function kstTodayStr() {
+  return new Date(kstTodayUTC()).toISOString().slice(0, 10);
 }
 
 const daysLeftKST = s => {
@@ -103,13 +132,16 @@ function statusPill(ev) {
 }
 /**
  * 코드별 확인일·출처 줄 (src / verified / cond, 2026-10-13~ 쿠폰 루틴이 채운다).
- * "확인 YYYY.MM.DD · 출처 도메인1, 도메인2" + 조건이 있으면 "조건: …". 값이 없으면 빈 문자열(“출처 없음”을 찍지 않는다).
+ * 공식 출처(data/official-sources.json, scripts/official.js)가 있으면 "확인 YYYY.MM.DD · 공식 출처 도메인"만,
+ * 없으면 "확인 YYYY.MM.DD · 참고 도메인1, 도메인2"(코드 정리 매체 등 공식 원문을 아직 못 찾은 코드).
+ * 조건이 있으면 "조건: …". 값이 없으면 빈 문자열(“출처 없음”을 찍지 않는다).
  * index.html 의 couponSourceHtml 과 같은 규칙이어야 한다 (tests/data.test.js 가 비교한다).
  */
-function couponSourceHtml(c) {
+function couponSourceHtml(c, gameId = '') {
   const src = c && Array.isArray(c.src) ? c.src : [];
+  const official = src.filter(u => isOfficialSrc(gameId, u));
   const count = {};
-  const links = src.map(u => {
+  const links = (official.length ? official : src).map(u => {
     let host = '';
     try { host = new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
     count[host] = (count[host] || 0) + 1;
@@ -119,7 +151,7 @@ function couponSourceHtml(c) {
   const verified = c && /^\d{4}-\d{2}-\d{2}$/.test(c.verified || '') ? c.verified : '';
   const parts = [];
   if (verified) parts.push(`확인 ${esc(verified.replace(/-/g, '.'))}`);
-  if (links.length) parts.push(`출처 ${links.join(', ')}`);
+  if (links.length) parts.push(`${official.length ? '<b class="ecm-src-official">공식 출처</b>' : '참고'} ${links.join(', ')}`);
   const cond = c && typeof c.cond === 'string' && c.cond.trim() ? c.cond.trim() : '';
   if (!parts.length && !cond) return '';
   return `<span class="ecm-src">${cond ? `<span class="ecm-src-cond">조건: ${esc(cond)}</span>` : ''}${parts.length ? `<span class="ecm-src-line">${parts.join(' · ')}</span>` : ''}</span>`;
@@ -270,52 +302,52 @@ function sourceInfo(g) {
   const isRoblox = (g.platforms || []).includes('roblox');
   if (isRoblox) return {
     where: '개발팀이 직접 냅니다. 로블록스 게임 페이지 설명란, 개발팀 공식 X(트위터), 공식 디스코드 공지에 먼저 올라오고, 좋아요·방문자 수 달성이나 업데이트 기념으로 나오는 경우가 많습니다.',
-    cadence: 'ECM 은 개발팀 공식 채널과 코드 전문 매체를 하루 두 번 확인합니다.',
+    cadence: 'ECM 은 개발팀 공식 채널(게임 페이지 설명란·공식 X)을 하루 두 번 확인합니다.',
     form: '대소문자를 구분하는 영문·숫자 조합이 대부분입니다.',
   };
   if (u.includes('nexon.com')) return {
     where: '넥슨 게임은 공식 홈페이지 공지, 넥슨 공식 카페, 라이브 방송(쇼케이스·업데이트 방송)에서 코드를 냅니다. 방송 중 공개되는 코드는 유효 기간이 짧은 편입니다.',
-    cadence: 'ECM 은 넥슨 공식 채널과 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 넥슨 공식 채널을 매일 확인합니다.',
     form: '넥슨 코드는 대문자 영문·숫자 조합이 많습니다. 넣는 곳은 게임마다 달라서(넥슨 쿠폰함, 모바일 쿠폰 페이지, 게임 안 메뉴) 아래 입력 방법을 따르세요.',
   };
   if (u.includes('onstove.com')) return {
     where: '스마일게이트 게임은 공식 커뮤니티 공지와 라이브 방송(예: 로아온)에서 코드를 냅니다.',
-    cadence: 'ECM 은 STOVE 공지와 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 STOVE 공지를 매일 확인합니다.',
     form: '영문 대문자와 숫자 조합이 대부분입니다.',
   };
   if (u.includes('netmarble.com')) return {
     where: '넷마블 게임은 공식 카페 공지, 쇼케이스·업데이트 방송, 출시 기념 이벤트에서 코드를 냅니다. 사전등록·출시 초기에 "웰컴 쿠폰"이 나오는 경우가 많습니다.',
-    cadence: 'ECM 은 넷마블 공식 카페와 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 넷마블 공식 카페를 매일 확인합니다.',
     form: '영문 대문자·숫자 조합이 많습니다.',
   };
   if (u.includes('plaync.com')) return {
     where: '엔씨소프트 게임은 공식 홈페이지 공지와 NC 공식 유튜브·방송에서 코드를 냅니다. 업데이트 기념과 콜라보 이벤트 때 나옵니다.',
-    cadence: 'ECM 은 공식 홈페이지 공지와 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 홈페이지 공지를 매일 확인합니다.',
     form: '영문 대문자·숫자 조합이 대부분입니다.',
   };
   if (u.includes('withhive.com') || pub.includes('컴투스')) return {
     where: '컴투스 게임은 공식 카페·커뮤니티 공지와 방송에서 코드를 냅니다. 하이브(Hive) 쿠폰 페이지에서 등록합니다.',
-    cadence: 'ECM 은 공식 커뮤니티와 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 커뮤니티를 매일 확인합니다.',
     form: '영문·숫자 조합이 대부분입니다.',
   };
   if (u.includes('kakaogames.com')) return {
     where: '카카오게임즈 게임은 공식 카페 공지, 업데이트 방송, 콜라보 이벤트에서 코드를 냅니다.',
-    cadence: 'ECM 은 공식 카페와 인벤 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 카페를 매일 확인합니다.',
     form: '영문 대문자·숫자 조합이 대부분입니다.',
   };
   if (u.includes('hoyoverse.com')) return {
     where: '호요버스 게임은 버전 업데이트 전 "스페셜 프로그램" 방송에서 코드를 공개합니다. 방송 코드는 사용 기간이 짧으니 공지된 기한을 확인하세요. 상시 코드는 따로 있습니다.',
-    cadence: 'ECM 은 공식 SNS와 공식 커뮤니티(HoYoLAB)를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 SNS와 공식 커뮤니티(HoYoLAB)를 매일 확인합니다.',
     form: '영문 대문자·숫자 조합이며 웹 교환 페이지나 게임 안에서 넣습니다.',
   };
   if (u.includes('centurygame.com') || u.includes('lastwar')) return {
     where: '이 게임의 코드는 공식 X(트위터)·페이스북·디스코드와 다운로드 달성 같은 기념 이벤트에서 나옵니다. 유튜버·방송 연계 코드도 자주 있습니다.',
-    cadence: 'ECM 은 공식 SNS와 해외 코드 전문 매체 2곳 이상을 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 SNS를 매일 확인합니다.',
     form: '대소문자를 구분하는 영문·숫자 조합이 많습니다.',
   };
   return {
     where: '게임사 공식 홈페이지 공지, 공식 SNS, 라이브 방송과 콜라보 이벤트에서 코드가 나옵니다.',
-    cadence: 'ECM 은 공식 채널과 인벤·게임 매체 기사를 4시간마다 확인합니다.',
+    cadence: 'ECM 은 공식 채널을 매일 확인합니다.',
     form: '영문·숫자 조합이 대부분이며 대소문자를 구분하는 경우가 있습니다.',
   };
 }
@@ -485,6 +517,10 @@ function pageHtml(g, ctx) {
   const pubKey = (g.publisher || '').split(/[ (·]/)[0];
   const samePub = pubKey ? allGames.filter(x => x.id !== g.id && (x.publisher || '').startsWith(pubKey) && isListed(x, ctx.activeOf)).slice(0, 6) : [];
   const listed = isListed(g, ctx.activeOf);
+  const indexed = isIndexed(g, ctx.activeOf, { ledger: ctx.ledger, tested, todayKst: ctx.todayKst });
+  // 지금 코드 중 공식 출처로 확인한 것 / 운영자가 직접 넣어 보고 된 것
+  const officialN = active.filter(({ c }) => (Array.isArray(c.src) ? c.src : []).some(u => isOfficialSrc(g.id, u))).length;
+  const testedN = active.filter(({ c }) => (tested[g.id + ':' + c.code] || {}).result === 'ok').length;
   const src = sourceInfo(g);
   const tally = sourceTally(active);
   const errSys = errorSystemFor(g);
@@ -506,7 +542,7 @@ function pageHtml(g, ctx) {
     : [`${shortName} 쿠폰 코드 입력 방법 (${mon}) | ECM 쿠폰`, `${shortName} 쿠폰 | ECM 쿠폰`]));
   const title = titleCands.find(t => t.length <= 40) || titleCands[titleCands.length - 1];
   const desc = active.length
-    ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. 공식 채널 확인 후 갱신.`
+    ? `${g.title}에서 지금 쓸 수 있는 쿠폰 코드 ${active.length}개와 보상, 만료일, 입력 방법. ${officialN === active.length ? '공식 채널 확인 후 갱신.' : '코드마다 확인일·출처 표시.'}`
     : `${g.title} 쿠폰(교환 코드) 입력 위치와 방법, 코드가 나오는 곳${history.length ? '과 지난 코드 기록' : ''}. 새 코드는 확인 즉시 등록.`;
 
   // ── 지난 코드 기록 + 코드가 나온 흐름 (기록이 없으면 단락을 만들지 않는다)
@@ -536,7 +572,7 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
     const seenTag = seen ? ` <small class="c-seen">${esc(fmt(seen).slice(5))} 등록</small>` : '';
     return `<tr id="${codeAnchor(c.code)}"${seen ? ` data-added="${esc(seen)}"` : ''} data-code="${esc(c.code)}">
           <td class="c-code"><code class="ecm-code">${esc(c.code)}</code>${isNew ? ' <span class="ecm-pill new" data-new>NEW</span>' : ''}</td>
-          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c)}${testedOf(c)}${reportButtonHtml(g.id, c.code, reportsOn)}</td>
+          <td class="c-reward"><span class="c-label">보상</span>${esc(c.reward || '보상 확인')}${couponSourceHtml(c, g.id)}${testedOf(c)}${reportButtonHtml(g.id, c.code, reportsOn)}</td>
           <td class="c-exp"><span class="c-label">만료일</span>${exp}${seenTag}</td>
           <td class="c-act ecm-nowrap"><button type="button" class="ecm-btn-primary" data-copy="${esc(c.code)}"><i class="fa-regular fa-copy"></i> 복사</button></td>
           <td class="c-used ecm-nowrap"><button type="button" class="ecm-used-btn" data-used="${esc(c.code)}" aria-pressed="false"><i class="fa-regular fa-square" aria-hidden="true"></i> <span>사용함</span></button></td>
@@ -575,7 +611,7 @@ ${shownHistory.map(r => `        <tr><td class="h-code"><code class="ecm-code is
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}">
-${listed ? '' : '  <meta name="robots" content="noindex">\n'}  <link rel="canonical" href="${url}">
+${indexed ? '' : '  <meta name="robots" content="noindex">\n'}  <link rel="canonical" href="${url}">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
@@ -772,7 +808,7 @@ ${active.length ? redeemBarHtml(g) : ''}${active.length ? `    <table class="ecm
 ${codeRows}
       </tbody>
     </table>
-    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.${active.some(x => couponSourceHtml(x.c)) ? ' 코드 아래 <b>확인</b>은 출처 글로 그 코드를 확인한 날, <b>출처</b>는 근거로 삼은 글이에요.' : ''}</p>`
+    <p class="ecm-code-note">최근 등록된 코드부터 보여요. NEW는 등록 7일 안, <b>오늘 추가</b>는 오늘 등록된 코드예요. 만료일이 공지되지 않은 코드는 <b>미공개</b>로 표시하며, 게임사가 예고 없이 닫을 수 있어요. <b>사용함</b>은 이 기기에만 저장되고, 표시한 코드는 다음에 열 때 목록 아래로 내려가요.${active.some(x => couponSourceHtml(x.c, g.id)) ? ' 코드 아래 <b>확인</b>은 그 코드를 확인한 날이에요. <b>공식 출처</b>는 게임사 공지·공식 계정 원문, <b>참고</b>는 공식 원문을 아직 찾지 못해 코드 정리 사이트 등으로 확인한 코드예요.' : ''}</p>`
 : `    <div class="ecm-nocode">
       <p>${flow.total
         ? `${flow.last ? `ECM이 마지막으로 새 코드를 등록한 날은 <b>${esc(fmt(flow.last))}</b>이고, ` : ''}지금까지 기록한 코드는 ${flow.total}개예요.${history.length ? ' <a href="#history">지난 코드 기록</a>에 남겨 두었어요.' : expired.length ? ' <a href="#expired">최근 만료된 코드</a>에 남겨 두었어요.' : ''}`
@@ -797,11 +833,12 @@ ${historyHtml}`}
     <details class="ecm-criteria" id="criteria"><summary>확인 기준 보기</summary>
       <p>${active.length
       ? `ECM 쿠폰이 ${esc(fmt(g.checked || version))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 정리한 ${esc(g.title)} 쿠폰 코드 ${active.length}개와 보상, 만료 상태, 입력 방법입니다.`
-      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} 코드는 ${isRoblox ? '개발팀 공식 채널이나 코드 전문 매체 2곳' : '게임사 공식 채널이나 독립된 출처 2곳'}에서 확인된 것만 올립니다. ECM이 모든 코드를 직접 입력해 보는 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.${active.some(x => testedOf(x.c)) ? ' <b>직접 입력해 봤어요</b> 표시가 있는 코드는 운영자가 게임에서 직접 넣어 본 코드이고, 옆 날짜가 넣어 본 날이에요.' : ''}</p>
+      : `ECM 쿠폰이 정리한 ${esc(g.title)} 쿠폰 입력 방법과 코드가 나오는 곳${history.length ? ', 지난 코드 기록' : ''}입니다. ${esc(fmt(checkedOn))} ${g.checked ? '확인' : '목록 갱신'} 기준으로 살아 있는 코드는 없습니다.`} ECM은 ${isRoblox ? '개발팀' : '게임사'} 공식 공지·공식 계정 원문을 출처로 삼고, 공식 원문을 찾은 코드에는 <b>공식 출처</b>를 표시합니다. ECM이 모든 코드를 직접 입력해 보는 것은 아니어서, 확인한 뒤에 닫힌 코드는 다음 확인 때 내립니다.${active.some(x => testedOf(x.c)) ? ' <b>직접 입력해 봤어요</b> 표시가 있는 코드는 운영자가 게임에서 직접 넣어 본 코드이고, 옆 날짜가 넣어 본 날이에요.' : ''}</p>
     </details>
 
     <h2 id="source">코드가 나오는 곳</h2>
-${tally.length ? `    <p>지금 목록에 있는 ${esc(g.title)} 코드 ${active.length}개를 ECM이 확인한 곳은 ${tally.slice(0, 5).map(([h, c]) => `${esc(h)} ${c}개`).join(', ')}${tally.length > 5 ? ` 외 ${tally.length - 5}곳` : ''}입니다. 코드마다 표의 "출처"에서 원문을 열어 볼 수 있어요.</p>` : `    <p>${esc(src.where)}</p>`}
+    <p>${esc(src.where)}</p>
+${tally.length ? `    <p>지금 목록에 있는 ${esc(g.title)} 코드 ${active.length}개 중 공식 출처(게임사 공지·공식 계정)로 확인한 코드는 ${officialN}개${testedN ? `, 운영자가 직접 넣어 본 코드는 ${testedN}개` : ''}입니다.${officialN < active.length ? ` 나머지 ${active.length - officialN}개는 공식 원문을 찾는 중이라 표에 <b>참고</b>로 표시했어요.` : ''} 코드마다 표에서 원문을 열어 볼 수 있어요.</p>\n` : ''}
     <p>${g.officialUrl ? ` 공식 사이트: <a href="${esc(g.officialUrl)}" target="_blank" rel="noopener noreferrer">${esc(g.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))} ↗</a>` : ''}</p>
 
 ${noteHtml(g)}    <h2 id="how">입력 방법</h2>
@@ -965,21 +1002,26 @@ ${footerHtml()}
 
 /**
  * 게임 페이지를 만들고, 자격을 잃은 게임의 페이지는 지운다.
- * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록·사이트맵에 넣을 게임(isListed). 나머지는 noindex 페이지로만 남는다.
- * @returns {{written: number, removed: number, ids: string[], listedIds: string[]}}
+ * ids = 페이지가 있는 게임 전부, listedIds = 그중 목록에 보일 게임(isListed),
+ * indexedIds = 그중 검색에 내보낼 게임(isIndexed, 사이트맵·llms.txt). 나머지는 noindex 페이지다.
+ * @returns {{written: number, removed: number, ids: string[], listedIds: string[], indexedIds: string[]}}
  */
 function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}, ledger = {}, tested = TESTED, opts = {}) {
   const dir = path.join(rootDir, 'game');
   fs.mkdirSync(dir, { recursive: true });
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const activeOf = g => (g.coupons || []).filter(c => evaluate(c, today).active);
-  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger, tested, reportsEnabled: opts.reportsEnabled };
+  // opts.todayKst: 검색 내보내기 판정(isIndexed)의 기준 날짜. 테스트가 날짜를 고정할 때만 넘긴다
+  const todayKst = opts.todayKst || kstTodayStr();
+  const ctx = { today, posts, allGames: games, version, firstSeen, activeOf, ogImages, ledger, tested, reportsEnabled: opts.reportsEnabled, todayKst };
   const keep = new Set();
   const listedIds = [];
+  const indexedIds = [];
   let written = 0;
   for (const g of games) {
     if (!qualifies(g, activeOf)) continue;
     if (isListed(g, activeOf)) listedIds.push(g.id);
+    if (isIndexed(g, activeOf, { ledger, tested, todayKst })) indexedIds.push(g.id);
     const file = path.join(dir, `${g.id}.html`);
     const html = pageHtml(g, ctx);
     const prev = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
@@ -990,7 +1032,7 @@ function writeGamePages(rootDir, games, posts, version, firstSeen, ogImages = {}
   for (const f of fs.readdirSync(dir)) {
     if (f.endsWith('.html') && f !== 'index.html' && !keep.has(f)) { fs.unlinkSync(path.join(dir, f)); removed++; }
   }
-  return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds };
+  return { written, removed, ids: [...keep].map(f => f.replace(/\.html$/, '')), listedIds, indexedIds };
 }
 
-module.exports = { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, testedBadgeHtml, TESTED, reportButtonHtml, GENRE_LABELS };
+module.exports = { writeGamePages, qualifies, isListed, isIndexed, KEEP_LISTED_WITHOUT_CODES, OPERATOR_GAMES, HOLD_ROBLOX, OFFICIAL_INDEX_FROM, historyFor, flowFor, flowBoxHtml, headerHtml, footerHtml, evaluate, codeAnchor, couponSourceHtml, testedBadgeHtml, TESTED, reportButtonHtml, GENRE_LABELS };

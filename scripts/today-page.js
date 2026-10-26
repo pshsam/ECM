@@ -66,7 +66,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, coup
         id: g.id, t: g.title, u: pages.has(g.id) ? `/game/${g.id}.html#${codeAnchor(c.code)}` : '/game/', mh: m.h, mc: m.ch,
         c: c.code, r: c.reward || '', e: c.expireDate || '', s: seen > BASELINE_DATE ? seen : '',
         // 확인일·출처 줄 (game-pages.js couponSourceHtml 이 만든 HTML, 값이 없으면 빈 문자열)
-        h: couponSourceHtml(c),
+        h: couponSourceHtml(c, g.id),
         // 직접 입력해 봤어요 뱃지 (game-pages.js testedBadgeHtml + data/tested.json, 없으면 빈 문자열)
         b: testedBadgeHtml(tested[g.id + ':' + c.code]),
       });
@@ -128,7 +128,7 @@ function writeTodayPage(rootDir, { games, firstSeen, gamePageIds, evaluate, coup
       </div>
     </section>
 
-    <p class="ecm-page-note">코드는 게임사 공식 채널에서 확인한 것만 올려요. 전체 목록은 <a class="hub-link" href="/game/">게임 쿠폰 홈</a>에 있어요.</p>
+    <p class="ecm-page-note">코드마다 확인일과 출처를 적어요. <b>공식 출처</b>는 게임사 공지·공식 계정 원문, <b>참고</b>는 공식 원문을 아직 찾는 중인 코드예요. 전체 목록은 <a class="hub-link" href="/game/">게임 쿠폰 홈</a>에 있어요.</p>
     <div id="copyToast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full ecm-toast text-xs font-bold shadow-2xl">복사했습니다</div>
     <script type="application/json" id="todayData">${JSON.stringify({ items, games: gameList }).replace(/</g, '\\u003c')}</script>
     <script>${CLIENT}</script>`;

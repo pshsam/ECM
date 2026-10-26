@@ -86,7 +86,7 @@ function writeFreePages(rootDir, { games = [], evaluate, gamePageIds = [], heade
   const hubBody = `    <p class="hub-crumb"><a href="/">ECM</a> › 게임 무료 혜택</p>
     <header class="hub-head">
       <h1>게임 무료 혜택 모음</h1>
-      <p class="hub-lede">돈 한 푼 안 들이고 받을 수 있는 게임 보상을 모았어요. 쿠폰 코드는 매일 게임사 공식 채널에서 확인하고, 사전예약은 게임사 발표로 확인한 것만 올려요.</p>
+      <p class="hub-lede">돈 한 푼 안 들이고 받을 수 있는 게임 보상을 모았어요. 쿠폰 코드는 매일 확인하고 코드마다 확인일과 출처를 적어요(공식 원문을 찾은 코드는 공식 출처로 표시). 사전예약은 게임사 발표로 확인한 것만 올려요.</p>
     </header>
 
     <div class="fr-cards">

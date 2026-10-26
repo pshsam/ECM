@@ -1,12 +1,19 @@
 {
-  "about": "살아 있는 코드가 0개인 게임을 목록에 남길지 정하는 곳 (2026-10-15, 애드센스 '가치가 별로 없는 콘텐츠' 대응). keepListedWithoutCodes 에 있는 게임은 코드가 없어도 홈·메뉴·/game/·사이트맵·llms.txt 에 남고 페이지에 지난 코드 기록을 보여 준다(A). 여기 없는 게임은 빌드 시점에 살아 있는 코드가 0개면 목록에서 빠지고 /game/<id>.html 은 noindex 로 남는다(B). 코드가 다시 생기면 다음 빌드에서 자동으로 돌아온다. 고친 뒤 node scripts/prerender.js (2026-10-15: 기록된 코드가 없는 maplestory·nikke·zeus-arrogance-of-gods·cookierun 은 재심사 동안 A 에서 뺌)",
+  "about": "살아 있는 코드가 0개인 게임을 목록에 남길지 정하는 곳 (2026-10-15, 애드센스 '가치가 별로 없는 콘텐츠' 대응). keepListedWithoutCodes 에 있는 게임은 코드가 없어도 홈·메뉴·/game/ 에 남고 페이지에 지난 코드 기록을 보여 준다(A). 여기 없는 게임은 빌드 시점에 살아 있는 코드가 0개면 목록에서 빠지고 /game/<id>.html 은 noindex 로 남는다(B). 코드가 다시 생기면 다음 빌드에서 자동으로 돌아온다. 고친 뒤 node scripts/prerender.js (2026-10-15: 기록된 코드가 없는 maplestory·nikke·zeus-arrogance-of-gods·cookierun 은 재심사 동안 A 에서 뺌. 2026-10-27: roblox-basketball-zero 도 뺌)",
   "keepListedWithoutCodes": [
     "lostark",
     "fconline",
     "bluearchive",
     "aion2",
     "maplestory-idle",
-    "magmagu-2026",
-    "roblox-basketball-zero"
-  ]
+    "magmagu-2026"
+  ],
+  "indexAbout": "검색에 내보낼지(noindex 여부, 사이트맵·llms.txt)는 목록과 따로 정한다 (2026-10-27, 애드센스 재심사: 공식 출처·직접 확인 중심, scripts/game-pages.js isIndexed). operatorGames = 운영자가 실제로 하는 게임(직접 입력해 보는 게임)이라 목록에 보이면 검색에 내보낸다. holdRobloxFromIndex = 로블록스 게임 페이지와 /free/roblox-codes.html 을 noindex 로 둔다. officialIndexFrom = 이 날(한국 날짜)부터 그 밖의 게임은 살아 있는 코드 중 공식 출처(data/official-sources.json)나 직접 확인(data/tested.json 의 ok)이 하나라도 있어야 검색에 내보낸다. 코드가 없는 A 게임은 지난 코드 기록에 공식 출처가 남아 있어야 한다. 그 전 2주는 쿠폰 루틴이 기존 코드의 출처를 공식 원문으로 바꾸는 기간이다.",
+  "operatorGames": [
+    "lostark",
+    "fconline",
+    "pubg-battlegrounds"
+  ],
+  "holdRobloxFromIndex": true,
+  "officialIndexFrom": "2026-11-10"
 }

@@ -96,12 +96,17 @@ test('코드별 확인일·출처 줄이 화면(index.html)과 빌드(scripts/ga
     { src: ['잘못된 주소'] },
   ];
   for (const c of samples) assert.equal(page.fn.couponSourceHtml(c), couponSourceHtml(c), JSON.stringify(c));
+  // 게임 id 를 넘기면 공식 출처(data/official-sources.json)를 가른다: 카탈로그 코드 전부 + 공식 주소를 섞은 예시
+  for (const g of catalog) for (const c of g.coupons) assert.equal(page.fn.couponSourceHtml(c, g.id), couponSourceHtml(c, g.id), `${g.id}:${c.code}`);
+  const mixed = { src: ['https://www.pockettactics.com/x', 'https://kr.playblackdesert.com/ko-KR/News/Notice/Detail?boardNo=1'], verified: '2026-10-27' };
+  assert.equal(page.fn.couponSourceHtml(mixed, 'blackdesert'), couponSourceHtml(mixed, 'blackdesert'));
 });
 
 test('확인일·출처 줄: 값이 없으면 아무것도 찍지 않고, 있으면 날짜·도메인·조건을 보여 준다', () => {
   assert.equal(couponSourceHtml({ code: 'X', reward: 'y' }), '');
   const html = couponSourceHtml({ src: ['https://www.pockettactics.com/wuthering-waves/codes', 'https://www.pcgamesn.com/wuthering-waves/codes'], verified: '2026-10-15', cond: '레벨 10 이상' });
-  assert.match(html, /확인 2026\.10\.15 · 출처 <a [^>]*>pockettactics\.com<\/a>, <a [^>]*>pcgamesn\.com<\/a>/);
+  // 공식 출처가 없으면 "참고"로 매체 주소를 보여 준다
+  assert.match(html, /확인 2026\.10\.15 · 참고 <a [^>]*>pockettactics\.com<\/a>, <a [^>]*>pcgamesn\.com<\/a>/);
   assert.match(html, /조건: 레벨 10 이상/);
   assert.match(html, /target="_blank" rel="noopener nofollow"/);
   assert.doesNotMatch(couponSourceHtml({ cond: '<img src=x>' }), /<img/);

@@ -1,12 +1,22 @@
 {
   "afk-journey:AFKJ2YRS2026": {
-    "reward": "에픽 초대장 20개, 골드 100,000"
+    "reward": "에픽 초대장 20개, 골드 100,000",
+    "src": [
+      "https://www.pockettactics.com/afk-journey/codes"
+    ]
   },
   "afk-journey:HQC0ZFSC6QYTX": {
-    "reward": "다이아 500, 햄스터 5, 골드 50,000"
+    "reward": "다이아 500, 햄스터 5, 골드 50,000",
+    "src": [
+      "https://www.pockettactics.com/afk-journey/codes"
+    ]
   },
   "afk-journey:VMj522yLkrKDa": {
-    "reward": "에픽(히어로) 초대장 20개, 골드 100,000"
+    "reward": "에픽(히어로) 초대장 20개, 골드 100,000",
+    "src": [
+      "https://www.gamsgo.com/blog/afk-journey-codes",
+      "https://www.mrguider.org/codes/afk-journey-codes/"
+    ]
   },
   "afk-journey:z6iBgiJBFBZjC": {
     "reward": "초대장 10개, 골드 50,000",
@@ -22,103 +32,198 @@
     "removed": "2026-10-15"
   },
   "aniimo:ANIIMOGIFT": {
-    "reward": "글리머 10개, 크레딧 20,000, 성장의 꽃 10개, 애니팟 프로 5개"
+    "reward": "글리머 10개, 크레딧 20,000, 성장의 꽃 10개, 애니팟 프로 5개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:Aniimo2026": {
-    "reward": "글리머 20개"
+    "reward": "글리머 20개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimobonus": {
-    "reward": "글리머 50개"
+    "reward": "글리머 50개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimofreetoplay": {
-    "reward": "성장의 꽃 3개, 크레딧 10,000"
+    "reward": "성장의 꽃 3개, 크레딧 10,000",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimoidyll": {
-    "reward": "애니팟 5개, 크레딧 10,000"
+    "reward": "애니팟 5개, 크레딧 10,000",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimolaunch2026": {
-    "reward": "애니팟 5개, 크레딧 10,000"
+    "reward": "애니팟 5개, 크레딧 10,000",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimonow": {
-    "reward": "크레딧 10,000, 성장의 꽃 3개"
+    "reward": "크레딧 10,000, 성장의 꽃 3개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimoopenworld": {
-    "reward": "애니팟 5개, 크레딧 10,000"
+    "reward": "애니팟 5개, 크레딧 10,000",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimotogether": {
-    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개"
+    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:aniimowelcome": {
-    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개"
+    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:anyoneaniimo": {
-    "reward": "애니팟 5개, 크레딧 10,000"
+    "reward": "애니팟 5개, 크레딧 10,000",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:anythinganiimo": {
-    "reward": "크레딧 10,000, 성장의 꽃 3개"
+    "reward": "크레딧 10,000, 성장의 꽃 3개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:anywhereaniimo": {
-    "reward": "크레딧 10,000, 성장의 꽃 3개"
+    "reward": "크레딧 10,000, 성장의 꽃 3개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "aniimo:twinewithaniimo": {
-    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개"
+    "reward": "글리머 50개, 애니팟 프로 5개, 성장의 꽃 5개",
+    "src": [
+      "https://www.pockettactics.com/aniimo/codes",
+      "https://mein-mmo.de/en/aniimo-codes-all-active-gift-codes-for-free-items-in-october-2026,1588583/"
+    ]
   },
   "arknights-endfield:AKENDFIELDSUB": {
     "reward": "오로베릴 100개",
     "removed": "2026-10-09"
   },
   "arknights-endfield:ENDFIELD4PC": {
-    "reward": "T-크레드 13,000개, 고급 전투 기록 2개, 팔 INSP 키트 2개 (PC 전용)"
+    "reward": "T-크레드 13,000개, 고급 전투 기록 2개, 팔 INSP 키트 2개 (PC 전용)",
+    "src": [
+      "https://www.pockettactics.com/arknights-endfield/codes"
+    ]
   },
   "arknights-endfield:ENDFIELDGIFT": {
-    "reward": "오로베릴 150개, T-크레드 10,000개, 중급 전투 기록 20개, 팔 INSP 키트 20개"
+    "reward": "오로베릴 150개, T-크레드 10,000개, 중급 전투 기록 20개, 팔 INSP 키트 20개",
+    "src": [
+      "https://www.pockettactics.com/arknights-endfield/codes"
+    ]
   },
   "arknights-endfield:ENDFIELDRENEW": {
     "reward": "T-크레드 71,600개, 세이프티 헬멧 스티커",
     "removed": "2026-10-09"
   },
   "arknights-endfield:ZAU2SYXHWX5L4ZH": {
-    "reward": "T-크레드 5,000개, 팔 INSP 키트 10개"
+    "reward": "T-크레드 5,000개, 팔 INSP 키트 10개",
+    "src": [
+      "https://www.pockettactics.com/arknights-endfield/codes"
+    ]
   },
   "blackdesert-mobile:DEVCOMMENTARY26": {
     "reward": "돌파 복구권 100,000개, 오기에르의 가호 2개, 정제수·유자차·시계 태엽 선택 상자 1개, 상급 기술 교본 상자 50개, 기술 비전 파편 2,000개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert-mobile:FORYOURGROWTH": {
     "reward": "태양의 결정 50,000개, 오기에르의 숨결 1,000개, 협동 레이드 입장권 10개, 7일 나크 축복 1개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert-mobile:HEIDEL2026": {
     "reward": "W의 가호 3개, 블랙펄 5,000개, 돌파 복구권 400,000개, 행운상점 10회권 30개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert-mobile:PLAYEASIER": {
     "reward": "질서의 주문서 10종 상자 1개, 고결한 여신의 눈물 300,000개, 파푸 이모티콘 상자 3개, 흑정령 사당 입장권 10개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert-mobile:PRESENTFROMGM": {
     "reward": "아침의 나라 하사품 500개, 검은 태양의 성배 500개, 빛의 성수 20,000개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert-mobile:THANKS4FEEDBACK": {
     "reward": "클래스 변경 상자 2개, 정제수·유자차·시계 태엽 선택 상자 3개",
-    "expireDate": "2026-10-27"
+    "expireDate": "2026-10-27",
+    "src": [
+      "https://www.blackdesertm.com/Ocean/Wiki?wikiNo=260709"
+    ]
   },
   "blackdesert:2026마스터클래스한국대진표": {
     "reward": "전투의 함성 3개, 아이템 획득 증가 주문서 5개, 플로린 비법서 5개, 심해의 향수 5개, 용기의 향수 5개",
-    "expireDate": "2026-10-28"
+    "expireDate": "2026-10-28",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
   },
   "blackdesert:BEYONDTHEJOURNEY": {
     "reward": "크론석 50,000개, 진귀한 망치 선택상자 5개, 발크스의 조언, 무기 교환권 상자",
-    "expireDate": "2026-11-26"
+    "expireDate": "2026-11-26",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
   },
   "blackdesert:TYALLADVENTURERS": {
     "reward": "감사한 마음의 프리미엄 의상 상자 10개",
-    "expireDate": "2026-11-26"
+    "expireDate": "2026-11-26",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
   },
   "blackdesert:모험가님행복한한가위되세요": {
     "reward": "크론석 5,000개, 한가위 선물 꾸러미 5개, 발루아 패키지(7일), 풍경화 물감 선택상자 5개, 오색송편(전투/생활) 각 10개, 관철·열망의 향수 각 10개",
-    "expireDate": "2026-10-28"
+    "expireDate": "2026-10-28",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
   },
   "blackdesert:영롱한풀의광명석": {
     "reward": "영롱한 풀의 광명석 10개",
@@ -127,7 +232,11 @@
   },
   "bluearchive:HANAWOTADOTTE": {
     "reward": "청휘석 600개",
-    "expireDate": "2026-11-09"
+    "expireDate": "2026-11-09",
+    "src": [
+      "https://bbs.ruliweb.com/news/board/1004/read/2296043",
+      "https://bbs.ruliweb.com/game/85438/read/1398905"
+    ]
   },
   "bluearchive:KIRAKIRAERIKA": {
     "reward": "청휘석(공청석) 300개",
@@ -141,103 +250,186 @@
   },
   "borderlands:39FJB-CT5S3-5FTTW-BBB3J-F3HKZ": {
     "reward": "(보더랜드4) 볼트 헌터 스킨 'Hype Squad'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.pcgamesn.com/borderlands-4/shift-codes"
+    ]
   },
   "borderlands:3HX3J-RJWSJ-CFBBC-3BJ3B-RWZ36": {
     "reward": "(보더랜드4) 볼트 헌터 스킨 'A Winter Borderland'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.pcgamesn.com/borderlands-4/shift-codes"
+    ]
   },
   "borderlands:3S6BB-ZXT93-KRT3W-BT3T3-JW6TZ": {
     "reward": "(보더랜드4) 전 볼트 헌터 공용 헤드 'Gourd Your Loins' + 무기 스킨 'Hex Appeal'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:3SRB3-95CC3-K6TB5-BTJTB-66ZHW": {
-    "reward": "(보더랜드4) 골든키 1개"
+    "reward": "(보더랜드4) 골든키 1개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:3SX3J-3XZ55-CR33C-JBBJT-XH395": {
     "reward": "(보더랜드4) Loveless 볼트 헌터 스킨 'Mint Chipset'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:3ZRT3-K59KK-W6BJ5-B3TJ3-9WT99": {
     "reward": "(보더랜드4) C4SH 볼트 헌터 스킨 'Like Vermillion Bucks'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:3ZXJB-HZBHT-KX3BK-BBTT3-BHHXJ": {
     "reward": "(보더랜드4) 볼트 헌터 스킨 'Children of the Vex'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.pcgamesn.com/borderlands-4/shift-codes"
+    ]
   },
   "borderlands:BH633-66F5C-WFBB5-33TJB-CBSR9": {
     "reward": "(보더랜드4) 전 볼트 헌터 공용 스킨 'You're So Vein'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:BHRB3-XCWCJ-WFJTK-JTJJT-FCWF9": {
-    "reward": "(보더랜드4) 골든키 1개"
+    "reward": "(보더랜드4) 골든키 1개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:BZ6J3-3JKHB-CX3B5-TTJTT-HJBZW": {
     "reward": "(보더랜드4) 볼트 헌터 스킨 'The World on His Shoulders'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.pcgamesn.com/borderlands-4/shift-codes"
+    ]
   },
   "borderlands:BZ6JJ-CB6CT-WXJJW-3TT3B-56FZ5": {
     "reward": "(보더랜드4) Vex 볼트 헌터 스킨 'Mass Market Appeal'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:BZR3T-TXHZB-KXTJ5-3JTJ3-CZ5WH": {
-    "reward": "(보더랜드4) 골든키 1개"
+    "reward": "(보더랜드4) 골든키 1개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:CSKJJ-63XZ6-BSKHK-SBBJJ-RRB9F": {
-    "reward": "(보더랜드4) 골든키 2개"
+    "reward": "(보더랜드4) 골든키 2개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:J963B-S66WK-56J3K-JJT3T-BF9T5": {
     "reward": "(보더랜드4) 볼트 헌터 스킨 '카이리시의 행운' (Vex·Rafa·Amon·Harlowe 전용)",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:J96JT-BCXKT-C6JJ5-JTJBB-BZTXJ": {
     "reward": "(보더랜드4) Harlowe 볼트 헌터 스킨 'Maliwannabee'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:J9RTT-KWCK3-CFBB5-BTBT3-FKRB6": {
-    "reward": "(보더랜드4) 골든키 1개"
+    "reward": "(보더랜드4) 골든키 1개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:J9XTB-SJWS3-WRTTC-BJTJJ-TH6TX": {
     "reward": "(보더랜드4) ECHO-4 드론 스킨 'A Winter Borderland'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/",
+      "https://www.pcgamesn.com/borderlands-4/shift-codes"
+    ]
   },
   "borderlands:JS63J-JSCWJ-CFTBW-3TJ3J-WJS5R": {
     "reward": "(보더랜드4) 'Break Free' 볼트 헌터 스킨(Vex·Rafa·Amon·Harlowe 전용) + 레전더리 리퍼 쉴드 'Firebreak' + ECHO-4 드론 스킨 2종('Break Free'·'Kn0x')",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:JZ6BJ-SBR5J-WF3BK-BT3BB-TX9HB": {
     "reward": "(보더랜드4) Amon 볼트 헌터 스킨 'Cult Classic'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:T9RJB-BFKRR-3RBTW-B33TB-KCZB9": {
     "reward": "(보더랜드4) 골든키 1개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:THX3B-H9FCW-CRBT5-BBJ3T-SXT65": {
     "reward": "(보더랜드4) 골든키 1개 + Ellie DLC 크레딧",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:TZFT3-K9Z33-5FT3W-BJ33T-WZ5X5": {
-    "reward": "(보더랜드4) 골든키 1개"
+    "reward": "(보더랜드4) 골든키 1개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:TZXT3-XJXCB-CXBJW-BTTJT-9SK6B": {
     "reward": "(보더랜드4) Rafa 볼트 헌터 스킨 'Savings Savior'",
-    "expireDate": "2030-12-31"
+    "expireDate": "2030-12-31",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "borderlands:WZ53T-6SC9F-B95ZW-H3T33-W3JS6": {
-    "reward": "(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개"
+    "reward": "(보더랜드4) 골든키 2개 + 보더랜드1/2/프리시퀄 골든키 각 5개 + 보더랜드3 다이아몬드키 5개",
+    "src": [
+      "https://beebom.com/borderlands-4-shift-codes/"
+    ]
   },
   "eclipse-awakening:0910ECLIPSE": {
     "reward": "골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개"
   },
   "epic-seven:EPICWITHCZN": {
     "reward": "인연의 서표 15개, 골드 300,000 (CZN 콜라보 기념)",
-    "expireDate": "2026-10-29"
+    "expireDate": "2026-10-29",
+    "src": [
+      "https://epic7.onstove.com/en/promotion/collabo/czn"
+    ]
   },
   "epic-seven:TY_E8_INFINITY": {
     "reward": "금빛 전승석 80개, 상급 강화석 선택 상자 80개, 골드 800,000",
-    "expireDate": "2026-10-28"
+    "expireDate": "2026-10-28",
+    "src": [
+      "https://epic7.onstove.com/en/promotion/anniv/8th"
+    ]
   },
   "fconline:올추석도fc온라인과함께": {
     "reward": "전체 거래 수수료 40% 할인 쿠폰 1장",
@@ -248,20 +440,35 @@
     "removed": "2026-10-20"
   },
   "genshin:6LS3F3LS5K87": {
-    "reward": "원석 20개, 미리아스트라 원더랜드 이벤트 재화(Geode of Replication) 60개"
+    "reward": "원석 20개, 미리아스트라 원더랜드 이벤트 재화(Geode of Replication) 60개",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "genshin:EPIC2026": {
-    "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000"
+    "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "genshin:GENSHINGIFT": {
     "reward": "원석 50개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "genshin:NEEIJB764CA3": {
-    "reward": "원석 60개, 모험가의 경험 5개"
+    "reward": "원석 60개, 모험가의 경험 5개",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "genshin:OPERACOLLAB": {
-    "reward": "원석 30개, 모험가의 경험 2개, 모라 20,000"
+    "reward": "원석 30개, 모험가의 경험 2개, 모라 20,000",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "genshin:VesnaOnPatrol": {
     "reward": "원석 40개, 영웅의 양식 3개, 모라 20,000",
@@ -273,40 +480,86 @@
     "removed": "2026-10-19"
   },
   "genshin:Y6JYMKV6JKSL": {
-    "reward": "원석 60개, 모험가의 경험 5개"
+    "reward": "원석 60개, 모험가의 경험 5개",
+    "src": [
+      "https://www.pockettactics.com/genshin-impact/codes"
+    ]
   },
   "infinity-nikki:DANCEINTHEMIRROR": {
-    "reward": "다이아몬드 100개, 샤이니 버블 50개, 블링 30,000"
+    "reward": "다이아몬드 100개, 샤이니 버블 50개, 블링 30,000",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:EYESONTHEGOLDENFEAST": {
-    "reward": "헤드웨어 'Flavorful Moments'"
+    "reward": "헤드웨어 'Flavorful Moments'",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:FINALCHAPTEROFITZALAND": {
-    "reward": "다이아몬드 100개, 순수의 실 50개, 블링 20,000"
+    "reward": "다이아몬드 100개, 순수의 실 50개, 블링 20,000",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:JOINNIKKIATTHEGOLDENFEAST": {
-    "reward": "계시의 결정 10개"
+    "reward": "계시의 결정 10개",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:MOMOWISHESNIKKILISTENS": {
-    "reward": "다이아 200개, 블링 20,000"
+    "reward": "다이아 200개, 블링 20,000",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:SEEYOUINHEAVENSREACH": {
-    "reward": "다이아몬드 100개, 샤이니 버블 100개, 순수의 실 100개"
+    "reward": "다이아몬드 100개, 샤이니 버블 100개, 순수의 실 100개",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:ShroomFriendDC": {
-    "reward": "샤이니버블 30개, 블링 20,000"
+    "reward": "샤이니버블 30개, 블링 20,000",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:TOGETHERUNDERMOON": {
-    "reward": "다이아 200개, 블링 18,888"
+    "reward": "다이아 200개, 블링 18,888",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "infinity-nikki:ZONGZIMOMOFRAGRANTNIKKI": {
-    "reward": "다이아몬드 200개, 블링 18,800"
+    "reward": "다이아몬드 200개, 블링 18,800",
+    "src": [
+      "https://www.pockettactics.com/infinity-nikki/codes",
+      "https://www.pcgamesn.com/infinity-nikki/codes"
+    ]
   },
   "kingshot:AKeYD8gK8": {
-    "reward": "무료 보상(세부 내용 미공개)"
+    "reward": "무료 보상(세부 내용 미공개)",
+    "src": [
+      "https://beebom.com/kingshot-codes/"
+    ]
   },
   "kingshot:EXPLORETHEWORLD": {
-    "reward": "무료 보상(세부 내용 미공개)"
+    "reward": "무료 보상(세부 내용 미공개)",
+    "src": [
+      "https://beebom.com/kingshot-codes/",
+      "https://www.pocketgamer.com/kingshot/codes"
+    ]
   },
   "kingshot:JPHolidaySEP": {
     "reward": "다이아몬드 1,000개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 영웅 경험치 10,000 3개, 장군 가속 1시간 3개, 장인의 시선 1개, 문양 도안 1개, 문양 가이드 1개",
@@ -317,10 +570,17 @@
     "removed": "2026-10-04"
   },
   "kingshot:KS1005": {
-    "reward": "아바타 프레임 3일, 다이아몬드 500개"
+    "reward": "아바타 프레임 3일, 다이아몬드 500개",
+    "src": [
+      "https://www.pocketgamer.com/kingshot/codes"
+    ]
   },
   "kingshot:Kingshot888": {
-    "reward": "다이아몬드 200개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 골드열쇠 2개"
+    "reward": "다이아몬드 200개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 골드열쇠 2개",
+    "src": [
+      "https://www.pockettactics.com/kingshot/codes",
+      "https://beebom.com/kingshot-codes/"
+    ]
   },
   "kingshot:MIDAUTUMN26": {
     "reward": "다이아몬드 1,000개, 장군 가속 5분 x20, 총독 스태미나 10 x5, 영웅 경험치 10,000 x3, VIP 경험치 100 x3, 빵·목재 1,000 x50, 석재 1,000 x10",
@@ -365,33 +625,68 @@
     "removed": "2026-10-20"
   },
   "nba2k27:MYTEAM-TRAINING-HUB": {
-    "reward": "MyTEAM 시리즈 1 디럭스 팩 무료 지급"
+    "reward": "MyTEAM 시리즈 1 디럭스 팩 무료 지급",
+    "src": [
+      "https://www.pockettactics.com/nba-2k27-codes"
+    ]
   },
   "neverness-to-everness:BLACKBIRDHERE": {
-    "reward": "레이븐(블랙버드) 프로필 테두리 (한정 아바타 프레임)"
+    "reward": "레이븐(블랙버드) 프로필 테두리 (한정 아바타 프레임)",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:BLACKBIRDINNTE": {
-    "reward": "환석 20개, 비틀 코인 30,000개, 폰즈 10,000개"
+    "reward": "환석 20개, 비틀 코인 30,000개, 폰즈 10,000개",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:COMEBACK": {
     "reward": "기만의 주사위 1개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:DRAGONGIRL": {
-    "reward": "안눌리스 30개, 폰즈 20,000개, 푸카 초코아 엘리 투어 스페셜 1개"
+    "reward": "안눌리스 30개, 폰즈 20,000개, 푸카 초코아 엘리 투어 스페셜 1개",
+    "src": [
+      "https://beebom.com/neverness-to-everness-codes/",
+      "https://www.game.guide/neverness-to-everness-codes"
+    ]
   },
   "neverness-to-everness:NTEGIFT": {
     "reward": "환석 50개, 라이징 헌터 가이드 5개, 연한 염료 5개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:NTEKokushi": {
-    "reward": "안눌리스 30,000개, 비틀 코인 30,000개"
+    "reward": "안눌리스 30,000개, 비틀 코인 30,000개",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:NTEMusou": {
-    "reward": "안눌리스 10,000개, 비틀 코인 10,000개"
+    "reward": "안눌리스 10,000개, 비틀 코인 10,000개",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:NTENENE": {
-    "reward": "보상 미공개"
+    "reward": "보상 미공개",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "neverness-to-everness:WONDERLOGGIFT": {
     "reward": "안눌리스 30개, 상급 헌터 가이드 3개, 폰즈 20,000개",
@@ -399,14 +694,26 @@
     "removed": "2026-10-22"
   },
   "neverness-to-everness:ZANKOU0819": {
-    "reward": "환석 30개, 안눌리스 50,000개, 비틀 코인 30,000개"
+    "reward": "환석 30개, 안눌리스 50,000개, 비틀 코인 30,000개",
+    "src": [
+      "https://www.pcgamesn.com/neverness-to-everness/codes",
+      "https://www.pockettactics.com/neverness-to-everness/codes"
+    ]
   },
   "pokemon-go:ADIDASxPOKEMON": {
     "reward": "아디다스 콜라보 아바타 신발",
-    "expireDate": "2027-01-15"
+    "expireDate": "2027-01-15",
+    "src": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://insider-gaming.com/pokemon-go-codes-and-rewards-free-promo/"
+    ]
   },
   "pokemon-go:LEGOxPOKEMONGOxBERRIES": {
-    "reward": "라즈베리 5개, 포켓볼 10개, 파인애플베리 5개, 나나베리 5개"
+    "reward": "라즈베리 5개, 포켓볼 10개, 파인애플베리 5개, 나나베리 5개",
+    "src": [
+      "https://www.pockettactics.com/pokemon-go/codes",
+      "https://leekduck.com/events/lego-pokemon-go-2026/"
+    ]
   },
   "pokemon-go:LEGOxPOKEMONGOxCAP": {
     "reward": "레고 콜라보 모자 아바타 아이템, 산딸기류 열매 각 3개, XP 1000, 스타더스트 1000",
@@ -420,54 +727,102 @@
   },
   "pokemon:NE0R0T0MC0VER": {
     "reward": "로트폼폰 케이스 '네오 키타카미' (스칼렛·바이올렛 공용)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
+      "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
+    ]
   },
   "pokemon:SB00KC0VER": {
     "reward": "로트폼폰 케이스 '북 커버' (스칼렛 전용)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
+    ]
   },
   "pokemon:STRACKSU1T": {
     "reward": "트레이닝복 아바타 의상 (스칼렛 전용)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
+      "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
+    ]
   },
   "pokemon:VB00KC0VER": {
     "reward": "로트폼폰 케이스 '북 커버' (바이올렛 전용)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
+    ]
   },
   "pokemon:VTRACKSU1T": {
     "reward": "트레이닝복 아바타 의상 (바이올렛 전용)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
+      "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
+    ]
   },
   "rise-of-kingdoms:8YEAROFROK": {
-    "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개"
+    "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개",
+    "src": [
+      "https://www.pockettactics.com/rise-of-kingdoms/codes"
+    ]
   },
   "rise-of-kingdoms:9i6yztnmhj": {
-    "reward": "젬 500개, 60분 스피드업 3개, 레벨6 지식의 서 1개, 골드열쇠 1개"
+    "reward": "젬 500개, 60분 스피드업 3개, 레벨6 지식의 서 1개, 골드열쇠 1개",
+    "src": [
+      "https://www.pockettactics.com/rise-of-kingdoms/codes"
+    ]
   },
   "rise-of-kingdoms:ROK2026666": {
-    "reward": "은열쇠 100개"
+    "reward": "은열쇠 100개",
+    "src": [
+      "https://www.pockettactics.com/rise-of-kingdoms/codes"
+    ]
   },
   "rise-of-kingdoms:ROKINFINI8": {
-    "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개"
+    "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개",
+    "src": [
+      "https://www.pockettactics.com/rise-of-kingdoms/codes"
+    ]
   },
   "roblox-99-nights-in-the-forest:afterparty": {
-    "reward": "다이아몬드 15개"
+    "reward": "다이아몬드 15개",
+    "src": [
+      "https://www.pocketgamer.com/roblox/99-nights-in-the-forest-codes",
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes"
+    ]
   },
   "roblox-99-nights-in-the-forest:awardwinner_yay": {
-    "reward": "다이아몬드 15개 + 랜덤 불꽃(Flame) 3개"
+    "reward": "다이아몬드 15개 + 랜덤 불꽃(Flame) 3개",
+    "src": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes"
+    ]
   },
   "roblox-99-nights-in-the-forest:forestwakesup26": {
-    "reward": "다이아몬드 15개 + 랜덤 불꽃(Flame) 3개"
+    "reward": "다이아몬드 15개 + 랜덤 불꽃(Flame) 3개",
+    "src": [
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes"
+    ]
   },
   "roblox-99-nights-in-the-forest:yay fishing": {
-    "reward": "다이아몬드 2개"
+    "reward": "다이아몬드 2개",
+    "src": [
+      "https://www.pocketgamer.com/roblox/99-nights-in-the-forest-codes",
+      "https://www.pockettactics.com/99-nights-in-the-forest-codes"
+    ]
   },
   "roblox-anime-vanguards:13.5": {
     "reward": "트레이트 리롤 50개 + 아이스티 5,000개",
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:1DayDelay": {
-    "reward": "트레이트 리롤 200개 (레벨 30 필요)"
+    "reward": "트레이트 리롤 200개 (레벨 30 필요)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:1DayL8": {
     "reward": "트레이트 리롤 500개 (레벨 30 필요)",
@@ -478,38 +833,77 @@
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:25thHour": {
-    "reward": "트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 30 필요)"
+    "reward": "트레이트 리롤 50개 + 메모리아 조각 50개 (레벨 30 필요)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2BVisits": {
     "reward": "트레이트 리롤 200개 + 메모리아 조각 200개",
     "removed": "2026-10-07"
   },
   "roblox-anime-vanguards:2ndAnniDay1": {
-    "reward": "트레이트 리롤 100개 (2주년 기념 연속 코드 1)"
+    "reward": "트레이트 리롤 100개 (2주년 기념 연속 코드 1)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniDay2": {
-    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 2)"
+    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 2)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniDay3": {
-    "reward": "리롤 100개 (2주년 기념 연속 코드 3)"
+    "reward": "리롤 100개 (2주년 기념 연속 코드 3)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniDay4": {
-    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 4)"
+    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 4)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniDay5": {
-    "reward": "리롤 100개 (2주년 기념 연속 코드 5)"
+    "reward": "리롤 100개 (2주년 기념 연속 코드 5)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniDay6": {
-    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 6)"
+    "reward": "메모리아 조각 100개 (2주년 기념 연속 코드 6)",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:2ndAnniversary": {
-    "reward": "리롤 1,000개"
+    "reward": "리롤 1,000개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/"
+    ]
   },
   "roblox-anime-vanguards:AnniNextHopefully": {
-    "reward": "트레이트 리롤 100개 + 메모리아 조각 100개 + 젬 5,000개"
+    "reward": "트레이트 리롤 100개 + 메모리아 조각 100개 + 젬 5,000개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:Assault": {
-    "reward": "트레이트 리롤 100개"
+    "reward": "트레이트 리롤 100개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:BPSoon": {
     "reward": "메모리아 조각 50개 + 그린 에센스 50개",
@@ -536,14 +930,20 @@
     "removed": "2026-09-27"
   },
   "roblox-anime-vanguards:Finally": {
-    "reward": "메모리아 조각 1,000 + 골드 100,000 + 레인보우 에센스 30"
+    "reward": "메모리아 조각 1,000 + 골드 100,000 + 레인보우 에센스 30",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/"
+    ]
   },
   "roblox-anime-vanguards:Gambler": {
     "reward": "트레이트 리롤 50개 + 메모리아 조각 50개 + 레인보우 에센스 5개",
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:HappyAnniversary": {
-    "reward": "메모리아 메이커 퍼즐 조각 1개"
+    "reward": "메모리아 메이커 퍼즐 조각 1개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/"
+    ]
   },
   "roblox-anime-vanguards:HeavyEyes": {
     "reward": "메모리아 조각 50개 + 추방 토큰 50개",
@@ -558,17 +958,29 @@
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:LetTheLarpingBegin": {
-    "reward": "컨트롤러 토큰 50개 + 젬 10,000개 + 골드 50,000개"
+    "reward": "컨트롤러 토큰 50개 + 젬 10,000개 + 골드 50,000개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:Liberation": {
     "reward": "메모리아 조각 50개 + 레인보우 에센스 5개",
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:MiniUpd2": {
-    "reward": "트레이트 리롤 200개 + 젬 50,000개"
+    "reward": "트레이트 리롤 200개 + 젬 50,000개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:Miniupdate1": {
-    "reward": "트레이트 리롤 50개 + 메모리아 조각 50개"
+    "reward": "트레이트 리롤 50개 + 메모리아 조각 50개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:PowerOfLove": {
     "reward": "트레이트 리롤 50개 + 메모리아 조각 50개",
@@ -579,20 +991,35 @@
     "removed": "2026-10-07"
   },
   "roblox-anime-vanguards:Retribution": {
-    "reward": "젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개"
+    "reward": "젬 20,000개 + 트레이트 리롤 50개 + 메모리아 조각 50개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:SummerLeaving": {
-    "reward": "메모리아 조각 100개"
+    "reward": "메모리아 조각 100개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-anime-vanguards:TrueShadowMonarch": {
-    "reward": "레드 키 + 젬 50,000 + 스탯 칩 500"
+    "reward": "레드 키 + 젬 50,000 + 스탯 칩 500",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/"
+    ]
   },
   "roblox-anime-vanguards:WhoopsieDaisy": {
     "reward": "메모리아 조각 100개",
     "removed": "2026-10-01"
   },
   "roblox-anime-vanguards:Wrath": {
-    "reward": "메모리아 조각 200개 + 젬 50,000개"
+    "reward": "메모리아 조각 200개 + 젬 50,000개",
+    "src": [
+      "https://beebom.com/anime-vanguards-codes/",
+      "https://www.pockettactics.com/anime-vanguards/codes"
+    ]
   },
   "roblox-basketball-zero:15KIRA": {
     "reward": "럭키 스타일 스핀 7개 + 럭키 존 스핀 7개 + 게임머니 50,000",
@@ -603,7 +1030,11 @@
     "removed": "2026-10-12"
   },
   "roblox-basketball-zero:15VAMPIRERETURN": {
-    "reward": "럭키 스타일 스핀 10회, 럭키 존 스핀 10회, 머니 100,000"
+    "reward": "럭키 스타일 스핀 10회, 럭키 존 스핀 10회, 머니 100,000",
+    "src": [
+      "https://www.pockettactics.com/basketball-zero-codes",
+      "https://www.pocketgamer.com/roblox/basketball-zero-codes/"
+    ]
   },
   "roblox-basketball-zero:CHROLLOBDAY": {
     "reward": "럭키 스타일 스핀 10개 + 럭키 존 스핀 10개 + 게임머니 100,000",
@@ -622,10 +1053,17 @@
     "removed": "2026-10-12"
   },
   "roblox-basketball-zero:VAMPIRERETURN": {
-    "reward": "럭키 스타일 스핀 15회, 럭키 존 스핀 15회, 머니 50,000"
+    "reward": "럭키 스타일 스핀 15회, 럭키 존 스핀 15회, 머니 50,000",
+    "src": [
+      "https://www.pockettactics.com/basketball-zero-codes",
+      "https://www.pocketgamer.com/roblox/basketball-zero-codes/"
+    ]
   },
   "roblox-bee-swarm-simulator:15MMembers": {
-    "reward": "클럽 멤버 전용 보상 (마시멜로우 비 1개 등 다수 재료)"
+    "reward": "클럽 멤버 전용 보상 (마시멜로우 비 1개 등 다수 재료)",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:38217": {
     "reward": "티켓 5개",
@@ -636,22 +1074,40 @@
     "removed": "2026-10-07"
   },
   "roblox-bee-swarm-simulator:BeesBuzz123": {
-    "reward": "구름병 1개, 비터베리 5개, 검드롭 10개"
+    "reward": "구름병 1개, 비터베리 5개, 검드롭 10개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:BopMaster": {
-    "reward": "티켓 5개"
+    "reward": "티켓 5개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:ClubBean": {
-    "reward": "매직빈 1개, 파인애플 패치 부스트 2회"
+    "reward": "매직빈 1개, 파인애플 패치 부스트 2회",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:ClubConverters": {
-    "reward": "마이크로 컨버터 10개 (클럽 멤버 전용)"
+    "reward": "마이크로 컨버터 10개 (클럽 멤버 전용)",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:Connoisseur": {
-    "reward": "티켓 5개"
+    "reward": "티켓 5개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:Crawlers": {
-    "reward": "티켓 5개"
+    "reward": "티켓 5개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:DiscordMillion": {
     "reward": "48시간 2배 허니데이 이벤트 버프, 몬도 치크 축복 10개, 마시멜로우 비, 핑크 풍선",
@@ -666,17 +1122,26 @@
     "removed": "2026-10-12"
   },
   "roblox-bee-swarm-simulator:Nectar": {
-    "reward": "꿀 5,000"
+    "reward": "꿀 5,000",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:Roof": {
-    "reward": "티켓 5개"
+    "reward": "티켓 5개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:ThreeBeeVee": {
     "reward": "48시간 2배 꽃가루·전환율 버프, 로디드 다이스 1개, 마운틴탑 필드 부스트",
     "removed": "2026-10-12"
   },
   "roblox-bee-swarm-simulator:Wax": {
-    "reward": "꿀 5,000 + 티켓 5개"
+    "reward": "꿀 5,000 + 티켓 5개",
+    "src": [
+      "https://www.pcgamesn.com/bee-swarm-simulator/codes"
+    ]
   },
   "roblox-bee-swarm-simulator:fortunate": {
     "reward": "허니데이 이벤트 버프 + 마시멜로우 비 + 각종 재료 4개씩",
@@ -687,63 +1152,117 @@
     "removed": "2026-10-17"
   },
   "roblox-blade-ball:2BTHANKS": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:4BVISITS": {
-    "reward": "Bubble Wand Sword 스킨"
+    "reward": "Bubble Wand Sword 스킨",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:BATTLEROYALE": {
-    "reward": "무료 스핀 1회 또는 스톰 티켓"
+    "reward": "무료 스핀 1회 또는 스톰 티켓",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:DUNGEONSRELEASE": {
     "reward": "던전 룬 50개",
     "removed": "2026-10-07"
   },
   "roblox-blade-ball:ENERGYSWORDS": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:FREESPINS": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:FROGS": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:GIVEMELUCK": {
-    "reward": "AFK 월드 4x 행운 10분"
+    "reward": "AFK 월드 4x 행운 10분",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:GOODVSEVIL": {
     "reward": "무료 휠 스핀 1회",
     "removed": "2026-10-07"
   },
   "roblox-blade-ball:RAMADAN": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:RNGEMOTES": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:SERPENT": {
-    "reward": "서펜트 카타나 3종 증정 이벤트 응모권"
+    "reward": "서펜트 카타나 3종 증정 이벤트 응모권",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:SHARKATTACK": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:SPOOKYSEASON": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:SUMMERSTARTSHERE": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blade-ball:SUMMERWHEEL": {
-    "reward": "무료 스핀 1회"
+    "reward": "무료 스핀 1회",
+    "src": [
+      "https://www.pockettactics.com/blade-ball/codes"
+    ]
   },
   "roblox-blox-fruits:Axiore": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Bignews": {
-    "reward": "인게임 칭호 'Big News'"
+    "reward": "인게임 칭호 'Big News'",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Bluxxy": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:CHANDLER": {
     "reward": "장난 코드, 실질적 보상 없음",
@@ -754,94 +1273,178 @@
     "removed": "2026-09-26"
   },
   "roblox-blox-fruits:EASTEREXP": {
-    "reward": "2x EXP 부스트 20분"
+    "reward": "2x EXP 부스트 20분",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Enyu_is_Pro": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Fudd10": {
-    "reward": "인게임 화폐 $1"
+    "reward": "인게임 화폐 $1",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Fudd10_v2": {
     "reward": "인게임 화폐 $2",
     "removed": "2026-10-16"
   },
   "roblox-blox-fruits:JCWK": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:KITT_RESET": {
-    "reward": "무료 스탯 초기화"
+    "reward": "무료 스탯 초기화",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Kittgaming": {
     "reward": "2x EXP 부스트",
     "removed": "2026-10-16"
   },
   "roblox-blox-fruits:LIGHTNINGABUSE": {
-    "reward": "2x EXP 부스트 20분"
+    "reward": "2x EXP 부스트 20분",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Magicbus": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:SUB2GAMERROBOT_EXP1": {
-    "reward": "2x EXP 부스트 30분"
+    "reward": "2x EXP 부스트 30분",
+    "src": [
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:SUB2GAMERROBOT_RESET1": {
     "reward": "무료 스탯 초기화",
     "removed": "2026-10-15"
   },
   "roblox-blox-fruits:Starcodeheo": {
-    "reward": "2x EXP 부스트 20분"
+    "reward": "2x EXP 부스트 20분",
+    "src": [
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:StrawHatMaine": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Sub2CaptainMaui": {
-    "reward": "2x EXP 부스트 20분"
+    "reward": "2x EXP 부스트 20분",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Sub2Daigrock": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Sub2Fer999": {
     "reward": "2x EXP 부스트 20분",
     "removed": "2026-10-15"
   },
   "roblox-blox-fruits:Sub2NoobMaster123": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Sub2OfficialNoobie": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:Sub2UncleKizaru": {
-    "reward": "무료 스탯 초기화"
+    "reward": "무료 스탯 초기화",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:TantaiGaming": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:TheGreatAce": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes",
+      "https://www.pcgamesn.com/blox-fruits/codes"
+    ]
   },
   "roblox-blox-fruits:fudd10_v2": {
-    "reward": "인게임 화폐 $2"
+    "reward": "인게임 화폐 $2",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+    ]
   },
   "roblox-blox-fruits:kittgaming": {
-    "reward": "2x EXP 부스트"
+    "reward": "2x EXP 부스트",
+    "src": [
+      "https://www.pockettactics.com/roblox/blox-fruits-codes"
+    ]
   },
   "roblox-blue-lock-rivals:ACEEATER": {
-    "reward": "럭키 스타일 스핀 5개"
+    "reward": "럭키 스타일 스핀 5개",
+    "src": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+    ]
   },
   "roblox-blue-lock-rivals:BUGFIXES": {
     "reward": "럭키 플로우 5개",
     "removed": "2026-09-27"
   },
   "roblox-blue-lock-rivals:DONREVAMP": {
-    "reward": "럭키 스타일 스핀 5개 + 럭키 플로우 스핀 5개"
+    "reward": "럭키 스타일 스핀 5개 + 럭키 플로우 스핀 5개",
+    "src": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+    ]
   },
   "roblox-blue-lock-rivals:NEWMASTER": {
     "reward": "럭키 스타일 스핀 10개 + 럭키 플로우 스핀 10개",
     "removed": "2026-10-05"
   },
   "roblox-blue-lock-rivals:SENDOUNEXT": {
-    "reward": "럭키 플로우 스핀 5개"
+    "reward": "럭키 플로우 스핀 5개",
+    "src": [
+      "https://www.pockettactics.com/blue-lock-rivals/codes",
+      "https://www.pcgamesn.com/blue-lock-rivals/codes"
+    ]
   },
   "roblox-blue-lock-rivals:SNUFFYSOON": {
     "reward": "럭키 스핀 5개, 럭키 플로우 5개",
@@ -872,7 +1475,11 @@
     "removed": "2026-10-21"
   },
   "roblox-da-hood:BUFF": {
-    "reward": "DHC 500,000"
+    "reward": "DHC 500,000",
+    "src": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.pcgamesn.com/da-hood/codes"
+    ]
   },
   "roblox-da-hood:BUILD": {
     "reward": "DHC 1,000,000",
@@ -895,7 +1502,11 @@
     "removed": "2026-10-21"
   },
   "roblox-da-hood:PVP": {
-    "reward": "DHC 500,000"
+    "reward": "DHC 500,000",
+    "src": [
+      "https://www.pockettactics.com/da-hood/codes",
+      "https://www.pcgamesn.com/da-hood/codes"
+    ]
   },
   "roblox-da-hood:SHARK": {
     "reward": "DHC 300,000",
@@ -914,13 +1525,25 @@
     "removed": "2026-10-21"
   },
   "roblox-fisch:CARBON": {
-    "reward": "카본 찌(Carbon Bobber)"
+    "reward": "카본 찌(Carbon Bobber)",
+    "src": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes"
+    ]
   },
   "roblox-fisch:ChapelTroubles": {
-    "reward": "둠세카르(Doomsekkar) 찌용 두세카르·고스트데리 스킨 + 트릿(Treats) 250개"
+    "reward": "둠세카르(Doomsekkar) 찌용 두세카르·고스트데리 스킨 + 트릿(Treats) 250개",
+    "src": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes"
+    ]
   },
   "roblox-fisch:FischFright2026": {
-    "reward": "코인 2,026개 + 트릿(Treats) 226개 + 둠세카르(Doomsekkar) 찌 + 잭오스태츄(Jack-o-Statue) 랜턴"
+    "reward": "코인 2,026개 + 트릿(Treats) 226개 + 둠세카르(Doomsekkar) 찌 + 잭오스태츄(Jack-o-Statue) 랜턴",
+    "src": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes"
+    ]
   },
   "roblox-fisch:Happy2ndYear": {
     "reward": "2026 코인, 자이언트 피쉬 케이크 보트, 컵케이크 25개, 랜덤 아이템 (레벨 25 필요, 2주년 기념)",
@@ -939,77 +1562,152 @@
     "removed": "2026-09-28"
   },
   "roblox-fisch:TemporarySubmarine": {
-    "reward": "잠수함 부품"
+    "reward": "잠수함 부품",
+    "src": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes"
+    ]
   },
   "roblox-fisch:VroomVroom": {
     "reward": "코인 1,000, Pancaked Flimsy 로드 스킨, 즉시 포획권 10개, 발광 유충 5개 등 랜덤 아이템",
     "removed": "2026-10-07"
   },
   "roblox-fisch:scarlet": {
-    "reward": "네이트의 블레이드용 스칼렛 스킨"
+    "reward": "네이트의 블레이드용 스칼렛 스킨",
+    "src": [
+      "https://beebom.com/roblox-fisch-codes/",
+      "https://www.pocketgamer.com/roblox/fisch-codes"
+    ]
   },
   "roblox-grow-a-garden:BEANORLEAVE10": {
-    "reward": "Green Bean Chamber 장식"
+    "reward": "Green Bean Chamber 장식",
+    "src": [
+      "https://www.pcgamesn.com/grow-a-garden/codes",
+      "https://beebom.com/roblox-grow-a-garden-codes/"
+    ]
   },
   "roblox-grow-a-garden:RDCAward": {
-    "reward": "RDC Award 코스튬"
+    "reward": "RDC Award 코스튬",
+    "src": [
+      "https://www.pcgamesn.com/grow-a-garden/codes",
+      "https://beebom.com/roblox-grow-a-garden-codes/"
+    ]
   },
   "roblox-king-legacy:2MFAV": {
-    "reward": "무료 스탯 초기화"
+    "reward": "무료 스탯 초기화",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:<3LEEPUNGG": {
-    "reward": "2x EXP 30분"
+    "reward": "2x EXP 30분",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:DinoxLive": {
-    "reward": "골드 100,000"
+    "reward": "골드 100,000",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:DragonColorRefund": {
-    "reward": "젬 50개 (원래 빨간 드래곤이었으면 10개)"
+    "reward": "젬 50개 (원래 빨간 드래곤이었으면 10개)",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:FREESTATSRESET": {
-    "reward": "무료 스탯 초기화"
+    "reward": "무료 스탯 초기화",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:Peodiz": {
-    "reward": "골드 100,000"
+    "reward": "골드 100,000",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:RainbowDragon": {
     "reward": "젬 100개 (업데이트7 이전 레인보우 드래곤 보유자)",
     "removed": "2026-10-26"
   },
   "roblox-king-legacy:SKGames": {
-    "reward": "2x EXP 30분 (Sea King Games 로블록스 그룹 가입 필요)"
+    "reward": "2x EXP 30분 (Sea King Games 로블록스 그룹 가입 필요)",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-king-legacy:WELCOMETOKINGLEGACY": {
-    "reward": "2x EXP 30분"
+    "reward": "2x EXP 30분",
+    "src": [
+      "https://www.pcgamesn.com/king-legacy/codes",
+      "https://www.pockettactics.com/king-legacy/codes"
+    ]
   },
   "roblox-plants-vs-brainrots:DISGUISE": {
-    "reward": "변장 안경(Disguise Glasses) 1개"
+    "reward": "변장 안경(Disguise Glasses) 1개",
+    "src": [
+      "https://beebom.com/plants-vs-brainrots-codes/",
+      "https://www.pocketgamer.com/roblox/plants-vs-brainrots-codes"
+    ]
   },
   "roblox-plants-vs-brainrots:STACKS": {
-    "reward": "행운의 물약(Lucky Potion) 1개"
+    "reward": "행운의 물약(Lucky Potion) 1개",
+    "src": [
+      "https://www.pocketgamer.com/roblox/plants-vs-brainrots-codes",
+      "https://beebom.com/plants-vs-brainrots-codes/"
+    ]
   },
   "roblox-plants-vs-brainrots:STONE": {
-    "reward": "메두사의 머리(Medusa's Head) 1개"
+    "reward": "메두사의 머리(Medusa's Head) 1개",
+    "src": [
+      "https://beebom.com/plants-vs-brainrots-codes/",
+      "https://www.pocketgamer.com/roblox/plants-vs-brainrots-codes"
+    ]
   },
   "roblox-plants-vs-brainrots:based": {
-    "reward": "게임 머니 5,000"
+    "reward": "게임 머니 5,000",
+    "src": [
+      "https://www.pocketgamer.com/roblox/plants-vs-brainrots-codes",
+      "https://beebom.com/plants-vs-brainrots-codes/"
+    ]
   },
   "roblox-plants-vs-brainrots:disguise": {
     "reward": "변장 안경(Disguise Glasses) 1개",
     "removed": "2026-10-13"
   },
   "roblox-plants-vs-brainrots:frozen": {
-    "reward": "서리 수류탄(Frost Grenade) 1개"
+    "reward": "서리 수류탄(Frost Grenade) 1개",
+    "src": [
+      "https://www.pocketgamer.com/roblox/plants-vs-brainrots-codes",
+      "https://beebom.com/plants-vs-brainrots-codes/"
+    ]
   },
   "roblox-plants-vs-brainrots:stone": {
     "reward": "메두사의 머리(Medusa's Head) 1개",
     "removed": "2026-10-13"
   },
   "roblox-shindo-life:20NewCloaksAdded!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:2mLikesC0d3d!": {
-    "reward": "RELL코인 40,000 + 스핀 400회"
+    "reward": "RELL코인 40,000 + 스핀 400회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:5YearSL2!": {
     "reward": "RELL코인 + 스핀 지급 (5주년 기념, 정확한 수량 매체별 미기재)",
@@ -1024,160 +1722,313 @@
     "removed": "2026-10-14"
   },
   "roblox-shindo-life:6YearsofShindoSoon!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:BoredomWillBeRescued!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 16/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 16/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ButWelooktowardThe!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 9/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 9/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:FACEIDFIXUPD!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:FixUpdateIsOutEarly!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:FixingShindoBuggyTimes!": {
-    "reward": "RELL코인 + 스핀 지급, 정확한 수량 매체별 미기재"
+    "reward": "RELL코인 + 스핀 지급, 정확한 수량 매체별 미기재",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:FutureAndRELLSeas!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 10/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 10/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ITSBeen5Years!": {
     "reward": "RELL코인 + 스핀 지급 (5주년 기념, 정확한 수량 매체별 미기재)",
     "removed": "2026-10-14"
   },
   "roblox-shindo-life:IsTheNextinLine!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 11/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 11/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ItrulyDOMissTheseTimes!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 8/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 8/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ItsTrulyLegendary!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 12/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 12/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:LetsGOOOO40k!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:NewBugPatchandFixes250!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:NewFREEFALLings2026!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:OneOfaKind!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 13/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 13/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:PatchUpdate249point5!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:RELLGIFTbag!": {
-    "reward": "무료 블러드라인 백 지급"
+    "reward": "무료 블러드라인 백 지급",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:RELLGIFTsc!": {
-    "reward": "무료 서버 크리에이터 슬롯 지급"
+    "reward": "무료 서버 크리에이터 슬롯 지급",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:RELLGems!": {
     "reward": "RELL코인 10,000 + 스핀 100회",
     "removed": "2026-10-03"
   },
   "roblox-shindo-life:RELLSeasMovie3!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:Shindo4Life2026!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:ShindoLife2026Peak!": {
-    "reward": "RELL코인 25,000 + 스핀 250회"
+    "reward": "RELL코인 25,000 + 스핀 250회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:ShindoLife5YearCodes!": {
     "reward": "RELL코인 + 스핀 지급 (5주년 기념, 정확한 수량 매체별 미기재)",
     "removed": "2026-10-14"
   },
   "roblox-shindo-life:ThankYouAllTruly!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 6/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 6/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ThankYouForPatience249Patch!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ThankYouForPatience250Patch!": {
-    "reward": "RELL코인 10,000 + 스핀 100회"
+    "reward": "RELL코인 10,000 + 스핀 100회",
+    "src": [
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:TheCommunitygonnaEat!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 15/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 15/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ThisPlatformaintReady!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 14/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 14/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:TickDamageBugs!": {
-    "reward": "RELL코인 + 스핀 지급, 정확한 수량 매체별 미기재"
+    "reward": "RELL코인 + 스핀 지급, 정확한 수량 매체별 미기재",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:TimeFliesForFiveYears!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 7/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 7/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:WalkingOnTheWalls!": {
-    "reward": "RELL코인 25,000 + 스핀 250회"
+    "reward": "RELL코인 25,000 + 스핀 250회",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/",
+      "https://www.pcgamesn.com/shindo-life-codes"
+    ]
   },
   "roblox-shindo-life:WeGotaLotofTestingtoDo!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:WePerfectedRELLSeas!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 17/24"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드 17/24",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:Year5ShindoLife!": {
     "reward": "RELL코인 + 스핀 지급 (5주년 기념, 정확한 수량 매체별 미기재)",
     "removed": "2026-10-14"
   },
   "roblox-shindo-life:beforeWerecord!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:forTheFuture!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:neverENDING!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:ofOurGames!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-shindo-life:theWorkloadSeems!": {
-    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드"
+    "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
+    "src": [
+      "https://beebom.com/roblox-shindo-life-codes/amp/"
+    ]
   },
   "roblox-steal-a-brainrot:BESTBRAINROTEVER": {
-    "reward": "레드카펫에 희귀 브레인랏 'La Vacca Saturno Saturnita' 1회 출현 (구매에 게임 내 재화 8천만 필요, 1회 기회)"
+    "reward": "레드카펫에 희귀 브레인랏 'La Vacca Saturno Saturnita' 1회 출현 (구매에 게임 내 재화 8천만 필요, 1회 기회)",
+    "src": [
+      "https://www.pockettactics.com/steal-a-brainrot-codes",
+      "https://beebom.com/steal-a-brainrot-codes/"
+    ]
   },
   "roblox-steal-a-brainrot:saturn": {
     "reward": "레드카펫에 시크릿 등급 브레인랏 'La Vacca Saturno Saturnita' 출현 기회 (구매 필요)",
     "removed": "2026-10-13"
   },
   "starrail:4TKSX77Y58QK": {
-    "reward": "성옥 30개, 여행자의 길잡이 3개, 압축 에테르 5개, 분실된 금화 파편 4개, 크레딧 20,000"
+    "reward": "성옥 30개, 여행자의 길잡이 3개, 압축 에테르 5개, 분실된 금화 파편 4개, 크레딧 20,000",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:5S6ZHRWTDNJB": {
-    "reward": "성옥 60개"
+    "reward": "성옥 60개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:CREATIONNYMPH": {
-    "reward": "성옥 60개, 연료 1개"
+    "reward": "성옥 60개, 연료 1개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:FAREWELL": {
-    "reward": "성옥 60개, 연료 1개"
+    "reward": "성옥 60개, 연료 1개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:IFYOUAREREADINGTHIS": {
-    "reward": "성옥 60개, 연료 1개"
+    "reward": "성옥 60개, 연료 1개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:OMEGA": {
-    "reward": "성옥 60개, 연료 1개"
+    "reward": "성옥 60개, 연료 1개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes",
+      "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
+    ]
   },
   "starrail:PEARLAPPRAISE": {
-    "reward": "여행자의 길잡이 3개, 쓸쓸한 농담 2개"
+    "reward": "여행자의 길잡이 3개, 쓸쓸한 농담 2개",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes"
+    ]
   },
   "starrail:RT4BPNA8FBS3": {
-    "reward": "성옥 50개, 신용점수 10,000"
+    "reward": "성옥 50개, 신용점수 10,000",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes"
+    ]
   },
   "starrail:STARRAILGIFT": {
     "reward": "성옥 100개, 신용 포인트 50,000 등",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pockettactics.com/honkai-star-rail/codes"
+    ]
   },
   "trickcal-revive:3RDBOLTHDAY": {
     "reward": "엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)",
@@ -1201,7 +2052,10 @@
   },
   "trickcal-revive:TRICKCALCOM": {
     "reward": "사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.inven.co.kr/board/party/6303/356"
+    ]
   },
   "trickcal-revive:한글날": {
     "reward": "크레파스 지우개 10개, 왕사탕 1,000개, 골드 1,000,000 (한글날 제정 100주년 기념)",
@@ -1210,7 +2064,11 @@
   },
   "valhalla-survival:2026CHUSEOK": {
     "reward": "2026 추석 기념 보상 (수수께끼의 유물 랜덤 상자, T5 보석 랜덤 소환권, 영웅 조각 선택 상자, 이그드라실의 씨앗 등)",
-    "expireDate": "2026-10-31"
+    "expireDate": "2026-10-31",
+    "src": [
+      "https://m.news.nate.com/view/20260923n33407",
+      "https://www.khgames.co.kr/news/articleView.html?idxno=308781"
+    ]
   },
   "whiteout-survival:1stYoutubeKR": {
     "reward": "보석·자원 꾸러미 (보상 상세 미공개)",
@@ -1242,23 +2100,41 @@
     "removed": "2026-10-08"
   },
   "whiteout-survival:gogoWOS": {
-    "reward": "젬 500개(5x100), 영웅 경험치 10,000, 골드열쇠 2개, 5분 부대 가속 20개"
+    "reward": "젬 500개(5x100), 영웅 경험치 10,000, 골드열쇠 2개, 5분 부대 가속 20개",
+    "src": [
+      "https://beebom.com/whiteout-survival-codes/"
+    ]
   },
   "wuthering:WUTHERINGGIFT": {
     "reward": "별의 소리 50개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pockettactics.com/wuthering-waves/codes"
+    ]
   },
   "zzz:ZENLESSGIFT": {
     "reward": "폴리크롬 50개",
-    "expireDate": "상시"
+    "expireDate": "상시",
+    "src": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes"
+    ]
   },
   "zzz:ZZZGRIND32": {
-    "reward": "폴리크롬 20개, 데니 2,222"
+    "reward": "폴리크롬 20개, 데니 2,222",
+    "src": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes"
+    ]
   },
   "zzz:ZZZINK32": {
-    "reward": "폴리크롬 20개, 데니 2,222"
+    "reward": "폴리크롬 20개, 데니 2,222",
+    "src": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes"
+    ]
   },
   "zzz:ZZZVOID32": {
-    "reward": "폴리크롬 20개, 데니 2,222"
+    "reward": "폴리크롬 20개, 데니 2,222",
+    "src": [
+      "https://www.pockettactics.com/zenless-zone-zero/codes"
+    ]
   }
 }

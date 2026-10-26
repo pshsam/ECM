@@ -21,6 +21,7 @@
 const fs = require('fs');
 const path = require('path');
 const { writeGamePages, qualifies, isListed, KEEP_LISTED_WITHOUT_CODES, headerHtml, footerHtml, evaluate, couponSourceHtml, testedBadgeHtml, TESTED, GENRE_LABELS } = require('./game-pages');
+const { OFFICIAL_SOURCES } = require('./official');
 const { writeGameHub } = require('./hubs');
 const { writeTodayPage } = require('./today-page');
 const { writeCalendar } = require('./calendar');
@@ -42,6 +43,52 @@ const POST_LEDGER = path.join(__dirname, '..', 'data', 'post-modified.json');
 // 글쓴이 표기. 여기만 바꾸면 모든 글의 글쓴이 줄과 스키마가 바뀐다.
 const AUTHOR_NAME = 'GamerDaddy';
 const AUTHOR_ROLE = 'ECM 쿠폰 운영자';
+
+/**
+ * 검색에서 잠시 뺀 블로그 글 (data/blog-hold.json, 2026-10-27~ 애드센스 재심사). 주소는 그대로 둔다.
+ * 빌드가: 글에 noindex(data-hold 표시)를 넣고, blog/index.html 의 카드를 숨기고(카드가 전부 숨은 분류는 칩·섹션도),
+ * 사이트맵·홈 최근 글·블로그 드롭다운·llms.txt 에서 뺀다. 목록에서 지우면 다음 빌드에서 전부 되돌아온다.
+ */
+const BLOG_HOLD = (() => {
+  try {
+    const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'blog-hold.json'), 'utf8'));
+    return new Set((Array.isArray(j.posts) ? j.posts : []).map(s => String(s).replace(/\.html$/, '')));
+  } catch (_) { return new Set(); }
+})();
+const HOLD_ATTR = ' data-hold style="display:none !important"';
+const HOLD_META = '<meta name="robots" content="noindex" data-hold>';
+const isHeldPost = f => BLOG_HOLD.has(path.basename(String(f), '.html'));
+
+/** 위 목록대로 글의 noindex 와 블로그 목록 카드·분류를 맞춘다. 바꾼 파일 수 */
+function applyBlogHold(blogDir) {
+  let changed = 0;
+  for (const f of fs.readdirSync(blogDir).filter(f => f.endsWith('.html') && f !== 'index.html')) {
+    const file = path.join(blogDir, f);
+    const html = fs.readFileSync(file, 'utf8');
+    if (isRedirectStub(html)) continue;
+    let out = html.replace(/\n?[ \t]*<meta name="robots" content="noindex" data-hold>/g, '');
+    if (isHeldPost(f)) out = out.replace(/(<meta name="viewport"[^>]*>)/, `$1\n  ${HOLD_META}`);
+    if (out !== html) { fs.writeFileSync(file, out); changed++; }
+  }
+  const idxFile = path.join(blogDir, 'index.html');
+  let idx;
+  try { idx = fs.readFileSync(idxFile, 'utf8'); } catch (_) { return changed; }
+  const plain = s => s.split(HOLD_ATTR).join('');
+  let out = idx.replace(/<a href="\/blog\/([^"]+)\.html"(?: data-hold style="display:none !important")? class="post-card/g,
+    (m, slug) => `<a href="/blog/${slug}.html"${BLOG_HOLD.has(slug) ? HOLD_ATTR : ''} class="post-card`);
+  // 카드가 전부 숨은 분류: 섹션과 칩도 숨긴다
+  const emptyCats = new Set();
+  out = out.replace(/<section class="mb-10" data-cat="([a-z]+)"(?: data-hold style="display:none !important")?>([\s\S]*?)<\/section>/g, (m, cat, body) => {
+    const slugs = [...body.matchAll(/<a href="\/blog\/([^"]+)\.html"[^>]*class="post-card/g)].map(x => x[1]);
+    const empty = slugs.length > 0 && slugs.every(s => BLOG_HOLD.has(s));
+    if (empty) emptyCats.add(cat);
+    return `<section class="mb-10" data-cat="${cat}"${empty ? HOLD_ATTR : ''}>${body}</section>`;
+  });
+  out = out.replace(/(<button type="button" role="tab" class="ecm-chip[^"]*" data-cat="([a-z]+)")(?: data-hold style="display:none !important")?/g,
+    (m, head, cat) => plain(head) + (emptyCats.has(cat) ? HOLD_ATTR : ''));
+  if (out !== idx) { fs.writeFileSync(idxFile, out); changed++; }
+  return changed;
+}
 
 function makeDom() {
   const grids = {};
@@ -210,9 +257,10 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
     return fs.statSync(path.join(rootDir, relPath)).mtime.toISOString().slice(0, 10);
   };
 
-  // 다른 주소로 옮긴 글(새로고침 이동 안내만 남은 파일)은 사이트맵에 넣지 않는다
+  // 다른 주소로 옮긴 글(새로고침 이동 안내만 남은 파일)과 검색에서 잠시 뺀 글(data/blog-hold.json)은 사이트맵에 넣지 않는다
   const posts = fs.readdirSync(path.join(rootDir, 'blog'))
     .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .filter(f => !isHeldPost(f))
     .filter(f => !isRedirectStub(fs.readFileSync(path.join(rootDir, 'blog', f), 'utf8')))
     .sort();
 
@@ -255,11 +303,24 @@ function writeSitemap(rootDir, gameIds = [], extra = []) {
   return entries.length;
 }
 
-/** 블로그 글(이동 안내 파일 제외)에서 숨긴 게임 페이지로 가는 링크. [{ post, ids }] */
+/** 검색에 내보내는 블로그 글에서 검색에서 잠시 뺀 글로 가는 링크. [{ post, slugs }] */
+function blogLinksToHeld(blogDir) {
+  if (!BLOG_HOLD.size) return [];
+  const out = [];
+  for (const f of fs.readdirSync(blogDir).filter(f => f.endsWith('.html') && f !== 'index.html' && !isHeldPost(f)).sort()) {
+    const html = fs.readFileSync(path.join(blogDir, f), 'utf8');
+    if (isRedirectStub(html)) continue;
+    const slugs = [...new Set([...html.matchAll(/href="\/blog\/([a-z0-9_-]+)\.html/g)].map(m => m[1]).filter(s => BLOG_HOLD.has(s)))];
+    if (slugs.length) out.push({ post: f, slugs });
+  }
+  return out;
+}
+
+/** 블로그 글(이동 안내 파일·검색에서 잠시 뺀 글 제외)에서 숨긴 게임 페이지로 가는 링크. [{ post, ids }] */
 function blogLinksToHidden(blogDir, hidden) {
   if (!hidden.size) return [];
   const out = [];
-  for (const f of fs.readdirSync(blogDir).filter(f => f.endsWith('.html')).sort()) {
+  for (const f of fs.readdirSync(blogDir).filter(f => f.endsWith('.html') && !isHeldPost(f)).sort()) {
     const html = fs.readFileSync(path.join(blogDir, f), 'utf8');
     if (isRedirectStub(html)) continue;
     const ids = [...new Set([...html.matchAll(/href="\/game\/([a-z0-9_-]+)\.html/g)].map(m => m[1]).filter(id => hidden.has(id)))];
@@ -341,6 +402,8 @@ function couponFields(c) {
   // 예전 규칙의 "만료일 미공지" 표시는 보상이 아니라서 뺀다 (지금은 만료일 칸이 따로 말한다)
   if (c.reward) rec.reward = String(c.reward).replace(/\s*\(만료일 미공지\)/g, '').replace(/,\s*만료일 미공지\)/g, ')').trim();
   if (c.expireDate === '상시' || /^\d{4}-\d{2}-\d{2}$/.test(c.expireDate || '')) rec.expireDate = c.expireDate;
+  // 출처 주소 (2026-10-27~): 코드가 끝난 뒤에도 공식 출처로 확인했던 코드인지 알 수 있게 (game-pages.js isIndexed)
+  if (Array.isArray(c.src) && c.src.length) rec.src = c.src.slice(0, 3);
   return rec;
 }
 
@@ -590,6 +653,7 @@ function recentPosts(blogDir, limit = 500) {
   const re = /<a href="(\/blog\/[^"]+\.html)"[^>]*class="post-card[\s\S]*?cat-pill (cat-[a-z]+)[^>]*>(?:<i[^>]*><\/i>)?\s*([^<]*)<\/span>[\s\S]*?post-date">([\d.]+)<[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g;
   let m;
   while ((m = re.exec(html)) !== null) {
+    if (isHeldPost(m[1])) continue;
     const title = m[5].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const post = { url: m[1], title, date: m[4].replace(/\./g, '-'), category: m[3].trim(), cat: m[2].replace('cat-', '') };
     // 홈의 사진 카드용: 글의 첫 사진과 메타 설명
@@ -643,6 +707,9 @@ function main() {
   const blogDir = path.join(rootDir, 'blog');
   let html = fs.readFileSync(FILE, 'utf8');
 
+  // 검색에서 잠시 뺀 글 (data/blog-hold.json): 글 noindex, 블로그 목록 카드 숨김. 아래 최근 글·사이트맵보다 먼저
+  const held = applyBlogHold(blogDir);
+
   // 새 글 썸네일 (없을 때만 만든다), 글 스키마(작성일·수정일)
   const thumbs = ensureThumbnails(blogDir, rootDir);
   // 블로그 이미지의 WebP 사본 (홈 카드·글 목록이 먼저 쓴다). 파이썬이 없으면 건너뛴다
@@ -655,6 +722,8 @@ function main() {
   html = replaceJsBlock(html, 'reports', `\n    const REPORTS_ENABLED = ${REPORTS_ENABLED ? 'true' : 'false'};\n    `);
   // 운영자가 직접 넣어 본 코드 (data/tested.json 한 곳). 홈 쿠폰 창의 testedBadgeHtml 이 읽는다
   html = replaceJsBlock(html, 'tested', `\n    const TESTED_CODES = ${JSON.stringify(TESTED).replace(/</g, '\\u003c')};\n    `);
+  // 게임별 공식 채널 (data/official-sources.json 한 곳). 홈 쿠폰 창의 couponSourceHtml 이 "공식 출처/참고"를 가른다
+  html = replaceJsBlock(html, 'official', `\n    const OFFICIAL_SOURCES = ${JSON.stringify(OFFICIAL_SOURCES).replace(/</g, '\\u003c')};\n    `);
 
   // 1차 실행: 카탈로그만 읽어 등록일 장부를 갱신하고, 그 결과를 스크립트에 써 넣는다
   const first = run(html);
@@ -716,7 +785,8 @@ function main() {
   // 아이폰 앱 위젯용 쿠폰 요약 (/app/widget.json, 코드 문자열 없음). 내 게임에 담은 숨긴 게임도 보여야 하므로 페이지가 있는 게임 전부(gp.ids)
   const widgetGames = writeWidgetFeed(rootDir, { games, firstSeen: seen, gamePageIds: gp.ids, evaluate, version });
 
-  const urls = writeSitemap(rootDir, gp.listedIds, [
+  // 사이트맵·llms.txt 에는 검색에 내보낼 게임(gp.indexedIds)만. 목록에는 보여도 근거가 모자란 게임은 noindex 다
+  const urls = writeSitemap(rootDir, gp.indexedIds, [
     { loc: '/game/', file: 'game/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/today/', file: 'today/index.html', freq: 'daily', priority: '0.9' },
     { loc: '/free/', file: 'free/index.html', freq: 'weekly', priority: '0.8' },
@@ -725,7 +795,7 @@ function main() {
   ]);
 
   // AI 검색·답변 서비스용 사이트 요약 (/llms.txt)
-  const llmsGames = writeLlmsTxt(rootDir, games, gp.listedIds, posts, version);
+  const llmsGames = writeLlmsTxt(rootDir, games, gp.indexedIds, posts, version);
 
   const chars = CATS.filter(c => !CLIENT_ONLY.has(c)).reduce((n, c) => n + grids[c].length, 0);
   console.log(`카탈로그 버전: ${version}`);
@@ -734,6 +804,9 @@ function main() {
   console.log(`sitemap.xml 재생성: ${urls}개 주소 · llms.txt 게임 ${llmsGames}개 · 앱 위젯 요약 게임 ${widgetGames}개`);
   console.log(`마감 캘린더(/calendar/ecm-expiring.ics): 일정 ${cal.events}개${cal.written ? ' (새로 씀)' : ''}`);
   console.log(`게임 페이지: ${gp.ids.length}개 (새로 씀 ${gp.written}, 지움 ${gp.removed}) · 목록에 보임 ${gp.listedIds.length} · 코드 없어 숨김(noindex) ${gp.ids.length - gp.listedIds.length}`);
+  console.log(`검색에 내보냄: 게임 ${gp.indexedIds.length}개 · 목록에는 보이지만 noindex ${gp.listedIds.length - gp.indexedIds.length}개 (로블록스 보류·공식 출처 부족) · 검색에서 잠시 뺀 글 ${BLOG_HOLD.size}편${held ? ` (이번에 ${held}개 파일 맞춤)` : ''}`);
+  const heldLinks = blogLinksToHeld(blogDir);
+  if (heldLinks.length) console.log(`검색에서 잠시 뺀 글로 가는 블로그 링크: ${heldLinks.map(x => `${x.post} → ${x.slugs.join(', ')}`).join(' · ')}`);
   // 블로그 글 본문이 숨긴 게임 페이지로 링크하면 알려만 준다 (글 본문은 자동으로 고치지 않는다)
   const hiddenLinks = blogLinksToHidden(blogDir, new Set(gp.ids.filter(id => !gp.listedIds.includes(id))));
   if (hiddenLinks.length) console.log(`숨긴 게임으로 가는 블로그 링크: ${hiddenLinks.map(x => `${x.post} → ${x.ids.join(', ')}`).join(' · ')}`);
@@ -760,5 +833,5 @@ function main() {
 
 // 테스트(tests/)가 페이지 스크립트를 같은 방식으로 돌려 볼 수 있게 DOM 흉내를 내보낸다.
 // 직접 실행할 때만 빌드한다.
-module.exports = { makeDom, isRedirectStub, blogLinksToHidden, writeSitemap };
+module.exports = { makeDom, isRedirectStub, blogLinksToHidden, blogLinksToHeld, applyBlogHold, BLOG_HOLD, writeSitemap };
 if (require.main === module) main();
