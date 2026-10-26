@@ -62,6 +62,7 @@
 
 ## 가이드 글
 
+- [다후드(Da Hood) 코드 13개 기록: 10월21일 하루에 10개가 빠졌다](https://ecm-coupon.com/blog/da-hood-code-record-analysis.html): 기록 분석 · 2026-10-26
 - [피쉬(Fisch) 코드 기록: 최근 한 달, 짧으면 2일 만에 빠졌다](https://ecm-coupon.com/blog/fisch-code-record-analysis.html): 기록 분석 · 2026-10-23
 - [보더랜드 SHiFT 코드 25개 기록: 30일 동안 딱 1개만 빠졌다](https://ecm-coupon.com/blog/borderlands-shift-code-record-analysis.html): 기록 분석 · 2026-10-21
 - [애니메 뱅가드 코드 27일 기록: 처음 확인한 날과 목록에 머문 기간](https://ecm-coupon.com/blog/anime-vanguards-code-record-analysis.html): 기록 분석 · 2026-10-19
