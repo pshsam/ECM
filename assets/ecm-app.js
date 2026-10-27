@@ -129,11 +129,12 @@
 
   // ── 광고 (애드몹, 앱 플러그인 @capacitor-community/admob) ──
   // 웹뷰 안에서는 애드센스를 쓰지 않는다(scripts/analytics.js 가 ECMApp 이면 건너뜀). 앱 광고는 여기서만.
-  // live: false 면 구글 테스트 광고. 스토어 출시 + 애드몹 '스토어 추가' 뒤에 true 로 바꾼다(앱 업데이트 필요 없음).
+  // live 는 플랫폼별. false 면 구글 테스트 광고. 스토어 출시 + 애드몹 '스토어 추가' 뒤에 true 로 바꾼다(앱 업데이트 필요 없음).
   //   테스트 기기에서 실제 광고가 눌리면 무효 트래픽이 되니 출시 전에는 false 그대로 둔다.
+  //   아이폰은 2026-10-27 App Store 출시 → true. 안드로이드는 플레이 정식 출시 전이라 false.
   // 애드몹 플러그인이 없는 예전 앱 빌드에서는 호출이 실패하고 조용히 넘어간다.
   var ADMOB = {
-    live: false,
+    live: { ios: true, android: false },
     android: { banner: 'ca-app-pub-2513976449143160/1385702966', interstitial: 'ca-app-pub-2513976449143160/5934402196' },
     ios: { banner: 'ca-app-pub-2513976449143160/3952156554', interstitial: 'ca-app-pub-2513976449143160/9977763995' },
     test: {
@@ -149,7 +150,7 @@
     // 첫 실행 게임 고르기 화면 위에는 배너를 두지 않는다. 배너는 네이티브 화면이라 앞 페이지에서 띄운 것이 남아 있으면
     // 고르기 버튼을 가린다(2026-10-13 실기기 시험) → 숨기고, 고르고 나서 페이지를 다시 열 때 resumeBanner 로 되살린다
     if (document.querySelector('.ecm-onb')) { C.nativePromise('AdMob', 'hideBanner', {}).catch(function () {}); return; }
-    var ios = C.getPlatform() === 'ios', units = (ADMOB.live ? ADMOB : ADMOB.test)[ios ? 'ios' : 'android'];
+    var ios = C.getPlatform() === 'ios', live = !!ADMOB.live[ios ? 'ios' : 'android'], units = (live ? ADMOB : ADMOB.test)[ios ? 'ios' : 'android'];
     function call(m, o) { return C.nativePromise('AdMob', m, o || {}); }
     var nav = document.querySelector('.ecm-apptabs'), tabH = nav ? nav.offsetHeight : 0;
     // 배너는 네이티브 화면이라 페이지 위에 겹친다: 탭 바 바로 위에 두고, 그 높이만큼 본문 아래 여백을 늘린다
@@ -166,7 +167,7 @@
       // 이미 있던 배너에는 showBanner 가 새 광고만 받고 숨김은 풀지 않으며, 응답(resolve)도 오지 않는다(플러그인 8.2 동작,
       // 2026-10-13 실기기에서 확인) → showBanner 를 기다리지 말고 resumeBanner 를 먼저 따로 부른다. 배너가 아직 없으면 실패하고 넘어간다
       call('resumeBanner').catch(function () {});
-      return call('showBanner', { adId: units.banner, adSize: 'ADAPTIVE_BANNER', position: 'BOTTOM_CENTER', margin: tabH, isTesting: !ADMOB.live });
+      return call('showBanner', { adId: units.banner, adSize: 'ADAPTIVE_BANNER', position: 'BOTTOM_CENTER', margin: tabH, isTesting: !live });
     }).catch(function () {});
 
     // 첫 실행 시각은 어느 페이지든 앱을 처음 연 때로 센다(전면 광고 첫날 유예)
@@ -180,7 +181,7 @@
     var due = st.views >= AD_EVERY && now - st.last >= AD_GAP;
     if (due) { st.views = 0; st.last = now; }
     ls(AD_KEY, JSON.stringify(st));
-    var opts = { adId: units.interstitial, isTesting: !ADMOB.live };
+    var opts = { adId: units.interstitial, isTesting: !live };
     ready.then(function () {
       // 다음 차례 바로 전 페이지에서 미리 받아 둔다(네이티브 쪽에 남아 다음 페이지에서 바로 뜬다)
       if (due) return call('showInterstitial').then(function () { track('app_interstitial', { result: 'shown' }); }, function () { return call('prepareInterstitial', opts); });
