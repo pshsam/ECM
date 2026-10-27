@@ -1,6 +1,7 @@
 // 코드가 없는 게임 정리 (2026-10-15, 애드센스 '가치가 별로 없는 콘텐츠' 대응)
 //   A: data/game-listing.json 의 keepListedWithoutCodes 게임은 코드가 없어도 목록에 남는다
-//   B: 그 밖의 게임은 살아 있는 코드가 0개면 목록·메뉴·/game/·사이트맵·llms.txt 에서 빠지고, 페이지는 noindex 로 남는다
+//   B: 그 밖의 게임은 살아 있는 코드가 0개면 목록·메뉴·/game/·sitemap·llms.txt 에서 빠지고, 페이지는 noindex 로 남는다
+process.env.TZ = 'Asia/Seoul'; // tests/coupon.test.js 와 같은 이유: 화면(evaluateCoupon)은 방문자 로컬시계를 그대로 쓰므로, 클라우드(UTC)에서 테스트가 KST 자정 전후로 빌드 판정(KST 고정)과 어긋나지 않게 고정한다
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('fs');
