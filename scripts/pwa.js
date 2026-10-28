@@ -1,5 +1,7 @@
 /**
  * 홈 화면에 설치하는 웹앱 태그. 모든 페이지의 <head> 에 매니페스트·테마 색·아이폰 아이콘을 넣는다.
+ * apple-itunes-app 은 아이폰 사파리 위쪽에 App Store 'ECM 쿠폰'(Apple ID 6822186221) 받기 배너를 띄운다.
+ *   사파리에서만 보이고 앱 안 웹뷰·홈 화면 웹앱에서는 안 보인다. 문구는 App Store 이름·부제를 그대로 쓴다.
  * prerender.js 가 빌드 끝에 ensurePwaHead 로 채운다(글쓰기 루틴이 새 글을 올려도 빌드가 돌므로 자동으로 들어간다).
  * 서비스 워커 등록은 assets/ecm.js 가 한다. 설정: /manifest.webmanifest, /sw.js
  */
@@ -11,6 +13,7 @@ const PWA_SNIPPET = `<!-- PWA -->
   <meta name="theme-color" content="#FFFFFF">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="ECM 쿠폰">
+  <meta name="apple-itunes-app" content="app-id=6822186221">
   <!-- /PWA -->`;
 const BLOCK_RE = /<!-- PWA -->[\s\S]*?<!-- \/PWA -->/;
 
