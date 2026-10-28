@@ -152,6 +152,13 @@
     "reward": "T-크레드 71,600개, 세이프티 헬멧 스티커",
     "removed": "2026-10-09"
   },
+  "arknights-endfield:ENDFIELDSTEAM": {
+    "reward": "탈로시안 화폐 8,000개, 초급 인지 매개체 2개, 무기 점검 세트 2개, 특별 기념 프로필 프레임 1개",
+    "expireDate": "2026-11-25",
+    "src": [
+      "https://endfield.gryphline.com/ko-kr/news/3838"
+    ]
+  },
   "arknights-endfield:ZAU2SYXHWX5L4ZH": {
     "reward": "T-크레드 5,000개, 팔 INSP 키트 10개",
     "src": [
@@ -685,7 +692,9 @@
   },
   "neverness-to-everness:BLACKBIRDINNTE": {
     "reward": "환석 20개, 비틀 코인 30,000개, 폰즈 10,000개",
+    "expireDate": "2026-10-21",
     "src": [
+      "https://x.com/NTE_GL/status/2104873828979712147",
       "https://www.pcgamesn.com/neverness-to-everness/codes",
       "https://www.pockettactics.com/neverness-to-everness/codes"
     ]
@@ -834,7 +843,9 @@
   },
   "rise-of-kingdoms:ROKINFINI8": {
     "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개",
+    "expireDate": "2026-10-13",
     "src": [
+      "https://www.youtube.com/watch?v=5KBB9t2ZDvQ",
       "https://www.pockettactics.com/rise-of-kingdoms/codes"
     ]
   },

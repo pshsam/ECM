@@ -74,7 +74,10 @@ function isIndexed(g, activeOf, { ledger = {}, tested = TESTED, todayKst = kstTo
   if (HOLD_ROBLOX && (g.platforms || []).includes('roblox')) return false;
   if (OPERATOR_GAMES.includes(g.id)) return true;
   if (!OFFICIAL_INDEX_FROM || todayKst < OFFICIAL_INDEX_FROM) return true;
-  if (activeOf(g).some(c => hasOfficialBasis(g.id, c, tested))) return true;
+  const active = activeOf(g);
+  if (active.some(c => hasOfficialBasis(g.id, c, tested))) return true;
+  // 지난 코드 기록은 살아 있는 코드가 없을 때만 본다 — 코드가 있는데 전부 매체 출처면 지난 공식 코드로 대신하지 않는다
+  if (active.length) return false;
   return Object.keys(ledger).some(k => k.startsWith(g.id + ':') && (ledger[k].src || []).some(u => isOfficialSrc(g.id, u)));
 }
 

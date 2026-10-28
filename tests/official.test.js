@@ -97,6 +97,11 @@ test('검색에 내보낼 게임 판정 (isIndexed)', () => {
   assert.ok(!isIndexed(media, activeOf, { todayKst: after }));
   assert.ok(isIndexed(official, activeOf, { todayKst: after }));
   assert.ok(isIndexed(media, activeOf, { todayKst: after, tested: { 'blackdesert:L1': { date: '2026-11-01', result: 'ok' } } }));
+  // 지난 코드 기록의 공식 출처는 살아 있는 코드가 없는 A 목록 게임에만 인정한다
+  const ledger = { 'blackdesert:OLD': { src: ['https://kr.playblackdesert.com/ko-KR/News'] }, 'bluearchive:OLD': { src: ['https://forum.nexon.com/bluearchive/board_view?thread=1'] } };
+  assert.ok(!isIndexed(media, activeOf, { todayKst: after, ledger }));
+  assert.ok(isIndexed({ ...base, id: 'bluearchive', coupons: [] }, activeOf, { todayKst: after, ledger }));
+  assert.ok(!isIndexed({ ...base, id: 'bluearchive', coupons: [] }, activeOf, { todayKst: after, ledger: {} }));
   // 로블록스는 보류 중이면 날짜와 상관없이 noindex
   assert.equal(HOLD_ROBLOX, true);
   assert.ok(!isIndexed(roblox, activeOf, { todayKst: before }));
