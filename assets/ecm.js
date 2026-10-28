@@ -246,7 +246,7 @@
     if (history.replaceState) history.replaceState(null, '', cat === 'latest' ? ' ' : '#' + cat);
   });
   var want = (location.hash || '').slice(1);
-  show(['game', 'platform', 'guide'].indexOf(want) >= 0 ? want : 'latest');
+  show(['game', 'guide'].indexOf(want) >= 0 ? want : 'latest');
 })();
 
 // ── 공유 버튼과 공유 추적 ──

@@ -91,7 +91,7 @@ tests/                  자동 테스트 (node 내장 테스트, 설치할 것 �
   - `holdRobloxFromIndex: true`: 로블록스 게임 페이지는 전부 noindex(홈·/game/ 목록에는 그대로 보인다).
   - `officialIndexFrom: "2026-11-10"`: 이날부터 그 밖의 게임은 살아 있는 코드 중 공식 출처나 직접 확인(tested ok)이 하나라도 있어야 내보낸다.
     코드가 없는 A 게임은 지난 코드 장부(`data/coupon-history.json`, 2026-10-27~ `src` 를 같이 남김)에 공식 출처가 있어야 한다.
-- `data/blog-hold.json`: 검색에서 잠시 뺀 블로그 글 31편(지난 뉴스·일반론). prerender(`applyBlogHold`)가 글에 `<meta name="robots" content="noindex" data-hold>` 를 넣고,
+- `data/blog-hold.json`: 검색에서 잠시 뺀 블로그 글(지금은 비어 있음. 2026-10-28 에 보류했던 31편 중 게임 소식 21편은 게임 페이지 이동 안내로 바꾸고, 쿠폰과 먼 10편은 지웠다). prerender(`applyBlogHold`)가 글에 `<meta name="robots" content="noindex" data-hold>` 를 넣고,
   블로그 목록 카드를 숨기고(카드가 전부 숨은 분류는 칩·섹션도), 사이트맵·홈 최근 글·assets/posts.json·llms.txt 에서 뺀다. 목록에서 지우면 되돌아온다. **손으로 data-hold 를 고치지 않는다.**
 - prerender 로그의 "검색에서 잠시 뺀 글로 가는 블로그 링크"는 알려만 준다(본문은 자동으로 고치지 않는다).
 

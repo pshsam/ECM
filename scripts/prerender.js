@@ -230,7 +230,7 @@ function noscriptHtml(data, games = data.games) {
  * 필독 가이드(cat: guide) 중 아래 순서를 먼저, 나머지는 최신순으로 채워 GUIDE_MAX 개. 전체 글은 블로그 목록으로.
  */
 const GUIDE_MAX = 6;
-const GUIDE_FIRST = ['coupon-code-not-working-guide', 'game-coupon-complete-guide', 'coupon-scam', 'hoyoverse', 'nexon', 'netmarble', 'stove', 'kakao'];
+const GUIDE_FIRST = ['coupon-code-not-working-guide', 'coupon-scam', 'hoyoverse', 'nexon', 'netmarble', 'stove', 'kakao'];
 function guideLinksHtml(posts) {
   const guides = posts.filter(p => p.cat === 'guide');
   const rank = p => { const i = GUIDE_FIRST.findIndex(k => p.url.includes(k)); return i < 0 ? 99 : i; };

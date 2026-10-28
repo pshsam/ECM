@@ -117,7 +117,6 @@ test('검색에 내보낼 게임 판정 (isIndexed)', () => {
 test('검색에서 잠시 뺀 글: 파일이 있고, noindex 가 붙고, 사이트맵·최근 글·llms.txt·블로그 목록에서 빠진다', () => {
   const j = JSON.parse(read('data/blog-hold.json'));
   assert.equal(new Set(j.posts).size, j.posts.length, '같은 글이 두 번');
-  assert.ok(BLOG_HOLD.size > 0);
   const sitemap = read('sitemap.xml'), llms = read('llms.txt'), posts = read('assets/posts.json'), idx = read('blog/index.html');
   for (const slug of BLOG_HOLD) {
     const file = `blog/${slug}.html`;
