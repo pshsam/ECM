@@ -29,7 +29,10 @@
   "aion2:HAPPYCHUSEOKAION2": {
     "reward": "전투 강화 주문서(각인) 50개 외 추석 기념 아이템 다수",
     "expireDate": "2026-10-14",
-    "removed": "2026-10-15"
+    "removed": "2026-10-15",
+    "src": [
+      "https://aion2.plaync.com/ko-kr/board/notice/view?articleId=6ab28968d97eae18cc40e08a"
+    ]
   },
   "aniimo:ANIIMOGIFT": {
     "reward": "글리머 10개, 크레딧 20,000, 성장의 꽃 10개, 애니팟 프로 5개",
@@ -234,6 +237,7 @@
     "reward": "청휘석 600개",
     "expireDate": "2026-11-09",
     "src": [
+      "https://forum.nexon.com/bluearchive/board_view?thread=3563998",
       "https://bbs.ruliweb.com/news/board/1004/read/2296043",
       "https://bbs.ruliweb.com/game/85438/read/1398905"
     ]
@@ -241,7 +245,10 @@
   "bluearchive:KIRAKIRAERIKA": {
     "reward": "청휘석(공청석) 300개",
     "expireDate": "2026-10-09",
-    "removed": "2026-10-10"
+    "removed": "2026-10-10",
+    "src": [
+      "https://forum.nexon.com/BlueArchive/board_view?thread=3536588"
+    ]
   },
   "borderlands:39FJ3-CTJTK-CXTBC-JTJ3T-W95RK": {
     "reward": "(보더랜드4) 골든키 3개",
@@ -433,7 +440,11 @@
     ]
   },
   "eclipse-awakening:0910ECLIPSE": {
-    "reward": "골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개"
+    "reward": "골드 100만, 클레온의 결정 100개, 희귀 스킬 강화석 1개, 대장장이의 세공석 10개, 공예가의 세공석 10개",
+    "expireDate": "2026-11-10",
+    "src": [
+      "https://page.onstove.com/eclipse/kr/view/14504680"
+    ]
   },
   "epic-seven:EPICWITHCZN": {
     "reward": "인연의 서표 15개, 골드 300,000 (CZN 콜라보 기념)",
@@ -491,7 +502,10 @@
   "genshin:VesnaOnPatrol": {
     "reward": "원석 40개, 영웅의 양식 3개, 모라 20,000",
     "expireDate": "2026-10-22",
-    "removed": "2026-10-23"
+    "removed": "2026-10-23",
+    "src": [
+      "https://genshin.hoyoverse.com/ko/news/detail/166131"
+    ]
   },
   "genshin:Y1INABQB6DEX": {
     "reward": "원석 60개, 모험가의 경험 5개",
@@ -623,22 +637,34 @@
   "magmagu-2026:2609UPDATENOTICE": {
     "reward": "루키 선수 영입권 5장",
     "expireDate": "2026-09-30",
-    "removed": "2026-10-01"
+    "removed": "2026-10-01",
+    "src": [
+      "https://forum.netmarble.com/magumagu2020/view/23/185350"
+    ]
   },
   "magmagu-2026:ADIEU26SUMMER": {
     "reward": "레전드 프차 픽업팩 1개",
     "expireDate": "2026-09-30",
-    "removed": "2026-10-01"
+    "removed": "2026-10-01",
+    "src": [
+      "https://forum.netmarble.com/magumagu2020/view/23/185350"
+    ]
   },
   "magmagu-2026:MAKEBETTERMAGU": {
     "reward": "강화 행운권(+50%) 1개",
     "expireDate": "2026-09-30",
-    "removed": "2026-10-01"
+    "removed": "2026-10-01",
+    "src": [
+      "https://forum.netmarble.com/magumagu2020/view/23/185350"
+    ]
   },
   "maplestory-idle:PINKBEANATTACK": {
     "reward": "동료 소환권 300장",
     "expireDate": "2026-10-14",
-    "removed": "2026-10-15"
+    "removed": "2026-10-15",
+    "src": [
+      "https://forum.nexon.com/maplestoryidle-kr/board_view?thread=3536440"
+    ]
   },
   "nba2k27:MYTEAM-SEASON-1-REWARD": {
     "reward": "시즌 1 플레이어 보상 팩",
@@ -724,6 +750,7 @@
     "reward": "아디다스 콜라보 아바타 신발",
     "expireDate": "2027-01-15",
     "src": [
+      "https://pokemongo.com/ko/news/pokemon-x-adidas-2026",
       "https://www.pockettactics.com/pokemon-go/codes",
       "https://insider-gaming.com/pokemon-go-codes-and-rewards-free-promo/"
     ]
@@ -757,6 +784,7 @@
     "reward": "로트폼폰 케이스 '북 커버' (스칼렛 전용)",
     "expireDate": "상시",
     "src": [
+      "https://sv-news.pokemon.co.jp/ko/page/319.html",
       "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
     ]
   },
@@ -764,6 +792,7 @@
     "reward": "트레이닝복 아바타 의상 (스칼렛 전용)",
     "expireDate": "상시",
     "src": [
+      "https://sv-news.pokemon.co.jp/ko/page/381.html",
       "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
       "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
     ]
@@ -772,6 +801,7 @@
     "reward": "로트폼폰 케이스 '북 커버' (바이올렛 전용)",
     "expireDate": "상시",
     "src": [
+      "https://sv-news.pokemon.co.jp/ko/page/319.html",
       "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
     ]
   },
@@ -779,6 +809,7 @@
     "reward": "트레이닝복 아바타 의상 (바이올렛 전용)",
     "expireDate": "상시",
     "src": [
+      "https://sv-news.pokemon.co.jp/ko/page/381.html",
       "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
       "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
     ]
@@ -2053,39 +2084,56 @@
   "trickcal-revive:3RDBOLTHDAY": {
     "reward": "엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)",
     "expireDate": "2026-10-22",
-    "removed": "2026-10-22"
+    "removed": "2026-10-22",
+    "src": [
+      "https://game.naver.com/lounge/Trickcal/board/detail/8249600"
+    ]
   },
   "trickcal-revive:BOLEUMDAL": {
     "reward": "최상급 크레파스 10개, 송편 10개 (추석 기념 쿠폰)",
     "expireDate": "2026-10-01",
-    "removed": "2026-10-01"
+    "removed": "2026-10-01",
+    "src": [
+      "https://game.naver.com/lounge/Trickcal/board/detail/8239854"
+    ]
   },
   "trickcal-revive:GOOGLETOP3": {
     "reward": "교주의 빛무리 선택권 1개, 참! 잘했어요 333개 (구글 플레이 매출 3위 달성 기념)",
     "expireDate": "2026-10-22",
-    "removed": "2026-10-22"
+    "removed": "2026-10-22",
+    "src": [
+      "https://game.naver.com/lounge/Trickcal/board/detail/8271053"
+    ]
   },
   "trickcal-revive:SILVERBOL": {
     "reward": "실비아 확정 모집권 1개",
     "expireDate": "2026-10-22",
-    "removed": "2026-10-22"
+    "removed": "2026-10-22",
+    "src": [
+      "https://game.naver.com/lounge/Trickcal/board/detail/8288627"
+    ]
   },
   "trickcal-revive:TRICKCALCOM": {
     "reward": "사도 모집 티켓 10개, 시온 포스터 (브랜드 사이트 런칭 기념)",
     "expireDate": "상시",
     "src": [
+      "https://trickcal.com/revive/specialcoupon",
       "https://www.inven.co.kr/board/party/6303/356"
     ]
   },
   "trickcal-revive:한글날": {
     "reward": "크레파스 지우개 10개, 왕사탕 1,000개, 골드 1,000,000 (한글날 제정 100주년 기념)",
     "expireDate": "2026-10-22",
-    "removed": "2026-10-22"
+    "removed": "2026-10-22",
+    "src": [
+      "https://game.naver.com/lounge/Trickcal/board/detail/8305534"
+    ]
   },
   "valhalla-survival:2026CHUSEOK": {
     "reward": "2026 추석 기념 보상 (수수께끼의 유물 랜덤 상자, T5 보석 랜덤 소환권, 영웅 조각 선택 상자, 이그드라실의 씨앗 등)",
     "expireDate": "2026-10-31",
     "src": [
+      "https://game.naver.com/lounge/valhallasurvival/board/detail/8227519",
       "https://m.news.nate.com/view/20260923n33407",
       "https://www.khgames.co.kr/news/articleView.html?idxno=308781"
     ]
