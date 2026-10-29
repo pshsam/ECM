@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30 05:55",
+ "updated": "2026-10-30 06:07",
  "mode": "새 날",
  "blogs": {
   "gamenews": [
@@ -674,216 +674,111 @@
   ]
  },
  "ecm": {
-  "report_date": "2026-10-29",
+  "report_date": "2026-10-30",
   "topics": [
    {
     "rank": 1,
-    "title": "신도 라이프 코드 기록: 37개 코드로 가장 많이 쌓인 로블록스 쿠폰",
+    "title": "제우스: 오만의 신 신규 길드 콘텐츠 '성물 방어전' 업데이트, 참여 방법 정리",
     "keywords": [
-     "신도 라이프 코드",
-     "신도 라이프 쿠폰"
+     "제우스 오만의 신",
+     "성물 방어전",
+     "제우스 오만의 신 길드"
     ],
-    "reason": "ECM이 직접 관리하는 신도 라이프 코드 표 기준, 카탈로그 80개 게임 중 가장 많은 코드(37개)가 쌓여 있다. 왜 이 게임만 코드가 안 빠지고 쌓이는지(배포 주기·만료 패턴) 분석할 소재가 풍부하고, 기존 '코드 기록' 시리즈(다후드·피쉬·보더랜드·애니메뱅가드)에 없는 신규 게임이라 틈새. (네이버 검색량지수 100.0, 추세 보합, 경쟁글 3763건)",
-    "outline": "ECM 신도 라이프 페이지의 37개 코드 표 → 등록일(coupon-seen)·만료 패턴 분석 → 왜 다른 로블록스 게임보다 코드가 많이 쌓였나 → 입력 방법 안내 → ECM 신도 라이프 쿠폰 페이지 링크",
-    "score": 9.0,
-    "game_name": "신도 라이프",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-shindo-life.html",
-    "fact_check": "확인",
-    "blog_post_count": 3763,
-    "search_volume_latest": 100,
-    "search_volume_trend": "보합",
-    "monthly_search_total": null,
-    "est_click_total": 0
-   },
-   {
-    "rank": 2,
-    "title": "발할라 서바이벌 10월28일 업데이트, 망령의 수확제 던전·가을 쿠폰 이벤트 정리",
-    "keywords": [
-     "발할라 서바이벌 업데이트",
-     "발할라 서바이벌 쿠폰"
-    ],
-    "reason": "라이온하트스튜디오 공식 발표(게임메카 보도, 2026-10-28)로 핼러윈 한정 던전과 '2026 가을 쿠폰 이벤트'가 구체적으로 확인됨. ECM 카탈로그에 발할라 서바이벌 살아 있는 코드 1개가 있어(있음_쿠폰있음) 업데이트 소식과 쿠폰 페이지를 바로 연결할 수 있다. (네이버 검색량 데이터 없음, 경쟁글 762건)",
-    "outline": "핼러윈 '망령의 수확제 던전'(~11/11) → 호박 등불 교환 보상 → '2026 가을 쿠폰 이벤트'는 공식 라운지·디스코드 참여형이라 ECM이 올리는 게임 내 코드와는 다르다는 점 명시 → ECM 발할라 서바이벌 쿠폰 코드 1개 링크",
-    "score": 8.5,
-    "game_name": "발할라 서바이벌",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://www.gamemeca.com/view.php?gid=1782510",
-    "fact_check": "확인",
-    "blog_post_count": 762,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": 0
-   },
-   {
-    "rank": 3,
-    "title": "블록스 프루트 코드 기록: 22개 코드로 본 로블록스 최고 인기작 쿠폰",
-    "keywords": [
-     "블록스 프루트 코드",
-     "블록스 프루트 쿠폰"
-    ],
-    "reason": "로블록스 전체에서 가장 많이 검색되는 게임인데도 ECM 블로그의 '코드 기록' 시리즈엔 아직 없다. ECM 카탈로그에 22개 코드가 쌓여 있고(있음_쿠폰있음), 경쟁 블로그 글이 8건뿐인 완전한 틈새. (네이버 검색량 데이터 없음, 경쟁글 8건)",
-    "outline": "ECM 블록스 프루트 페이지의 22개 코드 표 → 등록일·만료 패턴 → 블록스 프루트만의 코드 배포 특징(업데이트 기념 코드 비중) → 입력 방법 → ECM 블록스 프루트 쿠폰 페이지 링크",
-    "score": 8.3,
-    "game_name": "블록스 프루트",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-blox-fruits.html",
-    "fact_check": "확인",
-    "blog_post_count": 8,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": 0
-   },
-   {
-    "rank": 4,
-    "title": "로스트아크 10월29일(목) 저녁 7시 라이브 방송, 유튜브에서 보는 법",
-    "keywords": [
-     "로스트아크 라이브 방송",
-     "로스트아크 쿠폰"
-    ],
-    "reason": "로스트아크 공식 공지(2026-10-26 게시)로 오늘 저녁 7시 라이브 방송이 확정됨. 라이브 방송에서 쿠폰 코드가 공개되는 경우가 많아(로아온 사례) 쿠폰 관점에서도 체크포인트. ECM 카탈로그에 있고 쿠폰 페이지 링크 가능(현재는 있음_쿠폰없음). (네이버 검색량지수 100.0, 추세 보합, 경쟁글 1789건)",
-    "outline": "방송 일정(10/29 저녁7시)·채널(공식 유튜브) → 방송에서 쿠폰 코드가 나올 수 있다는 점(과거 사례, 추측 금지로 '나올 수 있다'까지만) → 방송 후 확인할 곳 → ECM 로스트아크 쿠폰 페이지 링크",
-    "score": 8.0,
-    "game_name": "로스트아크",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-10-26",
-    "evidence_url": "https://lostark.game.onstove.com/News/Notice/Views/13579",
-    "fact_check": "확인",
-    "blog_post_count": 1789,
-    "search_volume_latest": 100,
-    "search_volume_trend": "보합",
-    "monthly_search_total": 20,
-    "est_click_total": 0
-   },
-   {
-    "rank": 5,
-    "title": "방치형 RPG '소드 x 스태프' 11월4일 출시 확정, 화산귀환 콜라보 정리",
-    "keywords": [
-     "소드 x 스태프",
-     "소드엑스스태프 사전예약"
-    ],
-    "reason": "게임메카 보도(2026-10-28)로 출시일(11/4)과 인기 웹툰 '화산귀환' 콜라보(화산파 캐릭터 5명 무료 지급 등) 내용이 구체적으로 확인됨. 사전 캐릭터 커스터마이징 이벤트 보상이 있어 '신작 출시·사전예약' 관점에 정확히 맞고, 검색량 상승세+경쟁글 889건으로 반응 좋음. 카탈로그에 없음. (네이버 검색량지수 100.0, 추세 상승, 경쟁글 889건)",
-    "outline": "출시일(11/4) → 화산귀환 콜라보 기간(11일~12/1)·무료 동료 캐릭터 5명 → 사전 커스터마이징 이벤트(쏘미더 커마 플러스, 10/28~11/10)와 출시 후 코드 연동 → 카탈로그에 없어 쿠폰은 다루지 않음(추가 필요)",
-    "score": 7.8,
-    "game_name": "소드 x 스태프",
-    "catalog_status": "없음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://www.gamemeca.com/view.php?gid=1782479",
-    "fact_check": "확인",
-    "blog_post_count": 889,
-    "search_volume_latest": 100,
-    "search_volume_trend": "상승",
-    "monthly_search_total": 3300,
-    "est_click_total": 0
-   },
-   {
-    "rank": 6,
-    "title": "MMORPG 신작 '판타지포유' 사전예약 30만 돌파, 11월10일 정식 출시",
-    "keywords": [
-     "판타지포유",
-     "판타지포유 사전예약"
-    ],
-    "reason": "게임메카 보도(2026-10-28)로 사전예약 30만 돌파와 11월10일 정식 출시, 사전예약 미션(퀴즈+직소퍼즐) 완료 시 보상 지급 구조가 확인됨. '신작 출시·사전예약' 보상 받는 법 관점에 맞고, 네이버 월간 검색량이 4,180으로 이번 조사 신규 후보 중 가장 큼. 카탈로그에 없음. (네이버 검색량지수 89.6, 추세 상승, 경쟁글 5657건)",
-    "outline": "게임 소개(1999년 PC 온라인 다크판타지 감성 2D MMORPG)·20개 혈통 → 사전예약 미션(퀴즈3+직소퍼즐3) 완료 시 출시 후 보상(세부 추후 공지, 추측 금지) → 출시 일정(11/9 닉네임 선점~11/10 낮12시 정식 서비스) → 카탈로그에 없어 쿠폰은 다루지 않음(추가 필요)",
-    "score": 7.6,
-    "game_name": "판타지포유",
-    "catalog_status": "없음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://www.gamemeca.com/view.php?gid=1782498",
-    "fact_check": "확인",
-    "blog_post_count": 5657,
-    "search_volume_latest": 89.60626,
-    "search_volume_trend": "상승",
-    "monthly_search_total": 4180,
-    "est_click_total": 0
-   },
-   {
-    "rank": 7,
-    "title": "검은사막 쿠폰 등록 방법: 펄어비스 공식 코드 넣는 법",
-    "keywords": [
-     "검은사막 쿠폰",
-     "검은사막 쿠폰 등록"
-    ],
-    "reason": "ECM이 이미 펴낸 퍼블리셔별 쿠폰 등록 가이드(카카오게임즈·하이브·NShop/호요버스/넷마블/스토브/넥슨)에 펄어비스(검은사막)만 빠져 있다. ECM 카탈로그에 검은사막 PC 살아 있는 코드 4개가 있어(있음_쿠폰있음) 바로 실전 가이드로 연결 가능. (네이버 검색량지수 47.5, 추세 하락, 경쟁글 7336건)",
-    "outline": "검은사막 PC 공식 쿠폰 등록 경로(공식 홈페이지/런처) → 등록 후 수령 방법(우편함 여부) → 검은사막 모바일과 다른 점(모바일은 현재 살아 있는 코드 없음) → ECM 검은사막 쿠폰 코드 4개 페이지 링크",
-    "score": 7.5,
-    "game_name": "검은사막 PC",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-27",
-    "evidence_url": "https://ecm-coupon.com/game/blackdesert.html",
-    "fact_check": "확인",
-    "blog_post_count": 7336,
-    "search_volume_latest": 47.46696,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 560,
-    "est_click_total": 2
-   },
-   {
-    "rank": 8,
-    "title": "킹 레거시 코드 기록: 8개 코드가 목록에 머문 기간",
-    "keywords": [
-     "킹 레거시 코드",
-     "킹 레거시 쿠폰"
-    ],
-    "reason": "ECM 카탈로그에 킹 레거시 쿠폰 코드 8개가 있고(있음_쿠폰있음), '코드 기록' 시리즈에 없는 로블록스 신작 분석감. 검색량 추세가 상승이라 반응 확인 가능. (네이버 검색량지수 30.9, 추세 상승, 경쟁글 889건)",
-    "outline": "ECM 킹 레거시 페이지의 8개 코드 표 → 등록일·만료 패턴, 다른 로블록스 게임과 비교 → 입력 방법 → ECM 킹 레거시 쿠폰 페이지 링크",
-    "score": 7.0,
-    "game_name": "킹 레거시",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-10-28",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-king-legacy.html",
-    "fact_check": "확인",
-    "blog_post_count": 889,
-    "search_volume_latest": 30.85106,
-    "search_volume_trend": "상승",
-    "monthly_search_total": 80,
-    "est_click_total": 0
-   },
-   {
-    "rank": 9,
-    "title": "제우스: 오만의 신 10월28일 업데이트, 성물 방어전 길드 콘텐츠 정리",
-    "keywords": [
-     "제우스 오만의 신 업데이트",
-     "제우스 오만의 신 쿠폰"
-    ],
-    "reason": "컴투스가 서비스하는 MMORPG의 신규 길드 콘텐츠로, 게임메카가 운영 방식·보상 구조를 상세 보도(2026-10-28). ECM 카탈로그에 있으나 현재 살아 있는 코드는 없음(있음_쿠폰없음)이라 쿠폰 페이지 링크로 '새 코드 알림 받기'를 유도할 수 있다. (네이버 검색량지수 16.5, 추세 하락, 경쟁글 1314건) (카탈로그 쿠폰 없음 — 새 코드 확인 필요)",
-    "outline": "신규 길드 콘텐츠 '성물 방어전'(최대 60명, 매주 월~화 운영) → 6단계 진행 구조 → 업데이트 기념 미션 보상(길드 코인 등) → ECM 제우스: 오만의 신 쿠폰 페이지 링크(현재 코드 없음, 새 코드 알림 안내)",
-    "score": 6.5,
+    "reason": "컴투스 서비스 MMORPG에 10/28 추가된 신규 길드 PvE 콘텐츠. 네이버 검색량지수 24.4(추세 상승), 경쟁글은 12,946건으로 많지만 월간 검색량 88,300(PC 26,600·모바일 61,700)으로 압도적으로 커 반응이 확실함(네이버 검색량지수 24.4, 추세 상승, 경쟁글 12946건). 게임메카가 10/28 15:38 직접 보도, WebFetch로 재확인.",
+    "outline": "1) 성물 방어전이 뭔지(최대 60명 길드원, 성물 3개 지키기, 6단계 협동전투) 2) 참여 조건·운영 요일(월 오전5시~화 자정) 3) 업데이트 기념 길드 미션 이벤트 보상 4) ECM 제우스: 오만의 신 쿠폰 페이지 안내(지금은 살아있는 코드 없음, 쿠폰 나오면 이 글에 추가 예정)",
     "game_name": "제우스: 오만의 신",
     "catalog_status": "있음_쿠폰없음",
     "evidence_date": "2026-10-28",
     "evidence_url": "https://www.gamemeca.com/view.php?gid=1782476",
     "fact_check": "확인",
-    "blog_post_count": 1314,
-    "search_volume_latest": 16.48351,
+    "blog_post_count": 12946,
+    "search_volume_latest": 24.39491,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 88300,
+    "est_click_total": 23
+   },
+   {
+    "rank": 2,
+    "title": "발할라 서바이벌 핼러윈 '망령의 수확제' 던전·가을 쿠폰 이벤트 정리",
+    "keywords": [
+     "발할라 서바이벌 쿠폰",
+     "망령의 수확제",
+     "발할라 서바이벌 핼러윈"
+    ],
+    "reason": "라이온하트스튜디오가 10/28 공개한 핼러윈 한정 던전(11/11까지)과 같은 기간 진행되는 '2026 가을 쿠폰 이벤트'(공식 라운지·디스코드 참여형). 경쟁글 313건으로 틈새, 검색량지수 40(추세 상승). 게임메카 10/28 16:34 보도, WebFetch로 재확인. ECM에 발할라 서바이벌 쿠폰 페이지가 있어 링크 가능.",
+    "outline": "1) 망령의 수확제 던전 소개(난이도별 호박 등불 보상, 11/11까지) 2) 교환 가능 아이템(옵션 전이석 상자·신화 무기 교환권) 3) 가을 쿠폰 이벤트 참여 방법(공식 라운지·디스코드, 인게임 코드 쿠폰과는 다른 성격임을 구분) 4) ECM 발할라 서바이벌 쿠폰 코드 페이지 링크",
+    "game_name": "발할라 서바이벌",
+    "catalog_status": "있음_쿠폰있음",
+    "evidence_date": "2026-10-28",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1782510",
+    "fact_check": "확인",
+    "blog_post_count": 313,
+    "search_volume_latest": 40,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 40,
+    "est_click_total": 0
+   },
+   {
+    "rank": 3,
+    "title": "로스트아크 쿠폰 코드, 지금은 왜 없을까 (나오면 입력하는 법 미리 정리)",
+    "keywords": [
+     "로스트아크 쿠폰",
+     "로스트아크 코드",
+     "로스트아크 쿠폰 등록"
+    ],
+    "reason": "로스트아크 공식 홈페이지(lostark.game.onstove.com) 공지 목록을 오늘(10/30) 직접 확인한 결과 최근 공지 5개(10/21~10/29) 중 쿠폰·교환 코드 관련 공지는 없음. 그런데도 월간 검색량 210으로 '로스트아크 쿠폰'을 찾는 사람이 꾸준해(ECM 카탈로그에도 해당 페이지가 있음) '왜 지금 없는지 + 나오면 어떻게 넣는지'를 미리 정리해두면 코드가 나왔을 때 바로 갱신해 쓸 수 있는 틈새 주제.",
+    "outline": "1) 지금 로스트아크에 살아있는 쿠폰 코드가 없다는 사실(공식 공지 기준, 날짜 명시) 2) 쿠폰은 보통 어디서 나오나(스토브 공식 공지·라이브 방송) 3) 나오면 입력하는 법(스토브 쿠폰 등록 페이지 경로) 4) ECM 로스트아크 쿠폰 페이지로 연결해 새 코드 뜨면 바로 확인하라는 안내",
+    "game_name": "로스트아크",
+    "catalog_status": "있음_쿠폰없음",
+    "evidence_date": "2026-10-30",
+    "evidence_url": "https://lostark.game.onstove.com/News/Notice/List",
+    "fact_check": "확인",
+    "blog_post_count": 10147,
+    "search_volume_latest": 23.98921,
+    "search_volume_trend": "하락",
+    "monthly_search_total": 210,
+    "est_click_total": 0
+   },
+   {
+    "rank": 4,
+    "title": "명일방주: 엔드필드 ENDFIELDSTEAM 쿠폰 코드, 탈로시안 화폐 8천개 받는 법",
+    "keywords": [
+     "엔드필드 쿠폰",
+     "ENDFIELDSTEAM",
+     "엔드필드 코드"
+    ],
+    "reason": "스팀 위시리스트 30만 돌파 기념 코드. ECM 카탈로그가 10/28 공식 원문(endfield.gryphline.com)으로 이미 '있음_쿠폰있음'으로 확인·등록한 코드라 바로 글로 쓸 수 있음(만료 11/25). 경쟁글 1305건, 검색량지수 4.2(추세 하락)로 수치는 작지만 ECM이 이미 검증까지 끝낸 살아있는 코드라는 점에서 바로 쓸 가치가 있음.",
+    "outline": "1) 지금 쓸 수 있는 코드 총정리(ENDFIELDSTEAM 외 ENDFIELDGIFT·ENDFIELD4PC·ZAU2SYXHWX5L4ZH) 2) 코드 입력하는 법(인게임 설정 > 플랫폼 및 계정 > 교환 코드) 3) ENDFIELDSTEAM이 나온 이유(스팀 위시리스트 30만 마일스톤) 4) ECM 명일방주: 엔드필드 쿠폰 페이지 링크",
+    "game_name": "명일방주: 엔드필드",
+    "catalog_status": "있음_쿠폰있음",
+    "evidence_date": "2026-10-28",
+    "evidence_url": "https://endfield.gryphline.com/ko-kr/news/3838",
+    "fact_check": "확인",
+    "blog_post_count": 1305,
+    "search_volume_latest": 4.1958,
     "search_volume_trend": "하락",
     "monthly_search_total": 50,
     "est_click_total": 0
    },
    {
-    "rank": 10,
-    "title": "PUBG PGS 12 그랜드파이널 10월30일~11월1일, PGC 2026 막차 티켓 누가 잡나",
+    "rank": 5,
+    "title": "PUBG 배틀그라운드 코드 입력하는 법, 지금 쓸 수 있는 코드가 없는 이유",
     "keywords": [
-     "PGS 12",
-     "PUBG 쿠폰"
+     "PUBG 코드",
+     "배틀그라운드 쿠폰",
+     "PUBG 리딤 코드"
     ],
-    "reason": "배틀그라운드 e스포츠 서킷4 마지막 대회가 내일(10/30)부터 열림. 해외 매체(jeu.video, 2026-10-29) 단독 확인이라 공식 일정 재확인 필요라는 점을 outline에 명시. ECM 카탈로그에 있으나 현재 살아 있는 코드는 없음(있음_쿠폰없음). (네이버 검색량지수 100.0, 추세 보합, 경쟁글 7066건)",
-    "outline": "대회 구조(PGS10·11·12)·일정(10/30~11/1) → 진출 방식(상위8팀 직행+서바이벌 스테이지) → PGC 2026 연결 → 중계 채널은 PUBG 이스포츠 공식 채널에서 재확인 안내 → ECM PUBG 쿠폰 페이지 링크(현재 코드 없음)",
-    "score": 6.0,
+    "reason": "PUBG 공식 뉴스 페이지(pubg.com/ko/news)를 오늘(10/30) 직접 확인한 결과 최근 공지 5개(10/14~10/29) 중 코드 관련 공지는 없고, 이벤트 메뉴에 '리딤 코드 사용' 페이지만 안내되어 있음. PGS 12 그랜드파이널(10/30~11/1)로 검색 관심이 오를 시점이라 '코드 입력법 + 지금 없는 이유'를 미리 정리해 둘 가치가 있음. 검색량 데이터 없음(naver_ad_volume 응답에 수치 없음).",
+    "outline": "1) 리딤 코드 사용 페이지 위치와 입력하는 법 2) 지금 살아있는 코드가 없다는 사실(공식 공지 기준, 날짜 명시) 3) PUBG 코드는 보통 언제 나오나(이벤트·콜라보 시기) 4) ECM PUBG: 배틀그라운드 쿠폰 페이지로 연결",
     "game_name": "PUBG: 배틀그라운드",
     "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-10-29",
-    "evidence_url": "https://jeu.video/en/article/pgs-11-schedule-winners-stage",
+    "evidence_date": "2026-10-30",
+    "evidence_url": "https://www.pubg.com/ko/news",
     "fact_check": "확인",
-    "blog_post_count": 7066,
-    "search_volume_latest": 100,
-    "search_volume_trend": "보합",
-    "monthly_search_total": 90,
+    "blog_post_count": 2218,
+    "search_volume_latest": null,
+    "search_volume_trend": null,
+    "monthly_search_total": null,
     "est_click_total": 0
    }
   ]
