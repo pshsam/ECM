@@ -212,7 +212,8 @@
     "expireDate": "2026-10-28",
     "src": [
       "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
-    ]
+    ],
+    "removed": "2026-10-31"
   },
   "blackdesert:BEYONDTHEJOURNEY": {
     "reward": "크론석 50,000개, 진귀한 망치 선택상자 5개, 발크스의 조언, 무기 교환권 상자",
@@ -233,7 +234,8 @@
     "expireDate": "2026-10-28",
     "src": [
       "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
-    ]
+    ],
+    "removed": "2026-10-31"
   },
   "blackdesert:영롱한풀의광명석": {
     "reward": "영롱한 풀의 광명석 10개",
@@ -460,14 +462,16 @@
     "expireDate": "2026-10-29",
     "src": [
       "https://epic7.onstove.com/en/promotion/collabo/czn"
-    ]
+    ],
+    "removed": "2026-10-31"
   },
   "epic-seven:TY_E8_INFINITY": {
     "reward": "금빛 전승석 80개, 상급 강화석 선택 상자 80개, 골드 800,000",
     "expireDate": "2026-10-28",
     "src": [
       "https://epic7.onstove.com/en/promotion/anniv/8th"
-    ]
+    ],
+    "removed": "2026-10-31"
   },
   "fconline:올추석도fc온라인과함께": {
     "reward": "전체 거래 수수료 40% 할인 쿠폰 1장",
