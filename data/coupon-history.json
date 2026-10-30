@@ -557,7 +557,9 @@
   },
   "infinity-nikki:MOMOWISHESNIKKILISTENS": {
     "reward": "다이아 200개, 블링 20,000",
+    "expireDate": "2027-07-24",
     "src": [
+      "https://x.com/InfinityNikkiEN/status/2080956421143920937",
       "https://www.pockettactics.com/infinity-nikki/codes",
       "https://www.pcgamesn.com/infinity-nikki/codes"
     ]
@@ -589,7 +591,8 @@
     "src": [
       "https://www.pockettactics.com/infinity-nikki/codes",
       "https://www.pcgamesn.com/infinity-nikki/codes"
-    ]
+    ],
+    "removed": "2026-10-30"
   },
   "kingshot:AKeYD8gK8": {
     "reward": "무료 보상(세부 내용 미공개)",
