@@ -491,7 +491,8 @@
     "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000",
     "src": [
       "https://www.pockettactics.com/genshin-impact/codes"
-    ]
+    ],
+    "removed": "2026-11-01"
   },
   "genshin:GENSHINGIFT": {
     "reward": "원석 50개",
@@ -2093,7 +2094,8 @@
     "reward": "성옥 50개, 신용점수 10,000",
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes"
-    ]
+    ],
+    "removed": "2026-11-01"
   },
   "starrail:STARRAILGIFT": {
     "reward": "성옥 100개, 신용 포인트 50,000 등",
