@@ -1,0 +1,30 @@
+{
+  "kingshot:EXPLORETHEWORLD": {
+    "count": 1,
+    "reasons": {
+      "expired": 1
+    },
+    "last": "2026-10-30"
+  },
+  "zzz:ZZZGRIND32": {
+    "count": 1,
+    "reasons": {
+      "expired": 1
+    },
+    "last": "2026-10-30"
+  },
+  "zzz:ZZZINK32": {
+    "count": 1,
+    "reasons": {
+      "expired": 1
+    },
+    "last": "2026-10-30"
+  },
+  "zzz:ZZZVOID32": {
+    "count": 1,
+    "reasons": {
+      "expired": 1
+    },
+    "last": "2026-10-30"
+  }
+}
