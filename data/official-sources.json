@@ -3,15 +3,27 @@
   "games": {
     "genshin": [
       "genshin.hoyoverse.com",
-      "x.com/GenshinImpact"
+      "x.com/GenshinImpact",
+      "x.com/genshinimpactkr",
+      "youtube.com/@GenshinImpact",
+      "youtube.com/@Genshinimpact_KR",
+      "cafe.naver.com/genshin"
     ],
     "starrail": [
       "hsr.hoyoverse.com",
-      "x.com/honkaistarrail"
+      "x.com/honkaistarrail",
+      "x.com/honkaisr_kr",
+      "youtube.com/@HonkaiStarRail",
+      "youtube.com/@Honkaistarrail_kr",
+      "cafe.naver.com/honkaistarrail"
     ],
     "zzz": [
       "zenless.hoyoverse.com",
-      "x.com/ZZZ_EN"
+      "x.com/ZZZ_EN",
+      "x.com/ZZZ_KO",
+      "youtube.com/@ZZZ_Official",
+      "youtube.com/@ZZZ_KO",
+      "game.naver.com/lounge/ZZZ"
     ],
     "wuthering": [
       "wutheringwaves.kurogames.com",
