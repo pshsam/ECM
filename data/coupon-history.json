@@ -1912,8 +1912,10 @@
     ]
   },
   "roblox-shindo-life:RELLGems!": {
-    "reward": "RELL코인 10,000 + 스핀 100회",
-    "removed": "2026-10-03"
+    "reward": "그룹(RELL GAMES) 랭크별 혜택 — 브론즈: EXP 1.5~2배, RC 500, 스핀 10회 / 실버·골드는 혜택 추가(2x BL, 스핀 25·50회/일 등)",
+    "src": [
+      "https://www.roblox.com/groups/4939446/RELL"
+    ]
   },
   "roblox-shindo-life:RELLSeasMovie3!": {
     "reward": "RELL코인 + 스핀 지급, 5주년 연속 코드",
