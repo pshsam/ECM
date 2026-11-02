@@ -5,6 +5,13 @@
       "https://www.pockettactics.com/afk-journey/codes"
     ]
   },
+  "afk-journey:HALLOWEEN2026": {
+    "reward": "무료 보상(핼러윈 이벤트, 세부 내용 미공개)",
+    "expireDate": "2026-12-01",
+    "src": [
+      "https://x.com/AFK_Journey/status/2116379639358890286"
+    ]
+  },
   "afk-journey:HQC0ZFSC6QYTX": {
     "reward": "다이아 500, 햄스터 5, 골드 50,000",
     "src": [
@@ -640,6 +647,13 @@
     "expireDate": "2026-09-30",
     "removed": "2026-09-30"
   },
+  "kingshot:TREAT4U": {
+    "reward": "무료 보상(핼러윈 이벤트, 세부 내용 미공개)",
+    "expireDate": "2026-11-05",
+    "src": [
+      "https://x.com/Kingshot_Mobile/status/2116500432042512815"
+    ]
+  },
   "kingshot:VIP777": {
     "reward": "다이아몬드 200개, 신화 정복 스킬북 2개, 신화 원정 스킬교본 2개, 골드열쇠 2개",
     "removed": "2026-10-11"
@@ -854,6 +868,13 @@
       "https://www.pockettactics.com/rise-of-kingdoms/codes"
     ],
     "removed": "2026-11-02"
+  },
+  "rise-of-kingdoms:ROKHALLOW1": {
+    "reward": "무료 보상(핼러윈 이벤트, 세부 내용 미공개)",
+    "expireDate": "2026-12-01",
+    "src": [
+      "https://x.com/riseofkingdoms/status/2116379640990228941"
+    ]
   },
   "rise-of-kingdoms:ROKINFINI8": {
     "reward": "골드열쇠 2개, 레벨6 지식의 서 4개, 3시간 스피드업 3개",
@@ -2192,6 +2213,13 @@
   "whiteout-survival:JPsilverweek26": {
     "reward": "보석 1,000개, 골드열쇠 2개, 강화 경험치 재료 2개, 고기·목재·석탄·철 등 각종 자원",
     "removed": "2026-10-01"
+  },
+  "whiteout-survival:SpookySeason26": {
+    "reward": "무료 보상(핼러윈 이벤트, 세부 내용 미공개)",
+    "expireDate": "2026-11-05",
+    "src": [
+      "https://x.com/WOS_Global/status/2116500450145087759"
+    ]
   },
   "whiteout-survival:THXTeacher": {
     "reward": "젬 1,000개, 골드열쇠 2개, 강화 경험치 파츠 2x100, 고기/목재 각 50x1,000, 석탄 10x1,000, 철 5x1,000",
