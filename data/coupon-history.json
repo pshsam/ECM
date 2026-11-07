@@ -519,7 +519,8 @@
     "reward": "원석 20개, 미리아스트라 원더랜드 이벤트 재화(Geode of Replication) 60개",
     "src": [
       "https://www.pockettactics.com/genshin-impact/codes"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "genshin:EPIC2026": {
     "reward": "원석 40개, 영웅의 지혜 5개, 모라 20,000",
@@ -539,7 +540,8 @@
     "reward": "원석 60개, 모험가의 경험 5개",
     "src": [
       "https://www.pockettactics.com/genshin-impact/codes"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "genshin:OPERACOLLAB": {
     "reward": "원석 30개, 모험가의 경험 2개, 모라 20,000",
@@ -563,7 +565,8 @@
     "reward": "원석 60개, 모험가의 경험 5개",
     "src": [
       "https://www.pockettactics.com/genshin-impact/codes"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "infinity-nikki:DANCEINTHEMIRROR": {
     "reward": "다이아몬드 100개, 샤이니 버블 50개, 블링 30,000",
@@ -619,7 +622,8 @@
     "src": [
       "https://www.pockettactics.com/infinity-nikki/codes",
       "https://www.pcgamesn.com/infinity-nikki/codes"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "infinity-nikki:TOGETHERUNDERMOON": {
     "reward": "다이아 200개, 블링 18,888",
@@ -827,7 +831,8 @@
     "src": [
       "https://www.pockettactics.com/pokemon-go/codes",
       "https://leekduck.com/events/lego-pokemon-go-2026/"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "pokemon-go:LEGOxPOKEMONGOxCAP": {
     "reward": "레고 콜라보 모자 아바타 아이템, 산딸기류 열매 각 3개, XP 1000, 스타더스트 1000",
@@ -2112,7 +2117,8 @@
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes",
       "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "starrail:5S6ZHRWTDNJB": {
     "reward": "성옥 60개",
@@ -2127,28 +2133,32 @@
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes",
       "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "starrail:FAREWELL": {
     "reward": "성옥 60개, 연료 1개",
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes",
       "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "starrail:IFYOUAREREADINGTHIS": {
     "reward": "성옥 60개, 연료 1개",
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes",
       "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "starrail:OMEGA": {
     "reward": "성옥 60개, 연료 1개",
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes",
       "https://www.bluestacks.com/blog/redeem-codes/honkai-star-rail-redeem-codes-en.html"
-    ]
+    ],
+    "removed": "2026-11-08"
   },
   "starrail:PEARLAPPRAISE": {
     "reward": "여행자의 길잡이 3개, 쓸쓸한 농담 2개",
