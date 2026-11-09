@@ -446,14 +446,16 @@
     "expireDate": "상시",
     "src": [
       "https://beebom.com/borderlands-4-shift-codes/"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "borderlands:THX3B-H9FCW-CRBT5-BBJ3T-SXT65": {
     "reward": "(보더랜드4) 골든키 1개 + Ellie DLC 크레딧",
     "expireDate": "상시",
     "src": [
       "https://beebom.com/borderlands-4-shift-codes/"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "borderlands:TZFT3-K9Z33-5FT3W-BJ33T-WZ5X5": {
     "reward": "(보더랜드4) 골든키 1개",
@@ -535,7 +537,8 @@
     "expireDate": "상시",
     "src": [
       "https://www.pockettactics.com/genshin-impact/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "genshin:NEEIJB764CA3": {
     "reward": "원석 60개, 모험가의 경험 5개",
@@ -770,7 +773,8 @@
     "src": [
       "https://www.pcgamesn.com/neverness-to-everness/codes",
       "https://www.pockettactics.com/neverness-to-everness/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "neverness-to-everness:DRAGONGIRL": {
     "reward": "안눌리스 30개, 폰즈 20,000개, 푸카 초코아 엘리 투어 스페셜 1개",
@@ -785,7 +789,8 @@
     "src": [
       "https://www.pcgamesn.com/neverness-to-everness/codes",
       "https://www.pockettactics.com/neverness-to-everness/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "neverness-to-everness:NTEKokushi": {
     "reward": "안눌리스 30,000개, 비틀 코인 30,000개",
@@ -853,7 +858,8 @@
     "src": [
       "https://www.dexerto.com/pokemon/pokemon-scarlet-violet-mystery-gift-codes-rewards-1906520/",
       "https://www.theclick.gg/pokemon-scarlet-and-violet-mystery-gift-codes/"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "pokemon:SB00KC0VER": {
     "reward": "로트폼폰 케이스 '북 커버' (스칼렛 전용)",
@@ -2182,7 +2188,8 @@
     "expireDate": "상시",
     "src": [
       "https://www.pockettactics.com/honkai-star-rail/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "trickcal-revive:3RDBOLTHDAY": {
     "reward": "엘리프 927개, 영원살이 일곱자매 선택권 1개 (3주년 기념 쿠폰)",
@@ -2290,14 +2297,16 @@
     "expireDate": "상시",
     "src": [
       "https://www.pockettactics.com/wuthering-waves/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "zzz:ZENLESSGIFT": {
     "reward": "폴리크롬 50개",
     "expireDate": "상시",
     "src": [
       "https://www.pockettactics.com/zenless-zone-zero/codes"
-    ]
+    ],
+    "removed": "2026-11-10"
   },
   "zzz:ZZZGRIND32": {
     "reward": "폴리크롬 20개, 데니 2,222",
