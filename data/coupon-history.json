@@ -240,6 +240,27 @@
     ],
     "removed": "2026-11-04"
   },
+  "blackdesert:2026마스터클래스단하나의왕좌": {
+    "reward": "크론석 500개, 마력의 파편 20개, 뾰족한 흑결정 조각 20개, 기억의 파편 20개, 희미한 어둠 포식의 기원 5개, 전투의 함성 3개",
+    "expireDate": "2026-11-25",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
+  "blackdesert:2026마스터클래스대망의결승전": {
+    "reward": "크론석 300개, 성장의 도약, 현명한 살림꾼",
+    "expireDate": "2026-11-18",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
+  "blackdesert:2026마스터클래스영광의주인공": {
+    "reward": "크론석 500개, 마력의 파편 20개, 뾰족한 흑결정 조각 20개, 기억의 파편 20개, 희미한 어둠 포식의 기원 5개, 전투의 함성 3개",
+    "expireDate": "2026-11-25",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
   "blackdesert:2026마스터클래스한국대진표": {
     "reward": "전투의 함성 3개, 아이템 획득 증가 주문서 5개, 플로린 비법서 5개, 심해의 향수 5개, 용기의 향수 5개",
     "expireDate": "2026-10-28",
