@@ -303,6 +303,14 @@
     "expireDate": "2026-09-30",
     "removed": "2026-09-30"
   },
+  "bluearchive:5YEARSWITHSENSEI": {
+    "reward": "청휘석 600개, 아름다운 꽃다발 5개",
+    "expireDate": "2026-11-24",
+    "src": [
+      "https://forum.nexon.com/bluearchive/board_view?board=1039&thread=3568748",
+      "https://forum.nexon.com/bluearchive-en/board_view?board=3218&thread=3572533"
+    ]
+  },
   "bluearchive:HANAWOTADOTTE": {
     "reward": "청휘석 600개",
     "expireDate": "2026-11-09",
