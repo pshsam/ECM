@@ -277,6 +277,27 @@
       "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
     ]
   },
+  "blackdesert:CHOOSEYOURREWARD": {
+    "reward": "영롱한 강화 지원 선택 상자 1개",
+    "expireDate": "2026-12-09",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
+  "blackdesert:SHAREYOURREWARDS": {
+    "reward": "감사한 마음의 프리미엄 의상 상자 1개",
+    "expireDate": "2026-12-09",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
+  "blackdesert:TRADEWITHSHAKATU": {
+    "reward": "샤카투의 눈부신 상자 1개",
+    "expireDate": "2026-12-09",
+    "src": [
+      "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=10748"
+    ]
+  },
   "blackdesert:TYALLADVENTURERS": {
     "reward": "감사한 마음의 프리미엄 의상 상자 10개",
     "expireDate": "2026-11-26",
