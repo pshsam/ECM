@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 05:50",
+ "updated": "2026-11-26 05:55",
  "mode": "새 날",
  "blogs": {
   "gamenews": [
@@ -335,213 +335,176 @@
   ]
  },
  "ecm": {
-  "report_date": "2026-11-25",
+  "report_date": "2026-11-26",
   "topics": [
    {
     "rank": 1,
-    "title": "신도 라이프(Shindo Life) 코드 44개 기록: 11월10일 하루에 37개가 빠졌다",
+    "title": "삼국지: 전기판 12월1일 한국 등 아시아 8개국 출시, 사전예약 보상 받는 법",
     "keywords": [
-     "신도 라이프 코드",
-     "신도 라이프 코드 모음",
-     "신도 라이프 레디밍"
+     "삼국지 전기판",
+     "삼국지 전기판 사전예약",
+     "쿠카게임즈"
     ],
-    "reason": "ECM이 추적한 신도 라이프 코드 역사 기록 중 가장 많은 44개가 쌓였고, 이 중 37개가 2026-11-10 하루에 한꺼번에 목록에서 빠졌다(ecm-coupon.com 자체 코드 기록, coupon-history.json). 다후드·피쉬·보더랜드·애니메 뱅가드에 이어 같은 '기록 분석' 포맷의 다음 차례로 적합하다. (네이버 블로그 경쟁글 3,285건, 검색량 데이터 없음)",
-    "outline": "1) 신도 라이프 코드, 몇 개나 기록했나 — 44개, 최초 기록 2026-10-14~최근 2026-11-10\n2) 11월10일, 왜 37개가 한꺼번에 빠졌나 — 그룹(RELL GAMES) 신규 코드 교체 주기 추정, 공식 확인 필요 표시\n3) 지금 쓸 수 있는 코드는? — ECM 신도 라이프 쿠폰 페이지로 연결\n4) 코드 입력하는 법 — 메인 메뉴 > Edit > YouTube Code\n5) 다른 로블록스 게임과 비교(다후드·애니메 뱅가드 대비 교체 속도)",
-    "score": 9.2,
-    "game_name": "신도 라이프",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-shindo-life.html",
+    "reason": "쿠카게임즈가 '삼국지: 전기판'을 12월1일 한국 포함 아시아 8개국에 동시 출시(인벤글로벌·스페셜타임스 2곳 보도, 11/18~19). 사전예약 40만 명 돌파. 경쟁글 30건으로 적고 검색량지수 100·상승 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 30건)",
+    "outline": "1)게임 소개 2)출시일·지역 3)사전예약 보상 받는 법(ECM 카탈로그 등록 전 안내) 4)파판택틱스 콜라보 5)정리",
+    "score": 8.5,
+    "game_name": "삼국지: 전기판",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-19",
+    "evidence_url": "https://www.invenglobal.com/articles/28766/romance-of-the-three-kingdoms-strategy-edition-launches-in-8-asian-regions-on-december-1",
     "fact_check": "확인",
-    "blog_post_count": 3285,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": 0
+    "blog_post_count": 30,
+    "search_volume_latest": 100,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 5710,
+    "est_click_total": 2
    },
    {
     "rank": 2,
-    "title": "블록스 프루트(Blox Fruits) 코드 28개 기록: 11월10일에 22개가 빠졌다",
+    "title": "오딘: 발할라 라이징 '무한의 탑' 전면 개편 공략, 도전자의 영역·정복자의 영역 가는 법",
     "keywords": [
-     "블록스 프루트 코드",
-     "블록스 프루트 코드 모음"
+     "오딘 무한의탑",
+     "오딘 발할라라이징 업데이트"
     ],
-    "reason": "블록스 프루트 코드 기록 28개 중 22개가 2026-11-10 하루에 제외됐다(ECM 자체 코드 기록). 국내 최상위 로블록스 게임이라 기록 분석 포맷의 다음 소재로 적합. (네이버 경쟁글 9건으로 매체 경쟁이 거의 없음, 검색량 데이터 없음)",
-    "outline": "1) 블록스 프루트 코드, 지금까지 몇 개 기록했나 — 28개\n2) 11월10일 22개 동시 제외, 무슨 일이었나\n3) 지금 쓸 수 있는 코드 확인하기(ECM 쿠폰 페이지 링크)\n4) 코드 입력하는 법 — 설정(톱니바퀴) > Redeem DLC Code\n5) 자주 틀리는 이유(대소문자·입력 창 위치)",
-    "score": 8.6,
-    "game_name": "블록스 프루트",
+    "reason": "오딘이 11월25일 무한의 탑을 전 층 보스전으로 개편, 41~50층 도전자의 영역·91~100층 정복자의 영역 신설(인벤·게임메카 2곳 보도). ECM 카탈로그에 오딘 쿠폰 페이지가 있으나 지금 쿠폰 없음 (네이버 검색량 데이터 없음, 경쟁글 750건)",
+    "outline": "1)개편 내용 2)신규 구간 공략 포인트 3)4인 협력 도전 꿀팁 4)기존 층과 달라진 점 5)정리",
+    "score": 7.0,
+    "game_name": "오딘: 발할라 라이징",
     "catalog_status": "있음_쿠폰없음",
     "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-blox-fruits.html",
+    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323827 · https://www.gamemeca.com/view.php?gid=1784163",
     "fact_check": "확인",
-    "blog_post_count": 9,
+    "blog_post_count": 750,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
-    "est_click_total": 0
+    "est_click_total": null
    },
    {
     "rank": 3,
-    "title": "비 스웜 시뮬레이터 코드 18개 기록: 11월10일에 10개가 빠졌다",
+    "title": "오딘 블랙프라이데이 오딘의 펫 쿠폰·소환권 163장 받는 법",
     "keywords": [
-     "비 스웜 시뮬레이터 코드"
+     "오딘 블랙프라이데이",
+     "오딘 쿠폰"
     ],
-    "reason": "비 스웜 시뮬레이터 코드 기록 18개 중 10개가 2026-11-10에 한꺼번에 빠졌다(ECM 자체 코드 기록). 아직 기록 분석 글이 없는 로블록스 인기작. (네이버 경쟁글·검색량 데이터 없음 — 신규 틈새)",
-    "outline": "1) 비 스웜 시뮬레이터 코드, 몇 개나 기록했나 — 18개\n2) 11월10일 10개 동시 제외\n3) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n4) 코드 입력하는 법\n5) 꿀벌 시뮬레이터 특유의 코드 보상 특징",
-    "score": 7.8,
-    "game_name": "비 스웜 시뮬레이터",
+    "reason": "오딘 11월25일 업데이트와 함께 블랙프라이데이 기념 오딘의 펫 쿠폰·소환권 163장이 지급된다(인벤·게임메카 2곳 보도, 공식 수치 그대로). ECM 카탈로그에 오딘 페이지는 있으나 코드 자체는 아니라 게임 내 지급 이벤트로 다뤄야 함 (네이버 검색량 데이터 없음, 경쟁글 750건)",
+    "outline": "1)지급 내용(펫 쿠폰·소환권 163장) 2)받는 조건(기간·대상) 3)우편함 확인하는 법 4)주의사항(쿠폰 코드 입력 아님) 5)정리",
+    "score": 6.5,
+    "game_name": "오딘: 발할라 라이징",
     "catalog_status": "있음_쿠폰없음",
     "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-bee-swarm-simulator.html",
+    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323827 · https://www.gamemeca.com/view.php?gid=1784163",
     "fact_check": "확인",
-    "blog_post_count": null,
+    "blog_post_count": 750,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
-    "est_click_total": 0
+    "est_click_total": null
    },
    {
     "rank": 4,
-    "title": "블레이드 볼 코드 16개 기록: 11월10일에 14개가 빠졌다",
+    "title": "트릭컬 리바이브 PC 클라이언트 11월26일 출시, 모바일 계정 연동되나",
     "keywords": [
-     "블레이드 볼 코드"
+     "트릭컬 리바이브 PC",
+     "트릭컬 리바이브 업데이트"
     ],
-    "reason": "블레이드 볼 코드 16개 중 14개가 2026-11-10에 제외됐다(ECM 자체 기록). 월간 검색량 20·경쟁도 '높음'으로 확인(네이버 검색광고 API) — 경쟁은 있지만 실제 검색은 적은 틈새.",
-    "outline": "1) 블레이드 볼 코드, 몇 개 기록했나 — 16개\n2) 11월10일 14개 동시 제외\n3) 1승 조건 때문에 코드 입력이 막막한 유저를 위한 순서 정리\n4) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n5) 코드 입력하는 법 — Extra > Codes",
-    "score": 7.3,
-    "game_name": "블레이드 볼",
-    "catalog_status": "있음_쿠폰없음",
+    "reason": "트릭컬 리바이브가 11월26일 Google Play Games 기반 PC 클라이언트를 출시(루리웹 공지 미러 확인, 공식 카페 재확인 권장). ECM 카탈로그에 트릭컬 리바이브 코드 1개 있음 (네이버 검색량지수 100.0, 추세 보합, 경쟁글 923건)",
+    "outline": "1)PC 클라이언트 출시 소식 2)설치·로그인 방법 3)모바일 계정 연동 여부 4)시즌1 보너스 챕터 소개 5)ECM 쿠폰 코드 안내",
+    "score": 7.5,
+    "game_name": "트릭컬 리바이브",
+    "catalog_status": "있음_쿠폰있음",
     "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-blade-ball.html",
+    "evidence_url": "https://bbs.ruliweb.com/news/board/320108/read/2297647",
     "fact_check": "확인",
-    "blog_post_count": 13796,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": 20,
+    "blog_post_count": 923,
+    "search_volume_latest": 100,
+    "search_volume_trend": "보합",
+    "monthly_search_total": 10,
     "est_click_total": 0
    },
    {
     "rank": 5,
-    "title": "아니모(Aniimo) 코드 14개 기록: 출시 직후 11월6일에 12개가 빠졌다",
+    "title": "벽람항로 콜라보 '천사들의 벽람 무대' 한정 캐릭터 리리사 받는 법",
     "keywords": [
-     "아니모 코드",
-     "아니모 코드 모음"
+     "벽람항로 콜라보",
+     "벽람항로 리리사"
     ],
-    "reason": "모바일 신작 아니모는 출시 직후인 2026-11-06에 코드 12개가 한꺼번에 빠졌다(ECM 자체 기록, 전체 14개 중). 이미 ECM 블로그에 '아니모 모바일 출시 가이드'가 있어 그 후속으로 쓰기 좋은 각도. (네이버 경쟁글 176건, 검색량 데이터 없음)",
-    "outline": "1) 아니모, 출시 직후 코드 12개가 왜 한꺼번에 빠졌나 — 런칭 이벤트 코드 종료로 추정(공식 확인 필요)\n2) 전체 기록 14개 중 지금 남은 건?\n3) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n4) 코드 입력하는 법\n5) '아니모 모바일 출시 가이드' 글 연결",
-    "score": 6.8,
-    "game_name": "아니모",
+    "reason": "벽람항로가 11월26일 콜라보 '개막! 천사들의 벽람 무대'와 한정 캐릭터 '리리엘 천사 공정대/리리사'를 추가(아카라이브 공식 공지 미러 확인, 12월10일 점검 전까지). ECM 카탈로그에 벽람항로 있으나 지금 코드 없음 (네이버 검색량 데이터 없음, 경쟁글 1623건)",
+    "outline": "1)콜라보 소개 2)리리사 획득 방법·기간 3)픽업 확률 안내(공식 표기 그대로) 4)자율전투 설정 꿀팁 5)정리",
+    "score": 6.0,
+    "game_name": "벽람항로",
     "catalog_status": "있음_쿠폰없음",
     "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/aniimo.html",
+    "evidence_url": "https://arca.live/b/azurlane/190204350",
     "fact_check": "확인",
-    "blog_post_count": 176,
+    "blog_post_count": 1623,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
-    "est_click_total": 0
+    "est_click_total": null
    },
    {
     "rank": 6,
-    "title": "검은사막 PC 쿠폰 코드 기록: 로블록스와 다르게 천천히, 꾸준히 빠진다",
+    "title": "FC온라인 11월26일 업데이트, 세트피스 키커 3회 제한·스쿼드메이커 활용법",
     "keywords": [
-     "검은사막 쿠폰",
-     "검은사막 쿠폰 코드"
+     "FC온라인 세트피스",
+     "FC온라인 업데이트"
     ],
-    "reason": "검은사막 PC는 코드 14개가 2026-09-30~2026-11-19 두 달에 걸쳐 분산되어 빠졌고, 하루 최대 제외는 2개뿐이다(ECM 자체 기록) — 로블록스 게임들의 '하루 몰림' 패턴과 대비되는 각도. 월간 검색량 450(PC 360+모바일 90), 추세 하락, 검색광고 API로 확인(네이버 검색광고 API).",
-    "outline": "1) 검은사막 쿠폰, 지금 10종 — PC MMORPG답게 천천히 교체\n2) 로블록스 게임들과 비교(하루 20~30개 몰림 vs 하루 최대 2개)\n3) 지금 쓸 수 있는 코드와 입력 방법(ECM 검은사막 쿠폰 페이지 링크)\n4) 왜 이렇게 차이 날까(장수 PC MMO 특유의 운영 주기 추정)\n5) 마감 임박 코드 체크",
-    "score": 6.5,
-    "game_name": "검은사막 PC",
-    "catalog_status": "있음_쿠폰있음",
+    "reason": "FC온라인이 11월26일 세트피스 키커 교체 3회 제한, 인게임 스쿼드 메이커를 신규 구현(FC온라인 공식 공지 확인). ECM 카탈로그에 FC온라인 페이지 있으나 지금 코드 없음 (네이버 검색량지수 2.6, 추세 하락, 경쟁글 9613건)",
+    "outline": "1)세트피스 키커 제한 변경점 2)대응 전략 3)인게임 스쿼드 메이커 쓰는 법 4)선수 육성 개편(은퇴 성적표·GP) 5)ECM 쿠폰 코드 안내",
+    "score": 5.5,
+    "game_name": "FC 온라인",
+    "catalog_status": "있음_쿠폰없음",
     "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/blackdesert.html",
+    "evidence_url": "https://fconline.nexon.com/news/notice/list",
     "fact_check": "확인",
-    "blog_post_count": null,
-    "search_volume_latest": 34.2511,
+    "blog_post_count": 9613,
+    "search_volume_latest": 2.62295,
     "search_volume_trend": "하락",
-    "monthly_search_total": 450,
-    "est_click_total": 1
+    "monthly_search_total": 290,
+    "est_click_total": 0
    },
    {
     "rank": 7,
-    "title": "이환(Neverness to Everness) 코드 10개 기록: 11월10일에 8개가 빠졌다",
+    "title": "던전앤파이터 11월26일 점검, 다크나이트 버그 수정 내용 정리",
     "keywords": [
-     "이환 코드",
-     "이환 쿠폰"
+     "던전앤파이터 패치",
+     "던전앤파이터 다크나이트"
     ],
-    "reason": "이환 코드 10개 중 8개가 2026-11-10에 제외됐다(ECM 자체 기록). 월간 검색량 130(네이버 검색광고 API), 추세 하락.",
-    "outline": "1) 이환 코드, 몇 개 기록했나 — 10개\n2) 11월10일 8개 동시 제외\n3) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n4) 코드 입력하는 법\n5) 신작 오픈월드 게임 코드 특징",
-    "score": 5.6,
-    "game_name": "이환 (Neverness to Everness)",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/neverness-to-everness.html",
-    "fact_check": "확인",
-    "blog_post_count": 3257,
-    "search_volume_latest": 12.02531,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 130,
-    "est_click_total": 0
-   },
-   {
-    "rank": 8,
-    "title": "블루록: 라이벌 코드 10개 기록: 가입 조건 때문에 못 쓰는 코드가 있다",
-    "keywords": [
-     "블루록 라이벌 코드"
-    ],
-    "reason": "블루록: 라이벌은 개발자 그룹 가입과 레벨 10 조건이 있어 코드를 못 쓰는 유저가 많을 것으로 보이는 로블록스 축구 게임. 코드 10개 기록, 월간 검색량 30(네이버 검색광고 API), 추세 하락.",
-    "outline": "1) 블루록 라이벌 코드, 왜 입력이 안 될까 — 그룹 가입·레벨 10 조건부터 확인\n2) 코드 10개 기록, 가장 오래 남은 코드는?\n3) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n4) 조건 채우는 법\n5) 비슷한 조건부 코드 게임 사례",
+    "reason": "던전앤파이터 11월26일 05:00~10:00 점검으로 다크나이트 둔기 슈퍼아머 오류 등을 수정(공식 공지 확인). ECM 카탈로그에는 던전앤파이터 모바일만 있고 PC판은 없음 (네이버 검색량 데이터 없음, 경쟁글 14628건)",
+    "outline": "1)점검 시간 2)다크나이트 버그 수정 내용 3)마도학자 변경점 4)카탈로그에 PC판 추가 제안 5)정리",
     "score": 5.0,
-    "game_name": "블루록: 라이벌",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/roblox-blue-lock-rivals.html",
+    "game_name": "던전앤파이터",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "http://df.nexon.com/df/news/notice/?p=web&mode=view&no=2359551",
     "fact_check": "확인",
-    "blog_post_count": 452,
-    "search_volume_latest": 14.28571,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 30,
-    "est_click_total": 0
-   },
-   {
-    "rank": 9,
-    "title": "인피니티 니키 쿠폰 코드 기록: 9개 중 지금도 살아있는 건 몇 개?",
-    "keywords": [
-     "인피니티 니키 쿠폰"
-    ],
-    "reason": "인피니티 니키는 ECM 카탈로그에 지금도 살아있는 쿠폰이 있어(있음_쿠폰있음), 지난 9개 기록과 비교하는 각도가 가능하다(ECM 자체 기록). 검색량 데이터는 확인되지 않음(네이버 검색광고 API, 경쟁글 72건).",
-    "outline": "1) 인피니티 니키, 지금까지 코드 9개 기록\n2) 그중 지금도 쓸 수 있는 건 몇 개?(ECM 쿠폰 페이지 실시간 연결)\n3) 코드 입력하는 법\n4) 얼마나 오래 살아있었나(기록 비교)\n5) 다음 코드가 나올 시점 추정(공식 확인 전까지는 '추측'으로 표기)",
-    "score": 4.6,
-    "game_name": "인피니티 니키",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/infinity-nikki.html",
-    "fact_check": "확인",
-    "blog_post_count": 72,
+    "blog_post_count": 14628,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
-    "est_click_total": 0
+    "est_click_total": null
    },
    {
-    "rank": 10,
-    "title": "킹샷(Kingshot) 코드 10개 기록: 조용히 하나씩 빠지는 중",
+    "rank": 8,
+    "title": "스팀 윈터세일 2026 vs 2025 일정 비교, 하루 빨라진 이유",
     "keywords": [
-     "킹샷 코드"
+     "스팀 윈터세일 2026",
+     "스팀 겨울세일"
     ],
-    "reason": "킹샷은 10개 기록 중 하루 최대 제외가 2개로, 로블록스 게임들의 '하루 몰림'과 다른 패턴을 보인다(ECM 자체 기록). 월간 검색량 180(네이버 검색광고 API), 추세 하락.",
-    "outline": "1) 킹샷 코드, 몇 개 기록했나 — 10개\n2) 하루 최대 2개씩, 조용히 빠지는 패턴\n3) 지금 쓸 수 있는 코드(ECM 쿠폰 페이지 링크)\n4) 코드 입력하는 법\n5) 비슷한 전략 SLG 게임과 비교",
-    "score": 4.2,
-    "game_name": "킹샷",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://ecm-coupon.com/game/kingshot.html",
+    "reason": "밸브 공식 Steamworks 문서로 2026 윈터세일이 12월17일~1월4일(2025년 12/18~1/5보다 하루씩 빠름)로 확정. 게임이 아닌 플랫폼 세일 주제라 카탈로그 연결 대상 아님 (네이버 검색량 데이터 없음, 경쟁글 121건)",
+    "outline": "1)2026년 일정 2)2025년과 비교(표) 3)미리 할 일(위시리스트) 4)11월 블랙프라이데이 할인과 구분 5)정리",
+    "score": 4.5,
+    "game_name": null,
+    "catalog_status": null,
+    "evidence_date": "2026-11월(밸브 공식 Steamworks 문서)",
+    "evidence_url": "https://partner.steamgames.com/doc/marketing/upcoming_events/2026_winter_sale",
     "fact_check": "확인",
-    "blog_post_count": 285,
-    "search_volume_latest": 51.41242,
-    "search_volume_trend": "하락",
-    "monthly_search_total": 180,
-    "est_click_total": 0
+    "blog_post_count": 121,
+    "search_volume_latest": null,
+    "search_volume_trend": null,
+    "monthly_search_total": null,
+    "est_click_total": null
    }
   ]
  },
