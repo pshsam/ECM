@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 05:50",
+ "updated": "2026-11-27 05:59",
  "mode": "새 날",
  "blogs": {
   "gamenews": [
@@ -681,7 +681,7 @@
   ]
  },
  "ecm": {
-  "report_date": "2026-11-26",
+  "report_date": "2026-11-27",
   "topics": [
    {
     "rank": 1,
@@ -691,8 +691,8 @@
      "삼국지 전기판 사전예약",
      "쿠카게임즈"
     ],
-    "reason": "쿠카게임즈가 '삼국지: 전기판'을 12월1일 한국 포함 아시아 8개국에 동시 출시(인벤글로벌·스페셜타임스 2곳 보도, 11/18~19). 사전예약 40만 명 돌파. 경쟁글 30건으로 적고 검색량지수 100·상승 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 30건)",
-    "outline": "1)게임 소개 2)출시일·지역 3)사전예약 보상 받는 법(ECM 카탈로그 등록 전 안내) 4)파판택틱스 콜라보 5)정리",
+    "reason": "쿠카게임즈 '삼국지: 전기판'이 12월1일 한국 포함 아시아 8개국에 동시 출시(인벤글로벌·스페셜타임스 2곳 보도, 11/18~19). 사전예약 40만 명 돌파, 출시가 아직 지나지 않아 사전예약 보상 수령 안내 수요가 이어짐 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 30건)",
+    "outline": "1)게임 소개 2)출시일·서비스 지역 3)사전예약 보상 받는 법(ECM 카탈로그 등록 전 안내) 4)파이널판타지 택틱스 콜라보 5)정리",
     "score": 8.5,
     "game_name": "삼국지: 전기판",
     "catalog_status": "없음",
@@ -707,101 +707,150 @@
    },
    {
     "rank": 2,
-    "title": "오딘: 발할라 라이징 '무한의 탑' 전면 개편 공략, 도전자의 영역·정복자의 영역 가는 법",
+    "title": "몬스터헌터 와일즈 닌텐도 스위치2판 12월4일 한국 발매, 한글 자막·가격 정리",
     "keywords": [
-     "오딘 무한의탑",
-     "오딘 발할라라이징 업데이트"
+     "몬스터헌터 와일즈 스위치2",
+     "몬스터헌터 와일즈 출시일",
+     "몬스터헌터 와일즈 가격"
     ],
-    "reason": "오딘이 11월25일 무한의 탑을 전 층 보스전으로 개편, 41~50층 도전자의 영역·91~100층 정복자의 영역 신설(인벤·게임메카 2곳 보도). ECM 카탈로그에 오딘 쿠폰 페이지가 있으나 지금 쿠폰 없음 (네이버 검색량 데이터 없음, 경쟁글 750건)",
-    "outline": "1)개편 내용 2)신규 구간 공략 포인트 3)4인 협력 도전 꿀팁 4)기존 층과 달라진 점 5)정리",
-    "score": 7.0,
-    "game_name": "오딘: 발할라 라이징",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323827 · https://www.gamemeca.com/view.php?gid=1784163",
+    "reason": "캡콤 '몬스터헌터 와일즈' 닌텐도 스위치2판이 12월4일 한국 발매(위키트리·인벤글로벌 2곳 보도, 재확인 11/27). 한글 자막 지원, 경쟁글 1927건이지만 검색량지수 100·상승 추세로 수요 뚜렷 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 1927건)",
+    "outline": "1)스위치2판 소개 2)출시일·가격·한국어 지원 3)PC·PS5판과 다른 점 4)사전예약 보상(있으면) 5)정리",
+    "score": 8.0,
+    "game_name": "몬스터헌터 와일즈",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-13~27",
+    "evidence_url": "https://www.wikitree.co.kr/articles/1174777",
     "fact_check": "확인",
-    "blog_post_count": 750,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": null
+    "blog_post_count": 1927,
+    "search_volume_latest": 100,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 1100,
+    "est_click_total": 13
    },
    {
     "rank": 3,
-    "title": "오딘 블랙프라이데이 오딘의 펫 쿠폰·소환권 163장 받는 법",
+    "title": "아주르 프로밀리아 오늘(11/26) 정식 출시, 사전예약 보상 받는 법",
     "keywords": [
-     "오딘 블랙프라이데이",
-     "오딘 쿠폰"
+     "아주르 프로밀리아 출시",
+     "아주르 프로밀리아 사전예약 보상",
+     "아주르 프로밀리아 가격"
     ],
-    "reason": "오딘 11월25일 업데이트와 함께 블랙프라이데이 기념 오딘의 펫 쿠폰·소환권 163장이 지급된다(인벤·게임메카 2곳 보도, 공식 수치 그대로). ECM 카탈로그에 오딘 페이지는 있으나 코드 자체는 아니라 게임 내 지급 이벤트로 다뤄야 함 (네이버 검색량 데이터 없음, 경쟁글 750건)",
-    "outline": "1)지급 내용(펫 쿠폰·소환권 163장) 2)받는 조건(기간·대상) 3)우편함 확인하는 법 4)주의사항(쿠폰 코드 입력 아님) 5)정리",
-    "score": 6.5,
-    "game_name": "오딘: 발할라 라이징",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323827 · https://www.gamemeca.com/view.php?gid=1784163",
+    "reason": "넥슨 유통 '아주르 프로밀리아'(만쥬게임즈)가 11월26일 PC·모바일 동시 정식 출시(넥슨 공식 발표, byline.network·ceoscoredaily 2곳 보도). 무료 다운로드(인앱결제), 출시 직후라 사전예약 보상 수령 수요가 있음 (네이버 검색량지수 100.0, 추세 보합, 경쟁글 1045건)",
+    "outline": "1)출시 소개(무료·인앱결제) 2)사전예약 보상 받는 법(ECM 카탈로그 등록 전 안내) 3)PC 런처·크로스플레이 지원 여부 4)초반 진행 팁 5)정리",
+    "score": 7.5,
+    "game_name": "아주르 프로밀리아",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "https://byline.network/2026/10/23-640/ · https://ceoscoredaily.com/page/view/2026102715020865874",
     "fact_check": "확인",
-    "blog_post_count": 750,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": null
+    "blog_post_count": 1045,
+    "search_volume_latest": 100,
+    "search_volume_trend": "보합",
+    "monthly_search_total": 30,
+    "est_click_total": 0
    },
    {
     "rank": 4,
-    "title": "트릭컬 리바이브 PC 클라이언트 11월26일 출시, 모바일 계정 연동되나",
+    "title": "패스 오브 엑자일2 12월12일 정식 출시, 무료 전환·액트5·6 추가",
     "keywords": [
-     "트릭컬 리바이브 PC",
-     "트릭컬 리바이브 업데이트"
+     "패스 오브 엑자일2 정식출시",
+     "POE2 무료전환",
+     "패스 오브 엑자일2 액트5"
     ],
-    "reason": "트릭컬 리바이브가 11월26일 Google Play Games 기반 PC 클라이언트를 출시(루리웹 공지 미러 확인, 공식 카페 재확인 권장). ECM 카탈로그에 트릭컬 리바이브 코드 1개 있음 (네이버 검색량지수 100.0, 추세 보합, 경쟁글 923건)",
-    "outline": "1)PC 클라이언트 출시 소식 2)설치·로그인 방법 3)모바일 계정 연동 여부 4)시즌1 보너스 챕터 소개 5)ECM 쿠폰 코드 안내",
-    "score": 7.5,
-    "game_name": "트릭컬 리바이브",
-    "catalog_status": "있음_쿠폰있음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://bbs.ruliweb.com/news/board/320108/read/2297647",
+    "reason": "그라인딩기어게임즈 '패스 오브 엑자일2'가 12월12일 정식 출시와 함께 무료 플레이로 전환, 신규 액트5·6이 추가된다(위키트리·인벤글로벌 2곳 보도, 재확인 11/19~26). 얼리액세스 유저가 많아 '지금부터 뭐가 바뀌나' 수요가 있음 (네이버 검색량지수 100.0, 추세 보합, 경쟁글 4232건)",
+    "outline": "1)정식 출시일·무료 전환 의미 2)신규 액트5·6 내용 3)얼리액세스 유저가 달라지는 점 4)지금 시작해도 되는지 5)정리",
+    "score": 7.0,
+    "game_name": "패스 오브 엑자일2",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-19~26",
+    "evidence_url": "https://www.wikitree.co.kr/articles/1173380",
     "fact_check": "확인",
-    "blog_post_count": 923,
+    "blog_post_count": 4232,
     "search_volume_latest": 100,
     "search_volume_trend": "보합",
-    "monthly_search_total": 10,
+    "monthly_search_total": 20,
     "est_click_total": 0
    },
    {
     "rank": 5,
-    "title": "벽람항로 콜라보 '천사들의 벽람 무대' 한정 캐릭터 리리사 받는 법",
+    "title": "메이플스토리M × 테일즈위버 콜라보 '1인보스' 추가, 12월17일까지 보상 정리",
     "keywords": [
-     "벽람항로 콜라보",
-     "벽람항로 리리사"
+     "메이플스토리M 테일즈위버",
+     "메이플M 콜라보",
+     "메이플스토리M 1인보스"
     ],
-    "reason": "벽람항로가 11월26일 콜라보 '개막! 천사들의 벽람 무대'와 한정 캐릭터 '리리엘 천사 공정대/리리사'를 추가(아카라이브 공식 공지 미러 확인, 12월10일 점검 전까지). ECM 카탈로그에 벽람항로 있으나 지금 코드 없음 (네이버 검색량 데이터 없음, 경쟁글 1623건)",
-    "outline": "1)콜라보 소개 2)리리사 획득 방법·기간 3)픽업 확률 안내(공식 표기 그대로) 4)자율전투 설정 꿀팁 5)정리",
-    "score": 6.0,
-    "game_name": "벽람항로",
-    "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
-    "evidence_url": "https://arca.live/b/azurlane/190204350",
+    "reason": "넥슨이 11월16일 적용한 메이플스토리M-테일즈위버 콜라보에 11월26일 '1인 보스' 콘텐츠를 추가(게임메카·인벤글로벌 2곳 보도). 사전 이벤트로 '메이플M 코인' 모아 교환하는 상점이 함께 운영돼 이벤트 참여 방법 수요가 있음 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 767건)",
+    "outline": "1)콜라보 소개 2)1인보스 입장·클리어 방법 3)메이플M 코인 모으는 법·상점 교환 4)진행 기간(12/17까지) 5)정리",
+    "score": 7.0,
+    "game_name": "메이플스토리M",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "https://www.gamemeca.com/view.php?gid=1783406 · https://www.invenglobal.com/articles/28616/maplestory-m-releases-collaboration-update-with-talesweaver",
     "fact_check": "확인",
-    "blog_post_count": 1623,
+    "blog_post_count": 767,
+    "search_volume_latest": 100,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 40,
+    "est_click_total": 0
+   },
+   {
+    "rank": 6,
+    "title": "테일즈위버 '감정격리실' 솔로 고난도 보스 공략, 메이플M 콜라보 신규 콘텐츠",
+    "keywords": [
+     "테일즈위버 감정격리실",
+     "테일즈위버 업데이트",
+     "테일즈위버 메이플M 컬래버"
+    ],
+    "reason": "넥슨이 테일즈위버에 메이플스토리M 콜라보 콘텐츠로 솔로 고난도 보스 '감정격리실'을 11월26일 추가(인벤·인벤글로벌 2곳 보도). '환영의 묘' 포털로 입장하는 신규 콘텐츠라 공략 수요가 있음 (네이버 검색량 데이터 없음, 경쟁글 3922건)",
+    "outline": "1)감정격리실 입장 방법 2)5개 격리실 기믹 요약 3)클리어 보상(감정 핵 조각) 4)빠른 클리어 요령 5)정리",
+    "score": 6.0,
+    "game_name": "테일즈위버",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323893 · https://www.invenglobal.com/articles/28616/maplestory-m-releases-collaboration-update-with-talesweaver",
+    "fact_check": "확인",
+    "blog_post_count": 3922,
     "search_volume_latest": null,
     "search_volume_trend": null,
     "monthly_search_total": null,
     "est_click_total": null
    },
    {
-    "rank": 6,
-    "title": "FC온라인 11월26일 업데이트, 세트피스 키커 3회 제한·스쿼드메이커 활용법",
+    "rank": 7,
+    "title": "일곱 개의 대죄: 그랜드크로스 7.5주년 '진홍의 광휘' 업데이트, 엘리자베스 커스텀 소환 받는 법",
     "keywords": [
-     "FC온라인 세트피스",
-     "FC온라인 업데이트"
+     "일곱개의대죄 그랜드크로스 업데이트",
+     "진홍의 광휘",
+     "피투성이 엘리자베스"
     ],
-    "reason": "FC온라인이 11월26일 세트피스 키커 교체 3회 제한, 인게임 스쿼드 메이커를 신규 구현(FC온라인 공식 공지 확인). ECM 카탈로그에 FC온라인 페이지 있으나 지금 코드 없음 (네이버 검색량지수 2.6, 추세 하락, 경쟁글 9613건)",
-    "outline": "1)세트피스 키커 제한 변경점 2)대응 전략 3)인게임 스쿼드 메이커 쓰는 법 4)선수 육성 개편(은퇴 성적표·GP) 5)ECM 쿠폰 코드 안내",
+    "reason": "넷마블이 일곱 개의 대죄: 그랜드크로스 7.5주년 업데이트 '진홍의 광휘'를 11월26일 적용, 신규 UR '피투성이 엘리자베스'를 커스텀 소환으로 받을 수 있다(인벤·디스이즈게임 2곳 보도). 28일간 출석 이벤트 등 보상 수령 수요가 있음 (네이버 검색량 데이터 없음, 경쟁글 1208건)",
+    "outline": "1)7.5주년 업데이트 개요 2)엘리자베스 커스텀 소환 받는 법 3)28일 출석·접속 기념 보상 4)앞으로 예정된 콘텐츠 5)정리",
     "score": 5.5,
+    "game_name": "일곱 개의 대죄: 그랜드크로스",
+    "catalog_status": "없음",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "https://www.inven.co.kr/webzine/news/?news=323880 · https://www.thisisgame.com/articles/427124",
+    "fact_check": "확인",
+    "blog_post_count": 1208,
+    "search_volume_latest": null,
+    "search_volume_trend": null,
+    "monthly_search_total": null,
+    "est_click_total": null
+   },
+   {
+    "rank": 8,
+    "title": "FC온라인 11월26일 업데이트, 세트피스 키커 3회 제한·인게임 스쿼드메이커 바뀐 점 비교",
+    "keywords": [
+     "FC온라인 업데이트",
+     "FC온라인 세트피스",
+     "FC온라인 스쿼드메이커"
+    ],
+    "reason": "FC온라인이 11월26일 세트피스 키커 교체 3회 제한, 인게임 스쿼드 메이커 신규 구현을 적용(넥슨 공식 공지 기준). ECM 카탈로그에 FC온라인 페이지가 있지만 지금 쿠폰 코드가 없어, 바뀐 점을 전/후로 비교하는 콘텐츠로 ECM 쿠폰 페이지와 연결 가능 (네이버 검색량지수 2.6, 추세 하락, 경쟁글 9613건)",
+    "outline": "1)세트피스 키커 제한 전/후 비교 2)인게임 스쿼드메이커 쓰는 법 3)선수 육성 개편(은퇴 성적표·GP) 4)ECM FC온라인 쿠폰 페이지 안내 5)정리",
+    "score": 5.0,
     "game_name": "FC 온라인",
     "catalog_status": "있음_쿠폰없음",
-    "evidence_date": "2026-11-25",
+    "evidence_date": "2026-11-25~26",
     "evidence_url": "https://fconline.nexon.com/news/notice/list",
     "fact_check": "확인",
     "blog_post_count": 9613,
@@ -811,46 +860,48 @@
     "est_click_total": 0
    },
    {
-    "rank": 7,
-    "title": "던전앤파이터 11월26일 점검, 다크나이트 버그 수정 내용 정리",
+    "rank": 9,
+    "title": "더 게임 어워드 2026 12월11일 한국시간, GTA6·붉은사막 후보작 비교",
     "keywords": [
-     "던전앤파이터 패치",
-     "던전앤파이터 다크나이트"
+     "더 게임 어워드 2026",
+     "게임어워드 2026 한국시간",
+     "GTA6 노미네이트"
     ],
-    "reason": "던전앤파이터 11월26일 05:00~10:00 점검으로 다크나이트 둔기 슈퍼아머 오류 등을 수정(공식 공지 확인). ECM 카탈로그에는 던전앤파이터 모바일만 있고 PC판은 없음 (네이버 검색량 데이터 없음, 경쟁글 14628건)",
-    "outline": "1)점검 시간 2)다크나이트 버그 수정 내용 3)마도학자 변경점 4)카탈로그에 PC판 추가 제안 5)정리",
+    "reason": "더 게임 어워드 2026이 미국 현지 12월10일(한국시간 12월11일 오전9시30분) 열리며, GTA6가 최다 노미네이트 후보로 거론되고 한국 작품 '붉은사막'(펄어비스)도 후보에 올랐다(루리웹·연합뉴스 계열 2곳 보도). 매년 반복되는 연말 이벤트라 후보작 비교 수요가 있음 (네이버 검색량지수 100.0, 추세 상승, 경쟁글 5063건)",
+    "outline": "1)일정·보는 법(한국시간 환산) 2)최다 후보 GTA6 3)한국 작품 붉은사막 4)주목할 다른 후보작 비교 5)정리",
     "score": 5.0,
-    "game_name": "던전앤파이터",
-    "catalog_status": "없음",
-    "evidence_date": "2026-11-26",
-    "evidence_url": "http://df.nexon.com/df/news/notice/?p=web&mode=view&no=2359551",
-    "fact_check": "확인",
-    "blog_post_count": 14628,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": null
-   },
-   {
-    "rank": 8,
-    "title": "스팀 윈터세일 2026 vs 2025 일정 비교, 하루 빨라진 이유",
-    "keywords": [
-     "스팀 윈터세일 2026",
-     "스팀 겨울세일"
-    ],
-    "reason": "밸브 공식 Steamworks 문서로 2026 윈터세일이 12월17일~1월4일(2025년 12/18~1/5보다 하루씩 빠름)로 확정. 게임이 아닌 플랫폼 세일 주제라 카탈로그 연결 대상 아님 (네이버 검색량 데이터 없음, 경쟁글 121건)",
-    "outline": "1)2026년 일정 2)2025년과 비교(표) 3)미리 할 일(위시리스트) 4)11월 블랙프라이데이 할인과 구분 5)정리",
-    "score": 4.5,
     "game_name": null,
     "catalog_status": null,
-    "evidence_date": "2026-11월(밸브 공식 Steamworks 문서)",
-    "evidence_url": "https://partner.steamgames.com/doc/marketing/upcoming_events/2026_winter_sale",
+    "evidence_date": "2026-11-26",
+    "evidence_url": "https://bbs.ruliweb.com/news/read/231285 · https://www.koreancenter.or.kr/news/articleView.html?idxno=1441089",
     "fact_check": "확인",
-    "blog_post_count": 121,
-    "search_volume_latest": null,
-    "search_volume_trend": null,
-    "monthly_search_total": null,
-    "est_click_total": null
+    "blog_post_count": 5063,
+    "search_volume_latest": 100,
+    "search_volume_trend": "상승",
+    "monthly_search_total": 460,
+    "est_click_total": 0
+   },
+   {
+    "rank": 10,
+    "title": "팰월드 온라인 한국 세계 최초 출시 임박, 사전예약 보상 정리",
+    "keywords": [
+     "팰월드 온라인",
+     "팰월드 온라인 출시일",
+     "팰월드 온라인 사전예약 보상"
+    ],
+    "reason": "가레나가 포켓페어 공식 라이선스로 만든 모바일 '팰월드 온라인'을 한국에서 세계 최초로 서비스한다. 한국 앱스토어에는 11월30일이 예상 출시일로 표시돼 있으나 가레나 공식 확정 발표는 아직 없음(인벤글로벌·포켓게이머 2곳 보도, 재확인 11/26). 가입자 수 목표 보상이 걸려 있어 사전예약 수요가 있음 (네이버 검색량 데이터 없음, 추세 보합, 경쟁글 3151건)",
+    "outline": "1)게임 소개(포켓페어 라이선스·세계 최초 한국 서비스) 2)출시일(앱스토어 추정, 공식 미확정 명시) 3)사전예약 보상 받는 법 4)사전예약 하는 법 5)정리",
+    "score": 4.5,
+    "game_name": "팰월드 온라인",
+    "catalog_status": "없음",
+    "evidence_date": "2026-09-02(발표), 2026-11-26 재확인",
+    "evidence_url": "https://www.invenglobal.com/articles/25471/garena-starts-pre-registration-for-palworld-online-in-korea · https://www.pocketgamer.biz/palworld-online-opens-for-pre-registration-in-south-korea/",
+    "fact_check": "확인(출시일은 앱스토어 등록 추정, 가레나 공식 미발표)",
+    "blog_post_count": 3151,
+    "search_volume_latest": 4.75735,
+    "search_volume_trend": "보합",
+    "monthly_search_total": 810,
+    "est_click_total": 0
    }
   ]
  },
