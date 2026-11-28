@@ -341,16 +341,16 @@
    "in_kr": false,
    "note": "재확인(11/24): beebom(11/13)+pockettactics(11/20)+pcgamesn(11/20) 로 기존 18개 전부 재확인. Sub2CaptainMaui 대소문자 충돌 해결(pockettactics+pcgamesn 모두 'Sub2CaptainMaui' 일치, beebom만 전체 대문자 — 2곳 일치 표기로 등록). 신규/재활성 4개: LIGHTNINGABUSE(10/7 만료였다가 pockettactics+pcgamesn 일치로 재활성), Sub2Fer999, Starcodeheo, SUB2GAMERROBOT_EXP1. SUB2GAMERROBOT_RESET1 은 pockettactics(11/20)가 만료, beebom+pcgamesn(11/20)은 활성으로 당일 충돌 — 보류(만료 유지). CHANDLER/Chandler 는 대소문자 불일치+장난 코드(보상 없음)라 제외. destructoid.com 은 이번에도 DNS 차단이라 redeem 세번째 출처 재확인 못함.",
    "last_checked": "2026-11-24",
-   "playing": 206913,
-   "visits": 65678339535,
+   "playing": 242578,
+   "visits": 65694471240,
    "roblox_updated": "2026-11-26",
    "score_parts": {
-    "수요": 30.9,
+    "수요": 31.8,
     "코드": 25.0,
     "경쟁 여유": 0
    },
-   "score": 56,
-   "evidence": "Roblox 동시 접속 206,913명 · 살아 있는 코드 23개 · 미국 큰 코드 사이트 7곳이 다룸",
+   "score": 57,
+   "evidence": "Roblox 동시 접속 242,578명 · 살아 있는 코드 23개 · 미국 큰 코드 사이트 7곳이 다룸",
    "code_source": "https://www.roblox.com/games/2753915549",
    "place_id": 2753915549,
    "redeem_sources": [
@@ -558,16 +558,16 @@
    "in_kr": false,
    "note": "11/26: 가장 최근 확인(progameguides·destructoid 11/2)도 14일 기준(11/12 이후)보다 이르다. 새 코드 확인 안 됨.",
    "last_checked": "2026-11-26",
-   "playing": 12431,
-   "visits": 6560720796,
+   "playing": 15412,
+   "visits": 6562536778,
    "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 14.6,
+    "수요": 15.8,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 20,
-   "evidence": "Roblox 동시 접속 12,431명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
+   "score": 21,
+   "evidence": "Roblox 동시 접속 15,412명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
    "code_source": "https://www.roblox.com/games/13772394625",
    "place_id": 13772394625
   },
@@ -874,16 +874,16 @@
    "in_kr": true,
    "note": "11/27 재확인: 쓸 수 있는 코드 0개 유지. beebom.com(11/14, 본문상 신선함 — SEASONSMODE 급 신규 코드 포함)이 2MilFavs·SteveBroRun·Fall26·Nirvana 를 활성으로 올렸지만 전부 beebom 한 곳뿐(둘째 독립 출처 못 찾음: pockettactics.com은 11/8 자로 이미 14일 밖이고 내용도 이 4개를 전혀 안 다룸, destructoid.com·pcgamer.com 은 이 세션에서 DNS 차단, progameguides.com·sportskeeda.com 은 403). 로블록스 게임 이름이 이전 'Vanguards: 2nd Anniversary'에서 다시 'Vanguards: Embers of Justice'로 바뀜(place id 는 그대로, curl 200 재확인) — launch_exclude 는 사용자 결정이라 손대지 않음.",
    "last_checked": "2026-11-27",
-   "playing": 7066,
-   "visits": 2111640452,
+   "playing": 6629,
+   "visits": 2111877227,
    "roblox_updated": "2026-11-24",
    "score_parts": {
-    "수요": 11.3,
+    "수요": 11.0,
     "코드": 0.0,
     "경쟁 여유": 5
    },
    "score": 16,
-   "evidence": "Roblox 동시 접속 7,066명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
+   "evidence": "Roblox 동시 접속 6,629명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
    "code_source": "https://www.roblox.com/games/16146832113/Vanguards-Embers-of-Justice",
    "place_id": 16146832113,
    "launch_exclude": {
@@ -1069,16 +1069,16 @@
    "in_kr": true,
    "note": "11/27 재확인: pcgamesn.com(11/23)·pockettactics.com(11/16) 모두 14일 안 갱신이고 BeesBuzz123/Connoisseur/Crawlers/Nectar/Roof/Wax/ClubBean 을 대소문자까지 똑같이 active로 보고해 7개 신규 등록. Wax는 beebom.com 10/1자(14일 밖) 만료 기록보다 최신 독립 출처 2곳이 모두 active라 재등록함(상태 번복 유의). [case mismatch] FOURtunate(pockettactics.com, 11/16) / fourtunate(pcgamesn.com, 11/23) — 공식 출처 없고 14일 안 두 출처의 표기가 달라 미등록. [case mismatch] BopMaster(pcgamesn.com) / Bopmaster(pockettactics.com) — 동일 사유로 미등록(기존 case_replaced 유지 보류). 38217 은 pcgamesn.com 페이지 자체가 active 목록과 expired 목록에 동시에 올려 신뢰 불가, pockettactics.com 단독이라 미등록. ClubConverters 는 pcgamesn.com 1곳뿐이고 robloxden.com(7월, 14일 밖)은 만료로 적어 미등록. us_coverage 에 progameguides.com 신규 포함(이번 1페이지에서 확인). destructoid.com·igeeksblog.com·roonby.com·stevivor.com·beatcopgame.com·levvvel.com·insider-gaming.com·fossbytes.com·esports.gg·supercheats.com·pcgamer.com·videogamer.com·dexerto.com 은 이 세션 네트워크에서 WebFetch 시 ENOTFOUND(차단).",
    "last_checked": "2026-11-27",
-   "playing": 45987,
-   "visits": 4703565973,
+   "playing": 52366,
+   "visits": 4707064297,
    "roblox_updated": "2026-11-21",
    "score_parts": {
-    "수요": 22.2,
+    "수요": 22.9,
     "코드": 17.5,
     "경쟁 여유": 5
    },
    "score": 45,
-   "evidence": "Roblox 동시 접속 45,987명 · 살아 있는 코드 7개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "evidence": "Roblox 동시 접속 52,366명 · 살아 있는 코드 7개 · 미국 큰 코드 사이트 4곳이 다룸",
    "code_source": "https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator",
    "place_id": 1537690962
   },
@@ -1230,16 +1230,16 @@
    "in_kr": true,
    "note": "11/27 재확인: 쓸 수 있는 코드 0개(기존과 동일). pockettactics.com·pcgamesn.com·fossbytes.com 모두 10/4자(14일 밖) 글을 재노출해 DONREVAMP/SENDOUNEXT/ACEEATER 를 여전히 '신규'로 적지만 이미 11/5 만료 처리된 옛 상태 그대로임(새로 만료 처리할 것 없음). roonby.com(11/7·11/8·11/14자) 이 말하는 OTOYAHERE/NINJACODE/BIGTHINGSOON/EPICSENDOU, WebSearch 요약이 전한 destructoid.com(11/6자) 의 KINGAUTHORITY/MASSIVEBUGFIXES 는 모두 pockettactics.com 자체의 만료 목록(KINGAUTHORITY!/MASSIVEBUGFIXES! 등)에 이미 들어 있어 실제로는 옛 코드로 보이며, 직접 fetch 가 막혀 2곳 검증을 못 함. roonby.com·stevivor.com·beatcopgame.com·levvvel.com·insider-gaming.com·fossbytes.com·destructoid.com 은 이 세션 네트워크에서 WebFetch 시 ENOTFOUND(차단).",
    "last_checked": "2026-11-27",
-   "playing": 10861,
-   "visits": 5057483894,
+   "playing": 15654,
+   "visits": 5058794097,
    "roblox_updated": "2026-11-21",
    "score_parts": {
-    "수요": 13.8,
+    "수요": 15.9,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 19,
-   "evidence": "Roblox 동시 접속 10,861명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "score": 21,
+   "evidence": "Roblox 동시 접속 15,654명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸",
    "code_source": "https://www.roblox.com/games/18668065416/Blue-Lock-Rivals"
   },
   "roblox-fisch": {
@@ -1389,16 +1389,16 @@
    "in_kr": false,
    "note": "beebom(11/21)+pocketgamer(11/21) 둘 다 신규 TurkeySoon을 같은 표기로 활성 처리, scarlet·CARBON도 재확인. CompanionHatTime은 pocketgamer만 active 유지하고 beebom은 expired로 옮겨 엇갈려 unconfirmed로 내림(지난 회차 active에서 변경). code_source place id(16732694052)는 rootPlaceId와 일치 확인(200).",
    "last_checked": "2026-11-23",
-   "playing": 55723,
-   "visits": 5178515011,
-   "roblox_updated": "2026-11-26",
+   "playing": 80623,
+   "visits": 5181969985,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 23.3,
+    "수요": 25.4,
     "코드": 22.5,
     "경쟁 여유": 0
    },
-   "score": 46,
-   "evidence": "Roblox 동시 접속 55,723명 · 살아 있는 코드 3개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 8곳이 다룸"
+   "score": 48,
+   "evidence": "Roblox 동시 접속 80,623명 · 살아 있는 코드 3개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 8곳이 다룸"
   },
   "kingshot": {
    "name": "Kingshot",
@@ -1816,16 +1816,16 @@
    "in_kr": false,
    "note": "재확인(11/24): pockettactics(11/20)만 14일 안에 들어오고 beebom 은 11/1 자(14일 밖)라 2번째 신선 출처 부족 — 기존 2개(A7D2L26RNEPG74A3Q·RIA2026)는 이번엔 재확인 못해 '확인 필요'로 넘어감. 신규 코드 없음. launch_exclude 유지.",
    "last_checked": "2026-11-24",
-   "playing": 68733,
-   "visits": 8035571444,
-   "roblox_updated": "2026-11-16",
+   "playing": 97451,
+   "visits": 8043422823,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 24.5,
+    "수요": 26.5,
     "코드": 0.0,
     "경쟁 여유": 0
    },
-   "score": 24,
-   "evidence": "Roblox 동시 접속 68,733명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 7곳이 다룸",
+   "score": 26,
+   "evidence": "Roblox 동시 접속 97,451명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 7곳이 다룸",
    "code_source": "https://www.roblox.com/games/9391468976",
    "place_id": 9391468976,
    "launch_exclude": {
@@ -2182,16 +2182,16 @@
    "in_kr": false,
    "note": "재확인(11/24): pcgamesn+pockettactics(둘다 11/23) 로 기존 10개 재확인, 신규 2개(UPDATE1SPINS·UPDATE1ORE) 추가. redeem 문장에서 'Ouw Productions 그룹 가입' 조건 제거 — 현재 코드엔 요구되지 않으며 구버전 RELEASE26 한정 조건이었음.",
    "last_checked": "2026-11-24",
-   "playing": 11021,
-   "visits": 163328990,
+   "playing": 12429,
+   "visits": 163901952,
    "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 13.9,
+    "수요": 14.6,
     "코드": 40.0,
     "경쟁 여유": 0
    },
-   "score": 54,
-   "evidence": "Roblox 동시 접속 11,021명 · 살아 있는 코드 12개 (14일 안 새 코드 12개) · 미국 큰 코드 사이트 6곳이 다룸",
+   "score": 55,
+   "evidence": "Roblox 동시 접속 12,429명 · 살아 있는 코드 12개 (14일 안 새 코드 12개) · 미국 큰 코드 사이트 6곳이 다룸",
    "code_source": "https://www.roblox.com/games/16205713724"
   },
   "roblox-sols-rng": {
@@ -2327,16 +2327,16 @@
    "in_kr": false,
    "note": "재확인(11/24): beebom(11/14)+pocketgamer(11/21)로 SolsRNGUPD(신규)·ItsSpookyMonth·UPD20261031 활성 확인. 나머지 5개(UPD20260919·SRY4DEALY·UPD20260905·UPD20261003·UPD20261017)는 양쪽 다 만료로 표기해 만료 처리. RolledBack·Part2Halloween 은 출처 1곳뿐이라 미등록(Part2Halloween 연계 이벤트는 11/14 종료된 것으로 보여 만료 가능성 있음).",
    "last_checked": "2026-11-24",
-   "playing": 34520,
-   "visits": 2318715695,
-   "roblox_updated": "2026-11-24",
+   "playing": 1,
+   "visits": 2320613955,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 20.5,
+    "수요": 0,
     "코드": 22.5,
     "경쟁 여유": 12
    },
-   "score": 55,
-   "evidence": "Roblox 동시 접속 34,520명 · 살아 있는 코드 3개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 3곳이 다룸",
+   "score": 34,
+   "evidence": "Roblox 동시 접속 1명 · 살아 있는 코드 3개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 3곳이 다룸",
    "place_id": 15532962292
   },
   "roblox-tower-defense-simulator": {
@@ -2386,16 +2386,16 @@
    "in_kr": false,
    "note": "재확인(11/24): 14일 안에 직접 열린 출처가 없어(progameguides 403, destructoid·twinfinite·rallycodes DNS 차단) 2MILLION·1MILCOMMUNITY 재확인 못함('확인 필요'로 넘어감). pcgamesn(9/28 자)·pockettactics(8/21 자)는 오래된 출처라 근거로 안 씀. CHRISTMAS2025·NOTESLA? 는 열리지 않는 페이지의 검색 스니펫에만 나와 미등록.",
    "last_checked": "2026-11-24",
-   "playing": 11216,
-   "visits": 5101277708,
-   "roblox_updated": "2026-11-26",
+   "playing": 30450,
+   "visits": 5103582705,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 14.0,
+    "수요": 19.8,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 19,
-   "evidence": "Roblox 동시 접속 11,216명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 25,
+   "evidence": "Roblox 동시 접속 30,450명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-99-nights-in-the-forest": {
    "name": "99 Nights in the Forest",
@@ -2512,16 +2512,16 @@
    "in_kr": false,
    "note": "재확인(11/24): pockettactics(11/23)+pcgamesn(11/16) 으로 기존 3개 재확인(동일 표기). 'yay fishing' 은 활성/만료 여부 출처끼리 엇갈려 미등록(다음 회차 재확인). happyhalloween 만료 유지.",
    "last_checked": "2026-11-24",
-   "playing": 152562,
-   "visits": 30688434808,
-   "roblox_updated": "2026-11-25",
+   "playing": 259056,
+   "visits": 30705948105,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 29.1,
+    "수요": 32.2,
     "코드": 7.5,
     "경쟁 여유": 0
    },
-   "score": 37,
-   "evidence": "Roblox 동시 접속 152,562명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 7곳이 다룸"
+   "score": 40,
+   "evidence": "Roblox 동시 접속 259,056명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 7곳이 다룸"
   },
   "roblox-fish-it": {
    "name": "Fish It!",
@@ -2652,16 +2652,16 @@
    "in_kr": false,
    "note": "beebom이 오늘 처음으로 active/expired를 명확히 나눈 페이지를 확인(MERDEKA·POTIONSSS·MUTATION2는 active, YEEHAW·1M_GOAL·500K_GOAL_FXCB·EASTER2026·DIVING은 expired 섹션) — pockettactics·pocketgamer 3곳과 합쳐 MERDEKA·POTIONSSS·MUTATION2를 unconfirmed에서 active로 올림. beebom 단독 신규 CONTRA는 2번째 출처 없어 추가 안 함. code_source place id(121864768012064) rootPlaceId와 일치 확인(200).",
    "last_checked": "2026-11-23",
-   "playing": 67905,
-   "visits": 4841278716,
+   "playing": 68853,
+   "visits": 4842326419,
    "roblox_updated": "2026-11-24",
    "score_parts": {
-    "수요": 24.4,
+    "수요": 24.5,
     "코드": 7.5,
     "경쟁 여유": 0
    },
    "score": 32,
-   "evidence": "Roblox 동시 접속 67,905명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 8곳이 다룸"
+   "evidence": "Roblox 동시 접속 68,853명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 8곳이 다룸"
   },
   "roblox-dandys-world": {
    "name": "Dandy's World",
@@ -2707,16 +2707,16 @@
    "in_kr": true,
    "note": "11/27 재확인: 쓸 수 있는 코드 0개 유지(QoM 은 이미 만료 상태 그대로). ICHOR·AD2026 모두 여전히 beebom.com(11/21, 본문상 QoM→expired/ICHOR,AD2026→active 전환이 반영돼 신선함) 한 곳뿐. pocketgamer.com 은 ICHOR 를 활성으로 보여주지만 '11/1 갱신' 표기이고 AD2026 자체가 없어(진짜 최근 갱신이면 있어야 할 신규 코드가 없음) 둘째 독립 출처로 인정 안 함. progameguides.com(403)·gfinityesports.com·levvvel.com·fossbytes.com(모두 DNS 차단)은 확인 못함.",
    "last_checked": "2026-11-27",
-   "playing": 98503,
-   "visits": 8078618066,
+   "playing": 124583,
+   "visits": 8088912627,
    "roblox_updated": "2026-11-25",
    "score_parts": {
-    "수요": 26.6,
+    "수요": 27.9,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 32,
-   "evidence": "Roblox 동시 접속 98,503명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
+   "score": 33,
+   "evidence": "Roblox 동시 접속 124,583명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
@@ -2794,16 +2794,16 @@
    "in_kr": false,
    "note": "11/26 재확인: sportskeeda 가 '활성 코드 없음, 코드 입력창 자체가 없음'이라고 명시. 여전히 진짜 쿠폰 코드 제도 없음(유료 Kill Sound ID만 존재) — launch_exclude 유지.",
    "last_checked": "2026-11-26",
-   "playing": 41650,
-   "visits": 19706517679,
+   "playing": 61779,
+   "visits": 19712923556,
    "roblox_updated": "2026-11-26",
    "score_parts": {
-    "수요": 21.6,
+    "수요": 23.9,
     "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 34,
-   "evidence": "Roblox 동시 접속 41,650명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "score": 36,
+   "evidence": "Roblox 동시 접속 61,779명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 0개 — 첫 공개 목록에서 뺌"
@@ -3508,16 +3508,16 @@
    "in_kr": false,
    "note": "11/27 재확인: pocketgamer.com(11/21)·pockettactics.com(11/16) 둘 다 14일 안이고 기존 활성 코드 21개를 모두 재확인, 신규로 UPDATE12·BIOMES 를 대소문자까지 일치하여 active로 등록(두 코드는 11/21 노트에서 1곳뿐이라 보류했던 것이 이번에 둘째 출처로 확인됨, seen 은 11/21 최초 관측일 유지). 보상 수치를 이번 두 출처 기준으로 재확인해 일부(UPDATE2/UPDATE10 등) 구 카탈로그 값과 다르면 새 값으로 교체. [case mismatch] UPDATE11(pocketgamer.com) / Update11(pockettactics.com) — 공식 출처 없고 두 소스 표기가 달라 미등록(지속). dexerto.com 은 WebFetch 시 403/ENOTFOUND 로 직접 못 읺었으나 us_coverage 판정은 검색 결과 노출만으로 충분해 포함.",
    "last_checked": "2026-11-27",
-   "playing": 6220,
-   "visits": 183074733,
-   "roblox_updated": "2026-11-25",
+   "playing": 6100,
+   "visits": 183354754,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 10.6,
+    "수요": 10.5,
     "코드": 40.0,
     "경쟁 여유": 0
    },
-   "score": 51,
-   "evidence": "Roblox 동시 접속 6,220명 · 살아 있는 코드 23개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 6곳이 다룸"
+   "score": 50,
+   "evidence": "Roblox 동시 접속 6,100명 · 살아 있는 코드 23개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 6곳이 다룸"
   },
   "honkai-star-rail": {
    "name": "Honkai: Star Rail",
@@ -3982,16 +3982,16 @@
    "in_kr": false,
    "note": "No verified active codes as of 2026-11-21; all previously circulating codes are confirmed expired.",
    "last_checked": "2026-11-25",
-   "playing": 30711,
-   "visits": 74575308440,
+   "playing": 42523,
+   "visits": 74583491782,
    "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 19.8,
+    "수요": 21.7,
     "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 32,
-   "evidence": "Roblox 동시 접속 30,711명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "score": 34,
+   "evidence": "Roblox 동시 접속 42,523명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 10/10 기준 쓸 수 있는 코드 1개뿐(얇은 페이지 우려) — 첫 공개 목록에서 뺌"
@@ -4373,16 +4373,16 @@
    "in_kr": false,
    "note": "재확인(11/24): beebom(11/14)+pocketgamer(11/21)로 COMMUNITY27·BOOST·BONUS 재확인, 신규 COMMUNITY28·FREE206 추가(모두 동일 표기). BACK2BACK·NOSNIYGAMESONTOP 은 pocketgamer 가 언급 안 해 이번엔 재확인 못함('확인 필요'로 넘어감). roblox_rtc(beebom, 소문자)/ROBLOX_RTC(pocketgamer, 대문자) 대소문자 불일치, 공식 출처 없어 미등록. SPOOKYSCARYGARGOYLES 는 pocketgamer 한 곳뿐이라 미등록. FREE204 는 pocketgamer 가 만료로 표기(기존에 등록된 적 없음). FREE205 상태 불명(두 출처 모두 언급 없음). ELBILLUG 는 beebom 이 장난 코드(보상 없음)라 명시해 제외.",
    "last_checked": "2026-11-24",
-   "playing": 98102,
-   "visits": 19497574928,
-   "roblox_updated": "2026-11-26",
+   "playing": 173469,
+   "visits": 19516476474,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 26.6,
+    "수요": 29.9,
     "코드": 27.5,
     "경쟁 여유": 5
    },
-   "score": 59,
-   "evidence": "Roblox 동시 접속 98,102명 · 살아 있는 코드 5개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 62,
+   "evidence": "Roblox 동시 접속 173,469명 · 살아 있는 코드 5개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-shindo-life": {
    "name": "Shindo Life",
@@ -4557,16 +4557,16 @@
    "in_kr": false,
    "note": "All 13 active codes share the same reward (10k RELLcoins and 100 spins); an older beebom.com list (2026-10-22) shows a superseded code string using patch number 249 instead of 250.",
    "last_checked": "2026-11-25",
-   "playing": 1995,
-   "visits": 2738500249,
+   "playing": 2483,
+   "visits": 2738623753,
    "roblox_updated": "2026-10-27",
    "score_parts": {
-    "수요": 4.0,
+    "수요": 5.3,
     "코드": 25.0,
     "경쟁 여유": 5
    },
-   "score": 34,
-   "evidence": "Roblox 동시 접속 1,995명 · 살아 있는 코드 13개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 35,
+   "evidence": "Roblox 동시 접속 2,483명 · 살아 있는 코드 13개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-king-legacy": {
    "name": "King Legacy",
@@ -4786,14 +4786,14 @@
    "note": "재확인(11/24): pockettactics+pcgamesn(둘다 11/20) 로 기존 14개 전부 재확인(동일 표기), 신규 2개(4BVISITS·MOBILEFIXED) 추가. RainbowDragon 은 pockettactics 자체 페이지에 활성·만료가 둘다 나와 자체 불일치 — pcgamesn 은 활성만 표기, 낮은 확신으로 유지(다음 회차 재확인 권장).",
    "last_checked": "2026-11-24",
    "score_parts": {
-    "수요": 18.7,
+    "수요": 22.3,
     "코드": 40.0,
     "경쟁 여유": 0
    },
-   "score": 59,
-   "evidence": "Roblox 동시 접속 25,126명 · 살아 있는 코드 16개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 7곳이 다룸",
-   "playing": 25126,
-   "visits": 4120354659,
+   "score": 62,
+   "evidence": "Roblox 동시 접속 46,676명 · 살아 있는 코드 16개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 7곳이 다룸",
+   "playing": 46676,
+   "visits": 4122411045,
    "roblox_updated": "2026-11-24"
   },
   "roblox-anime-zero": {
@@ -5291,8 +5291,8 @@
    "in_kr": false,
    "note": "All 34 previously catalogued codes remain active; 7 additional codes (HYPE, FIRSTUPDATE, UPDATE1, UPDATE2, UPDATETHREE, UPDATEFOUR, BIGTYPO) were confirmed newly added; no codes are currently reported expired.",
    "last_checked": "2026-11-25",
-   "playing": 510,
-   "visits": 61343971,
+   "playing": 714,
+   "visits": 61429884,
    "roblox_updated": "2026-11-24",
    "score_parts": {
     "수요": 0,
@@ -5300,7 +5300,7 @@
     "경쟁 여유": 5
    },
    "score": 45,
-   "evidence": "Roblox 동시 접속 510명 · 살아 있는 코드 41개 (14일 안 새 코드 5개) · 미국 큰 코드 사이트 5곳이 다룸"
+   "evidence": "Roblox 동시 접속 714명 · 살아 있는 코드 41개 (14일 안 새 코드 5개) · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-grow-a-garden": {
    "name": "Grow a Garden",
@@ -5343,16 +5343,16 @@
    "in_kr": true,
    "note": "11/27 재확인: 쓸 수 있는 코드 0개(기존과 동일). RDCAward·BEANORLEAVE10 은 pcgamesn.com(9/26, 14일 밖)·pockettactics.com(6/12, 14일 밖) 둘 다에서 여전히 보이지만 둘 다 14일 밖이라 자격 미달. 14일 안의 둘째 독립 출처를 찾았으나 igeeksblog.com·levvvel.com·esports.gg·supercheats.com·pcgamer.com·videogamer.com 모두 이 세션 네트워크에서 WebFetch 시 ENOTFOUND(차단), gamesradar.com 은 WebFetch 결과가 본문 없이 계속 잘려 내용 확인 불가. us_coverage 에 destructoid.com 신규 포함(이번 1페이지 검색에서 확인, 단 destructoid.com 자체 fetch는 차단). code_source(126884695634066) curl 301→200(-L) 재확인.",
    "last_checked": "2026-11-27",
-   "playing": 15889,
-   "visits": 36034089778,
+   "playing": 20585,
+   "visits": 36035300688,
    "roblox_updated": "2026-11-26",
    "score_parts": {
-    "수요": 16.0,
+    "수요": 17.5,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 21,
-   "evidence": "Roblox 동시 접속 15,889명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 22,
+   "evidence": "Roblox 동시 접속 20,585명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-basketball-zero": {
    "name": "Basketball Zero",
@@ -5405,13 +5405,14 @@
    "code_source": "https://www.roblox.com/games/130739873848552",
    "us_coverage": [
     "destructoid.com",
-    "progameguides.com"
+    "gamesradar.com",
+    "sportskeeda.com"
    ],
    "in_kr": true,
-   "note": "NINJA/15NINJA는 pockettactics.com 단일 출처(11/11, 표현도 모호: '코트에서 못 봤다'면서 목록엔 올림). HALLOWEEN/15HALLOWEEN은 roonby.com 단일 출처인데 오늘 DNS 차단. 두 코드 모두 두 번째 독립 출처를 못 구해 추가 안 함. beebom.com 404, gamesradar.com은 1월자 캐시(14일 밖), savedelete.com/g2a.com/destructoid.com 직접 접속 오늘 DNS 차단. code_source 301→200 정상(rootPlaceId 일치).",
-   "last_checked": "2026-11-22",
-   "playing": 5234,
-   "visits": 1178579620,
+   "note": "11/28 재확인, 쓸 수 있는 코드 0개 유지. pockettactics.com(11/11)이 NINJA/15NINJA를 목록에 올렸지만 같은 글이 '코트에서 아직 코드를 못 봤다'고도 적어 신뢰 못 함, 두 번째 독립 출처도 못 구함(destructoid.com DNS 차단, gamesradar.com은 JS 렌더링이라 본문을 못 읽음, sportskeeda.com/beebom.com 403·404). us_coverage는 이번 검색 상위 10개 기준(destructoid·gamesradar·sportskeeda).",
+   "last_checked": "2026-11-28",
+   "playing": 5252,
+   "visits": 1179172408,
    "roblox_updated": "2026-11-24",
    "score_parts": {
     "수요": 9.6,
@@ -5419,7 +5420,7 @@
     "경쟁 여유": 12
    },
    "score": 22,
-   "evidence": "Roblox 동시 접속 5,234명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "evidence": "Roblox 동시 접속 5,252명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "roblox-da-hood": {
    "name": "Da Hood",
@@ -5558,22 +5559,22 @@
    "redeem": "Open Da Hood in Roblox. Click the chest icon in the bottom-left corner of the screen. Enter the code in the box. Press Redeem.",
    "code_source": "https://www.roblox.com/games/2788229376/Da-Hood",
    "us_coverage": [
-    "progameguides.com",
-    "destructoid.com"
+    "destructoid.com",
+    "progameguides.com"
    ],
    "in_kr": true,
-   "note": "MACRO!/ETERNAL은 pockettactics.com(11/19)에서만 재확인됨 -- 두 번째 출처였던 gameoverdrive.com.br이 오늘도 DNS 차단이라 확인 못 함, 그대로 '확인 필요' 유지. HALLOWEEN26(pockettactics 단일)과 TURKEY(progameguides, 검색 스니펫뿐이고 직접 열람 403)는 둘 다 단일 출처라 추가 안 함. destructoid.com, g2a.com 오늘 DNS 차단. code_source 200 정상.",
-   "last_checked": "2026-11-22",
-   "playing": 2749,
-   "visits": 2968530328,
-   "roblox_updated": "2026-11-18",
+   "note": "11/28 재확인, 쓸 수 있는 코드 0개 유지(launch_exclude 그대로 둠). pockettactics.com(11/26)이 HALLOWEEN26(2m DHC)·MACRO!(1m DHC)·ETERNAL(500k DHC)을 활성으로 적었으나 이번에도 두 번째 독립 출처를 못 구함(destructoid.com DNS 차단, progameguides.com/sportskeeda.com 403, beebom.com 404, dualshockers.com DNS 차단) — 그대로 미등록. MACRO!/ETERNAL은 카탈로그에 '확인 필요'로 남아 있던 코드와 같음. us_coverage는 이번 검색 상위 10개 기준(destructoid·progameguides).",
+   "last_checked": "2026-11-28",
+   "playing": 3184,
+   "visits": 2968831094,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 5.9,
+    "수요": 6.7,
     "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 18,
-   "evidence": "Roblox 동시 접속 2,749명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
+   "score": 19,
+   "evidence": "Roblox 동시 접속 3,184명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
    "launch_exclude": {
     "decided": "2026-10-10",
     "reason": "사용자 결정: 로블록스 공개 정보에서 제목이 'TITLE UNAVAILABLE'로 나옴(연령 제한 게임으로 보임) — 첫 공개 목록에서 뺌"
@@ -5708,14 +5709,14 @@
    "note": "Expanded from 6 to 9 active codes; GUNNY, HALLOWEEN and 25MVISITS newly confirmed. A reported 50MVISITS code had only one source and was excluded pending a second confirmation.",
    "last_checked": "2026-11-25",
    "score_parts": {
-    "수요": 8.9,
+    "수요": 10.7,
     "코드": 22.5,
     "경쟁 여유": 5
    },
-   "score": 36,
-   "evidence": "Roblox 동시 접속 4,646명 · 살아 있는 코드 9개 · 미국 큰 코드 사이트 5곳이 다룸",
-   "playing": 4646,
-   "visits": 68004331,
+   "score": 38,
+   "evidence": "Roblox 동시 접속 6,344명 · 살아 있는 코드 9개 · 미국 큰 코드 사이트 5곳이 다룸",
+   "playing": 6344,
+   "visits": 68559574,
    "roblox_updated": "2026-11-27"
   },
   "roblox-sniper-arena": {
@@ -5782,15 +5783,15 @@
    "note": "Re-verified; same 2 active codes as catalog (freecase lowercase, FREELIKE6 uppercase). An unconfirmed single-source variant \"FREECASE1\" was excluded.",
    "last_checked": "2026-11-25",
    "score_parts": {
-    "수요": 10.9,
+    "수요": 12.1,
     "코드": 5.0,
     "경쟁 여유": 5
    },
-   "score": 21,
-   "evidence": "Roblox 동시 접속 6,600명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 4곳이 다룸",
-   "playing": 6600,
-   "visits": 381526379,
-   "roblox_updated": "2026-11-27"
+   "score": 22,
+   "evidence": "Roblox 동시 접속 8,055명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 4곳이 다룸",
+   "playing": 8055,
+   "visits": 382377737,
+   "roblox_updated": "2026-11-28"
   },
   "roblox-evade": {
    "name": "Evade",
@@ -5845,7 +5846,7 @@
      ],
      "first_seen": "2026-10-20",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "HALLOWEEN2026",
@@ -5856,7 +5857,7 @@
      ],
      "first_seen": "2026-10-20",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     }
    ],
    "platform": "roblox",
@@ -5864,21 +5865,22 @@
    "redeem": "From Evade's main menu, click the Codes button (the Twitter-bird icon in the lobby). Type or paste the code into the text box exactly as written. Press Enter to redeem.",
    "code_source": "https://www.roblox.com/games/9872472334",
    "us_coverage": [
-    "destructoid.com"
+    "destructoid.com",
+    "pcgamer.com"
    ],
    "in_kr": false,
-   "note": "iloveevade/HALLOWEEN2026, pockettactics.com(11/17 갱신)에서 동일 표기·보상으로 재확인. 두 번째 출처 destructoid.com은 오늘 DNS 차단이라 재열람 못 했지만, 기존 등록 때(11/9, 13일 전, 14일 안) 같은 표기로 확인된 출처라 그대로 유지. gamesradar.com 직접 열람은 내용이 잘려 코드 구간 못 읽음, g2a.com DNS 차단.",
-   "last_checked": "2026-11-22",
-   "playing": 31182,
-   "visits": 9534657694,
-   "roblox_updated": "2026-11-24",
+   "note": "11/28 재확인: pockettactics.com(11/24)은 iloveevade·HALLOWEEN2026을 기존과 같은 표기·보상으로 그대로 활성 처리했지만, 이번 회차엔 두 번째 독립 출처를 못 구함(destructoid.com DNS 차단 — curl도 000, igeeksblog.com DNS 차단). 공식 채널(code_source)에도 코드 안내 없음. 그대로 두면 merge 가 '확인 필요'로 바꿀 것 — 다음 회차에 destructoid 접속이 복구되면 재확인. us_coverage는 이번 검색 상위 10개 기준(destructoid·pcgamer).",
+   "last_checked": "2026-11-28",
+   "playing": 45879,
+   "visits": 9539391933,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 19.9,
-    "코드": 5.0,
-    "경쟁 여유": 20
+    "수요": 22.2,
+    "코드": 0.0,
+    "경쟁 여유": 12
    },
-   "score": 45,
-   "evidence": "Roblox 동시 접속 31,182명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 1곳이 다룸"
+   "score": 34,
+   "evidence": "Roblox 동시 접속 45,879명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-nfl-universe-football": {
    "name": "NFL Universe Football",
@@ -6407,16 +6409,16 @@
    "in_kr": false,
    "note": "11/27 재확인: pocketgamer.com·beebom.com 라이브 재확인, 기존 41개 그대로 유지(신규 코드 없음, 만료 확정 없음). ENDZONE 은 여전히 같은 페이지 안에서 active/expired 가 엇갈려 제외. NIKE·1BIL·WEEK3·SZNONE 은 이번에도 beebom 한 곳만 활성이라 해 제외(확인 필요 유지). timesaver.gg 가 언급한 신규 코드 ANIMEVERSE 는 이 세션에서 timesaver.gg DNS 차단으로 둘째 출처를 못 구해 제외.",
    "last_checked": "2026-11-27",
-   "playing": 18421,
-   "visits": 1036182559,
-   "roblox_updated": "2026-11-26",
+   "playing": 21105,
+   "visits": 1037029716,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 16.9,
-    "코드": 40.0,
+    "수요": 17.7,
+    "코드": 25.0,
     "경쟁 여유": 5
    },
-   "score": 62,
-   "evidence": "Roblox 동시 접속 18,421명 · 살아 있는 코드 42개 (14일 안 새 코드 1개) · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 48,
+   "evidence": "Roblox 동시 접속 21,105명 · 살아 있는 코드 42개 · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "nba-2k27": {
    "name": "NBA 2K27",
@@ -6713,16 +6715,16 @@
    "in_kr": false,
    "note": "Update 97 batch (UPDATE_97, YOGAN_RETURNS, TURKEY_STAMPEDE) confirmed active by multiple sites checked on/after Nov 21-23 2026; prior batches (UPDATE_93-96 etc.) are now expired.",
    "last_checked": "2026-11-25",
-   "playing": 37553,
-   "visits": 4187316710,
-   "roblox_updated": "2026-11-26",
+   "playing": 50028,
+   "visits": 4192051799,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 21.0,
+    "수요": 22.7,
     "코드": 22.5,
     "경쟁 여유": 0
    },
-   "score": 44,
-   "evidence": "Roblox 동시 접속 37,553명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 6곳이 다룸"
+   "score": 45,
+   "evidence": "Roblox 동시 접속 50,028명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 6곳이 다룸"
   },
   "roblox-huss-valley": {
    "name": "Huss Valley",
@@ -6872,16 +6874,16 @@
    "in_kr": false,
    "note": "pockettactics(11/18)+beebom(11/22) 공통 10개 확정(HUSSYORK 신규). beebom 단독 신규 BOUNTYTIME·SPOOKYSEASON은 2번째 출처 없어 추가 안 함. [대소문자 불일치] tuesdaysRock/TUESDAYSROCK 계속 등록 안 함. code_source place id(107535308163741) rootPlaceId와 일치 확인(200).",
    "last_checked": "2026-11-23",
-   "playing": 22254,
-   "visits": 315923140,
-   "roblox_updated": "2026-11-26",
+   "playing": 27523,
+   "visits": 319338253,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 18.0,
+    "수요": 19.2,
     "코드": 40.0,
     "경쟁 여유": 5
    },
-   "score": 63,
-   "evidence": "Roblox 동시 접속 22,254명 · 살아 있는 코드 10개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 64,
+   "evidence": "Roblox 동시 접속 27,523명 · 살아 있는 코드 10개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "afk-journey": {
    "name": "AFK Journey",
@@ -7232,7 +7234,7 @@
      ],
      "first_seen": "2026-11-14",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "SUMMERCOMEBACK",
@@ -7243,7 +7245,7 @@
      ],
      "first_seen": "2026-11-14",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "2MILLIONFAVES",
@@ -7254,7 +7256,7 @@
      ],
      "first_seen": "2026-11-14",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     }
    ],
    "platform": "roblox",
@@ -7266,18 +7268,18 @@
     "progameguides.com"
    ],
    "in_kr": false,
-   "note": "CELESTIALCOMPASSU21/SUMMERCOMEBACK/2MILLIONFAVES: beebom.com(11/14 직접 열람)과 progameguides.com(403, 검색 스니펫으로 같은 표기 인용) 둘 다 재확인, 변동 없음. AACOMEBACK는 beebom만 활성 표시(단일), samlover.com도 활성이라 하지만 그 페이지가 11/2자(14일 밖)라 두 번째 출처로 못 셈 -- 그대로 '확인 필요'. APRILFOOLS는 beebom 목록에서 이제 빠짐, 확인 필요 유지.",
-   "last_checked": "2026-11-22",
-   "playing": 63492,
-   "visits": 2684263341,
-   "roblox_updated": "2026-11-27",
+   "note": "beebom.com(11/23, fresh, direct fetch) reconfirms CELESTIALCOMPASSU21/SUMMERCOMEBACK/2MILLIONFAVES/AACOMEBACK and adds new SWORDSMITH, but this run progameguides.com returned HTTP 403 and destructoid.com/twinfinite.net/samlover.com/timesaver.gg/ofzenandcomputing.com/igeeksblog.com all failed DNS lookup (not reachable from this session's network), so no second independent domain could be read directly for any of these codes. Official Roblox page (code_source) lists no codes. Leaving all 5 out of merge (single source only) -- this will drop the 3 previously-active codes to 'unconfirmed', which reflects a network-access gap this run, not evidence the codes expired.",
+   "last_checked": "2026-11-28",
+   "playing": 69468,
+   "visits": 2689497596,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 24.0,
-    "코드": 22.5,
+    "수요": 24.6,
+    "코드": 0.0,
     "경쟁 여유": 12
    },
-   "score": 58,
-   "evidence": "Roblox 동시 접속 63,492명 · 살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 2곳이 다룸"
+   "score": 37,
+   "evidence": "Roblox 동시 접속 69,468명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "neverness-to-everness": {
    "name": "Neverness to Everness",
@@ -7374,6 +7376,39 @@
      "status": "expired",
      "expired_on": "2026-11-22",
      "expired_source": "https://www.pockettactics.com/neverness-to-everness/codes"
+    },
+    {
+     "code": "EXENORESPONSE",
+     "reward": "100 Annulith, 2 Elite Hunter Guides, 2 Chaotic Dye, and 12,000 Beetle Coins",
+     "sources": [
+      "https://www.pockettactics.com/neverness-to-everness/codes",
+      "https://www.pcgamesn.com/neverness-to-everness/codes"
+     ],
+     "first_seen": "2026-11-25",
+     "last_verified": "2026-11-28",
+     "status": "active"
+    },
+    {
+     "code": "INVALIDNUMBER",
+     "reward": "100 Annulith, 5 Rising Hunter Guides, 5 Light Dye, 4,000 Beetle Coins",
+     "sources": [
+      "https://www.pockettactics.com/neverness-to-everness/codes",
+      "https://www.pcgamesn.com/neverness-to-everness/codes"
+     ],
+     "first_seen": "2026-11-25",
+     "last_verified": "2026-11-28",
+     "status": "active"
+    },
+    {
+     "code": "HIOLDFRIEND",
+     "reward": "100 Annulith, 5 Senior Hunter Guides, 5 Colorless Dye, 6,000 Beetle Coins",
+     "sources": [
+      "https://www.pockettactics.com/neverness-to-everness/codes",
+      "https://www.pcgamesn.com/neverness-to-everness/codes"
+     ],
+     "first_seen": "2026-11-25",
+     "last_verified": "2026-11-28",
+     "status": "active"
     }
    ],
    "platform": "pc",
@@ -7385,16 +7420,16 @@
     "pcgamer.com"
    ],
    "in_kr": true,
-   "note": "pockettactics.com (seen 2026-11-18, fresh) now lists all 7 previously-unconfirmed codes (WONDERLOGGIFT/BLACKBIRDHERE/BLACKBIRDINNTE/ZANKOU0819/COMEBACK/NTEKokushi/NTENENE) under its expired section -- moved to expired with that source. Three new codes on the same fresh pockettactics page (INVALIDNUMBER, HIOLDFRIEND, EXENORESPONSE) are single-sourced only (targeted web searches for each found no second site), so not added. code_source nte.perfectworld.com is a JS app, text not extractable. DNS-blocked this run: levvvel.com, icy-veins.com, g2a.com, gamertweak.com, techwiser.com, supercheats.com, allthings.how, pcgamer.com.",
-   "last_checked": "2026-11-22",
+   "note": "Both pockettactics.com (11/25) and pcgamesn.com (11/18) directly fetched, agree on EXENORESPONSE/INVALIDNUMBER/HIOLDFRIEND with identical casing and matching rewards -- all 3 should move from 'unconfirmed' to active. code_source (nte.perfectworld.com) is a JS app, no readable text.",
+   "last_checked": "2026-11-28",
    "app_rank": {},
    "score_parts": {
     "수요": 0.0,
-    "코드": 0.0,
+    "코드": 22.5,
     "경쟁 여유": 12
    },
-   "score": 12,
-   "evidence": "살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "score": 34,
+   "evidence": "살아 있는 코드 3개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-tap-simulator-reborn": {
    "name": "Tap Simulator REBORN",
@@ -7472,16 +7507,16 @@
    "in_kr": false,
    "note": "재확인(11/24): pocketgamer(11/21, 가장 최신)는 활성 코드 0개(기존 4개 전부 만료 재확인). pockettactics+pcgamesn(둘다 11/17, 자매 사이트라 독립성 낮음)는 CASTLE·Sorry4Shutdown·CLANS·World2 를 새 코드로 제시했지만 더 최근인 pocketgamer 가 이를 언급조차 안 해 신뢰도 낮음 — 이번엔 미등록, 다음 회차에 재확인.",
    "last_checked": "2026-11-24",
-   "playing": 32502,
-   "visits": 70837532,
-   "roblox_updated": "2026-11-24",
+   "playing": 37001,
+   "visits": 71791390,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 20.2,
+    "수요": 20.9,
     "코드": 0.0,
     "경쟁 여유": 5
    },
-   "score": 25,
-   "evidence": "Roblox 동시 접속 32,502명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 26,
+   "evidence": "Roblox 동시 접속 37,001명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-cat-battles": {
    "name": "Cat Battles",
@@ -7492,30 +7527,33 @@
      "code": "RELEASE",
      "reward": "250 Coins",
      "sources": [
-      "https://www.roblox.com/games/130906410042392/Cat-Battles"
+      "https://www.roblox.com/games/130906410042392/Cat-Battles",
+      "https://www.pockettactics.com/cat-battles-codes"
      ],
      "first_seen": "2026-10-26",
-     "last_verified": "2026-11-22",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
      "code": "NEWGAME",
      "reward": "250 Coins",
      "sources": [
-      "https://www.roblox.com/games/130906410042392/Cat-Battles"
+      "https://www.roblox.com/games/130906410042392/Cat-Battles",
+      "https://www.pockettactics.com/cat-battles-codes"
      ],
      "first_seen": "2026-10-26",
-     "last_verified": "2026-11-22",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
      "code": "CATS",
      "reward": "150 Coins",
      "sources": [
-      "https://www.roblox.com/games/130906410042392/Cat-Battles"
+      "https://www.roblox.com/games/130906410042392/Cat-Battles",
+      "https://www.pockettactics.com/cat-battles-codes"
      ],
      "first_seen": "2026-10-26",
-     "last_verified": "2026-11-22",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -7574,18 +7612,18 @@
     "pockettactics.com"
    ],
    "in_kr": false,
-   "note": "RELEASE/NEWGAME/CATS reconfirmed today directly on the official Roblox page description (code_source), identical casing. pockettactics.com (fresh, 2026-11-16) adds GRAVERESET, REAPERSKIP, 20KNAPZ, ZOOMIEZ10K, 5kWHISKUR, 10MLOAFF, YARNZ2K, 1KCHONKY as its own active list, but all are single-sourced (igeeksblog.com, destructoid.com, dexerto.com DNS-blocked this run; progameguides.com 403) so none added. Roblox place-id URL confirmed 200.",
-   "last_checked": "2026-11-22",
-   "playing": 3108,
-   "visits": 131700572,
+   "note": "RELEASE/NEWGAME/CATS reconfirmed on the official Roblox page description (code_source) AND pockettactics.com (fresh 11/23), identical casing -- stays active. GRAVERESET/REAPERSKIP/20KNAPZ/ZOOMIEZ10K/5kWHISKUR/10MLOAFF/YARNZ2K/1KCHONKY are pockettactics-only this run (destructoid.com/dexerto.com/igeeksblog.com all failed DNS lookup, progameguides.com returned 403), so they don't meet the 2-source bar and will stay/become 'unconfirmed' rather than active. Roblox place-id URL confirmed HTTP 200.",
+   "last_checked": "2026-11-28",
+   "playing": 3455,
+   "visits": 132200759,
    "roblox_updated": "2026-11-14",
    "score_parts": {
-    "수요": 6.6,
+    "수요": 7.2,
     "코드": 7.5,
     "경쟁 여유": 5
    },
-   "score": 19,
-   "evidence": "Roblox 동시 접속 3,108명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 20,
+   "evidence": "Roblox 동시 접속 3,455명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "pokemon-scarlet-violet": {
    "name": "Pokemon Scarlet and Violet",
@@ -7645,8 +7683,8 @@
     "gamesradar.com"
    ],
    "in_kr": true,
-   "note": "No change possible today: sv-news.pokemon.co.jp (official), game8.co, dittobase.com, nintendolife.com, nintendoeverything.com all DNS-blocked; progameguides.com 403. pockettactics.com's mystery-gift page is dated 'Last updated: November 21, 2025' (over a year stale, footer says (c) 2026) -- cannot use as a fresh 14-day source. Existing 4 unconfirmed codes left as-is.",
-   "last_checked": "2026-11-22",
+   "note": "No change possible today: sv-news.pokemon.co.jp (official) failed DNS lookup this run. pockettactics.com's mystery-gift page itself says 'Last updated: November 21, 2025' -- over a year stale, not usable as a 14-day source. nintendolife.com also failed DNS lookup. Existing 4 unconfirmed codes left as-is; last_checked refreshed.",
+   "last_checked": "2026-11-28",
    "app_rank": {},
    "score_parts": {
     "수요": 0.0,
@@ -7764,7 +7802,7 @@
      ],
      "first_seen": "2026-10-31",
      "last_verified": "2026-11-22",
-     "status": "active"
+     "status": "unconfirmed"
     },
     {
      "code": "2MLIKES",
@@ -7816,22 +7854,21 @@
    "code_source": "https://www.roblox.com/games/3351674303/Driving-Empire",
    "us_coverage": [
     "destructoid.com",
-    "progameguides.com",
-    "beebom.com"
+    "gamesradar.com"
    ],
    "in_kr": false,
-   "note": "USA250 reconfirmed: pockettactics.com (fresh, 2026-11-18) + destructoid.com (updated 2026-11-09, read via web-search snippet since direct fetch is DNS-blocked) -- both show identical casing/reward. 2MLIKES and 200KMEMBERS: pockettactics.com (fresh) still lists them, but their only other current source, beebom.com, now shows 'Last updated: September 19, 2026' (stale, outside the 14-day window) and destructoid/dexerto could not be opened directly to re-confirm them specifically -- left out this run so they fall back to 'unconfirmed' rather than being claimed re-verified. RECORD/UWU/RAMBO/AIRDROP remain single-sourced (pockettactics only) -- not added, same as prior runs. Official Roblox page still has no codes in its description.",
-   "last_checked": "2026-11-22",
-   "playing": 23358,
-   "visits": 3472787990,
-   "roblox_updated": "2026-11-24",
+   "note": "pockettactics.com (fresh, 11/25, direct fetch) is the only readable source this run -- destructoid.com/igeeksblog.com/dexerto.com/twinfinite.net all failed DNS lookup, beebom.com's cached page is dated September 19, 2026 (stale, outside 14-day window), gamesradar.com's page fetched but returned no body text (truncated/blocked). So none of these meet the 2-domain or official bar; USA250 (previously active) will fall back to 'unconfirmed' this run for lack of a second reachable source, not because it's gone. Official Roblox page still lists no codes in its description. Roblox place-id URL confirmed HTTP 200.",
+   "last_checked": "2026-11-28",
+   "playing": 35967,
+   "visits": 3476280413,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 18.2,
-    "코드": 2.5,
+    "수요": 20.7,
+    "코드": 0.0,
     "경쟁 여유": 12
    },
    "score": 33,
-   "evidence": "Roblox 동시 접속 23,358명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸",
+   "evidence": "Roblox 동시 접속 35,967명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 2곳이 다룸",
    "redeem": "Open Driving Empire in Roblox. Click the gear icon in the bottom-left corner of the screen. Enter the code into the text box. Click Submit to redeem the code."
   },
   "roblox-cameraman-tower-defense": {
@@ -7888,16 +7925,16 @@
    "in_kr": false,
    "note": "LStriderSpeaker/Battlepass/UTCM reconfirmed active today only by pockettactics.com (fresh, 2026-11-19); their other past source, beebom.com, is now dated 'Last updated: November 2, 2026' (outside the 14-day window), and progameguides.com (Nov 5, also outside window) / destructoid.com / dexerto.com / mrguider.org / robloxden.com could not be opened (403 or DNS-blocked) -- so these 3 are left out of today's candidates and will fall to 'unconfirmed' per the merge script rather than being claimed freshly re-verified. New single-source-only codes seen on pockettactics (Vampire, Sand, PathOfHonor, UTTVM) not added, same as prior runs. Official Roblox page still has no codes in its description. Roblox place-id URL confirmed 200.",
    "last_checked": "2026-11-22",
-   "playing": 14731,
-   "visits": 169299054,
-   "roblox_updated": "2026-11-26",
+   "playing": 25541,
+   "visits": 171659012,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 15.6,
+    "수요": 18.8,
     "코드": 0.0,
     "경쟁 여유": 0
    },
-   "score": 16,
-   "evidence": "Roblox 동시 접속 14,731명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 6곳이 다룸"
+   "score": 19,
+   "evidence": "Roblox 동시 접속 25,541명 · 살아 있는 코드 0개 · 미국 큰 코드 사이트 6곳이 다룸"
   },
   "roblox-attack-on-titan-revolution": {
    "name": "Attack on Titan Revolution",
@@ -8072,16 +8109,16 @@
    "in_kr": false,
    "note": "11/27 재확인: pcgamesn.com·pockettactics.com(둘 다 11/24 갱신) 모두 MEMBERS1M200K·LIKES1M450K 2개만 현재 코드라고 함(기존 7개 만료 유지, 변화 없음). destructoid.com(이전 출처)은 이 세션에서 DNS 차단이라 대신 pcgamesn.com 을 둘째 출처로 씀. pocketgamer.com 은 11/1 자 오래된 글로 HALLOWEEN2026·VISITS1B100M 등 이미 만료된 코드를 '활성'으로 보여줘 신뢰 못해 근거로 안 씀. sportskeeda.com(403)·dexerto.com(DNS 차단)은 본문 확인 못함.",
    "last_checked": "2026-11-27",
-   "playing": 37429,
-   "visits": 1252252601,
+   "playing": 41646,
+   "visits": 1254627611,
    "roblox_updated": "2026-11-23",
    "score_parts": {
-    "수요": 21.0,
+    "수요": 21.6,
     "코드": 5.0,
     "경쟁 여유": 5
    },
-   "score": 31,
-   "evidence": "Roblox 동시 접속 37,429명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 32,
+   "evidence": "Roblox 동시 접속 41,646명 · 살아 있는 코드 2개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "black-desert": {
    "name": "Black Desert Online",
@@ -8459,16 +8496,16 @@
    "in_kr": false,
    "note": "[대소문자 불일치] LANADOLLDRESS / LANAD0LLDRESS (pcgamesn.com vs pockettactics.com); CA11MEHHALEY / C4LLMEHH4LEY (pockettactics.com vs pcgamesn.com) - both dropped. Several codes (PROUD, LIONDANCER, KATSEYE, VANILLAMACE, CHOOPIE10K, RDC2025) are marked active by one fresh source and expired by another, so excluded.",
    "last_checked": "2026-11-25",
-   "playing": 51225,
-   "visits": 11403136640,
+   "playing": 62338,
+   "visits": 11408890103,
    "roblox_updated": "2026-11-26",
    "score_parts": {
-    "수요": 22.8,
+    "수요": 23.9,
     "코드": 40.0,
     "경쟁 여유": 0
    },
-   "score": 63,
-   "evidence": "Roblox 동시 접속 51,225명 · 살아 있는 코드 24개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 6곳이 다룸"
+   "score": 64,
+   "evidence": "Roblox 동시 접속 62,338명 · 살아 있는 코드 24개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 6곳이 다룸"
   },
   "roblox-dungeon-lootr": {
    "name": "Dungeon Lootr",
@@ -8564,8 +8601,8 @@
    "in_kr": false,
    "note": "UPDATE5/ARSENALCRAWL/THANKSFORWAITING: pockettactics.com(11/15 갱신) 오늘 재확인, 두 번째 출처 destructoid.com은 DNS 차단이라 11/15 당시(7일 전, 14일 안) 기록 그대로 유지. UPDATE4/UPDATE3.5/HOLLOWREALM/VASTO는 pockettactics만 오늘 활성 표시(단일, 신선), beebom.com은 같은 보상이지만 11/3자(14일 밖)라 두 번째 출처로 못 셈 -- '확인 필요' 유지. 신규 UPDATE55/TOWERASCENSION/PHANTOMVAULT/OKAMI/EXPEDITION 등은 pockettactics 단일 출처이고, 이 페이지가 전에도 이미 만료된 코드(SLIME/UPDATE3/HAWK 등)를 '활성'으로 잘못 싣는 문제가 있었던 전례라 신뢰 못 함 -- 추가 안 함.",
    "last_checked": "2026-11-22",
-   "playing": 69,
-   "visits": 33460248,
+   "playing": 68,
+   "visits": 33469736,
    "roblox_updated": "2026-11-23",
    "score_parts": {
     "수요": 0,
@@ -8573,7 +8610,7 @@
     "경쟁 여유": 12
    },
    "score": 20,
-   "evidence": "Roblox 동시 접속 69명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "evidence": "Roblox 동시 접속 68명 · 살아 있는 코드 3개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-blockspin": {
    "name": "BlockSpin",
@@ -8604,16 +8641,16 @@
    "in_kr": false,
    "note": "W7C28D reconfirmed today on the official Roblox page, same casing, unchanged. timesaver.gg and roonby.com (the original independent sources) could not be reached from this network today (DNS blocked); no contradicting evidence. beebom.com/blockspin-codes/ returned a stale Feb-2026 cache with a long list of referral codes that the page itself contradicts (calls them non-expiring, then lists an expired list) -- treated as unreliable, not added.",
    "last_checked": "2026-11-23",
-   "playing": 13681,
-   "visits": 1362721389,
-   "roblox_updated": "2026-11-25",
+   "playing": 16544,
+   "visits": 1364169923,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 15.1,
+    "수요": 16.2,
     "코드": 2.5,
     "경쟁 여유": 5
    },
-   "score": 23,
-   "evidence": "Roblox 동시 접속 13,681명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 24,
+   "evidence": "Roblox 동시 접속 16,544명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-survive-your-ideas": {
    "name": "Survive Your Ideas",
@@ -8681,16 +8718,16 @@
    "in_kr": false,
    "note": "THANKYOU reconfirmed (now also matched on beebom.com, Nov 14). New: BIG5, FIRSTUPDATE, NEWMAPSCOMING -- pockettactics.com (Nov 11) and beebom.com (Nov 14) agree on exact casing and neither marks them expired. beebom-only 100KCCU, 1MMEMBERS, SATURDAYISTHEDAY not added (single source; progameguides.com 403'd and mrguider.org 403'd when tried as a second source). Added beebom.com to us_coverage (wasn't previously listed, appears on page 1 of search).",
    "last_checked": "2026-11-23",
-   "playing": 17063,
-   "visits": 185775062,
-   "roblox_updated": "2026-11-26",
+   "playing": 23816,
+   "visits": 190360940,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 16.4,
+    "수요": 18.4,
     "코드": 25.0,
     "경쟁 여유": 5
    },
-   "score": 46,
-   "evidence": "Roblox 동시 접속 17,063명 · 살아 있는 코드 4개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 48,
+   "evidence": "Roblox 동시 접속 23,816명 · 살아 있는 코드 4개 (14일 안 새 코드 3개) · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-practical-basketball": {
    "name": "Practical Basketball",
@@ -8746,16 +8783,16 @@
    "in_kr": false,
    "note": "[신규] YOUGOTMAIL, WEGUARDPOST: pockettactics.com (Nov 17) and beebom.com (Nov 21) both list these with identical casing, neither marks them expired -- added. 100KLIKES dispute continues: beebom.com (Nov 21) says it's still active ('no expired codes'), but pockettactics.com (Nov 17) moved it to expired, and the same two sources now also disagree on 100KCCUPLS, 100M, SORRYFORBUGS, 500KMEMBERS and RELEASE (pockettactics: expired: beebom: active). Left out of today's codes per the conflicting-sources rule; the script will carry 100KLIKES to 'unconfirmed'. beebom-only THANKSGIVING2026, NEWPARK, SORRYFORINCONVENIENCE not added (single source).",
    "last_checked": "2026-11-23",
-   "playing": 65383,
-   "visits": 166703731,
+   "playing": 72847,
+   "visits": 169396013,
    "roblox_updated": "2026-11-26",
    "score_parts": {
-    "수요": 24.2,
+    "수요": 24.8,
     "코드": 20.0,
     "경쟁 여유": 0
    },
-   "score": 44,
-   "evidence": "Roblox 동시 접속 65,383명 · 살아 있는 코드 2개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 6곳이 다룸"
+   "score": 45,
+   "evidence": "Roblox 동시 접속 72,847명 · 살아 있는 코드 2개 (14일 안 새 코드 2개) · 미국 큰 코드 사이트 6곳이 다룸"
   },
   "roblox-night-rider": {
    "name": "Night Rider",
@@ -8786,16 +8823,16 @@
    "in_kr": false,
    "note": "RELEASE reconfirmed today verbatim on the official Roblox page ('CODE \"RELEASE\" FOR +$5K'). pockettactics.com (Nov 19) lists BIGUPDATE, POLICE, SECRET, COMMUNITYSERVER, LETSRACE, BOOST as current, but it is the only reachable source for any of them today -- destructoid.com, dexerto.com, gamerant.com, roonby.com, ofzenandcomputing.com, axeetech.com, beatcopgame.com all failed to resolve (network-blocked) and beebom.com has no page for this game (404). Not added for lack of a second source.",
    "last_checked": "2026-11-23",
-   "playing": 4594,
-   "visits": 40193060,
-   "roblox_updated": "2026-11-27",
+   "playing": 5436,
+   "visits": 40809204,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 8.8,
+    "수요": 9.8,
     "코드": 2.5,
     "경쟁 여유": 5
    },
-   "score": 16,
-   "evidence": "Roblox 동시 접속 4,594명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 17,
+   "evidence": "Roblox 동시 접속 5,436명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-criminal-simulator": {
    "name": "Criminal Simulator",
@@ -8828,16 +8865,16 @@
    "in_kr": false,
    "note": "POLICE reconfirmed today via pockettactics.com (same casing/reward). progameguides.com returned HTTP 403 and gamesradar.com was not re-fetched today, but neither contradicts POLICE, so it's kept. mrguider.org (CITY, 10MVISITS, GOD, PIGGY, 30KLIKES) returned HTTP 403 again today -- still single/unverifiable, not added.",
    "last_checked": "2026-11-23",
-   "playing": 20845,
-   "visits": 41325892,
-   "roblox_updated": "2026-11-26",
+   "playing": 30546,
+   "visits": 42944105,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 17.6,
+    "수요": 19.8,
     "코드": 2.5,
     "경쟁 여유": 5
    },
-   "score": 25,
-   "evidence": "Roblox 동시 접속 20,845명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
+   "score": 27,
+   "evidence": "Roblox 동시 접속 30,546명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-anime-galaxies": {
    "name": "Anime Galaxies",
@@ -8852,7 +8889,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8863,7 +8900,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8874,7 +8911,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8885,7 +8922,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8896,7 +8933,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8907,7 +8944,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8918,7 +8955,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8929,7 +8966,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8940,7 +8977,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8951,7 +8988,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8962,7 +8999,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8973,7 +9010,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -8984,7 +9021,7 @@
       "https://www.pockettactics.com/anime-galaxies/codes"
      ],
      "first_seen": "2026-11-09",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     }
    ],
@@ -8993,23 +9030,16 @@
    "redeem": "Launch Anime Galaxies in Roblox. Walk to the codes redemption point in the main lobby. Enter the code exactly. Confirm to redeem the reward.",
    "code_source": "https://www.roblox.com/games/83869074416117/Anime-Galaxies-UPDATE-1",
    "us_coverage": [
-    "beebom.com",
-    "pockettactics.com",
-    "progameguides.com",
-    "dexerto.com",
     "destructoid.com",
-    "robloxden.com",
-    "igeeksblog.com",
-    "gfinityesports.com",
-    "itechguides.com",
-    "supercheats.com",
-    "mobilematters.gg"
+    "dexerto.com",
+    "beebom.com",
+    "progameguides.com"
    ],
    "in_kr": false,
-   "note": "11/21 재확인: beebom.com(11/7)·pockettactics.com(11/16) 완전 일치 13개 유지. [표기 불일치] INVITATION2(beebom) / NEWINVITATION2(pockettactics), INVITED(beebom) / NEWINVITED(pockettactics), 1KLIKES(beebom) / 1KLIKES-(pockettactics) — 단순 대소문자가 아니라 표기 자체가 달라 공식 출처 없이는 판단 못해 모두 제외.",
-   "last_checked": "2026-11-21",
-   "playing": 292,
-   "visits": 6222114,
+   "note": "11/28 재확인: beebom.com(갱신일 표시는 11/7, 내용은 오늘 그대로 활성으로 표시)·pockettactics.com(11/23)에서 기존 13개 코드 모두 대소문자·보상 그대로 일치. [표기 불일치, 계속 보류] INVITATION2(beebom)/NEWINVITATION2(pockettactics), INVITED(beebom)/NEWINVITED(pockettactics) — 단순 대소문자가 아니라 단어 자체가 달라 공식 출처 없이 판단 불가. pockettactics에만 있는 BLACKCLOVER, WIZARDKING, SorryForDelay, DelayGalaxies, SoulRealm-, THANKU는 단일 출처라 추가 안 함. us_coverage는 이번 검색 상위 10개 기준(progameguides·destructoid·dexerto·beebom만 10위 안에 들었고, pockettactics·robloxden 등은 그 밖).",
+   "last_checked": "2026-11-28",
+   "playing": 284,
+   "visits": 6235416,
    "roblox_updated": "2026-11-25",
    "score_parts": {
     "수요": 0,
@@ -9017,7 +9047,7 @@
     "경쟁 여유": 5
    },
    "score": 30,
-   "evidence": "Roblox 동시 접속 292명 · 살아 있는 코드 13개 · 미국 큰 코드 사이트 5곳이 다룸"
+   "evidence": "Roblox 동시 접속 284명 · 살아 있는 코드 13개 · 미국 큰 코드 사이트 4곳이 다룸"
   },
   "roblox-anime-crusaders-x": {
    "name": "Anime Crusaders X",
@@ -9032,7 +9062,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9043,7 +9073,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9054,7 +9084,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9065,7 +9095,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9076,7 +9106,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9087,7 +9117,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     },
     {
@@ -9098,7 +9128,7 @@
       "https://beebom.com/anime-crusaders-codes"
      ],
      "first_seen": "2026-11-18",
-     "last_verified": "2026-11-21",
+     "last_verified": "2026-11-28",
      "status": "active"
     }
    ],
@@ -9109,23 +9139,21 @@
    "us_coverage": [
     "progameguides.com",
     "destructoid.com",
-    "pockettactics.com",
-    "beebom.com",
     "sportskeeda.com"
    ],
    "in_kr": false,
-   "note": "신규 발굴. pockettactics(11/19)·beebom(11/18) 완전 일치 대소문자로 7개 등록(JUSTTHESTART·ThanksForStickingWithACX 는 pockettactics 한 곳뿐이라 보류). ACBESTTD2026 은 네 번째 보상 항목 이름이 출처마다 다름(curse tokens vs stat tokens), RobloxVNGBACK 은 Trait Remnants 수량이 다름(30 vs 50) — 코드·대소문자는 둘 다 일치해 등록, 보상 수치는 공통 부분만 적음. Roblox 공식 그룹(32x)에 가입해야 코드 입력이 가능하다고 두 출처 모두 안내. 이름이 비슷한 'Anime Crusaders'(다른 게임)와 혼동하지 않도록 universe_id/place_id 로 확인함(동시 접속 60,719명).",
-   "last_checked": "2026-11-21",
-   "playing": 106179,
-   "visits": 148475367,
-   "roblox_updated": "2026-11-27",
+   "note": "11/28 재확인: pockettactics.com(11/19)·beebom.com(11/26) 7개 코드 그대로 일치. JUSTTHESTART(pockettactics)와 JUSTTHESTART🦅(beebom, 이모지 포함)는 표기가 달라 제외. beebom에만 새로 뜬 HAPPYTHANKSGIVINGAC·100KBABY·WECAREFORYOUGUYS·PIRATEKING·ANNIVERSARYP2·TOURNAMENTOFPOWER·CLANHIDEOUT·THANKYOUFOR50K와 pockettactics에만 있는 ThanksForStickingWithACX는 단일 출처라 추가 안 함. us_coverage는 이번 검색 상위 10개 기준(progameguides·destructoid·sportskeeda, beebom·pockettactics는 10위 밖).",
+   "last_checked": "2026-11-28",
+   "playing": 122156,
+   "visits": 152402916,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 27.0,
+    "수요": 27.8,
     "코드": 17.5,
-    "경쟁 여유": 5
+    "경쟁 여유": 12
    },
-   "score": 50,
-   "evidence": "Roblox 동시 접속 106,179명 · 살아 있는 코드 7개 · 미국 큰 코드 사이트 5곳이 다룸"
+   "score": 57,
+   "evidence": "Roblox 동시 접속 122,156명 · 살아 있는 코드 7개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "roblox-toilet-tower-defense": {
    "name": "Toilet Tower Defense",
@@ -9155,16 +9183,16 @@
    "in_kr": false,
    "note": "New game added 2026-11-22. REBALANCE confirmed as the sole active code (2x Luck Boost, 30 min) by destructoid.com (updated 2026-11-10) and progameguides.com (as of 2026-11-16), identical casing both times, no disagreement found. Direct fetch of both domains blocked in this environment (403/DNS); confirmed via WebSearch result snippets quoting each page. robloxden.com's cached page is stale (last checked 01/09/2026) and doesn't show REBALANCE, so not used as a source. Older codes (SummonFix, CoolScientist, ScientistBoost, YayMech, AutoSkip, CameraHeli, NewGifts, PlzMythic, Parasites, SpeakerUpgrade, NiceUpdate) are listed as expired by destructoid; not added to expired[] since this is a brand-new entry with no prior record. code_source rootPlaceId 13775256536 verified 200 (via Roblox API from universe_id 4778845442).",
    "last_checked": "2026-11-22",
-   "playing": 25985,
-   "visits": 6254429631,
-   "roblox_updated": "2026-11-27",
+   "playing": 42832,
+   "visits": 6258080570,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 18.9,
+    "수요": 21.8,
     "코드": 2.5,
     "경쟁 여유": 12
    },
-   "score": 33,
-   "evidence": "Roblox 동시 접속 25,985명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 2곳이 다룸"
+   "score": 36,
+   "evidence": "Roblox 동시 접속 42,832명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 2곳이 다룸"
   },
   "roblox-ant-evolution": {
    "name": "Ant Evolution",
@@ -9228,16 +9256,16 @@
    "in_kr": false,
    "note": "New game added 2026-11-22 (Roblox game created 2026-10-28, already ~45k concurrent players today). destructoid.com (updated 2026-11-18) and progameguides.com (November 2026) both confirm QUEEN/ANTS/RELEASE active with matching casing and rewards; progameguides.com also lists EVOLVE, independently matched by ggrecon.com with the same casing. GGRecon's exact reward wording for QUEEN ('2 free Rolls') and EVOLVE ('1 free Roll') differs slightly from destructoid/progameguides ('Mutation Roll'); kept the destructoid/progameguides wording as it's the majority phrasing, noting the discrepancy here rather than hiding it. Direct fetch of destructoid.com, progameguides.com, ggrecon.com, robloxden.com, ofzenandcomputing.com, roonby.com, bloxodes.com, beatcopgame.com, mrguider.org all blocked in this environment (403 or DNS); confirmed via WebSearch result snippets quoting each page. Not to be confused with the separate Roblox game '+1 Ant Evolution', whose codes do not carry over. code_source rootPlaceId 123969755970816 verified 200.",
    "last_checked": "2026-11-22",
-   "playing": 13610,
-   "visits": 25244435,
-   "roblox_updated": "2026-11-26",
+   "playing": 18535,
+   "visits": 26440761,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 15.1,
+    "수요": 16.9,
     "코드": 10.0,
     "경쟁 여유": 12
    },
-   "score": 37,
-   "evidence": "Roblox 동시 접속 13,610명 · 살아 있는 코드 4개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "score": 39,
+   "evidence": "Roblox 동시 접속 18,535명 · 살아 있는 코드 4개 · 미국 큰 코드 사이트 3곳이 다룸"
   },
   "brown-dust-2": {
    "name": "Brown Dust 2",
@@ -9340,16 +9368,16 @@
    "in_kr": false,
    "note": "새 게임. beebom(11/23)+pockettactics(11/17) 공통 4개(100KLIKESHUGE/50KLIKES/HUGE100K/RELEASE) 활성, 대소문자 일치. THANKYOUHUGERELEASETHANKS는 beebom 활성/pockettactics 만료로 엇갈려 등록 안 함. CRAZYDIAMOND/SORRY4SHUTDOWN/200KLIKESMASSIVE/STANDOUTAGAIN은 단일 출처라 제외. 공식 Roblox 게임 설명에 'NEXT CODE AT 200K LIKES!' 문구가 있어 코드 제도를 공식적으로 확인.",
    "last_checked": "2026-11-23",
-   "playing": 29848,
-   "visits": 37958234,
-   "roblox_updated": "2026-11-26",
+   "playing": 33633,
+   "visits": 41116480,
+   "roblox_updated": "2026-11-27",
    "score_parts": {
-    "수요": 19.7,
+    "수요": 20.4,
     "코드": 10.0,
     "경쟁 여유": 5
    },
    "score": 35,
-   "evidence": "Roblox 동시 접속 29,848명 · 살아 있는 코드 4개 · 미국 큰 코드 사이트 5곳이 다룸"
+   "evidence": "Roblox 동시 접속 33,633명 · 살아 있는 코드 4개 · 미국 큰 코드 사이트 5곳이 다룸"
   },
   "roblox-ragdoll-soccer": {
    "name": "Ragdoll Soccer",
@@ -9379,17 +9407,17 @@
    "in_kr": false,
    "note": "새 게임. 공식 Roblox 게임 설명에 'CODE: WELCOME' 그대로 적혀 있어 공식 출처 단독으로 확정(250 Coins). THANKS4PLAYING(300 Coins)·KIT(500 Coins)은 2차 매체(roonby 등)에만 나와 공식 확인 없이는 등록 안 함 -- 다음 확인에서 재검토. destructoid.com/dexerto.com/mrguider.org/supercheats.com/timesaver.gg/tryhardguides.com/roonby.com은 이번 네트워크 환경에서 직접 접속이 막혀(agent-proxy 차단) WebSearch 요약으로만 교차 확인.",
    "last_checked": "2026-11-23",
-   "playing": 36276,
-   "visits": 93998362,
-   "roblox_updated": "2026-11-27",
+   "playing": 49901,
+   "visits": 101215580,
+   "roblox_updated": "2026-11-28",
    "score_parts": {
-    "수요": 20.8,
+    "수요": 22.6,
     "코드": 2.5,
     "경쟁 여유": 12
    },
-   "score": 35,
-   "evidence": "Roblox 동시 접속 36,276명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸"
+   "score": 37,
+   "evidence": "Roblox 동시 접속 49,901명 · 살아 있는 코드 1개 · 미국 큰 코드 사이트 3곳이 다룸"
   }
  },
- "updated": "2026-11-27 13:16"
+ "updated": "2026-11-28 13:15"
 }
